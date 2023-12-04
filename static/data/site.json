@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "iconimage": "/assets/logo.svg",
+    "font1": "Audiowide",
+    "showModals": false,
+    "showSearch": true,
+    "showNav": true,
+    "companyname": "Pirate",
+    "siteUrl": "https://piratesocial.org",
+    "showDates": false,
+    "twitterUsername": "toddlambert",
+    "titleDefault": "Pirate",
+    "showNav2": false,
+    "postcount": 6,
+    "showPopup": false,
+    "titleTemplate": "%s",
+    "title": "Piratepoop",
+    "image": "/assets/pirate-logo.svg",
+    "description": "Pirate Social for the people by the people",
+    "icon512": "/assets/logo.svg",
+    "showSwipe": true
+  }
+}

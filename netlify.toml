@@ -1,0 +1,19 @@
+[build]
+  command = "npm run build"
+  publish = "public"
+
+[build.environment]
+  NODE_VERSION = "18"
+  NODE_OPTIONS = "--max_old_space_size=4096"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    x-frame-options = "ALLOW-FROM *"
+    Content-Security-Policy = "frame-ancestors 'self' https://www.youtube.com https://youtu.be"
+    Secure-Referrer-Policy = "no-referrer-when-downgrade"
+
+[[edge_functions]]
+  function = "hello" 
+  path = "/hello"
