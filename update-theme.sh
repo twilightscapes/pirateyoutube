@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set the URL of your central repository
-THEME_REPO_URL="https://github.com/piratesocial/pirate.git"
+THEME_REPO_URL="https://github.com/piratesocial/pirateplus"
 
 # Set the branch or tag you want to pull updates from
 BRANCH_OR_TAG="main"
