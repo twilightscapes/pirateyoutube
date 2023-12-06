@@ -247,9 +247,9 @@ const hasYoutubeFrontmatter = frontmatter.youtube.youtuber
 // const CustomControlBinary = frontmatter.customcontrols
 // const iframeUrl = frontmatter.youtube.youtuber
 
-// const urlTo = "https://www.youtube-nocookie.com/embed/" + frontmatter.youtube.youtuber + "?controls=" + frontmatter.youtube.youtubecontrols + "&amp;showinfo=0&amp;rel=0&amp;autoplay=" + frontmatter.youtube.youtubeautostart + "&amp;start=" + frontmatter.youtube.youtubestart + "&amp;end=" + frontmatter.youtube.youtubeend + "&amp;loop=" + frontmatter.youtube.youtubeloop + "&amp;mute=" + frontmatter.youtube.youtubemute + "&amp;playsinline=1&amp;playlist=" + frontmatter.youtube.youtuber + ""
+const urlTo = "https://www.youtube-nocookie.com/embed/" + frontmatter.youtube.youtuber + "?controls=" + frontmatter.youtube.youtubecontrols + "&amp;showinfo=0&amp;rel=0&amp;autoplay=" + frontmatter.youtube.youtubeautostart + "&amp;start=" + frontmatter.youtube.youtubestart + "&amp;end=" + frontmatter.youtube.youtubeend + "&amp;loop=" + frontmatter.youtube.youtubeloop + "&amp;mute=" + frontmatter.youtube.youtubemute + "&amp;playsinline=1&amp;playlist=" + frontmatter.youtube.youtuber + ""
 
-const urlTo = "https://www.youtube.com/embed/" + frontmatter.youtube.youtuber
+// const urlTo = "https://www.youtube.com/embed/" + frontmatter.youtube.youtuber
 
 let iframeFiltered;
 if (Suggestion1) {
