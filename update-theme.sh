@@ -23,4 +23,4 @@
 # rm -rf tmp_theme
 # rm -rf user_src_backup
 
-echo "Theme updated successfully!"
+echo "No Theme Updated - Needed"
