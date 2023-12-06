@@ -27,7 +27,6 @@ import { MdVolumeUp } from "react-icons/md"
 import { IoArrowRedoSharp, IoArrowUndoSharp } from "react-icons/io5"
 import { jsx } from "theme-ui"
 import { Link, graphql } from "gatsby"
-import { Helmet } from "react-helmet"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { getSrc } from "gatsby-plugin-image"
 // import { RiArrowRightDownFill } from "react-icons/ri"
@@ -45,7 +44,7 @@ import { RiMenuUnfoldFill, RiCloseCircleFill } from "react-icons/ri"
 import { AiOutlineAudioMuted } from "react-icons/ai"
 
 
-import Footer from "../components/footer"
+// import Footer from "../components/footer"
 // import { SRLWrapper } from "simple-react-lightbox"
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import ReactPlayer from 'react-player/lazy'
@@ -68,6 +67,12 @@ const CustomBox = styled.div`
 
 `
 
+
+export const Head = () => (
+  <>
+  <body className="blogpost" />
+  </>
+)
 
 
 const Pagination = props => (
@@ -242,6 +247,7 @@ const hasYoutubeFrontmatter = frontmatter.youtube.youtuber
 // const CustomControlBinary = frontmatter.customcontrols
 // const iframeUrl = frontmatter.youtube.youtuber
 
+// const urlTo = "https://www.youtube-nocookie.com/embed/" + frontmatter.youtube.youtuber + "?controls=" + frontmatter.youtube.youtubecontrols + "&amp;showinfo=0&amp;rel=0&amp;autoplay=" + frontmatter.youtube.youtubeautostart + "&amp;start=" + frontmatter.youtube.youtubestart + "&amp;end=" + frontmatter.youtube.youtubeend + "&amp;loop=" + frontmatter.youtube.youtubeloop + "&amp;mute=" + frontmatter.youtube.youtubemute + "&amp;playsinline=1&amp;playlist=" + frontmatter.youtube.youtuber + ""
 
 const urlTo = "https://www.youtube.com/embed/" + frontmatter.youtube.youtuber
 
@@ -858,15 +864,6 @@ Click to play
     <Layout className="page">
 <CustomBox>
 
-{frontmatter.scrollable ? (
-  <Helmet>
-  <body id="body" className="blogpost scroll" />
-</Helmet>
-) : (
-  <Helmet>
-  <body id="body" className="blogpost" />
-</Helmet>
-  )}
 
 
 
@@ -1643,7 +1640,7 @@ Click to play original video
    </CustomBox>
 
   
-   <Footer />
+   {/* <Footer /> */}
   
     </Layout>
 
