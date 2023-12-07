@@ -6,7 +6,7 @@ credentials: PE
 order: 7
 profilePicture: /assets/default-user.webp
 template: team
-showDetailedPage: true
-list: true
+showDetailedPage: false
+list: false
 ---
 Some text goes here
