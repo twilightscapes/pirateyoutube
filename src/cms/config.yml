@@ -253,7 +253,11 @@ collections:
                 label: Company Name or Site Name
                 required: true
 
-
+              - widget: string
+                name: postcount 
+                label: Number of posts to show on page
+                required: false
+                default: "12"
 
               - widget: boolean
                 name: showNav 
