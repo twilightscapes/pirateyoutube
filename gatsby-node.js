@@ -1,4 +1,5 @@
-const path = require('path');
+const path = require("path");
+const { createFilePath } = require(`gatsby-source-filesystem`);
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
@@ -154,12 +155,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       },
     });
   });
-
-  // Create a page for Netlify CMS admin
-  // createPage({
-  //   path: '/admin',
-  //   component: path.resolve(`src/templates/netlify-cms-template.js`),
-  // });
 };
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
