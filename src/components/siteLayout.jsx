@@ -19,7 +19,7 @@ import SearchIcon from "../../src/img/search"
 // import SearchForm from "./searchbox"
 import useSiteMetadata from "../hooks/SiteMetadata"
 import { RiArrowUpFill } from "react-icons/ri"
-// import GoBack from "../components/goBack"
+import GoBack from "../components/goBack"
 import { BiLeftArrow } from "react-icons/bi"
 import { ModalRoutingContext } from 'gatsby-plugin-modal-routing-4'
 // import { AiOutlineClose } from "react-icons/ai"
@@ -208,7 +208,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 {showNav ? (
 
 <header>
-
+<div id="gobacker" style={{position:'fixed', top:'60px', right:'3vw', zIndex:'5'}}><GoBack /></div>
 <div id="menu" className="menu print panel1 header" style={{position:'fixed', width:'100vw', top:'0', zIndex:'10', maxHeight:'', overFlow:'', boxShadow:'0 0 2px rgba(0,0,0,.7)', padding:'0 2%', alignItems:'start', borderRadius:'0', display:'flex', justifyContent:'space-around', gap:'10px', color:'#fff',  borderBottom:'1px solid #222',}}>
 
 
