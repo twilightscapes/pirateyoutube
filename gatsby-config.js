@@ -7,7 +7,7 @@ require("dotenv").config()
 const netlifyCmsPaths = {
   resolve: `gatsby-plugin-netlify-cms-paths`,
   options: {
-    cmsConfig: `/src/cms/config.yml`,
+    cmsConfig: `/static/admin/config.yml`,
   },
 }
 
