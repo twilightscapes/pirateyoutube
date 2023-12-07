@@ -50,7 +50,7 @@ const HomePage = ({ data }) => {
   return (
     <Layout>
       <Helmet>
-        <body className="archivepage utilitypage" />
+        <body className="homepage utilitypage" />
       </Helmet>
       {siteUrl}
       {showNav ? (
