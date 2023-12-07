@@ -1,5 +1,5 @@
 ---
-slug: /team-member
+slug: /team/team-member
 name: Team Member
 jobTitle: Senior Project Manager, Associate
 credentials: PE
