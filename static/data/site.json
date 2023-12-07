@@ -10,7 +10,7 @@
     "showDates": false,
     "twitterUsername": "toddlambert",
     "titleDefault": "Pirate",
-    "showNav2": true,
+    "showNav2": false,
     "postcount": 8,
     "showPopup": false,
     "titleTemplate": "%s",
