@@ -17,7 +17,7 @@ const Theme = () => {
         <div 
         // sx={themeStyles.modeIcons} 
         className="themer" >
-          <div>{colorMode === "default" ? <FiMoon style={{width:'32px', height:'30px'}} /> : <FiSun style={{width:'32px', height:'30px'}} />}</div>
+          <div>{colorMode === "default" ? <FiMoon style={{width:'33px', height:'30px'}} /> : <FiSun style={{width:'33px', height:'30px'}} />}</div>
           <div className="themetext">
             {colorMode === "default" ? "dark" : "light"}
           </div>

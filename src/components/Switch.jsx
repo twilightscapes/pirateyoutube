@@ -64,9 +64,9 @@ function Header() {
                 }}
             >
                 {archiveView === "grid" ? (
-        <div className="themer"><PiHandSwipeRightFill style={{width:'32px', height:'30px'}} /></div>
+        <div className="themer"><PiHandSwipeRightFill style={{width:'36px', height:'30px'}} /></div>
                 ) : (
-        <div className="themer"><BsFillGrid3X2GapFill style={{width:'32px', height:'30px'}} /></div>
+        <div className="themer"><BsFillGrid3X2GapFill style={{width:'36px', height:'30px'}} /></div>
                 )}
                 <span className="themetext" style={{ fontSize: '' }}>
                     {archiveView === "grid" ? "swipe" : "scroll"}
