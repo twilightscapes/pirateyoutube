@@ -2,12 +2,18 @@ import React, { useState, useEffect } from "react";
 import useSiteMetadata from "../hooks/SiteMetadata";
 import { Link } from "gatsby"
 import Layout from "../components/socialLayout";
-import { Helmet } from "react-helmet";
+
 import TimeAgo from "react-timeago";
 import userRssData from "../../static/data/userRss.json";
 // import Menu from "../components/menu";
 // import useNetlifyIdentity from '../components/useNetlifyIdentity';
 import { RiMenuUnfoldFill, RiCloseCircleFill } from "react-icons/ri"
+
+export const Head = () => (
+  <>
+  <body className="tagpage utilitypage" />
+  </>
+)
 
 const AuthenticatedTimeline = () => {
 
@@ -252,9 +258,6 @@ const AuthenticatedTimeline = () => {
 
 return (
 <Layout>
-<Helmet>
-<body id="body" className="social" />
-</Helmet>
 {showNav ? (
     <div className="spacer" style={{ height: "70px", border: "0px solid yellow" }}></div>
   ) : (
@@ -378,23 +381,26 @@ return (
       ))}
     </div> */}
 
-<div className="contentpanel grid-container" style={{ marginTop: "" }}>
-          <div className="sliderSpacer" style={{ height: "", paddingTop: "", display: "" }}></div>
+<div className='contentpanel grid-container' style={{ marginTop: '5vh' }}>
+        <div className='sliderSpacer' style={{ height: '', paddingTop: '0', display: 'none' }}></div>
 
 
 
           {filteredFeed.slice(0, visibleItems).map((item, index) => (
-  <div className="post-card1" key={index} style={{ justifyContent: "center", alignItems: "center" }}>
+  <div className='post-card1' style={{ justifyContent: 'center', alignItems: 'center' }} key={index}>
+
+    <div className="post-content1 panel" style={{display:'flex', flexDirection:'column', justifyContent:'start', width:'100%', height:'', position:'relative', background:'', padding:'0', margin:'0 auto 0 auto', textAlign:'center', overFlow:'hidden'}}>
+      
     <a className="postlink" href={item.link} rel="noopener noreferrer">
       {item.imageUrl && (
-        <img src={item.imageUrl} alt={item.title} className="featured-image1" />
+        <img src={item.imageUrl} alt={item.title} className="featured-image1" style={{ position: 'relative', zIndex: '1', width: 'auto', margin: '0 auto' }} />
       )}
-      <div className="post-content" style={{display:'flex', flexDirection:'column', justifyContent:'start', gap:'2vh', width:'100%', height:'', position:'relative', background:'', padding:'0 1vw', margin:'2vh auto 0 auto', textAlign:'', overFlow:'hidden'}}>
-        <h3 className="post-title">{item.title}</h3>
+      
+        <h2 className="post-title">{item.title}</h2>
         <p className="post-excerpt">{createExcerpt(item.description, 150)}</p> 
-      </div>
+      
     </a>
-    <div className="post-meta" style={{display:'flex', justifyContent:'space-between', alignItems:'center', margin:'0 auto', width:'auto', maxWidth:'80vw', textAlign:'center', padding:'1vh 2vw', fontSize:'clamp(1rem, 1vw, 1rem)', gap:'2vw', }}>
+  
     <a
   href={item.feedUrl} // Set the href to the feed URL
   className="postlink"
@@ -409,6 +415,8 @@ return (
 </a>
       {showDates && <TimeAgo date={item.pubDate} />}
     </div>
+
+    
     <button onClick={() => toggleFavorite(item)} style={{position:''}}>
       {item.favorite ? "Unfavorite" : "☆"}
     </button>
