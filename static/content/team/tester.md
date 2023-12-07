@@ -1,6 +1,6 @@
 ---
-slug: /team/team-member
-name: Team Member
+slug: /team/tester
+name: Tester
 jobTitle: Senior Project Manager, Associate
 credentials: PE
 order: 7
