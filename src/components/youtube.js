@@ -29,7 +29,7 @@ import ReactPlayer from 'react-player/lazy'
 // @media (min-width: 58em) {
 // }
 // `
-
+const { iconimage } = useSiteMetadata()
 
 
 // export const query = graphql`
@@ -94,6 +94,12 @@ import ReactPlayer from 'react-player/lazy'
           render() {
 
             
+            {image ? (
+              <img className="backimage" src={image} alt="Default Background" style={{height:'100vh', width:'100vw', maxWidth:'', position:'fixed', zIndex:'-2', top:'0', objectFit:'cover',}} width="10" height="10" />
+              ) : (
+                ""
+              )}
+  
 
             const Url = this.state.youtubelink
 
@@ -122,20 +128,20 @@ import ReactPlayer from 'react-player/lazy'
       playing
       color="white"
 
-      // playIcon={<button aria-label="Click To Play" className="clickplay" style={{position:'absolute', zIndex:'5', top:'0', border:'0px solid red', width:'100vw', height:'100vh', background:'#111', color:'#fff', fontSize:'18px', textAlign:'center', display:'flex', flexDirection:'columh', verticalAlign:'center', justifyContent:'center', paddingTop:'5%'}}>
+      playIcon={<button aria-label="Click To Play" className="clickplay" style={{position:'absolute', zIndex:'5', top:'0', border:'0px solid red', width:'100vw', height:'100vh', background:'#111', color:'#fff', fontSize:'18px', textAlign:'center', display:'flex', flexDirection:'columh', verticalAlign:'center', justifyContent:'center', paddingTop:'5%'}}>
         
 
 
 
-      //   <div className="" style={{ textAlign:'center', animation:'fadeIn 3s'}}>
-      //   <div style={{ textAlign:'center', fontSize:'30px'}}>
-      //      Ads Removed!</div>
-      // <ImPlay style={{margin:'0 auto', width:'50%', fontSize:'60px'}} />
-      // <span style={{fontWeight:'bold', padding:'0 0 0 1rem', fontSize:'60px'}}>Click To Play</span>
+        <div className="" style={{ textAlign:'center', animation:'fadeIn 3s'}}>
+        <div style={{ textAlign:'center', fontSize:'30px'}}>
+           Ads Removed!</div>
+      <ImPlay style={{margin:'0 auto', width:'50%', fontSize:'60px'}} />
+      <span style={{fontWeight:'bold', padding:'0 0 0 1rem', fontSize:'60px'}}>Click To Play</span>
       
-      // </div>
-      // </button>}
-      // light="../static/assets/transparent.png"
+      </div>
+      </button>}
+      light="../static/assets/transparent.png"
     />
 
 
@@ -172,11 +178,11 @@ import ReactPlayer from 'react-player/lazy'
 
 
 
-   
+<SiteLogo className="backimage2"  />
 
 
 
-<div className="" style={{display:'flex', placeContent:'center', width:'100%', margin:'0 auto', maxWidth:'1000px', border:'0px solid red',   height:'', background:'', position:'absolute', bottom:'0', left:'', right:'',}}>
+<div className="" style={{display:'flex', placeContent:'center', width:'100%', margin:'0 auto', maxWidth:'1000px', border:'1px solid red',   height:'', background:'', position:'absolute', bottom:'0', left:'', right:'',}}>
 
   
     <form className="youtubeform frontdrop" onSubmit={this.handleSubmit} style={{ padding:'2rem', border:'0px solid #333', borderRadius:'12px', height:'50px', width:'100%', maxWidth:'90vw', margin:'0 auto', zIndex:'1', position:'relative', bottom:'0',transition:' all 1.85s', animation:'fade 1.5s forwards', display:'flex', justifyContent:'center', alignItems:'center',  }}>

@@ -654,28 +654,32 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
  
 
 {image ? (
-  <object
-      className="backimage"
-      id=""
-      data={image}
-      type="image/svg+xml"
-      style={{
-        position:'fixed',
-        top: '0',
-        left: '0',
-        right: '0',
-        bottom: '0',
-        overflow: '',
-        border: '0px solid red',
-        zIndex: '-2',
-        aspectRatio: '',
-        height:'100vh', width:'100vw',
-        background: 'transparent',
-        objectFit: 'cover'
-      }}
-      alt="Default Background"
-      title="Default Background"
-    ></object>
+  <img className="backimage" src={image} alt="Default Background" style={{height:'100vh', width:'100vw', position:'fixed', zIndex:'-2', top:'0', objectFit:'cover',}} width="10" height="10" />
+  // <object
+  //     className="backimage"
+  //     id=""
+  //     data={image}
+  //     type="image/svg+xml"
+  //     style={{
+  //       position:'absolute',
+  //       display:'grid',
+  //       placeContent:'center',
+  //       top: '0',
+  //       left: '',
+  //       right: '',
+  //       bottom: '',
+  //       overflow: '',
+  //       border: '0px solid red',
+  //       zIndex: '-2',
+  //       aspectRatio: '',
+  //       height:'100vh', width:'100vw',
+  //       background: 'transparent',
+  //       objectFit: 'cover', 
+  //       margin:'0 auto'
+  //     }}
+  //     alt="Default Background"
+  //     title="Default Background"
+  //   ></object>
 ) : (
   ""
 )}
