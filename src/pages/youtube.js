@@ -78,12 +78,12 @@ export default class IndexPage extends React.Component {
     return (
       <>
         <CustomBox>
-          <div className='player-wrapper' style={{position:'relative', width:'100vw', height:'content-fill', minHeight:'90vh', overflow:'hidden'}}>
+          <div className='player-wrapper' style={{position:'relative', width:'100vw', height:'content-fill', minHeight:'90vh', overflow:'hidden', border:'0px solid yellow'}}>
             {urlNoProtocol ? <Iframer /> : ""}
           </div>
 
           {!this.state.isActive ? (
-            <div style={{display:'block', justifyContent:'center', width:'100%', margin:'5px auto', flexDirection:'row', maxWidth:'1000px'}}>
+            <div style={{display:'flex', justifyContent:'center', width:'100%', margin:'5px auto', flexDirection:'row', maxWidth:'1000px',}}>
               <form className="youtubeform frontdrop" onSubmit={this.handleSubmit} style={{ padding:'2rem', border:'3px solid #333', borderRadius:'12px', height:'50px', width:'100%', maxWidth:'90vw', margin:'0 auto', zIndex:'1', position:'fixed', bottom:'0', background: 'rgba(0,0,0,0.50)', transition:' all 1.85s', animation:'fade 1.5s forwards', display:'flex', justifyContent:'center', alignItems:'center'}}>
                 <p style={{fontSize:'90%', color:'#fff', fontWeight:'bold', textAlign:'right', width:'100px', margin:'5px 15px 0 0'}}>Paste Link:</p>
                 <input
@@ -101,7 +101,7 @@ export default class IndexPage extends React.Component {
             </div>
           ) : (
             <div className="" style={{display:'flex', justifyContent:'space-around', width:'100%', margin:'0 auto'}}>
-              <form className="youtubeform frontdrop" onSubmit={this.handleSubmit} style={{ padding:'2rem', borderRadius:'12px', height:'50px', width:'100%', maxWidth:'90vw', margin:'5px auto', zIndex:'1', position:'relative', bottom:'0',transition:' all 1.85s', animation:'fade 1.5s forwards', display:'flex', justifyContent:'space-between', alignItems:'center'}}>
+              <form className="youtubeform frontdrop" onSubmit={this.handleSubmit} style={{ padding:'2rem', border:'3px solid #333', borderRadius:'12px', height:'50px', width:'100%', maxWidth:'90vw', margin:'0 auto', zIndex:'1', position:'fixed', bottom:'0', background: 'rgba(0,0,0,0.50)', transition:' all 1.85s', animation:'fade 1.5s forwards', display:'flex', justifyContent:'center', alignItems:'center'}}>
                 <p className="" style={{fontSize:'90%', color:'#fff', fontWeight:'bold', textAlign:'right', width:'100px', margin:'5px 15px 0 0'}}>Pasted Link:</p>
                 <input
                   type="text"

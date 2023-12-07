@@ -1204,7 +1204,7 @@ zindex:'1'
       {/* <div className="youtubeblockertop" style={{position:'absolute', display:'block', height:'58px', width:'100%', zIndex:'0', top:'0', right:'0', textAlign:'center', padding:'12px',
             background:'#000',
             animation:'fadeout 4s forwards', animationDelay:'6s', border:'0px solid yellow'
-          }}>UrbanFetish.com</div> */}
+          }}>yoursite.com</div> */}
   </div>
   ) : (
     ""
