@@ -4,15 +4,11 @@ import { useLocation } from '@reach/router';
 
 const BlueCheck = () => {
   const location = useLocation();
-  console.log(location);
-  const hasNetlifyApp = location.pathname.includes('netlify.app');
-  console.log(hasNetlifyApp);
+  const isNetlifyApp = location.hostname.endsWith('netlify.app');
 
   return (
     <span title="This site is verified">
-      {hasNetlifyApp === false && (
-        <BsFillCheckCircleFill style={{ color: '#1D9BF0' }} />
-      )}
+      {!isNetlifyApp && <BsFillCheckCircleFill style={{ color: '#1D9BF0' }} />}
     </span>
   );
 };
