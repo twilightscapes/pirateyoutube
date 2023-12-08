@@ -22,11 +22,11 @@ const HomePosts = ({ data }) => {
   
 
   
-  const tags = data.allMarkdownRemark.group
-  ? data.allMarkdownRemark.group
-      .filter(group => group.fieldValue !== null && group.fieldValue !== "")
-      .map(group => group.fieldValue)
-  : [];
+  // const tags = data.allMarkdownRemark.group
+  // ? data.allMarkdownRemark.group
+  //     .filter(group => group.fieldValue !== null && group.fieldValue !== "")
+  //     .map(group => group.fieldValue)
+  // : [];
 
   return (
 

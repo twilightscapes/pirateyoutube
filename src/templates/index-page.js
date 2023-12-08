@@ -40,7 +40,7 @@ export const query = graphql`
 const HomePage = ({ data, pageContext }) => {
   const { showNav } = useSiteMetadata();
   const { siteUrl } = useSiteMetadata();
-  const { homecount } = pageContext;
+  // const { homecount } = pageContext;
 
   return (
     <Layout>
