@@ -40,7 +40,7 @@ export const query = graphql`
 
 const HomePage = ({ data, pageContext }) => {
   const { showNav } = useSiteMetadata();
-  const { siteUrl } = useSiteMetadata();
+  // const { siteUrl } = useSiteMetadata();
   // const { homecount } = pageContext;
 
   return (
@@ -48,13 +48,11 @@ const HomePage = ({ data, pageContext }) => {
       <Helmet>
         <body className="homepage utilitypage" />
       </Helmet>
-      {siteUrl}
       {showNav ? (
         <div className='spacer' style={{ height: '70px', border: '0px solid yellow' }}></div>
       ) : (
         <div className="spacer2" style={{ height: "0", border: "0px solid yellow" }}></div>
       )}
-
       <HomePosts data={data} />
     </Layout>
   );
