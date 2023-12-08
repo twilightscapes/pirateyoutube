@@ -1,6 +1,6 @@
 backend:
-  # name: test-repo
-  name: git-gateway
+  name: test-repo
+  # name: git-gateway
   branch: main
   commit_messages:
     create: "Create {{collection}} “{{slug}}”"
@@ -10,7 +10,7 @@ backend:
     deleteMedia: "[skip ci] Delete “{{path}}”"
 
 # Uncomment local_backend when you need to develop in your local
-#local_backend: true # run npx netlify-cms-proxy-server for local testing
+local_backend: true # run npx netlify-cms-proxy-server for local testing
 logo_url: ../assets/pirate-logo-bw.svg
 media_folder: "static/assets"
 public_folder: "/assets"
@@ -23,7 +23,7 @@ collections:
 
   - name: "posts" # Used in routes, ie.: /admin/collections/:slug/edit
     editor:
-      preview: false
+      preview: true
     label: "Site Posts" # Used in the UI
     label_singular: "Site Post" # Used in the UI, ie: "New Post"
     description: >
