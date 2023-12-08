@@ -86,6 +86,7 @@ scrollable: false
 contentinvideo: false
 nftdrop: x
 postLimit: "9"
+homecount: 4
 pagePW: ""
 excludeFromRSS: true
 ---

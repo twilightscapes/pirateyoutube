@@ -1,17 +1,17 @@
-// HomePage.js
-
+// index-page.js
 import React from 'react';
-import { graphql } from 'gatsby'; // Import graphql from 'gatsby'
+import { graphql } from 'gatsby';
 import Layout from '../components/siteLayout';
 import useSiteMetadata from '../hooks/SiteMetadata';
-import { Helmet } from 'react-helmet';
 import HomePosts from '../components/homeposts';
+import { Helmet } from 'react-helmet';
 
 export const query = graphql`
-  query {
+  query HomePostsQuery($homecount: Int) {
     allMarkdownRemark(
       filter: { frontmatter: { template: { eq: "blog-post" } } }
-      sort: { frontmatter: { date: ASC } }
+      sort: { fields: [frontmatter___spotlight, frontmatter___date], order: [DESC, DESC] }
+      limit: $homecount
     ) {
       edges {
         node {
@@ -44,9 +44,23 @@ export const query = graphql`
   }
 `;
 
-const HomePage = ({ data }) => {
+
+
+
+
+
+
+
+
+
+
+
+
+const HomePage = ({ data, pageContext }) => {
   const { showNav } = useSiteMetadata();
   const { siteUrl } = useSiteMetadata();
+  const { homecount } = pageContext;
+
   return (
     <Layout>
       <Helmet>

@@ -10,14 +10,14 @@ import TimeAgo from 'react-timeago'
 import useSiteMetadata from "../hooks/SiteMetadata"
 const HomePosts = ({ data }) => {
   const { showDates } = useSiteMetadata()
-  const { postcount } = useSiteMetadata()
+  const { homecount } = useSiteMetadata()
 
-  const [visibleItems, setVisibleItems] = useState(postcount); 
+  const [visibleItems, setVisibleItems] = useState(homecount); 
 
 
 
   const showMoreItems = () => {
-    setVisibleItems(visibleItems + postcount);
+    setVisibleItems(visibleItems + homecount);
   };
   
 
