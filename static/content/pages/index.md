@@ -1,94 +1,85 @@
 ---
-slug: /
-tagline:  You're the Captain of your content!
-featuredImage: /assets/pirate-propaganda.webp
+marating1: x
+marating2: x
+addressText: The Fleet Launches Soon!
+audiotitle: Shoop
+marating3: x
+marating4: x
 youtube:
-  youtuber: 
+  youtubersuggestion3: ""
   youtuber2: ""
-  youtubeautostart: false
-  youtubemute: false
-  youtubecontrols: false
-  clicktoplay: false
-  customcontrols: false
-  youtubestart: ""
-  youtubeend: ""
   youtubeloop: true
+  customcontrols: false
+  youtuber: null
+  youtubeautostart: false
   youtubeshoworiginal: false
+  clicktoplay: false
+  youtubeend: ""
+  youtubecontrols: false
+  youtubemute: false
   youtubersuggestion1: ""
   youtubersuggestion2: ""
-  youtubersuggestion3: ""
-audiostart: "0"
+  youtubestart: ""
 audioend: ""
-audiotitle: "Shoop"
-underlayImage: 
-profText:
- <p>PIRATE is a social network with NO central control or ownership. It's based on leading Open-Source platforms and runs on individually owned websites. </p>
+profText: >-
+  <p>PIRATE is a social network with NO central control or ownership. It's based
+  on leading Open-Source platforms and runs on individually owned websites. </p>
 
- <p>PIRATE leverages the power of free services to host your own web app that you can control from any device, all for FREE! </p>
+  <p>PIRATE leverages the power of free services to host your own web app that you can control from any device, all for FREE! </p>
 
- <p>Easily edit your homepage, update your profile, and publish engaging content on your OWN website/app.</p>
-
-addressText: "The Fleet Launches Soon!"
+  <p>Easily edit your homepage, update your profile, and publish engaging content on your OWN website/app.</p>
+tagline: You're the Captain of your content!
+featuredImage: /assets/pirate-propaganda.webp
+secondaryImage: /assets/default-user.webp
+scrollable: false
 portfolio:
   openText: ""
   closeText: ""
-addressText2: ""
-skillsTitle: ""
-skillsText: 
-  <dl>
-  <dt>
-  <h2>Overall Skills</h2><div>100%</div>
-  </dt>
-  <dd class="percentage percentage-90"><span class="text">Organization</span> <span class="percent">90%</span></dd>
-  <dd class="percentage percentage-75"><span class="text">Problem Solving</span> <span class="percent">75%</span></dd>
-  <dd class="percentage percentage-85"><span class="text">Outgoing</span> <span class="percent">85%</span></dd>
-  <dd class="percentage percentage-75"><span class="text">Javascript</span> <span class="percent">75%</span></dd>
-  <dd class="percentage percentage-80"><span class="text">UI Design</span> <span class="percent">80%</span></dd>
-  <dd class="percentage percentage-85"><span class="text">UX Design</span> <span class="percent">85%</span></dd>
-  </dl>
+viewerwarning: x
+nftdrop: x
+slug: /
+audiostart: "0"
+excludeFromRSS: true
+skillsText: >-
+  <dl> <dt> <h2>Overall Skills</h2><div>100%</div> </dt> <dd class="percentage
+  percentage-90"><span class="text">Organization</span> <span
+  class="percent">90%</span></dd> <dd class="percentage percentage-75"><span
+  class="text">Problem Solving</span> <span class="percent">75%</span></dd> <dd
+  class="percentage percentage-85"><span class="text">Outgoing</span> <span
+  class="percent">85%</span></dd> <dd class="percentage percentage-75"><span
+  class="text">Javascript</span> <span class="percent">75%</span></dd> <dd
+  class="percentage percentage-80"><span class="text">UI Design</span> <span
+  class="percent">80%</span></dd> <dd class="percentage percentage-85"><span
+  class="text">UX Design</span> <span class="percent">85%</span></dd> </dl>
 
-  <dl>
-  <dt>
-  <h2>Detailed Skills</h2><div>100%</div>
-  </dt>
-  <dd class="percentage percentage-90"><span class="text">Word Perfect</span> <span class="percent">90%</span></dd>
-  <dd class="percentage percentage-85"><span class="text">MS Paint</span> <span class="percent">85%</span></dd>
-  <dd class="percentage percentage-75"><span class="text">Photoshop</span> <span class="percent">75%</span></dd>
-  <dd class="percentage percentage-99"><span class="text">Hacking</span> <span class="percent">99%</span></dd>
-  </dl>
+  <dl> <dt> <h2>Detailed Skills</h2><div>100%</div> </dt> <dd class="percentage percentage-90"><span class="text">Word Perfect</span> <span class="percent">90%</span></dd> <dd class="percentage percentage-85"><span class="text">MS Paint</span> <span class="percent">85%</span></dd> <dd class="percentage percentage-75"><span class="text">Photoshop</span> <span class="percent">75%</span></dd> <dd class="percentage percentage-99"><span class="text">Hacking</span> <span class="percent">99%</span></dd> </dl>
+underlayImage: null
+bumpertext: x
 cta:
   ctaText: Reserve Your Galleon
   ctaLink: /contact
-svgImage: 
-secondaryImage: /assets/default-user.webp
-title: Social media by the people for the people
-sharethis: false
-liarliar: false
-bumpertext: "x"
+homecount: 6
+addressText2: ""
 marate: x
-viewerwarning: x
-marating1: x
-marating2: x
-marating3: x
-marating4: x
-maratingtx1: x
-maratingtx2: x
-maratingtx3: x
-maratingtx4: x
+pagePW: ""
+skillsTitle: ""
+svgImage: null
 template: index-page
+title: Social media by the people for the people
+postLimit: "9"
+maratingtx1: x
+liarliar: false
 description: PIRATE - social media for the people by the people
 svgzindex: x
-profTitle: Hoist Your Flag!
+maratingtx2: x
 coverletter:
   coverText: About PIRATE
   coverLink: /about
-scrollable: false
+sharethis: false
 contentinvideo: false
-nftdrop: x
-postLimit: "9"
-homecount: 4
-pagePW: ""
-excludeFromRSS: true
+maratingtx3: x
+maratingtx4: x
+profTitle: Hoist Your Flag!
 ---
 
 <div style="">
