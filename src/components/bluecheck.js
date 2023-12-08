@@ -10,7 +10,7 @@ const BlueCheck = () => {
 
   return (
     <span title="This site is verified">
-      {!isNetlifyApp && <BsFillCheckCircleFill style={{ color: '#1D9BF0' }} />}
+      {!isNetlifyApp && <BsFillCheckCircleFill style={{ color: 'var(--theme-ui-colors-siteColor)' }} />}
     </span>
   );
 };
