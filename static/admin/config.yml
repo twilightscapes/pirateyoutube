@@ -23,11 +23,11 @@ collections:
 
   - name: "posts" # Used in routes, ie.: /admin/collections/:slug/edit
     editor:
-      preview: true
+      preview: false
     label: "Site Posts" # Used in the UI
     label_singular: "Site Post" # Used in the UI, ie: "New Post"
     description: >
-      Create stuff for you website here.
+      Create stuff for your website here.
     folder: "static/content/posts"
     slug: "{{slug}}"
     summary: "{{title}} — {{year}}/{{month}}/{{day}}"
@@ -322,12 +322,12 @@ collections:
               - widget: image
                 name: iconimage
                 label: Site Logo (should be SVG if at all possible)
-
+                required: false
               - widget: image
                 name: icon512
                 label: Site Icon 512x512
                 hint: "This is for icon usage in various locations"
-          
+                required: false
                 
               
 
