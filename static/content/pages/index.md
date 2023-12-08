@@ -58,7 +58,7 @@ bumpertext: x
 cta:
   ctaText: Reserve Your Galleon
   ctaLink: /contact
-homecount: 7
+homecount: 5
 addressText2: ""
 marate: x
 pagePW: ""
