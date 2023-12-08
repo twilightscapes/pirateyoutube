@@ -19,8 +19,8 @@ module.exports = {
   flags: {},
   siteMetadata: {
     ...settings.meta, // Assuming settings.meta contains other metadata fields
-    postcount: 4, // Set the default postcount
-    homecount: 6, // Set the default homecount
+    postcount: 24, // Set the default postcount
+    homecount: 5, // Set the default homecount
   },
   plugins: [
     // {
