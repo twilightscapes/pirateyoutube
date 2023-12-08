@@ -18,8 +18,8 @@
       fetch('/static/admin/preview.html')
         .then(response => response.text())
         .then(previewContent => {
-          // Append the preview content to the body
-          document.body.insertAdjacentHTML('beforeend', previewContent);
+          // Replace the entire document's body with the preview content
+          document.body.innerHTML = previewContent;
         })
         .catch(error => {
           console.error('Error fetching preview.html:', error);
