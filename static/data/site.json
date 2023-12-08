@@ -11,14 +11,14 @@
     "twitterUsername": "toddlambert",
     "titleDefault": "Pirate",
     "showNav2": false,
-    "postcount": 3,
+    "postcount": 24,
     "showPopup": false,
+    "homecount": 5,
     "titleTemplate": "%s",
     "title": "Piratepoop",
     "image": "/assets/pirate-logo.svg",
     "description": "Pirate Social for the people by the people",
     "icon512": "/assets/logo.svg",
-    "showSwipe": true,
-    "homecount": 5
+    "showSwipe": true
   }
 }
