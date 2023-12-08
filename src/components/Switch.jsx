@@ -12,6 +12,7 @@ function Header() {
             if (archiveView === "grid") {
                 el.classList.remove("horizontal-scroll", "panels");
                 el.classList.add("grid-container");
+                window.scrollTo(0, 0);
 
             } else if (archiveView === "swipe") {
                 el.classList.remove("grid-container");
