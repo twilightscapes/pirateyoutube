@@ -204,8 +204,6 @@ collections:
           - { label: "Tagline", name: "tagline", widget: "string" }
           - { label: "Featured Image", name: "featuredImage", widget: "image", required: false }
           
-          - { name: "homecount", label: "Home Count", widget: "number", default: 9, value_type: "int", min: 1, max: 50, step: 1, hint: "Max #50" }
-
 
           - { label: "Secondary Image", name: "secondaryImage", widget: "image", hint: "this image is used for the profile photo in the info section", required: false }
           - { label: "Underlay Image", name: "underlayImage", widget: "image", required: false }
@@ -259,12 +257,21 @@ collections:
                 required: true
 
 
-      
+              - widget: "number"
+                label: "Number of posts on page"
+                name: "homecount"
+                default: 5
+                value_type: "int"
+                min: 1
+                max: 51
+                step: 2
+                hint: "Max #50"
+
 
               - widget: "number"
                 label: "Number of posts on page"
                 name: "postcount"
-                default: 8
+                default: 18
                 value_type: "int"
                 min: 1
                 max: 51
