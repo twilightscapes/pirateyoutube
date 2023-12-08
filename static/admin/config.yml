@@ -258,7 +258,7 @@ collections:
 
 
               - widget: "number"
-                label: "Number of posts on page"
+                label: "Number of posts on HOME PAGE"
                 name: "homecount"
                 default: 5
                 value_type: "int"
@@ -269,7 +269,7 @@ collections:
 
 
               - widget: "number"
-                label: "Number of posts on page"
+                label: "Number of posts on other pages"
                 name: "postcount"
                 default: 18
                 value_type: "int"
