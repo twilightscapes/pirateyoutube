@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Seo from "./seo"
 import { Link } from 'gatsby-plugin-modal-routing-4'
 // import { ModalRoutingContext } from '@decantyme/gatsby-plugin-modal-routing'
@@ -11,7 +11,7 @@ import { AnchorLink } from "gatsby-plugin-anchor-links"
 // import { StoreContext } from "../context/store-context"
 // import { Toast } from "./toast"
 // import Bug from "../../static/assets/logo.svg"
-import SiteLogo from "../../static/assets/logo.svg"
+// import SiteLogo from "../../static/assets/logo.svg"
 import { Helmet } from "react-helmet"
 import Theme from "./theme"
 // import { CartButton } from "./cart-button"
@@ -36,7 +36,7 @@ import Switch from "../components/Switch"
 const Layout = ({ children }) => {
 
 
-  const [loggedIn] = useState(false);
+  // const [loggedIn] = useState(false);
 
 const { companyname } = useSiteMetadata()
 const { iconimage } = useSiteMetadata()
