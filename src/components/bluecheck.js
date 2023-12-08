@@ -9,8 +9,8 @@ const BlueCheck = () => {
   console.log(isNetlifyApp);
 
   return (
-    <span id="bluecheck" title="This PIRATE is verified">
-      {!isNetlifyApp && <BsFillCheckCircleFill style={{ color: 'var(--theme-ui-colors-siteColor)' }} />}
+    <span title="This site is verified">
+      {!isNetlifyApp && <BsFillCheckCircleFill style={{ color: '#1D9BF0' }} />}
     </span>
   );
 };
