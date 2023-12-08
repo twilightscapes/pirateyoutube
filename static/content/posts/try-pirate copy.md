@@ -25,7 +25,7 @@ featuredImage: /assets/pirate-propaganda.webp
 svgImage: /assets/null.svg
 showZoom: false
 showPageNav: false
-spotlight: true
+spotlight: 
 tags: 
  - elonmusk
  - tesla

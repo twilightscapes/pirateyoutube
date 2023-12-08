@@ -1,6 +1,6 @@
 ---
 template: blog-post
-title: Try PIRATE today!
+title: Spotlight 1
 slug: /elon6
 date: 2023-10-01 09:00
 description: Experience the thrill of PIRATE

@@ -18,9 +18,7 @@ const settings = require("./static/data/site.json")
 module.exports = {
   flags: {},
   siteMetadata: {
-    ...settings.meta, // Assuming settings.meta contains other metadata fields
-    postcount: 24, // Set the default postcount
-    homecount: 5, // Set the default homecount
+    ...settings.meta,
   },
   plugins: [
     // {
