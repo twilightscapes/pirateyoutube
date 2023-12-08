@@ -56,11 +56,12 @@ export const query = graphql`
 
 
 
+
 const HomePage = ({ data, pageContext }) => {
   const { showNav } = useSiteMetadata();
   const { siteUrl } = useSiteMetadata();
   const { homecount } = pageContext;
-
+  console.log('homecount:', homecount);
   return (
     <Layout>
       <Helmet>

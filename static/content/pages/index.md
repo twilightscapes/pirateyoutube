@@ -58,7 +58,7 @@ bumpertext: x
 cta:
   ctaText: Reserve Your Galleon
   ctaLink: /contact
-homecount: 6
+homecount: 7
 addressText2: ""
 marate: x
 pagePW: ""
@@ -66,7 +66,7 @@ skillsTitle: ""
 svgImage: null
 template: index-page
 title: Social media by the people for the people
-postLimit: "9"
+postLimit: "4"
 maratingtx1: x
 liarliar: false
 description: PIRATE - social media for the people by the people
