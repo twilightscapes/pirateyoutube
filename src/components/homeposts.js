@@ -38,7 +38,7 @@ const HomePosts = ({ data }) => {
 
        
 
-        <div className="contentpanel grid-container" style={{justifyContent:'center', alignItems:'center', marginTop:''}}>
+        <div className="contentpanel grid-container" style={{justifyContent:'center', alignItems:'center', marginTop:'1vh'}}>
 
 
           <div className="sliderSpacer" style={{ height: "", paddingTop: "", display: "" }}></div>

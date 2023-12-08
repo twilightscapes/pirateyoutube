@@ -1,73 +1,33 @@
 import React, { useEffect } from 'react';
 import Seo from "./seo"
 import { Link } from 'gatsby-plugin-modal-routing-4'
-// import { ModalRoutingContext } from '@decantyme/gatsby-plugin-modal-routing'
-// import { AiOutlineClose } from "react-icons/ai"
-// import { window } from "browser-monads"
 import "../assets/scss/reset.scss"
 import "../assets/scss/global.scss"
-// import "../assets/scss/styles.css"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
-// import { StoreContext } from "../context/store-context"
-// import { Toast } from "./toast"
-// import Bug from "../../static/assets/logo.svg"
-// import SiteLogo from "../../static/assets/logo.svg"
 import { Helmet } from "react-helmet"
 import Theme from "./theme"
-// import { CartButton } from "./cart-button"
 import SearchIcon from "../../src/img/search"
-// import SearchForm from "./searchbox"
 import useSiteMetadata from "../hooks/SiteMetadata"
 import { RiArrowUpFill } from "react-icons/ri"
 import GoBack from "../components/goBack"
 import { BiLeftArrow } from "react-icons/bi"
 import { ModalRoutingContext } from 'gatsby-plugin-modal-routing-4'
-// import { AiOutlineClose } from "react-icons/ai"
-
 import Menu from "../components/menu"
-
 import userStyles from "../../static/data/userStyles.json"
 import SignUp from "../components/newssign"
-
 import BlueCheck from './bluecheck';
 import Switch from "../components/Switch"
 
-
 const Layout = ({ children }) => {
-
-
-  // const [loggedIn] = useState(false);
 
 const { companyname } = useSiteMetadata()
 const { iconimage } = useSiteMetadata()
-
 const { image } = useSiteMetadata()
-
-// const { showModals } = useSiteMetadata()
-
 const { showNav } = useSiteMetadata()
 const { showNav2 } = useSiteMetadata()
-// const { showInfo } = useSiteMetadata()
-// const { showFeature } = useSiteMetadata()
-// const { showPosts } = useSiteMetadata()
 const { showSearch } = useSiteMetadata()
-
-// const { showResume } = useSiteMetadata()
-// const { showSocial } = useSiteMetadata()
-// const { showSkills } = useSiteMetadata()
-// const { showCover } = useSiteMetadata()
-// const { showfooter } = useSiteMetadata()
 const { showPopup } = useSiteMetadata()
-// const { menu1 } = useSiteMetadata()
-// const { menu2 } = useSiteMetadata()
-// const { menu3 } = useSiteMetadata()
-// const { menu4 } = useSiteMetadata()
 const { font1 } = useSiteMetadata()
-// const { userStyles } = useSiteMetadata()
-
-
-
-// const { showSwipe } = useSiteMetadata()
 
 
 useEffect(() => {
@@ -124,14 +84,8 @@ useEffect(() => {
 
   
 
-const navStyle = {
-  bg: "",
-}
-
+const navStyle = { bg: "",}
 const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/g, '+') + "&display=swap";
-
-
-
 
   return (
 
@@ -188,7 +142,6 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 
 
 <div className="upbar button" style={{position:'fixed', bottom:'20px', zIndex:'4', left:'', right:'1vw', display:'flex', justifyContent:'center', width:'auto', maxWidth:'80vw', margin:'0 auto', gap:'5vw', padding:'0', border:'1px solid #666', borderRadius:'', textShadow:'0 1px 1px rgba(0, 0, 0, .7)', fontSize:'', verticalAlign:'center', transform: 'translateY(200%)' }}>
-
 <div className="uparrow" style={{display:'flex', flexDirection:'column', gap:'0', padding:'1vh 1vw', alignItems:'center', textAlign:'center'}}>
   <a href="#top" onClick={(e) => {
   e.preventDefault();
@@ -208,7 +161,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 {showNav ? (
 
 <header>
-<div id="gobacker" style={{position:'fixed', top:'60px', right:'3vw', zIndex:'5'}}><GoBack /></div>
+<div id="gobacker" style={{position:'fixed', bottom:'60px', right:'3vw', zIndex:'5'}}><GoBack /></div>
 <div id="menu" className="menu print panel1 header" style={{position:'fixed', width:'100vw', top:'0', zIndex:'10', maxHeight:'', overFlow:'', boxShadow:'0 0 2px rgba(0,0,0,.7)', padding:'0 2%', alignItems:'start', borderRadius:'0', display:'flex', justifyContent:'space-around', gap:'10px', color:'#fff',  borderBottom:'1px solid #222',}}>
 
 

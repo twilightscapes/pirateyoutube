@@ -1,6 +1,6 @@
 {
   "meta": {
-    "iconimage": "/assets/transparent.png",
+    "iconimage": "/assets/logo.svg",
     "font1": "Audiowide",
     "showModals": false,
     "showSearch": true,
@@ -10,7 +10,7 @@
     "showDates": false,
     "twitterUsername": "toddlambert",
     "titleDefault": "PIRATE",
-    "showNav2": false,
+    "showNav2": true,
     "postcount": 18,
     "showPopup": false,
     "homecount": 5,

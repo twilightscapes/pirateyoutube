@@ -49,10 +49,11 @@ const HomePage = ({ data, pageContext }) => {
         <body className="homepage utilitypage" />
       </Helmet>
       {showNav ? (
-        <div className='spacer' style={{ height: '70px', border: '0px solid yellow' }}></div>
+        <div className='spacer' style={{ height: '80px', border: '0px solid yellow' }}></div>
       ) : (
         <div className="spacer2" style={{ height: "0", border: "0px solid yellow" }}></div>
       )}
+    
       <HomePosts data={data} />
     </Layout>
   );
