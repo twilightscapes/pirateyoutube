@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { BsFillGrid3X2GapFill } from "react-icons/bs";
 import { PiHandSwipeRightFill } from "react-icons/pi";
+import { window } from "browser-monads"
 function Header() {
     const [archiveView, setArchiveView] = useState("");
     const [showSwipe] = useState(true);
@@ -12,6 +13,7 @@ function Header() {
             if (archiveView === "grid") {
                 el.classList.remove("horizontal-scroll", "panels");
                 el.classList.add("grid-container");
+                window.scrollTo(0, 0);
 
             } else if (archiveView === "swipe") {
                 el.classList.remove("grid-container");

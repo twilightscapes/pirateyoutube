@@ -192,8 +192,20 @@ module.exports = {
         name: `content`,
       },
     },
+
+    `gatsby-transformer-sharp`,
+
     `gatsby-plugin-image`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: [`avif`, `webp`, `auto`],
+          placeholder: `blurred`,
+          quality: 90,
+        },
+      },
+    },
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-transformer-remark`,

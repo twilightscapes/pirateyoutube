@@ -1,75 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import Seo from "./seo"
 import { Link } from 'gatsby-plugin-modal-routing-4'
-// import { ModalRoutingContext } from '@decantyme/gatsby-plugin-modal-routing'
-// import { AiOutlineClose } from "react-icons/ai"
-// import { window } from "browser-monads"
 import "../assets/scss/reset.scss"
 import "../assets/scss/global.scss"
-// import "../assets/scss/styles.css"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
-// import { StoreContext } from "../context/store-context"
-// import { Toast } from "./toast"
-// import Bug from "../../static/assets/logo.svg"
-// import SiteLogo from "../../static/assets/logo.svg"
 import { Helmet } from "react-helmet"
 import Theme from "./theme"
-// import { CartButton } from "./cart-button"
 import SearchIcon from "../../src/img/search"
-// import SearchForm from "./searchbox"
 import useSiteMetadata from "../hooks/SiteMetadata"
 import { RiArrowUpFill } from "react-icons/ri"
 import GoBack from "../components/goBack"
 import { BiLeftArrow } from "react-icons/bi"
 import { ModalRoutingContext } from 'gatsby-plugin-modal-routing-4'
-// import { AiOutlineClose } from "react-icons/ai"
-
 import Menu from "../components/menu"
-
 import userStyles from "../../static/data/userStyles.json"
 import SignUp from "../components/newssign"
-
 import BlueCheck from './bluecheck';
 import Switch from "../components/Switch"
 import useNetlifyIdentity from '../components/useNetlifyIdentity';
-
+import { window } from "browser-monads"
 const Layout = ({ children }) => {
 
-
-  const [loggedIn, setLoggedIn] = useState(false);
+const [loggedIn, setLoggedIn] = useState(false);
   useNetlifyIdentity(setLoggedIn);
-
 const { companyname } = useSiteMetadata()
 const { iconimage } = useSiteMetadata()
-
 const { image } = useSiteMetadata()
-
-// const { showModals } = useSiteMetadata()
-
 const { showNav } = useSiteMetadata()
 const { showNav2 } = useSiteMetadata()
-// const { showInfo } = useSiteMetadata()
-// const { showFeature } = useSiteMetadata()
-// const { showPosts } = useSiteMetadata()
 const { showSearch } = useSiteMetadata()
-
-// const { showResume } = useSiteMetadata()
-// const { showSocial } = useSiteMetadata()
-// const { showSkills } = useSiteMetadata()
-// const { showCover } = useSiteMetadata()
-// const { showfooter } = useSiteMetadata()
 const { showPopup } = useSiteMetadata()
-// const { menu1 } = useSiteMetadata()
-// const { menu2 } = useSiteMetadata()
-// const { menu3 } = useSiteMetadata()
-// const { menu4 } = useSiteMetadata()
 const { font1 } = useSiteMetadata()
-// const { userStyles } = useSiteMetadata()
-
-
-
-// const { showSwipe } = useSiteMetadata()
-
 
 useEffect(() => {
   sessionStorage.setItem("currentScrollPos", window.pageYOffset)

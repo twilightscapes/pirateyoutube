@@ -12,7 +12,9 @@ const PostListing = ({ posts, showDates, showModals, postcount }) => {
   const [visibleItems, setVisibleItems] = useState(postcount);
 
   const showMoreItems = () => {
+    console.log('Before update - visibleItems:', visibleItems);
     setVisibleItems(visibleItems + postcount);
+    console.log('After update - visibleItems:', visibleItems);
   };
   return (
     <>
