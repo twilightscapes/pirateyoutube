@@ -182,18 +182,18 @@ const Post = ({ data, pageContext }) => {
 
     
 
-    const categoryList = categories && categories.length > 1 && (
-      <div style={{ maxWidth: '300px', margin: '3vh auto', paddingBottom: '2vh', borderBottom: '1px solid' }}>
-        <h4>Category:</h4>
-        {categories.map((category, index) => (
+    // const categoryList = categories && categories.length > 1 && (
+    //   <div style={{ maxWidth: '300px', margin: '3vh auto', paddingBottom: '2vh', borderBottom: '1px solid' }}>
+    //     <h4>Category:</h4>
+    //     {categories.map((category, index) => (
           
-          <React.Fragment key={category}>
-            {index > 0 && ', '}
-            <Link to={`/category/${category}`}>{category}</Link>
-          </React.Fragment>
-        ))}
-      </div>
-    )
+    //       <React.Fragment key={category}>
+    //         {index > 0 && ', '}
+    //         <Link to={`/category/${category}`}>{category}</Link>
+    //       </React.Fragment>
+    //     ))}
+    //   </div>
+    // )
 
 
 
@@ -1301,7 +1301,7 @@ zindex:'1'
            {/* <Link to={`/category/${frontmatter.category}`}>Category:{frontmatter.category}</Link>
 
            <p>Tags: {frontmatter.tags.join(", ")}</p> */}
-           {categoryList}
+           {/* {categoryList} */}
       {frontmatter.tags && frontmatter.tags.length > 0 && (
         <>
   
@@ -1323,7 +1323,7 @@ zindex:'1'
            Posted: <TimeAgo date={frontmatter.date} style={{color:''}} />
            
 
-           {categoryList}
+           {/* {categoryList} */}
       {frontmatter.tags && frontmatter.tags.length > 0 && (
         <>
   
@@ -1387,7 +1387,7 @@ zindex:'1'
 
 
 
-{categoryList}
+{/* {categoryList} */}
       {frontmatter.tags && frontmatter.tags.length > 0 && (
         <>
   
@@ -1420,7 +1420,7 @@ zindex:'1'
                 {/* <time sx={{color: "muted"}}>{frontmatter.date}</time> */}
                {/* Posted: <TimeAgo date={frontmatter.date} style={{color:''}} /> */}
               </div>
-              {categoryList}
+              {/* {categoryList} */}
       {frontmatter.tags && frontmatter.tags.length > 0 && (
         <>
   
@@ -1649,7 +1649,6 @@ export const pageQuery = graphql`
         slug
         title
         tags
-        category
         description
         showZoom
         showPageNav

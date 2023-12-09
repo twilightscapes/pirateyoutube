@@ -27,10 +27,10 @@ showZoom: false
 showPageNav: false
 spotlight: 
 tags: 
- - elonmusk
- - tesla
-category:
- - help
+ - depp
+ - caribbean
+ category:
+ - boom
 ---
 
 Yo-Ho, Yo-Ho... A Pirate's Life For Me...

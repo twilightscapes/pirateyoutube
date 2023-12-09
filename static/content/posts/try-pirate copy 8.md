@@ -1,7 +1,7 @@
 ---
 template: blog-post
-title: Spotligh 3
-slug: /elon
+title: Spotlight 4
+slug: /elon9
 date: 2023-10-01 09:00
 description: Experience the thrill of PIRATE
 youtube:
@@ -29,8 +29,6 @@ spotlight: true
 tags: 
  - elonmusk
  - tesla
-category:
-
 ---
 
 Yo-Ho, Yo-Ho... A Pirate's Life For Me...

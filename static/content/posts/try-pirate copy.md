@@ -27,10 +27,8 @@ showZoom: false
 showPageNav: false
 spotlight: 
 tags: 
- - elonmusk
+ - suck
  - tesla
-category:
- - help
 ---
 
 Yo-Ho, Yo-Ho... A Pirate's Life For Me...

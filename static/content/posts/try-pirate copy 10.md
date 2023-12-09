@@ -1,7 +1,7 @@
 ---
 template: blog-post
-title: Spotligh 3
-slug: /elon
+title: Non Spotlight
+slug: /elon11
 date: 2023-10-01 09:00
 description: Experience the thrill of PIRATE
 youtube:
@@ -25,12 +25,13 @@ featuredImage: /assets/pirate-propaganda.webp
 svgImage: /assets/null.svg
 showZoom: false
 showPageNav: false
-spotlight: true
+spotlight:
 tags: 
  - elonmusk
  - tesla
 category:
-
+ - music
+ - news
 ---
 
 Yo-Ho, Yo-Ho... A Pirate's Life For Me...

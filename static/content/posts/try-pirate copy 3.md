@@ -30,7 +30,8 @@ tags:
  - elonmusk
  - tesla
 category:
- - help
+ - boom
+
 ---
 
 Yo-Ho, Yo-Ho... A Pirate's Life For Me...

@@ -28,9 +28,9 @@ showPageNav: false
 spotlight: true
 tags: 
  - elonmusk
- - tesla
+ - test
 category:
- - help
+ - music
 ---
 
 Yo-Ho, Yo-Ho... A Pirate's Life For Me...

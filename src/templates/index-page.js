@@ -1,16 +1,146 @@
-// src/templates/index-page.js
-import React from 'react';
-import { graphql } from 'gatsby';
-import Layout from '../components/siteLayout';
-import HomePosts from '../components/homeposts';
-import { Helmet } from 'react-helmet';
-import useSiteMetadata from '../hooks/SiteMetadata';
+import React from "react";
+import { graphql, Link } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
+import { ImPlay } from "react-icons/im";
+import { FaImage } from "react-icons/fa";
+import { AiOutlinePicLeft } from "react-icons/ai";
+import Layout from "../components/siteLayout";
+import { Helmet } from "react-helmet";
+import { StaticImage } from "gatsby-plugin-image";
+import useSiteMetadata from "../hooks/SiteMetadata";
+import TimeAgo from 'react-timeago';
+
+function clearfield() {
+  document.querySelector('#clearme').value = '';
+}
+
+const HomePage = ({ data }) => {
+  const { showModals, showDates, homecount, showNav } = useSiteMetadata();
+  const allPosts = data.allMarkdownRemark.edges;
+  const [query, setQuery] = React.useState("");
+  const [filteredPosts, setFilteredPosts] = React.useState(allPosts);
+
+  const handleSearch = event => {
+    const query = event.target.value;
+    setQuery(query);
+    console.log(query);
+
+    const filteredPosts = allPosts.filter(({ node }) => {
+      const { title, tags } = node.frontmatter;
+      return (
+        title.toLowerCase().includes(query.toLowerCase()) ||
+        (tags && tags.join("").toLowerCase().includes(query.toLowerCase()))
+      );
+    }).slice(0, homecount);
+
+    setFilteredPosts(filteredPosts);
+  };
+
+  const [visibleItems, setVisibleItems] = React.useState(homecount);
+
+  const showMoreItems = () => {
+    setVisibleItems(visibleItems + homecount);
+  };
+
+  return (
+    <Layout>
+      <Helmet>
+        <body id="body" className="homepage" />
+      </Helmet>
+
+      {showNav ? (
+        <div className='spacer' style={{ height: '70px', border: '0px solid yellow' }}>{query}</div>
+      ) : (
+        <div className="spacer2" style={{ height: "0", border: "0px solid yellow" }}>{query}</div>
+      )}
+
+      <div className="cattags" style={{ position: 'fixed', top: '', left: '1%', right: '1%', maxWidth: '380px', margin: '15px auto 0 auto', zIndex: '3', display: 'grid', placeSelf: 'center', outline: '1px solid #999', borderRadius: '3px', padding: '', color: '' }}>
+        <label style={{}}>
+          <input id="clearme" type="text" placeholder="Search:" onChange={handleSearch} style={{ maxWidth: '80vw', background: 'transparent' }} />
+          <button type="reset" value="reset" onClick={() => clearfield()} style={{ position: 'absolute', right: '20px', top: '10px', color: '#fff' }}>clear</button>
+          <div style={{ position: 'absolute', right: '100px', top: '10px', textAlign: 'center', fontSize: '10px', color: '#fff' }}>{filteredPosts.length} <br />result{filteredPosts.length !== 1 && 's'}</div>
+        </label>
+      </div>
+
+      <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: '70px' }}>
+        <div className="sliderSpacer" style={{ height: '', paddingTop: '', display: '' }}></div>
+
+        {filteredPosts.slice(0, visibleItems).map(({ node }, index) => (
+          <div key={index} className="post-card1" style={{ alignItems: 'center' }}>
+            <Link
+  className="postlink"
+  state={showModals ? { modal: true } : {}}
+  key={node.frontmatter.slug}
+  to={node.fields.slug}
+>
+              {node.frontmatter.featuredImage ? (
+                <GatsbyImage
+                  image={node.frontmatter.featuredImage.childImageSharp.gatsbyImageData}
+                  alt={node.frontmatter.title + " - Featured image"}
+                  className="featured-image1"
+                  placeholder="blurred"
+                  loading="eager"
+                  style={{ position: 'relative', zIndex: '1', maxHeight: '', margin: '0 auto' }}
+                />
+              ) : (
+                <StaticImage
+                  className="featured-image1"
+                  src="../../../static/assets/default-og-image.webp"
+                  alt="Default Image"
+                  style={{ position: 'relative', zIndex: '' }}
+                />
+              )}
+
+              <div className="post-content" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%', height: '', position: 'relative', background: '', padding: '0', margin: '0 auto 0 auto', textAlign: 'center', overFlow: 'hidden' }}>
+                {node.frontmatter.youtube.youtuber ? (
+                  <div className="spotlight" style={{ marginLeft: '10%', marginTop: '-28%', margin: '-24% 10% 0 10%' }}>
+                    <div className="posticons" style={{ flexDirection: 'column', margin: '0 auto' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-around', gap: '2vw', color: 'fff', }}>
+                        <FaImage className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
+                        <ImPlay className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
+                        <AiOutlinePicLeft className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
+                      </div>
+                      Play Multimedia
+                    </div>
+                  </div>
+                ) : (
+                  ""
+                )}
+
+                <div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '10px auto', maxWidth: '80vw', gap: '.4vw', height: '', textAlign: 'center', padding: '1vh 2vw', fontSize: 'clamp(1rem, 1vw, 1rem)', background: 'rgba(0, 0, 0, 0.7)', borderRadius: '', color: '#aaa' }}>
+                  <h2 className="title1" style={{ }}>
+                    {node.frontmatter.title}
+                  </h2>
+                </div>
+              </div>
+            </Link>
+            {showDates ? (
+              <p style={{ position: '', textAlign: 'center', border: '0px solid red', fontSize: '70%', minWidth: '100px' }}>
+                <TimeAgo date={node.frontmatter.date} />
+              </p>
+            ) : (
+              ""
+            )}
+          </div>
+        ))}
+
+        {visibleItems < data.allMarkdownRemark.edges.length && (
+          <div className="" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '', height: '50vh' }}>
+            <button className="button load-more" onClick={showMoreItems}>
+              Load more
+            </button>
+          </div>
+        )}
+      </div>
+    </Layout>
+  );
+}
 
 export const query = graphql`
   query HomePostsQuery($homecount: Int) {
     allMarkdownRemark(
       filter: { frontmatter: { template: { eq: "blog-post" } } }
-      sort: { fields: [frontmatter___spotlight, frontmatter___date], order: [DESC, DESC] }
+      sort: { fields: [frontmatter___spotlight, frontmatter___date], order: [ASC, DESC] }
       limit: $homecount
     ) {
       edges {
@@ -27,7 +157,11 @@ export const query = graphql`
             }
             featuredImage {
               childImageSharp {
-                gatsbyImageData(quality: 80, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+                gatsbyImageData(
+                  quality: 80
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                )
               }
             }
           }
@@ -38,25 +172,5 @@ export const query = graphql`
 `;
 
 
-const HomePage = ({ data, pageContext }) => {
-  const { showNav } = useSiteMetadata();
-  // const { siteUrl } = useSiteMetadata();
-  // const { homecount } = pageContext;
-
-  return (
-    <Layout>
-      <Helmet>
-        <body className="homepage utilitypage" />
-      </Helmet>
-      {showNav ? (
-        <div className='spacer' style={{ height: '80px', border: '0px solid yellow' }}></div>
-      ) : (
-        <div className="spacer2" style={{ height: "0", border: "0px solid yellow" }}></div>
-      )}
-    
-      <HomePosts data={data} />
-    </Layout>
-  );
-};
 
 export default HomePage;
