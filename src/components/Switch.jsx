@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { BsFillGrid3X2GapFill } from "react-icons/bs";
 import { PiHandSwipeRightFill } from "react-icons/pi";
-import { window } from "browser-monads"
+// import { window } from "browser-monads"
 function Header() {
     const [archiveView, setArchiveView] = useState("");
     const [showSwipe] = useState(true);

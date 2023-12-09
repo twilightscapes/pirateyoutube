@@ -18,7 +18,7 @@ import SignUp from "../components/newssign"
 import BlueCheck from './bluecheck';
 import Switch from "../components/Switch"
 import useNetlifyIdentity from '../components/useNetlifyIdentity';
-import { window } from "browser-monads"
+// import { window } from "browser-monads"
 const Layout = ({ children }) => {
 
 const [loggedIn, setLoggedIn] = useState(false);
