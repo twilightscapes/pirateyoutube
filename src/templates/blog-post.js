@@ -11,7 +11,7 @@ import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css'
 
 
 // import Controls from "../components/Controls";
-// import { document } from "browser-monads"
+import { document } from "browser-monads"
 import PropTypes from "prop-types";
 import { MdPlayArrow } from "react-icons/md"
 import { MdPause } from "react-icons/md"
