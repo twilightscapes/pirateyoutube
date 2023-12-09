@@ -119,37 +119,37 @@ const filterPosts = (posts, searchTerm, selectedTag, selectedCategory, homecount
 
 
 export const query = graphql`
-  query MultiQuery($homecount: Int) {
-    allMarkdownRemark(
-      filter: { frontmatter: { template: { eq: "blog-post" } } }
-      sort: { fields: [frontmatter___spotlight, frontmatter___date], order: [ASC, DESC] }
-      limit: $homecount
-    ) {
-      edges {
-        node {
-          fields {
-            slug
+query MultiQuery($homecount: Int) {
+  allMarkdownRemark(
+    filter: {frontmatter: {template: {eq: "blog-post"}}}
+    sort: [{frontmatter: {spotlight: ASC}}, {frontmatter: {date: DESC}}]
+    limit: $homecount
+  ) {
+    edges {
+      node {
+        fields {
+          slug
+        }
+        id
+        frontmatter {
+          date
+          title
+          tags
+          slug
+          category
+          featuredImage {
+            childImageSharp {
+              gatsbyImageData(quality: 80, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+            }
           }
-          id
-          frontmatter {
-            date
-            title
-            tags
-            slug
-            category
-            featuredImage {
-              childImageSharp {
-                gatsbyImageData(quality: 80, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
-              }
-            }
-            youtube {
-              youtuber
-            }
+          youtube {
+            youtuber
           }
         }
       }
     }
   }
+}
 `;
 
 export default MainPage;

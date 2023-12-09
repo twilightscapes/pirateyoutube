@@ -85,7 +85,7 @@ const HomePage = ({ data }) => {
               ) : (
                 <StaticImage
                   className="featured-image1"
-                  src="../../../static/assets/default-og-image.webp"
+                  src="../../static/assets/default-og-image.webp"
                   alt="Default Image"
                   style={{ position: 'relative', zIndex: '' }}
                 />
@@ -137,38 +137,34 @@ const HomePage = ({ data }) => {
 }
 
 export const query = graphql`
-  query HomePostsQuery($homecount: Int) {
-    allMarkdownRemark(
-      filter: { frontmatter: { template: { eq: "blog-post" } } }
-      sort: { fields: [frontmatter___spotlight, frontmatter___date], order: [ASC, DESC] }
-      limit: $homecount
-    ) {
-      edges {
-        node {
-          fields {
-            slug
+query HomePostsQuery($homecount: Int) {
+  allMarkdownRemark(
+    filter: {frontmatter: {template: {eq: "blog-post"}}}
+    sort: [{frontmatter: {spotlight: ASC}}, {frontmatter: {date: DESC}}]
+    limit: $homecount
+  ) {
+    edges {
+      node {
+        fields {
+          slug
+        }
+        frontmatter {
+          date
+          title
+          tags
+          youtube {
+            youtuber
           }
-          frontmatter {
-            date
-            title
-            tags
-            youtube {
-              youtuber
-            }
-            featuredImage {
-              childImageSharp {
-                gatsbyImageData(
-                  quality: 80
-                  placeholder: BLURRED
-                  formats: [AUTO, WEBP, AVIF]
-                )
-              }
+          featuredImage {
+            childImageSharp {
+              gatsbyImageData(quality: 80, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
             }
           }
         }
       }
     }
   }
+}
 `;
 
 

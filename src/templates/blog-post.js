@@ -1,7 +1,5 @@
 /** @jsx jsx */
-import React from "react"
-
-import { useState, useRef, useEffect, forwardRef } from "react";
+import React, { useState, useRef, useEffect, forwardRef } from "react";
 
 // import Zoom from 'react-medium-image-zoom'
 // import 'react-medium-image-zoom/dist/styles.css'
@@ -168,9 +166,9 @@ const Post = ({ data, pageContext }) => {
   const { markdownRemark } = data // data.markdownRemark holds your post data
   const { frontmatter, html, excerpt } = markdownRemark
 
-  const post = data.markdownRemark
+  // const post = data.markdownRemark
   // const tags = post.frontmatter.tags
-  const categories = post.frontmatter.categories
+  // const categories = post.frontmatter.categories
 
   const FrontImage = frontmatter.featuredImage
     ? frontmatter.featuredImage.childImageSharp.gatsbyImageData
