@@ -29,8 +29,6 @@ spotlight: true
 tags: 
  - elonmusk
  - tesla
-category:
-
 ---
 
 Yo-Ho, Yo-Ho... A Pirate's Life For Me...

@@ -29,7 +29,7 @@ spotlight:
 tags: 
  - depp
  - caribbean
- category:
+category:
  - boom
 ---
 
