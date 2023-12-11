@@ -265,7 +265,6 @@ collections:
                 collapsed: true
                 fields:
 
-          
                   - name: "showMagic"
                     label: "Show Floating Sort/Search Island?"
                     widget: "boolean"
@@ -285,7 +284,7 @@ collections:
                     widget: "boolean"
                     # if: "showMagic == true"
                     required: false
-                    default: true
+                    default: "true"
 
                   - name: "showMagicSearch"
                     label: "Show Search?"

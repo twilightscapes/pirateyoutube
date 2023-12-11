@@ -16,10 +16,9 @@ const SearchPage = ({ data }) => {
   const { showModals } = useSiteMetadata();
   const { showDates } = useSiteMetadata();
   const { postcount } = useSiteMetadata();
-  const { showMagic } = useSiteMetadata();
-  const { showMagicCat } = useSiteMetadata();
-  const { showMagicTag } = useSiteMetadata();
-  const { showMagicSearch } = useSiteMetadata();
+  const { magicOptions } = useSiteMetadata();
+  const { showMagic, showMagicCat, showMagicTag, showMagicSearch } = magicOptions;
+
 
   const allPosts = data.allMarkdownRemark.edges;
   const [query, setQuery] = React.useState("");
