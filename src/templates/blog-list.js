@@ -11,7 +11,7 @@ import { FaImage } from "react-icons/fa"
 import { AiOutlinePicLeft } from "react-icons/ai"
 
 const BlogList = ({ data, pageContext }) => {
-  const { showNav } = useSiteMetadata();
+
   const { showDates } = useSiteMetadata();
   const { postcount } = useSiteMetadata();
   const posts = data.allMarkdownRemark.edges;
@@ -29,14 +29,43 @@ const BlogList = ({ data, pageContext }) => {
         <body className="archivepage utilitypage" />
       </Helmet>
 
-      {showNav ? (
-        <div className='spacer' style={{ height: '70px', border: '0px solid yellow' }}></div>
-      ) : (
-        <div className="spacer2" style={{ height: "0", border: "0px solid yellow" }}></div>
-      )}
 
-      <div className="scroll-container" style={{ maxHeight: '100vh', padding: '2vh 0 0 0' }}>
-        <div className="contentpanel grid-container" style={{}}>
+      {/* <div className="cattags" style={{  maxWidth: '', margin: '0 auto 0 auto',  display: 'flex', placeSelf: 'center', gap:'8px', outline: '1px solid #333', borderRadius: '3px', padding: '8px', color: '' }}> */}
+
+{/* <div className="cattags" style={{display:'flex', justifyContent:'center', placeSelf:'center', margin:'0 auto', border:'0px solid red', position: 'fixed', zIndex: '3', top: '', left: '1%', right: '1%', maxWidth:'550px', height:'40px', outline: '1px solid #333', borderRadius: '3px', padding: '0 2% 10px 2%', lineHeight:'auto', fontFamily:'var(--theme-ui-colors-fontFamily)' }}>
+
+          
+          {currentPage > 1 && (
+            <button className="button pagination" style={{padding:'0 5px', marginTop:'25px'}} onClick={() => navigate(currentPage === 2 ? '/archive' : `/archive/${currentPage - 1}`)}>
+              Previous
+            </button>
+          )}
+
+          
+            {Array.from({ length: numPages }, (_, i) => {
+              const page = i + 1;
+              const path = page === 1 ? '/archive' : `/archive/${page}`;
+              return (
+                <Link
+                  key={`pagination-link-${page}`}
+                  to={path}
+                  activeClassName="active"
+                  style={{ padding: '4px 20px' }}
+                >
+                  {page}
+                </Link>
+              );
+            })}
+
+{currentPage < numPages && (
+            <button className="button pagination" style={{padding:'0 5px', marginTop:'25px'}} onClick={() => navigate(`/archive/${currentPage + 1}`)} disabled={currentPage === numPages}>
+              Next
+            </button>
+          )}
+</div> */}
+
+
+          <div className='contentpanel grid-container' style={{ marginTop: '15px' }}>
 
           <div className="sliderSpacer" style={{ height: '', paddingTop: '', display: '' }}></div>
 
@@ -109,16 +138,13 @@ Play Multimedia
 
           
 
-
-
-
-<div className="" style={{ placeContent:'center', minHeight:'', background: 'rgba(0, 0, 0, 0.7)', width: '', margin: '0 1%', padding: '.2vh 2vw .2vh 2vw', textAlign: 'center', color: '#fff', display: 'flex', justifyContent: 'center', borderRadius: '8px' }}>
+<div className="cattags" style={{display:'flex', justifyContent:'center', placeSelf:'center', margin:'0 auto', border:'0px solid red', position: '', zIndex: '3', top: '', left: '1%', right: '1%', maxWidth:'550px', height:'40px', outline: '1px solid #333', borderRadius: '3px', padding: '0 2% 10px 2%', lineHeight:'auto', fontFamily:'var(--theme-ui-colors-fontFamily)' }}>
 
 {/* {hasMorePosts && (
           <> */}
           
           {currentPage > 1 && (
-            <button className="button" onClick={() => navigate(currentPage === 2 ? '/archive' : `/archive/${currentPage - 1}`)}>
+            <button className="button pagination" style={{padding:'0 5px', marginTop:'25px'}} onClick={() => navigate(currentPage === 2 ? '/archive' : `/archive/${currentPage - 1}`)}>
               Previous
             </button>
           )}
@@ -132,7 +158,7 @@ Play Multimedia
                   key={`pagination-link-${page}`}
                   to={path}
                   activeClassName="active"
-                  style={{ padding: '20px' }}
+                  style={{ padding: '4px 20px' }}
                 >
                   {page}
                 </Link>
@@ -140,7 +166,7 @@ Play Multimedia
             })}
 
 {currentPage < numPages && (
-            <button className="button" onClick={() => navigate(`/archive/${currentPage + 1}`)} disabled={currentPage === numPages}>
+            <button className="button pagination" style={{padding:'0 5px', marginTop:'25px'}} onClick={() => navigate(`/archive/${currentPage + 1}`)} disabled={currentPage === numPages}>
               Next
             </button>
           )}
@@ -149,10 +175,13 @@ Play Multimedia
 
 
           </div>
+
+
+
           
 
         </div>
-      </div>
+
     </Layout>
   );
 };

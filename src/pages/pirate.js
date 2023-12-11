@@ -1,5 +1,5 @@
 import React from "react";
-import useSiteMetadata from "../hooks/SiteMetadata"
+// import useSiteMetadata from "../hooks/SiteMetadata"
 // import { StaticImage } from "gatsby-plugin-image"
 // import {Link} from "gatsby"
 import styled from "styled-components"
@@ -12,7 +12,7 @@ const CustomBox = styled.div`
 `
 
 function Pirate() {
-  const { showNav } = useSiteMetadata()
+
   // const [loggedIn] = useState(false);
   
 
@@ -27,11 +27,7 @@ function Pirate() {
         <body id="body" className="social scroll" />
       </Helmet>
 
-      {showNav ? (
-        <div className="spacer" style={{ height: "70px", border: "0px solid yellow" }}></div>
-      ) : (
-        ""
-      )}
+
 
 
 {/* {loggedIn ? (

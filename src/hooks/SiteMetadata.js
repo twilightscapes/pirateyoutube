@@ -22,6 +22,10 @@ const useSiteMetadata = () => {
             postcount
             homecount
             font1
+            showMagic
+            showMagicCat
+            showMagicTag
+            showMagicSearch
           }
         }
       }

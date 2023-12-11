@@ -28,7 +28,9 @@ showPageNav: false
 spotlight:
 tags: 
  - depp
- - tesla
+ - derp
+category:
+ - test
 ---
 
 Yo-Ho, Yo-Ho... A Pirate's Life For Me...

@@ -257,6 +257,43 @@ collections:
                 required: true
 
 
+
+
+              - name: "magicOptions"
+                label: "Sort/Search Island options"
+                widget: "object"
+                collapsed: true
+                fields:
+
+          
+                  - name: "showMagic"
+                    label: "Show Floating Sort/Search Island?"
+                    widget: "boolean"
+                    hint: "A floating navigation bar that allows for sorting and searching posts"
+                    default: true
+                    required: false
+
+                  - name: "showMagicCat"
+                    label: "Show Categories?"
+                    widget: "boolean"
+                    # if: "showMagic == true"
+                    required: false
+                    default: true
+
+                  - name: "showMagicTag"
+                    label: "Show Tags?"
+                    widget: "boolean"
+                    # if: "showMagic == true"
+                    required: false
+                    default: true
+
+                  - name: "showMagicSearch"
+                    label: "Show Search?"
+                    widget: "boolean"
+                    # if: "showMagic == true"
+                    required: false
+                    default: true
+
               - widget: "number"
                 label: "Number of posts on HOME PAGE"
                 name: "homecount"

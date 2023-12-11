@@ -26,12 +26,6 @@ svgImage: /assets/null.svg
 showZoom: false
 showPageNav: false
 spotlight: 
-tags: 
- - elonmusk
- - tesla
-category:
- - boom
-
 ---
 
 Yo-Ho, Yo-Ho... A Pirate's Life For Me...

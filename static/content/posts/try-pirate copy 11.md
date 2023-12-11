@@ -26,9 +26,6 @@ svgImage: /assets/null.svg
 showZoom: false
 showPageNav: false
 spotlight:
-tags: 
- - elonmusk
- - pops
 ---
 
 Yo-Ho, Yo-Ho... A Pirate's Life For Me...

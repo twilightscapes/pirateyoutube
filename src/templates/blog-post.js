@@ -11,7 +11,7 @@ import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css'
 
 
 // import Controls from "../components/Controls";
-// import { document } from "browser-monads"
+import { document } from "browser-monads"
 import PropTypes from "prop-types";
 import { MdPlayArrow } from "react-icons/md"
 import { MdPause } from "react-icons/md"
@@ -471,7 +471,7 @@ const YouTube = frontmatter.youtube.youtuber
   // const { iconimage } = useSiteMetadata()
 
 
-  const { showNav } = useSiteMetadata()
+  // const { showNav } = useSiteMetadata()
   const { showDates } = useSiteMetadata()
 
 
@@ -855,11 +855,11 @@ Click to play
 
 
 
-{showNav ? (
+{/* {showNav ? (
   <div className="spacer" style={{height:'70px', border:'0px solid yellow'}}></div>
       ) : (
         ""
-      )}
+      )} */}
 
 
   {/* { showModals ? (

@@ -26,11 +26,6 @@ svgImage: /assets/null.svg
 showZoom: false
 showPageNav: false
 spotlight: 
-tags: 
- - depp
- - caribbean
-category:
- - boom
 ---
 
 Yo-Ho, Yo-Ho... A Pirate's Life For Me...

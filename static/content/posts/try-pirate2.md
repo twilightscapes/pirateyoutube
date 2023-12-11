@@ -1,7 +1,7 @@
 ---
 template: blog-post
-title: Try PIRATE today!
-slug: /elon2
+title: tags and cats1
+slug: /trypirate2
 date: 2023-10-01 09:00
 description: Experience the thrill of PIRATE
 youtube:
@@ -25,6 +25,9 @@ featuredImage: /assets/pirate-propaganda.webp
 svgImage: /assets/null.svg
 showZoom: false
 showPageNav: false
+spotlight:
+tags: 
+ - depp
 category:
  - test
 ---

@@ -12,7 +12,7 @@ const MainPage = ({ data }) => {
   const [selectedTag, setSelectedTag] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
 
-  const { homecount, showNav } = useSiteMetadata();
+  const { homecount } = useSiteMetadata();
 
   const posts = data.allMarkdownRemark.edges;
 
@@ -43,16 +43,9 @@ const MainPage = ({ data }) => {
 
   return (
     <Layout>
-      {showNav ? (
-        <div className="spacer" style={{ height: '70px', border: '0px solid yellow' }}>
-          {searchTerm}
-        </div>
-      ) : (
-        <div className="spacer2" style={{ height: '0', border: '0px solid yellow' }}>
-          {searchTerm}
-        </div>
-      )}
 
+
+<div className="" style={{display:'grid', placeSelf:'center', margin:'0 auto', border:'0px solid red', position: 'fixed', zIndex: '3', top: '', left: '1%', right: '1%', maxWidth:'550px', padding:'0', fontFamily:'var(--theme-ui-colors-fontFamily)' }}>
       <MagicIsland
         onSearch={handleSearch}
         onTagChange={handleTagChange}
@@ -60,7 +53,9 @@ const MainPage = ({ data }) => {
         tags={getUniqueTags(posts)}
         categories={getUniqueCategories(posts)}
       />
-      <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: '70px' }}>
+</div>
+
+      <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: '15px' }}>
         <div className="sliderSpacer" style={{ height: '', paddingTop: '', display: '' }}></div>
         <PostListing
           posts={filterPosts(posts, searchTerm, selectedTag, selectedCategory, homecount)}

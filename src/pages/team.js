@@ -2,12 +2,12 @@ import React from "react";
 import { graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import Layout from "../components/siteLayout";
-import useSiteMetadata from "../hooks/SiteMetadata";
+
 import { Helmet } from "react-helmet";
 import Seo from "../components/seo";
 
 const TeamPage = ({ data }) => {
-  const { showNav } = useSiteMetadata();
+
   const posts = data.allMarkdownRemark.edges;
 
   return (
@@ -17,11 +17,7 @@ const TeamPage = ({ data }) => {
       </Helmet>
       <Seo title="" description="" />
 
-      {showNav ? (
-        <div className="spacer" style={{ height: '60px', border: '0px solid yellow' }}></div>
-      ) : (
-        ''
-      )}
+
       <div>
         <div className="contentpanel grid-container" style={{ padding: '' }}>
           <div className="sliderSpacer" style={{ height: '', paddingTop: '', display: '' }}></div>

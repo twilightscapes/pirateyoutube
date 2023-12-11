@@ -15,7 +15,7 @@ const Category = ({ data, pageContext }) => {
   const posts = data.posts.edges;
   const categories = data.allMarkdownRemark.group.map((group) => group.fieldValue);
 
-  const { showNav } = useSiteMetadata();
+
   const { showDates } = useSiteMetadata();
 
   return (
@@ -24,11 +24,7 @@ const Category = ({ data, pageContext }) => {
         <body id="body" className="category" />
       </Helmet>
 
-      {showNav ? (
-        <div className="spacer" style={{ height: "70px", border: "0px solid yellow" }}></div>
-      ) : (
-        <div className="spacer2" style={{ height: "70px", border: "0px solid yellow" }}></div>
-      )}
+
 
       <div>
         <div className="selectArrow" style={{position:'fixed', top:'', left:'1%', right:'1%',  margin:'-55px auto 0 auto', zIndex:'3', display:'grid', placeSelf:'center',  padding:''}}>

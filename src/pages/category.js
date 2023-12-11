@@ -9,7 +9,7 @@ const CategoryIndex = ({ data, pageContext }) => {
   const { category } = pageContext;
   const categories = data.allMarkdownRemark.group.map((group) => group.fieldValue);
   const { postcount } = useSiteMetadata();
-  const { showNav } = useSiteMetadata();
+
 
   const [visibleItems, setVisibleItems] = useState(postcount);
 
@@ -22,13 +22,9 @@ const CategoryIndex = ({ data, pageContext }) => {
       <Helmet>
         <body className="category utilitypage" />
       </Helmet>
-      {showNav ? (
-        <div className="spacer" style={{ height: "130px", border: "0px solid yellow" }}></div>
-      ) : (
-        <div className="spacer2" style={{ height: "70px", border: "0px solid yellow" }}></div>
-      )}
 
-      <div className="selectArrow" style={{ position: "fixed", top: "", left: "1%", right: "1%", margin: "-55px auto 0 auto", zIndex: "3", display: "grid", placeSelf: "center", padding: "" }}>
+
+<div className="" style={{ position: 'fixed', top: '', left: '1%', right: '1%', maxWidth: '380px', margin: '0 auto 0 auto', zIndex: '3', display: 'grid', placeSelf: 'center', outline: '0px solid #999', borderRadius: '3px', padding: '', color: '' }}>
         <select
           className="cattags"
           style={{}}
@@ -48,7 +44,9 @@ const CategoryIndex = ({ data, pageContext }) => {
         <div style={{ position: 'absolute', right: '10px', top: '8px', height: '100%', color: '#fff', zIndex: '-1', fontSize: '30px' }}><AiFillDownSquare /></div>
       </div>
 
-      <div className="contentpanel grid-container" style={{ marginTop: "" }}>
+
+      <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: '60px', padding:'0 3vw' }}>
+
         <div className="sliderSpacer" style={{ height: "", paddingTop: "", display: "" }}></div>
 
         {categories.slice(0, visibleItems).map((category, index) => (

@@ -9,32 +9,34 @@ const MagicIsland = ({ onSearch, tags, categories }) => {
 
   const handleSearchChange = (event) => {
     setSearchInput(event.target.value);
-    console.log('Search term:', event.target.value);
-    onSearch(event.target.value);
   };
-  
 
   const handleTagChange = (event) => {
     const selectedTag = event.target.value;
-    setSearchInput(selectedTag ? `tag:${selectedTag}` : ''); // Add a condition to handle the case where no tag is selected
+    setSearchInput(selectedTag ? `tag:${selectedTag}` : '');
   };
 
   const handleCategoryChange = (event) => {
     const selectedCategory = event.target.value;
-    setSearchInput(selectedCategory ? `category:${selectedCategory}` : ''); // Add a condition to handle the case where no category is selected
+    setSearchInput(selectedCategory ? `category:${selectedCategory}` : '');
   };
 
   return (
-    <div className="cattags" style={{ position: 'fixed', top: '', left: '1%', right: '1%', maxWidth: '600px', margin: '15px auto 0 auto', zIndex: '3', display: 'flex', placeSelf: 'center', outline: '1px solid #999', borderRadius: '3px', padding: '', color: '' }}>
-      <label style={{ position: 'relative', width: '100%' }}>
-        <input id="clearme" type="text" placeholder="Search:" onChange={handleSearchChange} value={searchInput} style={{ maxWidth: '80vw', background: '#222', marginRight: '10px' }} />
-        <button className="cattags" type="reset" value="reset" onClick={() => setSearchInput('')} style={{ position: 'absolute', right: '0', top: '0', color: '#fff', padding: '10px', maxWidth: '60px' }}>Clear</button>
-        <div  style={{ position: 'absolute', right: '100px', top: '10px', textAlign: 'center', fontSize: '10px', color: '#fff' }}>{searchInput && searchInput !== 'tag:' && searchInput !== 'category:' && '1'} result{searchInput && searchInput !== 'tag:' && searchInput !== 'category:' && 's'}</div>
-      </label>
+    <div className="cattags" style={{ maxWidth: '', margin: '0px auto 0 auto', display: 'flex', placeSelf: 'center', gap: '8px', outline: '1px solid #333', borderRadius: '3px', padding: '8px', color: '' }}>
+      <div className="category-selector" style={{ marginTop: '' }}>
+        <select className="" onChange={handleCategoryChange} value={searchInput.startsWith('category:') ? searchInput.replace('category:', '') : ''} style={{ background: '#222', border: '1px solid #000', borderRadius: '3px', padding: '2px' }}>
+          <option value="">Category</option>
+          {categories.map((category) => (
+            <option key={category} value={category}>
+              {category}
+            </option>
+          ))}
+        </select>
+      </div>
 
-      <div className="tag-selector" style={{ marginTop: '10px' }}>
-        <select className="cattags" onChange={handleTagChange} value={searchInput.startsWith('tag:') ? searchInput.replace('tag:', '') : ''}>
-          <option value="">Tags</option>
+      <div className="tag-selector" style={{ marginTop: '' }}>
+        <select className="" onChange={handleTagChange} value={searchInput.startsWith('tag:') ? searchInput.replace('tag:', '') : ''} style={{ background: '#222', border: '1px solid #000', borderRadius: '3px', padding: '2px' }}>
+          <option value="">Keyword</option>
           {tags.map((tag) => (
             <option key={tag} value={tag}>
               {tag}
@@ -43,16 +45,10 @@ const MagicIsland = ({ onSearch, tags, categories }) => {
         </select>
       </div>
 
-      <div className="category-selector" style={{ marginTop: '10px' }}>
-        <select className="cattags" onChange={handleCategoryChange} value={searchInput.startsWith('category:') ? searchInput.replace('category:', '') : ''}>
-          <option value="">Categories</option>
-          {categories.map((category) => (
-            <option key={category} value={category}>
-              {category}
-            </option>
-          ))}
-        </select>
-      </div>
+      <label style={{ position: 'relative', width: '100%' }}>
+        <input id="clearme" type="text" placeholder="Search:" onChange={handleSearchChange} value={searchInput} style={{ width: '80%', background: '#222', marginRight: '10px', border: '1px solid #000', borderRadius: '3px', height: '24px', padding: '14px' }} />
+        <button className="" type="reset" value="reset" onClick={() => setSearchInput('')} style={{ position: 'absolute', right: '0', top: '0', background: '#222', color: '#fff', textAlign: 'center', fontSize: '10px', height: '', maxWidth: '60px', border: '1px solid #000', padding: '5px', borderRadius: '3px' }}>Clear</button>
+      </label>
     </div>
   );
 };

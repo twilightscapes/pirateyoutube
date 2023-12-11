@@ -73,7 +73,7 @@ const FavoriteFeeds = () => {
 
 
 
-  const { showNav } = useSiteMetadata();
+  // const { showNav } = useSiteMetadata();
   // const { showDates } = useSiteMetadata();
   const { postcount } = useSiteMetadata();
   const [favorites, setFavorites] = useState([]);
@@ -177,11 +177,7 @@ const FavoriteFeeds = () => {
           <body id="body" className="social" />
         </Helmet>
 
-        {showNav ? (
-        <div className="spacer" style={{ height: "70px", border: "0px solid yellow" }}></div>
-      ) : (
-        ""
-      )}
+
 {/* <h1 style={{ position: 'relative', zIndex: '1', margin: '0 auto', textAlign:'center' }}>My Timeline:</h1> */}
 
 

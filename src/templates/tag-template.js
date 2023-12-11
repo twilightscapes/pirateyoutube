@@ -13,7 +13,6 @@ import TimeAgo from 'react-timeago'
 const Tag = ({ data, pageContext }) => {
   const { tag } = pageContext;
   const posts = data.allMarkdownRemark.edges;
-  const { showNav } = useSiteMetadata();
   const { showDates } = useSiteMetadata()
 
 
@@ -42,14 +41,10 @@ const Tag = ({ data, pageContext }) => {
         <body id='body' className='tagpage' style={{}} />
       </Helmet>
 
-      {showNav ? (
-        <div className='spacer' style={{ height: '70px', border: '0px solid yellow' }}></div>
-      ) : (
-        <div className="spacer2" style={{ height: "20px", border: "1px solid yellow" }}></div>
-      )}
+
       {/* <h1 style={{ textAlign: 'center' }}>{tag}</h1> */}
 
-      <div className="selectArrow" style={{position:'fixed', top:'', left:'1%', right:'1%',  margin:'-55px auto 0 auto', zIndex:'3', display:'grid', placeSelf:'center',  padding:'',}}>
+      <div className="selectArrow" style={{position:'fixed', top:'', left:'1%', right:'1%',  margin:'0 auto 0 auto', zIndex:'3', display:'grid', placeSelf:'center',  padding:'',}}>
         
       <select className="cattags" value={selectedTag} onChange={handleTagChange}>
   <option value=''>All Keywords</option>
@@ -63,7 +58,7 @@ const Tag = ({ data, pageContext }) => {
 
       <section id="showPosts" style={{marginTop:''}}>
 
-      <div className='contentpanel grid-container' style={{ marginTop: '5vh' }}>
+      <div className='contentpanel grid-container' style={{ marginTop: '0' }}>
         <div className='sliderSpacer' style={{ height: '', paddingTop: '0', display: 'none' }}></div>
 
         {filteredPosts.map(({ node }) => {

@@ -10,7 +10,7 @@ import { Helmet } from "react-helmet"
 import TimeAgo from 'react-timeago'
 import useSiteMetadata from "../hooks/SiteMetadata"
 const TagIndex = ({ data }) => {
-  const { showNav } = useSiteMetadata();
+
   const { showDates } = useSiteMetadata()
   const { postcount } = useSiteMetadata()
   const [selectedTag, setSelectedTag] = useState(''); // State to keep track of selected tag
@@ -39,17 +39,13 @@ const TagIndex = ({ data }) => {
         <Helmet>
         <body className="tagpage utilitypage" />
       </Helmet>
-      {showNav ? (
-        <div className='spacer' style={{ height: '70px', border: '0px solid yellow' }}></div>
-      ) : (
-        <div className="spacer2" style={{ height: "70px", border: "0px solid yellow" }}></div>
-      )}
+
 
 
         
 
 
-        <div className="selectArrow" style={{position:'fixed', top:'', left:'1%', right:'1%',  margin:'-55px auto 0 auto', zIndex:'3', display:'grid', placeSelf:'center',  padding:'',}}>
+        <div className="selectArrow" style={{position:'fixed', top:'', left:'1%', right:'1%',  margin:'0 auto 0 auto', zIndex:'3', display:'grid', placeSelf:'center',  padding:'',}}>
           <select className="cattags" id="tag-select" value={selectedTag} onChange={handleTagChange}>
             <option value="">keyword:</option>
             {tags.map(tag => (
@@ -61,7 +57,7 @@ const TagIndex = ({ data }) => {
 
        
 
-        <div className="contentpanel grid-container" style={{justifyContent:'center', alignItems:'center', marginTop:''}}>
+        <div className="contentpanel grid-container" style={{justifyContent:'center', alignItems:'center', marginTop:'60px'}}>
           <div className="sliderSpacer" style={{ height: "", paddingTop: "", display: "" }}></div>
    
           {data.allMarkdownRemark.edges &&
