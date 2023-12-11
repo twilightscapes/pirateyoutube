@@ -9,6 +9,7 @@ import TimeAgo from 'react-timeago';
 import { ImPlay } from "react-icons/im"
 import { FaImage } from "react-icons/fa"
 import { AiOutlinePicLeft } from "react-icons/ai"
+import { MdArrowForwardIos, MdArrowBackIos } from "react-icons/md";
 
 const BlogList = ({ data, pageContext }) => {
 
@@ -144,8 +145,8 @@ Play Multimedia
           <> */}
           
           {currentPage > 1 && (
-            <button className="button pagination" style={{padding:'0 5px', marginTop:'25px'}} onClick={() => navigate(currentPage === 2 ? '/archive' : `/archive/${currentPage - 1}`)}>
-              Previous
+            <button className="pagination" style={{padding:'0 5px', marginTop:'5px'}} onClick={() => navigate(currentPage === 2 ? '/archive' : `/archive/${currentPage - 1}`)}>
+              <MdArrowBackIos />
             </button>
           )}
 
@@ -166,8 +167,8 @@ Play Multimedia
             })}
 
 {currentPage < numPages && (
-            <button className="button pagination" style={{padding:'0 5px', marginTop:'25px'}} onClick={() => navigate(`/archive/${currentPage + 1}`)} disabled={currentPage === numPages}>
-              Next
+            <button className=" pagination" style={{padding:'0 5px', marginTop:'5px'}} onClick={() => navigate(`/archive/${currentPage + 1}`)} disabled={currentPage === numPages}>
+              <MdArrowForwardIos />
             </button>
           )}
 {/* </>
