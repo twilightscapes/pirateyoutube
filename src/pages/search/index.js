@@ -16,6 +16,9 @@ const SearchPage = ({ data }) => {
   const { showModals } = useSiteMetadata();
   const { showDates } = useSiteMetadata();
   const { postcount } = useSiteMetadata();
+  const { magicOptions } = useSiteMetadata();
+  const { showMagic, showMagicCat, showMagicTag, showMagicSearch } = magicOptions;
+
 
   const allPosts = data.allMarkdownRemark.edges;
   const [query, setQuery] = React.useState("");
@@ -95,25 +98,35 @@ const SearchPage = ({ data }) => {
         <body id="body" className="search" />
       </Helmet>
 
-      <div className="" style={{ display: 'grid', placeSelf: 'center', margin: '0 auto', border: '0px solid red', position: 'fixed', zIndex: '3', top: '', left: '1%', right: '1%', maxWidth: '550px', padding: '0', fontFamily: 'var(--theme-ui-colors-fontFamily)' }}>
+      {showMagic ? (
+<>
+<div className="magicisland" style={{ display: 'grid', placeSelf: 'center', margin: '0 auto', border: '0px solid red', position: 'fixed', zIndex: '3', top: '', left: '1%', right: '1%', maxWidth: '550px', padding: '0', fontFamily: 'var(--theme-ui-colors-fontFamily)' }}>
 
         <div className="cattags" style={{ maxWidth: '', margin: '0px auto 0 auto', display: 'flex', placeSelf: 'center', gap: '8px', outline: '1px solid #333', borderRadius: '3px', padding: '8px', color: '' }}>
-          {/* Category Dropdown */}
-          {allCategories.length > 1 && (
-            <select value={selectedCategory} onChange={handleCategoryChange} style={{ background: '#222', border: '1px solid #000', borderRadius: '3px', padding: '2px', minWidth:'120px', maxWidth:'130px', overflow:'hidden' }}>
+
+
+
+{showMagicCat ? (
+<>
+    {allCategories.length > 1 && (
+      <select value={selectedCategory} onChange={handleCategoryChange} style={{ background: '#222', border: '1px solid #000', borderRadius: '3px', padding: '2px', minWidth:'120px', maxWidth:'130px', overflow:'hidden' }}>
             <option value="">Category</option>
             {allCategories.filter(category => category).map((category, index) => (
               <option key={`${category}_${index}`} value={category.trim()}>
                 {category.trim()}
               </option>
             ))}
-          </select>
-          
-          )}
+        </select>
+      )}
+</>
+  ) : (
+    ""
+)}
 
-          {/* Tag Dropdown */}
-          {allTags.length > 1 && (
-  <select value={selectedTag} onChange={handleTagChange} style={{ background: '#222', border: '1px solid #000', borderRadius: '3px', padding: '2px', minWidth:'120px', maxWidth:'130px', overflow:'hidden' }}>
+{showMagicTag ? (
+<>
+  {allTags.length > 1 && (
+    <select value={selectedTag} onChange={handleTagChange} style={{ background: '#222', border: '1px solid #000', borderRadius: '3px', padding: '2px', minWidth:'120px', maxWidth:'130px', overflow:'hidden' }}>
     <option value="">Keyword</option>
     {allTags.filter(tag => tag).map((tag, index) => (
       <option key={`${tag}_${index}`} value={tag.trim()}>
@@ -122,18 +135,40 @@ const SearchPage = ({ data }) => {
     ))}
   </select>
 )}
+</>
+  ) : (
+    ""
+)}
 
 
+{showMagicSearch ? (
+<>
           <label style={{}}>
-            <input id="clearme" type="text" placeholder="Search:" onChange={handleSearch} style={{ width: '70%', background: '#222', marginRight: '10px', border: '1px solid #000', borderRadius: '3px', height: '24px', padding: '14px', minWidth:'150px', maxWidth:'200px', overflow:'hidden' }} />
+            <input id="clearme" type="text" placeholder="Search:" onChange={handleSearch} style={{ width: '', background: '#222', marginRight: '10px', border: '1px solid #000', borderRadius: '3px', height: '24px', padding: '14px', minWidth:'150px', }} />
 
-            <button type="reset" value="reset" onClick={() => clearfield(setFilteredPosts, setVisibleItems, allPosts, postcount, setSelectedCategory, setSelectedTag)} style={{ position: 'absolute', right: '5px', top: '', background: '#222', color: '#fff', textAlign: 'center', fontSize: '10px', height: '', maxWidth: '60px', border: '1px solid #000', padding: '5px', borderRadius: '3px' }}>
+            
+            
+          </label>
+          </>
+  ) : (
+    ""
+)}
+
+<div style={{ position: 'absolute', right: '50px', top: '8px', textAlign: 'center', fontSize: '10px', color: '#fff' }}>{filteredPosts.length} <br />result{filteredPosts.length !== 1 && 's'}</div>
+
+<button type="reset" value="reset" onClick={() => clearfield(setFilteredPosts, setVisibleItems, allPosts, postcount, setSelectedCategory, setSelectedTag)} style={{ position: 'absolute', right: '5px', top: '', background: '#222', color: '#fff', textAlign: 'center', fontSize: '10px', height: '', maxWidth: '60px', border: '1px solid #000', padding: '5px', borderRadius: '3px' }}>
   clear
 </button>
-            <div style={{ position: 'absolute', right: '50px', top: '8px', textAlign: 'center', fontSize: '10px', color: '#fff' }}>{filteredPosts.length} <br />result{filteredPosts.length !== 1 && 's'}</div>
-          </label>
+
         </div>
       </div>
+      </>
+      ) : (
+        ""
+      )}
+
+
+
       <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: '70px' }}>
         <div className="sliderSpacer" style={{ height: '', paddingTop: '', display: '' }}></div>
 
