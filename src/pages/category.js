@@ -92,7 +92,7 @@ const CategoryIndex = ({ data, pageContext }) => {
         ))}
         {visibleItems < categories.length && (
           <button className="post-card1" style={{ justifyContent: "center", alignItems: "center" }} onClick={showMoreItems}>
-            Show more
+            Load more
           </button>
         )}
       </div>

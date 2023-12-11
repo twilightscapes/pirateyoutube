@@ -225,10 +225,11 @@ const SearchPage = ({ data }) => {
 
         
         {visibleItems < data.allMarkdownRemark.edges.length && (
-          <div className="" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '', height: '50vh' }}>
+          <div className="" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '', height: '50vh', textAlign:'center' }}>
             <button className="button load-more" onClick={showMoreItems}>
               Load more
             </button>
+            <Link state={{modal: true}} to="/archive">View Archive?</Link>
           </div>
         )}
       </div>
