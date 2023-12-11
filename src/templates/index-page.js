@@ -148,17 +148,19 @@ const SearchPage = ({ data }) => {
           <label style={{}}>
             <input id="clearme" type="text" placeholder="Search:" onChange={handleSearch} style={{ width: '', background: '#222', marginRight: '10px', border: '1px solid #000', borderRadius: '3px', height: '24px', padding: '14px', minWidth:'150px', }} />
 
-            <button type="reset" value="reset" onClick={() => clearfield(setFilteredPosts, setVisibleItems, allPosts, postcount, setSelectedCategory, setSelectedTag)} style={{ position: 'absolute', right: '5px', top: '', background: '#222', color: '#fff', textAlign: 'center', fontSize: '10px', height: '', maxWidth: '60px', border: '1px solid #000', padding: '5px', borderRadius: '3px' }}>
-  clear
-</button>
-            <div style={{ position: 'absolute', right: '50px', top: '8px', textAlign: 'center', fontSize: '10px', color: '#fff' }}>{filteredPosts.length} <br />result{filteredPosts.length !== 1 && 's'}</div>
+            
+            
           </label>
           </>
   ) : (
     ""
 )}
 
+<div style={{ position: 'absolute', right: '50px', top: '8px', textAlign: 'center', fontSize: '10px', color: '#fff' }}>{filteredPosts.length} <br />result{filteredPosts.length !== 1 && 's'}</div>
 
+<button type="reset" value="reset" onClick={() => clearfield(setFilteredPosts, setVisibleItems, allPosts, postcount, setSelectedCategory, setSelectedTag)} style={{ position: 'absolute', right: '5px', top: '', background: '#222', color: '#fff', textAlign: 'center', fontSize: '10px', height: '', maxWidth: '60px', border: '1px solid #000', padding: '5px', borderRadius: '3px' }}>
+  clear
+</button>
 
         </div>
       </div>

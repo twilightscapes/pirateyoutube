@@ -21,7 +21,7 @@
       "showMagic": true,
       "showMagicCat": true,
       "showMagicTag": true,
-      "showMagicSearch": false
+      "showMagicSearch": true
     },
     "titleTemplate": "%s",
     "title": "PIRATE SOCIAL",
