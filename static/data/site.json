@@ -19,9 +19,9 @@
     "homecount": 5,
     "magicOptions": {
       "showMagic": true,
-      "showMagicCat": false,
+      "showMagicCat": true,
       "showMagicTag": true,
-      "showMagicSearch": true
+      "showMagicSearch": false
     },
     "titleTemplate": "%s",
     "title": "PIRATE SOCIAL",
