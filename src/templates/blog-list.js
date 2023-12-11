@@ -6,23 +6,23 @@ import useSiteMetadata from '../hooks/SiteMetadata';
 import { StaticImage } from 'gatsby-plugin-image';
 import { Helmet } from 'react-helmet';
 import TimeAgo from 'react-timeago';
-import { ImPlay } from "react-icons/im"
-import { FaImage } from "react-icons/fa"
-import { AiOutlinePicLeft } from "react-icons/ai"
-import { MdArrowForwardIos, MdArrowBackIos } from "react-icons/md";
+import { ImPlay } from 'react-icons/im';
+import { FaImage } from 'react-icons/fa';
+import { AiOutlinePicLeft } from 'react-icons/ai';
+import { MdArrowForwardIos, MdArrowBackIos } from 'react-icons/md';
 
 const BlogList = ({ data, pageContext }) => {
-
-  const { showDates } = useSiteMetadata();
-  const { postcount } = useSiteMetadata();
+  const { showDates, postcount } = useSiteMetadata();
   const posts = data.allMarkdownRemark.edges;
   const { numPages, currentPage } = pageContext;
-  // const totalCount = data.allMarkdownRemark.totalCount;
-  // const hasMorePosts = currentPage < numPages;
 
   useEffect(() => {
     // Add any additional initialization logic if needed
   }, []);
+
+  // Calculate the start and end page numbers for each pagination section
+  const startPage = Math.floor((currentPage - 1) / 5) * 5 + 1;
+  const endPage = Math.min(startPage + 4, numPages);
 
   return (
     <Layout>
@@ -30,159 +30,154 @@ const BlogList = ({ data, pageContext }) => {
         <body className="archivepage utilitypage" />
       </Helmet>
 
+      <div className="contentpanel grid-container" style={{ marginTop: '15px' }}>
+        <div className="sliderSpacer" style={{ height: '', paddingTop: '', display: '' }}></div>
 
-      {/* <div className="cattags" style={{  maxWidth: '', margin: '0 auto 0 auto',  display: 'flex', placeSelf: 'center', gap:'8px', outline: '1px solid #333', borderRadius: '3px', padding: '8px', color: '' }}> */}
+        {posts.slice(0, currentPage * postcount).map(({ node }, index) => (
+          <div className="post-card1" key={node.fields.slug} style={{ marginTop: '' }}>
+            <Link className="postlink" to={node.frontmatter.slug}>
+              {node.frontmatter.featuredImage ? (
+                <GatsbyImage
+                  image={node.frontmatter.featuredImage.childImageSharp.gatsbyImageData}
+                  alt={node.frontmatter.title + ' - Featured image'}
+                  className="featured-image1"
+                  placeholder="blurred"
+                  loading="eager"
+                  style={{ position: 'relative', zIndex: '1', maxHeight: '', margin: '0 auto' }}
+                />
+              ) : (
+                <StaticImage
+                  className="featured-image1"
+                  src="../../static/assets/default-og-image.webp"
+                  alt="Default Image"
+                  style={{ position: 'relative', zIndex: '' }}
+                />
+              )}
 
-{/* <div className="cattags" style={{display:'flex', justifyContent:'center', placeSelf:'center', margin:'0 auto', border:'0px solid red', position: 'fixed', zIndex: '3', top: '', left: '1%', right: '1%', maxWidth:'550px', height:'40px', outline: '1px solid #333', borderRadius: '3px', padding: '0 2% 10px 2%', lineHeight:'auto', fontFamily:'var(--theme-ui-colors-fontFamily)' }}>
+              <div
+                className="post-content"
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'start',
+                  width: '100%',
+                  height: '',
+                  position: 'relative',
+                  background: '',
+                  padding: '0',
+                  margin: '0 auto 0 auto',
+                  textAlign: 'center',
+                  overFlow: 'hidden',
+                }}
+              >
+                {node.frontmatter.youtube.youtuber ? (
+                  <div className="spotlight" style={{ border: '0px solid green' }}>
+                    <div className="posticons" style={{ flexDirection: 'column', justifyContent: 'center', margin: '0 auto' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-around', gap: '2vw', color: 'fff' }}>
+                        <FaImage className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
+                        <ImPlay className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
+                        <AiOutlinePicLeft className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
+                      </div>
+                      Play Multimedia
+                    </div>
+                  </div>
+                ) : (
+                  ''
+                )}
 
-          
-          {currentPage > 1 && (
-            <button className="button pagination" style={{padding:'0 5px', marginTop:'25px'}} onClick={() => navigate(currentPage === 2 ? '/archive' : `/archive/${currentPage - 1}`)}>
-              Previous
-            </button>
-          )}
-
-          
-            {Array.from({ length: numPages }, (_, i) => {
-              const page = i + 1;
-              const path = page === 1 ? '/archive' : `/archive/${page}`;
-              return (
-                <Link
-                  key={`pagination-link-${page}`}
-                  to={path}
-                  activeClassName="active"
-                  style={{ padding: '4px 20px' }}
+                <div
+                  className="panel"
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    margin: '10px auto',
+                    width: 'auto',
+                    maxWidth: '80vw',
+                    gap: '.4vw',
+                    height: '',
+                    textAlign: 'center',
+                    padding: '1vh 2vw',
+                    fontSize: 'clamp(1rem, 1vw, 1rem)',
+                    background: 'rgba(0, 0, 0, 0.7)',
+                    borderRadius: '',
+                    border: '0px solid red',
+                    color: '#aaa',
+                  }}
                 >
-                  {page}
-                </Link>
-              );
-            })}
+                  <h2 className="title" style={{}}>
+                    {node.frontmatter.title}
+                  </h2>
+                </div>
+              </div>
+            </Link>
+            {showDates ? (
+              <p
+                className="timeago"
+                style={{ position: '', textAlign: 'center', border: '0px solid red', fontSize: '70%', minWidth: '100px' }}
+              >
+                <TimeAgo date={node.frontmatter.date} />
+              </p>
+            ) : (
+              ''
+            )}
+          </div>
+        ))}
 
-{currentPage < numPages && (
-            <button className="button pagination" style={{padding:'0 5px', marginTop:'25px'}} onClick={() => navigate(`/archive/${currentPage + 1}`)} disabled={currentPage === numPages}>
-              Next
-            </button>
-          )}
-</div> */}
-
-
-          <div className='contentpanel grid-container' style={{ marginTop: '15px' }}>
-
-          <div className="sliderSpacer" style={{ height: '', paddingTop: '', display: '' }}></div>
-
-          {posts.slice(0, currentPage * postcount).map(({ node }, index) => (
-            <div className="post-card1" key={node.fields.slug} style={{marginTop:''}}>
-
-<Link className="postlink" to={node.frontmatter.slug}>
-
-{node.frontmatter.featuredImage ? (
-    <GatsbyImage
-      image={node.frontmatter.featuredImage.childImageSharp.gatsbyImageData}
-      alt={node.frontmatter.title + " - Featured image"}
-      className="featured-image1"
-      placeholder="blurred"
-      loading="eager"
-      style={{ position: 'relative', zIndex: '1', maxHeight: '', margin: '0 auto' }}
-    />
-) : (
-
-    <StaticImage
-      className="featured-image1"
-      src="../../static/assets/default-og-image.webp"
-      alt="Default Image"
-      style={{ position: 'relative', zIndex: '' }}
-    />
-
-)}
-
-
-<div className="post-content" style={{display:'flex', flexDirection:'column', justifyContent:'start', width:'100%', height:'', position:'relative', background:'', padding:'0', margin:'0 auto 0 auto', textAlign:'center', overFlow:'hidden'}}>
-
-  {node.frontmatter.youtube.youtuber ? (
-
-<div className="spotlight" style={{border:'0px solid green', }}>
-<div className="posticons" style={{flexDirection:'column', justifyContent:'center', margin:'0 auto'}}>
-<div style={{display:'flex', justifyContent:'space-around', gap:'2vw', color:'fff', }}>
-<FaImage className="posticon" style={{margin:'0 auto', width:'60%', height:'30px', fontSize:''}} />
-<ImPlay className="posticon" style={{margin:'0 auto', width:'60%', height:'30px', fontSize:''}} />
-<AiOutlinePicLeft className="posticon" style={{margin:'0 auto', width:'60%', height:'30px', fontSize:''}} />
-</div>
-Play Multimedia
-</div>
-</div>
-
-) : (
-""
-)}
-
-<div className="panel" style={{display:'flex', justifyContent:'space-between', alignItems:'center', margin:'10px auto', width:'auto', maxWidth:'80vw', gap:'.4vw', height:'', textAlign:'center', padding:'1vh 2vw', fontSize:'clamp(1rem, 1vw, 1rem)',  background:'rgba(0, 0, 0, 0.7)', borderRadius:'', border:'0px solid red', color:'#aaa' }}>
-      <h2 className="title" style={{ }}>
-        {node.frontmatter.title}
-      </h2>
-
-  </div>
-
-</div>
-
-</Link>
-{showDates ? (
-            <p className="timeago" style={{position:'', textAlign:'center', border:'0px solid red', fontSize:'70%', minWidth:'100px'}}>
-            <TimeAgo date={node.frontmatter.date}/>
-          </p>
-          ) : (
-            ""
-          )}
-    </div>
-          ))}
-
-          
-
-          
-
-<div className="cattags" style={{display:'flex', justifyContent:'center', placeSelf:'center', margin:'0 auto', border:'0px solid red', position: '', zIndex: '3', top: '', left: '1%', right: '1%', maxWidth:'550px', height:'40px', outline: '1px solid #333', borderRadius: '3px', padding: '0 2% 10px 2%', lineHeight:'auto', fontFamily:'var(--theme-ui-colors-fontFamily)' }}>
-
-{/* {hasMorePosts && (
-          <> */}
-          
+        <div
+          className="cattags"
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            placeSelf: 'center',
+            margin: '0 auto',
+            border: '0px solid red',
+            position: '',
+            zIndex: '3',
+            top: '',
+            left: '1%',
+            right: '1%',
+            maxWidth: '550px',
+            height: '40px',
+            outline: '1px solid #333',
+            borderRadius: '3px',
+            padding: '0 2% 10px 2%',
+            lineHeight: 'auto',
+            fontFamily: 'var(--theme-ui-colors-fontFamily)',
+          }}
+        >
           {currentPage > 1 && (
-            <button className="pagination" style={{padding:'0 5px', marginTop:'5px'}} onClick={() => navigate(currentPage === 2 ? '/archive' : `/archive/${currentPage - 1}`)}>
+            <button
+              className="pagination"
+              style={{ padding: '0 5px', marginTop: '5px' }}
+              onClick={() => navigate(currentPage === 2 ? '/archive' : `/archive/${currentPage - 1}`)}
+            >
               <MdArrowBackIos />
             </button>
           )}
 
-          
-            {Array.from({ length: numPages }, (_, i) => {
-              const page = i + 1;
-              const path = page === 1 ? '/archive' : `/archive/${page}`;
-              return (
-                <Link
-                  key={`pagination-link-${page}`}
-                  to={path}
-                  activeClassName="active"
-                  style={{ padding: '4px 20px' }}
-                >
-                  {page}
-                </Link>
-              );
-            })}
+          {Array.from({ length: endPage - startPage + 1 }, (_, i) => {
+            const page = startPage + i;
+            const path = page === 1 ? '/archive' : `/archive/${page}`;
+            return (
+              <Link key={`pagination-link-${page}`} to={path} activeClassName="active" style={{ padding: '4px 20px' }}>
+                {page}
+              </Link>
+            );
+          })}
 
-{currentPage < numPages && (
-            <button className=" pagination" style={{padding:'0 5px', marginTop:'5px'}} onClick={() => navigate(`/archive/${currentPage + 1}`)} disabled={currentPage === numPages}>
+          {currentPage < numPages && (
+            <button
+              className="pagination"
+              style={{ padding: '0 5px', marginTop: '5px' }}
+              onClick={() => navigate(`/archive/${currentPage + 1}`)}
+              disabled={currentPage === numPages}
+            >
               <MdArrowForwardIos />
             </button>
           )}
-{/* </>
-)} */}
-
-
-          </div>
-
-
-
-          
-
         </div>
-
+      </div>
     </Layout>
   );
 };
