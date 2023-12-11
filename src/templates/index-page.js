@@ -9,7 +9,7 @@ import { Helmet } from "react-helmet";
 import { StaticImage } from "gatsby-plugin-image";
 import useSiteMetadata from "../hooks/SiteMetadata";
 import TimeAgo from 'react-timeago';
-
+import { MdArrowForwardIos } from 'react-icons/md';
 
 
 const SearchPage = ({ data }) => {
@@ -229,11 +229,11 @@ const SearchPage = ({ data }) => {
 
         
         {visibleItems < data.allMarkdownRemark.edges.length && (
-          <div className="" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '', height: '50vh', textAlign:'center' }}>
+          <div className="" style={{ display: 'grid', flexDirection: 'column', justifyContent: 'center', alignItems:'center', placeContent:'center', gap: '', height: '', textAlign:'center' }}>
             <button className="button load-more" onClick={showMoreItems}>
               Load more
             </button>
-            <Link to="/archive">View Archive?</Link>
+            <Link to="/archive" style={{background:'rgba(0, 0, 0, 0.8)', borderRadius:'5px', color:'#fff', display:'flex', padding:'0 1vh',  margin:'0 auto'}}>View Archive &nbsp;<MdArrowForwardIos style={{marginTop:'4px'}} /></Link>
           </div>
         )}
       </div>

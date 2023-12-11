@@ -9,6 +9,7 @@ import { AiOutlinePicLeft, AiFillDownSquare } from "react-icons/ai"
 import { Helmet } from "react-helmet"
 import TimeAgo from 'react-timeago'
 import useSiteMetadata from "../hooks/SiteMetadata"
+import { MdArrowForwardIos } from 'react-icons/md';
 const TagIndex = ({ data }) => {
 
   const { showDates } = useSiteMetadata()
@@ -152,12 +153,12 @@ Play Multimedia
 )} */}
 
 {visibleItems < data.allMarkdownRemark.edges.length && (
-  <div className="" style={{display:'flex', flexDirection:'column', justifyContent:'center', gap:'', height:'50vh', textAlign:'center'}}>
-        <button className="button load-more" onClick={showMoreItems}>
-          Load more
-        </button>
-        <Link to="/archive">View Archive?</Link>
-        </div>
+  <div className="" style={{ display: 'grid', flexDirection: 'column', justifyContent: 'center', alignItems:'center', placeContent:'center', gap: '', height: '', textAlign:'center' }}>
+  <button className="button load-more" onClick={showMoreItems}>
+    Load more
+  </button>
+  <Link to="/archive" style={{background:'rgba(0, 0, 0, 0.8)', borderRadius:'5px', color:'#fff', display:'flex', padding:'0 1vh',  margin:'0 auto'}}>View Archive &nbsp;<MdArrowForwardIos style={{marginTop:'4px'}} /></Link>
+</div>
 )}
 
 
