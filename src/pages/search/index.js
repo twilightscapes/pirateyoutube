@@ -17,7 +17,7 @@ const SearchPage = ({ data }) => {
   const { showDates } = useSiteMetadata();
   const { postcount } = useSiteMetadata();
   const { magicOptions } = useSiteMetadata();
-  const { showMagic, showMagicCat, showMagicTag, showMagicSearch } = magicOptions;
+  const { showMagic } = magicOptions;
 
 
   const allPosts = data.allMarkdownRemark.edges;
@@ -26,11 +26,11 @@ const SearchPage = ({ data }) => {
   const [selectedCategory, setSelectedCategory] = React.useState("");
   const [selectedTag, setSelectedTag] = React.useState("");
 
-  const allCategoriesSet = new Set(allPosts.flatMap(({ node }) => node.frontmatter.category));
-  const allCategories = Array.from(allCategoriesSet);
+  // const allCategoriesSet = new Set(allPosts.flatMap(({ node }) => node.frontmatter.category));
+  // const allCategories = Array.from(allCategoriesSet);
 
-  const allTagsSet = new Set(allPosts.flatMap(({ node }) => node.frontmatter.tags));
-  const allTags = Array.from(allTagsSet);
+  // const allTagsSet = new Set(allPosts.flatMap(({ node }) => node.frontmatter.tags));
+  // // const allTags = Array.from(allTagsSet);
 
   const handleSearch = (event) => {
     const query = event.target.value;
@@ -39,21 +39,21 @@ const SearchPage = ({ data }) => {
     setFilteredPosts(filteredPosts);
   };
 
-  const handleCategoryChange = event => {
-    const category = event.target.value;
-    setSelectedCategory(category);
-    setSelectedTag("");
-    const filteredPosts = filterPosts(query, category, "");
-    setFilteredPosts(filteredPosts);
-  };
+  // const handleCategoryChange = event => {
+  //   const category = event.target.value;
+  //   setSelectedCategory(category);
+  //   setSelectedTag("");
+  //   const filteredPosts = filterPosts(query, category, "");
+  //   setFilteredPosts(filteredPosts);
+  // };
 
-  const handleTagChange = event => {
-    const tag = event.target.value;
-    setSelectedTag(tag);
-    setSelectedCategory("");
-    const filteredPosts = filterPosts(query, "", tag);
-    setFilteredPosts(filteredPosts);
-  };
+  // const handleTagChange = event => {
+  //   const tag = event.target.value;
+  //   setSelectedTag(tag);
+  //   setSelectedCategory("");
+  //   const filteredPosts = filterPosts(query, "", tag);
+  //   setFilteredPosts(filteredPosts);
+  // };
 
   const filterPosts = (query, category, tag) => {
     const filtered = allPosts.filter(({ node }) => {
@@ -111,7 +111,7 @@ const SearchPage = ({ data }) => {
 
 
 <>
-          <label style={{maxWidth:''}}>
+          <label for="clearme" style={{maxWidth:''}}>
             <input id="clearme" type="text" placeholder="Search:" onChange={handleSearch} style={{ width: '300px', background: '#222', marginRight: '', outline: '1px solid #111', borderRadius: '3px', height: '', padding: '6px 6px', minWidth:'80px', maxWidth:'80%', lineHeight:'100%' }} />
           </label>
           </>

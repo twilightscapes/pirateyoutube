@@ -46,7 +46,7 @@ const CategoryIndex = ({ data, pageContext }) => {
       </div>
 </div>
 
-      <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: '', padding:'0 3vw' }}>
+      <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: '', padding:'3vw' }}>
 
         <div className="sliderSpacer" style={{ height: "", paddingTop: "", display: "" }}></div>
 

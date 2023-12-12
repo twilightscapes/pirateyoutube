@@ -112,7 +112,7 @@ scrollbar
 
 :root{--button-alternate-color:#e3272d;--button-color:#e5c3d3;--font-family:-apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,Ubuntu,roboto,noto,segoe ui,arial,sans-serif;--font-family-mono:Menlo,Consolas,Monaco,Liberation Mono,Lucida Console,monospace;--font-size-small:12px;--grid-gap:30px;--home-link-color:#d4d4d4;--home-link-hover-color:var(--primary-color);--home-link-hover-color:#e3272d;--input-focus-border:#83aaac;--label-text:#777;--nav-link-hover-bg:#111;--post-link-color:#0f070b;--text-color-meta:rgba(0,0,0,.5), height:100vh;}
 
-body{font-family:var(--font-body);scroll-behavior:smooth;width:100vw; padding-top:10px;}
+body{font-family:var(--font-body);scroll-behavior:smooth;width:100vw;}
 
 
 body.blogpost .backimage{z-index:-5;}
@@ -1198,7 +1198,7 @@ ul li{display:inline-block}
     position:fixed;
     width:100%;
     z-index: 2;
-    margin-top:10px;
+    margin-top:20px;
   }
 
 
@@ -1217,63 +1217,7 @@ ul li{display:inline-block}
 }
 
 
-$color: #254568;
-$main-width: 50rem;
 
-// How far of a scroll travel within <main> prior to the
-// link appearing
-$scrollLength: 100vh;
-
-
-.back-to-top-wrapper {
-  // uncomment to visualize "track"
-  // outline: 1px solid red;
-  position: absolute;
-  top: "$scrollLength";
-  right: 0.25rem;
-  bottom: -5em;
-  width: 3em;
-  pointer-events: none;
-}
-
-.back-to-top-link {
-  // `fixed` is fallback
-  position: fixed;
-  // preferred positioning, requires prefixing for most support, and not supported on Safari
-  // @link https://caniuse.com/#search=position%3A%20sticky
-  position: sticky;
-  // reinstate clicks
-  pointer-events: all;
-  // achieves desired positioning within the viewport
-  // relative to the top of the viewport once `sticky` takes over, or always if `fixed` fallback is used
-  top: calc(100vh - 5rem);
-
-  // basic styling
-  display: inline-block;
-  text-decoration: none;
-  font-size: 2rem;
-  line-height: 3rem;
-  text-align: center;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  padding: 0.25rem;
-
-  // "pretty" styles, including states
-  border: 1px solid $color;
-  background-color: scale-color($color, $lightness: 85%);
-  transition: transform 80ms ease-in;
-
-  &:hover,
-  &:focus {
-    transform: scale(1.1);
-  }
-
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px scale-color($color, $lightness: 35%);
-  }
-}
 
 
   #gobacker{position:fixed; top:58px ; right:1vw; z-index:11;}
@@ -1336,7 +1280,9 @@ body{background:#fff;color:#000}
 .horizontal-scroll{transform:rotate(-90deg) translateY(-100%);width:calc(100% + 1px)}
 .panels>*{margin:0 0 100%}
 body.homepage:before{display:none}
-// body:before{animation:fadeout 2s forwards;animation-delay:4s;background:rgba(0,0,0,.9);border:2px solid red;color:#cc0d0d;content:" ↻ PLEASE ROTATE YOUR DEVICE ↻";display:inline-block;display:grid;margin:80vh 0 0 15%;opacity:1;padding:10px;place-content:center;position:fixed;text-align:center;text-shadow:2px 2px 2px #333;width:70vw;z-index:3}
+
+// body:before{animation:fadeout 2s forwards;animation-delay:4s;background:rgba(0,0,0,.9);border:2px solid red;color:#cc0d0d;content:" ↻ PLEASE ROTATE YOUR DEVICE ↻";display:inline-block;display:grid;margin:30vh 15% 0 15%;opacity:1;padding:10px;place-content:center; justify-content:center; position:fixed;text-align:center;text-shadow:2px 2px 2px #333;width:70vw;z-index:3; height:10vh;}
+
 }
 
 @media(max-width:48rem) {
