@@ -104,50 +104,18 @@ const SearchPage = ({ data }) => {
 <>
 <div className="magicisland">
         <div className="cattags font">
-{showMagicCat ? (
-<>
-    {allCategories.length > 1 && (
-      <select value={selectedCategory} onChange={handleCategoryChange} style={{ background: '#222', outline: '1px solid #111', borderRadius: '3px', padding: '2px', minWidth:'80px', maxWidth:'30%', overflow:'hidden' }}>
-            <option value="">Category</option>
-            {allCategories.filter(category => category).map((category, index) => (
-              <option key={`${category}_${index}`} value={category.trim()}>
-                {category.trim()}
-              </option>
-            ))}
-        </select>
-      )}
-</>
-  ) : (
-    ""
-)}
-
-{showMagicTag ? (
-<>
-  {allTags.length > 1 && (
-    <select value={selectedTag} onChange={handleTagChange} style={{ background: '#222', outline: '1px solid #111', borderRadius: '3px', padding: '2px', minWidth:'80px', maxWidth:'30%', overflow:'hidden' }}>
-    <option value="">Keyword</option>
-    {allTags.filter(tag => tag).map((tag, index) => (
-      <option key={`${tag}_${index}`} value={tag.trim()}>
-        {tag.trim()}
-      </option>
-    ))}
-  </select>
-)}
-</>
-  ) : (
-    ""
-)}
 
 
-{showMagicSearch ? (
+
+
+
+
 <>
           <label style={{maxWidth:''}}>
-            <input id="clearme" type="text" placeholder="Search:" onChange={handleSearch} style={{ width: '', background: '#222', marginRight: '', outline: '1px solid #111', borderRadius: '3px', height: '', padding: '6px 6px', minWidth:'80px', maxWidth:'80%', lineHeight:'100%' }} />
+            <input id="clearme" type="text" placeholder="Search:" onChange={handleSearch} style={{ width: '300px', background: '#222', marginRight: '', outline: '1px solid #111', borderRadius: '3px', height: '', padding: '6px 6px', minWidth:'80px', maxWidth:'80%', lineHeight:'100%' }} />
           </label>
           </>
-  ) : (
-    ""
-)}
+
 
 <button type="reset" value="reset" onClick={() => clearfield(setFilteredPosts, setVisibleItems, allPosts, postcount, setSelectedCategory, setSelectedTag)} style={{ position: '', right: '', top: '', background: '#222', color: '#fff', textAlign: 'center', fontSize: '10px', height: '', maxWidth: '', outline: '1px solid #111', padding: '5px', borderRadius: '3px', lineHeight:'100%' }}>
   clear
