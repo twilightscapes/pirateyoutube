@@ -5,7 +5,7 @@ import Layout from "../components/siteLayout";
 import useSiteMetadata from "../hooks/SiteMetadata";
 import { ImPlay } from "react-icons/im";
 import { FaImage } from "react-icons/fa";
-import { AiOutlinePicLeft, AiFillDownSquare } from "react-icons/ai";
+import { AiOutlinePicLeft } from "react-icons/ai";
 import { StaticImage } from 'gatsby-plugin-image';
 import { Helmet } from "react-helmet";
 import TimeAgo from 'react-timeago';
@@ -26,29 +26,31 @@ const Category = ({ data, pageContext }) => {
 
 
 
-      <div>
-        <div className="selectArrow" style={{position:'fixed', top:'', left:'1%', right:'1%',  margin:'-55px auto 0 auto', zIndex:'3', display:'grid', placeSelf:'center',  padding:''}}>
-          <select
-            className="cattags"
-            style={{}}
-            onChange={(e) => {
-              const selectedCategory = e.target.value;
-              navigate(`/category/${selectedCategory}`);
-            }}
-            value={category}
-          >
-            <option value="">Categories:</option>
-            {categories.map((category) => (
-              <option key={category} value={category}>
-                {category}
-              </option>
-            ))}
-          </select>
 
-          <div style={{position:'absolute', right:'10px', top:'8px', height:'100%', color:'#fff', zIndex:'-1', fontSize:'30px'}}><AiFillDownSquare /></div>
-        </div>
+      <div className="magicisland">
+        <div className="cattags font">
+        <select
+          className=""
+          style={{ background: '#222', outline: '1px solid #111', borderRadius: '3px', padding: '2px', width:'380px', display:'block', margin:'0 1%', overflow:'hidden', height:'34px', lineHeight:'100%' }}
+          onChange={(e) => {
+            const selectedCategory = e.target.value;
+            navigate(`/category/${selectedCategory}`);
+          }}
+          value={category}
+        >
+          <option value="">Categories:</option>
+          {categories.map((category) => (
+            <option key={category} value={category}>
+              {category}
+            </option>
+          ))}
+        </select>
+        {/* <div style={{ position: 'absolute', right: '10px', top: '8px', height: '100%', color: '#fff', zIndex: '-1', fontSize: '30px' }}><AiFillDownSquare /></div> */}
+      </div>
+</div>
 
-        <div className="contentpanel grid-container" style={{ marginTop: "" }}>
+<div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: '', padding:'' }}>
+  
           <div className="sliderSpacer" style={{ height: "", paddingTop: "", display: "" }}></div>
 
           {posts.map(({ node }) => {
@@ -109,7 +111,7 @@ const Category = ({ data, pageContext }) => {
             );
           })}
         </div>
-      </div>
+
     </Layout>
   );
 };

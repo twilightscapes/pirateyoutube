@@ -5,7 +5,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/siteLayout"
 import { ImPlay } from "react-icons/im"
 import { FaImage } from "react-icons/fa"
-import { AiOutlinePicLeft, AiFillDownSquare } from "react-icons/ai"
+import { AiOutlinePicLeft } from "react-icons/ai"
 import { Helmet } from "react-helmet"
 import TimeAgo from 'react-timeago'
 import useSiteMetadata from "../hooks/SiteMetadata"
@@ -46,16 +46,17 @@ const TagIndex = ({ data }) => {
         
 
 
-        <div className="selectArrow" style={{position:'fixed', top:'', left:'1%', right:'1%',  margin:'0 auto 0 auto', zIndex:'3', display:'grid', placeSelf:'center',  padding:'',}}>
-          <select className="cattags" id="tag-select" value={selectedTag} onChange={handleTagChange}>
+      <div className="magicisland">
+        <div className="cattags font">
+          <select className="" id="tag-select" value={selectedTag} onChange={handleTagChange} style={{ background: '#222', outline: '1px solid #111', borderRadius: '3px', padding: '2px', width:'380px', display:'block', margin:'0 1%', overflow:'hidden', height:'34px', lineHeight:'100%' }}>
             <option value="">keyword:</option>
             {tags.map(tag => (
               <option key={tag} value={tag}>{tag}</option>
             ))}
           </select>
-          <div style={{position:'absolute', right:'10px', top:'8px', height:'100%', color:'#fff', zIndex:'-1', fontSize:'30px'}}><AiFillDownSquare /></div>
+          {/* <div style={{position:'absolute', right:'10px', top:'8px', height:'100%', color:'#fff', zIndex:'-1', fontSize:'30px'}}><AiFillDownSquare /></div> */}
         </div>
-
+</div>
        
 
         <div className="contentpanel grid-container" style={{justifyContent:'center', alignItems:'center', marginTop:'60px'}}>

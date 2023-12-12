@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { graphql, Link, navigate } from "gatsby";
 import useSiteMetadata from "../hooks/SiteMetadata";
-import { AiFillDownSquare } from "react-icons/ai";
+// import { AiFillDownSquare } from "react-icons/ai";
 import Layout from "../components/siteLayout";
 import { Helmet } from "react-helmet";
 
@@ -24,10 +24,11 @@ const CategoryIndex = ({ data, pageContext }) => {
       </Helmet>
 
 
-<div className="" style={{ position: 'fixed', top: '', left: '1%', right: '1%', maxWidth: '380px', margin: '0 auto 0 auto', zIndex: '3', display: 'grid', placeSelf: 'center', outline: '0px solid #999', borderRadius: '3px', padding: '', color: '' }}>
+      <div className="magicisland">
+        <div className="cattags font">
         <select
-          className="cattags"
-          style={{}}
+          className=""
+          style={{ background: '#222', outline: '1px solid #111', borderRadius: '3px', padding: '2px', width:'380px', display:'block', margin:'0 1%', overflow:'hidden', height:'34px', lineHeight:'100%' }}
           onChange={(e) => {
             const selectedCategory = e.target.value;
             navigate(`/category/${selectedCategory}`);
@@ -41,11 +42,11 @@ const CategoryIndex = ({ data, pageContext }) => {
             </option>
           ))}
         </select>
-        <div style={{ position: 'absolute', right: '10px', top: '8px', height: '100%', color: '#fff', zIndex: '-1', fontSize: '30px' }}><AiFillDownSquare /></div>
+        {/* <div style={{ position: 'absolute', right: '10px', top: '8px', height: '100%', color: '#fff', zIndex: '-1', fontSize: '30px' }}><AiFillDownSquare /></div> */}
       </div>
+</div>
 
-
-      <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: '60px', padding:'0 3vw' }}>
+      <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: '', padding:'0 3vw' }}>
 
         <div className="sliderSpacer" style={{ height: "", paddingTop: "", display: "" }}></div>
 

@@ -26,6 +26,8 @@ svgImage: /assets/null.svg
 showZoom: false
 showPageNav: false
 spotlight:
+category:
+tags:
 ---
 
 Yo-Ho, Yo-Ho... A Pirate's Life For Me...

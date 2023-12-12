@@ -230,7 +230,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 
 {showNav ? (
 
-<header className="header" style={{display:'block', height:'60px',}}>
+<header className="header" style={{display:'block', height:'51px',}}>
 
 
 

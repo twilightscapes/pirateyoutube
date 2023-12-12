@@ -12,10 +12,10 @@ import TimeAgo from 'react-timeago';
 import { MdArrowForwardIos } from 'react-icons/md';
 
 
-const SearchPage = ({ data }) => {
+const HomePage = ({ data }) => {
   const { showModals } = useSiteMetadata();
   const { showDates } = useSiteMetadata();
-  const { postcount } = useSiteMetadata();
+  const { homecount, postcount } = useSiteMetadata();
   const { magicOptions } = useSiteMetadata();
   const { showMagic, showMagicCat, showMagicTag, showMagicSearch } = magicOptions;
 
@@ -62,13 +62,6 @@ const SearchPage = ({ data }) => {
       const categoryMatch = category === "" || (Array.isArray(categories) ? categories.includes(category) : categories === category);
       const tagMatch = tag === "" || (tags && tags.includes(tag));
   
-      // console.log("Title:", title);
-      // console.log("Tags:", tags);
-      // console.log("Category:", categories);
-      // console.log("Is Title Match:", titleMatch);
-      // console.log("Is Category Match:", categoryMatch);
-      // console.log("Is Tag Match:", tagMatch);
-  
       return titleMatch && categoryMatch && tagMatch;
     }).slice(0, postcount);
   
@@ -76,18 +69,16 @@ const SearchPage = ({ data }) => {
     return filtered;
   };
 
-
-
-  const [visibleItems, setVisibleItems] = React.useState(postcount);
+  const [visibleItems, setVisibleItems] = React.useState(homecount);
 
   const showMoreItems = () => {
     setVisibleItems(visibleItems + postcount);
   };
 
-  function clearfield(setFilteredPosts, setVisibleItems, allPosts, postcount, setSelectedCategory, setSelectedTag) {
+  function clearfield(setFilteredPosts, setVisibleItems, allPosts, homecount, setSelectedCategory, setSelectedTag) {
     document.querySelector('#clearme').value = '';
-    setFilteredPosts(allPosts.slice(0, postcount));
-    setVisibleItems(postcount);
+    setFilteredPosts(allPosts.slice(0, homecount));
+    setVisibleItems(homecount);
     setSelectedCategory(""); // Reset selected category
     setSelectedTag("");
   }
@@ -100,18 +91,14 @@ const SearchPage = ({ data }) => {
 
 
 
-{showMagic ? (
+      {showMagic ? (
 <>
-<div className="magicisland" style={{ display: 'grid', placeSelf: 'center', margin: '0 auto', border: '0px solid red', position: 'fixed', zIndex: '3', top: '', left: '1%', right: '1%', maxWidth: '450px', padding: '0', fontFamily: 'var(--theme-ui-colors-fontFamily)' }}>
-
-        <div className="cattags" style={{ maxWidth: '', margin: '0px auto 0 auto', display: 'flex', justifyContent:'space-around', placeSelf: 'center', gap: '15px', outline: '1px solid #333', borderRadius: '3px', padding: '8px', color: '' }}>
-
-
-
+<div className="magicisland">
+        <div className="cattags font">
 {showMagicCat ? (
 <>
     {allCategories.length > 1 && (
-      <select value={selectedCategory} onChange={handleCategoryChange} style={{ background: '#222', border: '1px solid #000', borderRadius: '3px', padding: '2px', minWidth:'80px', maxWidth:'120px', overflow:'hidden' }}>
+      <select value={selectedCategory} onChange={handleCategoryChange} style={{ background: '#222', outline: '1px solid #111', borderRadius: '3px', padding: '2px', minWidth:'80px', maxWidth:'30%', overflow:'hidden' }}>
             <option value="">Category</option>
             {allCategories.filter(category => category).map((category, index) => (
               <option key={`${category}_${index}`} value={category.trim()}>
@@ -128,7 +115,7 @@ const SearchPage = ({ data }) => {
 {showMagicTag ? (
 <>
   {allTags.length > 1 && (
-    <select value={selectedTag} onChange={handleTagChange} style={{ background: '#222', border: '1px solid #000', borderRadius: '3px', padding: '2px', minWidth:'80px', maxWidth:'120px', overflow:'hidden' }}>
+    <select value={selectedTag} onChange={handleTagChange} style={{ background: '#222', outline: '1px solid #111', borderRadius: '3px', padding: '2px', minWidth:'80px', maxWidth:'30%', overflow:'hidden' }}>
     <option value="">Keyword</option>
     {allTags.filter(tag => tag).map((tag, index) => (
       <option key={`${tag}_${index}`} value={tag.trim()}>
@@ -145,24 +132,19 @@ const SearchPage = ({ data }) => {
 
 {showMagicSearch ? (
 <>
-          <label style={{}}>
-            <input id="clearme" type="text" placeholder="Search:" onChange={handleSearch} style={{ width: '', background: '#222', marginRight: '', border: '1px solid #000', borderRadius: '3px', height: '24px', padding: '14px', minWidth:'80px', maxWidth:'120px' }} />
-
-            
-            
+          <label style={{maxWidth:''}}>
+            <input id="clearme" type="text" placeholder="Search:" onChange={handleSearch} style={{ width: '', background: '#222', marginRight: '', outline: '1px solid #111', borderRadius: '3px', height: '', padding: '6px 6px', minWidth:'80px', maxWidth:'80%', lineHeight:'100%' }} />
           </label>
           </>
   ) : (
     ""
 )}
 
-<button type="reset" value="reset" onClick={() => clearfield(setFilteredPosts, setVisibleItems, allPosts, postcount, setSelectedCategory, setSelectedTag)} style={{ position: '', right: '', top: '', background: '#222', color: '#fff', textAlign: 'center', fontSize: '10px', height: '', maxWidth: '', border: '1px solid #000', padding: '5px', borderRadius: '3px' }}>
+<button type="reset" value="reset" onClick={() => clearfield(setFilteredPosts, setVisibleItems, allPosts, postcount, setSelectedCategory, setSelectedTag)} style={{ position: '', right: '', top: '', background: '#222', color: '#fff', textAlign: 'center', fontSize: '10px', height: '', maxWidth: '', outline: '1px solid #111', padding: '5px', borderRadius: '3px', lineHeight:'100%' }}>
   clear
 </button>
 
-<div style={{ position: '', right: '', top: '8px', textAlign: 'center', fontSize: '10px', color: '#fff' }}>{filteredPosts.length} <br />result{filteredPosts.length !== 1 && 's'}</div>
-
-
+<div style={{ position: '', right: '', top: '', textAlign: 'center', fontSize: '9px', color: '#fff', maxWidth:'' }}>{filteredPosts.length} <br />result{filteredPosts.length !== 1 && 's'}</div>
 
         </div>
       </div>
@@ -173,7 +155,7 @@ const SearchPage = ({ data }) => {
 
 
 
-      <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: '70px' }}>
+      <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: '' }}>
         <div className="sliderSpacer" style={{ height: '', paddingTop: '', display: '' }}></div>
 
 
@@ -242,10 +224,11 @@ const SearchPage = ({ data }) => {
 };
 
 export const pageQuery = graphql`
-  query pageUsersSitesssrcpagessearchindexJs3773404046 {
+  query ($homecount: Int) {
     allMarkdownRemark(
-      sort: {frontmatter: {date: DESC}}
+      sort: [{frontmatter: {spotlight: ASC}}, {frontmatter: {date: DESC}}]
       filter: {frontmatter: {template: {eq: "blog-post"}}}
+      limit: $homecount
     ) {
       edges {
         node {
@@ -272,4 +255,4 @@ export const pageQuery = graphql`
   }
 `;
 
-export default SearchPage;
+export default HomePage;

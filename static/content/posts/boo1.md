@@ -25,7 +25,7 @@ featuredImage: /assets/pirate-propaganda.webp
 svgImage: /assets/null.svg
 showZoom: false
 showPageNav: true
-spotlight: true
+spotlight:
 tags: 
  - poop
 category:
