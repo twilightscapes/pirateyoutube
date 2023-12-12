@@ -1,3 +1,29 @@
+// gatsby-browser.js
+import React from 'react';
+import { globalHistory } from '@reach/router';
+
+export const onInitialClientRender = () => {
+  // Scroll to the position saved in sessionStorage, if available
+  const scrollKey = `scrollY:${globalHistory.location.key}`;
+  const scrollY = sessionStorage.getItem(scrollKey);
+
+  if (scrollY !== null) {
+    window.scrollTo(0, parseInt(scrollY, 10));
+  }
+};
+
+export const shouldUpdateScroll = ({ routerProps: { location }, getSavedScrollPosition }) => {
+  // Save the scroll position in sessionStorage
+  const scrollKey = `scrollY:${location.key}`;
+  const scrollY = getSavedScrollPosition(scrollKey) || [0, 0];
+
+  sessionStorage.setItem(scrollKey, scrollY[1].toString());
+
+  return false;
+};
+
+
+
 // import { StoreProvider } from "./src/context/store-context";
 // import { AuthProvider } from "./src/AuthProvider";
 

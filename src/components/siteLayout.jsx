@@ -16,11 +16,11 @@ import Menu from "../components/menu"
 import userStyles from "../../static/data/userStyles.json"
 import SignUp from "../components/newssign"
 import BlueCheck from './bluecheck';
-// import Switch from "../components/Switch"
+
 import useNetlifyIdentity from '../components/useNetlifyIdentity';
 import { BsFillGrid3X2GapFill } from "react-icons/bs";
 import { PiHandSwipeRightFill } from "react-icons/pi";
-// import { window } from "browser-monads"
+import { window } from "browser-monads"
 const Layout = ({ children }) => {
 
 const [loggedIn, setLoggedIn] = useState(false);
@@ -69,6 +69,9 @@ const applyArchiveView = useCallback(() => {
   localStorage.setItem("archiveView", archiveView);
 }, [archiveView]);
 
+
+
+
 useEffect(() => {
   sessionStorage.setItem("currentScrollPos", window.pageYOffset)
   let prevScrollpos = window.pageYOffset;
@@ -102,6 +105,11 @@ useEffect(() => {
     window.removeEventListener("scroll", handleScroll);
   }
 }, [showNav2]);
+
+
+
+
+
 
 useEffect(() => {
   if (showSwipe) {
@@ -144,9 +152,9 @@ const toggleArchiveView = () => {
 
   
 
-const navStyle = {
-  bg: "",
-}
+// const navStyle = {
+//   bg: "",
+// }
 
 const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/g, '+') + "&display=swap";
 
@@ -210,9 +218,9 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
   
 
 
-<div className="upbar button" style={{position:'fixed', bottom:'20px', zIndex:'4', left:'', right:'1vw', display:'flex', justifyContent:'center', width:'auto', maxWidth:'80vw', margin:'0 auto', gap:'5vw', padding:'0', border:'1px solid #666', borderRadius:'', textShadow:'0 1px 1px rgba(0, 0, 0, .7)', fontSize:'', verticalAlign:'center', transform: 'translateY(200%)' }}>
+<div className="upbar button" style={{position:'fixed', bottom:'20px', zIndex:'14', left:'', right:'1vw', justifyContent:'center', width:'auto', maxWidth:'80vw', margin:'0 auto', gap:'5vw', padding:'0', borderRadius:'', textShadow:'0 1px 1px rgba(0, 0, 0, .7)', fontSize:'', verticalAlign:'center', transform: 'translateY(20%)' }}>
 
-<div className="uparrow" style={{display:'flex', flexDirection:'column', gap:'0', padding:'1vh 1vw', alignItems:'center', textAlign:'center'}}>
+<div className="uparrow" style={{display:'flex', flexDirection:'column', gap:'0', padding:'', alignItems:'center', textAlign:'center'}}>
   <a href="#top" onClick={(e) => {
   e.preventDefault();
   document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
@@ -262,7 +270,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 
 
 
-<ul className="topmenu" sx={navStyle} style={{ fontSize:'clamp(.6rem, 1.6vw, 1.8rem)',  textAlign:'center',maxHeight:'', display:'flex', justifyContent:'space-between', gap:'4vw',  alignItems:'center', margin:'0 auto 0 auto', padding:'1.5vh 2% 0 2%', border:'0px solid white',}}>
+<ul className="topmenu" style={{ fontSize:'clamp(.6rem, 1.6vw, 1.8rem)',  textAlign:'center',maxHeight:'', display:'flex', justifyContent:'space-between', gap:'4vw',  alignItems:'center', margin:'0 auto 0 auto', padding:'1.5vh 2% 0 2%', border:'0px solid white',}}>
       
 
 
