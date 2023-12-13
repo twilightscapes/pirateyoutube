@@ -17,14 +17,14 @@ import userStyles from "../../static/data/userStyles.json"
 import SignUp from "../components/newssign"
 import BlueCheck from './bluecheck';
 
-import useNetlifyIdentity from '../components/useNetlifyIdentity';
+// import useNetlifyIdentity from '../components/useNetlifyIdentity';
 import { BsFillGrid3X2GapFill } from "react-icons/bs";
 import { PiHandSwipeRightFill } from "react-icons/pi";
 import { window } from "browser-monads"
 const Layout = ({ children }) => {
 
-const [loggedIn, setLoggedIn] = useState(false);
-  useNetlifyIdentity(setLoggedIn);
+// const [loggedIn, setLoggedIn] = useState(false);
+//   useNetlifyIdentity(setLoggedIn);
 const { companyname } = useSiteMetadata()
 const { iconimage } = useSiteMetadata()
 const { image } = useSiteMetadata()
@@ -255,12 +255,13 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 </Link>
                         
 
-{loggedIn ? (
+{/* {loggedIn ? ( */}
+
   <div id="bluecheck" style={{position:'absolute', left:'1%', top:'22px', cursor:'pointer'}}><BlueCheck /></div>
                 ) : (
                   <div id="bluecheck" style={{position:'absolute', left:'1%', top:'22px', cursor:'pointer'}}><BlueCheck /></div>
                   
-                )}
+                {/* )} */}
 
 
 
