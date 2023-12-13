@@ -388,7 +388,7 @@ body.blogpost .gatsby-image-wrapper {
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 3vw;
   padding-bottom: 10vh;
-  margin:100px auto 0 auto !important;
+  margin:150px auto 0 auto !important;
   padding-top:0px;
   border:0px solid yellow;
   // grid-auto-flow: dense; /* Add this line */
@@ -1167,7 +1167,7 @@ ul li{display:inline-block}
     -webkit-appearance: none;
     appearance: none;
     cursor: pointer;
-
+    align-items: center;
     // font-size:18px; font-weight:600;
     font-size:clamp(.7rem,.9vw,1rem) !important;
  color:#fff;
@@ -1199,7 +1199,8 @@ ul li{display:inline-block}
     position:fixed;
     width:100%;
     z-index: 2;
-    margin-top:20px;
+    margin-top:30px;
+    align-items: center;
   }
 
 

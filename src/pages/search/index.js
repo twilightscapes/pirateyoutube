@@ -111,7 +111,7 @@ const SearchPage = ({ data }) => {
 
 
 <>
-          <label for="clearme" style={{maxWidth:''}}>
+          <label labelFor="clearme" style={{maxWidth:''}}>
             <input id="clearme" type="text" placeholder="Search:" onChange={handleSearch} style={{ width: '300px', background: '#222', marginRight: '', outline: '1px solid #111', borderRadius: '3px', height: '', padding: '6px 6px', minWidth:'80px', maxWidth:'80%', lineHeight:'100%' }} />
           </label>
           </>
