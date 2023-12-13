@@ -361,9 +361,9 @@ module.exports = {
       resolve: `gatsby-plugin-netlify-cms`,
       options: {
         modulePath: `${__dirname}/src/cms/cms.js`,
-        enableIdentityWidget: true,
+        enableIdentityWidget: false,
         publicPath: `admin`,
-        htmlTitle: `CMS`,
+        htmlTitle: `PIRATE CMS`,
         htmlFavicon: `static/assets/logo.svg`,
         includeRobots: false,
         logo_url: 'https://piratesocial.org/assets/logo.svg'
