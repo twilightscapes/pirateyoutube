@@ -11,7 +11,7 @@ backend:
 
 # Uncomment local_backend when you need to develop in your local
 local_backend: true # run npx netlify-cms-proxy-server for local testing
-logo_url: ../assets/pirate-logo-bw.svg
+logo_url: https://piratesocial.org/assets/pirate-logo-bw.svg
 media_folder: "static/assets"
 public_folder: "/assets"
 # publish_mode: editorial_workflow
