@@ -11,7 +11,7 @@
   [headers.values]
     Access-Control-Allow-Origin = "*"
     X-Frame-Options = "ALLOWALL"
-    Content-Security-Policy = "frame-ancestors 'self' https://www.youtube.com https://youtu.be"
+    Content-Security-Policy = "frame-ancestors *"
     Secure-Referrer-Policy = "origin-when-cross-origin"
 
 [[edge_functions]]
