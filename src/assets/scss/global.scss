@@ -388,8 +388,9 @@ body.blogpost .gatsby-image-wrapper {
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 3vw;
   padding-bottom: 10vh;
-  margin:70px auto 0 auto;
+  margin:100px auto 0 auto !important;
   padding-top:0px;
+  border:0px solid yellow;
   // grid-auto-flow: dense; /* Add this line */
 }
 
@@ -595,7 +596,7 @@ bottom: 10px !important;
 //   height:60px !important;
 // }
 
-.uparrow::after{content:" top "; color:#fff;}
+.uparrow::after{content:" top "; color:#fff; font-size: .7rem;}
 
 
 

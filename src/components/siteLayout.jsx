@@ -195,21 +195,30 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
   )}
 </ModalRoutingContext.Consumer>
 
-<div className="upbar button" style={{position:'fixed', bottom:'20px', zIndex:'14', left:'', right:'1vw', justifyContent:'center', width:'auto', maxWidth:'80vw', margin:'0 auto', gap:'5vw', padding:'0', borderRadius:'', textShadow:'0 1px 1px rgba(0, 0, 0, .7)', fontSize:'', verticalAlign:'center', transform: 'translateY(20%)' }}>
+{/* <div className="upbar button" style={{position:'fixed', top:'', right:'5vw', zIndex:'5', justifyContent:'center', width:'auto', maxWidth:'80vw', margin:'0 auto', gap:'5vw', padding:'0 4px', borderRadius:'', textShadow:'0 1px 1px rgba(0, 0, 0, .7)', fontSize:'', verticalAlign:'center', transform: '' }}>
 
 <div className="uparrow" style={{display:'flex', flexDirection:'column', gap:'0', padding:'', alignItems:'center', textAlign:'center'}}>
   <a href="#top" onClick={(e) => {
   e.preventDefault();
   document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
 }} aria-label="Link to Top" style={{cursor:'pointer', height:'', fontSize:''}}>
-  <RiArrowUpFill className="" style={{cursor:'pointer', color:'#ddd', fontSize:'3rem'}} />
+  <RiArrowUpFill className="" style={{cursor:'pointer', color:'#ddd', fontSize:'1rem'}} />
 </a>
 </div>
+</div> */}
+
+
+
+<div id="gobacker" style={{position:'fixed', top:'', right:'2vw', zIndex:'5', display:'flex', alignItems:'center', gap:''}}><GoBack />
+<a href="#top" onClick={(e) => {
+  e.preventDefault();
+  document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
+}} aria-label="Link to Top" style={{cursor:'pointer', display:'block', height:'', fontSize:''}}>
+<div className="uparrow button" style={{display:'flex', flexDirection:'column', gap:'0', padding:'0 10px', alignItems:'', textAlign:'center', borderRadius:'', textShadow:'0 1px 1px rgba(0, 0, 0, .7)', }}>
+  <RiArrowUpFill className="" style={{cursor:'pointer', color:'#ddd', fontSize:'1rem'}} />
 </div>
-
-
-
-<div id="gobacker" style={{position:'fixed', top:'', right:'1vw', zIndex:'5'}}><GoBack /></div>
+</a>
+</div>
 
 
 {showNav ? (

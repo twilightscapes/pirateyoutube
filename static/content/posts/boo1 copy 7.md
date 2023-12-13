@@ -1,7 +1,7 @@
 ---
 template: blog-post
 title: Boob
-slug: /boo1
+slug: /boo4
 date: 2023-10-01 09:00
 description: Experience the thrill of PIRATE
 youtube:
