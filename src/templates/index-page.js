@@ -10,7 +10,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import useSiteMetadata from "../hooks/SiteMetadata";
 import TimeAgo from 'react-timeago';
 import { MdArrowForwardIos } from 'react-icons/md';
-
+import Seo from "../components/seo"
 
 const HomePage = ({ data }) => {
   const { showModals } = useSiteMetadata();
@@ -89,7 +89,11 @@ const HomePage = ({ data }) => {
         <body id="body" className="homepage" />
       </Helmet>
 
-
+      <Seo
+          title={`Pirate`}
+          description={`Pirate is where it is at!`}
+          image={'https://piratesocial.org/assets/pirate-propaganda.webp'}
+        />
 
       {showMagic ? (
 <>

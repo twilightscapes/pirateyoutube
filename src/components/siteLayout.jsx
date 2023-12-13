@@ -152,22 +152,13 @@ const toggleArchiveView = () => {
 
   
 
-// const navStyle = {
-//   bg: "",
-// }
+
 
 const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/g, '+') + "&display=swap";
 
 
-
-
   return (
-
 <>
-
-
-
-
 <Helmet>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -180,22 +171,11 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
   `}</style>
 </Helmet>
 
-
-
-
-
-
-
 <Seo />
 
 
 <div id="top" name="pagetop"></div>
 
-
-
-
-
-  
 
 <ModalRoutingContext.Consumer>
   {({ modal, closeTo }) => (
@@ -215,9 +195,6 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
   )}
 </ModalRoutingContext.Consumer>
 
-  
-
-
 <div className="upbar button" style={{position:'fixed', bottom:'20px', zIndex:'14', left:'', right:'1vw', justifyContent:'center', width:'auto', maxWidth:'80vw', margin:'0 auto', gap:'5vw', padding:'0', borderRadius:'', textShadow:'0 1px 1px rgba(0, 0, 0, .7)', fontSize:'', verticalAlign:'center', transform: 'translateY(20%)' }}>
 
 <div className="uparrow" style={{display:'flex', flexDirection:'column', gap:'0', padding:'', alignItems:'center', textAlign:'center'}}>
@@ -232,7 +209,6 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 
 
 
-
 <div id="gobacker" style={{position:'fixed', top:'', right:'1vw', zIndex:'5'}}><GoBack /></div>
 
 
@@ -240,11 +216,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 
 <header className="header" style={{display:'block', height:'51px',}}>
 
-
-
 <div id="menu" className="menu print panel1 header" style={{position:'fixed', width:'100vw', top:'0', zIndex:'10', maxHeight:'', overFlow:'', boxShadow:'0 0 2px rgba(0,0,0,.7)', padding:'0 2%', alignItems:'start', borderRadius:'0', display:'flex', justifyContent:'space-around', gap:'10px', color:'#fff',  borderBottom:'1px solid #222',}}>
-
-
 
 <Link to="/" className="cornerlogo" name="homereturn" style={{position:'', display:'flex', marginLeft:'20px', alignItems:'center', justifyContent:'center', maxWidth:'', height:'60px', border:'0px solid transparent'}}  aria-label="Link to Top" title="Back to Top">
 {iconimage ? (
@@ -255,40 +227,11 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 </Link>
                         
 
-{/* {loggedIn ? ( */}
-
-  <div id="bluecheck" style={{position:'absolute', left:'1%', top:'22px', cursor:'pointer'}}><BlueCheck /></div>
-                {/* ) : ( */}
-                  <div id="bluecheck" style={{position:'absolute', left:'1%', top:'22px', cursor:'pointer'}}><BlueCheck /></div>
-                  
-                {/* )} */}
-
-
-
-          
-
-
-
+<div id="bluecheck" style={{position:'absolute', left:'1%', top:'22px', cursor:'pointer'}}><BlueCheck /></div>
 
 
 <ul className="topmenu" style={{ fontSize:'clamp(.6rem, 1.6vw, 1.8rem)',  textAlign:'center',maxHeight:'', display:'flex', justifyContent:'space-between', gap:'4vw',  alignItems:'center', margin:'0 auto 0 auto', padding:'1.5vh 2% 0 2%', border:'0px solid white',}}>
-      
-
-
-
-
-
-    
-
-
-                  <Menu />
-
-
-
-
-
-
-
+<Menu />
 </ul>
 
 <div id="missioncontrol" className="missioncontrol sitecontrols" style={{display:'flex', justifyContent:'space-around', fontSize:'clamp(.8rem, 2.3vw, 2.5rem)', gap:'3vw', textAlign:'center', maxHeight:'', alignItems:'center', paddingTop:'5px'}}>
@@ -310,7 +253,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
         </div>
 
   
-        {showSwipe ? (
+  {showSwipe ? (
         <div>
             <button
                 aria-label="Grid/Swipe View"
@@ -342,14 +285,8 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 
 
 </div>
-      
-
-        
-           
-      
-
-            </div>
-            </header>
+</div>
+</header>
 
 ) : (
   ""
@@ -373,7 +310,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 {iconimage ? (
       <img className="" src={iconimage} alt={companyname} width="120" height="60" style={{maxHeight:'60px', maxWidth:'120px', border:'none'}} />
                 ) : (
-                  <div style={{fontWeight:'bold', fontSize:'clamp(1.3rem, 2vw, 1rem)'}}>{companyname}</div>
+      <div style={{fontWeight:'bold', fontSize:'clamp(1.3rem, 2vw, 1rem)'}}>{companyname}</div>
                 )}
 </div>
   </label>
@@ -395,11 +332,8 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
     </li>
       
 
-
-
        <Menu />
                   
-
 
 <li>
 <ul className="missioncontrol sitecontrols" style={{display:'flex', justifyContent:'space-around', fontSize:'clamp(.8rem, 2.3vw, 2.5rem)', gap:'', textAlign:'center', maxHeight:'', alignItems:'center', paddingTop:'5px'}}>
@@ -483,7 +417,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
   top:'15vh',
   left:'20vw',
   right:'20vw',
-  zIndex:'1',
+  zIndex:'10',
   margin:'70px auto 0 auto',
   padding:' 0',
   maxWidth:'500px',
