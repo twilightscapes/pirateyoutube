@@ -230,7 +230,7 @@ const HomePage = ({ data }) => {
                     alt={node.frontmatter.title + " - Featured image"}
                     className="featured-image1"
                     placeholder="blurred"
-                    loading="eager"
+                    // loading="eager"
                     style={{ position: 'relative', zIndex: '1', maxHeight: '', margin: '0 auto' }}
                   />
                 ) : (
