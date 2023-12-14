@@ -95,50 +95,11 @@ const HomePage = ({ data }) => {
         <body id="body" className="homepage" />
       </Helmet>
 
-      {/* <Seo
-        title={`This is manual tital`}
-        description={`this is a manual description`}
-        image={Image}
-      /> */}
-
-<Seo
-title={frontmatter.title}
-description={frontmatter.description ? frontmatter.description : excerpt}
-image={getSrc(frontmatter.featuredImage)}
-/>
-
-      {/* {Image ? (
-        <GatsbyImage
-          image={Image}
-          alt={frontmatter.title + " - Featured image"}
-          className="featured-image1 layer1"
-          style={{
-            height: 'auto',
-            width: '100vw',
-            maxHeight: '',
-            position: 'absolute',
-            top: '',
-            zIndex: '0',
-            objectFit: 'contain',
-            overflow: '',
-            border: '0px solid red !important'
-          }}
-        />
-      ) : (
-        <StaticImage
-          src="../../static/assets/default-og-image.jpg"
-          alt="Twilightscapes Default Image"
-          style={{
-            height: 'auto',
-            maxHeight: '100vh',
-            position: 'absolute',
-            zIndex: '0',
-            top: '0',
-            border: '0px solid !important',
-            objectFit: 'contain',
-          }}
-        />
-      )} */}
+      <Seo
+        title={frontmatter.title}
+        description={frontmatter.description ? frontmatter.description : excerpt}
+        image={getSrc(frontmatter.featuredImage)}
+      />
 
       {showMagic ? (
         <>
@@ -295,7 +256,7 @@ image={getSrc(frontmatter.featuredImage)}
                       <div style={{ display: 'flex', justifyContent: 'space-around', gap: '2vw', color: 'fff', }}>
                         <FaImage className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
                         <ImPlay className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
-                        <AiOutlinePicLeft className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
+                        <AiOutlinePicLeft className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px, fontSize: ""' }} />
                       </div>
                       Play Multimedia
                     </div>
@@ -371,19 +332,6 @@ export const pageQuery = graphql`
             gatsbyImageData
           }
         }
-      }
-    }
-    site {
-      siteMetadata {
-        title
-        titleDefault
-        siteUrl
-        description
-        image
-        twitterUsername
-        companyname
-        showNav
-        showDates
       }
     }
   }
