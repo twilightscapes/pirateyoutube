@@ -29,7 +29,7 @@ profText: >-
 
   <p>Easily edit your homepage, update your profile, and publish engaging content on your OWN website/app.</p>
 tagline: You're the Captain of your content!
-featuredImage: /assets/pirate-propaganda.webp
+featuredImage: /assets/losser.webp
 secondaryImage: /assets/default-user.webp
 scrollable: false
 portfolio:
