@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { graphql, Link } from "gatsby";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import { ImPlay } from "react-icons/im";
@@ -10,7 +10,7 @@ import useSiteMetadata from "../hooks/SiteMetadata";
 import TimeAgo from 'react-timeago';
 import { MdArrowForwardIos } from 'react-icons/md';
 import Seo from "../components/seo";
-import { getSrc } from "gatsby-plugin-image"
+import { getSrc } from "gatsby-plugin-image";
 
 const HomePage = ({ data }) => {
   const { showModals, showDates, homecount, postcount, magicOptions } = useSiteMetadata();
@@ -18,19 +18,12 @@ const HomePage = ({ data }) => {
 
   const { markdownRemark, posts } = data;
   const { frontmatter, excerpt } = markdownRemark;
-  const Image = frontmatter.featuredImage
-    ? frontmatter.featuredImage.childImageSharp
-      ? frontmatter.featuredImage.childImageSharp.gatsbyImageData
-      : null
-    : null;
-
-  const { siteUrl } = useSiteMetadata()
 
   const allPosts = data.allMarkdownRemark.edges;
-  const [query, setQuery] = React.useState("");
-  const [filteredPosts, setFilteredPosts] = React.useState(allPosts);
-  const [selectedCategory, setSelectedCategory] = React.useState("");
-  const [selectedTag, setSelectedTag] = React.useState("");
+  const [query, setQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedTag, setSelectedTag] = useState("");
+  const [visibleItems, setVisibleItems] = useState(homecount);
 
   const allCategoriesSet = new Set(allPosts.flatMap(({ node }) => node.frontmatter.category));
   const allCategories = Array.from(allCategoriesSet);
@@ -38,55 +31,55 @@ const HomePage = ({ data }) => {
   const allTagsSet = new Set(allPosts.flatMap(({ node }) => node.frontmatter.tags));
   const allTags = Array.from(allTagsSet);
 
+  const filteredPosts = allPosts.filter(({ node }) => {
+    const { title, tags, category: categories } = node.frontmatter;
+    const titleMatch = query === "" || title.toLowerCase().includes(query.toLowerCase());
+    const categoryMatch = selectedCategory === "" || (Array.isArray(categories) ? categories.includes(selectedCategory) : categories === selectedCategory);
+    const tagMatch = selectedTag === "" || (tags && tags.includes(selectedTag));
+
+    return titleMatch && categoryMatch && tagMatch;
+  });
+
+  useEffect(() => {
+    setVisibleItems(homecount);
+  }, [filteredPosts, homecount]);
+
   const handleSearch = (event) => {
     const query = event.target.value;
     setQuery(query);
-    const filteredPosts = filterPosts(query, selectedCategory, selectedTag);
-    setFilteredPosts(filteredPosts);
+    setVisibleItems(homecount);
   };
 
-  const handleCategoryChange = event => {
+  const handleCategoryChange = (event) => {
     const category = event.target.value;
     setSelectedCategory(category);
     setSelectedTag("");
-    const filteredPosts = filterPosts(query, category, "");
-    setFilteredPosts(filteredPosts);
+    setVisibleItems(homecount);
   };
 
-  const handleTagChange = event => {
+  const handleTagChange = (event) => {
     const tag = event.target.value;
     setSelectedTag(tag);
     setSelectedCategory("");
-    const filteredPosts = filterPosts(query, "", tag);
-    setFilteredPosts(filteredPosts);
+    setVisibleItems(homecount);
   };
 
-  const filterPosts = (query, category, tag) => {
-    const filtered = allPosts.filter(({ node }) => {
-      const { title, tags, category: categories } = node.frontmatter;
-      const titleMatch = query === "" || title.toLowerCase().includes(query.toLowerCase());
-      const categoryMatch = category === "" || (Array.isArray(categories) ? categories.includes(category) : categories === category);
-      const tagMatch = tag === "" || (tags && tags.includes(tag));
-
-      return titleMatch && categoryMatch && tagMatch;
-    }).slice(0, postcount);
-
-    console.log("Filtered Posts:", filtered);
-    return filtered;
-  };
-
-  const [visibleItems, setVisibleItems] = React.useState(homecount);
+  const [numVisibleItems, setNumVisibleItems] = useState(homecount);
 
   const showMoreItems = () => {
-    setVisibleItems(visibleItems + postcount);
+    setNumVisibleItems((prevNumVisibleItems) => {
+      const newVisibleItems = prevNumVisibleItems + postcount;
+      return newVisibleItems <= filteredPosts.length ? newVisibleItems : prevNumVisibleItems;
+    });
   };
+  
 
-  function clearfield(setFilteredPosts, setVisibleItems, allPosts, homecount, setSelectedCategory, setSelectedTag) {
+  function clearfield() {
     document.querySelector('#clearme').value = '';
-    setFilteredPosts(allPosts.slice(0, homecount));
+    setQuery('');
+    setSelectedCategory('');
+    setSelectedTag('');
     setVisibleItems(homecount);
-    setSelectedCategory(""); // Reset selected category
-    setSelectedTag("");
   }
 
   return (
@@ -193,7 +186,7 @@ const HomePage = ({ data }) => {
               <button
                 type="reset"
                 value="reset"
-                onClick={() => clearfield(setFilteredPosts, setVisibleItems, allPosts, postcount, setSelectedCategory, setSelectedTag)}
+                onClick={clearfield}
                 style={{
                   position: '',
                   right: '',
@@ -227,7 +220,7 @@ const HomePage = ({ data }) => {
       <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: '' }}>
         <div className="sliderSpacer" style={{ height: '', paddingTop: '', display: '' }}></div>
 
-        {filteredPosts.slice(0, visibleItems).map(({ node }, index) => (
+        {filteredPosts.slice(0, numVisibleItems).map(({ node }, index) => (
           <div key={index} className="post-card1" style={{ alignItems: 'center' }}>
             <Link className="postlink" state={showModals ? { modal: true } : {}} key={node.frontmatter.slug} to={node.frontmatter.slug}>
               <div>
@@ -275,7 +268,7 @@ const HomePage = ({ data }) => {
           </div>
         ))}
 
-        {visibleItems < data.allMarkdownRemark.edges.length && (
+        {visibleItems < filteredPosts.length && (
           <div className="" style={{ display: 'grid', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', placeContent: 'center', gap: '', height: '', textAlign: 'center' }}>
             <button className="button load-more" onClick={showMoreItems}>
               Load more
@@ -283,6 +276,7 @@ const HomePage = ({ data }) => {
             <Link to="/archive" style={{ background: 'rgba(0, 0, 0, 0.8)', borderRadius: '5px', color: '#fff', display: 'flex', padding: '0 1vh', margin: '0 auto' }}>View Archive &nbsp;<MdArrowForwardIos style={{ marginTop: '4px' }} /></Link>
           </div>
         )}
+
       </div>
     </Layout>
   );
