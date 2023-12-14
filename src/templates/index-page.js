@@ -14,9 +14,9 @@ import { getSrc } from "gatsby-plugin-image";
 
 const HomePage = ({ data }) => {
   const { showModals, showDates, homecount, postcount, magicOptions } = useSiteMetadata();
-  const { showMagic, showMagicCat, showMagicTag, showMagicSearch } = magicOptions;
+  const { showMagic, showMagicCat, showMagicTag, showMagicSearch, showNav } = magicOptions;
 
-  const { markdownRemark, posts } = data;
+  const { markdownRemark } = data;
   const { frontmatter, excerpt } = markdownRemark;
 
   const allPosts = data.allMarkdownRemark.edges;
@@ -221,7 +221,11 @@ const HomePage = ({ data }) => {
         ""
       )}
 
-      <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: '' }}>
+
+<div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: showNav ? '' : '7vh' }}>
+
+
+
         <div className="sliderSpacer" style={{ height: '', paddingTop: '', display: '' }}></div>
 
         {filteredPosts.slice(0, numVisibleItems).map(({ node }, index) => (
