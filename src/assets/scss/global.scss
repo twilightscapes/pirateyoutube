@@ -252,7 +252,7 @@ header.header {height:0;}
 body.homepage .timeago{display:none !important;}
 
 
-body.homepage #gobacker, body.social #gobacker{display: none;}
+body.homepage #gobacker, body.social #gobacker{display: none !important;}
 
 
 body{overflow-x:hidden; overflow-y:auto !important;}
@@ -637,7 +637,7 @@ border:1px solid #685766;color:#ccc;height:auto;padding:1vh 3vw}
 .button{align-items:center;align-self:center;
   background:var(--theme-ui-colors-siteColor); 
   border:1px solid #000;
-  border-radius:6px;
+  border-radius:3px;
   color:#fff !important;
   display:inline-flex;font-weight:700;height:auto;justify-content:center;margin:2vh 1vw;padding:1vh 3vw;text-shadow:2px 2px 2px #000; opacity:.9;}
 

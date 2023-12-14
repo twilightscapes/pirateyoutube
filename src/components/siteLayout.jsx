@@ -214,8 +214,8 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
   e.preventDefault();
   document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
 }} aria-label="Link to Top" style={{cursor:'pointer', display:'block', height:'', fontSize:''}}>
-<div className="uparrow1 button" style={{display:'flex', flexDirection:'column', gap:'0', padding:'0', alignItems:'', textAlign:'center', borderRadius:'', textShadow:'0 1px 1px rgba(0, 0, 0, .7)', }}>
-  <RiArrowUpFill className="" style={{cursor:'pointer', color:'#ddd', fontSize:'28px'}} />
+<div className="uparrow1 button" style={{display:'flex', flexDirection:'column', gap:'0', padding:'0', alignItems:'', textAlign:'center', borderRadius:'3px', textShadow:'0 1px 1px rgba(0, 0, 0, .7)', }}>
+  <RiArrowUpFill className="" style={{cursor:'pointer', backgroundColor:'rgba(0,0,0,.9)', color:'#ddd', fontSize:'28px'}} />
 </div>
 </a>
 </div>
