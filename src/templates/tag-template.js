@@ -60,7 +60,7 @@ const Tag = ({ data, pageContext }) => {
 
       <section id="showPosts" style={{marginTop:''}}>
 
-      <div className='contentpanel grid-container' style={{ marginTop: '0' }}>
+      <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: '' }}>
         <div className='sliderSpacer' style={{ height: '', paddingTop: '0', display: 'none' }}></div>
 
         {filteredPosts.map(({ node }) => {

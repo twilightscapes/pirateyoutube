@@ -59,7 +59,7 @@ const TagIndex = ({ data }) => {
 </div>
        
 
-        <div className="contentpanel grid-container" style={{justifyContent:'center', alignItems:'center', marginTop:'60px'}}>
+<div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: '' }}>
           <div className="sliderSpacer" style={{ height: "", paddingTop: "", display: "" }}></div>
    
           {data.allMarkdownRemark.edges &&
