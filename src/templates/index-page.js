@@ -113,6 +113,7 @@ const HomePage = ({ data }) => {
                         maxWidth: '30%',
                         overflow: 'hidden',
                       }}
+                      aria-label="Select Category"
                     >
                       <option value="">Category</option>
                       {allCategories.filter(category => category).map((category, index) => (
@@ -142,6 +143,7 @@ const HomePage = ({ data }) => {
                         maxWidth: '30%',
                         overflow: 'hidden',
                       }}
+                      aria-label="Select Keyword"
                     >
                       <option value="">Keyword</option>
                       {allTags.filter(tag => tag).map((tag, index) => (
@@ -176,6 +178,7 @@ const HomePage = ({ data }) => {
                         maxWidth: '80%',
                         lineHeight: '100%',
                       }}
+                      aria-label="Search"
                     />
                   </label>
                 </>
@@ -202,6 +205,7 @@ const HomePage = ({ data }) => {
                   borderRadius: '3px',
                   lineHeight: '100%',
                 }}
+                aria-label="Clear"
               >
                 clear
               </button>
