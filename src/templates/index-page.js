@@ -67,11 +67,9 @@ const HomePage = ({ data }) => {
   const [numVisibleItems, setNumVisibleItems] = useState(homecount);
 
   const showMoreItems = () => {
-    setNumVisibleItems((prevNumVisibleItems) => {
-      const newVisibleItems = prevNumVisibleItems + postcount;
-      return newVisibleItems <= filteredPosts.length ? newVisibleItems : prevNumVisibleItems;
-    });
+    setNumVisibleItems((prevNumVisibleItems) => prevNumVisibleItems + postcount);
   };
+  
   
 
   function clearfield() {
@@ -222,7 +220,7 @@ const HomePage = ({ data }) => {
       )}
 
 
-<div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: showNav ? '' : '10vh' }}>
+<div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: showNav ? '' : '7vh' }}>
 
 
 
@@ -276,14 +274,17 @@ const HomePage = ({ data }) => {
           </div>
         ))}
 
-        {visibleItems < filteredPosts.length && (
-          <div className="" style={{ display: 'grid', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', placeContent: 'center', gap: '', height: '', textAlign: 'center' }}>
-            <button className="button load-more" onClick={showMoreItems}>
-              Load more
-            </button>
-            <Link to="/archive" style={{ background: 'rgba(0, 0, 0, 0.8)', borderRadius: '5px', color: '#fff', display: 'flex', padding: '0 1vh', margin: '0 auto' }}>View Archive &nbsp;<MdArrowForwardIos style={{ marginTop: '4px' }} /></Link>
-          </div>
-        )}
+{numVisibleItems < filteredPosts.length && (
+  <div className="" style={{ display: 'grid', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', placeContent: 'center', gap: '', height: '', textAlign: 'center' }}>
+    <button className="button load-more" onClick={showMoreItems}>
+      Load more
+    </button>
+    <Link to="/archive" style={{ background: 'rgba(0, 0, 0, 0.8)', borderRadius: '5px', color: '#fff', display: 'flex', padding: '0 1vh', margin: '0 auto' }}>View Archive &nbsp;<MdArrowForwardIos style={{ marginTop: '4px' }} /></Link>
+  </div>
+)}
+
+
+
 
       </div>
     </Layout>
