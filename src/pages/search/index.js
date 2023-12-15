@@ -9,43 +9,15 @@ import { Helmet } from "react-helmet";
 import useSiteMetadata from "../../hooks/SiteMetadata";
 import TimeAgo from 'react-timeago';
 import { MdArrowForwardIos } from 'react-icons/md';
+import Seo from "../../components/seo";
+import { getSrc } from "gatsby-plugin-image";
 
-const SearchPage = () => {
-  const { showModals, showDates, postcount, magicOptions } = useSiteMetadata();
+const SearchPage = ({ data }) => {
+  const { showModals, showDates, postcount, magicOptions, showNav, showArchive  } = useSiteMetadata();
   const { showMagic, showMagicCat, showMagicTag, showMagicSearch } = magicOptions;
 
-  const data = useStaticQuery(graphql`
-  query {
-    allMarkdownRemark(
-      sort: [{ frontmatter: { spotlight: ASC } }, { frontmatter: { date: DESC } }]
-      filter: { frontmatter: { template: { eq: "blog-post" } } }
-      limit: 1000
-    ) {
-      edges {
-        node {
-          id
-          excerpt(pruneLength: 250)
-          frontmatter {
-            title
-            date(formatString: "YYYY-MM-DD-HH-MM-SS")
-            youtube {
-              youtuber
-            }
-            featuredImage {
-              childImageSharp {
-                gatsbyImageData(placeholder: BLURRED, layout: CONSTRAINED)
-              }
-            }
-            category
-            tags
-            slug
-          }
-        }
-      }
-    }
-  }
-`);
-
+  const { markdownRemark } = data;
+  const { frontmatter, excerpt } = markdownRemark;
 
   const allPosts = data.allMarkdownRemark.edges;
   const [query, setQuery] = useState("");
@@ -95,11 +67,10 @@ const SearchPage = () => {
   const [numVisibleItems, setNumVisibleItems] = useState(postcount);
 
   const showMoreItems = () => {
-    setNumVisibleItems((prevNumVisibleItems) => {
-      const newVisibleItems = prevNumVisibleItems + postcount;
-      return newVisibleItems <= filteredPosts.length ? newVisibleItems : prevNumVisibleItems;
-    });
+    setNumVisibleItems((prevNumVisibleItems) => prevNumVisibleItems + postcount);
   };
+  
+  
 
   function clearfield() {
     document.querySelector('#clearme').value = '';
@@ -115,8 +86,13 @@ const SearchPage = () => {
         <body id="body" className="homepage" />
       </Helmet>
 
-      {showMagic ? (
-        <>
+      <Seo
+        title={frontmatter.title}
+        description={frontmatter.description ? frontmatter.description : excerpt}
+        image={getSrc(frontmatter.featuredImage)}
+      />
+
+
           <div className="magicisland">
             <div className="cattags font">
               {showMagicCat ? (
@@ -134,6 +110,7 @@ const SearchPage = () => {
                         maxWidth: '30%',
                         overflow: 'hidden',
                       }}
+                      aria-label="Select Category"
                     >
                       <option value="">Category</option>
                       {allCategories.filter(category => category).map((category, index) => (
@@ -163,6 +140,7 @@ const SearchPage = () => {
                         maxWidth: '30%',
                         overflow: 'hidden',
                       }}
+                      aria-label="Select Keyword"
                     >
                       <option value="">Keyword</option>
                       {allTags.filter(tag => tag).map((tag, index) => (
@@ -197,6 +175,7 @@ const SearchPage = () => {
                         maxWidth: '80%',
                         lineHeight: '100%',
                       }}
+                      aria-label="Search"
                     />
                   </label>
                 </>
@@ -223,6 +202,7 @@ const SearchPage = () => {
                   borderRadius: '3px',
                   lineHeight: '100%',
                 }}
+                aria-label="Clear"
               >
                 clear
               </button>
@@ -233,12 +213,13 @@ const SearchPage = () => {
               </div>
             </div>
           </div>
-        </>
-      ) : (
-        ""
-      )}
 
-      <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: '' }}>
+
+
+<div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: showNav ? '' : '7vh' }}>
+
+
+
         <div className="sliderSpacer" style={{ height: '', paddingTop: '', display: '' }}></div>
 
         {filteredPosts.slice(0, numVisibleItems).map(({ node }, index) => (
@@ -251,7 +232,7 @@ const SearchPage = () => {
                     alt={node.frontmatter.title + " - Featured image"}
                     className="featured-image1"
                     placeholder="blurred"
-                    loading="eager"
+                    // loading="eager"
                     style={{ position: 'relative', zIndex: '1', maxHeight: '', margin: '0 auto' }}
                   />
                 ) : (
@@ -289,18 +270,78 @@ const SearchPage = () => {
           </div>
         ))}
 
-        {visibleItems < filteredPosts.length && (
-          <div className="" style={{ display: 'grid', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', placeContent: 'center', gap: '', height: '', textAlign: 'center' }}>
-            <button className="button load-more" onClick={showMoreItems}>
-              Load more
-            </button>
-            <Link to="/archive" style={{ background: 'rgba(0, 0, 0, 0.8)', borderRadius: '5px', color: '#fff', display: 'flex', padding: '0 1vh', margin: '0 auto' }}>View Archive &nbsp;<MdArrowForwardIos style={{ marginTop: '4px' }} /></Link>
-          </div>
-        )}
+{numVisibleItems < filteredPosts.length && (
+  <div className="loadmore" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', placeSelf: 'center', gap: '',  textAlign: 'center' }}>
+
+    <button className="button load-more" onClick={showMoreItems} style={{maxWidth:''}}>
+      Load more
+    </button>
+
+    {showArchive ? (
+  <Link to="/archive" style={{ background: 'rgba(0, 0, 0, 0.8)', borderRadius: '5px', color: '#fff', display: 'flex', padding: '0 1vh', margin: '0 auto' }}>View Archive &nbsp;<MdArrowForwardIos style={{ marginTop: '4px' }} /></Link>
+) : (
+""
+)}
+  </div>
+)}
+
+
+
+
+
 
       </div>
     </Layout>
   );
 };
+
+export const pageQuery = graphql`
+  query ($postcount: Int) {
+    allMarkdownRemark(
+      sort: [{ frontmatter: { spotlight: ASC } }, { frontmatter: { date: DESC } }]
+      filter: { frontmatter: { template: { eq: "blog-post" } } }
+      limit: $postcount
+    ) {
+      edges {
+        node {
+          id
+          excerpt(pruneLength: 250)
+          frontmatter {
+            title
+            date(formatString: "YYYY-MM-DD-HH-MM-SS")
+            youtube {
+              youtuber
+            }
+            featuredImage {
+              childImageSharp {
+                gatsbyImageData(placeholder: BLURRED, layout: CONSTRAINED)
+              }
+            }
+            category
+            tags
+            slug
+          }
+        }
+      }
+    }
+    markdownRemark {
+      id
+      html
+      excerpt(pruneLength: 148)
+      frontmatter {
+        date(formatString: "YYYY-MM-DD-HH-MM-SS")
+        slug
+        title
+        description
+        featuredImage {
+          publicURL
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default SearchPage;
