@@ -22,6 +22,7 @@ const useSiteMetadata = () => {
           postcount
           homecount
           font1
+          showArchive
           magicOptions {
             showMagic
             showMagicCat

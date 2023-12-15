@@ -13,8 +13,8 @@ import Seo from "../components/seo";
 import { getSrc } from "gatsby-plugin-image";
 
 const HomePage = ({ data }) => {
-  const { showModals, showDates, homecount, postcount, magicOptions } = useSiteMetadata();
-  const { showMagic, showMagicCat, showMagicTag, showMagicSearch, showNav } = magicOptions;
+  const { showModals, showDates, homecount, postcount, magicOptions, showNav, showArchive  } = useSiteMetadata();
+  const { showMagic, showMagicCat, showMagicTag, showMagicSearch } = magicOptions;
 
   const { markdownRemark } = data;
   const { frontmatter, excerpt } = markdownRemark;
@@ -276,12 +276,20 @@ const HomePage = ({ data }) => {
 
 {numVisibleItems < filteredPosts.length && (
   <div className="loadmore" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', placeSelf: 'center', gap: '',  textAlign: 'center' }}>
+
     <button className="button load-more" onClick={showMoreItems} style={{maxWidth:''}}>
       Load more
     </button>
-    <Link to="/archive" style={{ background: 'rgba(0, 0, 0, 0.8)', borderRadius: '5px', color: '#fff', display: 'flex', padding: '0 1vh', margin: '0 auto' }}>View Archive &nbsp;<MdArrowForwardIos style={{ marginTop: '4px' }} /></Link>
+
+    {showArchive ? (
+  <Link to="/archive" style={{ background: 'rgba(0, 0, 0, 0.8)', borderRadius: '5px', color: '#fff', display: 'flex', padding: '0 1vh', margin: '0 auto' }}>View Archive &nbsp;<MdArrowForwardIos style={{ marginTop: '4px' }} /></Link>
+) : (
+""
+)}
   </div>
 )}
+
+
 
 
 

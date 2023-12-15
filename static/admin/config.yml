@@ -342,6 +342,10 @@ collections:
                 label: Show Swipe Icon
                 required: false
 
+              - widget: boolean
+                name: showArchive 
+                label: Show Archive link under "Load More" button
+                required: false
 
 
 

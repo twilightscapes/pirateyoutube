@@ -23,6 +23,7 @@
       "showMagicTag": true,
       "showMagicSearch": true
     },
+    "showArchive": true,
     "titleTemplate": "%s",
     "title": "PIRATE SOCIAL",
     "image": "/assets/pirate-logo.svg",
