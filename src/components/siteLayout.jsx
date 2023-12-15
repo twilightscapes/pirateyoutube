@@ -210,7 +210,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 
 
 
-<div id="gobacker" style={{position:'fixed', bottom:'0', right:'1vw', zIndex:'5', display:'flex', flexDirection:'column', alignItems:'center', gap:'', border:'0px solid yellow', justifyContent:'flex-end', paddingBottom:'1vh',  }}>
+<div id="gobacker" style={{position:'fixed', bottom:'0', right:'0', zIndex:'5', display:'flex', flexDirection:'column', alignItems:'center', gap:'', border:'0px solid yellow', justifyContent:'flex-end', paddingBottom:'1vh',  }}>
   
   <GoBack />
 
