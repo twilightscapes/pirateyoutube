@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .horizontal-scroll {
+      display: flex;
+      overflow-x: scroll;
+      -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+    }
+
+    .slider {
+      display: flex;
+      scroll-snap-type: x mandatory;
+      flex-shrink: 0;
+      width: 100vw; /* Set the width of each post-card1 to the viewport width */
+    }
+
+    .post-card1 {
+      flex: 0 0 100%;
+      min-height: 100vh;
+      border: 1px solid #ddd;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: grid;
+      place-content: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="horizontal-scroll">
+  <div class="slider">
+    <div class="post-card1" style="background-color: #ff0000; color:#ddd;">post-card1 1</div>
+    <div class="post-card1" style="background-color: #2b61a8; color:#ddd;">post-card1 2</div>
+    <div class="post-card1" style="background-color: #156e5e; color:#ddd;">post-card1 3</div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector(".horizontal-scroll").addEventListener("wheel", function (event) {
+      event.preventDefault();
+      this.scrollLeft += event.deltaY;
+    });
+  });
+</script>
+
+</body>
+</html>
