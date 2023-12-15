@@ -11,37 +11,6 @@ import TimeAgo from 'react-timeago';
 import { MdArrowForwardIos } from 'react-icons/md';
 import Seo from "../components/seo";
 import { getSrc } from "gatsby-plugin-image";
-import styled from "styled-components"
-const CustomBox = styled.div`
-
-.horizontal-scroll1 {
-  display: flex;
-  overflow-x: scroll;
-  -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
-// max-width: 80vw;  
-// margin: 5vh auto;
-  // max-height: 80vh;
-  // justifyContent: start;
-}
-
-.slider {
-  display: flex;
-  scroll-snap-type: x mandatory;
-  flex-shrink: 0;
-  width: 100vw; /* Set the width of each post-card1 to the viewport width */
-}
-
-.post-card12 {
-  flex: 0 0 100%;
-  min-height: 100vh;
-  // border: 1px solid #ddd;
-  // box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  display: grid;
-  place-content: center;
-}
-`
-
 
 const HomePage = ({ data }) => {
   const { showModals, showDates, homecount, postcount, magicOptions, showNav, showArchive  } = useSiteMetadata();
@@ -111,30 +80,7 @@ const HomePage = ({ data }) => {
     setVisibleItems(homecount);
   }
 
-  useEffect(() => {
-    const handleWheel = (event) => {
-      event.preventDefault();
-      document.querySelector(".horizontal-scroll1").scrollLeft += event.deltaY;
-    };
-
-    const sliderContainer = document.querySelector(".horizontal-scroll1");
-
-    if (sliderContainer) {
-      sliderContainer.addEventListener("wheel", handleWheel);
-    }
-
-    return () => {
-      
-      // Remove the event listener when the component is unmounted
-      if (sliderContainer) {
-        sliderContainer.removeEventListener("wheel", handleWheel);
-      }
-    };
-  }, []); // Empty dependency array ensures the effect runs once after mount
-
-  
   return (
-    <CustomBox>
     <Layout>
       <Helmet>
         <body id="body" className="homepage" />
@@ -274,14 +220,14 @@ const HomePage = ({ data }) => {
       )}
 
 
-<div className="contentpanel1 horizontal-scroll1" style={{ justifyContent: 'center', alignItems: 'center', marginTop: showNav ? '' : '7vh' }}>
+<div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: showNav ? '' : '7vh' }}>
 
 
-<div className="slider">
-        {/* <div className="sliderSpacer" style={{ height: '', paddingTop: '', display: '' }}></div> */}
+
+        <div className="sliderSpacer" style={{ height: '', paddingTop: '', display: '' }}></div>
 
         {filteredPosts.slice(0, numVisibleItems).map(({ node }, index) => (
-          <div key={index} className="post-card12" style={{ alignItems: 'center' }}>
+          <div key={index} className="post-card1" style={{ alignItems: 'center' }}>
             <Link className="postlink" state={showModals ? { modal: true } : {}} key={node.frontmatter.slug} to={node.frontmatter.slug}>
               <div>
                 {node.frontmatter.featuredImage ? (
@@ -343,14 +289,13 @@ const HomePage = ({ data }) => {
   </div>
 )}
 
-</div>
+
 
 
 
 
       </div>
     </Layout>
-    </CustomBox>
   );
 };
 
