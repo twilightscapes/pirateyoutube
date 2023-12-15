@@ -10,12 +10,13 @@ import SearchIcon from "../../src/img/search"
 import useSiteMetadata from "../hooks/SiteMetadata"
 import { RiArrowUpFill } from "react-icons/ri"
 import GoBack from "../components/goBack"
-import { BiLeftArrow } from "react-icons/bi"
+import { BiLeftArrow, BiHome } from "react-icons/bi"
 import { ModalRoutingContext } from 'gatsby-plugin-modal-routing-4'
 import Menu from "../components/menu"
 import userStyles from "../../static/data/userStyles.json"
 import SignUp from "../components/newssign"
 import BlueCheck from './bluecheck';
+
 
 // import useNetlifyIdentity from '../components/useNetlifyIdentity';
 import { BsFillGrid3X2GapFill } from "react-icons/bs";
@@ -210,6 +211,13 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 
 
 <div id="gobacker" style={{position:'fixed', top:'', right:'2vw', zIndex:'5', display:'flex', alignItems:'center', gap:''}}><GoBack />
+
+<div className="homebutt button" style={{display:'flex', flexDirection:'column', gap:'0', padding:'0', alignItems:'', textAlign:'center', borderRadius:'3px', textShadow:'0 1px 1px rgba(0, 0, 0, .7)', }}>
+  <Link to="/" aria-label="Link to Top" style={{cursor:'pointer', display:'block', height:'', fontSize:''}}>
+  <BiHome className="" style={{cursor:'pointer', backgroundColor:'rgba(0,0,0,.9)', color:'#ddd', fontSize:'28px'}} />
+  </Link>
+</div>
+
 <a href="#top" onClick={(e) => {
   e.preventDefault();
   document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
