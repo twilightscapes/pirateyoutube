@@ -222,7 +222,7 @@ const HomePage = ({ data }) => {
       )}
 
 
-<div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: showNav ? '' : '7vh' }}>
+<div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: showNav ? '' : '10vh' }}>
 
 
 
