@@ -275,8 +275,8 @@ const HomePage = ({ data }) => {
         ))}
 
 {numVisibleItems < filteredPosts.length && (
-  <div className="" style={{ display: 'grid', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', placeContent: 'center', gap: '', height: '', textAlign: 'center' }}>
-    <button className="button load-more" onClick={showMoreItems}>
+  <div className="loadmore" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', placeSelf: 'center', gap: '',  textAlign: 'center' }}>
+    <button className="button load-more" onClick={showMoreItems} style={{maxWidth:''}}>
       Load more
     </button>
     <Link to="/archive" style={{ background: 'rgba(0, 0, 0, 0.8)', borderRadius: '5px', color: '#fff', display: 'flex', padding: '0 1vh', margin: '0 auto' }}>View Archive &nbsp;<MdArrowForwardIos style={{ marginTop: '4px' }} /></Link>
