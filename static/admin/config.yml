@@ -325,6 +325,12 @@ collections:
                 label: Show Side Nav
                 required: false
                 
+
+              - widget: boolean
+                name: showTitles
+                label: Show Post Titles
+                required: false
+
               - widget: boolean
                 name: showDates
                 label: Show Dates
@@ -346,6 +352,7 @@ collections:
                 name: showArchive 
                 label: Show Archive link under "Load More" button
                 required: false
+
 
 
 
