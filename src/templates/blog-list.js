@@ -12,7 +12,7 @@ import { AiOutlinePicLeft } from 'react-icons/ai';
 import { MdArrowForwardIos, MdArrowBackIos } from 'react-icons/md';
 
 const BlogList = ({ data, pageContext }) => {
-  const { showDates, postcount, showTitles } = useSiteMetadata();
+  const { showDates, postcount, showTitles, showNav } = useSiteMetadata();
   const posts = data.allMarkdownRemark.edges;
   const { numPages, currentPage } = pageContext;
 
@@ -30,7 +30,7 @@ const BlogList = ({ data, pageContext }) => {
         <body className="archivepage utilitypage" />
       </Helmet>
 
-      <div className="contentpanel grid-container" style={{ marginTop: '' }}>
+      <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', paddingTop: showNav ? '0' : '3vw', }}>
         <div className="sliderSpacer" style={{ height: '', paddingTop: '', display: '' }}></div>
 
         {posts.slice(0, currentPage * postcount).map(({ node }, index) => (

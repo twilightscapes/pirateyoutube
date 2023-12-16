@@ -12,7 +12,7 @@ import useSiteMetadata from "../hooks/SiteMetadata"
 import { MdArrowForwardIos } from 'react-icons/md';
 const TagIndex = ({ data }) => {
 
-  const { showDates, postcount, showTitles } = useSiteMetadata()
+  const { showDates, postcount, showTitles, showNav } = useSiteMetadata()
 
   const [selectedTag, setSelectedTag] = useState(''); // State to keep track of selected tag
   const [visibleItems, setVisibleItems] = useState(postcount); 
@@ -59,7 +59,7 @@ const TagIndex = ({ data }) => {
 </div>
        
 
-<div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: '' }}>
+<div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', paddingTop: showNav ? '0' : '10vh', }}>
           <div className="sliderSpacer" style={{ height: "", paddingTop: "", display: "" }}></div>
    
           {data.allMarkdownRemark.edges &&

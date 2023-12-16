@@ -152,6 +152,7 @@ const HomePage = ({ data }) => {
                     </select>
                   )}
                 </>
+                
               ) : (
                 ""
               )}
@@ -219,8 +220,9 @@ const HomePage = ({ data }) => {
         ""
       )}
 
+{/* <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: true ? '7vh' : '0' }}> */}
 
-<div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: showNav ? '' : '7vh' }}>
+<div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', paddingTop: showNav ? '0' : '3vw', }}>
 
 
 
