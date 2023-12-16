@@ -1048,6 +1048,8 @@ ul li{display:inline-block}
   .mobilehide{display:none}
   // #menu {font-family: inherit ;}
   
+
+  
   #menu {flex-direction: column ; min-height: 70px;}
   
   body.homepage #showPosts {height:inherit ; border:0px solid yellow}
@@ -1112,8 +1114,9 @@ ul li{display:inline-block}
 
   
   .grid-container {margin:0 auto 0 auto ; padding-top:10vh; }
-  body.homepage .grid-container {margin-top:0 ; padding-top:14vh;}
+  body.homepage .grid-container {margin-top:0 ; padding-top:6vw;}
 
+  body.homepage .horizontal-scroll {margin-top:0 ; padding-right:5vw;}
   .horizontal-scroll{margin:0 auto 0 auto ;  padding-right:8vh;}
   .horizontal-scroll .loadmore{height:40vh}
 
@@ -1203,8 +1206,18 @@ ul li{display:inline-block}
 
 
 
-.grid-container {margin:16vh auto 0 auto ;}
-.horizontal-scroll{margin-top:16vh ;}
+// .grid-container {margin:16vh auto 0 auto ;}
+// .horizontal-scroll{margin-top:16vh ;}
+
+
+.grid-container {margin:0 auto 0 auto ; padding-top:10vh; }
+body.homepage .grid-container {margin-top:0 ; padding-top:35vw;}
+
+body.homepage .horizontal-scroll {margin-top:0 ; padding-right:15vw;}
+.horizontal-scroll{margin:0 auto 0 auto ;  padding-right:8vh;}
+.horizontal-scroll .loadmore{height:40vh}
+
+
 .magicisland {margin-top:10vh;}
 
 

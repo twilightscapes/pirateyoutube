@@ -274,7 +274,7 @@ const IndexBu = ({ data }) => {
       )}
 
 
-<div className="contentpanel1 horizontal-scroll1" style={{ justifyContent: 'center', alignItems: 'center', marginTop: showNav ? '' : '7vh' }}>
+<div className="contentpanel1 horizontal-scroll1" style={{ justifyContent: 'center', alignItems: 'center', marginTop: showNav ? '0' : '7vh' }}>
 
 
 <div className="slider">
