@@ -220,7 +220,6 @@ const SearchPage = ({ data }) => {
 
 
 
-        <div className="sliderSpacer" style={{ height: '', paddingTop: '', display: '' }}></div>
 
         {filteredPosts.slice(0, numVisibleItems).map(({ node }, index) => (
           <div key={index} className="post-card1" style={{ alignItems: 'center' }}>
@@ -257,7 +256,7 @@ const SearchPage = ({ data }) => {
                     </div>
                   </div>
                 ) : ("")}
-                <div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '10px auto', maxWidth: '80vw', gap: '.4vw', height: '', textAlign: 'center', padding: '1vh 2vw', fontSize: 'clamp(1rem, 1vw, 1rem)', background: 'rgba(0, 0, 0, 0.7)', borderRadius: '', color: '#aaa' }}>
+                <div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '10px auto', maxWidth: '80vw', gap: '.4vw', height: '', textAlign: 'center', padding: '', fontSize: 'clamp(1rem, 1vw, 1rem)',  borderRadius: '', color: '' }}>
                   <h2 className="title1">{node.frontmatter.title}</h2>
                 </div>
               </div>

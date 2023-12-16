@@ -12,7 +12,7 @@ import { AiOutlinePicLeft } from 'react-icons/ai';
 import { MdArrowForwardIos, MdArrowBackIos } from 'react-icons/md';
 
 const BlogList = ({ data, pageContext }) => {
-  const { showDates, postcount } = useSiteMetadata();
+  const { showDates, postcount, showTitles } = useSiteMetadata();
   const posts = data.allMarkdownRemark.edges;
   const { numPages, currentPage } = pageContext;
 
@@ -85,6 +85,7 @@ const BlogList = ({ data, pageContext }) => {
                   ''
                 )}
 
+{/* {showTitles ? (  */}
                 <div
                   className="panel"
                   style={{
@@ -97,18 +98,21 @@ const BlogList = ({ data, pageContext }) => {
                     gap: '.4vw',
                     height: '',
                     textAlign: 'center',
-                    padding: '1vh 2vw',
+                    padding: '',
                     fontSize: 'clamp(1rem, 1vw, 1rem)',
-                    background: 'rgba(0, 0, 0, 0.7)',
+                    // background: 'rgba(0, 0, 0, 0.7)',
                     borderRadius: '',
                     border: '0px solid red',
                     color: '#aaa',
                   }}
                 >
-                  <h2 className="title" style={{}}>
+                  <h2 className="title1" style={{}}>
                     {node.frontmatter.title}
                   </h2>
                 </div>
+        {/* ) : (
+          ""
+      )} */}
               </div>
             </Link>
             {showDates ? (

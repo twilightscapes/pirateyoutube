@@ -23,6 +23,7 @@ const useSiteMetadata = () => {
           homecount
           font1
           showArchive
+          showTitles
           magicOptions {
             showMagic
             showMagicCat

@@ -901,7 +901,7 @@ Click to play
             className="menusnapp"
             style={{
               gap: "10px",
-              padding: "",
+              padding: "0 0 0 1vw",
               alignItems: "center",
               display: isMenuOpen ? "block" : "none",
             }}

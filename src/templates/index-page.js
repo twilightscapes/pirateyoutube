@@ -13,7 +13,7 @@ import Seo from "../components/seo";
 import { getSrc } from "gatsby-plugin-image";
 
 const HomePage = ({ data }) => {
-  const { showModals, showDates, homecount, postcount, magicOptions, showNav, showArchive  } = useSiteMetadata();
+  const { showModals, showDates, homecount, postcount, magicOptions, showNav, showArchive, showTitles  } = useSiteMetadata();
   const { showMagic, showMagicCat, showMagicTag, showMagicSearch } = magicOptions;
 
   const { markdownRemark } = data;
@@ -248,7 +248,7 @@ const HomePage = ({ data }) => {
                   />
                 )}
               </div>
-              <div className="post-content" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%', height: '', position: 'relative', background: '', padding: '0', margin: '0 auto 0 auto', textAlign: 'center', overFlow: 'hidden' }}>
+              <div className="post-content" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%', height: '', position: 'relative', background: '', padding: '', margin: '0 auto 0 auto', textAlign: 'center', overFlow: 'hidden' }}>
                 {node.frontmatter.youtube.youtuber ? (
                   <div className="spotlight" style={{ marginLeft: '10%', marginTop: '-28%', margin: '-24% 10% 0 10%' }}>
                     <div className="posticons" style={{ flexDirection: 'column', margin: '0 auto' }}>
@@ -261,9 +261,16 @@ const HomePage = ({ data }) => {
                     </div>
                   </div>
                 ) : ("")}
-                <div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '10px auto', maxWidth: '80vw', gap: '.4vw', height: '', textAlign: 'center', padding: '1vh 2vw', fontSize: 'clamp(1rem, 1vw, 1rem)', background: 'rgba(0, 0, 0, 0.7)', borderRadius: '', color: '#aaa' }}>
+                
+                {showTitles ? (    
+                  <div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '10px auto', maxWidth: '80vw', gap: '.4vw', height: '', textAlign: 'center', padding: '1vh 2vw', fontSize: 'clamp(1rem, 1vw, 1rem)', color: '' }}>
                   <h2 className="title1">{node.frontmatter.title}</h2>
                 </div>
+                  ) : (
+                ""
+              )}
+
+                
               </div>
             </Link>
             {showDates ? (
