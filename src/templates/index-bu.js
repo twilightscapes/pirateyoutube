@@ -13,81 +13,39 @@ import Seo from "../components/seo";
 import { getSrc } from "gatsby-plugin-image";
 import styled from "styled-components"
 const CustomBox = styled.div`
-  .horizontal-scroll2 {
-    display: flex;
-    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
-  }
 
-  .horizontal-view .grid-container {
-    display: none;
-  }
-  
-  .horizontal-view .slider {
-    display: flex;
-    flex-direction: row;
-    overflow-x: auto;
-    margin-top: 1px;
-  }
+.horizontal-scroll1 {
+  display: flex;
+  // overflow-x: scroll;
+  -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+// max-width: 80vw;  
+// margin: 5vh auto;
+  // max-height: 80vh;
+  // justifyContent: start;
+}
 
-// .contentpanel.grid-container {
-//     overflow-y: scroll;
-//   }
+.slider {
+  display: flex;
+  scroll-snap-type: x mandatory;
+  flex-shrink: 0;
+  width: 100vw; /* Set the width of each post-card1 to the viewport width */
+}
 
-// body.scroll.contentpanel.horizontal-scroll2 {
-//     overflow-x: scroll;
-//   }
-
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Adjust the minmax values as needed */
-    gap: 3vw;
-    padding: 0 3%;
-    border: 0px solid yellow;
-  }
-
-  .grid-container .post-card2 {
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .horizontal-scroll2 .slider {
-    display: flex;
-    scroll-snap-type: x mandatory;
-    flex-shrink: 0;
-    width: 100vw; /* Set the width of each post-card1 to the viewport width */
-  }
-
-  .grid-container .slider {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    flex-shrink: 0;
-    width: 95vw; /* Set the width of each post-card1 to the viewport width */
-    gap:2vw;
-    justify-content:center;
-    margin:0 auto;
-  }
-
-  .horizontal-scroll2 .post-card2 {
-    flex: 0 0 100%;
-    min-height: 100vh;
-    place-content: center;
-    padding: 0 !important;
-    column-gap: 0;
-    margin: 0 auto;
-  }
-`;
+.post-card12 {
+  flex: 0 0 100%;
+  min-height: 100vh;
+  // border: 1px solid #ddd;
+  // box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: grid;
+  place-content: center;
+}
+`
 
 
-
-
-const HomePage = ({ data }) => {
+const IndexBu = ({ data }) => {
   const { showModals, showDates, homecount, postcount, magicOptions, showNav, showArchive  } = useSiteMetadata();
   const { showMagic, showMagicCat, showMagicTag, showMagicSearch } = magicOptions;
-
-
-  const [showGrid, setShowGrid] = useState(false); 
 
   const { markdownRemark } = data;
   const { frontmatter, excerpt } = markdownRemark;
@@ -156,33 +114,23 @@ const HomePage = ({ data }) => {
   useEffect(() => {
     const handleWheel = (event) => {
       event.preventDefault();
-      const sliderContainer = document.querySelector(".horizontal-scroll2");
-      if (sliderContainer) {
-        sliderContainer.scrollLeft += event.deltaY;
-      }
+      document.querySelector(".horizontal-scroll1").scrollLeft += event.deltaY;
     };
-  
-    const addWheelListener = () => {
-      const sliderContainer = document.querySelector(".horizontal-scroll2");
-      if (sliderContainer) {
-        sliderContainer.addEventListener("wheel", handleWheel);
-      }
-    };
-  
-    const removeWheelListener = () => {
-      const sliderContainer = document.querySelector(".horizontal-scroll2");
+
+    const sliderContainer = document.querySelector(".horizontal-scroll1");
+
+    if (sliderContainer) {
+      sliderContainer.addEventListener("wheel", handleWheel);
+    }
+
+    return () => {
+      
+      // Remove the event listener when the component is unmounted
       if (sliderContainer) {
         sliderContainer.removeEventListener("wheel", handleWheel);
       }
     };
-  
-    // Initial setup
-    addWheelListener();
-  
-    // Cleanup when component unmounts
-    return removeWheelListener;
   }, []); // Empty dependency array ensures the effect runs once after mount
-  
 
   
   return (
@@ -325,20 +273,17 @@ const HomePage = ({ data }) => {
         ""
       )}
 
-{/* <div className={`contentpanel ${showGrid ? 'grid-container' : 'horizontal-scroll2'}`} style={{ justifyContent: 'center', alignItems: 'center', marginTop: showNav ? '1px' : '7vh' }}> */}
-<div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: showNav ? '1px' : '7vh' }}>
 
-{/* <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: showNav ? '1px' : '7vh' }}> */}
+<div className="contentpanel1 horizontal-scroll1" style={{ justifyContent: 'center', alignItems: 'center', marginTop: showNav ? '' : '7vh' }}>
 
 
-<div id="slider" className="slider">
+<div className="slider">
         {/* <div className="sliderSpacer" style={{ height: '', paddingTop: '', display: '' }}></div> */}
-        {/* <div className="slider"> */}
+
         {filteredPosts.slice(0, numVisibleItems).map(({ node }, index) => (
-          <div key={index} className="post-card2 " style={{ alignItems: 'center' }}>
+          <div key={index} className="post-card12" style={{ alignItems: 'center' }}>
             <Link className="postlink" state={showModals ? { modal: true } : {}} key={node.frontmatter.slug} to={node.frontmatter.slug}>
-              
-              <div className="">
+              <div>
                 {node.frontmatter.featuredImage ? (
                   <GatsbyImage
                     image={node.frontmatter.featuredImage.childImageSharp.gatsbyImageData}
@@ -384,7 +329,7 @@ const HomePage = ({ data }) => {
         ))}
 
 {numVisibleItems < filteredPosts.length && (
-  <div className="loadmore postcard1" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', placeSelf: 'center', gap: '',  textAlign: 'center' }}>
+  <div className="loadmore" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', placeSelf: 'center', gap: '',  textAlign: 'center' }}>
 
     <button className="button load-more" onClick={showMoreItems} style={{maxWidth:''}}>
       Load more
@@ -398,16 +343,12 @@ const HomePage = ({ data }) => {
   </div>
 )}
 
-        </div>
-
-
-
 </div>
 
 
 
 
-      {/* </div> */}
+      </div>
     </Layout>
     </CustomBox>
   );
@@ -462,4 +403,4 @@ export const pageQuery = graphql`
   }
 `;
 
-export default HomePage;
+export default IndexBu;
