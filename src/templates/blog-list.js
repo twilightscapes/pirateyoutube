@@ -103,7 +103,7 @@ const BlogList = ({ data, pageContext }) => {
                     // background: 'rgba(0, 0, 0, 0.7)',
                     borderRadius: '',
                     border: '0px solid red',
-                    color: '#aaa',
+            
                   }}
                 >
                   <h2 className="title1" style={{}}>
