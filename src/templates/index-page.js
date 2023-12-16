@@ -11,83 +11,10 @@ import TimeAgo from 'react-timeago';
 import { MdArrowForwardIos } from 'react-icons/md';
 import Seo from "../components/seo";
 import { getSrc } from "gatsby-plugin-image";
-import styled from "styled-components"
-const CustomBox = styled.div`
-  .horizontal-scroll2 {
-    display: flex;
-    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
-  }
-
-  .horizontal-view .grid-container {
-    display: none;
-  }
-  
-  .horizontal-view .slider {
-    display: flex;
-    flex-direction: row;
-    overflow-x: auto;
-    margin-top: 1px;
-  }
-
-// .contentpanel.grid-container {
-//     overflow-y: scroll;
-//   }
-
-// body.scroll.contentpanel.horizontal-scroll2 {
-//     overflow-x: scroll;
-//   }
-
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Adjust the minmax values as needed */
-    gap: 3vw;
-    padding: 0 3%;
-    border: 0px solid yellow;
-  }
-
-  .grid-container .post-card2 {
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .horizontal-scroll2 .slider {
-    display: flex;
-    scroll-snap-type: x mandatory;
-    flex-shrink: 0;
-    width: 100vw; /* Set the width of each post-card1 to the viewport width */
-  }
-
-  .grid-container .slider {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    flex-shrink: 0;
-    width: 95vw; /* Set the width of each post-card1 to the viewport width */
-    gap:2vw;
-    justify-content:center;
-    margin:0 auto;
-  }
-
-  .horizontal-scroll2 .post-card2 {
-    flex: 0 0 100%;
-    min-height: 100vh;
-    place-content: center;
-    padding: 0 !important;
-    column-gap: 0;
-    margin: 0 auto;
-  }
-`;
-
-
-
 
 const HomePage = ({ data }) => {
   const { showModals, showDates, homecount, postcount, magicOptions, showNav, showArchive  } = useSiteMetadata();
   const { showMagic, showMagicCat, showMagicTag, showMagicSearch } = magicOptions;
-
-
-  const [showGrid, setShowGrid] = useState(false); 
 
   const { markdownRemark } = data;
   const { frontmatter, excerpt } = markdownRemark;
@@ -153,40 +80,7 @@ const HomePage = ({ data }) => {
     setVisibleItems(homecount);
   }
 
-  useEffect(() => {
-    const handleWheel = (event) => {
-      event.preventDefault();
-      const sliderContainer = document.querySelector(".horizontal-scroll2");
-      if (sliderContainer) {
-        sliderContainer.scrollLeft += event.deltaY;
-      }
-    };
-  
-    const addWheelListener = () => {
-      const sliderContainer = document.querySelector(".horizontal-scroll2");
-      if (sliderContainer) {
-        sliderContainer.addEventListener("wheel", handleWheel);
-      }
-    };
-  
-    const removeWheelListener = () => {
-      const sliderContainer = document.querySelector(".horizontal-scroll2");
-      if (sliderContainer) {
-        sliderContainer.removeEventListener("wheel", handleWheel);
-      }
-    };
-  
-    // Initial setup
-    addWheelListener();
-  
-    // Cleanup when component unmounts
-    return removeWheelListener;
-  }, []); // Empty dependency array ensures the effect runs once after mount
-  
-
-  
   return (
-    <CustomBox>
     <Layout>
       <Helmet>
         <body id="body" className="homepage" />
@@ -325,20 +219,17 @@ const HomePage = ({ data }) => {
         ""
       )}
 
-{/* <div className={`contentpanel ${showGrid ? 'grid-container' : 'horizontal-scroll2'}`} style={{ justifyContent: 'center', alignItems: 'center', marginTop: showNav ? '1px' : '7vh' }}> */}
-<div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: showNav ? '1px' : '7vh' }}>
 
-{/* <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: showNav ? '1px' : '7vh' }}> */}
+<div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: showNav ? '' : '7vh' }}>
 
 
-<div id="slider" className="slider">
-        {/* <div className="sliderSpacer" style={{ height: '', paddingTop: '', display: '' }}></div> */}
-        {/* <div className="slider"> */}
+
+        <div className="sliderSpacer" style={{ height: '', paddingTop: '', display: '' }}></div>
+
         {filteredPosts.slice(0, numVisibleItems).map(({ node }, index) => (
-          <div key={index} className="post-card2 " style={{ alignItems: 'center' }}>
+          <div key={index} className="post-card1" style={{ alignItems: 'center' }}>
             <Link className="postlink" state={showModals ? { modal: true } : {}} key={node.frontmatter.slug} to={node.frontmatter.slug}>
-              
-              <div className="">
+              <div>
                 {node.frontmatter.featuredImage ? (
                   <GatsbyImage
                     image={node.frontmatter.featuredImage.childImageSharp.gatsbyImageData}
@@ -384,7 +275,7 @@ const HomePage = ({ data }) => {
         ))}
 
 {numVisibleItems < filteredPosts.length && (
-  <div className="loadmore postcard1" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', placeSelf: 'center', gap: '',  textAlign: 'center' }}>
+  <div className="loadmore" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', placeSelf: 'center', gap: '',  textAlign: 'center' }}>
 
     <button className="button load-more" onClick={showMoreItems} style={{maxWidth:''}}>
       Load more
@@ -398,18 +289,13 @@ const HomePage = ({ data }) => {
   </div>
 )}
 
-        </div>
-
-
-
-</div>
 
 
 
 
-      {/* </div> */}
+
+      </div>
     </Layout>
-    </CustomBox>
   );
 };
 

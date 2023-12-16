@@ -42,12 +42,11 @@ const applyArchiveView = useCallback(() => {
   const elements = document.querySelectorAll(".contentpanel");
   elements.forEach((el) => {
     if (archiveView === "grid") {
-      el.classList.remove("horizontal-scroll2", "panels");
+      el.classList.remove("horizontal-scroll", "panels");
       el.classList.add("grid-container");
-      document.body.classList.remove("scroll");
       // document.body.classList.add("scrollable");
       // document.querySelector('#showPosts').style.height = 'auto';
-      // window.scrollTo(0, 0);
+      window.scrollTo(0, 0);
     } 
     
     // if ( document.querySelector('body').classList.contains("homepage")) {
@@ -57,9 +56,9 @@ const applyArchiveView = useCallback(() => {
     
     else if (archiveView === "swipe") {
       el.classList.remove("grid-container");
-      el.classList.add("horizontal-scroll2", "panels");
-      document.body.classList.add("scroll");
-      // document.querySelector('.contentpanel').style.transition = 'all .5s ease-in-out';
+      el.classList.add("horizontal-scroll", "panels");
+      // document.body.classList.remove("scrollable");
+      document.querySelector('.contentpanel').style.transition = 'all .5s ease-in-out';
       // document.querySelector('#showPosts').style.height = '600px';
       // window.scrollTo(0, 0);
     }
@@ -74,39 +73,39 @@ const applyArchiveView = useCallback(() => {
 
 
 
-// useEffect(() => {
-//   sessionStorage.setItem("currentScrollPos", window.pageYOffset)
-//   let prevScrollpos = window.pageYOffset;
+useEffect(() => {
+  sessionStorage.setItem("currentScrollPos", window.pageYOffset)
+  let prevScrollpos = window.pageYOffset;
 
-//   const handleScroll = () => {
-//     const currentScrollPos = window.pageYOffset;
-//     if (prevScrollpos > currentScrollPos && prevScrollpos - currentScrollPos > 75) {
-//       // document.querySelector('.header').style.transform = 'translateY(0)';
-//       if (showNav2) {
-//         document.querySelector('#menuicon').style.transform = 'translateX(0)';
-//       }
-//       document.querySelector('.upbar').style.transform = 'translateY(140px)';
-//       // document.body.classList.remove('scroll');
-//       // document.body.classList.add('scroll');
-//     } else if (prevScrollpos < currentScrollPos && currentScrollPos - prevScrollpos > 75) {
-//       // document.querySelector('.header').style.transform = 'translateY(-100px)';
-//       if (showNav2) {
-//         document.querySelector('#menuicon').style.transform = 'translateX(200px)';
-//       }
-//       document.querySelector('.upbar').style.transform = 'translateY(-100px)';
-//       // document.body.classList.add('scroll');
-//     }
-//     prevScrollpos = currentScrollPos;
-//   };
+  const handleScroll = () => {
+    const currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos && prevScrollpos - currentScrollPos > 75) {
+      // document.querySelector('.header').style.transform = 'translateY(0)';
+      if (showNav2) {
+        document.querySelector('#menuicon').style.transform = 'translateX(0)';
+      }
+      document.querySelector('.upbar').style.transform = 'translateY(140px)';
+      // document.body.classList.remove('scroll');
+      // document.body.classList.add('scroll');
+    } else if (prevScrollpos < currentScrollPos && currentScrollPos - prevScrollpos > 75) {
+      // document.querySelector('.header').style.transform = 'translateY(-100px)';
+      if (showNav2) {
+        document.querySelector('#menuicon').style.transform = 'translateX(200px)';
+      }
+      document.querySelector('.upbar').style.transform = 'translateY(-100px)';
+      // document.body.classList.add('scroll');
+    }
+    prevScrollpos = currentScrollPos;
+  };
 
-//   handleScroll();
+  handleScroll();
 
-//   window.addEventListener("scroll", handleScroll);
+  window.addEventListener("scroll", handleScroll);
 
-//   return () => {
-//     window.removeEventListener("scroll", handleScroll);
-//   }
-// }, [showNav2]);
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+  }
+}, [showNav2]);
 
 
 

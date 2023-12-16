@@ -30,7 +30,7 @@ const BlogList = ({ data, pageContext }) => {
         <body className="archivepage utilitypage" />
       </Helmet>
 
-      <div className="contentpanel grid-container" style={{ marginTop: '5vh' }}>
+      <div className="contentpanel grid-container" style={{ marginTop: '' }}>
         <div className="sliderSpacer" style={{ height: '', paddingTop: '', display: '' }}></div>
 
         {posts.slice(0, currentPage * postcount).map(({ node }, index) => (
@@ -42,7 +42,7 @@ const BlogList = ({ data, pageContext }) => {
                   alt={node.frontmatter.title + ' - Featured image'}
                   className="featured-image1"
                   placeholder="blurred"
-                  loading="eager"
+                  // loading="eager"
                   style={{ position: 'relative', zIndex: '1', maxHeight: '', margin: '0 auto' }}
                 />
               ) : (

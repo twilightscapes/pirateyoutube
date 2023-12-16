@@ -7,7 +7,7 @@
 *{animation-duration:.01ms;animation-iteration-count:1;scroll-behavior:auto;transition-duration:.01ms}
 }
 // html {overflow-x:hidden !important;}
-// html, body{height:100vh; overflow-x:hidden !important;}
+html, body{height:100vh; overflow-x:hidden !important;}
 
 body.homepage:after{content: (''); background-color:inherit; height: 100vh; width:100%; background-size: cover; position:fixed; top:0; left:0; z-index:-1; }
 
@@ -255,8 +255,8 @@ body.homepage .timeago{display:none !important;}
 body.homepage #gobacker, body.social #gobacker{display: none !important;}
 
 
-// body{overflow-x:hidden; overflow-y:auto;}
-// body.scroll {overflow-x:scroll !important; overflow-y:hidden !important;}
+body{overflow-x:hidden; overflow-y:auto !important;}
+body.scroll{overflow-x:hidden; overflow-y:hidden !important;}
 
 
 
@@ -904,7 +904,7 @@ to{opacity:0;z-index:-3}
 
 
 
-// .horizontal-scroll{max-height:100vw;overflow-x:hidden;overflow-y:auto;position:relative;scroll-padding:0 5%;transform:rotate(-90deg) translateY(-100%);transform-origin:right top;transition:transform .2s;width:100%}
+.horizontal-scroll{max-height:100vw;overflow-x:hidden;overflow-y:auto;position:relative;scroll-padding:0 5%;transform:rotate(-90deg) translateY(-100%);transform-origin:right top;transition:transform .2s;width:100%}
 .horizontal-scroll img{max-height:65vh;object-fit:contain;}
 .horizontal-scroll,.horizontal-scroll>*{display:block;overscroll-behavior:contain;padding:0}
 .horizontal-scroll>*{scroll-snap-align:center;transform:rotate(90deg);transform-origin:right top}
@@ -1159,7 +1159,7 @@ ul li{display:inline-block}
     // grid-auto-flow: dense; /* Add this line */
   }
   .grid-container {margin:10vh auto 0 auto ;}
-  .horizontal-scroll{margin-top:12vh ;}
+  .horizontal-scroll{margin-top:10vh ;}
 
 
   .horizontal-scroll .loadmore{height:40vh}

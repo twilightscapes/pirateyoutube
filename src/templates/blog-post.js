@@ -885,7 +885,7 @@ Click to play
             display: "flex",
             justifyContent: "center",
             width: "auto",
-            maxWidth: "80vw",
+            maxWidth: "75vw",
             margin: "0 auto",
             gap: "5vw",
             background: "rgba(0, 0, 0, .5)",
@@ -901,7 +901,7 @@ Click to play
             className="menusnapp"
             style={{
               gap: "10px",
-              padding: "1vh 1vw",
+              padding: "",
               alignItems: "center",
               display: isMenuOpen ? "block" : "none",
             }}
