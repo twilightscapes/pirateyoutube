@@ -30,7 +30,7 @@ const BlogList = ({ data, pageContext }) => {
         <body className="archivepage utilitypage" />
       </Helmet>
 
-      <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', paddingTop: showNav ? '0' : '3vw', }}>
+      <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', paddingTop: showNav ? '3vw' : '3vw', }}>
         <div className="sliderSpacer" style={{ height: '', paddingTop: '', display: '' }}></div>
 
         {posts.slice(0, currentPage * postcount).map(({ node }, index) => (

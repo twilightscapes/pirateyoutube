@@ -216,7 +216,7 @@ const SearchPage = ({ data }) => {
 
 
 
-          <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', paddingTop: showNav ? '0' : '6vw', }}>
+          <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', paddingTop: showNav ? '6vw' : '6vw', }}>
 
 
 

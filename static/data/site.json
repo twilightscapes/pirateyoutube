@@ -4,7 +4,7 @@
     "font1": "Audiowide",
     "showModals": false,
     "showSearch": true,
-    "showNav": false,
+    "showNav": true,
     "companyname": "PIRATE",
     "siteUrl": "https://piratesocial.org",
     "showDates": false,
