@@ -821,7 +821,7 @@ body.homepage .pleaseshare{display:none}
 .react-tabs__tab-list{clear:both;display:flex;justify-content:space-between;margin:0;padding:0}
 .row{display:flex}
 .sideRow{align-items:center;flex-direction:row}
-.sidebarIconToggle{border:0 solid #fff;bottom:20vh;color:#999;cursor:pointer;display:flex;flex-direction:column;justify-self:flex-start;padding:1rem;position:fixed;right:2%;text-align:center;text-shadow:1px 1px 0 #000;z-index:10}
+.sidebarIconToggle{border:0 solid #fff;bottom:22vh;color:#999;cursor:pointer;display:flex;flex-direction:column;justify-self:flex-start;position:fixed;right:0;text-align:center;text-shadow:1px 1px 0 #000;z-index:10}
 .sidebarIconToggle div span1{animation-delay:1.5s;bottom:0;right:0;z-index:3}
 .sidebarIconToggle div span1,.sidebarIconToggle span{flex-direction:column;justify-content:center;text-align:center;width:200px}
 .sidebarIconToggle span{border:0 solid var(--primary-color);content:" ";display:flex;height:200px;left:-70px;position:absolute;top:-15px;z-index:5}
@@ -1289,7 +1289,7 @@ body.homepage:before{display:none}
 .pagination li{width:100%}
 .panelspacer{height:0;padding-top:0}
 .react-player iframe{position:relative;top:0}
-.vidcontrols{display:flex;gap:2vw;position:fixed;right:3vw;top:445px}
+.vidcontrols{display:flex;gap:2vw;position:fixed;right:3vw;top:325px}
 }
 @media(max-width:768px) {
 .pagination{padding:10px 0}

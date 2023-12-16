@@ -5,7 +5,7 @@ slug: /boo4
 date: 2023-10-01 09:00
 description: Experience the thrill of PIRATE
 youtube:
- youtuber: ""
+ youtuber: https://www.youtube.com/embed/hlzC6HSkLxY
  youtuber2: 
  youtubeshoworiginal: true
  youtubersuggestion1: null
@@ -28,4 +28,3 @@ showPageNav: false
 spotlight:
 ---
 
-Yo-Ho, Yo-Ho... A Pirate's Life For Me...
