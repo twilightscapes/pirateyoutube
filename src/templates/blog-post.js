@@ -879,7 +879,7 @@ Click to play
           style={{
             position: "fixed",
             bottom: "20px",
-            zIndex: "4",
+            zIndex: "5",
             left: "1vw",
             right: "",
             display: "flex",
