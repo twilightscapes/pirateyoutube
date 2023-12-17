@@ -217,7 +217,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 <div style={{display:'flex', alignItems:'center', gap:'10px', paddingLeft:'1rem'}}>
 <div className="homebutt button" style={{display:'flex', flexDirection:'column', gap:'0', padding:'0', alignItems:'', textAlign:'center', borderRadius:'3px', textShadow:'0 1px 1px rgba(0, 0, 0, .7)', margin:'0' }}>
   <Link to="/" aria-label="Link to Top" style={{cursor:'pointer', display:'block', height:'', fontSize:''}}>
-  <BiHome className="" style={{cursor:'pointer', backgroundColor:'rgba(0,0,0,.9)', color:'#ddd', fontSize:'28px', padding:'3px',}} />
+  <BiHome className="" style={{cursor:'pointer', backgroundColor:'rgba(0,0,0,.9)', color:'#ddd', fontSize:'32px', padding:'2',}} />
   </Link>
 </div>
 
@@ -226,7 +226,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
   document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
 }} aria-label="Link to Top" style={{cursor:'pointer', display:'block', height:'', fontSize:''}}>
 <div className="uparrow1 button" style={{display:'flex', flexDirection:'column', gap:'0', padding:'0', alignItems:'center', textAlign:'center', borderRadius:'3px', textShadow:'0 1px 1px rgba(0, 0, 0, .7)', margin:'0 1rem' }}>
-  <RiArrowUpFill className="" style={{cursor:'pointer', backgroundColor:'rgba(0,0,0,.9)', color:'#ddd', padding:'3px', fontSize:'28px'}} />
+  <RiArrowUpFill className="" style={{cursor:'pointer', backgroundColor:'rgba(0,0,0,.9)', color:'#ddd', padding:'2px', fontSize:'32px'}} />
 </div>
 </a>
 </div>
@@ -239,7 +239,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 
 <div id="menu" className="menu print panel1 header" style={{position:'fixed', width:'100vw', top:'0', zIndex:'10', maxHeight:'', overFlow:'', boxShadow:'0 0 2px rgba(0,0,0,.7)', padding:'0 2%', alignItems:'start', borderRadius:'0', display:'flex', justifyContent:'space-around', gap:'10px', color:'#fff',  borderBottom:'1px solid #222',}}>
 
-<Link to="/" className="cornerlogo" name="homereturn" style={{position:'', display:'flex', marginLeft:'20px', alignItems:'center', justifyContent:'center', maxWidth:'', height:'60px', border:'0px solid transparent'}}  aria-label="Link to Top" title="Back to Top">
+<Link to="/" className="cornerlogo" name="homereturn" style={{position:'', display:'flex', marginLeft:'', alignItems:'center', justifyContent:'center', maxWidth:'', height:'60px', border:'0px solid transparent'}}  aria-label="Link to Top" title="Back to Top">
 {iconimage ? (
 <img className="cornerlogo" style={{position:'relative', top:'', left:'4%', border:'0px solid white', padding:'0', maxHeight:'60px'}} src={iconimage} alt={companyname} width="111" height="60" />
 ) : (

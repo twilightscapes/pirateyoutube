@@ -1,6 +1,6 @@
 ---
 template: blog-post
-title: tags and cats1
+title: An even larger and longer title that might wrap wrong
 slug: /trypirate2
 date: 2023-10-01 09:00
 description: Experience the thrill of PIRATE

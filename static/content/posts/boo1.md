@@ -1,6 +1,6 @@
 ---
 template: blog-post
-title: FUCK
+title: A large and long title that might wrap wrong
 slug: /boo1
 date: 2023-10-01 09:00
 description: Experience the thrill of PIRATE

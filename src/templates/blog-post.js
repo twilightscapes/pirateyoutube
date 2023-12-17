@@ -885,7 +885,7 @@ Click to play
             display: "flex",
             justifyContent: "center",
             width: "auto",
-            maxWidth: "75vw",
+            maxWidth: "95vw",
             margin: "0 auto",
             gap: "5vw",
             background: "rgba(0, 0, 0, .5)",
