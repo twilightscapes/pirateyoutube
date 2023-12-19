@@ -22,7 +22,7 @@ import BlueCheck from './bluecheck';
 import { BsFillGrid3X2GapFill } from "react-icons/bs";
 import { PiHandSwipeRightFill } from "react-icons/pi";
 import { window } from "browser-monads"
-const Layout = ({ children, archiveView: propArchiveView }) => {
+const Layout = ({ children }) => {
 
 // const [loggedIn, setLoggedIn] = useState(false);
 //   useNetlifyIdentity(setLoggedIn);
@@ -42,7 +42,7 @@ const applyArchiveView = useCallback(() => {
   const elements = document.querySelectorAll(".contentpanel");
   elements.forEach((el) => {
     if (archiveView === "grid") {
-      el.classList.remove("horizontal-scroll", "panels");
+      el.classList.remove("horizontal-scroll", "panels", "horizontal-scroll1");
       el.classList.add("grid-container");
       // document.body.classList.add("scrollable");
       // document.querySelector('#showPosts').style.height = 'auto';
@@ -56,7 +56,7 @@ const applyArchiveView = useCallback(() => {
     
     else if (archiveView === "swipe") {
       el.classList.remove("grid-container");
-      el.classList.add("horizontal-scroll", "panels");
+      el.classList.add("horizontal-scroll1", "horizontal-scroll", "panels");
       // document.body.classList.remove("scrollable");
       document.querySelector('.contentpanel').style.transition = 'all .5s ease-in-out';
       // document.querySelector('#showPosts').style.height = '600px';
@@ -277,8 +277,8 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
   {showSwipe ? (
         <div>
             <button
-    aria-label="Grid/Swipe View"
-    onClick={() => toggleArchiveView()}
+                aria-label="Grid/Swipe View"
+                onClick={toggleArchiveView}
                 className="swipescroll"
                 style={{
                     display: "flex",
