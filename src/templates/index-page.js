@@ -11,82 +11,9 @@ import TimeAgo from 'react-timeago';
 import { MdArrowForwardIos } from 'react-icons/md';
 import Seo from "../components/seo";
 import { getSrc } from "gatsby-plugin-image";
-import styled from "styled-components";
-
-const CustomBox = styled.div`
-.post-container {
-  padding: 0 3%;
-  width: 100vw;
-}
-
-.horizontal-scroll1 {
-  display: flex;
-  overflow-x: scroll;
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-align: center;
-}
-
-.slider {
-  display: flex;
-  scroll-snap-type: x mandatory;
-  width: 300vw;
-  gap: 25px;
-  scroll-padding: 0 5%;
-  overscroll-behavior: contain;
-  scroll-snap-align: center;
-}
-
-// .grid-view {
-//   display: flex;
-//   gap: 25px;
-//   flex-wrap: wrap;
-//   justify-content: space-around;
-// }
-
-.post-card1 {
-  min-height: ${(props) => (props.isHorizontalScroll ? "80vh" : "30vh")};
-  max-height: 30vh;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  display: grid;
-  place-content: center;
-  color: #ddd;
-  width: ${(props) => (props.isHorizontalScroll ? "100vw" : "300px")};
-  flex: ${(props) => (props.isHorizontalScroll ? "0 0 33.3333%" : "1")};
-}
-`;
-
-
-
-const HorizontalScroll = () => {
-  useEffect(() => {
-    const handleWheel = (event) => {
-      event.preventDefault();
-      const sliderContainer = document.querySelector(".horizontal-scroll1");
-      if (sliderContainer) {
-        sliderContainer.scrollLeft += event.deltaY;
-      }
-    };
-
-    const sliderContainer = document.querySelector(".horizontal-scroll1");
-
-    if (sliderContainer) {
-      sliderContainer.addEventListener("wheel", handleWheel);
-    }
-
-    return () => {
-      if (sliderContainer) {
-        sliderContainer.removeEventListener("wheel", handleWheel);
-      }
-    };
-  }, []);
-
-  const isHorizontalScroll = true; // You can set the initial value here if needed
-  return isHorizontalScroll;
-};
 
 const HomePage = ({ data }) => {
-  const { showModals, showDates, homecount, postcount, magicOptions, showNav, showArchive, showTitles } = useSiteMetadata();
+  const { showModals, showDates, homecount, postcount, magicOptions, showNav, showArchive, showTitles  } = useSiteMetadata();
   const { showMagic, showMagicCat, showMagicTag, showMagicSearch } = magicOptions;
 
   const { markdownRemark } = data;
@@ -142,6 +69,8 @@ const HomePage = ({ data }) => {
   const showMoreItems = () => {
     setNumVisibleItems((prevNumVisibleItems) => prevNumVisibleItems + postcount);
   };
+  
+  
 
   function clearfield() {
     document.querySelector('#clearme').value = '';
@@ -149,18 +78,9 @@ const HomePage = ({ data }) => {
     setSelectedCategory('');
     setSelectedTag('');
     setVisibleItems(homecount);
-  };
-
-  const isHorizontalScroll = HorizontalScroll();
-  const [horizontalScroll, setHorizontalScroll] = useState(isHorizontalScroll);
-
-  const toggleView = () => {
-    setHorizontalScroll((prev) => !prev);
-  };
-  
+  }
 
   return (
-    <CustomBox isHorizontalScroll={horizontalScroll}>
     <Layout>
       <Helmet>
         <body id="body" className="homepage" />
@@ -302,17 +222,11 @@ const HomePage = ({ data }) => {
 
 {/* <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: true ? '7vh' : '0' }}> */}
 
-{/* <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', paddingTop: showNav ? '6vw' : '6vw', }}>
+<div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', paddingTop: showNav ? '6vw' : '6vw', }}>
 
 
 
-        <div className="sliderSpacer" style={{ height: '', paddingTop: '', display: '' }}></div> */}
-<button onClick={toggleView}>Toggle View</button>
-<div className="post-container">
-        <div className={isHorizontalScroll ? "horizontal-scroll1" : "grid-container"} style={{paddingRight:''}} >
-
-        {isHorizontalScroll && (
-              <div className="slider">
+        <div className="sliderSpacer" style={{ height: '', paddingTop: '', display: '' }}></div>
 
         {filteredPosts.slice(0, numVisibleItems).map(({ node }, index) => (
           <div key={index} className="post-card1" style={{ alignItems: 'center' }}>
@@ -383,93 +297,14 @@ const HomePage = ({ data }) => {
 )}
   </div>
 )}
-</div>
-        )}
-
-
-{!isHorizontalScroll && (
-              <>
-
-        {filteredPosts.slice(0, numVisibleItems).map(({ node }, index) => (
-          <div key={index} className="post-card1" style={{ alignItems: 'center' }}>
-            <Link className="postlink" state={showModals ? { modal: true } : {}} key={node.frontmatter.slug} to={node.frontmatter.slug}>
-              <div>
-                {node.frontmatter.featuredImage ? (
-                  <GatsbyImage
-                    image={node.frontmatter.featuredImage.childImageSharp.gatsbyImageData}
-                    alt={node.frontmatter.title + " - Featured image"}
-                    className="featured-image1"
-                    placeholder="blurred"
-                    // loading="eager"
-                    style={{ position: 'relative', zIndex: '1', maxHeight: '', margin: '0 auto' }}
-                  />
-                ) : (
-                  <StaticImage
-                    className="featured-image1"
-                    src="../../static/assets/default-og-image.webp"
-                    alt="Default Image"
-                    style={{ position: 'relative', zIndex: '' }}
-                  />
-                )}
-              </div>
-              <div className="post-content" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%', height: '', position: 'relative', background: '', padding: '', margin: '0 auto 0 auto', textAlign: 'center', overFlow: 'hidden' }}>
-                {node.frontmatter.youtube.youtuber ? (
-                  <div className="spotlight" style={{ marginLeft: '10%', marginTop: '-28%', margin: '-24% 10% 0 10%' }}>
-                    <div className="posticons" style={{ flexDirection: 'column', margin: '0 auto' }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-around', gap: '2vw', color: 'fff', }}>
-                        <FaImage className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
-                        <ImPlay className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
-                        <AiOutlinePicLeft className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px, fontSize: ""' }} />
-                      </div>
-                      Play Multimedia
-                    </div>
-                  </div>
-                ) : ("")}
-                
-                {showTitles ? (    
-                  <div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '10px auto', maxWidth: '80vw', gap: '.4vw', height: '', textAlign: 'center', padding: '1vh 2vw', fontSize: 'clamp(1rem, 1vw, 1rem)', color: '' }}>
-                  <h2 className="title1">{node.frontmatter.title}</h2>
-                </div>
-                  ) : (
-                ""
-              )}
-
-                
-              </div>
-            </Link>
-            {showDates ? (
-              <p style={{ position: '', textAlign: 'center', border: '0px solid red', fontSize: '70%', minWidth: '100px' }}>
-                <TimeAgo date={node.frontmatter.date} />
-              </p>
-            ) : ("")}
-          </div>
-        ))}
-
-{numVisibleItems < filteredPosts.length && (
-  <div className="loadmore" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', placeSelf: 'center', gap: '',  textAlign: 'center' }}>
-
-    <button className="button load-more" onClick={showMoreItems} style={{maxWidth:''}}>
-      Load more
-    </button>
-
-    {showArchive ? (
-  <Link to="/archive" style={{ background: 'rgba(0, 0, 0, 0.8)', borderRadius: '5px', color: '#fff', display: 'flex', padding: '0 1vh', margin: '0 auto' }}>View Archive &nbsp;<MdArrowForwardIos style={{ marginTop: '4px' }} /></Link>
-) : (
-""
-)}
-  </div>
-)}
-</>
-        )}
 
 
 
 
 
-        </div>
-        </div>
+
+      </div>
     </Layout>
-    </CustomBox>
   );
 };
 

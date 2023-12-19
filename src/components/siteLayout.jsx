@@ -22,7 +22,7 @@ import BlueCheck from './bluecheck';
 import { BsFillGrid3X2GapFill } from "react-icons/bs";
 import { PiHandSwipeRightFill } from "react-icons/pi";
 import { window } from "browser-monads"
-const Layout = ({ children }) => {
+const Layout = ({ children, archiveView: propArchiveView }) => {
 
 // const [loggedIn, setLoggedIn] = useState(false);
 //   useNetlifyIdentity(setLoggedIn);
@@ -277,8 +277,8 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
   {showSwipe ? (
         <div>
             <button
-                aria-label="Grid/Swipe View"
-                onClick={toggleArchiveView}
+    aria-label="Grid/Swipe View"
+    onClick={() => toggleArchiveView()}
                 className="swipescroll"
                 style={{
                     display: "flex",
