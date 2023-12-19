@@ -73,39 +73,39 @@ const applyArchiveView = useCallback(() => {
 
 
 
-useEffect(() => {
-  sessionStorage.setItem("currentScrollPos", window.pageYOffset)
-  let prevScrollpos = window.pageYOffset;
+// useEffect(() => {
+//   sessionStorage.setItem("currentScrollPos", window.pageYOffset)
+//   let prevScrollpos = window.pageYOffset;
 
-  const handleScroll = () => {
-    const currentScrollPos = window.pageYOffset;
-    if (prevScrollpos > currentScrollPos && prevScrollpos - currentScrollPos > 75) {
-      // document.querySelector('.header').style.transform = 'translateY(0)';
-      if (showNav2) {
-        document.querySelector('#menuicon').style.transform = 'translateX(0)';
-      }
-      document.querySelector('.upbar').style.transform = 'translateY(140px)';
-      // document.body.classList.remove('scroll');
-      // document.body.classList.add('scroll');
-    } else if (prevScrollpos < currentScrollPos && currentScrollPos - prevScrollpos > 75) {
-      // document.querySelector('.header').style.transform = 'translateY(-100px)';
-      if (showNav2) {
-        document.querySelector('#menuicon').style.transform = 'translateX(200px)';
-      }
-      document.querySelector('.upbar').style.transform = 'translateY(-100px)';
-      // document.body.classList.add('scroll');
-    }
-    prevScrollpos = currentScrollPos;
-  };
+//   const handleScroll = () => {
+//     const currentScrollPos = window.pageYOffset;
+//     if (prevScrollpos > currentScrollPos && prevScrollpos - currentScrollPos > 75) {
+//       // document.querySelector('.header').style.transform = 'translateY(0)';
+//       if (showNav2) {
+//         document.querySelector('#menuicon').style.transform = 'translateX(0)';
+//       }
+//       document.querySelector('.upbar').style.transform = 'translateY(140px)';
+//       // document.body.classList.remove('scroll');
+//       // document.body.classList.add('scroll');
+//     } else if (prevScrollpos < currentScrollPos && currentScrollPos - prevScrollpos > 75) {
+//       // document.querySelector('.header').style.transform = 'translateY(-100px)';
+//       if (showNav2) {
+//         document.querySelector('#menuicon').style.transform = 'translateX(200px)';
+//       }
+//       document.querySelector('.upbar').style.transform = 'translateY(-100px)';
+//       // document.body.classList.add('scroll');
+//     }
+//     prevScrollpos = currentScrollPos;
+//   };
 
-  handleScroll();
+//   handleScroll();
 
-  window.addEventListener("scroll", handleScroll);
+//   window.addEventListener("scroll", handleScroll);
 
-  return () => {
-    window.removeEventListener("scroll", handleScroll);
-  }
-}, [showNav2]);
+//   return () => {
+//     window.removeEventListener("scroll", handleScroll);
+//   }
+// }, [showNav2]);
 
 
 

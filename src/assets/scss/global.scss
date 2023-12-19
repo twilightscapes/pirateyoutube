@@ -7,7 +7,7 @@
 *{animation-duration:.01ms;animation-iteration-count:1;scroll-behavior:auto;transition-duration:.01ms}
 }
 // html {overflow-x:hidden !important;}
-html, body{height:100vh; overflow-x:hidden !important;}
+html, body{height:100vh;}
 
 body.homepage:after{content: (''); background-color:inherit; height: 100vh; width:100%; background-size: cover; position:fixed; top:0; left:0; z-index:-1; }
 
@@ -255,8 +255,8 @@ body.homepage .timeago{display:none !important;}
 body.homepage #gobacker, body.social #gobacker{display: none !important;}
 
 
-body{overflow-x:hidden; overflow-y:auto !important;}
-body.scroll{overflow-x:hidden; overflow-y:hidden !important;}
+// body{overflow-x:hidden; overflow-y:auto !important;}
+// body.scroll{overflow-x:hidden; overflow-y:hidden !important;}
 
 
 
@@ -848,7 +848,7 @@ to{opacity:0;z-index:-3}
 
 
 
-.horizontal-scroll{max-height:100vw;overflow-x:hidden;overflow-y:auto;position:relative;scroll-padding:0 5%;transform:rotate(-90deg) translateY(-100%);transform-origin:right top;transition:transform .2s;width:100%}
+.horizontal-scroll{max-height:100vw;overflow-y:auto;position:relative;scroll-padding:0 5%;transform:rotate(-90deg) translateY(-100%);transform-origin:right top;transition:transform .2s;width:100%}
 .horizontal-scroll img{max-height:65vh;object-fit:contain;}
 .horizontal-scroll,.horizontal-scroll>*{display:block;overscroll-behavior:contain;padding:0}
 .horizontal-scroll>*{scroll-snap-align:center;transform:rotate(90deg);transform-origin:right top}
@@ -893,7 +893,7 @@ to{opacity:0;z-index:-3}
 #menu li .fullscreenButt{display:none;fill:var(--theme-ui-colors-text);filter:dropShadow(2px 2px 2px #000);}
 // #menu li svg{color:var(--theme-ui-colors-text);outline:#ff0;stroke:var(--theme-ui-colors-text);}
 
-.panel{-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);margin-top:0;overflow:hidden;text-shadow:0 2px 1px var(--theme-ui-colors-textShadow); border-radius: 8px;}
+.panel{-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);margin-top:0;text-shadow:0 2px 1px var(--theme-ui-colors-textShadow); border-radius: 8px;}
 .panel.legal{border:0 solid red;margin:10vh auto 1rem}
 
 // .panel:before{

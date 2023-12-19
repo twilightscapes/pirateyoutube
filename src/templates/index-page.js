@@ -11,9 +11,79 @@ import TimeAgo from 'react-timeago';
 import { MdArrowForwardIos } from 'react-icons/md';
 import Seo from "../components/seo";
 import { getSrc } from "gatsby-plugin-image";
+import styled from "styled-components";
+
+const CustomBox = styled.div`
+  .post-container {
+    padding: 0;
+    width: 100vw;
+  }
+
+  .horizontal-scroll1 {
+    display: flex;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-align: center;
+  }
+
+  .slider {
+    display: flex;
+    scroll-snap-type: x mandatory;
+    width: ${(props) => (props.isHorizontalScroll ? "300vw" : "100vw")};
+    gap: 25px;
+    scroll-padding: 0 5%;
+    overscroll-behavior: contain;
+    scroll-snap-align: center;
+  }
+
+  .grid-view {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: space-around;
+  }
+
+  .post-card1 {
+    min-height: ${(props) => (props.isHorizontalScroll ? "80vh" : "30vh")};
+    max-height: 30vh;
+    overflow: hidden;
+    display: grid;
+    place-content: center;
+    width: ${(props) => (props.isHorizontalScroll ? "100vw" : "140px")};
+    flex: ${(props) => (props.isHorizontalScroll ? "0 0 33.3333%" : "1 0 calc(33.3333% - 25px)")};
+  }
+`;
+
+
+const HorizontalScroll = () => {
+  useEffect(() => {
+    const handleWheel = (event) => {
+      event.preventDefault();
+      const sliderContainer = document.querySelector(".horizontal-scroll1");
+      if (sliderContainer) {
+        sliderContainer.scrollLeft += event.deltaY;
+      }
+    };
+
+    const sliderContainer = document.querySelector(".horizontal-scroll1");
+
+    if (sliderContainer) {
+      sliderContainer.addEventListener("wheel", handleWheel);
+    }
+
+    return () => {
+      if (sliderContainer) {
+        sliderContainer.removeEventListener("wheel", handleWheel);
+      }
+    };
+  }, []);
+
+  const isHorizontalScroll = true; // You can set the initial value here if needed
+  return isHorizontalScroll;
+};
 
 const HomePage = ({ data }) => {
-  const { showModals, showDates, homecount, postcount, magicOptions, showNav, showArchive, showTitles  } = useSiteMetadata();
+  const { showModals, showDates, homecount, postcount, magicOptions, showNav, showArchive, showTitles } = useSiteMetadata();
   const { showMagic, showMagicCat, showMagicTag, showMagicSearch } = magicOptions;
 
   const { markdownRemark } = data;
@@ -69,8 +139,6 @@ const HomePage = ({ data }) => {
   const showMoreItems = () => {
     setNumVisibleItems((prevNumVisibleItems) => prevNumVisibleItems + postcount);
   };
-  
-  
 
   function clearfield() {
     document.querySelector('#clearme').value = '';
@@ -78,9 +146,18 @@ const HomePage = ({ data }) => {
     setSelectedCategory('');
     setSelectedTag('');
     setVisibleItems(homecount);
-  }
+  };
+
+  const isHorizontalScroll = HorizontalScroll();
+  const [horizontalScroll, setHorizontalScroll] = useState(isHorizontalScroll);
+
+  const toggleView = () => {
+    setHorizontalScroll((prev) => !prev);
+  };
+  
 
   return (
+    <CustomBox isHorizontalScroll={horizontalScroll}>
     <Layout>
       <Helmet>
         <body id="body" className="homepage" />
@@ -222,11 +299,16 @@ const HomePage = ({ data }) => {
 
 {/* <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: true ? '7vh' : '0' }}> */}
 
-<div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', paddingTop: showNav ? '6vw' : '6vw', }}>
+{/* <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', paddingTop: showNav ? '6vw' : '6vw', }}>
 
 
 
-        <div className="sliderSpacer" style={{ height: '', paddingTop: '', display: '' }}></div>
+        <div className="sliderSpacer" style={{ height: '', paddingTop: '', display: '' }}></div> */}
+<button onClick={toggleView}>Toggle View</button>
+<div className="post-container">
+        <div className={isHorizontalScroll ? "horizontal-scroll1" : "grid-view"} style={{paddingRight:''}} >
+
+          <div className="slider">
 
         {filteredPosts.slice(0, numVisibleItems).map(({ node }, index) => (
           <div key={index} className="post-card1" style={{ alignItems: 'center' }}>
@@ -300,11 +382,12 @@ const HomePage = ({ data }) => {
 
 
 
+</div>
 
-
-
-      </div>
+        </div>
+        </div>
     </Layout>
+    </CustomBox>
   );
 };
 
