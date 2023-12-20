@@ -1,13 +1,23 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 
 const ViewContext = createContext();
 
 const ViewProvider = ({ children }) => {
-  const [horizontalScroll, setHorizontalScroll] = useState(true);
+  const [horizontalScroll, setHorizontalScroll] = useState(() => {
+    // Retrieve the value from localStorage or use the default value
+    const storedValue = localStorage.getItem("horizontalScroll");
+    return storedValue !== null ? JSON.parse(storedValue) : true;
+  });
 
   const toggleView = () => {
-    setHorizontalScroll((prev) => !prev);
+    const newValue = !horizontalScroll;
+    setHorizontalScroll(newValue);
   };
+
+  // Save the value to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("horizontalScroll", JSON.stringify(horizontalScroll));
+  }, [horizontalScroll]);
 
   return (
     <ViewContext.Provider value={{ horizontalScroll, toggleView }}>

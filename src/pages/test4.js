@@ -18,7 +18,7 @@ const CustomBox = styled.div`
   .post-container {
     padding: 0;
     width: 100vw;
-    overflow-Y:scroll !important;
+    overflow: scroll !important;
   }
 
   .horizontal-scroll1 {
@@ -28,9 +28,9 @@ const CustomBox = styled.div`
     scroll-snap-align: center;
   }
 
-  .grid-container {
-    overflow-y: scroll;
-  }
+  // .grid-container {
+  //   overflow-y: scroll;
+  // }
 
   .slider {
     display: flex;
@@ -41,7 +41,6 @@ const CustomBox = styled.div`
     overscroll-behavior: contain;
     scroll-snap-align: center;
   }
-
 
   .post-card1 {
     min-height: ${(props) => (props.isHorizontalScroll ? "80vh" : "30vh")};
@@ -55,47 +54,38 @@ const CustomBox = styled.div`
   }
 `;
 
-const HorizontalScroll = () => {
-  // const [horizontalScroll, setHorizontalScroll] = useState(true);
+const HorizontalScroll = (initialState) => {
+  const [horizontalScroll, setHorizontalScroll] = useState(initialState);
 
-  const { horizontalScroll } = useView();
-  
   useEffect(() => {
+    const sliderContainer = document.querySelector(".horizontal-scroll1");
+  
     const handleWheel = (event) => {
-      const sliderContainer = document.querySelector(".horizontal-scroll1");
-      if (sliderContainer) {
-        if (horizontalScroll) {
-          // Only handle horizontal scrolling in horizontal view
-          event.preventDefault();
-          sliderContainer.scrollLeft += event.deltaY;
-        } else if (sliderContainer.classList.contains("grid-container")) {
-          // Only handle vertical scrolling in grid view
-          sliderContainer.scrollTop += event.deltaY;
-        }
+      if (horizontalScroll || sliderContainer.classList.contains("grid-container")) {
+        // Only handle horizontal scrolling in horizontal view or vertical scrolling in grid view
+        sliderContainer.scrollLeft += event.deltaY;
+        // Prevent the default vertical scrolling
+        event.preventDefault();
       }
     };
-    
-
-    const sliderContainer = document.querySelector(".horizontal-scroll1");
-
+  
     if (sliderContainer) {
-      sliderContainer.addEventListener("wheel", handleWheel);
+      sliderContainer.addEventListener("wheel", handleWheel, { passive: false });
     }
-
+  
     return () => {
       if (sliderContainer) {
         sliderContainer.removeEventListener("wheel", handleWheel);
       }
     };
-  }, []);
-
-  return [horizontalScroll,];
+  }, [horizontalScroll]);
+  
+  
+  return [horizontalScroll, setHorizontalScroll];
 };
 
 const HomePage = ({ data }) => {
-
-
-  const { showModals, showDates, homecount, postcount, magicOptions, showNav, showArchive, showTitles } = useSiteMetadata();
+  const { showModals, showDates, homecount, postcount, showArchive, showTitles } = useSiteMetadata();
   const { markdownRemark } = data;
   const { frontmatter, excerpt } = markdownRemark;
 
@@ -158,7 +148,7 @@ const HomePage = ({ data }) => {
     setVisibleItems(homecount);
   };
 
-  const [horizontalScroll, setHorizontalScroll] = HorizontalScroll();
+  const [horizontalScroll, setHorizontalScroll] = HorizontalScroll(false);
 
   const toggleView = () => {
     setHorizontalScroll((prev) => !prev);

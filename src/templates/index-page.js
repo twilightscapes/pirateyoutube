@@ -18,7 +18,6 @@ const CustomBox = styled.div`
   .post-container {
     padding: 0;
     width: 100vw;
-    overflow-Y:scroll !important;
   }
 
   .horizontal-scroll1 {
@@ -42,7 +41,6 @@ const CustomBox = styled.div`
     scroll-snap-align: center;
   }
 
-
   .post-card1 {
     min-height: ${(props) => (props.isHorizontalScroll ? "80vh" : "30vh")};
     max-height: 30vh;
@@ -56,25 +54,20 @@ const CustomBox = styled.div`
 `;
 
 const HorizontalScroll = () => {
-  // const [horizontalScroll, setHorizontalScroll] = useState(true);
-
   const { horizontalScroll } = useView();
-  
+
   useEffect(() => {
     const handleWheel = (event) => {
       const sliderContainer = document.querySelector(".horizontal-scroll1");
       if (sliderContainer) {
         if (horizontalScroll) {
-          // Only handle horizontal scrolling in horizontal view
           event.preventDefault();
           sliderContainer.scrollLeft += event.deltaY;
         } else if (sliderContainer.classList.contains("grid-container")) {
-          // Only handle vertical scrolling in grid view
           sliderContainer.scrollTop += event.deltaY;
         }
       }
     };
-    
 
     const sliderContainer = document.querySelector(".horizontal-scroll1");
 
@@ -89,7 +82,7 @@ const HorizontalScroll = () => {
     };
   }, []);
 
-  return [horizontalScroll,];
+  return [horizontalScroll];
 };
 
 const HomePage = ({ data }) => {
@@ -159,13 +152,18 @@ const HomePage = ({ data }) => {
   };
 
   const [horizontalScroll, setHorizontalScroll] = HorizontalScroll();
-
+  console.log("horizontalScroll:", horizontalScroll);
   const toggleView = () => {
     setHorizontalScroll((prev) => !prev);
   };
 
   return (
-    <CustomBox isHorizontalScroll={horizontalScroll}>
+
+
+    
+    
+  
+        <CustomBox isHorizontalScroll={horizontalScroll}>
       <Layout>
         <Helmet>
           <body id="body" className="homepage" />
