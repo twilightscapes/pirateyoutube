@@ -18,6 +18,7 @@ const CustomBox = styled.div`
   .post-container {
     padding: 0;
     width: 100vw;
+    overflow: scroll;
   }
 
   .horizontal-scroll1 {
@@ -27,9 +28,9 @@ const CustomBox = styled.div`
     scroll-snap-align: center;
   }
 
-  .grid-container {
-    overflow-y: scroll;
-  }
+  // .grid-container {
+  //   overflow-y: scroll;
+  // }
 
   .slider {
     display: flex;

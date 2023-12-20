@@ -6,7 +6,7 @@ const ViewProvider = ({ children }) => {
   const [horizontalScroll, setHorizontalScroll] = useState(() => {
     // Retrieve the value from localStorage or use the default value
     const storedValue = localStorage.getItem("horizontalScroll");
-    return storedValue !== null ? JSON.parse(storedValue) : true;
+    return storedValue !== null ? JSON.parse(storedValue) : false;
   });
 
   const toggleView = () => {
