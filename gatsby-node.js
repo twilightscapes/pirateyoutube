@@ -30,19 +30,20 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return;
   }
 
-  const team = result.data.allMarkdownRemark.edges.filter(
+  const teamMembers = result.data.allMarkdownRemark.edges.filter(
     (edge) => edge.node.frontmatter.template === "team"
   );
-
-  team.forEach((team) => {
+  
+  teamMembers.forEach((teamMember) => {
     createPage({
-      path: `/team/${team.node.frontmatter.slug}`,
+      path: `/team/${teamMember.node.frontmatter.slug}`,
       component: path.resolve(`src/templates/team.js`),
       context: {
-        id: team.node.id,
+        id: teamMember.node.id,
       },
     });
   });
+  
 
   const posts = result.data.allMarkdownRemark.edges;
   let blogPostsCount = 0;

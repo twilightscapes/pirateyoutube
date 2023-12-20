@@ -27,11 +27,20 @@ const ViewProvider = ({ children }) => {
 };
 
 const useView = () => {
-  const context = useContext(ViewContext);
-  if (!context) {
-    throw new Error("useView must be used within a ViewProvider");
+  try {
+    const context = useContext(ViewContext);
+    if (!context) {
+      // Optionally, you can log a warning or provide a default value here
+      console.warn("useView is being used outside a ViewProvider");
+      return { horizontalScroll: true, toggleView: () => {} };
+    }
+    return context;
+  } catch (error) {
+    // Optionally, you can log the error or handle it in a way that fits your needs
+    console.error("Error in useView:", error);
+    return { horizontalScroll: true, toggleView: () => {} };
   }
-  return context;
 };
+
 
 export { ViewProvider, useView };
