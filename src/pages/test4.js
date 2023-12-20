@@ -14,58 +14,64 @@ import { getSrc } from "gatsby-plugin-image";
 import styled from "styled-components";
 
 const CustomBox = styled.div`
-.post-container {
-  padding: 0 ;
-  width: 100vw;
-}
+  .post-container {
+    padding: 0;
+    width: 100vw;
+    overflow-Y:scroll !important;
+  }
 
-.horizontal-scroll1 {
-  display: flex;
-  overflow-x: scroll;
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-align: center;
-}
+  .horizontal-scroll1 {
+    display: flex;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-align: center;
+  }
 
-.slider {
-  display: flex;
-  scroll-snap-type: x mandatory;
-  width: 300vw;
-  gap: 25px;
-  scroll-padding: 0 5%;
-  overscroll-behavior: contain;
-  scroll-snap-align: center;
-}
+  .grid-container {
+    overflow-y: scroll;
+  }
 
-// .grid-view {
-//   display: flex;
-//   gap: 25px;
-//   flex-wrap: wrap;
-//   justify-content: space-around;
-// }
+  .slider {
+    display: flex;
+    scroll-snap-type: x mandatory;
+    width: 300vw;
+    gap: 25px;
+    scroll-padding: 0 5%;
+    overscroll-behavior: contain;
+    scroll-snap-align: center;
+  }
 
-.post-card1 {
-  min-height: ${(props) => (props.isHorizontalScroll ? "80vh" : "30vh")};
-  max-height: 30vh;
-  overflow: hidden;
-  display: grid;
-  place-content: center;
-  color: #ddd;
-  width: ${(props) => (props.isHorizontalScroll ? "100vw" : "300px")};
-  flex: ${(props) => (props.isHorizontalScroll ? "0 0 33.3333%" : "1")};
-}
+
+  .post-card1 {
+    min-height: ${(props) => (props.isHorizontalScroll ? "80vh" : "30vh")};
+    max-height: 30vh;
+    overflow: hidden;
+    display: grid;
+    place-content: center;
+    color: #ddd;
+    width: ${(props) => (props.isHorizontalScroll ? "100vw" : "300px")};
+    flex: ${(props) => (props.isHorizontalScroll ? "0 0 33.3333%" : "1")};
+  }
 `;
 
-
-
 const HorizontalScroll = () => {
+  const [horizontalScroll, setHorizontalScroll] = useState(true);
+
   useEffect(() => {
     const handleWheel = (event) => {
-      event.preventDefault();
       const sliderContainer = document.querySelector(".horizontal-scroll1");
       if (sliderContainer) {
-        sliderContainer.scrollLeft += event.deltaY;
+        if (horizontalScroll) {
+          // Only handle horizontal scrolling in horizontal view
+          event.preventDefault();
+          sliderContainer.scrollLeft += event.deltaY;
+        } else if (sliderContainer.classList.contains("grid-container")) {
+          // Only handle vertical scrolling in grid view
+          sliderContainer.scrollTop += event.deltaY;
+        }
       }
     };
+    
 
     const sliderContainer = document.querySelector(".horizontal-scroll1");
 
@@ -80,14 +86,13 @@ const HorizontalScroll = () => {
     };
   }, []);
 
-  const isHorizontalScroll = true; // You can set the initial value here if needed
-  return isHorizontalScroll;
+  return [horizontalScroll, setHorizontalScroll];
 };
 
 const HomePage = ({ data }) => {
-  const { showModals, showDates, homecount, postcount, magicOptions, showNav, showArchive, showTitles } = useSiteMetadata();
-  const { showMagic, showMagicCat, showMagicTag, showMagicSearch } = magicOptions;
 
+
+  const { showModals, showDates, homecount, postcount, magicOptions, showNav, showArchive, showTitles } = useSiteMetadata();
   const { markdownRemark } = data;
   const { frontmatter, excerpt } = markdownRemark;
 
@@ -142,7 +147,7 @@ const HomePage = ({ data }) => {
     setNumVisibleItems((prevNumVisibleItems) => prevNumVisibleItems + postcount);
   };
 
-  function clearfield() {
+  const clearfield = () => {
     document.querySelector('#clearme').value = '';
     setQuery('');
     setSelectedCategory('');
@@ -150,367 +155,224 @@ const HomePage = ({ data }) => {
     setVisibleItems(homecount);
   };
 
-  const isHorizontalScroll = HorizontalScroll();
-  const [horizontalScroll, setHorizontalScroll] = useState(isHorizontalScroll);
+  const [horizontalScroll, setHorizontalScroll] = HorizontalScroll();
 
   const toggleView = () => {
     setHorizontalScroll((prev) => !prev);
   };
-  
 
   return (
     <CustomBox isHorizontalScroll={horizontalScroll}>
-    <Layout>
-      <Helmet>
-        <body id="body" className="homepage" />
-      </Helmet>
+      <Layout>
+        <Helmet>
+          <body id="body" className="homepage" />
+        </Helmet>
 
-      <Seo
-        title={frontmatter.title}
-        description={frontmatter.description ? frontmatter.description : excerpt}
-        image={getSrc(frontmatter.featuredImage)}
-      />
+        <Seo
+          title={frontmatter.title}
+          description={frontmatter.description ? frontmatter.description : excerpt}
+          image={getSrc(frontmatter.featuredImage)}
+        />
 
-      {showMagic ? (
-        <>
-          <div className="magicisland">
-            <div className="cattags font">
-              {showMagicCat ? (
-                <>
-                  {allCategories.length > 1 && (
-                    <select
-                      value={selectedCategory}
-                      onChange={handleCategoryChange}
-                      style={{
-                        background: '#222',
-                        outline: '1px solid #111',
-                        borderRadius: '3px',
-                        padding: '2px',
-                        minWidth: '80px',
-                        maxWidth: '30%',
-                        overflow: 'hidden',
-                      }}
-                      aria-label="Select Category"
-                    >
-                      <option value="">Category</option>
-                      {allCategories.filter(category => category).map((category, index) => (
-                        <option key={`${category}_${index}`} value={category.trim()}>
-                          {category.trim()}
-                        </option>
-                      ))}
-                    </select>
-                  )}
-                </>
-              ) : (
-                ""
-              )}
+        <button onClick={toggleView}>Toggle View</button>
+        <div className="post-container">
+          <div className={horizontalScroll ? "horizontal-scroll1 contentpanel" : "grid-container contentpanel"} style={{ paddingRight: '' }}>
 
-              {showMagicTag ? (
-                <>
-                  {allTags.length > 1 && (
-                    <select
-                      value={selectedTag}
-                      onChange={handleTagChange}
-                      style={{
-                        background: '#222',
-                        outline: '1px solid #111',
-                        borderRadius: '3px',
-                        padding: '2px',
-                        minWidth: '80px',
-                        maxWidth: '30%',
-                        overflow: 'hidden',
-                      }}
-                      aria-label="Select Keyword"
-                    >
-                      <option value="">Keyword</option>
-                      {allTags.filter(tag => tag).map((tag, index) => (
-                        <option key={`${tag}_${index}`} value={tag.trim()}>
-                          {tag.trim()}
-                        </option>
-                      ))}
-                    </select>
-                  )}
-                </>
-                
-              ) : (
-                ""
-              )}
+            {horizontalScroll && (
+              <div className="slider">
+                {filteredPosts.slice(0, numVisibleItems).map(({ node }, index) => (
+                  <div key={index} className="post-card1" style={{ alignItems: 'center' }}>
+                    <Link className="postlink" state={showModals ? { modal: true } : {}} key={node.frontmatter.slug} to={node.frontmatter.slug}>
+                      <div>
+                        {node.frontmatter.featuredImage ? (
+                          <GatsbyImage
+                            image={node.frontmatter.featuredImage.childImageSharp.gatsbyImageData}
+                            alt={node.frontmatter.title + " - Featured image"}
+                            className="featured-image1"
+                            placeholder="blurred"
+                            style={{ position: 'relative', zIndex: '1', maxHeight: '', margin: '0 auto' }}
+                          />
+                        ) : (
+                          <StaticImage
+                            className="featured-image1"
+                            src="../../static/assets/default-og-image.webp"
+                            alt="Default Image"
+                            style={{ position: 'relative', zIndex: '' }}
+                          />
+                        )}
+                      </div>
+                      <div className="post-content" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%', height: '', position: 'relative', background: '', padding: '', margin: '0 auto 0 auto', textAlign: 'center', overFlow: 'hidden' }}>
+                        {node.frontmatter.youtube.youtuber ? (
+                          <div className="spotlight" style={{ marginLeft: '10%', marginTop: '-28%', margin: '-24% 10% 0 10%' }}>
+                            <div className="posticons" style={{ flexDirection: 'column', margin: '0 auto' }}>
+                              <div style={{ display: 'flex', justifyContent: 'space-around', gap: '2vw', color: 'fff', }}>
+                                <FaImage className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
+                                <ImPlay className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
+                                <AiOutlinePicLeft className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: "" }} />
+                              </div>
+                              Play Multimedia
+                            </div>
+                          </div>
+                        ) : ("")}
 
-              {showMagicSearch ? (
-                <>
-                  <label style={{ maxWidth: '' }}>
-                    <input
-                      id="clearme"
-                      type="text"
-                      placeholder="Search:"
-                      onChange={handleSearch}
-                      style={{
-                        width: '',
-                        background: '#222',
-                        marginRight: '',
-                        outline: '1px solid #111',
-                        borderRadius: '3px',
-                        height: '',
-                        padding: '6px 6px',
-                        minWidth: '80px',
-                        maxWidth: '80%',
-                        lineHeight: '100%',
-                      }}
-                      aria-label="Search"
-                    />
-                  </label>
-                </>
-              ) : (
-                ""
-              )}
+                        {showTitles ? (
+                          <div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '10px auto', maxWidth: '80vw', gap: '.4vw', height: '', textAlign: 'center', padding: '1vh 2vw', fontSize: 'clamp(1rem, 1vw, 1rem)', color: '' }}>
+                            <h2 className="title1">{node.frontmatter.title}</h2>
+                          </div>
+                        ) : (
+                          ""
+                        )}
+                      </div>
+                    </Link>
+                    {showDates ? (
+                      <p style={{ position: '', textAlign: 'center', border: '0px solid red', fontSize: '70%', minWidth: '100px' }}>
+                        <TimeAgo date={node.frontmatter.date} />
+                      </p>
+                    ) : ("")}
+                  </div>
+                ))}
 
-              <button
-                type="reset"
-                value="reset"
-                onClick={clearfield}
-                style={{
-                  position: '',
-                  right: '',
-                  top: '',
-                  background: '#222',
-                  color: '#fff',
-                  textAlign: 'center',
-                  fontSize: '10px',
-                  height: '',
-                  maxWidth: '',
-                  outline: '1px solid #111',
-                  padding: '5px',
-                  borderRadius: '3px',
-                  lineHeight: '100%',
-                }}
-                aria-label="Clear"
-              >
-                clear
-              </button>
+                {numVisibleItems < filteredPosts.length && (
+                  <div className="loadmore" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', placeSelf: 'center', gap: '', textAlign: 'center' }}>
 
-              <div style={{ position: '', right: '', top: '', textAlign: 'center', fontSize: '9px', color: '#fff', maxWidth: '' }}>
-                {filteredPosts.length} <br />
-                result{filteredPosts.length !== 1 && 's'}
-              </div>
-            </div>
-          </div>
-        </>
-      ) : (
-        ""
-      )}
+                    <button className="button load-more" onClick={showMoreItems} style={{ maxWidth: '' }}>
+                      Load more
+                    </button>
 
-
-<button onClick={toggleView}>Toggle View</button>
-
-
-
-<div className="post-container">
-        <div className={isHorizontalScroll ? "horizontal-scroll1 content" : "grid-container"} style={{paddingRight:''}} >
-
-
-{isHorizontalScroll ? ( 
-  <div className="slider">
-
-{filteredPosts.slice(0, numVisibleItems).map(({ node }, index) => (
-  <div key={index} className="post-card1" style={{ alignItems: 'center' }}>
-    <Link className="postlink" state={showModals ? { modal: true } : {}} key={node.frontmatter.slug} to={node.frontmatter.slug}>
-      <div>
-        {node.frontmatter.featuredImage ? (
-          <GatsbyImage
-            image={node.frontmatter.featuredImage.childImageSharp.gatsbyImageData}
-            alt={node.frontmatter.title + " - Featured image"}
-            className="featured-image1"
-            placeholder="blurred"
-            // loading="eager"
-            style={{ position: 'relative', zIndex: '1', maxHeight: '', margin: '0 auto' }}
-          />
-        ) : (
-          <StaticImage
-            className="featured-image1"
-            src="../../static/assets/default-og-image.webp"
-            alt="Default Image"
-            style={{ position: 'relative', zIndex: '' }}
-          />
-        )}
-      </div>
-      <div className="post-content" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%', height: '', position: 'relative', background: '', padding: '', margin: '0 auto 0 auto', textAlign: 'center', overFlow: 'hidden' }}>
-        {node.frontmatter.youtube.youtuber ? (
-          <div className="spotlight" style={{ marginLeft: '10%', marginTop: '-28%', margin: '-24% 10% 0 10%' }}>
-            <div className="posticons" style={{ flexDirection: 'column', margin: '0 auto' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-around', gap: '2vw', color: 'fff', }}>
-                <FaImage className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
-                <ImPlay className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
-                <AiOutlinePicLeft className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px, fontSize: ""' }} />
-              </div>
-              Play Multimedia
-            </div>
-          </div>
-        ) : ("")}
-        
-        {showTitles ? (    
-          <div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '10px auto', maxWidth: '80vw', gap: '.4vw', height: '', textAlign: 'center', padding: '1vh 2vw', fontSize: 'clamp(1rem, 1vw, 1rem)', color: '' }}>
-          <h2 className="title1">{node.frontmatter.title}</h2>
-        </div>
-          ) : (
-        ""
-      )}
-
-        
-      </div>
-    </Link>
-    {showDates ? (
-      <p style={{ position: '', textAlign: 'center', border: '0px solid red', fontSize: '70%', minWidth: '100px' }}>
-        <TimeAgo date={node.frontmatter.date} />
-      </p>
-    ) : ("")}
-  </div>
-))}
-
-{numVisibleItems < filteredPosts.length && (
-<div className="loadmore" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', placeSelf: 'center', gap: '',  textAlign: 'center' }}>
-
-<button className="button load-more" onClick={showMoreItems} style={{maxWidth:''}}>
-Load more
-</button>
-
-{showArchive ? (
-<Link to="/archive" style={{ background: 'rgba(0, 0, 0, 0.8)', borderRadius: '5px', color: '#fff', display: 'flex', padding: '0 1vh', margin: '0 auto' }}>View Archive &nbsp;<MdArrowForwardIos style={{ marginTop: '4px' }} /></Link>
-) : (
-""
-)}
-</div>
-)}
-</div>
-) : (
-  <>
-
-        {filteredPosts.slice(0, numVisibleItems).map(({ node }, index) => (
-          <div key={index} className="post-card1" style={{ alignItems: 'center' }}>
-            <Link className="postlink" state={showModals ? { modal: true } : {}} key={node.frontmatter.slug} to={node.frontmatter.slug}>
-              <div>
-                {node.frontmatter.featuredImage ? (
-                  <GatsbyImage
-                    image={node.frontmatter.featuredImage.childImageSharp.gatsbyImageData}
-                    alt={node.frontmatter.title + " - Featured image"}
-                    className="featured-image1"
-                    placeholder="blurred"
-                    // loading="eager"
-                    style={{ position: 'relative', zIndex: '1', maxHeight: '', margin: '0 auto' }}
-                  />
-                ) : (
-                  <StaticImage
-                    className="featured-image1"
-                    src="../../static/assets/default-og-image.webp"
-                    alt="Default Image"
-                    style={{ position: 'relative', zIndex: '' }}
-                  />
+                    {showArchive ? (
+                      <Link to="/archive" style={{ background: 'rgba(0, 0, 0, 0.8)', borderRadius: '5px', color: '#fff', display: 'flex', padding: '0 1vh', margin: '0 auto' }}>View Archive &nbsp;<MdArrowForwardIos style={{ marginTop: '4px' }} /></Link>
+                    ) : (
+                      ""
+                    )}
+                  </div>
                 )}
               </div>
-              <div className="post-content" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%', height: '', position: 'relative', background: '', padding: '', margin: '0 auto 0 auto', textAlign: 'center', overFlow: 'hidden' }}>
-                {node.frontmatter.youtube.youtuber ? (
-                  <div className="spotlight" style={{ marginLeft: '10%', marginTop: '-28%', margin: '-24% 10% 0 10%' }}>
-                    <div className="posticons" style={{ flexDirection: 'column', margin: '0 auto' }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-around', gap: '2vw', color: 'fff', }}>
-                        <FaImage className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
-                        <ImPlay className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
-                        <AiOutlinePicLeft className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px, fontSize: ""' }} />
+            )}
+
+            {!horizontalScroll && (
+              <>
+                {filteredPosts.slice(0, numVisibleItems).map(({ node }, index) => (
+                  <div key={index} className="post-card1" style={{ alignItems: 'center' }}>
+                    <Link className="postlink" state={showModals ? { modal: true } : {}} key={node.frontmatter.slug} to={node.frontmatter.slug}>
+                      <div>
+                        {node.frontmatter.featuredImage ? (
+                          <GatsbyImage
+                            image={node.frontmatter.featuredImage.childImageSharp.gatsbyImageData}
+                            alt={node.frontmatter.title + " - Featured image"}
+                            className="featured-image1"
+                            placeholder="blurred"
+                            style={{ position: 'relative', zIndex: '1', maxHeight: '', margin: '0 auto' }}
+                          />
+                        ) : (
+                          <StaticImage
+                            className="featured-image1"
+                            src="../../static/assets/default-og-image.webp"
+                            alt="Default Image"
+                            style={{ position: 'relative', zIndex: '' }}
+                          />
+                        )}
                       </div>
-                      Play Multimedia
-                    </div>
+                      <div className="post-content" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%', height: '', position: 'relative', background: '', padding: '', margin: '0 auto 0 auto', textAlign: 'center', overFlow: 'hidden' }}>
+                        {node.frontmatter.youtube.youtuber ? (
+                          <div className="spotlight" style={{ marginLeft: '10%', marginTop: '-28%', margin: '-24% 10% 0 10%' }}>
+                            <div className="posticons" style={{ flexDirection: 'column', margin: '0 auto' }}>
+                              <div style={{ display: 'flex', justifyContent: 'space-around', gap: '2vw', color: 'fff', }}>
+                                <FaImage className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
+                                <ImPlay className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
+                                <AiOutlinePicLeft className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: "" }} />
+                              </div>
+                              Play Multimedia
+                            </div>
+                          </div>
+                        ) : ("")}
+
+                        {showTitles ? (
+                          <div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '10px auto', maxWidth: '80vw', gap: '.4vw', height: '', textAlign: 'center', padding: '1vh 2vw', fontSize: 'clamp(1rem, 1vw, 1rem)', color: '' }}>
+                            <h2 className="title1">{node.frontmatter.title}</h2>
+                          </div>
+                        ) : (
+                          ""
+                        )}
+                      </div>
+                    </Link>
+                    {showDates ? (
+                      <p style={{ position: '', textAlign: 'center', border: '0px solid red', fontSize: '70%', minWidth: '100px' }}>
+                        <TimeAgo date={node.frontmatter.date} />
+                      </p>
+                    ) : ("")}
                   </div>
-                ) : ("")}
-                
-                {showTitles ? (    
-                  <div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '10px auto', maxWidth: '80vw', gap: '.4vw', height: '', textAlign: 'center', padding: '1vh 2vw', fontSize: 'clamp(1rem, 1vw, 1rem)', color: '' }}>
-                  <h2 className="title1">{node.frontmatter.title}</h2>
-                </div>
-                  ) : (
-                ""
-              )}
+                ))}
 
-                
-              </div>
-            </Link>
-            {showDates ? (
-              <p style={{ position: '', textAlign: 'center', border: '0px solid red', fontSize: '70%', minWidth: '100px' }}>
-                <TimeAgo date={node.frontmatter.date} />
-              </p>
-            ) : ("")}
+                {numVisibleItems < filteredPosts.length && (
+                  <div className="loadmore" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', placeSelf: 'center', gap: '', textAlign: 'center' }}>
+
+                    <button className="button load-more" onClick={showMoreItems} style={{ maxWidth: '' }}>
+                      Load more
+                    </button>
+
+                    {showArchive ? (
+                      <Link to="/archive" style={{ background: 'rgba(0, 0, 0, 0.8)', borderRadius: '5px', color: '#fff', display: 'flex', padding: '0 1vh', margin: '0 auto' }}>View Archive &nbsp;<MdArrowForwardIos style={{ marginTop: '4px' }} /></Link>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                )}
+              </>
+            )}
           </div>
-        ))}
-
-{numVisibleItems < filteredPosts.length && (
-  <div className="loadmore" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', placeSelf: 'center', gap: '',  textAlign: 'center' }}>
-
-    <button className="button load-more" onClick={showMoreItems} style={{maxWidth:''}}>
-      Load more
-    </button>
-
-    {showArchive ? (
-  <Link to="/archive" style={{ background: 'rgba(0, 0, 0, 0.8)', borderRadius: '5px', color: '#fff', display: 'flex', padding: '0 1vh', margin: '0 auto' }}>View Archive &nbsp;<MdArrowForwardIos style={{ marginTop: '4px' }} /></Link>
-) : (
-""
-)}
-  </div>
-)}
-</>
-)}
-
-
         </div>
-        </div>
-    </Layout>
+      </Layout>
     </CustomBox>
   );
 };
 
 export const pageQuery = graphql`
-query ($postcount: Int) {
-  allMarkdownRemark(
-    sort: [{ frontmatter: { spotlight: ASC } }, { frontmatter: { date: DESC } }]
-    filter: { frontmatter: { template: { eq: "blog-post" } } }
-    limit: $postcount
-  ) {
-    edges {
-      node {
-        id
-        excerpt(pruneLength: 250)
-        frontmatter {
-          title
-          date(formatString: "YYYY-MM-DD-HH-MM-SS")
-          youtube {
-            youtuber
-          }
-          featuredImage {
-            childImageSharp {
-              gatsbyImageData(placeholder: BLURRED, layout: CONSTRAINED)
+  query ($postcount: Int) {
+    allMarkdownRemark(
+      sort: [{ frontmatter: { spotlight: ASC } }, { frontmatter: { date: DESC } }]
+      filter: { frontmatter: { template: { eq: "blog-post" } } }
+      limit: $postcount
+    ) {
+      edges {
+        node {
+          id
+          excerpt(pruneLength: 250)
+          frontmatter {
+            title
+            date(formatString: "YYYY-MM-DD-HH-MM-SS")
+            youtube {
+              youtuber
             }
+            featuredImage {
+              childImageSharp {
+                gatsbyImageData(placeholder: BLURRED, layout: CONSTRAINED)
+              }
+            }
+            category
+            tags
+            slug
           }
-          category
-          tags
-          slug
+        }
+      }
+    }
+    markdownRemark {
+      id
+      html
+      excerpt(pruneLength: 148)
+      frontmatter {
+        date(formatString: "YYYY-MM-DD-HH-MM-SS")
+        slug
+        title
+        description
+        featuredImage {
+          publicURL
+          childImageSharp {
+            gatsbyImageData
+          }
         }
       }
     }
   }
-  markdownRemark {
-    id
-    html
-    excerpt(pruneLength: 148)
-    frontmatter {
-      date(formatString: "YYYY-MM-DD-HH-MM-SS")
-      slug
-      title
-      description
-      featuredImage {
-        publicURL
-        childImageSharp {
-          gatsbyImageData
-        }
-      }
-    }
-  }
-}
 `;
 
 export default HomePage;

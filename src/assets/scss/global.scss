@@ -1096,7 +1096,7 @@ ul li{display:inline-block}
     list-style: none;
     column-gap: 2vw;
     padding: 0 2%;
-    column-count: 1;
+    // column-count: 1;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2vw;
     padding-bottom: 10vh;

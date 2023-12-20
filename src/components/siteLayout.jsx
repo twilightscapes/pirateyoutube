@@ -42,7 +42,7 @@ const applyArchiveView = useCallback(() => {
   const elements = document.querySelectorAll(".contentpanel");
   elements.forEach((el) => {
     if (archiveView === "grid") {
-      el.classList.remove("horizontal-scroll", "panels", "horizontal-scroll1");
+      el.classList.remove("horizontal-scroll1", "panels");
       el.classList.add("grid-container");
       // document.body.classList.add("scrollable");
       // document.querySelector('#showPosts').style.height = 'auto';
@@ -56,7 +56,7 @@ const applyArchiveView = useCallback(() => {
     
     else if (archiveView === "swipe") {
       el.classList.remove("grid-container");
-      el.classList.add("horizontal-scroll1", "horizontal-scroll", "panels");
+      el.classList.add("horizontal-scroll1", "panels");
       // document.body.classList.remove("scrollable");
       document.querySelector('.contentpanel').style.transition = 'all .5s ease-in-out';
       // document.querySelector('#showPosts').style.height = '600px';
@@ -73,39 +73,7 @@ const applyArchiveView = useCallback(() => {
 
 
 
-// useEffect(() => {
-//   sessionStorage.setItem("currentScrollPos", window.pageYOffset)
-//   let prevScrollpos = window.pageYOffset;
 
-//   const handleScroll = () => {
-//     const currentScrollPos = window.pageYOffset;
-//     if (prevScrollpos > currentScrollPos && prevScrollpos - currentScrollPos > 75) {
-//       // document.querySelector('.header').style.transform = 'translateY(0)';
-//       if (showNav2) {
-//         document.querySelector('#menuicon').style.transform = 'translateX(0)';
-//       }
-//       document.querySelector('.upbar').style.transform = 'translateY(140px)';
-//       // document.body.classList.remove('scroll');
-//       // document.body.classList.add('scroll');
-//     } else if (prevScrollpos < currentScrollPos && currentScrollPos - prevScrollpos > 75) {
-//       // document.querySelector('.header').style.transform = 'translateY(-100px)';
-//       if (showNav2) {
-//         document.querySelector('#menuicon').style.transform = 'translateX(200px)';
-//       }
-//       document.querySelector('.upbar').style.transform = 'translateY(-100px)';
-//       // document.body.classList.add('scroll');
-//     }
-//     prevScrollpos = currentScrollPos;
-//   };
-
-//   handleScroll();
-
-//   window.addEventListener("scroll", handleScroll);
-
-//   return () => {
-//     window.removeEventListener("scroll", handleScroll);
-//   }
-// }, [showNav2]);
 
 
 
@@ -132,27 +100,6 @@ const toggleArchiveView = () => {
   setArchiveView(newArchiveView);
   applyArchiveView();
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
 
 
 const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/g, '+') + "&display=swap";
@@ -196,17 +143,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
   )}
 </ModalRoutingContext.Consumer>
 
-{/* <div className="upbar button" style={{position:'fixed', top:'', right:'5vw', zIndex:'5', justifyContent:'center', width:'auto', maxWidth:'80vw', margin:'0 auto', gap:'5vw', padding:'0 4px', borderRadius:'', textShadow:'0 1px 1px rgba(0, 0, 0, .7)', fontSize:'', verticalAlign:'center', transform: '' }}>
 
-<div className="uparrow" style={{display:'flex', flexDirection:'column', gap:'0', padding:'', alignItems:'center', textAlign:'center'}}>
-  <a href="#top" onClick={(e) => {
-  e.preventDefault();
-  document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
-}} aria-label="Link to Top" style={{cursor:'pointer', height:'', fontSize:''}}>
-  <RiArrowUpFill className="" style={{cursor:'pointer', color:'#ddd', fontSize:'1rem'}} />
-</a>
-</div>
-</div> */}
 
 
 
