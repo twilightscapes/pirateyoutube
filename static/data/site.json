@@ -17,7 +17,7 @@
     "showMagic": true,
     "homecount": 3,
     "magicOptions": {
-      "showMagic": false,
+      "showMagic": true,
       "showMagicCat": true,
       "showMagicTag": true,
       "showMagicSearch": true

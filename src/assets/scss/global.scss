@@ -1204,8 +1204,8 @@ ul li{display:inline-block}
 // .horizontal-scroll{margin-top:16vh ;}
 
 
-.grid-container {margin:0 auto 0 auto ; margin-top:8vh; }
-body.homepage .grid-container {margin-top:30vw ;}
+.grid-container {margin:0 auto 0 auto ; margin-top:0; }
+body.homepage .grid-container {margin-top:0; padding-top:14vh !important;}
 
 body.homepage .horizontal-scroll {margin-top:0 ; padding-right:15vw;}
 .horizontal-scroll{margin:0 auto 0 auto ;  padding-right:8vh;}
