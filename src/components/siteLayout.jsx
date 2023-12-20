@@ -16,14 +16,14 @@ import Menu from "../components/menu"
 import userStyles from "../../static/data/userStyles.json"
 import SignUp from "../components/newssign"
 import BlueCheck from './bluecheck';
-import { useView } from "../contexts/ViewContext";
+
 
 // import useNetlifyIdentity from '../components/useNetlifyIdentity';
 import { BsFillGrid3X2GapFill } from "react-icons/bs";
 import { PiHandSwipeRightFill } from "react-icons/pi";
 import { window } from "browser-monads"
 const Layout = ({ children }) => {
-  const { toggleView, horizontalScroll } = useView();
+
 // const [loggedIn, setLoggedIn] = useState(false);
 //   useNetlifyIdentity(setLoggedIn);
 const { companyname } = useSiteMetadata()
@@ -102,6 +102,27 @@ const toggleArchiveView = () => {
 };
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
 const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/g, '+') + "&display=swap";
 
 
@@ -143,7 +164,17 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
   )}
 </ModalRoutingContext.Consumer>
 
+{/* <div className="upbar button" style={{position:'fixed', top:'', right:'5vw', zIndex:'5', justifyContent:'center', width:'auto', maxWidth:'80vw', margin:'0 auto', gap:'5vw', padding:'0 4px', borderRadius:'', textShadow:'0 1px 1px rgba(0, 0, 0, .7)', fontSize:'', verticalAlign:'center', transform: '' }}>
 
+<div className="uparrow" style={{display:'flex', flexDirection:'column', gap:'0', padding:'', alignItems:'center', textAlign:'center'}}>
+  <a href="#top" onClick={(e) => {
+  e.preventDefault();
+  document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
+}} aria-label="Link to Top" style={{cursor:'pointer', height:'', fontSize:''}}>
+  <RiArrowUpFill className="" style={{cursor:'pointer', color:'#ddd', fontSize:'1rem'}} />
+</a>
+</div>
+</div> */}
 
 
 
@@ -215,8 +246,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
         <div>
             <button
                 aria-label="Grid/Swipe View"
-                // onClick={toggleArchiveView}
-                onClick={toggleView}
+                onClick={toggleArchiveView}
                 className="swipescroll"
                 style={{
                     display: "flex",

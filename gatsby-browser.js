@@ -1,9 +1,9 @@
-import React from "react";
-import { ViewProvider } from "./src/contexts/ViewContext";
+// import React from "react";
+// import { ViewProvider } from "./src/contexts/ViewContext";
 
-export const wrapRootElement = ({ element }) => (
-  <ViewProvider>{element}</ViewProvider>
-);
+// export const wrapRootElement = ({ element }) => (
+//   <ViewProvider>{element}</ViewProvider>
+// );
 
 export const onServiceWorkerUpdateReady = () => {
   // Check if window is defined before using it
