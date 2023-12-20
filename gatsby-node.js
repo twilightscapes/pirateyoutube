@@ -36,7 +36,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   team.forEach((team) => {
     createPage({
-      path: `/${team.node.frontmatter.slug}`,
+      path: `/team/${team.node.frontmatter.slug}`,
       component: path.resolve(`src/templates/team.js`),
       context: {
         id: team.node.id,
