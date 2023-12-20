@@ -218,7 +218,7 @@ const SearchPage = ({ data }) => {
 
           <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', paddingTop: showNav ? '6vw' : '6vw', }}>
 
-
+          <div className="sliderSpacer" style={{ height: '', paddingTop: '', display: '' }}></div>
 
 
         {filteredPosts.slice(0, numVisibleItems).map(({ node }, index) => (
