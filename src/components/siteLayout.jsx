@@ -16,14 +16,14 @@ import Menu from "../components/menu"
 import userStyles from "../../static/data/userStyles.json"
 import SignUp from "../components/newssign"
 import BlueCheck from './bluecheck';
-
+import { useView } from "../contexts/ViewContext";
 
 // import useNetlifyIdentity from '../components/useNetlifyIdentity';
 import { BsFillGrid3X2GapFill } from "react-icons/bs";
 import { PiHandSwipeRightFill } from "react-icons/pi";
 import { window } from "browser-monads"
 const Layout = ({ children }) => {
-
+  const { toggleView, horizontalScroll } = useView();
 // const [loggedIn, setLoggedIn] = useState(false);
 //   useNetlifyIdentity(setLoggedIn);
 const { companyname } = useSiteMetadata()
@@ -215,7 +215,8 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
         <div>
             <button
                 aria-label="Grid/Swipe View"
-                onClick={toggleArchiveView}
+                // onClick={toggleArchiveView}
+                onClick={toggleView}
                 className="swipescroll"
                 style={{
                     display: "flex",

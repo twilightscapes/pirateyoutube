@@ -1,5 +1,12 @@
 
   
+  import React from "react";
+  import { ViewProvider } from "./src/contexts/ViewContext";
+  
+  export const wrapRootElement = ({ element }) => (
+    <ViewProvider>{element}</ViewProvider>
+  );
+  
   
   export const onServiceWorkerUpdateReady = () => {
     const answer = window.confirm(

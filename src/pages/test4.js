@@ -11,6 +11,7 @@ import TimeAgo from 'react-timeago';
 import { MdArrowForwardIos } from 'react-icons/md';
 import Seo from "../components/seo";
 import { getSrc } from "gatsby-plugin-image";
+import { useView } from "../contexts/ViewContext";
 import styled from "styled-components";
 
 const CustomBox = styled.div`
@@ -55,8 +56,10 @@ const CustomBox = styled.div`
 `;
 
 const HorizontalScroll = () => {
-  const [horizontalScroll, setHorizontalScroll] = useState(true);
+  // const [horizontalScroll, setHorizontalScroll] = useState(true);
 
+  const { horizontalScroll } = useView();
+  
   useEffect(() => {
     const handleWheel = (event) => {
       const sliderContainer = document.querySelector(".horizontal-scroll1");
@@ -86,7 +89,7 @@ const HorizontalScroll = () => {
     };
   }, []);
 
-  return [horizontalScroll, setHorizontalScroll];
+  return [horizontalScroll,];
 };
 
 const HomePage = ({ data }) => {
@@ -174,7 +177,7 @@ const HomePage = ({ data }) => {
           image={getSrc(frontmatter.featuredImage)}
         />
 
-        <button onClick={toggleView}>Toggle View</button>
+        {/* <button onClick={toggleView}>Toggle View</button> */}
         <div className="post-container">
           <div className={horizontalScroll ? "horizontal-scroll1 contentpanel" : "grid-container contentpanel"} style={{ paddingRight: '' }}>
 
