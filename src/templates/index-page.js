@@ -356,7 +356,9 @@ const HomePage = ({ data }) => {
 ) : (       
 <> */}
 
-<div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', alignContent:'center', margin: '10px auto', maxWidth: '', gap: '.4vw', maxHeight: '74px', textAlign: 'left', padding: '10px 30px', fontSize: 'clamp(.7rem,.7vw,.7rem)', background: 'rgba(0, 0, 0, 0.3)', outline:'0px solid #444', opacity:'.9', overFlow:'hidden', lineHeight:'2.4vh', borderRadius:'3px' }}>
+<div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', alignContent:'center', margin: '10px auto', maxWidth: '', gap: '.4vw', maxHeight: '74px', textAlign: 'left', padding: '10px 30px', fontSize: 'clamp(.7rem,.7vw,.7rem)', outline:'0px solid #444', opacity:'.9', overFlow:'hidden', lineHeight:'2.4vh', borderRadius:'3px',
+background: showTitles ? 'rgba(0, 0, 0, 0.3)' : 'transparent',
+}}>
   {showTitles ? (    
     <h2 className="title1" style={{width:'100%', height:'',}}>{node.frontmatter.title}</h2>
     ) : (
