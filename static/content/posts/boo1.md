@@ -18,13 +18,13 @@ youtube:
  youtubeautostart: true
  youtubeloop: true
  clicktoplay: false
- customcontrols: true
+ customcontrols: false
  showVidOnly: true
 comments: false
 shareable: false
-underlayImage: /assets/transparent.png
+underlayImage: 
 featuredImage: /assets/pirate-propaganda.webp
-svgImage: /assets/null.svg
+svgImage: 
 showZoom: false
 showPageNav: true
 spotlight:
