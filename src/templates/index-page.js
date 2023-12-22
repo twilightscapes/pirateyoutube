@@ -282,7 +282,7 @@ const HomePage = ({ data }) => {
             
             url={node.frontmatter.youtube.youtuber}
             allow="web-share"
-            style={{position:'relative', margin: '0 auto 0 auto', zIndex:''}}
+            style={{position:'relative', margin: '0 auto 15px auto', zIndex:''}}
             width="350px"
             height="200px"
             className='inline'
