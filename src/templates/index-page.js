@@ -270,7 +270,7 @@ const HomePage = ({ data }) => {
 
         {filteredPosts.slice(0, numVisibleItems).map(({ node }, index) => (
 
-          <div key={index} className="post-card1" style={{ alignItems: 'center', aspectRatio:'16/9', overFlow:'visible' }}>
+          <div key={index} className="post-card1" style={{ alignItems: '', overFlow:'visible' }}>
             <Link className="postlink" state={showModals ? { modal: true } : {}} key={node.frontmatter.slug} to={node.frontmatter.slug}>
 
 
@@ -282,9 +282,9 @@ const HomePage = ({ data }) => {
             
             url={node.frontmatter.youtube.youtuber}
             allow="web-share"
-            style={{position:'relative', marginTop:'', zIndex:''}}
+            style={{position:'relative', margin: '-1rem auto 1rem auto', zIndex:''}}
             width="400px"
-            height="250px"
+            height="230px"
             className='inline'
             playsinline
             config={{
@@ -326,44 +326,60 @@ const HomePage = ({ data }) => {
               <div className="post-content" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%', height: '', position: 'relative', background: '', padding: '', margin: '0 auto 0 auto', textAlign: 'center', overFlow: 'hidden' }}>
 
 
-              {!node.frontmatter.youtube.showVidOnly ? (
+              {node.frontmatter.youtube.showVidOnly ? (
 
-                  <>
-                  {node.frontmatter.youtube.youtuber ? (
-                    <div className="spotlight" style={{ marginLeft: '10%', marginTop: '-28%', margin: '-24% 10% 0 10%' }}>
-                      <div className="posticons" style={{ flexDirection: 'column', margin: '0 auto' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-around', gap: '2vw', color: 'fff', }}>
-                          <FaImage className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
-                          <ImPlay className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
-                          <AiOutlinePicLeft className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px, fontSize: ""' }} />
-                        </div>
-                        Play Multimedia
-                      </div>
-                    </div>
-                  ) : ("")}
-                  </>
+                  ""
       
-      ) : ("")}
+      ) : (
+
+        <>
+        {node.frontmatter.youtube.youtuber ? (
+          <div className="spotlight" style={{ marginLeft: '10%', marginTop: '-28%', margin: '-24% 10% 0 10%' }}>
+            <div className="posticons" style={{ flexDirection: 'column', margin: '0 auto' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-around', gap: '2vw', color: 'fff', }}>
+                <FaImage className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
+                <ImPlay className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
+                <AiOutlinePicLeft className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px, fontSize: ""' }} />
+              </div>
+              Play Multimedia
+            </div>
+          </div>
+        ) : ("")}
+        </>
+
+      )}
 
 
-                
-                {showTitles ? (    
-                  <div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '10px auto', maxWidth: '80vw', gap: '.4vw', height: '', textAlign: 'center', padding: '1vh 2vw', fontSize: 'clamp(1rem, 1vw, 1rem)', color: '' }}>
-                  <h2 className="title1">{node.frontmatter.title}</h2>
-                </div>
-                  ) : (
-                ""
-              )}
+{node.frontmatter.youtube.showVidOnly ? (
+
+""
+
+) : (       
+<>
+  {showTitles ? (    
+    <div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '10px auto', maxWidth: '80vw', gap: '.4vw', height: '', textAlign: 'center', padding: '1vh 2vw', fontSize: 'clamp(1rem, 1vw, 1rem)', color: '' }}>
+    <h2 className="title1">{node.frontmatter.title}</h2>
+  </div>
+    ) : (
+  ""
+)}
+</>
+)}
 
                 
               </div>
 
             </Link>
+
+
             {showDates ? (
               <p style={{ position: '', textAlign: 'center', border: '0px solid red', fontSize: '70%', minWidth: '100px' }}>
                 <TimeAgo date={node.frontmatter.date} />
               </p>
             ) : ("")}
+
+
+
           </div>
         ))}
 

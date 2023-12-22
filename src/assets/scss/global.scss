@@ -1107,12 +1107,14 @@ ul li{display:inline-block}
 
 
   
-  .grid-container {margin:0 auto 0 auto ; padding-top:10vh; }
-  body.homepage .grid-container {margin-top:0 ; padding-top:6vw;}
+  .grid-container {margin:0 auto 0 auto ; padding-top:12vh; }
+  body.homepage .grid-container {margin-top:0 ; padding-top:12vh !important;}
 
-  body.homepage .horizontal-scroll {margin-top:0 ; padding-right:6vw;}
+  body.homepage .horizontal-scroll {margin-top:0 ; padding-right:6vh;}
   .horizontal-scroll{margin:0 auto 0 auto ;  padding-right:9vh;}
   .horizontal-scroll .loadmore{height:40vh}
+
+  body.homepage .horizontal-scroll .post-card1 {padding-top:18vh;}
 
   .grid-container .inlime{
     min-width: 300px;
@@ -1120,7 +1122,7 @@ ul li{display:inline-block}
   }
   .horizontal-scroll .inline{
     min-width: 100vw;
-    min-height: 80vh;
+    min-height: 70vh;
   }
 
 
