@@ -1095,10 +1095,11 @@ ul li{display:inline-block}
     display: grid;
     list-style: none;
     column-gap: 2vw;
+    row-gap: 10vh;
     padding: 0 2%;
     // column-count: 1;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 3vw;
+    // gap: 3vw;
     padding-bottom: 10vh;
     padding-top:0px;
     border:0px solid yellow;
