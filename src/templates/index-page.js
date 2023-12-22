@@ -355,7 +355,7 @@ const HomePage = ({ data }) => {
 ) : (       
 <> */}
 
-<div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', alignContent:'center', margin: '10px auto', maxWidth: '80vw', gap: '.4vw', maxHeight: '74px', textAlign: 'center', padding: '10px 10px', fontSize: 'clamp(.7rem,.7vw,.7rem)', background: 'rgba(0, 0, 0, 0.3)', outline:'0px solid #444', opacity:'.9', overFlow:'hidden', lineHeight:'2vh', borderRadius:'3px' }}>
+<div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', alignContent:'center', margin: '10px auto', maxWidth: '', gap: '.4vw', maxHeight: '74px', textAlign: 'left', padding: '10px 30px', fontSize: 'clamp(.7rem,.7vw,.7rem)', background: 'rgba(0, 0, 0, 0.3)', outline:'0px solid #444', opacity:'.9', overFlow:'hidden', lineHeight:'2vh', borderRadius:'3px' }}>
   {showTitles ? (    
     <h2 className="title1" style={{width:'100%', height:'',}}>{node.frontmatter.title}</h2>
     ) : (
@@ -363,7 +363,7 @@ const HomePage = ({ data }) => {
 )}
 
 {showDates ? (
-    <p style={{ position: '', textAlign: 'center', border: '0px solid red', fontSize: '90%', paddingTop:'.5rem', maxWidth: '' }}>
+    <p style={{ position: '', textAlign: 'center', border: '0px solid red', fontSize: '90%', padding:'1rem .5rem', margin:'0 0 0 20px', maxWidth: '60px' }}>
       <TimeAgo date={node.frontmatter.date} />
     </p>
     ) : ("")}
