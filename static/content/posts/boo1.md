@@ -18,7 +18,7 @@ youtube:
  youtubeautostart: true
  youtubeloop: true
  clicktoplay: false
- customcontrols: false
+ customcontrols: true
  showVidOnly: true
 comments: false
 shareable: false
