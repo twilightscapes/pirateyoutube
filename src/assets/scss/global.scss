@@ -1122,7 +1122,7 @@ ul li{display:inline-block}
     // min-height: 100px;
   }
   .horizontal-scroll .inline{
-    min-width: 100vw;
+    min-width: 90vw;
     min-height: 70vh;
   }
 
@@ -1142,7 +1142,6 @@ ul li{display:inline-block}
     align-items: center;
     // font-size:18px; font-weight:600;
     font-size:clamp(.7rem,.9vw,1rem) !important;
- color:#fff;
      opacity:.8;
      padding:1vh;
      display:flex;

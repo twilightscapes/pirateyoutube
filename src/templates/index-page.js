@@ -355,7 +355,7 @@ const HomePage = ({ data }) => {
 ) : (       
 <> */}
 
-<div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', alignContent:'center', margin: '10px auto', maxWidth: '80vw', gap: '.4vw', height: '', textAlign: 'center', padding: '1vh 2vw', fontSize: 'clamp(1rem, 1vw, 1rem)', color: '' }}>
+<div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', alignContent:'center', margin: '10px auto', maxWidth: '80vw', gap: '.4vw', height: '', textAlign: 'center', padding: '1vh 2vw', fontSize: 'clamp(.7rem,.9vw,1rem)', background: 'rgba(0, 0, 0, 0.3)', outline:'1px solid #333', opacity:'.9' }}>
   {showTitles ? (    
     <h2 className="title1" style={{width:'100%'}}>{node.frontmatter.title}</h2>
     ) : (
@@ -363,7 +363,7 @@ const HomePage = ({ data }) => {
 )}
 
 {showDates ? (
-    <p style={{ position: '', textAlign: 'center', border: '0px solid red', fontSize: '70%', maxWidth: '' }}>
+    <p style={{ position: '', textAlign: 'center', border: '0px solid red', fontSize: '90%', paddingTop:'.5rem', maxWidth: '' }}>
       <TimeAgo date={node.frontmatter.date} />
     </p>
     ) : ("")}
