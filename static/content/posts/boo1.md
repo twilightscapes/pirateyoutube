@@ -19,7 +19,7 @@ youtube:
  youtubeloop: true
  clicktoplay: false
  customcontrols: true
- showVidOnly: true
+ showVidOnly: false
 comments: false
 shareable: false
 underlayImage: /assets/transparent.png

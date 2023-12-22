@@ -282,9 +282,9 @@ const HomePage = ({ data }) => {
             
             url={node.frontmatter.youtube.youtuber}
             allow="web-share"
-            style={{position:'relative', margin: '-1rem auto 1rem auto', zIndex:''}}
-            width="400px"
-            height="230px"
+            style={{position:'relative', margin: '0 auto 0 auto', zIndex:''}}
+            width="350px"
+            height="200px"
             className='inline'
             playsinline
             config={{
@@ -350,36 +350,31 @@ const HomePage = ({ data }) => {
       )}
 
 
-{node.frontmatter.youtube.showVidOnly ? (
-
+{/* {node.frontmatter.youtube.showVidOnly ? (
 ""
-
 ) : (       
-<>
+<> */}
+
+<div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', alignContent:'center', margin: '10px auto', maxWidth: '80vw', gap: '.4vw', height: '', textAlign: 'center', padding: '1vh 2vw', fontSize: 'clamp(1rem, 1vw, 1rem)', color: '' }}>
   {showTitles ? (    
-    <div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '10px auto', maxWidth: '80vw', gap: '.4vw', height: '', textAlign: 'center', padding: '1vh 2vw', fontSize: 'clamp(1rem, 1vw, 1rem)', color: '' }}>
-    <h2 className="title1">{node.frontmatter.title}</h2>
-  </div>
+    <h2 className="title1" style={{width:'100%'}}>{node.frontmatter.title}</h2>
     ) : (
   ""
 )}
-</>
-)}
+
+{showDates ? (
+    <p style={{ position: '', textAlign: 'center', border: '0px solid red', fontSize: '70%', maxWidth: '' }}>
+      <TimeAgo date={node.frontmatter.date} />
+    </p>
+    ) : ("")}
+
+</div>
+{/* </>
+)} */}
 
                 
               </div>
-
             </Link>
-
-
-            {showDates ? (
-              <p style={{ position: '', textAlign: 'center', border: '0px solid red', fontSize: '70%', minWidth: '100px' }}>
-                <TimeAgo date={node.frontmatter.date} />
-              </p>
-            ) : ("")}
-
-
-
           </div>
         ))}
 

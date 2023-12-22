@@ -20,6 +20,7 @@ youtube:
   youtubersuggestion1: ""
   youtubersuggestion2: ""
   youtubestart: ""
+  showVidOnly: false
 audioend: ""
 profText: >-
   <p>PIRATE is a social network with NO central control or ownership. It's based
