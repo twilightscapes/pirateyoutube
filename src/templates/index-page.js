@@ -12,7 +12,7 @@ import { MdArrowForwardIos } from 'react-icons/md';
 import Seo from "../components/seo";
 import { getSrc } from "gatsby-plugin-image";
 import ReactPlayer from 'react-player/lazy'
-import BlogPosts from "../components/BlogPosts"; 
+// import BlogPosts from "../components/BlogPosts"; 
 
 const HomePage = ({ data }) => {
   const { showModals, showDates, homecount, postcount, magicOptions, showNav, showArchive, showTitles  } = useSiteMetadata();
@@ -271,6 +271,7 @@ const HomePage = ({ data }) => {
         {filteredPosts.slice(0, numVisibleItems).map(({ node }, index) => (
 
           <div key={index} className="post-card1" style={{ alignItems: '', overFlow:'visible' }}>
+
             <Link className="postlink" state={showModals ? { modal: true } : {}} key={node.frontmatter.slug} to={node.frontmatter.slug}>
 
 
@@ -323,7 +324,7 @@ const HomePage = ({ data }) => {
               
 
 
-              <div className="post-content" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%', height: '', position: 'relative', background: '', padding: '', margin: '0 auto 0 auto', textAlign: 'center', overFlow: 'hidden' }}>
+  <div className="post-content" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%', height: '', position: 'relative', background: '', padding: '', margin: '0 auto 0 auto', textAlign: 'center', overFlow: 'hidden' }}>
 
 
               {node.frontmatter.youtube.showVidOnly ? (
@@ -369,13 +370,10 @@ const HomePage = ({ data }) => {
     ) : ("")}
 
 </div>
-{/* </>
-)} */}
-
-                
               </div>
             </Link>
           </div>
+
         ))}
 
 {numVisibleItems < filteredPosts.length && (
