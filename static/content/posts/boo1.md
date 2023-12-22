@@ -1,6 +1,6 @@
 ---
 template: blog-post
-title: A large and long title that might wrap wrong
+title: A large and long title that might wrap wrong or even cut off possibly
 slug: /boo1
 date: 2023-10-01 10:00
 description: Experience the thrill of PIRATE
