@@ -2,7 +2,7 @@
 template: blog-post
 title: A large and long title that might wrap wrong
 slug: /boo1
-date: 2023-10-01 09:00
+date: 2023-10-01 10:00
 description: Experience the thrill of PIRATE
 youtube:
  youtuber: https://youtu.be/Y5C1JA1A5Wg
@@ -19,6 +19,7 @@ youtube:
  youtubeloop: true
  clicktoplay: false
  customcontrols: true
+ showVidOnly: true
 comments: false
 shareable: false
 underlayImage: /assets/transparent.png
@@ -26,7 +27,7 @@ featuredImage: /assets/pirate-propaganda.webp
 svgImage: /assets/null.svg
 showZoom: false
 showPageNav: true
-spotlight: true
+spotlight:
 tags: 
  - poop
 category:

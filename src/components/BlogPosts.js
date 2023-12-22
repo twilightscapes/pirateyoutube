@@ -79,10 +79,13 @@ const BlogPosts = () => {
   };
 
   return (
+    <>
     <div className="horizontal-scroll1 contentpanel">
       {renderContent()}
-      <button onClick={toggleSlider}>Toggle Slider</button>
+      
     </div>
+    <button onClick={toggleSlider}>Toggle Slider</button>
+    </>
   );
 };
 

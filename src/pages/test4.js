@@ -18,7 +18,6 @@ const CustomBox = styled.div`
   .post-container {
     padding: 0;
     width: 100vw;
-    overflow: scroll !important;
   }
 
   .horizontal-scroll1 {
@@ -28,9 +27,9 @@ const CustomBox = styled.div`
     scroll-snap-align: center;
   }
 
-  // .grid-container {
-  //   overflow-y: scroll;
-  // }
+  .grid-container {
+    overflow-y: scroll;
+  }
 
   .slider {
     display: flex;
@@ -41,6 +40,7 @@ const CustomBox = styled.div`
     overscroll-behavior: contain;
     scroll-snap-align: center;
   }
+
 
   .post-card1 {
     min-height: ${(props) => (props.isHorizontalScroll ? "80vh" : "30vh")};
@@ -54,38 +54,46 @@ const CustomBox = styled.div`
   }
 `;
 
-const HorizontalScroll = (initialState) => {
-  const [horizontalScroll, setHorizontalScroll] = useState(initialState);
+const HorizontalScroll = () => {
+  const [horizontalScroll, setHorizontalScroll] = useState(false);
 
-  useEffect(() => {
-    const sliderContainer = document.querySelector(".horizontal-scroll1");
   
+  useEffect(() => {
     const handleWheel = (event) => {
-      if (horizontalScroll || sliderContainer.classList.contains("grid-container")) {
-        // Only handle horizontal scrolling in horizontal view or vertical scrolling in grid view
-        sliderContainer.scrollLeft += event.deltaY;
-        // Prevent the default vertical scrolling
-        event.preventDefault();
+      const sliderContainer = document.querySelector(".horizontal-scroll1");
+      if (sliderContainer) {
+        if (horizontalScroll) {
+          // Only handle horizontal scrolling in horizontal view
+          event.preventDefault();
+          sliderContainer.scrollLeft += event.deltaY;
+        } else if (sliderContainer.classList.contains("grid-container")) {
+          // Only handle vertical scrolling in grid view
+          sliderContainer.scrollTop += event.deltaY;
+        }
       }
     };
-  
+    
+
+    const sliderContainer = document.querySelector(".horizontal-scroll1");
+
     if (sliderContainer) {
-      sliderContainer.addEventListener("wheel", handleWheel, { passive: false });
+      sliderContainer.addEventListener("wheel", handleWheel);
     }
-  
+
     return () => {
       if (sliderContainer) {
         sliderContainer.removeEventListener("wheel", handleWheel);
       }
     };
-  }, [horizontalScroll]);
-  
-  
+  }, []);
+
   return [horizontalScroll, setHorizontalScroll];
 };
 
 const HomePage = ({ data }) => {
-  const { showModals, showDates, homecount, postcount, showArchive, showTitles } = useSiteMetadata();
+
+
+  const { showModals, showDates, homecount, postcount, magicOptions, showNav, showArchive, showTitles } = useSiteMetadata();
   const { markdownRemark } = data;
   const { frontmatter, excerpt } = markdownRemark;
 
@@ -148,7 +156,7 @@ const HomePage = ({ data }) => {
     setVisibleItems(homecount);
   };
 
-  const [horizontalScroll, setHorizontalScroll] = HorizontalScroll(false);
+  const [horizontalScroll, setHorizontalScroll] = HorizontalScroll();
 
   const toggleView = () => {
     setHorizontalScroll((prev) => !prev);
@@ -167,7 +175,7 @@ const HomePage = ({ data }) => {
           image={getSrc(frontmatter.featuredImage)}
         />
 
-        {/* <button onClick={toggleView}>Toggle View</button> */}
+        <button onClick={toggleView}>Toggle View</button>
         <div className="post-container">
           <div className={horizontalScroll ? "horizontal-scroll1 contentpanel" : "grid-container contentpanel"} style={{ paddingRight: '' }}>
 

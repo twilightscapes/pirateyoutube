@@ -11,15 +11,26 @@ import TimeAgo from 'react-timeago';
 import { MdArrowForwardIos } from 'react-icons/md';
 import Seo from "../components/seo";
 import { getSrc } from "gatsby-plugin-image";
+import ReactPlayer from 'react-player/lazy'
+import BlogPosts from "../components/BlogPosts"; 
 
 const HomePage = ({ data }) => {
   const { showModals, showDates, homecount, postcount, magicOptions, showNav, showArchive, showTitles  } = useSiteMetadata();
   const { showMagic, showMagicCat, showMagicTag, showMagicSearch } = magicOptions;
 
   const { markdownRemark } = data;
-  const { frontmatter, excerpt } = markdownRemark;
+  const { frontmatter, html, excerpt } = markdownRemark
+
+
+
+  // const showVidOnly = frontmatter.youtube.showVidOnly
+  
+
 
   const allPosts = data.allMarkdownRemark.edges;
+
+
+
   const [query, setQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedTag, setSelectedTag] = useState("");
@@ -27,6 +38,12 @@ const HomePage = ({ data }) => {
 
   const allCategoriesSet = new Set(allPosts.flatMap(({ node }) => node.frontmatter.category));
   const allCategories = Array.from(allCategoriesSet);
+
+  const AutoStart = new Set(allPosts.flatMap(({ node }) => node.frontmatter.youtube.youtubeautostart));
+
+  // const AutoStart = node.frontmatter.youtube.youtuber}
+
+  const ShowControls = new Set(allPosts.flatMap(({ node }) => node.frontmatter.youtube.youtubecontrols));
 
   const allTagsSet = new Set(allPosts.flatMap(({ node }) => node.frontmatter.tags));
   const allTags = Array.from(allTagsSet);
@@ -79,6 +96,22 @@ const HomePage = ({ data }) => {
     setSelectedTag('');
     setVisibleItems(homecount);
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   return (
     <Layout>
@@ -220,6 +253,13 @@ const HomePage = ({ data }) => {
         ""
       )}
 
+
+
+{/* <div className="post-container">
+        <BlogPosts />
+      </div> */}
+
+
 {/* <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: true ? '7vh' : '0' }}> */}
 
 <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', paddingTop: showNav ? '6vw' : '6vw', }}>
@@ -229,9 +269,38 @@ const HomePage = ({ data }) => {
         <div className="sliderSpacer" style={{ height: '', paddingTop: '', display: '' }}></div>
 
         {filteredPosts.slice(0, numVisibleItems).map(({ node }, index) => (
-          <div key={index} className="post-card1" style={{ alignItems: 'center' }}>
+
+          <div key={index} className="post-card1" style={{ alignItems: 'center', aspectRatio:'16/9', overFlow:'visible' }}>
             <Link className="postlink" state={showModals ? { modal: true } : {}} key={node.frontmatter.slug} to={node.frontmatter.slug}>
-              <div>
+
+
+            
+  
+              {node.frontmatter.youtube.showVidOnly ? (
+
+<ReactPlayer
+            
+            url={node.frontmatter.youtube.youtuber}
+            allow="web-share"
+            style={{position:'relative', marginTop:'', zIndex:''}}
+            width="400px"
+            height="250px"
+            className='inline'
+            playsinline
+            config={{
+              file: {
+                attributes: {
+                  crossOrigin: "anonymous",
+                },
+              },
+              youtube: {
+                playerVars: { showinfo:1, autoplay:0, controls:1, mute:1, loop:1 }
+              },
+            }}
+          />
+          
+) : (
+  <div>
                 {node.frontmatter.featuredImage ? (
                   <GatsbyImage
                     image={node.frontmatter.featuredImage.childImageSharp.gatsbyImageData}
@@ -250,19 +319,33 @@ const HomePage = ({ data }) => {
                   />
                 )}
               </div>
+)}
+              
+
+
               <div className="post-content" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%', height: '', position: 'relative', background: '', padding: '', margin: '0 auto 0 auto', textAlign: 'center', overFlow: 'hidden' }}>
-                {node.frontmatter.youtube.youtuber ? (
-                  <div className="spotlight" style={{ marginLeft: '10%', marginTop: '-28%', margin: '-24% 10% 0 10%' }}>
-                    <div className="posticons" style={{ flexDirection: 'column', margin: '0 auto' }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-around', gap: '2vw', color: 'fff', }}>
-                        <FaImage className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
-                        <ImPlay className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
-                        <AiOutlinePicLeft className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px, fontSize: ""' }} />
+
+
+              {!node.frontmatter.youtube.showVidOnly ? (
+
+                  <>
+                  {node.frontmatter.youtube.youtuber ? (
+                    <div className="spotlight" style={{ marginLeft: '10%', marginTop: '-28%', margin: '-24% 10% 0 10%' }}>
+                      <div className="posticons" style={{ flexDirection: 'column', margin: '0 auto' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-around', gap: '2vw', color: 'fff', }}>
+                          <FaImage className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
+                          <ImPlay className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
+                          <AiOutlinePicLeft className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px, fontSize: ""' }} />
+                        </div>
+                        Play Multimedia
                       </div>
-                      Play Multimedia
                     </div>
-                  </div>
-                ) : ("")}
+                  ) : ("")}
+                  </>
+      
+      ) : ("")}
+
+
                 
                 {showTitles ? (    
                   <div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '10px auto', maxWidth: '80vw', gap: '.4vw', height: '', textAlign: 'center', padding: '1vh 2vw', fontSize: 'clamp(1rem, 1vw, 1rem)', color: '' }}>
@@ -274,6 +357,7 @@ const HomePage = ({ data }) => {
 
                 
               </div>
+
             </Link>
             {showDates ? (
               <p style={{ position: '', textAlign: 'center', border: '0px solid red', fontSize: '70%', minWidth: '100px' }}>
@@ -324,6 +408,9 @@ export const pageQuery = graphql`
             date(formatString: "YYYY-MM-DD-HH-MM-SS")
             youtube {
               youtuber
+              showVidOnly
+              youtubeautostart
+              youtubecontrols
             }
             featuredImage {
               childImageSharp {

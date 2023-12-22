@@ -1114,7 +1114,14 @@ ul li{display:inline-block}
   .horizontal-scroll{margin:0 auto 0 auto ;  padding-right:9vh;}
   .horizontal-scroll .loadmore{height:40vh}
 
-  
+  .grid-container .inlime{
+    min-width: 300px;
+    // min-height: 100vh;
+  }
+  .horizontal-scroll .inline{
+    min-width: 100vw;
+    min-height: 80vh;
+  }
 
 
   .cattags{
@@ -1374,55 +1381,55 @@ body.blogpost .featured-image1{border:0 solid red;max-height:70vh !important;max
   //   justify-content: space-around;
   // }
 
-//   .post-container {
-//   padding: 0 ;
-//   width: 100vw;
-// }
+  .post-container {
+  padding: 0 ;
+  width: 100vw;
+}
 
-// .horizontal-scroll1 {
-//   display: flex;
-//   overflow-x: scroll;
-//   -webkit-overflow-scrolling: touch;
-//   scroll-snap-align: center;
-// }
+.horizontal-scroll1 {
+  display: flex;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-align: center;
+}
 
-// .slider {
+.slider {
+  display: flex;
+  scroll-snap-type: x mandatory;
+  width: 300vw;
+  gap: 25px;
+  scroll-padding: 0 5%;
+  overscroll-behavior: contain;
+  scroll-snap-align: center;
+}
+
+// .grid-view {
 //   display: flex;
-//   scroll-snap-type: x mandatory;
-//   width: 300vw;
 //   gap: 25px;
-//   scroll-padding: 0 5%;
-//   overscroll-behavior: contain;
-//   scroll-snap-align: center;
+//   flex-wrap: wrap;
+//   justify-content: space-around;
 // }
-
-// // .grid-view {
-// //   display: flex;
-// //   gap: 25px;
-// //   flex-wrap: wrap;
-// //   justify-content: space-around;
-// // }
 
 
   
-//   .post-card1 {
-//     min-height:  80vh;
-//     max-height: 30vh;
-//     overflow: hidden;
-//     display: grid;
-//     place-content: center;
-//     color: #ddd;
-//     width:100vw;
-//     flex: 1;
-//   }
+  .post-card1 {
+    min-height:  80vh;
+    max-height: 30vh;
+    // overflow: hidden;
+    display: grid;
+    place-content: center;
+    color: #ddd;
+    width:100vw;
+    flex: 1;
+  }
 
-//   .grid-container .post-card1 {
-//     min-height:  30vh;
-//     max-height: 30vh;
-//     overflow: hidden;
-//     display: grid;
-//     place-content: center;
-//     color: #ddd;
-//     width:300px;
-//     flex: 0 0 33.3333%;
-//   }
+  .grid-container .post-card1 {
+    min-height:  30vh;
+    max-height: 30vh;
+    // overflow: hidden;
+    display: grid;
+    place-content: center;
+    color: #ddd;
+    // width:300px;
+    flex: 0 0 33.3333%;
+  }

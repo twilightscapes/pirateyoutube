@@ -7,7 +7,7 @@
     "showNav": true,
     "companyname": "PIRATE",
     "siteUrl": "https://piratesocial.org",
-    "showDates": false,
+    "showDates": true,
     "twitterUsername": "toddlambert",
     "titleDefault": "PIRATE",
     "showMagicTag": true,
@@ -23,7 +23,7 @@
       "showMagicSearch": true
     },
     "showArchive": true,
-    "showTitles": false,
+    "showTitles": true,
     "titleTemplate": "%s",
     "title": "PIRATE SOCIAL",
     "image": "/assets/pirate-logo.svg",
