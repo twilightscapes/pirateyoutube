@@ -79,7 +79,7 @@ collections:
       - { label: "Make Post Shareable?", name: "shareable", widget: "boolean", default: false, required: false }
       - { label: "Make Feature Image Zoom", name: "showZoom", widget: "boolean", default: false, required: false }
       - { label: "Turn on Page Level Nav", name: "showPageNav", widget: "boolean", default: true, required: false }
-      - { label: "Spotlight on Homepage", name: "spotlight", widget: "boolean", default: false, required: false }
+      - { label: "Spotlight on Homepage", name: "spotlight", widget: "boolean", required: false }
 
 
 
