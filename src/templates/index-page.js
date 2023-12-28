@@ -37,7 +37,8 @@ const HomePage = ({ data }) => {
   const [query, setQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedTag, setSelectedTag] = useState("");
-  const [ setVisibleItems] = useState(homecount);
+  // eslint-disable-next-line
+  const [visibleItems, setVisibleItems] = useState(homecount);
 
   const allCategoriesSet = new Set(allPosts.flatMap(({ node }) => node.frontmatter.category));
   const allCategories = Array.from(allCategoriesSet);
@@ -61,7 +62,7 @@ const HomePage = ({ data }) => {
   });
 
   useEffect(() => {
-    // setVisibleItems(homecount);
+    setVisibleItems(homecount);
   }, [filteredPosts, homecount]);
 
   const handleSearch = (event) => {
