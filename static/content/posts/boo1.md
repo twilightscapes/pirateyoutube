@@ -5,7 +5,7 @@ slug: /boo1
 date: 2023-10-01 10:00
 description: Experience the thrill of PIRATE
 youtube:
- youtuber: https://youtu.be/Y5C1JA1A5Wg
+ youtuber: 
  youtuber2: 
  youtubeshoworiginal: true
  youtubersuggestion1: null
@@ -19,7 +19,7 @@ youtube:
  youtubeloop: true
  clicktoplay: false
  customcontrols: true
- showVidOnly: true
+ showVidOnly: false
 comments: false
 shareable: false
 underlayImage: 
