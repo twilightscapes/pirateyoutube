@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, graphql, useStaticQuery } from "gatsby";
+import { Link, graphql } from "gatsby";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import { ImPlay } from "react-icons/im";
 import { FaImage } from "react-icons/fa";
@@ -10,20 +10,20 @@ import useSiteMetadata from "../../hooks/SiteMetadata";
 import TimeAgo from 'react-timeago';
 import { MdArrowForwardIos } from 'react-icons/md';
 import Seo from "../../components/seo";
-import { getSrc } from "gatsby-plugin-image";
 import ReactPlayer from 'react-player/lazy'
 const SearchPage = ({ data }) => {
-  const { showModals, showDates, homecount, postcount, magicOptions, showNav, showArchive, showTitles  } = useSiteMetadata();
-  const { showMagic, showMagicCat, showMagicTag, showMagicSearch } = magicOptions;
+  const { showModals, showDates, postcount, magicOptions, showNav, showArchive, showTitles  } = useSiteMetadata();
+  const {  showMagicCat, showMagicTag, showMagicSearch } = magicOptions;
 
-  const { markdownRemark } = data;
-  const { frontmatter, excerpt } = markdownRemark;
+  // const { markdownRemark } = data;
+  // const { frontmatter, excerpt } = markdownRemark;
 
   const allPosts = data.allMarkdownRemark.edges;
   const [query, setQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedTag, setSelectedTag] = useState("");
-  const [visibleItems, setVisibleItems] = useState(postcount);
+  const [ setVisibleItems] = useState(postcount);
+
 
   const allCategoriesSet = new Set(allPosts.flatMap(({ node }) => node.frontmatter.category));
   const allCategories = Array.from(allCategoriesSet);
@@ -41,7 +41,7 @@ const SearchPage = ({ data }) => {
   });
 
   useEffect(() => {
-    setVisibleItems(postcount);
+    // setVisibleItems(postcount);
   }, [filteredPosts, postcount]);
 
   const handleSearch = (event) => {

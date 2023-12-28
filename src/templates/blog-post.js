@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import React, { useState, useRef, useEffect, forwardRef } from "react";
+import { useState, useRef, useEffect, forwardRef } from "react";
 
 // import Zoom from 'react-medium-image-zoom'
 // import 'react-medium-image-zoom/dist/styles.css'

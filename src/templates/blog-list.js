@@ -12,7 +12,7 @@ import { AiOutlinePicLeft } from 'react-icons/ai';
 import { MdArrowForwardIos, MdArrowBackIos } from 'react-icons/md';
 
 const BlogList = ({ data, pageContext }) => {
-  const { showDates, postcount, showTitles, showNav } = useSiteMetadata();
+  const { showDates, postcount, showNav } = useSiteMetadata();
   const posts = data.allMarkdownRemark.edges;
   const { numPages, currentPage } = pageContext;
 
@@ -155,6 +155,7 @@ const BlogList = ({ data, pageContext }) => {
               className="pagination"
               style={{ padding: '0 5px', marginTop: '5px' }}
               onClick={() => navigate(currentPage === 2 ? '/archive' : `/archive/${currentPage - 1}`)}
+              aria-hidden="true"
             >
               <MdArrowBackIos />
             </button>
@@ -176,6 +177,7 @@ const BlogList = ({ data, pageContext }) => {
               style={{ padding: '0 5px', marginTop: '5px' }}
               onClick={() => navigate(`/archive/${currentPage + 1}`)}
               disabled={currentPage === numPages}
+              aria-hidden="true"
             >
               <MdArrowForwardIos />
             </button>

@@ -19,7 +19,7 @@ const HomePage = ({ data }) => {
   const { showMagic, showMagicCat, showMagicTag, showMagicSearch } = magicOptions;
 
   const { markdownRemark } = data;
-  const { frontmatter, html, excerpt } = markdownRemark
+  const { frontmatter, excerpt } = markdownRemark
 
 
 
@@ -37,16 +37,16 @@ const HomePage = ({ data }) => {
   const [query, setQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedTag, setSelectedTag] = useState("");
-  const [visibleItems, setVisibleItems] = useState(homecount);
+  const [ setVisibleItems] = useState(homecount);
 
   const allCategoriesSet = new Set(allPosts.flatMap(({ node }) => node.frontmatter.category));
   const allCategories = Array.from(allCategoriesSet);
 
-  const AutoStart = new Set(allPosts.flatMap(({ node }) => node.frontmatter.youtube.youtubeautostart));
+  // const AutoStart = new Set(allPosts.flatMap(({ node }) => node.frontmatter.youtube.youtubeautostart));
 
-  // const AutoStart = node.frontmatter.youtube.youtuber}
+  // // const AutoStart = node.frontmatter.youtube.youtuber}
 
-  const ShowControls = new Set(allPosts.flatMap(({ node }) => node.frontmatter.youtube.youtubecontrols));
+  // const ShowControls = new Set(allPosts.flatMap(({ node }) => node.frontmatter.youtube.youtubecontrols));
 
   const allTagsSet = new Set(allPosts.flatMap(({ node }) => node.frontmatter.tags));
   const allTags = Array.from(allTagsSet);
@@ -61,7 +61,7 @@ const HomePage = ({ data }) => {
   });
 
   useEffect(() => {
-    setVisibleItems(homecount);
+    // setVisibleItems(homecount);
   }, [filteredPosts, homecount]);
 
   const handleSearch = (event) => {
