@@ -13,8 +13,8 @@ const BlogPosts = () => {
   const data = useStaticQuery(graphql`
   query {
     allMarkdownRemark(
-      sort: { fields: [frontmatter___spotlight, frontmatter___date], order: [ASC, DESC] }
-      filter: { frontmatter: { template: { eq: "blog-post" } } }
+      sort: [{frontmatter: {spotlight: ASC}}, {frontmatter: {date: DESC}}]
+      filter: {frontmatter: {template: {eq: "blog-post"}}}
       limit: 3
     ) {
       edges {

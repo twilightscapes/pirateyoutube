@@ -294,7 +294,7 @@ style={{ position: 'relative', margin: '0 auto 15px auto', zIndex: '' }}
 width="350px"
 height="200px"
 className='inline'
-// light={`https://i.ytimg.com/vi/${extractVideoId(node.frontmatter.youtube.youtuber)}/hqdefault.jpg`}
+light={`https://i.ytimg.com/vi/${extractVideoId(node.frontmatter.youtube.youtuber)}/hqdefault.jpg`}
 playsinline
 config={{
   file: {
@@ -368,13 +368,13 @@ config={{
 background: showTitles ? 'rgba(0, 0, 0, 0.5)' : 'transparent',
 }}>
   {showTitles ? (    
-    <h2 className="title1" style={{width:'100%', height:'',}}>{node.frontmatter.title}</h2>
+    <h2 className="title1" style={{width:'100%', textShadow:'0 1px 1px #222',}}>{node.frontmatter.title}</h2>
     ) : (
   ""
 )}
 
 {showDates ? (
-    <p style={{ position: '', textAlign: 'center', border: '0px solid red', fontSize: '90%', padding:'0', margin:'0 0 0 20px', maxWidth: '60px', lineHeight:'100%' }}>
+    <p style={{ position: '', textAlign: 'center', border: '0px solid red', fontSize: '', padding:'0', margin:'0 0 0 20px', maxWidth: '60px', lineHeight:'100%' }}>
       <TimeAgo date={node.frontmatter.date} />
     </p>
     ) : ("")}
