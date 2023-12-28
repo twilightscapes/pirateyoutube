@@ -85,12 +85,14 @@ const SearchPage = ({ data }) => {
       <Helmet>
         <body id="body" className="homepage" />
       </Helmet>
-
+{/* 
       <Seo
         title={frontmatter.title}
         description={frontmatter.description ? frontmatter.description : excerpt}
         image={getSrc(frontmatter.featuredImage)}
-      />
+      /> */}
+
+      <Seo title="Search" description="search" />
 
 
           <div className="magicisland">

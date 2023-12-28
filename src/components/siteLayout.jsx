@@ -21,7 +21,7 @@ import BlueCheck from './bluecheck';
 // import useNetlifyIdentity from '../components/useNetlifyIdentity';
 import { BsFillGrid3X2GapFill } from "react-icons/bs";
 import { PiHandSwipeRightFill } from "react-icons/pi";
-import { window } from "browser-monads"
+// import { window } from "browser-monads"
 const Layout = ({ children }) => {
 
 // const [loggedIn, setLoggedIn] = useState(false);
@@ -216,9 +216,9 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 
 {showSearch ? (
 <div className="searchIcon">
-   <Link aria-label="Search UrbanFetish" to="/search/" style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', marginTop:'0px', textAlign:'center', borderBottom:'none'}}>
+   <Link aria-label="Search" to="/search/" style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', marginTop:'0px', textAlign:'center', borderBottom:'none'}}>
     <SearchIcon style={{height:'30px'}} />
-    <span className="themetext">search</span>
+    <span aria-label="Search" className="themetext">search</span>
    </Link>
         </div>
       ) : (
@@ -321,9 +321,9 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 
 {showSearch ? (
 <li className="searchIcon">
-   <Link aria-label="Search UrbanFetish" to="/search/" style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', marginTop:'0px', textAlign:'center'}}>
+   <Link aria-label="Search" to="/search/" style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', marginTop:'0px', textAlign:'center'}}>
     <SearchIcon style={{width:'33px', height:'30px'}} />
-    <span className="themetext">search</span>
+    <span aria-label="Search" className="themetext">search</span>
    </Link>
         </li>
       ) : (
