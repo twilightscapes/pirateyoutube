@@ -218,7 +218,10 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 <div className="searchIcon">
    <Link role="link" aria-label="Search this website" to="/search/" style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', marginTop:'0px', textAlign:'center', borderBottom:'none'}}>
     <SearchIcon style={{height:'30px'}} />
-    <span className="themetext">search</span>
+    {/* <span className="themetext">search</span> */}
+    <div className="themetext">
+            search
+          </div>
    </Link>
         </div>
       ) : (
@@ -323,7 +326,9 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 <li className="searchIcon">
    <Link role="link" aria-label="Search this website" to="/search/" style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', marginTop:'0px', textAlign:'center'}}>
     <SearchIcon style={{width:'33px', height:'30px'}} />
-    <span className="themetext">search</span>
+    <div className="themetext">
+            search
+          </div>
    </Link>
         </li>
       ) : (
