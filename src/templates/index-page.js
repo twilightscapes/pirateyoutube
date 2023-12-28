@@ -25,10 +25,10 @@ const HomePage = ({ data }) => {
 
   // const showVidOnly = frontmatter.youtube.showVidOnly
   
-  const extractVideoId = (url) => {
-    const match = url.match(/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
-    return match ? match[1] : null;
-  };
+  // const extractVideoId = (url) => {
+  //   const match = url.match(/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+  //   return match ? match[1] : null;
+  // };
 
   const allPosts = data.allMarkdownRemark.edges;
 
@@ -294,7 +294,7 @@ style={{ position: 'relative', margin: '0 auto 15px auto', zIndex: '' }}
 width="350px"
 height="200px"
 className='inline'
-light={`https://i.ytimg.com/vi/${extractVideoId(node.frontmatter.youtube.youtuber)}/hqdefault.jpg`}
+// light={`https://i.ytimg.com/vi/${extractVideoId(node.frontmatter.youtube.youtuber)}/hqdefault.jpg`}
 playsinline
 config={{
   file: {
