@@ -14,7 +14,7 @@ import Seo from "../../components/seo";
 import ReactPlayer from 'react-player/lazy';
 
 const SearchPage = ({ data }) => {
-  const { showModals, showDates, homecount, postcount, magicOptions, showNav, showArchive, showTitles } = useSiteMetadata();
+  const { showModals, showDates, postcount, magicOptions, showNav, showArchive, showTitles } = useSiteMetadata();
   const { showMagic, showMagicCat, showMagicTag, showMagicSearch } = magicOptions;
 
   // const { markdownRemark } = data;
@@ -26,7 +26,7 @@ const SearchPage = ({ data }) => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedTag, setSelectedTag] = useState("");
   // eslint-disable-next-line
-  const [visibleItems, setVisibleItems] = useState(homecount);
+  const [visibleItems, setVisibleItems] = useState(postcount);
 
   const allCategoriesSet = new Set(allPosts.flatMap(({ node }) => node.frontmatter.category));
   const allCategories = Array.from(allCategoriesSet);
@@ -58,30 +58,30 @@ const SearchPage = ({ data }) => {
 
 
   useEffect(() => {
-    setVisibleItems(homecount);
-  }, [filteredPosts, homecount]);
+    setVisibleItems(postcount);
+  }, [filteredPosts, postcount]);
 
   const handleSearch = (event) => {
     const query = event.target.value;
     setQuery(query);
-    setVisibleItems(homecount);
+    setVisibleItems(postcount);
   };
 
   const handleCategoryChange = (event) => {
     const category = event.target.value;
     setSelectedCategory(category);
     setSelectedTag("");
-    setVisibleItems(homecount);
+    setVisibleItems(postcount);
   };
 
   const handleTagChange = (event) => {
     const tag = event.target.value;
     setSelectedTag(tag);
     setSelectedCategory("");
-    setVisibleItems(homecount);
+    setVisibleItems(postcount);
   };
 
-  const [numVisibleItems, setNumVisibleItems] = useState(homecount);
+  const [numVisibleItems, setNumVisibleItems] = useState(postcount);
 
   const showMoreItems = () => {
     setNumVisibleItems((prevNumVisibleItems) => prevNumVisibleItems + postcount);
@@ -92,7 +92,7 @@ const SearchPage = ({ data }) => {
     setQuery('');
     setSelectedCategory('');
     setSelectedTag('');
-    setVisibleItems(homecount);
+    setVisibleItems(postcount);
   }
 
   return (
