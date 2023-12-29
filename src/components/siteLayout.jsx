@@ -111,7 +111,7 @@ useEffect(() => {
 
   const handleScroll = () => {
     const currentScrollPos = window.pageYOffset;
-    if (prevScrollpos > currentScrollPos && prevScrollpos - currentScrollPos > 75) {
+    if (prevScrollpos > currentScrollPos && prevScrollpos - currentScrollPos > 105) {
       // document.querySelector('.header').style.transform = 'translateY(0)';
       if (showNav2) {
         document.querySelector('#menuicon').style.transform = 'translateX(0)';
