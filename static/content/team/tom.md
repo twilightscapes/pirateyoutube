@@ -1,5 +1,5 @@
 ---
-slug: /tom
+slug: /team/tom
 name: Tom
 jobTitle: Senior Tom, Associate
 credentials: ZZ
