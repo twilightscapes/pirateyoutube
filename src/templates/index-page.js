@@ -53,7 +53,10 @@ const HomePage = ({ data }) => {
     return countB - countA;
   });
 
-
+  const extractVideoId = (url) => {
+    const match = url.match(/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+    return match ? match[1] : null;
+  };
 
 
 
@@ -241,8 +244,10 @@ const HomePage = ({ data }) => {
 
         {filteredPosts.slice(0, numVisibleItems).map(({ node }, index) => (
           <div key={index} className="post-card1" style={{ alignItems: '', overFlow:'visible' }}>
-            <Link className="postlink" state={showModals ? { modal: true } : {}} key={node.frontmatter.slug} to={node.frontmatter.slug}>
-              {node.frontmatter.youtube.showVidOnly ? (
+
+
+
+{node.frontmatter.youtube.showVidOnly ? (
                 <ReactPlayer
                   url={node.frontmatter.youtube.youtuber}
                   allow="web-share"
@@ -251,6 +256,7 @@ const HomePage = ({ data }) => {
                   height="200px"
                   className='inline'
                   playsinline
+                  light={`https://i.ytimg.com/vi/${extractVideoId(node.frontmatter.youtube.youtuber)}/hqdefault.jpg`}
                   config={{
                     file: {
                       attributes: {
@@ -258,12 +264,12 @@ const HomePage = ({ data }) => {
                       },
                     },
                     youtube: {
-                      playerVars: { showinfo: 1, autoplay: 0, controls: 1, mute: 1, loop: 1 },
+                      playerVars: { showinfo: 0, autoplay: 1, controls: 1, mute: 0, loop: 1 },
                     },
                   }}
                 />
               ) : (
-                <div>
+                <Link className="postlink" state={showModals ? { modal: true } : {}} key={node.frontmatter.slug} to={node.frontmatter.slug}>
                   {node.frontmatter.featuredImage ? (
                     <GatsbyImage
                       image={node.frontmatter.featuredImage.childImageSharp.gatsbyImageData}
@@ -275,12 +281,12 @@ const HomePage = ({ data }) => {
                   ) : (
                     <StaticImage
                       className="featured-image1"
-                      src="../../static/assets/default-og-image.webp"
+                      src="../../../static/assets/default-og-image.webp"
                       alt="Default Image"
                       style={{ position: 'relative', zIndex: '' }}
                     />
                   )}
-                </div>
+                </Link>
               )}
 
               <div className="post-content" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%', height: '', position: 'relative', background: '', padding: '', margin: '0 auto 0 auto', textAlign: 'center', overFlow: 'hidden' }}>
@@ -317,7 +323,7 @@ const HomePage = ({ data }) => {
                   ) : ("")}
                 </div>
               </div>
-            </Link>
+
           </div>
         ))}
 
