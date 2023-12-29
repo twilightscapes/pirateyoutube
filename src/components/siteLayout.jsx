@@ -27,7 +27,7 @@ import { ModalRoutingContext } from 'gatsby-plugin-modal-routing-4'
 // import { MdOutlineRectangle } from "react-icons/md"
 import Menu from "../components/menu"
 import MenuSocial from "../components/menu-social"
-import Switch from "../components/Switch"
+// import Switch from "../components/Switch"
 import userStyles from "../../static/data/userStyles.json"
 import SignUp from "../components/newssign"
 import useNetlifyIdentity from '../components/useNetlifyIdentity';
@@ -390,11 +390,11 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
         </div>
 
   
-        {showSwipe ? (
+        {/* {showSwipe ? (
   <Switch />
       ) : (
         ""
-      )}
+      )} */}
  
 
 
@@ -430,7 +430,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 {iconimage ? (
       <img className="" src={iconimage} alt={companyname} width="120" height="60" style={{maxHeight:'60px', maxWidth:'120px', border:'none'}} />
                 ) : (
-                  <div style={{fontWeight:'bold', color:'yellow'}}>companyname</div>
+                  <div style={{fontWeight:'bold', color:''}}>{companyname}</div>
                 )}
 </div>
   </label>
@@ -446,7 +446,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
             {iconimage ? (
       <img src={iconimage} alt={companyname} width="120" height="60" style={{maxHeight:'60px', border:'none'}} />
                 ) : (
-                  <div style={{fontWeight:'bold'}}>companyname</div>
+                  <div style={{fontWeight:'bold'}}>{companyname}</div>
                 )}
             </AnchorLink>
     </li>
@@ -522,7 +522,9 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 
   
         {showSwipe ? (
-  <Switch />
+  <li>
+  {/* <Switch /> */}
+  </li>
       ) : (
         ""
       )}
