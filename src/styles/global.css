@@ -852,6 +852,9 @@ ul li{display:inline-block}
 .cornerlogo{ left:18%; top:0; width:117; height:60px; }
 
 
+.horizontal-scroll{margin:10vh auto 0 auto !important;}
+
+
 @media(max-width:48rem) {
   .mobilehide{display:none}
 
@@ -877,7 +880,7 @@ ul li{display:inline-block}
     height:220px !important;
   }
   
-  body.homepage .horizontal-scroll {margin-top:8vh !important;}
+.horizontal-scroll {margin-top:8vh !important;}
   body.blogpost  {padding-top:8vh !important;}
 
   .react-player__preview{max-height:200px !important; margin-top:8vh;}
@@ -997,8 +1000,11 @@ ul li{display:inline-block}
 .grid-container {margin:0 auto 0 auto ; margin-top:0; }
 body.homepage .grid-container {margin-top:0; padding-top:14vh !important;}
 
-body.homepage .horizontal-scroll {margin-top:0 ; padding-right:15vw;}
-.horizontal-scroll{margin:0 auto 0 auto ;  padding-right:8vh;}
+
+.horizontal-scroll{margin:16vh auto 0 auto !important;}
+
+
+
 .horizontal-scroll .loadmore{height:40vh}
 
 .magicisland {margin-top:10vh;}
@@ -1007,7 +1013,13 @@ body.homepage .horizontal-scroll {margin-top:0 ; padding-right:15vw;}
 #resume span div{display:block;width:100%}
 .nameblock{background:transparent;color:inherit;text-shadow:none}
 #gobacker{position:fixed; top:80vh ; right:1vw; z-index:11;}
+
+
 }
+
+
+
+
 @media(hover:none) {
 .horizontal-scroll{scroll-snap-type:y mandatory}
 }
