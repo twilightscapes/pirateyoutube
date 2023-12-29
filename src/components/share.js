@@ -1,12 +1,6 @@
 import * as React from "react"
 import { ShareSocial } from 'react-share-social' 
-import styled from "styled-components"
 
-const CustomBox = styled.div`
-
-
-
-`
 
 const style = {
   root: {
@@ -30,8 +24,8 @@ const Share = () => {
   const url = typeof window !== 'undefined' ? window.location.href : '';
 
   return (
-<CustomBox style={{}}>
-{/* <h4 style={{textAlign:'center', fontSize:'130%', marginTop:'2rem'}}>Sharing IS Caring!</h4> */}
+
+
     <ShareSocial
     id="share"
     style={style}
@@ -41,7 +35,7 @@ const Share = () => {
     socialTypes={['facebook','twitter','reddit','linkedin']}>
 
       </ShareSocial>
-    </CustomBox>
+
 
 
   );

@@ -1,15 +1,8 @@
 import React from "react";
-import styled from "styled-components";
+
 import ReactPlayer from 'react-player/lazy';
 
-const CustomBox = styled.div`
-  .player-wrapper {
-    padding-top: inherit;
-    position: relative;
-    min-height:90vh;
-    height:90vh;
-  }
-`;
+
 
 export default class IndexPage extends React.Component {
   constructor(props) {
@@ -77,7 +70,7 @@ export default class IndexPage extends React.Component {
 
     return (
       <>
-        <CustomBox>
+
           <div className='player-wrapper' style={{position:'relative', width:'100vw', height:'content-fill', minHeight:'90vh', overflow:'hidden', border:'0px solid yellow'}}>
             {urlNoProtocol ? <Iframer /> : ""}
           </div>
@@ -116,7 +109,7 @@ export default class IndexPage extends React.Component {
               </form>
             </div>
           )}
-        </CustomBox>
+
       </>
     )
   }

@@ -2,14 +2,11 @@ import React from "react";
 // import useSiteMetadata from "../hooks/SiteMetadata"
 // import { StaticImage } from "gatsby-plugin-image"
 // import {Link} from "gatsby"
-import styled from "styled-components"
+
 import Layout from "../components/siteLayout"
 import { Helmet } from "react-helmet"
 // import useNetlifyIdentity from '../components/useNetlifyIdentity';
-const CustomBox = styled.div`
 
-
-`
 
 function Pirate() {
 
@@ -19,7 +16,7 @@ function Pirate() {
 
   return (
 
-    <CustomBox>
+
 <Layout>
 <Helmet>
 
@@ -49,7 +46,7 @@ function Pirate() {
 
 
 
-      </CustomBox>
+
   );
 }
 

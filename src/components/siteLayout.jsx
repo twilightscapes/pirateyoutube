@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Seo from "./seo"
 import { Link } from 'gatsby-plugin-modal-routing-4'
-import "../assets/scss/reset.scss"
-import "../assets/scss/global.scss"
+import "../styles/reset.css"
+import "../styles/global.css"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 import { Helmet } from "react-helmet"
 import Theme from "./theme"

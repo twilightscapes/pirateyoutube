@@ -2,21 +2,16 @@
 /** @jsx jsx */
 // import * as React from "react"
 import { jsx } from "theme-ui"
-import styled from "styled-components"
+
 
 
 import ReactPlayer from 'react-player/lazy'
 import { ImPlay } from "react-icons/im"
-const CustomBox = styled.div`
 
-.themed{margin-top:20px;}
-
-
-`
 
    
 const Player = () => (
-<CustomBox style={{}}>
+
 
 
 
@@ -59,7 +54,6 @@ const Player = () => (
 
 
 
-</CustomBox>
   
 )
 

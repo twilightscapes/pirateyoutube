@@ -352,7 +352,7 @@ module.exports = {
       },
     },
     // 'gatsby-plugin-sharp-exif',
-    `gatsby-plugin-sass`,
+    // `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-theme-ui`,
     // `gatsby-plugin-static-cms`,

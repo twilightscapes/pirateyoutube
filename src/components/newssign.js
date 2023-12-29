@@ -5,40 +5,39 @@ import { RiSendPlane2Line } from "react-icons/ri"
 
 // import Layout from "./layout"
 // import Seo from "./seo"
-import styled from "styled-components";
-const CustomBox = styled.div`
+// import styled from "styled-components";
+// const CustomBox = styled.div`
 
 
-.newsletter{position:relative;}
+// .newsletter{position:relative;}
 
-input::placeholder {
-  color: #fff !important;
-  filter: drop-shadow(0px 0px 6px var(--primary-color));
-}
-
-
-
+// input::placeholder {
+//   color: #fff !important;
+//   filter: drop-shadow(0px 0px 6px var(--primary-color));
+// }
 
 
 
 
-    @media (max-width: 58em) {
 
 
-      .signbox input{margin-bottom:10px; margin-right:20px;}
 
-    }
+//     @media (max-width: 58em) {
 
 
-}
+//       .signbox input{margin-bottom:10px; margin-right:20px;}
 
-`
+//     }
+
+
+// }
+
+// `
 
 
 const NewsletterPage = () => (
 
 
-<CustomBox style={{}}> 
 
 
 <form  style={{width:'100%', margin:'0 auto 0 auto', display:'flex', flexDirection:'column', justifyContent:'center', background: 'rgba(0,0,0,0.50)',
@@ -104,9 +103,7 @@ const NewsletterPage = () => (
 </form>
 
 
-        
-        
-</CustomBox>
+
   
 )
 

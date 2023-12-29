@@ -46,7 +46,7 @@ import { AiOutlineAudioMuted } from "react-icons/ai"
 
 import Footer from "../components/footer"
 // import { SRLWrapper } from "simple-react-lightbox"
-import { CopyToClipboard } from 'react-copy-to-clipboard'
+// import { CopyToClipboard } from 'react-copy-to-clipboard'
 import ReactPlayer from 'react-player/lazy'
 // import { AnchorLink } from "gatsby-plugin-anchor-links"
 // import YouTubed from "../components/youtube"
@@ -56,16 +56,7 @@ import ShareSocial from '../components/share'
 // import GoBack from "../components/goBack"
 import { ImPlay } from "react-icons/im"
 import TimeAgo from 'react-timeago'
-import styled from "styled-components"
-const CustomBox = styled.div`
 
-
-
-
-
-
-
-`
 
 
 
@@ -288,7 +279,7 @@ function ShowSuggestion() {
 We recommend these alternatives:
 <br /><br />
 Click to Copy:<br />
-<CopyToClipboard text={Suggestion1}>
+{/* <CopyToClipboard text={Suggestion1}>
   <button>{Suggestion1} </button>
 </CopyToClipboard><br />
 
@@ -299,7 +290,7 @@ Click to Copy:<br />
 
 <CopyToClipboard text={Suggestion3}>
   <button>{Suggestion3} </button>
-</CopyToClipboard><br />
+</CopyToClipboard><br /> */}
 
 <br />
 Add your own in the comments below!
@@ -823,7 +814,7 @@ Click to play
   return (
     
     <Layout className="page">
-<CustomBox>
+
 
 {frontmatter.scrollable ? (
   <Helmet>
@@ -1638,7 +1629,7 @@ Click to play original video
 
 <br/>
 
-   </CustomBox>
+
 
   
    <Footer />
