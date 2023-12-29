@@ -1,5 +1,5 @@
 ---
-slug: /tester
+slug: tester
 name: Tester
 jobTitle: Senior Project Manager, Associate
 credentials: PE
