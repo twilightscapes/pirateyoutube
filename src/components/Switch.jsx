@@ -12,12 +12,14 @@ function Header() {
             if (archiveView === "grid") {
                 el.classList.remove("horizontal-scroll", "panels");
                 el.classList.add("grid-container");
-
+document.body.classList.remove('scroll');
+     
             } else if (archiveView === "swipe") {
                 el.classList.remove("grid-container");
                 el.classList.add("horizontal-scroll", "panels");
                 document.querySelector(".contentpanel").style.transition = "all .5s ease-in-out";
                 window.scrollTo(0, 0);
+                 document.body.classList.add('scroll');
             }
         });
         localStorage.setItem("archiveView", archiveView);

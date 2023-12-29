@@ -19,7 +19,7 @@ body.install #menu, body.install #gobacker, body.install .spacer  {display:none 
 
 body.homepage footer{display: none !important;}
 
-
+body.scroll{overflow-x: hidden; overflow-y: hidden;}
 
 
 .homepage-bg{
