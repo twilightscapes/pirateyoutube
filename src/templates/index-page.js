@@ -254,7 +254,7 @@ const extractVideoId = (url) => {
                 <ReactPlayer
                   url={node.frontmatter.youtube.youtuber}
                   allow="web-share"
-                  style={{ position: 'relative', margin: '0 auto 15px auto', zIndex: '' }}
+                  style={{ position: 'relative', margin: '0 auto 15px auto', zIndex: '',aspectRatio:'16/9', }}
                   width="350px"
                   height="200px"
                   className='inline'
