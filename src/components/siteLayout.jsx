@@ -19,7 +19,7 @@ import SearchIcon from "../../src/img/search"
 // import SearchForm from "./searchbox"
 import useSiteMetadata from "../hooks/SiteMetadata"
 import { RiArrowUpFill } from "react-icons/ri"
-// import GoBack from "../components/goBack"
+import GoBack from "../components/goBack"
 import { BiLeftArrow } from "react-icons/bi"
 import { ModalRoutingContext } from 'gatsby-plugin-modal-routing-4'
 // import { AiOutlineClose } from "react-icons/ai"
@@ -267,7 +267,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 
 
 
-{/* <div id="gobacker" style={{position:'fixed', top:'60px', right:'3vw', zIndex:'5'}}><GoBack /></div> */}
+<div id="gobacker" style={{position:'fixed', bottom:'24vh', right:'0', zIndex:'5'}}><GoBack /></div>
 
 
 
