@@ -20,7 +20,7 @@ import SearchIcon from "../../src/img/search"
 import useSiteMetadata from "../hooks/SiteMetadata"
 import { RiArrowUpFill } from "react-icons/ri"
 import GoBack from "../components/goBack"
-import { BiLeftArrow } from "react-icons/bi"
+import { BiLeftArrow, BiHome } from "react-icons/bi"
 import { ModalRoutingContext } from 'gatsby-plugin-modal-routing-4'
 // import { AiOutlineClose } from "react-icons/ai"
 // import { BiGridHorizontal } from "react-icons/bi"
@@ -73,9 +73,7 @@ const { font1 } = useSiteMetadata()
 
   
 
-const navStyle = {
-  bg: "",
-}
+
 
 const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/g, '+') + "&display=swap";
 
@@ -101,11 +99,6 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
   `}</style>
     {/* <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script> */}
 </Helmet>
-
-
-
-
-
 
 
 <Seo />
@@ -136,15 +129,24 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 </ModalRoutingContext.Consumer>
   
 
+<div id="gobacker" style={{position:'fixed', bottom:'0', right:'0', zIndex:'4', display:'flex', flexDirection:'column', alignItems:'center', gap:'', border:'0px solid yellow', justifyContent:'flex-end', paddingBottom:'18vh',  }}>
+  
+  <GoBack />
 
-<div className="upbar button" style={{position:'fixed', bottom:'20px', zIndex:'4', left:'', right:'1vw', display:'flex', justifyContent:'center', width:'auto', maxWidth:'80vw', margin:'0 auto', gap:'5vw', padding:'0', border:'1px solid #666', borderRadius:'', textShadow:'0 1px 1px rgba(0, 0, 0, .7)', fontSize:'', verticalAlign:'center', transform: 'translateY(200%)' }}>
+<div style={{display:'flex', alignItems:'center', gap:'10px', paddingLeft:'1rem'}}>
+<div className="homebutt button" style={{display:'flex', flexDirection:'column', gap:'0', padding:'0', alignItems:'', textAlign:'center', borderRadius:'3px', textShadow:'0 1px 1px rgba(0, 0, 0, .7)', margin:'0' }}>
+  <Link to="/" aria-label="Link to Top" style={{cursor:'pointer', display:'block', height:'', fontSize:''}}>
+  <BiHome className="" style={{cursor:'pointer', backgroundColor:'rgba(0,0,0,.9)', color:'#ddd', fontSize:'32px', padding:'2',}} />
+  </Link>
+</div>
 
-<div className="uparrow" style={{display:'flex', flexDirection:'column', gap:'0', padding:'1vh 1vw', alignItems:'center', textAlign:'center'}}>
-  <a href="#top" onClick={(e) => {
+<a href="#top" onClick={(e) => {
   e.preventDefault();
   document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
-}} aria-label="Link to Top" style={{cursor:'pointer', height:'', fontSize:''}}>
-  <RiArrowUpFill className="" style={{cursor:'pointer', color:'#ddd', fontSize:'3rem'}} />
+}} aria-label="Link to Top" style={{cursor:'pointer', display:'block', height:'', fontSize:''}}>
+<div className="uparrow1 button" style={{display:'flex', flexDirection:'column', gap:'0', padding:'0', alignItems:'center', textAlign:'center', borderRadius:'3px', textShadow:'0 1px 1px rgba(0, 0, 0, .7)', margin:'0 1rem' }}>
+  <RiArrowUpFill className="" style={{cursor:'pointer', backgroundColor:'rgba(0,0,0,.9)', color:'#ddd', padding:'2px', fontSize:'32px'}} />
+</div>
 </a>
 </div>
 </div>
@@ -158,8 +160,8 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 {showNav ? (
 
 
-<header>
-<div id="gobacker" style={{position:'fixed', top:'60px', right:'3vw', zIndex:'5'}}><GoBack /></div>
+<header className="header" style={{display:'block', height:'51px',}}>
+
 <div id="menu" className="menu print panel1 header" style={{position:'fixed', width:'100vw', top:'0', zIndex:'10', maxHeight:'', overFlow:'', boxShadow:'0 0 2px rgba(0,0,0,.7)', padding:'0 3%', alignItems:'start', borderRadius:'0', display:'flex', justifyContent:'space-around', gap:'10px', color:'#fff',  borderBottom:'1px solid #222',}}>
 
 
@@ -198,7 +200,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 
 
 
-<ul className="topmenu" sx={navStyle} style={{ fontSize:'clamp(.6rem, 1.6vw, 1.8rem)',  textAlign:'center',maxHeight:'', display:'flex', justifyContent:'space-between', gap:'4vw',  alignItems:'center', margin:'0 auto 0 auto', padding:'1.5vh 2% 0 2%', border:'0px solid white',}}>
+<ul className="topmenu" style={{ fontSize:'clamp(.6rem, 1.6vw, 1.8rem)',  textAlign:'center',maxHeight:'', display:'flex', justifyContent:'space-between', gap:'4vw',  alignItems:'center', margin:'0 auto 0 auto', padding:'1.5vh 2% 0 2%', border:'0px solid white',}}>
       
 
 
@@ -262,7 +264,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 {showNav2 ? (
 
 <header>
-<div id="gobacker" style={{position:'fixed', top:'60px', right:'3vw', zIndex:'5'}}><GoBack /></div>
+
 <input type="checkbox" className="openSidebarMenu" id="openSidebarMenu" />
 <>{ /* eslint-disable-next-line jsx-a11y/label-has-associated-control */ }</>
   <label htmlFor="openSidebarMenu" className="backdrop1" ></label>
