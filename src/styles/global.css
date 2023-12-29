@@ -515,7 +515,7 @@ p{margin-bottom:1rem}
 .neonText{color:#fff;filter:drop-shadow(1px 0 4px rgba(0,0,0,.9));text-shadow:0 0 7px #57c6eb,0 0 10px #86bdc4,0 0 21px #8ba3a7,0 0 22px #02abfa,0 0 32px #0282fa,0 0 42px #ccc,0 0 42px #02b0fa,0 0 31px #37f8f8}
 
 .nextbutt .backbutton{align-self:center;display:flex;justify-content:center;margin-top:10px;text-align:center}
-.post-content h2{border:0 solid red;font-size:clamp(1rem, 1.2vw, 1.4rem);width:100%}
+.post-content h2{border:0 solid red;font-size:clamp(1rem, 1.2vw, 1rem);width:100%}
 .tronText{color:#fff;font-size:clamp(2rem,3.5vw,3.8rem);text-shadow:0 20px 7px #000,0 8px 20px #ca0f08,0 12px 10px #a78ba2,0 2px #e3272d,0 5px 2px #e3272d,0 0 2px #e3272d,0 0 2px #e3272d,0 0 1px #e3272d}
 body.homepage .ReactModalPortal .nextbutt{display:none}
 
