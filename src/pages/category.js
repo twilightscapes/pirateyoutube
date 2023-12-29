@@ -85,6 +85,7 @@ const CategoryIndex = ({ data, pageContext }) => {
                 background: 'rgba(0, 0, 0, 0.5)',
                 border: '1px solid #999',
                 borderRadius: '8px',
+                fontSize: 'clamp(2.5rem,5vw,5rem)'
               }}
             >
               {category}
