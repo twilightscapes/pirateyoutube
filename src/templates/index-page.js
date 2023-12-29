@@ -53,10 +53,13 @@ const HomePage = ({ data }) => {
     return countB - countA;
   });
 
-  const extractVideoId = (url) => {
-    const match = url.match(/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
-    return match ? match[1] : null;
-  };
+/* eslint-disable no-useless-escape */
+const extractVideoId = (url) => {
+  const match = url.match(/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/[^\/\n\s]+\/(?:\S+\/)?|(?:v|e(?:mbed)?)\/|\S*?[?&]v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+  return match ? match[1] : null;
+};
+/* eslint-enable no-useless-escape */
+  
 
 
 
@@ -267,6 +270,17 @@ const HomePage = ({ data }) => {
                       playerVars: { showinfo: 0, autoplay: 1, controls: 1, mute: 0, loop: 1 },
                     },
                   }}
+                  playIcon={
+                    <div style={{display:'flex', flexDirection:'column', placeContent:'', justifyContent:'', position:'absolute', zindex:'1', bottom:'-2vh', fontWeight:'bold', padding:'3% 0 0 0', fontSize:'clamp(.6rem, 1.4vw, 2rem)', width:'100%', maxWidth:'25vw', height:'', border:'0px solid', borderRadius:'12px', margin:'0 auto 0 auto', opacity:'.99', textShadow:'2px 2px 2px black', color:'#fff' }}>
+                      <div className="spotlight1 font" style={{}}>
+                        <div className="posticons" style={{ flexDirection: 'column', margin: '0 auto' }}>
+                          <div style={{ display: 'flex', justifyContent: 'space-around', gap: '2vw', color: 'fff', }}>
+                            <ImPlay className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
+                          </div>
+                          Play Video
+                        </div>
+                      </div>
+                    </div>}
                 />
               ) : (
                 <Link className="postlink" state={showModals ? { modal: true } : {}} key={node.frontmatter.slug} to={node.frontmatter.slug}>
@@ -281,7 +295,7 @@ const HomePage = ({ data }) => {
                   ) : (
                     <StaticImage
                       className="featured-image1"
-                      src="../../../static/assets/default-og-image.webp"
+                      src="../../static/assets/default-og-image.webp"
                       alt="Default Image"
                       style={{ position: 'relative', zIndex: '' }}
                     />
@@ -295,12 +309,12 @@ const HomePage = ({ data }) => {
                 ) : (
                   <>
                     {node.frontmatter.youtube.youtuber ? (
-                      <div className="spotlight" style={{ marginLeft: '10%', marginTop: '-28%', margin: '-24% 10% 0 10%' }}>
+                      <div className="spotlight font" style={{ marginLeft: '10%', marginTop: '-28%', margin: '-24% 10% 0 10%' }}>
                         <div className="posticons" style={{ flexDirection: 'column', margin: '0 auto' }}>
                           <div style={{ display: 'flex', justifyContent: 'space-around', gap: '2vw', color: 'fff', }}>
                             <FaImage className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
                             <ImPlay className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
-                            <AiOutlinePicLeft className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px, fontSize: ""' }} />
+                            <AiOutlinePicLeft className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', }} />
                           </div>
                           Play Multimedia
                         </div>
