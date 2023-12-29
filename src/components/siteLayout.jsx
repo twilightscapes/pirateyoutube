@@ -15,7 +15,7 @@ import { ModalRoutingContext } from 'gatsby-plugin-modal-routing-4'
 import Menu from "../components/menu"
 import userStyles from "../../static/data/userStyles.json"
 import SignUp from "../components/newssign"
-// import BlueCheck from './bluecheck';
+import BlueCheck from './bluecheck';
 
 
 // import useNetlifyIdentity from '../components/useNetlifyIdentity';
@@ -167,7 +167,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 
 
 
-<div id="gobacker" style={{position:'fixed', bottom:'0', right:'0', zIndex:'3', display:'flex', flexDirection:'column', alignItems:'center', gap:'', border:'0px solid yellow', justifyContent:'flex-end', paddingBottom:'18vh',  }}>
+<div id="gobacker" style={{position:'fixed', bottom:'0', right:'0', zIndex:'4', display:'flex', flexDirection:'column', alignItems:'center', gap:'', border:'0px solid yellow', justifyContent:'flex-end', paddingBottom:'18vh',  }}>
   
   <GoBack />
 
@@ -205,7 +205,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 </Link>
                         
 
-{/* <div id="bluecheck" style={{position:'absolute', left:'1%', top:'22px', cursor:'pointer'}}><BlueCheck /></div> */}
+<div id="bluecheck" style={{position:'absolute', left:'1%', top:'22px', cursor:'pointer'}}><BlueCheck /></div>
 
 
 <ul className="topmenu" style={{ fontSize:'clamp(.6rem, 1.6vw, 1.8rem)',  textAlign:'center',maxHeight:'', display:'flex', justifyContent:'space-between', gap:'4vw',  alignItems:'center', margin:'0 auto 0 auto', padding:'1.5vh 2% 0 2%', border:'0px solid white',}}>
@@ -279,103 +279,9 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 
 
 {showNav2 ? (
+<>
 
-<header>
-
-<input type="checkbox" className="openSidebarMenu" id="openSidebarMenu" />
-{ /* eslint-disable-next-line jsx-a11y/label-has-associated-control */ }
-  <label htmlFor="openSidebarMenu" className="backdrop1" ></label>
-
-<label id="menuicon" htmlFor="openSidebarMenu" className="sidebarIconToggle bug">
-<div style={{textAlign:'center', opacity:'1', textShadow:'2px 2px 10px 2px #000', maxWidth:'500px', color:'#fff', fontWeight:'bold', border:'0px solid blue'}}>
-{iconimage ? (
-      <img className="" src={iconimage} alt={companyname} width="120" height="60" style={{maxHeight:'60px', maxWidth:'120px', border:'none'}} />
-                ) : (
-      <div style={{fontWeight:'bold', fontSize:'clamp(1.3rem, 2vw, 1rem)'}}>{companyname}</div>
-                )}
-</div>
-  </label>
-
-  
-
-   <div id="sidebarMenu" style={{minWidth:'', width:'',}}>
-
-<ul className="sidebarMenuInner post-card panel" style={{maxWidth:'260px', position:'absolute', right:'0', display:'', justifyContent:''}}>
-
-    <li className="grad logo" style={{position:'relative', maxHeight:'100px', width:'auto', display:'flex', justifyContent:'center'}}>
-            <AnchorLink className="sidelogo" to="/" name="homereturn" style={{position:'', display:'block', maxWidth:'150px', height:'60px', border:'0px solid'}}  aria-label="Link to Top" title="Back to Top">
-            {iconimage ? (
-      <img src={iconimage} alt={companyname} width="120" height="60" style={{maxHeight:'60px', border:'none'}} />
-                ) : (
-                  <div style={{fontWeight:'bold', fontSize:'clamp(1.3rem, 2vw, 1rem)'}}>{companyname}</div>
-                )}
-            </AnchorLink>
-    </li>
-      
-
-       <Menu />
-                  
-
-<li>
-<ul className="missioncontrol sitecontrols" style={{display:'flex', justifyContent:'space-around', fontSize:'clamp(.8rem, 2.3vw, 2.5rem)', gap:'', textAlign:'center', maxHeight:'', alignItems:'center', paddingTop:'5px'}}>
-
-
-
-
-{showSearch ? (
-<li className="searchIcon">
-   <Link role="link" aria-hidden="true" to="/search/" style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', marginTop:'0px', textAlign:'center'}}>
-    <SearchIcon style={{width:'33px', height:'30px'}} />
-    <div className="themetext">
-            search
-          </div>
-   </Link>
-        </li>
-      ) : (
-        ""
-      )}
-
-
-  <li>
-      <Theme  style={{}} />
-        </li>
-
-  
-<li>
-            <button
-                aria-label="Grid/Swipe View"
-                onClick={toggleArchiveView}
-                className="swipescroll"
-                style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    marginTop: "0px",
-                    textAlign: "center",
-                    width: "100%"
-                }}
-            >
-                {archiveView === "grid" ? (
-        <div className="themer"><PiHandSwipeRightFill style={{width:'36px', height:'30px'}} /></div>
-                ) : (
-        <div className="themer"><BsFillGrid3X2GapFill style={{width:'36px', height:'30px'}} /></div>
-                )}
-                <span className="themetext" style={{ fontSize: '' }}>
-                    {archiveView === "grid" ? "swipe" : "scroll"}
-                </span>
-            </button>
-      </li>
-
-
-</ul>
-</li>
-
-</ul>
-</div>
-
-</header>
-
+</>
 ) : (
   ""
 )}
