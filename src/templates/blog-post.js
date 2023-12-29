@@ -218,8 +218,8 @@ const YouTubeControls = frontmatter.youtube.youtubecontrols
 const YouTubeAutostart = frontmatter.youtube.youtubeautostart
 const CustomControls = frontmatter.youtube.customcontrols
 const Suggestion1 = frontmatter.youtube.youtubersuggestion1
-const Suggestion2 = frontmatter.youtube.youtubersuggestion2
-const Suggestion3 = frontmatter.youtube.youtubersuggestion3
+// const Suggestion2 = frontmatter.youtube.youtubersuggestion2
+// const Suggestion3 = frontmatter.youtube.youtubersuggestion3
 
 const YoutubeLoop = frontmatter.youtube.youtubeloop
 

@@ -426,6 +426,8 @@ bottom: 10px !important;
 .social-icons{display:flex;font-size:3rem;gap:16px;margin-top:10px}
 
 
+.react-player__preview {z-index:1 !important;}
+
 
 
 @keyframes poof {
