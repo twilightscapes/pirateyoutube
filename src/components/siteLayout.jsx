@@ -1,30 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import Seo from "./seo"
 import { Link } from 'gatsby-plugin-modal-routing-4'
-// import { ModalRoutingContext } from '@decantyme/gatsby-plugin-modal-routing'
-// import { AiOutlineClose } from "react-icons/ai"
-
 import "../styles/reset.css"
 import "../styles/global.css"
-// import "../assets/scss/styles.css"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
-// import { StoreContext } from "../context/store-context"
-// import { Toast } from "./toast"
-// import Bug from "../../static/assets/logo.svg"
-
 import { Helmet } from "react-helmet"
 import Theme from "./theme"
-// import { CartButton } from "./cart-button"
 import SearchIcon from "../../src/img/search"
-// import SearchForm from "./searchbox"
 import useSiteMetadata from "../hooks/SiteMetadata"
 import { RiArrowUpFill } from "react-icons/ri"
 import GoBack from "../components/goBack"
 import { BiLeftArrow } from "react-icons/bi"
 import { ModalRoutingContext } from 'gatsby-plugin-modal-routing-4'
-// import { AiOutlineClose } from "react-icons/ai"
-// import { BiGridHorizontal } from "react-icons/bi"
-// import { MdOutlineRectangle } from "react-icons/md"
 import Menu from "../components/menu"
 import MenuSocial from "../components/menu-social"
 import Switch from "../components/Switch"
@@ -35,10 +22,32 @@ import BlueCheck from './bluecheck';
 
 
 
-const Layout = ({ children }) => {
-
-  const [loggedIn, setLoggedIn] = useState(false);
-  useNetlifyIdentity(setLoggedIn);
+  const Layout = ({ children }) => {
+    const [loggedIn, setLoggedIn] = useState(false);
+    useNetlifyIdentity(setLoggedIn);
+  
+    const [showBackToTop, setShowBackToTop] = useState(false);
+  
+    useEffect(() => {
+      const handleScroll = () => {
+        const currentScrollPos = window.pageYOffset;
+  
+        // Check if user scrolled to the top
+        if (currentScrollPos === 0) {
+          setShowBackToTop(false);
+        } else {
+          setShowBackToTop(true);
+        }
+      };
+  
+      // Attach scroll event listener
+      window.addEventListener("scroll", handleScroll);
+  
+      // Remove event listener on component unmount
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }, []);
 
 
 const { companyname } = useSiteMetadata()
@@ -55,55 +64,14 @@ const { showNav2 } = useSiteMetadata()
 // const { showPosts } = useSiteMetadata()
 const { showSearch } = useSiteMetadata()
 
-// const { showResume } = useSiteMetadata()
-// const { showSocial } = useSiteMetadata()
-// const { showSkills } = useSiteMetadata()
-// const { showCover } = useSiteMetadata()
+
 // const { showfooter } = useSiteMetadata()
 const { showPopup } = useSiteMetadata()
-// const { menu1 } = useSiteMetadata()
-// const { menu2 } = useSiteMetadata()
-// const { menu3 } = useSiteMetadata()
-// const { menu4 } = useSiteMetadata()
 const { font1 } = useSiteMetadata()
 // const { userStyles } = useSiteMetadata()
 
-
-
 const { showSwipe } = useSiteMetadata()
-// const [archiveView, setArchiveView] = useState('');
 
-// const applyArchiveView = useCallback(() => {
-//   const elements = document.querySelectorAll(".contentpanel");
-//   elements.forEach((el) => {
-//     if (archiveView === "grid") {
-//       el.classList.remove("horizontal-scroll", "panels");
-//       el.classList.add("grid-container");
-//       // document.body.classList.add("scrollable");
-//       // document.querySelector('#showPosts').style.height = 'auto';
-//       // window.scrollTo(0, 0);
-//     } 
-    
-//     // if ( document.querySelector('body').classList.contains("homepage")) {
-//     //   el.classList.remove("horizontal-scroll", "panels");
-//     //   el.classList.add("grid-container");
-//     // }
-    
-//     else if (archiveView === "swipe") {
-//       el.classList.remove("grid-container");
-//       el.classList.add("horizontal-scroll", "panels");
-//       // document.body.classList.remove("scrollable");
-//       document.querySelector('.contentpanel').style.transition = 'all .5s ease-in-out';
-//       // document.querySelector('#showPosts').style.height = '600px';
-//       window.scrollTo(0, 0);
-//     }
-
-
-
-
-//   });
-//   localStorage.setItem("archiveView", archiveView);
-// }, [archiveView]);
 
 useEffect(() => {
   sessionStorage.setItem("currentScrollPos", window.pageYOffset)
@@ -119,7 +87,7 @@ useEffect(() => {
       document.querySelector('.upbar').style.transform = 'translateY(140px)';
       // document.body.classList.remove('scroll');
       // document.body.classList.add('scroll');
-    } else if (prevScrollpos < currentScrollPos && currentScrollPos - prevScrollpos > 75) {
+    } else if (prevScrollpos < currentScrollPos && currentScrollPos - prevScrollpos > 105) {
       // document.querySelector('.header').style.transform = 'translateY(-100px)';
       if (showNav2) {
         document.querySelector('#menuicon').style.transform = 'translateX(200px)';
@@ -139,55 +107,10 @@ useEffect(() => {
   }
 }, [showNav2]);
 
-// useEffect(() => {
-//   if (showSwipe) {
-//     // Retrieve the selected option from local storage or default to 'grid' or 'swipe'
-//     const storedArchiveView = localStorage.getItem("archiveView");
-//     setArchiveView(
-//       storedArchiveView || (showSwipe ? "grid" : "swipe")
-//     );
-//   }
-// }, [showSwipe]);
-
-// useEffect(() => {
-//   // Apply the selected option on page load
-//   applyArchiveView();
-// }, [applyArchiveView]);
-
-// const toggleArchiveView = () => {
-//   const newArchiveView = archiveView === "grid" ? "swipe" : "grid";
-//   setArchiveView(newArchiveView);
-//   applyArchiveView();
-// };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/g, '+') + "&display=swap";
 
-
-
-
   return (
-
 <>
-
-
-
-
 <Helmet>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -201,39 +124,9 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
     <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </Helmet>
 
-
-
-
-
-
-
 <Seo />
 
-
 <div id="top" name="pagetop"></div>
-
-
-
-{/* <ModalRoutingContext.Consumer>
-    {({ modal, closeTo }) => (
-      <div style={{overflow:''}}>
-        {modal ? (
-          <>
-          <div style={{position:'fixed', top:'0', right:'0', padding:'10px', fontSize:'40px', background:'#111 !important', opacity:'1 !important', zIndex:'2',  filter:' drop-shadow(0px 4px 3px #000)',}}>
-          <Link state={{noScroll: true }} to={closeTo} style={{color:'#fff'}}>
-            <AiOutlineClose />
-          </Link>
-          </div>
-          </>
-        ) : (
-""
-        )}
-
-      </div>
-    )}
-  </ModalRoutingContext.Consumer> */}
-
-  
 
 <ModalRoutingContext.Consumer >
 {({ modal, closeTo }) => (
@@ -251,19 +144,27 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 )}
 </ModalRoutingContext.Consumer>
   
-
-
-<div className="upbar button" style={{position:'fixed', bottom:'20px', zIndex:'4', left:'', right:'1vw', display:'flex', justifyContent:'center', width:'auto', maxWidth:'80vw', margin:'0 auto', gap:'5vw', padding:'0', border:'1px solid #666', borderRadius:'', textShadow:'0 1px 1px rgba(0, 0, 0, .7)', fontSize:'', verticalAlign:'center', transform: 'translateY(200%)' }}>
-
-<div className="uparrow" style={{display:'flex', flexDirection:'column', gap:'0', padding:'1vh 1vw', alignItems:'center', textAlign:'center'}}>
-  <a href="#top" onClick={(e) => {
-  e.preventDefault();
-  document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
-}} aria-label="Link to Top" style={{cursor:'pointer', height:'', fontSize:''}}>
-  <RiArrowUpFill className="" style={{cursor:'pointer', color:'#ddd', fontSize:'3rem'}} />
-</a>
-</div>
-</div>
+<div
+        className={`upbar button ${showBackToTop ? 'visible' : ''}`}
+        style={{
+          position:'fixed', bottom:'20px', zIndex:'4', left:'', right:'1vw', display:'flex', justifyContent:'center', width:'auto', maxWidth:'80vw', margin:'0 auto', gap:'5vw', padding:'0', border:'1px solid #666', borderRadius:'', textShadow:'0 1px 1px rgba(0, 0, 0, .7)', fontSize:'', verticalAlign:'center',
+          transform: showBackToTop ? 'translateY(0)' : 'translateY(200%)',
+        }}
+      >
+        <div className="uparrow" style={{display:'flex', flexDirection:'column', gap:'0', padding:'1vh 1vw', alignItems:'center', textAlign:'center'}}>
+          <a
+            href="#top"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
+            }}
+            aria-label="Link to Top"
+            style={{cursor: 'pointer', height: '', fontSize: ''}}
+          >
+            <RiArrowUpFill className="" style={{cursor: 'pointer', color: '#ddd', fontSize: '3rem'}} />
+          </a>
+        </div>
+      </div>
 
 
 
@@ -277,13 +178,11 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 
 <div id="menu" className="menu print panel1 header" style={{position:'fixed', width:'100vw', top:'0', zIndex:'10', maxHeight:'', overFlow:'', boxShadow:'0 0 2px rgba(0,0,0,.7)', padding:'0 2%', alignItems:'start', borderRadius:'0', display:'flex', justifyContent:'space-around', gap:'10px', color:'#fff',  borderBottom:'1px solid #222',}}>
 
-{/* {loggedIn ? (
+{loggedIn ? (
 <div style={{position:'absolute', left:'10px', top:'22px', cursor:'pointer'}}><BlueCheck /></div>
 ) : (
   ""
-  )} */}
-
-<div style={{position:'absolute', left:'10px', top:'22px', cursor:'pointer'}}><BlueCheck /></div>
+  )}
 
 
 <Link to="/" className="cornerlogo" name="homereturn" style={{position:'', display:'flex', marginLeft:'5px', alignItems:'center', justifyContent:'center', maxWidth:'', height:'60px', border:'0px solid transparent'}}  aria-label="Link to Top" title="Back to Top">
@@ -303,72 +202,12 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 
 <ul className="topmenu" style={{ fontSize:'clamp(.6rem, 1.6vw, 1.8rem)',  textAlign:'center',maxHeight:'', display:'flex', justifyContent:'space-between', gap:'4vw',  alignItems:'center', margin:'0 auto 0 auto', padding:'1.5vh 2% 0 2%', border:'0px solid white',}}>
       
-
-
-
-
-
-      
- 
-
-{/* {showInfo ? (
-<li style={{position:'relative',}}>
-      {prefersReducedMotion ? (
-       <Link aria-label="Menu 1" className="navbar-item" to="/#info" style={{paddingRight:'',}}>{menu1}</Link>    
-   ) : (
-      <AnchorLink aria-label="Menu 1" className="navbar-item" to="/#info" style={{paddingRight:'',}}>
-      {menu1}</AnchorLink>         
-    )}
-</li>
-      ) : (
-  ""
-)}
-
-{showResume ? (
-<li style={{position:'relative',}}>
-      {prefersReducedMotion ? (
-       <Link aria-label="Menu 3" className="navbar-item" to="/#resume" style={{paddingRight:'',}}>{menu3}</Link>    
-   ) : (
-      <AnchorLink aria-label="Menu 3" className="navbar-item" to="/#resume" style={{paddingRight:'',}}>
-      {menu3}</AnchorLink>         
-    )}
-</li>
-      ) : (
-  ""
-)}
-
-{showSkills ? (
-<li style={{position:'relative',}}>
-      {prefersReducedMotion ? (
-       <Link className="navbar-item" to="/#skills" style={{paddingRight:'',}}>{menu4}</Link>    
-   ) : (
-      <AnchorLink aria-label="Menu 4" className="navbar-item" to="/#skills" style={{paddingRight:'',}}>
-      {menu4}</AnchorLink>         
-    )}
-</li>
-      ) : (
-  ""
-)} */}
-
-
-{/* {loggedIn && (
-        
-        <Menu />
-      
-    )} */}
-
 {loggedIn ? (
       <MenuSocial />
                 ) : (
                   <Menu />
                   
                 )}
-
-
-
-
-
-
 </ul>
 
 <div id="missioncontrol" className="missioncontrol sitecontrols" style={{display:'flex', justifyContent:'space-around', fontSize:'clamp(.8rem, 2.3vw, 2.5rem)', gap:'3vw', textAlign:'center', maxHeight:'', alignItems:'center', paddingTop:'5px'}}>
@@ -399,11 +238,6 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 
 
 </div>
-      
-
-        
-           
-      
 
             </div>
             </header>
@@ -411,8 +245,6 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 ) : (
   ""
 )}
-
-
 
 
 
@@ -450,46 +282,6 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
                 )}
             </AnchorLink>
     </li>
-      
-{/* {showInfo ? (
-<li style={{position:'relative',}}>
-      {prefersReducedMotion ? (
-       <Link aria-label="Menu 1" className="navbar-item" to="/#info" style={{paddingRight:'',}}>{menu1}</Link>    
-   ) : (
-      <AnchorLink aria-label="Menu 1" className="navbar-item" to="/#info" style={{paddingRight:'',}}>
-      {menu1}</AnchorLink>         
-    )}
-</li>
-      ) : (
-  ""
-)}
-
-{showResume ? (
-<li style={{position:'relative',}}>
-      {prefersReducedMotion ? (
-       <Link aria-label="Menu 3" className="navbar-item" to="/#resume" style={{paddingRight:'',}}>{menu3}</Link>    
-   ) : (
-      <AnchorLink aria-label="Menu 3" className="navbar-item" to="/#resume" style={{paddingRight:'',}}>
-      {menu3}</AnchorLink>         
-    )}
-</li>
-      ) : (
-  ""
-)}
-
-
-{showSkills ? (
-<li style={{position:'relative',}}>
-      {prefersReducedMotion ? (
-       <Link className="navbar-item" to="/#skills" style={{paddingRight:'',}}>{menu4}</Link>    
-   ) : (
-      <AnchorLink aria-label="Menu 4" className="navbar-item" to="/#skills" style={{paddingRight:'',}}>
-      {menu4}</AnchorLink>         
-    )}
-</li>
-      ) : (
-  ""
-)} */}
 
 {loggedIn ? (
       <Menu />
@@ -567,8 +359,6 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
   padding:' 0',
   maxWidth:'500px',
   borderRadius:'12px',
-  // display:'grid',
-  // placeSelf:'center',
   }}>
 <SignUp />
   </div>
