@@ -878,7 +878,10 @@ ul li{display:inline-block}
   }
   
   body.homepage .horizontal-scroll {margin-top:8vh !important;}
+  body.blogpost  {padding-top:8vh !important;}
+
   .react-player__preview{max-height:200px !important; margin-top:8vh;}
+  
   .horizontal-scroll iframe{max-height:200px !important; margin-top:8vh; }
 
   .topmenu {gap:1vw ; padding:0 ;}
