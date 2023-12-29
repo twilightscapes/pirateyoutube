@@ -3,7 +3,7 @@ import Seo from "./seo"
 import { Link } from 'gatsby-plugin-modal-routing-4'
 // import { ModalRoutingContext } from '@decantyme/gatsby-plugin-modal-routing'
 // import { AiOutlineClose } from "react-icons/ai"
-// import { window } from "browser-monads"
+
 import "../styles/reset.css"
 import "../styles/global.css"
 // import "../assets/scss/styles.css"
@@ -11,7 +11,7 @@ import { AnchorLink } from "gatsby-plugin-anchor-links"
 // import { StoreContext } from "../context/store-context"
 // import { Toast } from "./toast"
 // import Bug from "../../static/assets/logo.svg"
-// import SiteLogo from "../../static/assets/logo.svg"
+import SiteLogo from "../../static/assets/logo.svg"
 import { Helmet } from "react-helmet"
 import Theme from "./theme"
 // import { CartButton } from "./cart-button"
@@ -83,10 +83,10 @@ const applyArchiveView = useCallback(() => {
       // window.scrollTo(0, 0);
     } 
     
-    if ( document.querySelector('body').classList.contains("homepage")) {
-      el.classList.remove("horizontal-scroll", "panels");
-      el.classList.add("grid-container");
-    }
+    // if ( document.querySelector('body').classList.contains("homepage")) {
+    //   el.classList.remove("horizontal-scroll", "panels");
+    //   el.classList.add("grid-container");
+    // }
     
     else if (archiveView === "swipe") {
       el.classList.remove("grid-container");
@@ -174,9 +174,9 @@ const toggleArchiveView = () => {
 
 
 
-  // const QUERY = '(prefers-reduced-motion: no-preference)';
-  // const mediaQueryList = window.matchMedia(QUERY);
-  // // const prefersReducedMotion = !mediaQueryList.matches;
+  const QUERY = '(prefers-reduced-motion: no-preference)';
+  const mediaQueryList = window.matchMedia(QUERY);
+  const prefersReducedMotion = !mediaQueryList.matches;
 
   
 
@@ -291,18 +291,36 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
   ""
   )} */}
 
+<div style={{position:'absolute', left:'10px', top:'22px', cursor:'pointer'}}><BlueCheck /></div>
 
-
-<Link to="/" className="cornerlogo" name="homereturn" style={{position:'', display:'flex', marginLeft:'5px', alignItems:'center', justifyContent:'center', maxWidth:'', height:'60px', border:'0px solid transparent'}}  aria-label="Link to Top" title="Back to Top">
-{iconimage ? (
-<img className="cornerlogo" style={{position:'relative', top:'', left:'4%', border:'0px solid white', padding:'0', maxHeight:'60px'}} src={iconimage} alt={companyname} width="111" height="60" />
+{prefersReducedMotion ? (
+    <Link to="/" className="cornerlogo" name="homereturn" style={{position:'', display:'block', maxWidth:'', height:'auto', border:'0px solid transparent'}}  aria-label="Link to Top" title="Back to Top">
+            <button className="cornerlogo" style={{position:'relative', top:'', left:'4%', border:'0px solid white', borderBottom:'0px solid transparent'}} aria-label="Return to Home">
+            {iconimage ? (
+      <img className="" src={iconimage} alt={companyname} style={{maxHeight:'', border:'none'}} width="117" height="60" />
+                ) : (
+                  <div style={{fontWeight:'bold',}}>{companyname}</div>
+                )}
+            </button>
+            </Link>
+          ) : (
+          
+                        <Link to="/" className="cornerlogo" name="homereturn" style={{position:'', display:'flex', alignItems:'center', justifyContent:'center', maxWidth:'', height:'60px', border:'0px solid transparent'}}  aria-label="Link to Top" title="Back to Top">
+            {iconimage ? (
+<>
+{loggedIn ? (
+  <SiteLogo className="cornerlogo" style={{position:'relative', top:'', left:'30px', border:'0px solid white', padding:'0', maxHeight:'60px'}} alt={companyname} width="117" height="60" />
 ) : (
-<div style={{fontWeight:'bold', display:'grid', justifyContent:'center', alignItems:'center', height:'60px', fontSize:'150%' }}>{companyname}</div>
+  <img className="cornerlogo" style={{position:'relative', top:'', left:'4%', border:'0px solid white', padding:'0', maxHeight:'60px'}} src={iconimage} alt={companyname} width="117" height="60" />
+              
 )}
-</Link>
+</>    
+                ) : (
+                  <div style={{fontWeight:'bold', display:'grid', justifyContent:'center', alignItems:'center', height:'60px', fontSize:'150%' }}>{companyname}</div>
+                )}
+            </Link>
                         
-
-<div id="bluecheck" style={{position:'absolute', left:'1%', top:'22px', cursor:'pointer'}}><BlueCheck /></div>
+          )}
 
 
           
