@@ -18,7 +18,7 @@ youtube:
  youtubeautostart: true
  youtubeloop: true
  clicktoplay: false
- showVidOnly: false
+ showVidOnly: true
 comments: false
 shareable: false
 underlayImage: /assets/transparent.png

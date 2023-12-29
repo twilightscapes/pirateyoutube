@@ -855,9 +855,6 @@ ul li{display:inline-block}
 @media(max-width:48rem) {
   .mobilehide{display:none}
 
-  
-
-  
   #menu {flex-direction: column !important;}
   
   body.homepage #showPosts {height:inherit ; border:0px solid yellow}
@@ -881,7 +878,8 @@ ul li{display:inline-block}
   }
   
   body.homepage .horizontal-scroll {margin-top:8vh !important;}
-
+  .react-player__preview{max-height:200px !important; margin-top:8vh;}
+  .horizontal-scroll iframe{max-height:200px !important; margin-top:8vh; }
 
   .topmenu {gap:1vw ; padding:0 ;}
   .topmenu li {margin-top:2vh ;}
@@ -920,7 +918,7 @@ ul li{display:inline-block}
   .grid-container {margin:0 auto 0 auto ; padding-top:16vh; }
   body.homepage .grid-container {margin-top:0 ; padding-top:14vh !important;}
 
-  body.homepage .horizontal-scroll {margin-top:0 ; padding-right:9vh;}
+  body.homepage .horizontal-scroll {margin-top:8vh ; padding-right:9vh;}
   .horizontal-scroll{margin:0 auto 0 auto ;  padding-right:9vh;}
   .horizontal-scroll .loadmore{height:40vh}
 
