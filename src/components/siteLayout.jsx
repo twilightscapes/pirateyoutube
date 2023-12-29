@@ -27,7 +27,7 @@ import { ModalRoutingContext } from 'gatsby-plugin-modal-routing-4'
 // import { MdOutlineRectangle } from "react-icons/md"
 import Menu from "../components/menu"
 import MenuSocial from "../components/menu-social"
-// import Switch from "../components/Switch"
+import Switch from "../components/Switch"
 import userStyles from "../../static/data/userStyles.json"
 import SignUp from "../components/newssign"
 import useNetlifyIdentity from '../components/useNetlifyIdentity';
@@ -390,11 +390,11 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
         </div>
 
   
-        {/* {showSwipe ? (
+        {showSwipe ? (
   <Switch />
       ) : (
         ""
-      )} */}
+      )}
  
 
 
@@ -523,7 +523,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
   
         {showSwipe ? (
   <li>
-  {/* <Switch /> */}
+  <Switch />
   </li>
       ) : (
         ""
