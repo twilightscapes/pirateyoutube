@@ -270,7 +270,7 @@ const extractVideoId = (url) => {
                     },
                   }}
                   playIcon={
-                    <div style={{display:'flex', flexDirection:'column', placeContent:'', justifyContent:'', position:'absolute', zindex:'1', bottom:'-2vh', fontWeight:'bold', padding:'3% 0 0 0', fontSize:'clamp(.6rem, 1.4vw, 2rem)', width:'100%', maxWidth:'25vw', height:'', border:'0px solid', borderRadius:'12px', margin:'0 auto 0 auto', opacity:'.99', textShadow:'2px 2px 2px black', color:'#fff' }}>
+                    <div style={{display:'flex', flexDirection:'column', placeContent:'', justifyContent:'', position:'absolute', zindex:'1', bottom:'-2vh', fontWeight:'bold', padding:'3% 0 0 0', fontSize:'clamp(.6rem, 1.4vw, 1rem)', width:'100%', maxWidth:'25vw', height:'', border:'0px solid', borderRadius:'12px', margin:'0 auto 0 auto', opacity:'.99', textShadow:'2px 2px 2px black', color:'#fff' }}>
                       <div className="spotlight1 font" style={{}}>
                         <div className="posticons" style={{ flexDirection: 'column', margin: '0 auto' }}>
                           <div style={{ display: 'flex', justifyContent: 'space-around', gap: '2vw', color: 'fff', }}>
@@ -325,7 +325,7 @@ const extractVideoId = (url) => {
                   </>
                 )}
 
-                <div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', alignContent:'center', margin: '10px auto', maxWidth: '', gap: '.4vw', maxHeight: '74px', textAlign: 'left', padding: '10px 30px', fontSize: 'clamp(.7rem,.8vw,.7rem)', outline:'0px solid #444', overFlow:'hidden', lineHeight:'2.4vh', borderRadius:'3px', background: showTitles ? 'rgba(0, 0, 0, 0.8)' : 'transparent', }}>
+<div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', alignContent:'center', margin: '10px auto', maxWidth: '', gap: '.4vw', maxHeight: '74px', textAlign: 'left', padding: '10px 5%', fontSize: 'clamp(.7rem,.8vh,12px)', outline:'0px solid #444', overFlow:'hidden', lineHeight:'2.4vh', borderRadius:'3px', background: showTitles ? 'rgba(0, 0, 0, 0.8)' : 'transparent', }}>
                   {showTitles ? (
                     <h2 className="title1" style={{width:'100%', textShadow:'0 1px 1px #222',}}>{node.frontmatter.title}</h2>
                   ) : (
