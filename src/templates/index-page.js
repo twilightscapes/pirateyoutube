@@ -264,7 +264,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
 <div key={index} className="post-card1" style={{ alignItems: '', overflow: 'visible' }}>
 
 {node.frontmatter.youtube.showVidOnly ? (
-<div style={{display:'block', minHeight:'200px'}}>
+<div style={{minHeight: index === playingIndex ? '200px' : '200px',}}>
                 <ReactPlayer
                 playing={index === playingIndex}
                 ref={playerRef}
@@ -284,8 +284,8 @@ const [playingIndex, setPlayingIndex] = useState(null);
                     bottom: index === playingIndex ? '10vh' : '',
                     left: index === playingIndex ? '0' : '',
                     margin:'0 auto',
-                    width: index === playingIndex ? '100%' : '350px',
-                    height: index === playingIndex ? '100%' : '200px',
+                    // width: index === playingIndex ? '100%' : '350px',
+                    // height: index === playingIndex ? '100%' : '200px',
                     border: index === playingIndex ? '1px solid var(--theme-ui-colors-siteColor)' : 'inherit',
                     boxShadow: index === playingIndex ? '2px 1px 10px 10px rgba(0, 0, 0, 0.5)' : 'inherit',
                     // width: '80vw',

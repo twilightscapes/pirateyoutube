@@ -783,7 +783,9 @@ body.blogpost #menu li .fullscreenButt{display:flex}
   border: none !important;
   width: 100% !important;
   box-shadow: none !important;
-  /* height: 100% !important; */
+  height: 100% !important;
+  left: inherit !important;
+  bottom: inherit !important;
 }
 
 
