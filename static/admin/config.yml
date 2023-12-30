@@ -185,7 +185,7 @@ collections:
 
 
 
-  - label: "HomePage"
+  - label: "Site Pages"
     name: "pages"
     editor:
       preview: false
@@ -440,7 +440,46 @@ collections:
                 required: false
                 
               
-
+      - label: Social Icons
+        name: socialIcons
+        editor:
+          preview: false
+        file: "static/data/socialmedia.json"
+        fields:
+          - label: Social Icons
+            name: socialIcons
+            widget: list
+            collapsed: true
+            hint: "Here you can add social icons, Click on 'Add social icons'"
+            fields:
+              - label: "Icons"
+                name: "icon"
+                widget: "select"
+                options:
+                  [
+                    "facebook",
+                    "twitter",
+                    "linkedin",
+                    "youtube",
+                    "instagram",
+                    "rss",
+                    "github",
+                    "telegram",
+                    "pinterest",
+                    "snapchat",
+                    "skype",
+                    "wordpress",
+                    "dribbble",
+                    "medium",
+                    "behance",
+                    "vk",
+                  ]
+                hint: "Select the Icon"
+              - widget: string
+                name: url
+                label: url
+                required: true
+                hint: "Paste the 'URL' of your Social media"
 
 
 
