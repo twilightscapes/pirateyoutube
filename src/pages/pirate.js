@@ -121,10 +121,10 @@ function Pirate() {
 <div className="flexbutt" style={{width:'100%', gap:'2vw'}}>
 
 <div className="contact-form flexcheek" style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', minWidth:'30vw' }}>
-test here
+Help Section Coming Soon!
 </div>
 <div className="flexcheek" style={{ minWidth: '', maxHeight: '40vh', overflow: 'scroll', border:'1px solid #333', padding:'100px 3% 0 3%', borderRadius:'8px', textAlign:'center', position:'relative' }}>
-<h3>Latest Feeds:</h3>
+<h3>Help Section:</h3>
 
 
 

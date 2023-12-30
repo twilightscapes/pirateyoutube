@@ -499,7 +499,7 @@ collections:
                 options:
                   [
                     "facebook",
-                    "twitter",
+                    "x-twitter",
                     "linkedin",
                     "youtube",
                     "instagram",
