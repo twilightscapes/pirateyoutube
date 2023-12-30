@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { graphql, Link } from "gatsby";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import { ImPlay } from "react-icons/im";
@@ -60,6 +60,19 @@ const extractVideoId = (url) => {
 };
 /* eslint-enable no-useless-escape */
   
+const playerRef = useRef(null);
+
+
+const [playingIndex, setPlayingIndex] = useState(null);
+
+  const handleVideoPlay = (index) => {
+    setPlayingIndex(index);
+  };
+
+  const handleVideoPause = () => {
+    setPlayingIndex(null);
+  };
+
 
 
 
@@ -246,19 +259,41 @@ const extractVideoId = (url) => {
         <div className="sliderSpacer" style={{ height: '', paddingTop: '', display: '' }}></div>
 
         {filteredPosts.slice(0, numVisibleItems).map(({ node }, index) => (
-          <div key={index} className="post-card1" style={{ alignItems: '', overFlow:'visible' }}>
+  
 
-
+<div key={index} className="post-card1" style={{ alignItems: '', overflow: 'visible' }}>
 
 {node.frontmatter.youtube.showVidOnly ? (
+
                 <ReactPlayer
-                  url={node.frontmatter.youtube.youtuber}
+                playing={index === playingIndex}
+                ref={playerRef}
+                url={node.frontmatter.youtube.youtuber}
                   allow="web-share"
-                  style={{ position: 'relative', margin: '0 auto 15px auto', zIndex: '',aspectRatio:'16/9', }}
+                  // style={{ position: 'relative', margin: '0 auto 15px auto', zIndex: '',aspectRatio:'16/9', }}
                   width="350px"
                   height="200px"
                   className='inline'
                   playsinline
+                  className={`relative ${index === playingIndex ? 'fixed' : 'relative'}`}
+                  style={{
+                    position: index === playingIndex ? 'fixed' : 'relative',
+                    // top: index === playingIndex ? '50%' : 'auto',
+                    // left: index === playingIndex ? '50%' : 'auto',
+                    // transform: index === playingIndex ? 'translate(-50%, -50%)' : 'none',
+                    bottom: index === playingIndex ? '10vh' : '',
+                    left: index === playingIndex ? '0' : '',
+                    margin:'0 auto',
+                    width: index === playingIndex ? '100%' : '350px',
+                    height: index === playingIndex ? '100%' : '200px',
+                    border: index === playingIndex ? '1px solid' : 'inherit',
+                    boxShadow: index === playingIndex ? '2px 1px 10px 10px rgba(0, 0, 0, 0.5)' : 'inherit',
+                    // width: '80vw',
+                    // height:'60vh',
+                    // margin: index === playingIndex ? '0' : '0 auto 15px auto',
+                    zIndex: index === playingIndex ? '9999' : '',
+                    aspectRatio: '16/9',
+                  }}
                   light={`https://i.ytimg.com/vi/${extractVideoId(node.frontmatter.youtube.youtuber)}/hqdefault.jpg`}
                   config={{
                     file: {
@@ -281,7 +316,10 @@ const extractVideoId = (url) => {
                         </div>
                       </div>
                     </div>}
+                    onPlay={() => handleVideoPlay(index)}
+                    onPause={handleVideoPause}
                 />
+                
               ) : (
                 <Link className="postlink" state={showModals ? { modal: true } : {}} key={node.frontmatter.slug} to={node.frontmatter.slug}>
                   {node.frontmatter.featuredImage ? (
