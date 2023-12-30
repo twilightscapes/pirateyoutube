@@ -284,7 +284,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
                     bottom: index === playingIndex ? '10vh' : '',
                     left: index === playingIndex ? '0' : '',
                     margin:'0 auto',
-                    transition: 'all .8s ease-in-out',
+                    transition: 'all 1.3s ease-in-out',
                     // width: index === playingIndex ? '100%' : '350px',
                     // height: index === playingIndex ? '100%' : '200px',
                     border: index === playingIndex ? '1px solid var(--theme-ui-colors-siteColor)' : 'inherit',
