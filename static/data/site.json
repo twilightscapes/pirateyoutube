@@ -16,13 +16,13 @@
     "showPopup": true,
     "showMagic": true,
     "homecount": 3,
-    "showfooter": true,
     "magicOptions": {
       "showMagic": true,
       "showMagicCat": true,
       "showMagicTag": true,
       "showMagicSearch": true
     },
+    "showfooter": false,
     "showConsent": true,
     "showSocial": true,
     "showBranding": false,
