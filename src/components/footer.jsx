@@ -81,7 +81,7 @@ const sIcons = Icons.socialIcons.map((icons, index) => {
       )}
       {icons.icon === "rss" ? (
         <a aria-label="Link to RSS" className="social" href={icons.url} rel="noreferrer" target="_blank">
-          <RiRssFill />
+          <RiRssFill style={{maxWidth:'35px'}} />
         </a>
       ) : (
         ""

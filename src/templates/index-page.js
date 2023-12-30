@@ -395,11 +395,9 @@ const [playingIndex, setPlayingIndex] = useState(null);
         )}
       </div>
 
-      {/* show footer */}
+{/* show footer */}
 {showfooter ? (
-<div className="scroll-area1" style={{scrollSnapAlign:'', position:'', bottom:'0'}}>
 <Footer />
-</div>
 ) : (
   ""
 )}
