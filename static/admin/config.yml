@@ -193,7 +193,7 @@ collections:
     editor:
       preview: false
     files:
-      - label: "Home"
+      - label: "Default Home Page - Important to set defaults for Search Engines"
         name: "home"
         file: "static/content/pages/index.md"
         fields:
@@ -214,7 +214,21 @@ collections:
 
           - { label: "Body", name: "body", widget: "markdown" }
 
-      - label: "Disclaimer"
+      - label: "Privacy Policy Page"
+        name: "privacy"
+        file: "static/content/pages/privacy.md"
+        fields:
+          - {
+              label: "Template",
+              name: "template",
+              widget: "hidden",
+              default: "privacy-page",
+            }
+          - { label: "Slug", name: "slug", widget: "hidden", default: "/privacy" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+      - label: "Disclaimer Page"
         name: "disclaimer"
         file: "static/content/pages/disclaimer.md"
         fields:
@@ -228,7 +242,7 @@ collections:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
                 
-      - label: "Contact"
+      - label: "Contact Page/Form"
         name: "contact"
         file: "static/content/pages/contact.md"
         fields:
