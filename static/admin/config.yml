@@ -19,6 +19,7 @@ public_folder: "/assets"
 # display_url: ""
 show_preview_links: false
 
+
 collections:
 
   - name: "team"
@@ -313,7 +314,7 @@ collections:
   - name: settings
     editor:
       preview: false
-    label: Settings
+    label: Site Settings
     files:
       - name: general
         label: General
@@ -548,7 +549,7 @@ collections:
                 required: true
                 hint: "add the url of the menu item"
 
-  - label: "Appearance"
+  - label: "Site Appearance"
     name: "appearance"
     editor:
       preview: false
