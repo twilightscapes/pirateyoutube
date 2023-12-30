@@ -264,7 +264,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
 <div key={index} className="post-card1" style={{ alignItems: '', overflow: 'visible' }}>
 
 {node.frontmatter.youtube.showVidOnly ? (
-
+<div style={{display:'block', minHeight:'200px'}}>
                 <ReactPlayer
                 playing={index === playingIndex}
                 ref={playerRef}
@@ -275,7 +275,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
                   height="200px"
                   className='inline'
                   playsinline
-                  className={`relative ${index === playingIndex ? 'fixed' : 'relative'}`}
+                  // className={`relative ${index === playingIndex ? 'fixed' : 'relative'}`}
                   style={{
                     position: index === playingIndex ? 'fixed' : 'relative',
                     // top: index === playingIndex ? '50%' : 'auto',
@@ -286,7 +286,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
                     margin:'0 auto',
                     width: index === playingIndex ? '100%' : '350px',
                     height: index === playingIndex ? '100%' : '200px',
-                    border: index === playingIndex ? '1px solid' : 'inherit',
+                    border: index === playingIndex ? '1px solid var(--theme-ui-colors-siteColor)' : 'inherit',
                     boxShadow: index === playingIndex ? '2px 1px 10px 10px rgba(0, 0, 0, 0.5)' : 'inherit',
                     // width: '80vw',
                     // height:'60vh',
@@ -319,7 +319,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
                     onPlay={() => handleVideoPlay(index)}
                     onPause={handleVideoPause}
                 />
-                
+                </div>
               ) : (
                 <Link className="postlink" state={showModals ? { modal: true } : {}} key={node.frontmatter.slug} to={node.frontmatter.slug}>
                   {node.frontmatter.featuredImage ? (
