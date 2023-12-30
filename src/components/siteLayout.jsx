@@ -72,6 +72,13 @@ const { font1 } = useSiteMetadata()
 
 const { showSwipe } = useSiteMetadata()
 
+function truncateText(text, maxLength) {
+  if (text.length > maxLength) {
+    return text.substring(0, maxLength) + '';
+  } else {
+    return text;
+  }
+}
 
 useEffect(() => {
   sessionStorage.setItem("currentScrollPos", window.pageYOffset)
@@ -189,7 +196,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 {iconimage ? (
 <img className="cornerlogo" style={{position:'relative', top:'', left:'4%', border:'0px solid white', padding:'0', maxHeight:'60px'}} src={iconimage} alt={companyname} width="111" height="60" />
 ) : (
-<div style={{fontWeight:'bold', display:'grid', justifyContent:'center', alignItems:'center', height:'60px', fontSize:'clamp(.9rem,2vw,1rem)', color:'#ddd' }}>{companyname}</div>
+<div style={{fontWeight:'bold', display:'grid', justifyContent:'center', alignItems:'center', height:'60px', fontSize:'clamp(.9rem,2vw,1rem)', color:'#ddd' }}>{truncateText(companyname, 28)}</div>
 )}
 </Link>
 

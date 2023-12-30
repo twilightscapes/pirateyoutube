@@ -282,7 +282,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
                     // left: index === playingIndex ? '50%' : 'auto',
                     // transform: index === playingIndex ? 'translate(-50%, -50%)' : 'none',
                     bottom: index === playingIndex ? '10vh' : '',
-                    left: index === playingIndex ? '0' : '',
+                    left: index === playingIndex ? '5%' : '',
                     margin:'0 auto',
                     transition: 'all 1.3s ease-in-out',
                     // width: index === playingIndex ? '100%' : '350px',
