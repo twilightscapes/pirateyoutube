@@ -241,6 +241,20 @@ collections:
           - { label: "Slug", name: "slug", widget: "hidden", default: "/disclaimer" }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
+
+      - label: "Terms of Use/Conditions Page"
+        name: "terms"
+        file: "static/content/pages/terms.md"
+        fields:
+          - {
+              label: "Template",
+              name: "template",
+              widget: "hidden",
+              default: "terms-page",
+            }
+          - { label: "Slug", name: "slug", widget: "hidden", default: "/terms" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
                 
       - label: "Contact Page/Form"
         name: "contact"
