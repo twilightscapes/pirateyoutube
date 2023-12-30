@@ -19,7 +19,7 @@ import userStyles from "../../static/data/userStyles.json"
 import SignUp from "../components/newssign"
 import useNetlifyIdentity from '../components/useNetlifyIdentity';
 import BlueCheck from './bluecheck';
-
+import Footer from "../components/footer"
 
 
   const Layout = ({ children }) => {
@@ -69,7 +69,7 @@ const { showSearch } = useSiteMetadata()
 const { showPopup } = useSiteMetadata()
 const { font1 } = useSiteMetadata()
 // const { userStyles } = useSiteMetadata()
-
+const { showfooter } = useSiteMetadata()
 const { showSwipe } = useSiteMetadata()
 
 // function truncateText(text, maxLength) {
@@ -99,7 +99,7 @@ useEffect(() => {
       if (showNav2) {
         document.querySelector('#menuicon').style.transform = 'translateX(200px)';
       }
-      document.querySelector('.upbar').style.transform = 'translateY(-100px)';
+      document.querySelector('.upbar').style.transform = 'translateY(-100%)';
       // document.body.classList.add('scroll');
     }
     prevScrollpos = currentScrollPos;
@@ -381,7 +381,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 
 
 
-<div style={{maxWidth:'', overflowX:'hidden', position:'relative'}}>
+<div style={{minHeight:'70vh', maxWidth:'', overflowX:'hidden', position:'relative'}}>
 {children}
 </div>
       
@@ -396,7 +396,13 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 )}
 
       
-
+{/* show footer */}
+{showfooter ? (
+<Footer />
+) : (
+  ""
+)}
+{/* end show footer */}
       
       </>
 

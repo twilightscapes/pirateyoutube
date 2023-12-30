@@ -12,10 +12,10 @@ import { MdArrowForwardIos } from 'react-icons/md';
 import Seo from "../components/seo";
 import { getSrc } from "gatsby-plugin-image";
 import ReactPlayer from 'react-player/lazy';
-import Footer from "../components/footer"
+
 
 const HomePage = ({ data }) => {
-  const { showModals, showfooter, showDates, homecount, postcount, magicOptions, showNav, showArchive, showTitles } = useSiteMetadata();
+  const { showModals, showDates, homecount, postcount, magicOptions, showNav, showArchive, showTitles } = useSiteMetadata();
   const { showMagic, showMagicCat, showMagicTag, showMagicSearch } = magicOptions;
 
   const { markdownRemark } = data;
@@ -395,13 +395,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
         )}
       </div>
 
-{/* show footer */}
-{showfooter ? (
-<Footer />
-) : (
-  ""
-)}
-{/* end show footer */}
+
 
 
     </Layout>

@@ -44,7 +44,7 @@ import { RiMenuUnfoldFill, RiCloseCircleFill } from "react-icons/ri"
 import { AiOutlineAudioMuted } from "react-icons/ai"
 
 
-import Footer from "../components/footer"
+
 // import { SRLWrapper } from "simple-react-lightbox"
 // import { CopyToClipboard } from 'react-copy-to-clipboard'
 import ReactPlayer from 'react-player/lazy'
@@ -464,7 +464,7 @@ const YouTube = frontmatter.youtube.youtuber
 
 
   // const { showNav } = useSiteMetadata()
-  const { showDates, showTitles } = useSiteMetadata()
+  const { showDates, showTitles, showfooter } = useSiteMetadata()
 
 
 
@@ -1246,7 +1246,7 @@ zindex:'1'
 
 
 
-     <div className="" style={{width:'100%', height:'', maxWidth:'1024px', margin:'0 auto 0 auto', }}>
+     <div className="panel" style={{width:'100%', height:'', maxWidth:'1024px', margin:'0 auto 0 auto', }}>
 
 
      {/* {Suggestion1 ? (
@@ -1314,7 +1314,7 @@ zindex:'1'
 </header>
             ) : (
               <header style={{ height:'', display:'grid', placeContent:'center'}}>
-                <div className="article-header" style={{textAlign:'center', paddingTop:'1rem', height:'auto', color:'', borderRadius:'', marginTop:'0'}}>
+                <div className="article-header" style={{textAlign:'center', paddingTop:'', height:'auto', color:'', borderRadius:'', marginTop:'0'}}>
 
                 {showTitles ? (   
     <>
@@ -1352,9 +1352,9 @@ zindex:'1'
 
 
 
-  <div className="panel" style={{padding:'0 0', borderTop:'0px solid', margin:'0 0', textAlign:'center', fontSize:'1.5rem', minWidth:'50%', width:'100%', maxWidth:'', border:'0px solid yellow', borderRadius:''}}>
+  <div className="panel" style={{padding:'0 0', border:'0px solid red', margin:'0 0', textAlign:'center', fontSize:'1.5rem', minWidth:'50%', width:'100%', maxWidth:'', border:'0px solid yellow', borderRadius:''}}>
       <div
-        className="blog-post-content bodycontent" style={{ fontSize:'clamp(1.2rem, 2.8vw, 1.8rem)', textAlign:'center', width:'100%', maxWidth:'', padding:'2vh 6% 10vh 6%', margin:'0 auto', color:'inherit !important'}}
+        className="blog-post-content bodycontent" style={{ fontSize:'clamp(1.2rem, 2.8vw, 1.8rem)', textAlign:'center', width:'100%', maxWidth:'', padding:'2vh 6% 10vh 6%', margin:'0 auto', border:'1px solid red', color:'inherit'}}
         dangerouslySetInnerHTML={{ __html: html }}
       />    
 </div>
@@ -1373,7 +1373,7 @@ zindex:'1'
 <div style={{width:'auto', height:'', padding:'0', display:'grid', placeContent:'center', border:'0px solid'}}>
     <ShareSocial style={{}} />
     </div>
-<div className="article-header" style={{textAlign:'center', paddingTop:'1rem', height:'auto', color:'', borderRadius:'', marginTop:'0'}}>
+<div className="article-header" style={{textAlign:'center', paddingTop:'', height:'auto', color:'', borderRadius:'', marginTop:'0'}}>
 
 
 {showTitles ? (   
@@ -1428,7 +1428,7 @@ zindex:'1'
 </header>
               ) : (
                 <header style={{ height:'', display:'grid', placeContent:'center'}}>
-                <div className="article-header" style={{textAlign:'center', paddingTop:'1rem', height:'auto', color:''}}>
+                <div className="article-header" style={{textAlign:'center', paddingTop:'', height:'auto', color:''}}>
 
 
                 {showTitles ? (   
@@ -1460,7 +1460,7 @@ zindex:'1'
 
 <div className="panel" style={{padding:'0 0', borderTop:'0px solid', margin:'0 0', textAlign:'center', fontSize:'1.5rem', minWidth:'50%', width:'100%', maxWidth:'', border:'0px solid yellow', borderRadius:''}}>
 <div
-  className="blog-post-content bodycontent" style={{ fontSize:'clamp(1.2rem, 2.8vw, 1.8rem)', textAlign:'center', width:'100%', maxWidth:'', padding:'2vh 6% 10vh 6%', margin:'0 auto', color:'inherit !important'}}
+  className="blog-post-content bodycontent" style={{ fontSize:'clamp(1.2rem, 2.8vw, 1.8rem)', textAlign:'center', width:'100%', maxWidth:'', padding:'0 6% 0 6%', margin:'0 auto', color:'inherit !important'}}
   dangerouslySetInnerHTML={{ __html: html }}
 />    
 </div>
@@ -1627,12 +1627,7 @@ Click to play original video
 
 
 
-<br/>
 
-
-
-  
-   <Footer />
   
     </Layout>
 

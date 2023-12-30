@@ -54,7 +54,7 @@ skillsText: >-
   class="text">UX Design</span> <span class="percent">85%</span></dd> </dl>
 
   <dl> <dt> <h2>Detailed Skills</h2><div>100%</div> </dt> <dd class="percentage percentage-90"><span class="text">Word Perfect</span> <span class="percent">90%</span></dd> <dd class="percentage percentage-85"><span class="text">MS Paint</span> <span class="percent">85%</span></dd> <dd class="percentage percentage-75"><span class="text">Photoshop</span> <span class="percent">75%</span></dd> <dd class="percentage percentage-99"><span class="text">Hacking</span> <span class="percent">99%</span></dd> </dl>
-underlayImage: null
+underlayImage: /assets/default-user.webp
 bumpertext: x
 cta:
   ctaText: Reserve Your Galleon

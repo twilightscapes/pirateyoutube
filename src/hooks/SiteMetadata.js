@@ -27,6 +27,8 @@ const useSiteMetadata = () => {
           showTitles
           showConsent
           showSocial
+          showBranding
+          showLegal
           magicOptions {
             showMagic
             showMagicCat
