@@ -30,5 +30,4 @@ showPageNav: true
 spotlight:
 tags: 
 category:
- - full
 ---

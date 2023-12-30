@@ -28,9 +28,7 @@ showZoom: false
 showPageNav: false
 spotlight: true
 tags: 
- - manic
 category:
- - full
 ---
 
 Todd Lambert is a photographer and web developer based in the United States. He has been active in the industry for several years and has gained a reputation for his creative and technically proficient work. Lambert's photography work often focuses on landscapes and nature, and he has been published in a variety of magazines and websites.

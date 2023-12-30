@@ -81,6 +81,10 @@ contentinvideo: false
 maratingtx3: x
 maratingtx4: x
 profTitle: Hoist Your Flag!
+tags: 
+ - manic
+category:
+ - full
 ---
 
 <div style="">
