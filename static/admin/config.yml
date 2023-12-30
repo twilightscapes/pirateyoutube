@@ -211,6 +211,19 @@ collections:
 
           - { label: "Body", name: "body", widget: "markdown" }
 
+      - label: "Disclaimer"
+        name: "disclaimer"
+        file: "static/content/pages/disclaimer.md"
+        fields:
+          - {
+              label: "Template",
+              name: "template",
+              widget: "hidden",
+              default: "discaimer-page",
+            }
+          - { label: "Slug", name: "slug", widget: "hidden", default: "/disclaimer" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
                 
       - label: "Contact"
         name: "contact"
