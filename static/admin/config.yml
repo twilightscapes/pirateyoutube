@@ -211,70 +211,21 @@ collections:
 
           - { label: "Body", name: "body", widget: "markdown" }
 
-  - label: "Disclaimer"
-    name: "disclaimer"
-    file: "static/content/pages/disclaimer.md"
-    fields:
-        - {
+      - label: "Disclaimer"
+        name: "disclaimer"
+        file: "static/content/pages/disclaimer.md"
+        fields:
+          - {
             label: "Template",
             name: "template",
             widget: "hidden",
             default: "disclaimer-page",
-          }
-        - { label: "Slug", name: "slug", widget: "hidden", default: "/disclaimer" }
-        - { label: "Title", name: "title", widget: "string" }
-        - { label: "Body", name: "body", widget: "markdown" }
+            }
+          - { label: "Slug", name: "slug", widget: "hidden", default: "/disclaimer" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
                 
-  - label: "Contact"
-    name: "contact"
-    file: "static/content/pages/contact.md"
-    fields:
-        - {
-            label: "Template",
-            name: "template",
-            widget: "hidden",
-            default: "contact-page",
-          }
-        - {
-            label: "Slug",
-            name: "slug",
-            widget: "hidden",
-            default: "/contact/",
-          }
-        - { label: "Title", name: "title", widget: "string" }
-        - { label: "Redirect to Thanks Page",
-            name: "redirect",
-            widget: "boolean",
-            default: false,
-            required: false
-          }
-
-        - { label: "Show Name Field",
-            name: "contactname",
-            widget: "boolean",
-            default: false,
-            required: false
-          }
-        - { label: "Show Phone Field",
-            name: "contactphone",
-            widget: "boolean",
-            default: false,
-            required: false
-          }
-        - { label: "Show File Upload Field",
-            name: "contactupload",
-            widget: "boolean",
-            default: false,
-            required: false
-          }
-        - { label: "Upload Text",
-            name: "uploadtext",
-            widget: "string",
-            default: false,
-            required: false
-          }
-
-        - { label: "Body", name: "body", widget: "markdown", required: false }
+  
       
 
   
