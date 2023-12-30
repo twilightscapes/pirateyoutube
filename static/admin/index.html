@@ -19,13 +19,14 @@
   
 
 
-<!-- <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script> -->
+<script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     // Register 'logout' event listener
     netlifyIdentity.on('logout', () => {
       // Refresh the parent window
-      window.top.location.reload();
+      // window.top.location.reload();
+      window.top.location.href = '/';
     });
 
     // Register 'login' event listener
