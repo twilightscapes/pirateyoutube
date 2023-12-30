@@ -24,6 +24,7 @@
       "showMagicSearch": true
     },
     "showConsent": true,
+    "showSocial": true,
     "showArchive": true,
     "showTitles": true,
     "titleTemplate": "%s",

@@ -26,6 +26,7 @@ const useSiteMetadata = () => {
           showArchive
           showTitles
           showConsent
+          showSocial
           magicOptions {
             showMagic
             showMagicCat

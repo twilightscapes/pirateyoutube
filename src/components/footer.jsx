@@ -182,7 +182,7 @@ export default function Footer() {
   const { companyname } = useSiteMetadata()
   const { showfooter } = useSiteMetadata()
   const { showConsent } = useSiteMetadata()
-
+  const { showSocial } = useSiteMetadata();
 
 
 
@@ -217,17 +217,17 @@ export default function Footer() {
 
       {/* <Link to="/contact/" className="button fire specialfont" style={{margin:'2rem 2rem', textDecoration:'none', fontSize:'clamp(1rem, 2vw, 2.8rem)', padding:'1rem 2rem', borderRadius:'8px'}}>Contact Us - We &#9825; Feedback!</Link> */}
 
-
-     
-
-        { !sIcons ? (
-    ""
-
-  ) : (
-    <div className="social-icons" style={{textAlign:'center', justifyContent:'center', display:'flex', alignItems:'center', margin:'3rem 0'}}>
+{ sIcons ? (
+  <div className="social-icons" style={{textAlign:'center', justifyContent:'center', display:'flex', alignItems:'center', margin:'3rem 0'}}>
        <div className="socialtext" style={{fontSize:'14px',}}>Social<br />Links</div> {sIcons}
         </div>
+      ) : (
+""
   )}
+
+
+    
+
   
         
 
