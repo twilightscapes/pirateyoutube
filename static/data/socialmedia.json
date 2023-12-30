@@ -3,6 +3,10 @@
     {
       "icon": "x-twitter",
       "url": "https://www.twitter.com/memegenesx/"
+    },
+    {
+      "icon": "rss",
+      "url": "https://memegenes.com/rss.xml"
     }
   ]
 }
