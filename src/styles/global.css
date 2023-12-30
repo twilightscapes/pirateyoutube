@@ -17,7 +17,7 @@ body.install #menu, body.install #gobacker, body.install .spacer  {display:none 
 
 #menu{z-index: 20 !important;}
 
-body.homepage footer{display: none !important;}
+/* body.homepage footer{display: none !important;} */
 
 
 
@@ -1012,7 +1012,32 @@ ul li{display:inline-block}
 
 
 
+iframe.virtualtour{
+	filter: invert(90%) grayscale(1);
 
+}
+
+@media (hover: hover) {
+	.virtualtour{
+		position:relative;
+		display:flex;
+		justify-content:center;
+	}
+	.virtualtour::before{
+		content:' ';
+		position:absolute;
+		z-index: 2;
+		display: block;
+		width: 100%;
+		height:100%;
+		top:0;
+		left:0;
+		right:0;
+	}
+	.virtualtour:hover::before{
+		animation: move 2s forwards;
+	}
+}
 
 
 

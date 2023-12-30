@@ -16,6 +16,7 @@
     "showPopup": true,
     "showMagic": true,
     "homecount": 3,
+    "showfooter": true,
     "magicOptions": {
       "showMagic": true,
       "showMagicCat": true,
