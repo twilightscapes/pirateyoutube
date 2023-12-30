@@ -211,9 +211,8 @@ collections:
 
           - { label: "Body", name: "body", widget: "markdown" }
 
-
                 
-  
+      
       
 
   
@@ -316,10 +315,6 @@ collections:
                 step: 2
                 hint: "Max #50"
 
-              - widget: boolean
-                name: showfooter
-                label: Show the Footer
-                required: false
 
               - widget: boolean
                 name: showNav 
@@ -359,10 +354,7 @@ collections:
                 label: Show Archive link under "Load More" button
                 required: false
 
-              - widget: boolean
-                name: showSocial 
-                label: Show Social Links
-                required: false
+
 
 
 
@@ -389,46 +381,7 @@ collections:
 
 
 
-        - label: Social Icons
-        name: socialIcons
-        editor:
-          preview: false
-        file: "static/data/socialmedia.json"
-        fields:
-          - label: Social Icons
-            name: socialIcons
-            widget: list
-            collapsed: true
-            hint: "Here you can add social icons, Click on 'Add social icons'"
-            fields:
-              - label: "Icons"
-                name: "icon"
-                widget: "select"
-                options:
-                  [
-                    "facebook",
-                    "twitter",
-                    "linkedin",
-                    "youtube",
-                    "instagram",
-                    "rss",
-                    "github",
-                    "telegram",
-                    "pinterest",
-                    "snapchat",
-                    "skype",
-                    "wordpress",
-                    "dribbble",
-                    "medium",
-                    "behance",
-                    "vk",
-                  ]
-                hint: "Select the Icon"
-              - widget: string
-                name: url
-                label: url
-                required: true
-                hint: "Paste the 'URL' of your Social media"
+
     
 
       - label: Menu Navigation
