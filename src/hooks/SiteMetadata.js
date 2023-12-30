@@ -25,6 +25,7 @@ const useSiteMetadata = () => {
           font1
           showArchive
           showTitles
+          showConsent
           magicOptions {
             showMagic
             showMagicCat

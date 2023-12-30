@@ -325,7 +325,10 @@ collections:
                 name: showfooter
                 label: Show the Footer
                 required: false
-
+              - widget: boolean
+                name: showConsent
+                label: Show Cookie Consent Banner
+                required: false
 
 
               - name: "magicOptions"

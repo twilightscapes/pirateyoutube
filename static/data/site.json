@@ -23,6 +23,7 @@
       "showMagicTag": true,
       "showMagicSearch": true
     },
+    "showConsent": true,
     "showArchive": true,
     "showTitles": true,
     "titleTemplate": "%s",

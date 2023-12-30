@@ -13,7 +13,7 @@ const Consent = () => (
 
 <CookieConsent
     id="sitepref"
-	debug={false}
+	debug={true}
 	location="none"
 	style={{ opacity:'.8', padding:'10px 30px', margin:'0 auto', border:'1px solid white', borderRadius:'12px', position:'relative', bottom:'', zIndex:'5', display:'flex', alignItems:'center', alignContent:'center', maxWidth:'450px', justifyContent:'center', color:'#fff', background:'#222',
    }}

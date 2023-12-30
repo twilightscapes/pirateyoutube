@@ -181,7 +181,7 @@ export default function Footer() {
 
   const { companyname } = useSiteMetadata()
   const { showfooter } = useSiteMetadata()
-
+  const { showConsent } = useSiteMetadata()
 
 
 
@@ -198,11 +198,19 @@ export default function Footer() {
 
       <footer className="" style={{display:'flex', flexDirection:'column', padding:'1rem 0', marginTop:'0', position:'relative', width:'100vw',textAlign:'center'}}>
 
+{showConsent ? (
     <Consent />
-<br />
+  ) : (
+""
+    )}
+
+
+    
+
 
     {/* <Install /> */}
-<br />
+    
+
     
 
 
