@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import useSiteMetadata from "../hooks/SiteMetadata";
 import { Link } from "gatsby"
-import Layout from "../components/siteLayout";
+import Layout from "../components/socialLayout"
 
 import TimeAgo from "react-timeago";
 import userRssData from "../../static/data/userRss.json";
@@ -11,7 +11,7 @@ import { RiMenuUnfoldFill, RiCloseCircleFill } from "react-icons/ri"
 
 export const Head = () => (
   <>
-  <body className="tagpage utilitypage" />
+  <body className="social utilitypage" />
   </>
 )
 
