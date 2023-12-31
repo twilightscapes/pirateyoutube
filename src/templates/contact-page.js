@@ -6,7 +6,7 @@ import Seo from "../components/seo";
 import Layout from "../components/siteLayout";
 import useSiteMetadata from "../hooks/SiteMetadata";
 import { Helmet } from "react-helmet";
-import Footer from "../components/footer";
+
 import Map from "../components/contact-map"
 export const pageQuery = graphql`
   query ContactQuery($id: String!) {
@@ -127,7 +127,6 @@ const handleSubmit = e => {
 
 <form
   className={`contact-form flexcheek ${submitted ? "submitted" : ""}`}
-  // action="/thanks"
   name="contact"
   method="POST"
   data-netlify="true"
@@ -141,12 +140,8 @@ const handleSubmit = e => {
     opacity: isSubmitting ? 0.5 : 1,
   }}
 >
-
-
-
-
   {submitted ? (
-    <div className="thank-you-message" style={{fontSize:'200%', height:'60vh', textAlign:'center'}}>
+    <div className="thank-you-message" style={{ fontSize: '200%', height: '60vh', textAlign: 'center' }}>
       Thank you - we'll be in touch!
     </div>
   ) : (
@@ -154,49 +149,38 @@ const handleSubmit = e => {
       <input type="hidden" name="form-name" value="contact" />
 
       {frontmatter.contactname && (
-    <p>
-      <label>
-        <input type="text" name="name" placeholder="Your name" required />
-      </label>
-    </p>
-  )}
+        <p>
+          <label htmlFor="name">Your Name:</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required />
+        </p>
+      )}
 
       <p>
-        <label>
-          <input type="email" name="email" placeholder="your@email.com" required />
-        </label>
+        <label htmlFor="email">Your Email:</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required />
       </p>
 
       {frontmatter.contactphone && (
-    <p>
-      <label>
-        <input type="tel" name="phone" placeholder="Your phone number" />
-      </label>
-    </p>
-  )}
-
+        <p>
+          <label htmlFor="phone">Your Phone Number:</label>
+          <input type="tel" id="phone" name="phone" placeholder="Your phone number" />
+        </p>
+      )}
 
       <p>
-        <label>
-          <textarea name="message" placeholder="Your Message" required></textarea>
-        </label>
+        <label htmlFor="message">Your Message:</label>
+        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
       </p>
 
-
-
       {frontmatter.contactupload && (
-   <label htmlFor="attachment1" style={{padding: '0', color: 'inherit', textShadow:'1px 1px 0 #555', display:'flex', width:'100%', fontSize:'90%', gap:'15px', justifyContent:'center', alignItems:'center'}}>
-        <input className="file-input hidden" type="file" name="file" 
-        // accept=".pdf,.doc,.docx" 
-        />{frontmatter.uploadtext}
-      </label>
-  )}
+        <label htmlFor="file" style={{ padding: '0', color: 'inherit', textShadow: '1px 1px 0 #555', display: 'flex', width: '100%', fontSize: '90%', gap: '15px', justifyContent: 'center', alignItems: 'center' }}>
+          <input className="file-input hidden" type="file" id="file" name="file" />
+          {frontmatter.uploadtext}
+        </label>
+      )}
 
-      <p
-        className="text-align-right1"
-        style={{ margin: "0 auto", color: "#fff" }}
-      >
-        <button className="button" type="submit" disabled={isSubmitting} style={{padding:'1vh 10vw'}}>
+      <p className="text-align-right1" style={{ margin: "0 auto", color: "#fff" }}>
+        <button className="button" type="submit" disabled={isSubmitting} style={{ padding: '1vh 10vw' }}>
           {isSubmitting ? "Submitting..." : "Send Now"}
         </button>
       </p>
@@ -204,11 +188,12 @@ const handleSubmit = e => {
   )}
 </form>
 
+
         </div>
       </div>
       <br />
       <br />
-      <Footer />
+
     </Layout>
   );
 };
