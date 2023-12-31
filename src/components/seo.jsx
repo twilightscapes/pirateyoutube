@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
-import { useLocation } from "gatsby"
+import { useLocation } from "@reach/router"
 export default function Seo({
   title = "",
   description = "",

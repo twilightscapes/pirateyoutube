@@ -30,19 +30,19 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return;
   }
 
-  const teamMembers = result.data.allMarkdownRemark.edges.filter(
-    (edge) => edge.node.frontmatter.template === "team"
-  );
+  // const teamMembers = result.data.allMarkdownRemark.edges.filter(
+  //   (edge) => edge.node.frontmatter.template === "team"
+  // );
   
-  teamMembers.forEach((teamMember) => {
-    createPage({
-      path: `/team/${teamMember.node.frontmatter.slug}`,
-      component: path.resolve(`src/templates/team.js`),
-      context: {
-        id: teamMember.node.id,
-      },
-    });
-  });
+  // teamMembers.forEach((teamMember) => {
+  //   createPage({
+  //     path: `/team/${teamMember.node.frontmatter.slug}`,
+  //     component: path.resolve(`src/templates/team.js`),
+  //     context: {
+  //       id: teamMember.node.id,
+  //     },
+  //   });
+  // });
   
 
   const posts = result.data.allMarkdownRemark.edges;

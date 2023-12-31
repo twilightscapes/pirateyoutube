@@ -22,25 +22,25 @@ show_preview_links: false
 
 collections:
 
-  - name: "team"
-    editor:
-      preview: false
-    label: "Pirate Posts"
-    label_singular: "Pirate Post"
-    description: >
-      Pirate Posts - your content on Pirate
-    folder: "static/content/team"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "team"}
-      - {label: "Slug", name: "slug", widget: "string"}
-      - {label: "Team Member Name", name: "name", widget: "string"}
-      - {label: "Job Title", name: "jobTitle", widget: "string"}
-      - {label: "Credentials", name: "credentials", widget: "string"}
-      - {label: "Page Order", name: "order", widget: "number"}
-      - {label: "Team Image", name: "profilePicture", widget: "image", required: false,}
-      - {label: "Body", name: "body", widget: "markdown"}
+  # - name: "team"
+  #   editor:
+  #     preview: false
+  #   label: "Pirate Posts"
+  #   label_singular: "Pirate Post"
+  #   description: >
+  #     Pirate Posts - your content on Pirate
+  #   folder: "static/content/team"
+  #   create: true
+  #   slug: "{{slug}}"
+  #   fields:
+  #     - {label: "Template Key", name: "templateKey", widget: "hidden", default: "team"}
+  #     - {label: "Slug", name: "slug", widget: "string"}
+  #     - {label: "Team Member Name", name: "name", widget: "string"}
+  #     - {label: "Job Title", name: "jobTitle", widget: "string"}
+  #     - {label: "Credentials", name: "credentials", widget: "string"}
+  #     - {label: "Page Order", name: "order", widget: "number"}
+  #     - {label: "Team Image", name: "profilePicture", widget: "image", required: false,}
+  #     - {label: "Body", name: "body", widget: "markdown"}
 
       
   - name: "posts" # Used in routes, ie.: /admin/collections/:slug/edit

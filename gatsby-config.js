@@ -177,13 +177,13 @@ module.exports = {
       },
     },
 
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `team`,
-        path: `${__dirname}/static/content/team/`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `team`,
+    //     path: `${__dirname}/static/content/team/`,
+    //   },
+    // },
 
     {
       resolve: `gatsby-source-filesystem`,
