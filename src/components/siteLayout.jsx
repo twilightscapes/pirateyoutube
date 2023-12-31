@@ -13,18 +13,26 @@ import GoBack from "../components/goBack"
 import { BiLeftArrow } from "react-icons/bi"
 import { ModalRoutingContext } from 'gatsby-plugin-modal-routing-4'
 import Menu from "../components/menu"
-import MenuSocial from "../components/menu-social"
+// import MenuSocial from "../components/menu-social"
 import Switch from "../components/Switch"
 import userStyles from "../../static/data/userStyles.json"
 import SignUp from "../components/newssign"
-import useNetlifyIdentity from '../components/useNetlifyIdentity';
-import BlueCheck from './bluecheck';
+// import useNetlifyIdentity from '../components/useNetlifyIdentity';
+// import BlueCheck from './bluecheck';
 import Footer from "../components/footer"
+// export const Head = () => (
+//   <>
+//   <head>
+//     {/* <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script> */}
+//     <script id="fuck" defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
-
+//   </head>
+//   <body className="butthole utilitypage" />
+//   </>
+// )
   const Layout = ({ children }) => {
-    const [loggedIn, setLoggedIn] = useState(false);
-    useNetlifyIdentity(setLoggedIn);
+    // const [loggedIn, setLoggedIn] = useState(false);
+    // useNetlifyIdentity(setLoggedIn);
   
     const [showBackToTop, setShowBackToTop] = useState(false);
   
@@ -116,6 +124,8 @@ useEffect(() => {
 
 const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/g, '+') + "&display=swap";
 
+
+
   return (
 <>
 <Helmet>
@@ -128,8 +138,10 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
     #menu,.font,.full-width-image:after,.h1,.h2,.h3,.h4,.header .menu-icon:before,.horizontal-scroll:before,.intro:after,.intro:before,.scrolldown,h1,h2,h3,h4,input.special{font-family:${font1}, sans-serif}
     ${userStyles.userStyles}
   `}</style>
-    <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    {/* <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script> */}
 </Helmet>
+
+
 
 <Seo />
 
@@ -185,11 +197,11 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 
 <div id="menu" className="menu print panel1 header" style={{position:'fixed', width:'100vw', top:'0', zIndex:'10', maxHeight:'', overFlow:'', boxShadow:'0 0 2px rgba(0,0,0,.7)', padding:'0 2%', alignItems:'start', borderRadius:'0', display:'flex', justifyContent:'space-around', gap:'10px', color:'#fff',  borderBottom:'1px solid #222',}}>
 
-{loggedIn ? (
+{/* {loggedIn ? (
 <div style={{position:'absolute', left:'10px', top:'22px', cursor:'pointer'}}><BlueCheck /></div>
 ) : (
   ""
-  )}
+  )} */}
 
 
 <Link to="/" className="cornerlogo" name="homereturn" style={{position:'', display:'flex', marginLeft:'5px', alignItems:'center', justifyContent:'center', maxWidth:'', height:'60px', border:'0px solid transparent'}}  aria-label="Link to Top" title="Back to Top">
@@ -213,12 +225,13 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 
 <ul className="topmenu" style={{ fontSize:'clamp(.6rem, 1.6vw, 1.8rem)',  textAlign:'center',maxHeight:'', display:'flex', justifyContent:'space-between', gap:'4vw',  alignItems:'center', margin:'0 auto 0 auto', padding:'1.5vh 2% 0 2%', border:'0px solid white',}}>
       
-{loggedIn ? (
+{/* {loggedIn ? (
       <MenuSocial />
                 ) : (
                   <Menu />
                   
-                )}
+                )} */}
+                <Menu />
 </ul>
 
 <div id="missioncontrol" className="missioncontrol sitecontrols" style={{display:'flex', justifyContent:'space-around', fontSize:'clamp(.8rem, 2.3vw, 2.5rem)', gap:'3vw', textAlign:'center', maxHeight:'', alignItems:'center', paddingTop:'5px'}}>
@@ -294,12 +307,13 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
             </AnchorLink>
     </li>
 
-{loggedIn ? (
+{/* {loggedIn ? (
       <Menu />
     ) : (
        <Menu />
                   
-)}
+)} */}
+<Menu />
 
 <li>
 <ul className="missioncontrol sitecontrols" style={{display:'flex', justifyContent:'space-around', fontSize:'clamp(.8rem, 2.3vw, 2.5rem)', gap:'', textAlign:'center', maxHeight:'', alignItems:'center', paddingTop:'5px'}}>
