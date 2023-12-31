@@ -10,4 +10,4 @@ scrollable: false
 uploadtext: JPG preferred - (1600px wide)
 excludeFromRSS: true
 ---
-&nbsp;
+Contact me if you can
