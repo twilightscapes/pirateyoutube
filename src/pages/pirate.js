@@ -66,7 +66,7 @@ function Pirate() {
 <Helmet>
 
   
-        <body id="body" className="utilitypage scroll" />
+        <body id="body" className="piratepage scroll" />
       </Helmet>
 
 

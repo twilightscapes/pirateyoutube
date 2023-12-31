@@ -36,7 +36,7 @@ width:100%;
 
 
 
-body.utilitypage .missioncontrol{display:none !important;}
+body.piratepage .missioncontrol{visibility:hidden !important;}
 
 
 
@@ -280,7 +280,7 @@ body.blogpost .gatsby-image-wrapper {
 
 
 
-body.social .searchIcon{display:none;}
+body.social .searchIcon{visibility:hidden;}
 
 
 .postlink:hover h2{color:none; outline:0px solid var(--theme-ui-colors-siteColor); border-radius: 3px;}
