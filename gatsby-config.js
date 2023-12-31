@@ -361,7 +361,7 @@ module.exports = {
       resolve: `gatsby-plugin-decap-cms`,
       options: {
         modulePath: `${__dirname}/src/cms/cms.js`,
-        enableIdentityWidget: true,
+        enableIdentityWidget: false,
         publicPath: `admin`,
         htmlTitle: `PIRATE CMS`,
         htmlFavicon: `static/assets/logo.svg`,
@@ -369,7 +369,9 @@ module.exports = {
         logo_url: 'https://piratesocial.org/assets/logo.svg'
       },
     },
+    // 'gatsby-plugin-netlify-identity-widget',
 
+    
     // {
     //   resolve: "gatsby-plugin-netlify",
     //   options: {
