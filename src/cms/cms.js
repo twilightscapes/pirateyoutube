@@ -2,7 +2,7 @@
 import CMS from "decap-cms-app"
 // import "module-that-imports-styles.js"
 // import "styles.scss"
-// import "../other-styles.css"
+import "../styles/global.css"
 
 /**
  * Let's say you've created widget and preview components for a custom image
