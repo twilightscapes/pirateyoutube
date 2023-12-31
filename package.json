@@ -63,5 +63,7 @@
     "rss-parser": "^3.13.0",
     "theme-ui": "^0.16.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "prettier": "^2.0.5"
+  }
 }
