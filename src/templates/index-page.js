@@ -265,7 +265,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
 <div key={index} className="post-card1" style={{ alignItems: '', overflow: 'visible' }}>
 
 {node.frontmatter.youtube.showVidOnly ? (
-<div style={{minHeight: index === playingIndex ? '200px' : '200px', background: index === playingIndex ? 'rgba(0, 0, 0, 0.5)' : 'transparent',}}>
+<div style={{minWidth:'300px', minHeight: index === playingIndex ? '200px' : '200px', background: index === playingIndex ? 'rgba(0, 0, 0, 0.5)' : 'transparent',}}>
                 <ReactPlayer
                 playing={index === playingIndex}
                 ref={playerRef}

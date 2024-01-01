@@ -1559,7 +1559,7 @@ Click to play original video
 
 
 
-
+<br />
 
 {/* <div className="panel legal" style={{textAlign: 'center', padding:'1rem',  justifyContent: 'center', fontSize: '.95rem', textDecoration:'none', maxWidth:'90vw'}}>
             Legal:<br />

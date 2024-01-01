@@ -510,11 +510,12 @@ p{margin-bottom:1rem}
 
 
 .headline {
-  background: rgba(0,0,0,.7);
+  background: var(--theme-ui-colors-headerColor);
   font-size: clamp(1.2rem,2.4vw,2.8rem);
-  margin: 0 5vw;
+  margin: 0 5vw 2vh 2vw;
   max-width: 1024px;
   padding: .5vh 2vw;
+  color:#ddd;
 }
 
 .navbar-item{display:block;padding:5px 0}
@@ -888,6 +889,7 @@ ul li{display:inline-block}
     /* height: 100% !important; */
   }
 
+  body.blogpost {padding-top:8vh !important;}
   /* .grid-container .post-card1 iframe{margin-left:-5%;} */
 
 
