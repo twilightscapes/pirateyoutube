@@ -37,8 +37,8 @@ width:100%;
 
 
 body.piratepage .missioncontrol{visibility:hidden !important;}
-
-
+/* body.piratepage #gobacker{visibility:hidden !important;} */
+body.piratepage :is(footer), :is(#gobacker) {display: none !important;}
 
 .kml-map {
   height: 90vh;
