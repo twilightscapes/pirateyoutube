@@ -29,6 +29,7 @@ const useSiteMetadata = () => {
           showSocial
           showBranding
           showLegal
+          showModals
           showContact
           magicOptions {
             showMagic

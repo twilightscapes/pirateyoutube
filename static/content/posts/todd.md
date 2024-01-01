@@ -5,7 +5,7 @@ slug: /todd
 date: 2023-10-01 09:00
 description: Experience the thrill of PIRATE
 youtube:
- youtuber: https://youtu.be/9nl00N6I5Ak
+ youtuber: 
  youtuber2: 
  youtubeshoworiginal: null
  youtubersuggestion1: null
@@ -16,9 +16,9 @@ youtube:
  youtubemute: true
  youtubecontrols: false
  youtubeautostart: true
- youtubeloop: true
+ youtubeloop: null
  clicktoplay: false
- showVidOnly: true
+ showVidOnly: false
 comments: false
 shareable: false
 underlayImage: /assets/transparent.png
