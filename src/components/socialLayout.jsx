@@ -169,8 +169,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
           transform: showBackToTop ? 'translateY(0)' : 'translateY(200%)',
         }}
       >
-        <div className="uparrow" style={{display:'flex', flexDirection:'column', gap:'0', padding:'1vh 1vw', alignItems:'center', textAlign:'center'}}>
-          <a
+        <a
             href="#top"
             onClick={(e) => {
               e.preventDefault();
@@ -179,9 +178,10 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
             aria-label="Link to Top"
             style={{cursor: 'pointer', height: '', fontSize: ''}}
           >
+        <div className="uparrow" style={{display:'flex', flexDirection:'column', gap:'0', padding:'1vh 1vw', alignItems:'center', textAlign:'center'}}>
             <RiArrowUpFill className="" style={{cursor: 'pointer', color: '#ddd', fontSize: '3rem'}} />
-          </a>
         </div>
+        </a>
       </div>
 
 
