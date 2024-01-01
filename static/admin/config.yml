@@ -22,6 +22,7 @@ show_preview_links: false
 
 collections:
 
+
   # - name: "team"
   #   editor:
   #     preview: false
@@ -353,6 +354,10 @@ collections:
               - widget: boolean
                 name: showfooter
                 label: Show the Footer
+                required: false
+              - widget: boolean
+                name: showContact
+                label: Show Contact in Footer
                 required: false
               - widget: boolean
                 name: showConsent

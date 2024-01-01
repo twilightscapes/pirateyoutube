@@ -212,9 +212,14 @@ export default function Footer() {
 
     
 
-
+    { showLegal ? (
 
       <Link state={{modal: true}} to="/contact/" className="button fire font" style={{margin:'2rem 2rem', textDecoration:'none', padding:'1vh 2rem', borderRadius:'3px'}}>Contact</Link>
+      ) : (
+        ""
+      )}
+
+
 
 { showSocial ? (
   <div className="social-icons" style={{textAlign:'center', justifyContent:'center', display:'flex', alignItems:'center', margin:'3rem 0'}}>
