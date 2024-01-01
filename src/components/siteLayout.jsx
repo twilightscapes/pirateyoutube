@@ -17,7 +17,7 @@ import Menu from "../components/menu"
 import Switch from "../components/Switch"
 import userStyles from "../../static/data/userStyles.json"
 import SignUp from "../components/newssign"
-import useNetlifyIdentity from '../components/useNetlifyIdentity';
+// import useNetlifyIdentity from '../components/useNetlifyIdentity';
 import BlueCheck from './bluecheck';
 import Footer from "../components/footer"
 // export const Head = () => (
@@ -31,8 +31,8 @@ import Footer from "../components/footer"
 //   </>
 // )
   const Layout = ({ children }) => {
-    const [loggedIn, setLoggedIn] = useState(false);
-    useNetlifyIdentity(setLoggedIn);
+    // const [loggedIn, setLoggedIn] = useState(false);
+    // useNetlifyIdentity(setLoggedIn);
   
     const [showBackToTop, setShowBackToTop] = useState(false);
   
