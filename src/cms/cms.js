@@ -2,8 +2,8 @@
 import CMS from "decap-cms-app"
 // import "module-that-imports-styles.js"
 // import "styles.scss"
-import "../styles/global.css"
 
+CMS.registerPreviewStyle("../styles/global.css");
 /**
  * Let's say you've created widget and preview components for a custom image
  * gallery widget in separate files:
