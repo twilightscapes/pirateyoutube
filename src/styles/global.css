@@ -16,7 +16,7 @@ body.homepage{min-height: 100vh;}
 
 body.install #menu, body.install #gobacker, body.install .spacer  {display:none !important;}
 
-#menu{z-index: 20 !important;}
+/* #menu{z-index: 20 !important;} */
 
 /* body.homepage footer{display: none !important;} */
 
@@ -1171,7 +1171,6 @@ body.blogpost .featured-image1{border:0 solid red;max-height:70vh !important;max
 
 .ReactModalPortal header, .ReactModalPortal footer, .ReactModalPortal div.toppad, .ReactModalPortal .fluff, .ReactModalPortal .audio, .ReactModalPortal .intro:before, .ReactModalPortal .intro:after, .ReactModalPortal .back, .ReactModalPortal .usability, .ReactModalPortal .backimage {
   display: none !important;
-  
   }
 
 
@@ -1184,7 +1183,7 @@ body.blogpost .featured-image1{border:0 solid red;max-height:70vh !important;max
   .ReactModal__Content{padding:0 !important; background:transparent !important; margin:0 auto ; overflow: auto !important; border:none !important; box-shadow: 2px 1px 10px 10px rgba(0, 0, 0, 0.5); box-shadow: none !important; border:0px solid !important;}
   
   
-
+.ReactModal__Content {background:var(--theme-ui-colors-background) !important;}
 
   body.install .ReactModalPortal {border:20px blue !important;}
 

@@ -241,7 +241,7 @@ export default function Footer() {
       { showLegal ? (
         <div style={{width:'100%', textAlign: 'center', justifyContent: 'center', fontSize: '.95rem', textDecoration:'none', display:'grid', margin:'2rem auto'}}>
 
-<div style={{display:'flex', justifyContent:'space-between', }}><Link to="/disclaimer/">Disclaimer</Link>  |  <Link to="/privacy/">Privacy Policy</Link>  |  <Link to="/terms/">Terms of Service</Link></div>
+<div style={{display:'flex', justifyContent:'space-between', }}><Link to="/disclaimer/">Disclaimer</Link>  |  <Link state={{modal: true}} to="/privacy/">Privacy Policy</Link>  |  <Link to="/terms/">Terms of Service</Link></div>
   <br />
   <br />
 Copyright &copy;

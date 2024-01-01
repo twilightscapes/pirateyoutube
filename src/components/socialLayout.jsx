@@ -10,7 +10,7 @@ import SearchIcon from "../img/search"
 import useSiteMetadata from "../hooks/SiteMetadata"
 import { RiArrowUpFill } from "react-icons/ri"
 import GoBack from "./goBack"
-import { BiLeftArrow } from "react-icons/bi"
+
 import { ModalRoutingContext } from 'gatsby-plugin-modal-routing-4'
 import Menu from "./menu-social"
 // import MenuSocial from "../components/menu-social"
@@ -152,7 +152,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
   {modal ? (
     <div style={{display:'', position:'fixed', top:'50px', right:'3%', padding:'0px', fontSize:'', opacity:'1 !important', zIndex:'10',}}>
     <Link state={{noScroll: true }} to={closeTo} style={{fontSize:'',  textDecoration:'none', lineHeight:'', display:'flex', flexDirection:'column', color:'#fff', cursor:'pointer'}}>
-    <button className="button" style={{display:'flex', justifyContent:'center'}}><span className="icon -left" style={{paddingRight:''}}><BiLeftArrow /></span> {" "}Go Back</button>
+    <button className="button" style={{display:'flex', justifyContent:'center'}}>Exit Help</button>
     </Link>
     </div>
   ) : (
