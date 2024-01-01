@@ -60,45 +60,7 @@ import TimeAgo from 'react-timeago'
 
 
 
-const Pagination = props => (
-  <div className="pagination -post1" style={{position:'', bottom:'',}}>
-    <ul className="" style={{display:'flex', gap:'2vw', justifyContent:'space-around', paddingTop:'5px', alignItems:'center'}}>
-      
 
-    {props.next && props.next.frontmatter.template === "blog-post" && (
-        <li style={{display:'flex', justifyContent:'space-between', width:'50%'}}>
-<Link to={props.next.frontmatter.slug + "/"} rel="next">
-<button className="" style={{display:'flex', justifyContent:'', }}>
-<span className="page-title">
-  {props.next.frontmatter.title}
-{/* Newer */}
-</span>
-{/* &nbsp;&nbsp;<AiFillCaretLeft /> */}
-</button>
-</Link>
-        </li>
-      )}
-
-      <div className="specialfont" style={{fontSize:'clamp(1.5rem, 2vw, 2.8rem)', marginTop:'-5px', width:'10vw', fontWeight:'bold', border:'0px solid', display:'grid', color:'#999', placeContent:'center'}}>GO TO</div>
-
-      
-{props.previous && props.previous.frontmatter.template === "blog-post" && (
-        // <li style={{border:'1px solid', borderRadius:'12px', filter:'drop-shadow(0 0px 6px rgba(0, 0, 0, 1))'}}>
-        <li style={{display:'flex', justifyContent:'space-between', width:'50%'}}>
-<Link style={{}}  to= {props.previous.frontmatter.slug + "/"} rel="prev">
- <button className="" style={{display:'flex', justifyContent:'',}}>
- {/* <AiFillCaretRight />&nbsp;&nbsp; */}
-  <span className="page-title">
-{props.previous.frontmatter.title}
-{/* Previous */}
-</span>
-</button>
-          </Link>
-        </li>
-      )}
-    </ul>
-  </div>
-)
 
 
 
@@ -106,6 +68,50 @@ const Pagination = props => (
 
 
 const Post = ({ data, pageContext }) => {
+
+    const { showModals } = useSiteMetadata();
+
+  const Pagination = props => (
+
+  
+    <div className="pagination -post1" style={{position:'', bottom:'',}}>
+      <ul className="" style={{display:'flex', gap:'2vw', justifyContent:'space-around', paddingTop:'5px', alignItems:'center'}}>
+        
+  
+      {props.next && props.next.frontmatter.template === "blog-post" && (
+          <li style={{display:'flex', justifyContent:'space-between', width:'50%'}}>
+  <Link to={props.next.frontmatter.slug + "/"} state={showModals ? { modal: true } : {}}  rel="next">
+  <button className="" style={{display:'flex', justifyContent:'', }}>
+  <span className="page-title">
+    {props.next.frontmatter.title}
+  {/* Newer */}
+  </span>
+  {/* &nbsp;&nbsp;<AiFillCaretLeft /> */}
+  </button>
+  </Link>
+          </li>
+        )}
+  
+        <div className="specialfont" style={{fontSize:'clamp(1.5rem, 2vw, 2.8rem)', marginTop:'-5px', width:'10vw', fontWeight:'bold', border:'0px solid', display:'grid', color:'#999', placeContent:'center'}}>GO TO</div>
+  
+        
+  {props.previous && props.previous.frontmatter.template === "blog-post" && (
+          // <li style={{border:'1px solid', borderRadius:'12px', filter:'drop-shadow(0 0px 6px rgba(0, 0, 0, 1))'}}>
+          <li style={{display:'flex', justifyContent:'space-between', width:'50%'}}>
+  <Link style={{}}  to= {props.previous.frontmatter.slug + "/"} state={showModals ? { modal: true } : {}}  rel="prev">
+   <button className="" style={{display:'flex', justifyContent:'',}}>
+   {/* <AiFillCaretRight />&nbsp;&nbsp; */}
+    <span className="page-title">
+  {props.previous.frontmatter.title}
+  {/* Previous */}
+  </span>
+  </button>
+            </Link>
+          </li>
+        )}
+      </ul>
+    </div>
+  )
 
   const [isMenuOpen, setIsMenuOpen] = useState(true);
   /* eslint-disable-next-line no-unused-vars */
