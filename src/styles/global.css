@@ -892,6 +892,9 @@ ul li{display:inline-block}
   body.blogpost {padding-top:8vh !important;}
   /* .grid-container .post-card1 iframe{margin-left:-5%;} */
 
+  .ReactModal__Content {width:100vw !important; }
+  
+  .ReactModal__Content{margin-top:130px !important;}
 
 #modalCloser {top:120px !important;}
 
@@ -1190,7 +1193,7 @@ body.blogpost .featured-image1{border:0 solid red;max-height:70vh !important;max
   
 .ReactModal__Content {background:var(--theme-ui-colors-background) !important; opacity:.9; }
 
-.ReactModal__Content {inset:0 !important; width:100vw !important; margin-top: 6vh !important; padding-top:4vh !important; }
+.ReactModal__Content {inset:0 !important; width:100vw !important; margin-top: 60px; padding-top:0 !important; }
 
   /* body.install .ReactModalPortal {border:20px blue !important;} */
 
