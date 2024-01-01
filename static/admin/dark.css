@@ -101,7 +101,7 @@
   }
 
   body {
-    background-color: var(--body-bg-color);
+    background-color: var(--theme-ui-colors-background);
     color: var(--primary-text-color);
   }
 
