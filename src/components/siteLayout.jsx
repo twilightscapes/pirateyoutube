@@ -95,7 +95,7 @@ useEffect(() => {
 
   const handleScroll = () => {
     const currentScrollPos = window.pageYOffset;
-    if (prevScrollpos > currentScrollPos && prevScrollpos - currentScrollPos > 105) {
+    if (prevScrollpos > currentScrollPos && prevScrollpos - currentScrollPos > 65) {
       // document.querySelector('.header').style.transform = 'translateY(0)';
       if (showNav2) {
         document.querySelector('#menuicon').style.transform = 'translateX(0)';
@@ -103,7 +103,7 @@ useEffect(() => {
       document.querySelector('.upbar').style.transform = 'translateY(140px)';
       // document.body.classList.remove('scroll');
       // document.body.classList.add('scroll');
-    } else if (prevScrollpos < currentScrollPos && currentScrollPos - prevScrollpos > 105) {
+    } else if (prevScrollpos < currentScrollPos && currentScrollPos - prevScrollpos > 65) {
       // document.querySelector('.header').style.transform = 'translateY(-100px)';
       if (showNav2) {
         document.querySelector('#menuicon').style.transform = 'translateX(200px)';
@@ -152,7 +152,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 {({ modal, closeTo }) => (
 <>
   {modal ? (
-    <div id="modalCloser" style={{display:'', position:'fixed', top:'50px', right:'3%', padding:'0px', fontSize:'', opacity:'1 !important', zIndex:'22',}}>
+    <div id="modalCloser" style={{display:'', position:'fixed', top:'60px', right:'5px', padding:'0px', fontSize:'', opacity:'1 !important', zIndex:'22',}}>
     <Link state={{noScroll: true }} to={closeTo} style={{fontSize:'',  textDecoration:'none', lineHeight:'', display:'flex', flexDirection:'column', color:'#fff', cursor:'pointer'}}>
     <button className="button" style={{ display: 'flex', justifyContent: 'center', padding:'0 .5vw' }}> <span className="icon -left" style={{ paddingRight: '' }}><BiLeftArrow /></span> {" "}Go Back</button>
     </Link>
@@ -189,7 +189,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 
 
 
-<div id="gobacker" style={{position:'fixed', bottom:'24vh', right:'0', zIndex:'5'}}><GoBack /></div>
+<div id="gobacker" style={{position:'fixed', top:'60px', right:'5px', zIndex:'5'}}><GoBack /></div>
 
 
 
