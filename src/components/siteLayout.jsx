@@ -17,8 +17,8 @@ import Menu from "../components/menu"
 import Switch from "../components/Switch"
 import userStyles from "../../static/data/userStyles.json"
 import SignUp from "../components/newssign"
-// import useNetlifyIdentity from '../components/useNetlifyIdentity';
-// import BlueCheck from './bluecheck';
+import useNetlifyIdentity from '../components/useNetlifyIdentity';
+import BlueCheck from './bluecheck';
 import Footer from "../components/footer"
 // export const Head = () => (
 //   <>
@@ -31,8 +31,8 @@ import Footer from "../components/footer"
 //   </>
 // )
   const Layout = ({ children }) => {
-    // const [loggedIn, setLoggedIn] = useState(false);
-    // useNetlifyIdentity(setLoggedIn);
+    const [loggedIn, setLoggedIn] = useState(false);
+    useNetlifyIdentity(setLoggedIn);
   
     const [showBackToTop, setShowBackToTop] = useState(false);
   
@@ -197,11 +197,11 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 
 <div id="menu" className="menu print panel1 header" style={{position:'fixed', width:'100vw', top:'0', zIndex:'10', maxHeight:'', overFlow:'', boxShadow:'0 0 2px rgba(0,0,0,.7)', padding:'0 2%', alignItems:'start', borderRadius:'0', display:'flex', justifyContent:'space-around', gap:'10px', color:'#fff',  borderBottom:'1px solid #222',}}>
 
-{/* {loggedIn ? (
+{loggedIn ? (
 <div style={{position:'absolute', left:'10px', top:'22px', cursor:'pointer'}}><BlueCheck /></div>
 ) : (
   ""
-  )} */}
+  )}
 
 
 <Link to="/" className="cornerlogo" name="homereturn" style={{position:'', display:'flex', marginLeft:'5px', alignItems:'center', justifyContent:'center', maxWidth:'', height:'60px', border:'0px solid transparent'}}  aria-label="Link to Top" title="Back to Top">
