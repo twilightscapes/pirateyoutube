@@ -17,7 +17,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
-    --body-bg-color: #0d1117;
+    --body-bg-color: var(--theme-ui-colors-background);
     --primary-text-color: #c9d1d9;
     --secondary-text-color: #8b949e;
     --success-text-color: #3fb950;
@@ -79,7 +79,7 @@
     --widgets-bg-color: #090d13;
     --widgets-label-bg-color: #21262d;
     --widgets-border-color: #21262d;
-    --widgets-active-label-bg-color: #388bfd;
+    --widgets-active-label-bg-color: var(--theme-ui-colors-siteColor);
     --widgets-active-border-color: var(--theme-ui-colors-siteColor);
     --widgets-error-label-bg-color: #ff003b;
     --widgets-error-border-color: #ff003b;
