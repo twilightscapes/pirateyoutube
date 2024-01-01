@@ -6,7 +6,8 @@
 .animated{-webkit-animation-duration:1ms;-webkit-animation-iteration-count:1;-webkit-transition-duration:1ms;animation-duration:1ms;animation-iteration-count:1;transition-duration:1ms}
 *{animation-duration:.01ms;animation-iteration-count:1;scroll-behavior:auto;transition-duration:.01ms}
 }
-html, body{min-height:100vh;}
+html, body{min-height:100vh; overflow-x: hidden;}
+body.scroll {overflow:hidden !important;}
 
 /* body.homepage:after{content: (''); background-color:inherit; height: 100vh; width:100%; background-size: cover; position:fixed; top:0; left:0; z-index:-1; } */
 
