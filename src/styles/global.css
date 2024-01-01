@@ -1181,7 +1181,7 @@ body.blogpost .featured-image1{border:0 solid red;max-height:70vh !important;max
 
 
   
-  .ReactModalPortal {margin:0 19% !important; width:80% !important; z-index: 10; position:absolute; top:0;}
+  .ReactModalPortal {margin:0; width:100; z-index: 10; position:absolute; top:0;}
   
   .ReactModal__Overlay{background-color:transparent !important;   background: rgba(0,0,0,0.90); backdrop-filter: blur(22px);}
   
@@ -1192,7 +1192,7 @@ body.blogpost .featured-image1{border:0 solid red;max-height:70vh !important;max
 
 .ReactModal__Content {inset:0 !important; width:100vw !important; margin-top: 6vh !important; padding-top:4vh !important; }
 
-  body.install .ReactModalPortal {border:20px blue !important;}
+  /* body.install .ReactModalPortal {border:20px blue !important;} */
 
 
 
