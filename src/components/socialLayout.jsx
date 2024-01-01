@@ -19,7 +19,7 @@ import userStyles from "../../static/data/userStyles.json"
 import SignUp from "./newssign"
 // import useNetlifyIdentity from '../components/useNetlifyIdentity';
 // import BlueCheck from './bluecheck';
-import Footer from "./footer"
+// import Footer from "./footer"
 // export const Head = () => (
 //   <>
 //   <head>
@@ -411,11 +411,11 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 
       
 {/* show footer */}
-{showfooter ? (
+{/* {showfooter ? (
 <Footer />
 ) : (
   ""
-)}
+)} */}
 {/* end show footer */}
       
       </>
