@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 // import useSiteMetadata from "../hooks/SiteMetadata"
 // import { StaticImage } from "gatsby-plugin-image"
-// import {Link} from "gatsby"
+import {Link} from "gatsby"
 import { RiQuestionLine, RiCloseCircleFill } from "react-icons/ri"
 import Layout from "../components/socialLayout"
 import { Helmet } from "react-helmet"
@@ -127,7 +127,9 @@ Help Section Coming Soon!
 <div className="flexcheek" style={{ minWidth: '', maxHeight: '40vh', overflow: 'scroll', border:'1px solid #333', padding:'100px 3% 0 3%', borderRadius:'8px', textAlign:'center', position:'relative' }}>
 <h3>Help Section:</h3>
 
-
+<ul>
+  <li><Link state={{modal: true}} to="/location">Location</Link></li>
+</ul>
 
 
 

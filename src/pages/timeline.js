@@ -11,7 +11,7 @@ import { RiMenuUnfoldFill, RiCloseCircleFill } from "react-icons/ri"
 
 export const Head = () => (
   <>
-  <body className="social " />
+  <body className="social piratepage " />
   </>
 )
 
