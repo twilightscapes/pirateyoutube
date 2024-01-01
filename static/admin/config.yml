@@ -367,7 +367,10 @@ collections:
                 name: showLegal
                 label: Show Legal Pages (note the pages are still there just not visible)
                 required: false
-
+              - widget: boolean
+                name: showModals
+                label: Show Posts in Modal Window
+                required: false
               - widget: boolean
                 name: showBranding
                 label: Hide Pirate Branding
