@@ -184,7 +184,8 @@ export default function Footer() {
   const { showSocial } = useSiteMetadata();
   const { showBranding } = useSiteMetadata();
   const { showLegal } = useSiteMetadata();
-
+  const { showContact } = useSiteMetadata();
+  
 
 
   return (
@@ -212,8 +213,7 @@ export default function Footer() {
 
     
 
-    { showLegal ? (
-
+    { showContact ? (
       <Link state={{modal: true}} to="/contact/" className="button fire font" style={{margin:'2rem 2rem', textDecoration:'none', padding:'1vh 2rem', borderRadius:'3px'}}>Contact</Link>
       ) : (
         ""
