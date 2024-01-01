@@ -214,7 +214,7 @@ export default function Footer() {
 
 
 
-      {/* <Link to="/contact/" className="button fire specialfont" style={{margin:'2rem 2rem', textDecoration:'none', fontSize:'clamp(1rem, 2vw, 2.8rem)', padding:'1rem 2rem', borderRadius:'8px'}}>Contact Us - We &#9825; Feedback!</Link> */}
+      <Link state={{modal: true}} to="/contact/" className="button fire specialfont" style={{margin:'2rem 2rem', textDecoration:'none', fontSize:'clamp(1rem, 1vw, 2rem)', padding:'.25vh 2rem', borderRadius:'8px'}}>Contact</Link>
 
 { showSocial ? (
   <div className="social-icons" style={{textAlign:'center', justifyContent:'center', display:'flex', alignItems:'center', margin:'3rem 0'}}>
@@ -241,7 +241,7 @@ export default function Footer() {
       { showLegal ? (
         <div style={{width:'100%', textAlign: 'center', justifyContent: 'center', fontSize: '.95rem', textDecoration:'none', display:'grid', margin:'2rem auto'}}>
 
-<div style={{display:'flex', justifyContent:'space-between', }}><Link to="/disclaimer/">Disclaimer</Link>  |  <Link state={{modal: true}} to="/privacy/">Privacy Policy</Link>  |  <Link to="/terms/">Terms of Service</Link></div>
+<div style={{display:'flex', justifyContent:'space-between', }}><Link state={{modal: true}} to="/disclaimer/">Disclaimer</Link>  |  <Link state={{modal: true}} to="/privacy/">Privacy Policy</Link>  |  <Link state={{modal: true}} to="/terms/">Terms of Service</Link></div>
   <br />
   <br />
 Copyright &copy;
