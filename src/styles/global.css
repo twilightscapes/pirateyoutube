@@ -39,7 +39,8 @@ width:100%;
 
 body.piratepage .missioncontrol{visibility:hidden !important;}
 /* body.piratepage #gobacker{visibility:hidden !important;} */
-body.piratepage :is(footer), :is(#gobacker) {display: none !important;}
+body.piratepage :is(#gobacker) {display: none !important;}
+body.piratepage footer {display: none !important;}
 
 .kml-map {
   height: 90vh;
@@ -508,8 +509,14 @@ p{margin-bottom:1rem}
 
 
 
+.headline {
+  background: rgba(0,0,0,.7);
+  font-size: clamp(1.2rem,2.4vw,2.8rem);
+  margin: 0 5vw;
+  max-width: 1024px;
+  padding: .5vh 2vw;
+}
 
-.headline{background:rgba(0,0,0,.7);font-size:clamp(1.2rem,2.4vw,2.8rem);margin:0 5vw;max-width:1024px;padding:1vh 8vw}
 .navbar-item{display:block;padding:5px 0}
 .neonText{color:#fff;filter:drop-shadow(1px 0 4px rgba(0,0,0,.9));text-shadow:0 0 7px #57c6eb,0 0 10px #86bdc4,0 0 21px #8ba3a7,0 0 22px #02abfa,0 0 32px #0282fa,0 0 42px #ccc,0 0 42px #02b0fa,0 0 31px #37f8f8}
 
