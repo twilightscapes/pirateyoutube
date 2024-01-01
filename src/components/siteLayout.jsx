@@ -12,6 +12,8 @@ import { RiArrowUpFill } from "react-icons/ri"
 import GoBack from "../components/goBack"
 import { ModalRoutingContext } from 'gatsby-plugin-modal-routing-4'
 import Menu from "../components/menu"
+import { BiLeftArrow } from "react-icons/bi"
+
 // import MenuSocial from "../components/menu-social"
 import Switch from "../components/Switch"
 import userStyles from "../../static/data/userStyles.json"
@@ -152,7 +154,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
   {modal ? (
     <div id="modalCloser" style={{display:'', position:'fixed', top:'50px', right:'3%', padding:'0px', fontSize:'', opacity:'1 !important', zIndex:'22',}}>
     <Link state={{noScroll: true }} to={closeTo} style={{fontSize:'',  textDecoration:'none', lineHeight:'', display:'flex', flexDirection:'column', color:'#fff', cursor:'pointer'}}>
-    <button className="button" style={{display:'flex', justifyContent:'center'}}> {" "}Exit</button>
+    <button className="button" style={{ display: 'flex', justifyContent: 'center', padding:'0 .5vw' }}> <span className="icon -left" style={{ paddingRight: '' }}><BiLeftArrow /></span> {" "}Go Back</button>
     </Link>
     </div>
   ) : (

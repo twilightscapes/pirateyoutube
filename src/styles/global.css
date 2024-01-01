@@ -892,7 +892,7 @@ ul li{display:inline-block}
   body.blogpost {padding-top:8vh !important;}
   /* .grid-container .post-card1 iframe{margin-left:-5%;} */
 
-  .ReactModal__Content {inset:0 !important; width:100vw !important; margin-top: 2vh !important; }
+
 #modalCloser {top:120px !important;}
 
 body.contactpage .ReactModal__Content{padding-top:10vh !important;}
@@ -1183,15 +1183,14 @@ body.blogpost .featured-image1{border:0 solid red;max-height:70vh !important;max
   
   .ReactModalPortal {margin:0 19% !important; width:80% !important; z-index: 10; position:absolute; top:0;}
   
-  .ReactModal__Overlay{background-color:transparent !important;   background: rgba(0,0,0,0.90);
-    backdrop-filter: blur(22px);}
+  .ReactModal__Overlay{background-color:transparent !important;   background: rgba(0,0,0,0.90); backdrop-filter: blur(22px);}
   
   .ReactModal__Content{padding:0 !important; background:transparent !important; margin:0 auto ; overflow: auto !important; border:none !important; box-shadow: 2px 1px 10px 10px rgba(0, 0, 0, 0.5); box-shadow: none !important; border:0px solid !important;}
   
   
 .ReactModal__Content {background:var(--theme-ui-colors-background) !important; opacity:.9; }
 
-
+.ReactModal__Content {inset:0 !important; width:100vw !important; margin-top: 6vh !important; padding-top:4vh !important; }
 
   body.install .ReactModalPortal {border:20px blue !important;}
 
