@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
-import { useLocation } from 'gatsby';
+import { useLocation } from '@reach/router';
 
 const BlueCheck = () => {
   const location = useLocation();
