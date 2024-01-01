@@ -214,7 +214,7 @@ export default function Footer() {
 
 
 
-      <Link state={{modal: true}} to="/contact/" className="button fire specialfont" style={{margin:'2rem 2rem', textDecoration:'none', fontSize:'clamp(1rem, 1vw, 2rem)', padding:'.25vh 2rem', borderRadius:'8px'}}>Contact</Link>
+      <Link state={{modal: true}} to="/contact/" className="button fire font" style={{margin:'2rem 2rem', textDecoration:'none', padding:'1vh 2rem', borderRadius:'3px'}}>Contact</Link>
 
 { showSocial ? (
   <div className="social-icons" style={{textAlign:'center', justifyContent:'center', display:'flex', alignItems:'center', margin:'3rem 0'}}>
