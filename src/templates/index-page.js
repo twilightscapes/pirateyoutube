@@ -263,7 +263,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
         {filteredPosts.slice(0, numVisibleItems).map(({ node }, index) => (
   
 
-<div key={index} className="post-card1" style={{ alignItems: '', overflow: 'visible' }}>
+<div key={index} className="post-card1" style={{ alignItems: '', overflow: 'visible', position:'relative' }}>
 
 {node.frontmatter.youtube.showVidOnly ? (
 <div style={{minWidth:'300px', minHeight: index === playingIndex ? '200px' : '200px', background: index === playingIndex ? 'rgba(0, 0, 0, 0.5)' : 'transparent',}}>
@@ -341,16 +341,30 @@ const [playingIndex, setPlayingIndex] = useState(null);
                       style={{ position: 'relative', zIndex: '' }}
                     />
                   )}
+
+{node.frontmatter.youtube.youtuber ? (
+                      <div className="spotlight font" style={{border:'0px solid'}}>
+                        <div className="posticons" style={{ flexDirection: 'column', margin: '0 auto' }}>
+                          <div style={{ display: 'flex', justifyContent: 'space-around', gap: '2vw', color: 'fff', }}>
+                            <FaImage className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
+                            <ImPlay className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
+                            <AiOutlinePicLeft className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', }} />
+                          </div>
+                          Play Multimedia
+                        </div>
+                      </div>
+                    ) : ("")}
                 </Link>
               )}
 
               <div className="post-content" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%', height: '', position: 'relative', background: '', padding: '', margin: '0 auto 0 auto', textAlign: 'center', overFlow: 'hidden' }}>
-                {node.frontmatter.youtube.showVidOnly ? (
+
+            {/* {node.frontmatter.youtube.showVidOnly ? (
                   ""
                 ) : (
                   <>
                     {node.frontmatter.youtube.youtuber ? (
-                      <div className="spotlight font" style={{ marginLeft: '10%', marginTop: '0', margin: '0 10% 0 10%' }}>
+                      <div className="spotlight font" style={{border:'1px solid'}}>
                         <div className="posticons" style={{ flexDirection: 'column', margin: '0 auto' }}>
                           <div style={{ display: 'flex', justifyContent: 'space-around', gap: '2vw', color: 'fff', }}>
                             <FaImage className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
@@ -362,7 +376,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
                       </div>
                     ) : ("")}
                   </>
-                )}
+                )} */}
 
                 <div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', alignContent:'center', margin: '10px auto', maxWidth: '', gap: '.4vw', maxHeight: '74px', textAlign: 'left', padding: '10px 5%', fontSize: 'clamp(.7rem,.8vh,12px)', outline:'0px solid #444', overFlow:'hidden', lineHeight:'2.4vh', borderRadius:'3px', background: showTitles ? 'var(--theme-ui-colors-headerColor)' : 'transparent', }}>
                   {showTitles ? (
