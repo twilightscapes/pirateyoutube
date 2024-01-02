@@ -53,6 +53,8 @@ const useSiteMetadata = () => {
             dicCopyright
             dicSwipe
             dicScroll
+            dicPirate
+            dicSiteReport
           }
         }
       }
