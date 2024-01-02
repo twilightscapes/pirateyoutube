@@ -35,7 +35,7 @@ const TagIndex = ({ data }) => {
         // const AutoStart = data.frontmatter.youtube.youtuber
 
   if (!tags || tags.length === 0) {
-    return <div>No keywords found.</div>;
+    return <div style={{background:'--theme-ui-colors-background'}}>No keywords found.</div>;
   }
 
 

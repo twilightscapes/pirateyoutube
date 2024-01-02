@@ -27,7 +27,8 @@ svgImage: /assets/null.svg
 showZoom: false
 showPageNav: false
 spotlight: true
-tags: 
+tags:
+ - test
 category:
 ---
 

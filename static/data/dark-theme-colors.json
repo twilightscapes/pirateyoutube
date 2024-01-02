@@ -1,7 +1,9 @@
 {
   "siteColor": "#ff0000",
+  "siteColorText": "white",
   "headerColor": "rgba(0, 0, 0, .8)",
-  "background": "#222",
-  "text": "#ccc",
-  "textShadow": "rgba(0, 0, 0, .1)"
+  "headerColorText": "#fff",
+  "siteBackground": "#111",
+  "textShadow": "rgba(0, 0, 0, .1)",
+  "borderColor": "#222"
 }

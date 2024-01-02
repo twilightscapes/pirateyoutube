@@ -138,8 +138,9 @@ const [playingIndex, setPlayingIndex] = useState(null);
                       value={selectedCategory}
                       onChange={handleCategoryChange}
                       style={{
-                        background: '#222',
-                        outline: '1px solid #111',
+                        background: 'var(--theme-ui-colors-siteColor)',
+                        color: 'var(--theme-ui-colors-siteColorText)',
+                        outline: '0px solid #111',
                         borderRadius: '3px',
                         padding: '2px',
                         minWidth: '80px',
@@ -168,8 +169,9 @@ const [playingIndex, setPlayingIndex] = useState(null);
         value={selectedTag}
         onChange={handleTagChange}
         style={{
-          background: '#222',
-          outline: '1px solid #111',
+          background: 'var(--theme-ui-colors-siteColor)',
+          color: 'var(--theme-ui-colors-siteColorText)',
+          outline: '0px solid #111',
           borderRadius: '3px',
           padding: '2px',
           minWidth: '80px',
@@ -203,9 +205,10 @@ const [playingIndex, setPlayingIndex] = useState(null);
                       onChange={handleSearch}
                       style={{
                         width: '',
-                        background: '#222',
+                        background: 'var(--theme-ui-colors-siteColor)',
+                        color: 'var(--theme-ui-colors-siteColorText)',
                         marginRight: '',
-                        outline: '1px solid #111',
+                        outline: '0px solid #111',
                         borderRadius: '3px',
                         height: '',
                         padding: '6px 6px',
@@ -224,28 +227,30 @@ const [playingIndex, setPlayingIndex] = useState(null);
               <button
                 type="reset"
                 value="reset"
+                className="muted"
                 onClick={clearfield}
                 style={{
                   position: '',
                   right: '',
                   top: '',
-                  background: '#222',
-                  color: '#fff',
+                  background: 'var(--theme-ui-colors-siteColor)',
+                  color: 'var(--theme-ui-colors-siteColorText)',
                   textAlign: 'center',
                   fontSize: '10px',
                   height: '',
                   maxWidth: '',
-                  outline: '1px solid #111',
+                  outline: '0px solid #111',
                   padding: '5px',
                   borderRadius: '3px',
                   lineHeight: '100%',
+                  opacity: '.8'
                 }}
                 aria-label="Clear"
               >
                 clear
               </button>
 
-              <div style={{ position: '', right: '', top: '', textAlign: 'center', fontSize: '9px', color: '#fff', maxWidth: '' }}>
+              <div style={{ position: '', right: '', top: '', textAlign: 'center', fontSize: '9px', color: 'var(--theme-ui-colors-headerColorText)', maxWidth: '' }}>
                 {filteredPosts.length} <br />
                 result{filteredPosts.length !== 1 && 's'}
               </div>
@@ -363,9 +368,9 @@ const [playingIndex, setPlayingIndex] = useState(null);
                   </>
                 )}
 
-                <div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', alignContent:'center', margin: '10px auto', maxWidth: '', gap: '.4vw', maxHeight: '74px', textAlign: 'left', padding: '10px 5%', fontSize: 'clamp(.7rem,.8vh,12px)', outline:'0px solid #444', overFlow:'hidden', lineHeight:'2.4vh', borderRadius:'3px', background: showTitles ? 'rgba(0, 0, 0, 0.8)' : 'transparent', }}>
+                <div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', alignContent:'center', margin: '10px auto', maxWidth: '', gap: '.4vw', maxHeight: '74px', textAlign: 'left', padding: '10px 5%', fontSize: 'clamp(.7rem,.8vh,12px)', outline:'0px solid #444', overFlow:'hidden', lineHeight:'2.4vh', borderRadius:'3px', background: showTitles ? 'var(--theme-ui-colors-headerColor)' : 'transparent', }}>
                   {showTitles ? (
-                    <h2 className="title1" style={{width:'100%', textShadow:'0 1px 1px #222',}}>{node.frontmatter.title}</h2>
+                    <h2 className="title1" style={{width:'100%', }}>{node.frontmatter.title}</h2>
                   ) : (
                     ""
                   )}
@@ -383,11 +388,11 @@ const [playingIndex, setPlayingIndex] = useState(null);
 
 {numVisibleItems < filteredPosts.length && (
           <div className="loadmore" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', placeSelf: 'center', gap: '',  textAlign: 'center' }}>
-            <button className="button load-more font" onClick={showMoreItems} style={{maxWidth:''}}>
+            <button className="button font" onClick={showMoreItems} style={{maxWidth:''}}>
               Load more
             </button>
             {showArchive ? (
-              <Link to="/archive" className="font" style={{ background: 'rgba(0, 0, 0, 0.8)', borderRadius: '5px', color: '#fff', display: 'flex', padding: '8px', margin: '0 auto', justifyContent:'center' }}>View Archive &nbsp;<MdArrowForwardIos style={{ marginTop: '' }} /></Link>
+              <Link to="/archive" className="font" style={{ background: 'var(--theme-ui-colors-headerColor)', borderRadius: '', color: 'var(--theme-ui-colors-headerColorText)', display: 'flex', padding: '8px', margin: '0 auto', justifyContent:'center' }}>View Archive &nbsp;<MdArrowForwardIos style={{ marginTop: '' }} /></Link>
             ) : (
               ""
             )}

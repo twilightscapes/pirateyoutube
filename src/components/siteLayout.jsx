@@ -197,7 +197,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 
 <header className="header" style={{display:'block', height:'51px',}}>
 
-<div id="menu" className="menu print panel1 header" style={{position:'fixed', width:'100vw', top:'0', zIndex:'30', maxHeight:'', overFlow:'', boxShadow:'0 0 2px rgba(0,0,0,.7)', padding:'0 2%', alignItems:'start', borderRadius:'0', display:'flex', justifyContent:'space-around', gap:'10px', color:'#fff',  borderBottom:'1px solid #222',}}>
+<div id="menu" className="menu print panel1 header" style={{position:'fixed', width:'100vw', top:'0', zIndex:'30', maxHeight:'', overFlow:'', boxShadow:'0 0 0 rgba(0,0,0,.7)', padding:'0 2%', alignItems:'start', borderRadius:'0', display:'flex', justifyContent:'space-around', gap:'10px', color:'var(--theme-ui-colors-headerColorText)',  borderBottom:'0px solid #222',}}>
 
 {/* {loggedIn ? (
 <div style={{position:'absolute', left:'10px', top:'22px', cursor:'pointer'}}><BlueCheck /></div>
@@ -211,8 +211,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 {iconimage ? (
 <img className="cornerlogo" style={{position:'relative', top:'', left:'4%', border:'0px solid white', padding:'0', maxHeight:'60px'}} src={iconimage} alt={companyname} width="111" height="60" />
 ) : (
-<div style={{fontWeight:'bold', display:'grid', justifyContent:'center', alignItems:'center', height:'', fontSize:'clamp(.9rem,2vw,1rem)', color:'#ddd', maxWidth:'50vw' }}>
-  
+<div style={{fontWeight:'', display:'grid', justifyContent:'center', alignItems:'center', height:'', fontSize:'clamp(.9rem,2vw,1rem)', color:'var(--theme-ui-colors-headerColorText)', maxWidth:'50vw' }}>
   {/* {truncateText(companyname, 28)} */}
 {companyname}
 </div>
@@ -285,11 +284,11 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
   <label htmlFor="openSidebarMenu" className="backdrop1" ></label>
 
 <label id="menuicon" htmlFor="openSidebarMenu" className="sidebarIconToggle bug">
-<div style={{textAlign:'center', opacity:'1', textShadow:'2px 2px 10px 2px #000', maxWidth:'500px', color:'#fff', fontWeight:'bold', border:'0px solid blue'}}>
+<div style={{textAlign:'center', opacity:'1', maxWidth:'500px', color:'var(--theme-ui-colors-headerColorText)', fontWeight:'bold', border:'0px solid blue'}}>
 {iconimage ? (
       <img className="" src={iconimage} alt={companyname} width="120" height="60" style={{maxHeight:'60px', maxWidth:'120px', border:'none'}} />
                 ) : (
-                  <div style={{fontWeight:'bold', color:''}}>{companyname}</div>
+                  <div style={{fontWeight:'', color:''}}>{companyname}</div>
                 )}
 </div>
   </label>

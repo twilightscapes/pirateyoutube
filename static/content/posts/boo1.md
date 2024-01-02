@@ -29,5 +29,8 @@ showZoom: false
 showPageNav: true
 spotlight:
 tags: 
+ - group
+ - test
 category:
+ - test
 ---
