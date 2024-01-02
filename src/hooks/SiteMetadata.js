@@ -22,7 +22,6 @@ const useSiteMetadata = () => {
           showSwipe
           postcount
           homecount
-          font1
           showArchive
           showTitles
           showConsent
@@ -37,6 +36,23 @@ const useSiteMetadata = () => {
             showMagicCat
             showMagicTag
             showMagicSearch
+          }
+          language {
+            dicLoadMore
+            dicViewArchive
+            dicCategory
+            dicKeyword
+            dicSearch
+            dicClear
+            dicResults
+            dicContact
+            dicSocial
+            dicDisclaimer
+            dicPrivacy
+            dicTerms
+            dicCopyright
+            dicSwipe
+            dicScroll
           }
         }
       }

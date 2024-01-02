@@ -175,7 +175,9 @@ export default function Footer() {
 
 
 
+  const { language } = useSiteMetadata();
 
+  const { dicSocial, dicDisclaimer, dicPrivacy, dicTerms, dicCopyright, dicContact, dicPirate, dicSiteReport } = language;
 
 
   const { companyname } = useSiteMetadata()
@@ -214,7 +216,7 @@ export default function Footer() {
     
 
     { showContact ? (
-      <Link id="footercontact" state={{modal: true}} to="/contact/" className="button fire font" style={{margin:'2rem 2rem', textDecoration:'none', padding:'1vh 2rem',}}>Contact</Link>
+      <Link id="footercontact" state={{modal: true}} to="/contact/" className="button fire font" style={{margin:'2rem 2rem', textDecoration:'none', padding:'1vh 2rem',}}>{dicContact}</Link>
       ) : (
         ""
       )}
@@ -223,7 +225,7 @@ export default function Footer() {
 
 { showSocial ? (
   <div className="social-icons" style={{textAlign:'center', justifyContent:'center', display:'flex', alignItems:'center', margin:'3rem 0'}}>
-       <div className="socialtext" style={{fontSize:'14px',}}>Social<br />Links</div> {sIcons}
+       <div className="socialtext" style={{fontSize:'14px',}}>{dicSocial}</div> {sIcons}
         </div>
       ) : (
 ""
@@ -246,10 +248,10 @@ export default function Footer() {
       { showLegal ? (
         <div style={{width:'100%', textAlign: 'center', justifyContent: 'center', fontSize: '.95rem', textDecoration:'none', display:'grid', margin:'2rem auto'}}>
 
-<div style={{display:'flex', justifyContent:'space-between', }}><Link state={{modal: true}} to="/disclaimer/">Disclaimer</Link>  |  <Link state={{modal: true}} to="/privacy/">Privacy Policy</Link>  |  <Link state={{modal: true}} to="/terms/">Terms of Service</Link></div>
+<div style={{display:'flex', justifyContent:'space-between', }}><Link state={{modal: true}} to="/disclaimer/">{dicDisclaimer}</Link>  |  <Link state={{modal: true}} to="/privacy/">{dicPrivacy}</Link>  |  <Link state={{modal: true}} to="/terms/">{dicTerms}</Link></div>
   <br />
   <br />
-Copyright &copy;
+{dicCopyright} &copy;
 {(new Date().getFullYear())} 
 &nbsp;
  {companyname}
@@ -264,7 +266,7 @@ Copyright &copy;
 
 { showBranding ? (
   <div style={{textAlign: 'center', margin: '0 0 2rem 0', justifyContent: 'center', fontSize: '.75rem', position:'relative', right:'', top:'10px'}}>
-<a href="https://pirateweb.org" rel="noreferrer">Powered by PIRATE</a> &nbsp; | &nbsp; <a href={speedIt} rel="noreferrer">Site Report</a>
+<a href="https://pirateweb.org" rel="noreferrer">{dicPirate}</a> &nbsp; | &nbsp; <a href={speedIt} rel="noreferrer">{dicSiteReport}</a>
 </div>
       ) : (
 ""

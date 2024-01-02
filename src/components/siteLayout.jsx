@@ -51,6 +51,9 @@ import Footer from "../components/footer"
     }, []);
 
 
+    const { language } = useSiteMetadata();
+    const { dicSearch, } = language;
+
 const { companyname } = useSiteMetadata()
 const { iconimage } = useSiteMetadata()
 
@@ -119,7 +122,7 @@ useEffect(() => {
 
 // const fontUrl = "https://fonts.googleapis.com/css?family=" + {siteFont} + "&display=swap";
 
-const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors.siteFont}&display=swap`;
+const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFont}&display=swap`;
 
 
 
@@ -242,7 +245,7 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors.siteFon
 <div className="searchIcon">
    <Link aria-label="Search UrbanFetish" to="/search/" style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', marginTop:'0px', textAlign:'center'}}>
     <SearchIcon style={{height:'30px'}} />
-    <span className="themetext">search</span>
+    <span className="themetext">{dicSearch}</span>
    </Link>
         </div>
       ) : (
@@ -327,7 +330,7 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors.siteFon
 <li className="searchIcon">
    <Link aria-label="Search UrbanFetish" to="/search/" style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', marginTop:'0px', textAlign:'center'}}>
     <SearchIcon style={{height:'30px'}} />
-    <span className="themetext">search</span>
+    <span className="themetext">{dicSearch}</span>
    </Link>
         </li>
       ) : (

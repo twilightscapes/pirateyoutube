@@ -15,8 +15,13 @@ import ReactPlayer from 'react-player/lazy';
 
 
 const HomePage = ({ data }) => {
-  const { showModals, showDates, homecount, postcount, magicOptions, showNav, showArchive, showTitles } = useSiteMetadata();
+  const { showModals, showDates, homecount, postcount, language, magicOptions, showNav, showArchive, showTitles } = useSiteMetadata();
   const { showMagic, showMagicCat, showMagicTag, showMagicSearch } = magicOptions;
+
+
+const { dicLoadMore, dicViewArchive, dicCategory, dicKeyword, dicSearch, dicClear, dicResults} = language;
+
+
 
   const { markdownRemark } = data;
   const { frontmatter, excerpt } = markdownRemark;
@@ -148,7 +153,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
                       }}
                       aria-label="Select Category"
                     >
-                      <option value="">Category</option>
+                      <option value="">{dicCategory}</option>
                       {allCategories.filter(category => category).map((category, index) => (
                         <option key={`${category}_${index}`} value={category.trim()}>
                           {category.trim()}
@@ -178,7 +183,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
         }}
         aria-label="Select Keyword"
       >
-        <option value="">Keyword</option>
+        <option value="">{dicKeyword}</option>
         {sortedTags.map((tag, index) => (
           <option key={`${tag}_${index}`} value={tag.trim()}>
             {tag.trim()} ({allPosts.filter(({ node }) => (node.frontmatter.tags || []).includes(tag)).length})
@@ -199,7 +204,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
                     <input
                       id="clearme"
                       type="text"
-                      placeholder="Search:"
+                      placeholder={dicSearch + ":"}
                       onChange={handleSearch}
                       style={{
                         width: '',
@@ -241,14 +246,14 @@ const [playingIndex, setPlayingIndex] = useState(null);
                   lineHeight: '100%',
                   opacity: '.8'
                 }}
-                aria-label="Clear"
+                aria-label="{dicClear}"
               >
-                clear
+                {dicClear}
               </button>
 
               <div style={{ position: '', right: '', top: '', textAlign: 'center', fontSize: '9px', color: 'var(--theme-ui-colors-headerColorText)', maxWidth: '' }}>
                 {filteredPosts.length} <br />
-                result{filteredPosts.length !== 1 && 's'}
+                {dicResults}{filteredPosts.length !== 1 && 's'}
               </div>
             </div>
           </div>
@@ -399,10 +404,10 @@ const [playingIndex, setPlayingIndex] = useState(null);
 {numVisibleItems < filteredPosts.length && (
           <div className="loadmore" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', placeSelf: 'center', gap: '',  textAlign: 'center', zIndex:'1' }}>
             <button className="button font" onClick={showMoreItems} style={{maxWidth:''}}>
-              Load more
+              {dicLoadMore}
             </button>
             {showArchive ? (
-              <Link to="/archive" className="font" style={{ background: 'var(--theme-ui-colors-headerColor)', borderRadius: '', color: 'var(--theme-ui-colors-headerColorText)', display: 'flex', padding: '8px', margin: '0 auto', justifyContent:'center' }}>View Archive &nbsp;<MdArrowForwardIos style={{ marginTop: '' }} /></Link>
+              <Link to="/archive" className="font" style={{ background: 'var(--theme-ui-colors-headerColor)', borderRadius: '', color: 'var(--theme-ui-colors-headerColorText)', display: 'flex', padding: '8px', margin: '0 auto', justifyContent:'center' }}>{dicViewArchive} &nbsp;<MdArrowForwardIos style={{ marginTop: '' }} /></Link>
             ) : (
               ""
             )}
