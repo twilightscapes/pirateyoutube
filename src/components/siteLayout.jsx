@@ -182,7 +182,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
           >
         <div className="uparrow" style={{display:'flex', flexDirection:'column', gap:'0', padding:'1vh 1vw', alignItems:'center', textAlign:'center'}}>
           
-            <RiArrowUpFill className="" style={{cursor: 'pointer', color: '#ddd', fontSize: '3rem'}} />
+            <RiArrowUpFill className="" style={{cursor: 'pointer', color: 'var(--theme-ui-colors-siteColorText)', fontSize: '3rem'}} />
         </div>
         </a>
       </div>
