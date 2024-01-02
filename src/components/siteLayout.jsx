@@ -397,7 +397,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 
 
 
-<div style={{minHeight:'70vh', maxWidth:'', overflowX:'hidden', position:'relative'}}>
+<div style={{minHeight:'70vh', maxWidth:'', overflowX:'hidden', position:'relative', zIndex:'1'}}>
 {children}
 </div>
       

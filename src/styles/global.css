@@ -21,7 +21,7 @@ body.install #menu, body.install #gobacker, body.install .spacer  {display:none 
 /* body.homepage footer{display: none !important;} */
 
 
-
+.effects{position: relative; z-index: 1 !important;}
 
 .homepage-bg{
   /* position:fixed; */
@@ -77,7 +77,7 @@ body.piratepage footer {display: none !important;}
 body{font-family:var(--font-body);scroll-behavior:smooth;width:100vw;}
 
 
-body.blogpost .backimage{z-index:0;}
+/* body.blogpost .backimage{z-index:0;} */
 
 
 

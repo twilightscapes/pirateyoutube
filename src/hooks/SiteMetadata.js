@@ -31,6 +31,7 @@ const useSiteMetadata = () => {
           showLegal
           showModals
           showContact
+          ShowDisclaimer
           magicOptions {
             showMagic
             showMagicCat

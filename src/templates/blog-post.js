@@ -464,7 +464,7 @@ const YouTube = frontmatter.youtube.youtuber
   
 
 
-  const { siteUrl } = useSiteMetadata()
+  const { siteUrl, ShowDisclaimer } = useSiteMetadata()
   // const { companyname } = useSiteMetadata()
   // const { iconimage } = useSiteMetadata()
 
@@ -1567,7 +1567,9 @@ Click to play original video
 
 <br />
 
-{/* <div className="panel legal" style={{textAlign: 'center', padding:'1rem',  justifyContent: 'center', fontSize: '.95rem', textDecoration:'none', maxWidth:'90vw'}}>
+{ShowDisclaimer ? (
+
+<div className="panel legal" style={{textAlign: 'center', padding:'1rem',  justifyContent: 'center', fontSize: '.95rem', textDecoration:'none', maxWidth:'90vw'}}>
             Legal:<br />
             <Link to="/disclaimer/">Disclaimer</Link>  |  <Link to="/privacy/">Privacy Policy</Link>  |  <Link to="/terms/">Terms of Service</Link>
       <br /> <br />
@@ -1581,8 +1583,10 @@ Click to play original video
         Video footage public youtube.com | Some imagery provided from <a rel="noopener noreferrer" href="https://www.flickr.com/photos/donkeyhotey/" >DonkeyHotey</a>, Wikipedia and other public sourced materials.
         </p>
     </div>
-</div> */}
-
+</div>
+    ) : (
+            ""
+          )}
 
 
 
