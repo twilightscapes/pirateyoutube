@@ -5,6 +5,7 @@
   "headerColorText": "#111",
   "siteBackground": "#aaa",
   "textShadow": "#222",
-  "borderColor": "transparent"
+  "borderColor": "#888",
+  "borderRadius": "3px"
 }
 

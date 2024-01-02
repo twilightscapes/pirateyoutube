@@ -214,7 +214,7 @@ export default function Footer() {
     
 
     { showContact ? (
-      <Link state={{modal: true}} to="/contact/" className="button fire font" style={{margin:'2rem 2rem', textDecoration:'none', padding:'1vh 2rem', borderRadius:'3px'}}>Contact</Link>
+      <Link state={{modal: true}} to="/contact/" className="button fire font" style={{margin:'2rem 2rem', textDecoration:'none', padding:'1vh 2rem',}}>Contact</Link>
       ) : (
         ""
       )}

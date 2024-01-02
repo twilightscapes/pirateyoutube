@@ -140,7 +140,6 @@ const [playingIndex, setPlayingIndex] = useState(null);
                       style={{
                         background: 'var(--theme-ui-colors-siteColor)',
                         color: 'var(--theme-ui-colors-siteColorText)',
-                        outline: '0px solid #111',
                         borderRadius: '3px',
                         padding: '2px',
                         minWidth: '80px',
@@ -171,7 +170,6 @@ const [playingIndex, setPlayingIndex] = useState(null);
         style={{
           background: 'var(--theme-ui-colors-siteColor)',
           color: 'var(--theme-ui-colors-siteColorText)',
-          outline: '0px solid #111',
           borderRadius: '3px',
           padding: '2px',
           minWidth: '80px',
@@ -208,7 +206,6 @@ const [playingIndex, setPlayingIndex] = useState(null);
                         background: 'var(--theme-ui-colors-siteColor)',
                         color: 'var(--theme-ui-colors-siteColorText)',
                         marginRight: '',
-                        outline: '0px solid #111',
                         borderRadius: '3px',
                         height: '',
                         padding: '6px 6px',
@@ -239,7 +236,6 @@ const [playingIndex, setPlayingIndex] = useState(null);
                   fontSize: '10px',
                   height: '',
                   maxWidth: '',
-                  outline: '0px solid #111',
                   padding: '5px',
                   borderRadius: '3px',
                   lineHeight: '100%',
@@ -313,7 +309,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
                     },
                   }}
                   playIcon={
-                    <div style={{display:'flex', flexDirection:'column', placeContent:'', justifyContent:'', position:'absolute', zindex:'1', bottom:'-2vh', fontWeight:'bold', padding:'3% 0 0 0', fontSize:'clamp(.6rem, 1.4vw, 1rem)', width:'100%', maxWidth:'25vw', height:'', border:'0px solid', borderRadius:'12px', margin:'0 auto 0 auto', opacity:'.99', textShadow:'2px 2px 2px black', color:'#fff' }}>
+                    <div style={{display:'flex', flexDirection:'column', placeContent:'', justifyContent:'', position:'absolute', zindex:'1', bottom:'2vh', fontWeight:'bold', padding:'3% 0 0 0', width:'100%', maxWidth:'25vw', height:'', border:'0px solid', borderRadius:'12px', margin:'0 auto 0 auto', opacity:'.99', textShadow:'2px 2px 2px black', color:'#fff' }}>
                       <div className="spotlight1 font" style={{}}>
                         <div className="posticons" style={{ flexDirection: 'column', margin: '0 auto' }}>
                           <div style={{ display: 'flex', justifyContent: 'space-around', gap: '2vw', color: 'fff', }}>
@@ -354,7 +350,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
                 ) : (
                   <>
                     {node.frontmatter.youtube.youtuber ? (
-                      <div className="spotlight font" style={{ marginLeft: '10%', marginTop: '-28%', margin: '-24% 10% 0 10%' }}>
+                      <div className="spotlight font" style={{ marginLeft: '10%', marginTop: '0', margin: '0 10% 0 10%' }}>
                         <div className="posticons" style={{ flexDirection: 'column', margin: '0 auto' }}>
                           <div style={{ display: 'flex', justifyContent: 'space-around', gap: '2vw', color: 'fff', }}>
                             <FaImage className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />

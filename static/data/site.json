@@ -14,7 +14,7 @@
     "titleDefault": "PIRATE",
     "showMagicTag": true,
     "showSocial": true,
-    "showNav2": true,
+    "showNav2": false,
     "postcount": 9,
     "showPopup": true,
     "showMagic": true,

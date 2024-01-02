@@ -5,5 +5,6 @@
   "headerColorText": "#fff",
   "siteBackground": "#111",
   "textShadow": "rgba(0, 0, 0, .1)",
-  "borderColor": "#222"
+  "borderColor": "#888",
+  "borderRadius": "3px"
 }
