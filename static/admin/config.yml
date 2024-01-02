@@ -477,10 +477,7 @@ collections:
 
 
 
-              - widget: string
-                name: font1
-                label: Google Font
-                required: false
+
               - widget: image
                 name: image
                 label: Site Background Image
@@ -584,6 +581,12 @@ collections:
         name: "themescolors"
         file: "static/data/default-colors.json"
         fields:
+
+          - label: "Site Font - powered by Google"
+            name: "siteFont"
+            widget: "string"
+            hint: "Google Font Name"
+
           - label: "Site Background Color"
             name: "siteBackground"
             widget: "color"
@@ -649,6 +652,12 @@ collections:
         name: "darkthemescolors"
         file: "static/data/dark-theme-colors.json"
         fields:
+        
+          - label: "Site Font - powered by Google"
+            name: "siteFont"
+            widget: "string"
+            hint: "Google Font Name"
+
           - label: "Site Background Color"
             name: "siteBackground"
             widget: "color"
