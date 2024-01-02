@@ -642,9 +642,7 @@ collections:
 
           - label: "Site Border Radius"
             name: "borderRadius"
-            widget: "color"
-            enableAlpha: true
-            allowInput: true
+            widget: "string"
             hint: "Rounded Corners Radius"
 
       - label: "Dark Theme"
@@ -709,7 +707,5 @@ collections:
 
           - label: "Site Border Radius"
             name: "borderRadius"
-            widget: "color"
-            enableAlpha: true
-            allowInput: true
+            widget: "string"
             hint: "Rounded Corners Radius"
