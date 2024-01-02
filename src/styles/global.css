@@ -478,7 +478,7 @@ p{margin-bottom:2rem}
 
 
 
-.fade{animation:fade 1s forwards}
+.fade{animation:fade 2s forwards}
 @keyframes fade {
 0%{opacity:0}
 20%{opacity:0}
