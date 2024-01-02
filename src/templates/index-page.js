@@ -266,7 +266,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
 <div key={index} className="post-card1" style={{ alignItems: '', overflow: 'visible', position:'relative' }}>
 
 {node.frontmatter.youtube.showVidOnly ? (
-<div style={{minWidth:'300px', minHeight: index === playingIndex ? '200px' : '200px', background: index === playingIndex ? 'rgba(0, 0, 0, 0.5)' : 'transparent',}}>
+<div style={{minWidth:'300px', minHeight: index === playingIndex ? '200px' : '200px', background: index === playingIndex ? 'rgba(0, 0, 0, 0.5)' : 'transparent', zindex:'1'}}>
                 <ReactPlayer
                 playing={index === playingIndex}
                 ref={playerRef}
@@ -294,7 +294,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
                     // width: '80vw',
                     // height:'60vh',
                     // margin: index === playingIndex ? '0' : '0 auto 15px auto',
-                    zIndex: index === playingIndex ? '9999' : '',
+                    zIndex: index === playingIndex ? '9999' : '1',
                     aspectRatio: '16/9',
                   }}
                   light={`https://i.ytimg.com/vi/${extractVideoId(node.frontmatter.youtube.youtuber)}/hqdefault.jpg`}
@@ -397,7 +397,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
         ))}
 
 {numVisibleItems < filteredPosts.length && (
-          <div className="loadmore" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', placeSelf: 'center', gap: '',  textAlign: 'center' }}>
+          <div className="loadmore" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', placeSelf: 'center', gap: '',  textAlign: 'center', zIndex:'1' }}>
             <button className="button font" onClick={showMoreItems} style={{maxWidth:''}}>
               Load more
             </button>
