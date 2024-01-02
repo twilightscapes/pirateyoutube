@@ -35,7 +35,7 @@ width:100%;
 
 ::-webkit-scrollbar,::-webkit-scrollbar-button{height:1px;width:1px}
 
-
+body.contactpage #footercontact{display:none;}
 
 body.piratepage .missioncontrol{visibility:hidden !important;}
 /* body.piratepage #gobacker{visibility:hidden !important;} */

@@ -584,52 +584,132 @@ collections:
         name: "themescolors"
         file: "static/data/default-colors.json"
         fields:
-          - label: "siteColor"
-            name: "siteColor"
+          - label: "Site Background Color"
+            name: "siteBackground"
             widget: "color"
             enableAlpha: true
             allowInput: true
-            hint: "Don't know what this is"
+            hint: "Default Page Background Color"
 
-          - label: "headerColor"
-            name: "headerColor"
-            widget: "color"
-            enableAlpha: true
-            allowInput: true
-
-          - label: "text"
+          - label: "Site Text Color"
             name: "text"
             widget: "color"
             enableAlpha: true
             allowInput: true
+            hint: "Default Page Text Color"
 
+          - label: "Site Text Shadow Color"
+            name: "textShadow"
+            widget: "color"
+            enableAlpha: true
+            allowInput: true
+            hint: "Default Page Text Shadow Color"
+        
+          - label: "Highlight Color"
+            name: "siteColor"
+            widget: "color"
+            enableAlpha: true
+            allowInput: true
+            hint: "Used for buttons and link colors"
 
+          - label: "Hightlight Text Color"
+            name: "siteColorText"
+            widget: "color"
+            enableAlpha: true
+            allowInput: true
+            hint: "Used for buttons and link colors"
 
+          - label: "Header/Menu Background"
+            name: "headerColor"
+            widget: "color"
+            enableAlpha: true
+            allowInput: true
+            hint: "Header and Side Menu background"
 
+          - label: "Header/Menu Text Color"
+            name: "headerColorText"
+            widget: "color"
+            enableAlpha: true
+            allowInput: true
+            hint: "Used for buttons and link colors"
 
+          - label: "Site Border Color"
+            name: "borderColor"
+            widget: "color"
+            enableAlpha: true
+            allowInput: true
+            hint: "Used for element borders"
 
-
+          - label: "Site Border Radius"
+            name: "borderRadius"
+            widget: "color"
+            enableAlpha: true
+            allowInput: true
+            hint: "Rounded Corners Radius"
 
       - label: "Dark Theme"
         name: "darkthemescolors"
         file: "static/data/dark-theme-colors.json"
         fields:
-          - label: "siteColor"
-            name: "siteColor"
+          - label: "Site Background Color"
+            name: "siteBackground"
             widget: "color"
             enableAlpha: true
             allowInput: true
-            hint: "Don't know what this is"
+            hint: "Default Page Background Color"
 
-          - label: "headerColor"
-            name: "headerColor"
-            widget: "color"
-            enableAlpha: true
-            allowInput: true
-
-          - label: "text"
+          - label: "Site Text Color"
             name: "text"
             widget: "color"
             enableAlpha: true
             allowInput: true
+            hint: "Default Page Text Color"
 
+          - label: "Site Text Shadow Color"
+            name: "textShadow"
+            widget: "color"
+            enableAlpha: true
+            allowInput: true
+            hint: "Default Page Text Shadow Color"
+        
+          - label: "Highlight Color"
+            name: "siteColor"
+            widget: "color"
+            enableAlpha: true
+            allowInput: true
+            hint: "Used for buttons and link colors"
+
+          - label: "Hightlight Text Color"
+            name: "siteColorText"
+            widget: "color"
+            enableAlpha: true
+            allowInput: true
+            hint: "Used for buttons and link colors"
+
+          - label: "Header/Menu Background"
+            name: "headerColor"
+            widget: "color"
+            enableAlpha: true
+            allowInput: true
+            hint: "Header and Side Menu background"
+
+          - label: "Header/Menu Text Color"
+            name: "headerColorText"
+            widget: "color"
+            enableAlpha: true
+            allowInput: true
+            hint: "Used for buttons and link colors"
+
+          - label: "Site Border Color"
+            name: "borderColor"
+            widget: "color"
+            enableAlpha: true
+            allowInput: true
+            hint: "Used for element borders"
+
+          - label: "Site Border Radius"
+            name: "borderRadius"
+            widget: "color"
+            enableAlpha: true
+            allowInput: true
+            hint: "Rounded Corners Radius"
