@@ -3,7 +3,7 @@
   "siteColorText": "white",
   "headerColor": "rgba(0, 0, 0, .8)",
   "headerColorText": "#fff",
-  "siteBackground": "#111",
+  "siteBackground": "#333",
   "text": "#ddd",
   "textShadow": "rgba(0, 0, 0, .1)",
   "borderColor": "#333",

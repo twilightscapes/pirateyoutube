@@ -8,7 +8,7 @@
 }
 html{min-height:100vh; overflow-x: hidden; background:var(--theme-ui-colors-siteBackground); z-index: -1;}
 
-body{z-index: 0;}
+body{z-index: 0; background:var(--theme-ui-colors-siteBackground)}
 
 body.scroll {overflow:hidden !important;}
 
