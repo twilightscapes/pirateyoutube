@@ -24,6 +24,10 @@ body.install #menu, body.install #gobacker, body.install .spacer  {display:none 
 /* body.homepage footer{display: none !important;} */
 
 
+#menu,.font,.full-width-image:after,.h1,.h2,.h3,.h4,.header .menu-icon:before,.horizontal-scroll:before,.intro:after,.intro:before,.scrolldown,h1,h2,h3,h4,input.special,.button{font-family:var(--theme-ui-colors-siteFont);}
+
+
+
 .effects{position: relative; z-index: 1; min-height: 70vh;}
 
 .homepage-bg{
@@ -866,7 +870,7 @@ ul li{display:inline-block}
 .controls,.controls:hover{transition:all .3s ease-in-out}
 .controls:hover{color:#fff}
 .flex-container li strong{aspect-ratio:1/1;border:2px solid;margin-right:1.5vw;padding:.8em;text-align:center}
-.font{font-family:var(--theme-ui-colors-fontFamily-meta-font1);}
+.font{font-family:var(--theme-ui-colors-siteFont);}
 .normal{font-family:sans-serif}
 .pagemenu, .upbar{background:var(--theme-ui-colors-headerColor); color:var(--theme-ui-colors-headerColorText); transition:all .8s ease-in-out;}
 .pagemenu svg:hover,.pagemenu:hover{color:var(--theme-ui-colors-headerColorText);fill:var(--theme-ui-colors-headerColorText)}
@@ -1267,7 +1271,7 @@ body :has(.ReactModalPortal) {overflow-x:hidden !important; overflow-y:hidden !i
 
 
   .font{
-    font-family:var(--theme-ui-colors-fontFamily-meta-font1);
+    font-family:var(--theme-ui-colors-siteFont);
     line-height:100% !important;
   }
 

@@ -10,12 +10,13 @@ import SearchIcon from "../img/search"
 import useSiteMetadata from "../hooks/SiteMetadata"
 import { RiArrowUpFill } from "react-icons/ri"
 import GoBack from "./goBack"
-
 import { ModalRoutingContext } from 'gatsby-plugin-modal-routing-4'
+import defaultColors from "../../static/data/default-colors.json";
+import userStyles from "../../static/data/userStyles.json"
 import Menu from "./menu-social"
 // import MenuSocial from "../components/menu-social"
 import Switch from "./Switch"
-import userStyles from "../../static/data/userStyles.json"
+
 import SignUp from "./newssign"
 
 import BlueCheck from './bluecheck';
@@ -74,7 +75,7 @@ const { showSearch } = useSiteMetadata()
 
 // const { showfooter } = useSiteMetadata()
 const { showPopup } = useSiteMetadata()
-const { font1 } = useSiteMetadata()
+
 // const { userStyles } = useSiteMetadata()
 // const { showfooter } = useSiteMetadata()
 const { showSwipe } = useSiteMetadata()
@@ -121,22 +122,25 @@ useEffect(() => {
   }
 }, [showNav2]);
 
-const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/g, '+') + "&display=swap";
+const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors.siteFont}&display=swap`;
 
 
 
   return (
 <>
 <Helmet>
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-  {font1 ? (
+
+
     <link id="yyy" rel="stylesheet" href={fontUrl} crossOrigin="anonymous" referrerPolicy="no-referrer-when-downgrade" />
-  ) : null}
+
   <style>{`
-    #menu,.font,.full-width-image:after,.h1,.h2,.h3,.h4,.header .menu-icon:before,.horizontal-scroll:before,.intro:after,.intro:before,.scrolldown,h1,h2,h3,h4,input.special{font-family:${font1}, sans-serif}
     ${userStyles.userStyles}
   `}</style>
+
     {/* <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script> */}
 </Helmet>
 

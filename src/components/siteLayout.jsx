@@ -13,24 +13,16 @@ import GoBack from "../components/goBack"
 import { ModalRoutingContext } from 'gatsby-plugin-modal-routing-4'
 import Menu from "../components/menu"
 import { BiLeftArrow } from "react-icons/bi"
-
+import defaultColors from "../../static/data/default-colors.json";
+import userStyles from "../../static/data/userStyles.json"
 // import MenuSocial from "../components/menu-social"
 import Switch from "../components/Switch"
-import userStyles from "../../static/data/userStyles.json"
+
 import SignUp from "../components/newssign"
 // import useNetlifyIdentity from '../components/useNetlifyIdentity';
 import BlueCheck from './bluecheck';
 import Footer from "../components/footer"
-// export const Head = () => (
-//   <>
-//   <head>
-//     {/* <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script> */}
-//     <script id="fuck" defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
-//   </head>
-//   <body className="butthole utilitypage" />
-//   </>
-// )
   const Layout = ({ children }) => {
     // const [loggedIn, setLoggedIn] = useState(false);
     // useNetlifyIdentity(setLoggedIn);
@@ -76,7 +68,7 @@ const { showSearch } = useSiteMetadata()
 
 // const { showfooter } = useSiteMetadata()
 const { showPopup } = useSiteMetadata()
-const { font1 } = useSiteMetadata()
+// const { font1 } = useSiteMetadata()
 // const { userStyles } = useSiteMetadata()
 const { showfooter } = useSiteMetadata()
 const { showSwipe } = useSiteMetadata()
@@ -123,25 +115,29 @@ useEffect(() => {
   }
 }, [showNav2]);
 
-const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/g, '+') + "&display=swap";
+// const FontPull = siteFont;
+
+// const fontUrl = "https://fonts.googleapis.com/css?family=" + {siteFont} + "&display=swap";
+
+const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors.siteFont}&display=swap`;
+
 
 
 
   return (
 <>
 <Helmet>
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
-  {/* {font1 ? (
+
     <link id="yyy" rel="stylesheet" href={fontUrl} crossOrigin="anonymous" referrerPolicy="no-referrer-when-downgrade" />
-  ) : null} */}
 
-
-  {/* <style>{`
-    #menu,.font,.full-width-image:after,.h1,.h2,.h3,.h4,.header .menu-icon:before,.horizontal-scroll:before,.intro:after,.intro:before,.scrolldown,h1,h2,h3,h4,input.special{font-family:${font1}, sans-serif}
+  <style>{`
     ${userStyles.userStyles}
-  `}</style> */}
+  `}</style>
 
     {/* <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script> */}
 </Helmet>
