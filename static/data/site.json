@@ -27,7 +27,7 @@
     },
     "titleTemplate": "%s",
     "showBranding": true,
-    "ShowDisclaimer": null,
+    "ShowDisclaimer": false,
     "title": "PIRATE SOCIAL",
     "showTitles": true,
     "showfooter": true,
