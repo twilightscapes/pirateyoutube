@@ -21,7 +21,7 @@ body.install #menu, body.install #gobacker, body.install .spacer  {display:none 
 /* body.homepage footer{display: none !important;} */
 
 
-.effects{position: relative; z-index: 1 !important;}
+.effects{position: relative; z-index: 1; min-height: 70vh;}
 
 .homepage-bg{
   /* position:fixed; */
