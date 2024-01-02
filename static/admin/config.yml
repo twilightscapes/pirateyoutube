@@ -381,75 +381,75 @@ collections:
                 widget: "object"
                 collapsed: true
                 fields:
-              
-                    - name: "dicLoadMore"
-                      label: "Load More"
-                      widget: "string"
-                      required: false
-                    - name: "dicViewArchive"
-                      label: "View Archive"
-                      widget: "string"
-                      required: false
-                    - name: "dicCategory"
-                      label: "Category"
-                      widget: "string"
-                      required: false
-                    - name: "dicKeyword"
-                      label: "Keyword"
-                      widget: "string"
-                      required: false
-                    - name: "dicSearch"
-                      label: "Search"
-                      widget: "string"
-                      required: false
-                    - name: "dicClear"
-                      label: "Clear"
-                      widget: "string"
-                      required: false
-                    - name: "dicResults"
-                      label: "Result"
-                      widget: "string"
-                      required: false
-                    - name: "dicContact"
-                      label: "Contact"
-                      widget: "string"
-                      required: false
-                    - name: "dicSocial"
-                      label: "Social Links"
-                      widget: "string"
-                      required: false
-                    - name: "dicDisclaimer"
-                      label: "Disclaimer"
-                      widget: "string"
-                      required: false
-                    - name: "dicPrivacy"
-                      label: "Privacy"
-                      widget: "string"
-                      required: false
-                    - name: "dicTerms"
-                      label: "Terms of Use"
-                      widget: "string"
-                      required: false
-                    - name: "dicCopyright"
-                      label: "Copyright"
-                      widget: "string"
-                      required: false
-                    - name: "dicSwipe"
-                      label: "Swipe"
-                      widget: "string"
-                      required: false
-                    - name: "dicScroll"
-                      label: "Scroll"
-                      widget: "string"
-                      required: false
-                    - name: "dicPirate"
-                      label: "Powered by PIRATE"
-                      widget: "string"
-                      required: false
-                    - name: "dicSiteReport"
-                      label: "Site Report"
-                      widget: "string"
-                      required: false
+
+                  - name: "dicLoadMore"
+                    label: "Load More"
+                    widget: "string"
+                    required: false
+                  - name: "dicViewArchive"
+                    label: "View Archive"
+                    widget: "string"
+                    required: false
+                  - name: "dicCategory"
+                    label: "Category"
+                    widget: "string"
+                    required: false
+                  - name: "dicKeyword"
+                    label: "Keyword"
+                    widget: "string"
+                    required: false
+                  - name: "dicSearch"
+                    label: "Search"
+                    widget: "string"
+                    required: false
+                  - name: "dicClear"
+                    label: "Clear"
+                    widget: "string"
+                    required: false
+                  - name: "dicResults"
+                    label: "Result"
+                    widget: "string"
+                    required: false
+                  - name: "dicContact"
+                    label: "Contact"
+                    widget: "string"
+                    required: false
+                  - name: "dicSocial"
+                    label: "Social Links"
+                    widget: "string"
+                    required: false
+                  - name: "dicDisclaimer"
+                    label: "Disclaimer"
+                    widget: "string"
+                    required: false
+                  - name: "dicPrivacy"
+                    label: "Privacy"
+                    widget: "string"
+                    required: false
+                  - name: "dicTerms"
+                    label: "Terms of Use"
+                    widget: "string"
+                    required: false
+                  - name: "dicCopyright"
+                    label: "Copyright"
+                    widget: "string"
+                    required: false
+                  - name: "dicSwipe"
+                    label: "Swipe"
+                    widget: "string"
+                    required: false
+                  - name: "dicScroll"
+                    label: "Scroll"
+                    widget: "string"
+                    required: false
+                  - name: "dicPirate"
+                    label: "Powered by PIRATE"
+                    widget: "string"
+                    eequired: false
+                  - name: "dicSiteReport"
+                    label: "Site Report"
+                    widget: "string"
+                    required: false
 
 
               - name: "magicOptions"
