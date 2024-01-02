@@ -132,13 +132,17 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 <Helmet>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-  {font1 ? (
+
+  {/* {font1 ? (
     <link id="yyy" rel="stylesheet" href={fontUrl} crossOrigin="anonymous" referrerPolicy="no-referrer-when-downgrade" />
-  ) : null}
-  <style>{`
+  ) : null} */}
+
+
+  {/* <style>{`
     #menu,.font,.full-width-image:after,.h1,.h2,.h3,.h4,.header .menu-icon:before,.horizontal-scroll:before,.intro:after,.intro:before,.scrolldown,h1,h2,h3,h4,input.special{font-family:${font1}, sans-serif}
     ${userStyles.userStyles}
-  `}</style>
+  `}</style> */}
+
     {/* <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script> */}
 </Helmet>
 
