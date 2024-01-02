@@ -401,7 +401,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
 
 
 
-<div style={{minHeight:'70vh', maxWidth:'', overflowX:'hidden', position:'relative', zIndex:'1'}}>
+<div style={{minHeight:'70vh', maxWidth:'', overflowX:'hidden', position:'relative', zIndex:''}}>
 {children}
 </div>
       
@@ -410,7 +410,7 @@ const fontUrl = "https://fonts.googleapis.com/css?family=" + font1.replace(/\s+/
  
 
 {image ? (
-<img className="backimage" src={image} alt="Default Background" style={{height:'100vh', width:'100vw', position:'fixed', zIndex:'0', top:'0', objectFit:'cover',}} width="10" height="10" />
+<img className="backimage" src={image} alt="Default Background" style={{height:'100vh', width:'100vw', position:'fixed', zIndex:'', top:'0', objectFit:'cover',}} width="10" height="10" />
 ) : (
   ""
 )}
