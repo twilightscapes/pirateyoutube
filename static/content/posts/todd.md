@@ -1,6 +1,6 @@
 ---
 template: blog-post
-title: Just another manic monday
+title: Test Post 1
 slug: /todd
 date: 2023-10-01 09:00
 description: Experience the thrill of PIRATE
@@ -23,7 +23,7 @@ comments: false
 shareable: false
 underlayImage: /assets/transparent.png
 featuredImage: /assets/pirate-propaganda.webp
-svgImage: /assets/null.svg
+svgImage: 
 showZoom: false
 showPageNav: false
 spotlight: true
