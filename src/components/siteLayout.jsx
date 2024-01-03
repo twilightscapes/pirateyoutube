@@ -54,18 +54,10 @@ import Footer from "../components/footer"
     const { language } = useSiteMetadata();
     const { dicSearch, } = language;
 
-    
-
 const { companyname } = useSiteMetadata()
 const { iconimage } = useSiteMetadata()
 
-
-
-const BgImage = defaultColors.siteBackgroundImage
-
-
-
-// const { image } = useSiteMetadata()
+const { image } = useSiteMetadata()
 
 // const { showModals } = useSiteMetadata()
 
@@ -416,10 +408,11 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFo
 
  
 
-
-
-<img className="backimage" src={BgImage} alt="Default Background" style={{height:'100vh', width:'100vw', position:'fixed', zIndex:'-2', top:'0', objectFit:'cover',}} width="10" height="10" />
-
+{image ? (
+<img className="backimage" src={image} alt="Default Background" style={{height:'100vh', width:'100vw', position:'fixed', zIndex:'-2', top:'0', objectFit:'cover',}} width="10" height="10" />
+) : (
+  ""
+)}
 
       
 {/* show footer */}
