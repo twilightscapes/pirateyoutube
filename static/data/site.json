@@ -1,8 +1,7 @@
 {
   "meta": {
     "iconimage": "",
-    "font1": "Audiowide",
-    "showModals": false,
+    "showModals": true,
     "showContact": true,
     "showArchive": true,
     "showSearch": true,
