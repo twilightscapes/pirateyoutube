@@ -46,7 +46,7 @@ collections:
       
   - name: "posts" # Used in routes, ie.: /admin/collections/:slug/edit
     editor:
-      preview: true
+      preview: false
     label: "Site Posts" # Used in the UI
     label_singular: "Site Post" # Used in the UI, ie: "New Post"
     description: >
