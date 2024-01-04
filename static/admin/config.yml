@@ -598,7 +598,10 @@ collections:
                 label: Show Archive link under "Load More" button
                 required: false
 
-
+              - widget: boolean
+                name: showPopup 
+                label: Show Sign Up Form In Posts
+                required: false
 
 
 
