@@ -557,7 +557,7 @@ body.homepage .resp-sharing-button__icon svg{height:5vh;width:5vw}
 .countdown{border:0 solid #ffc0cb;position:relative}
 .countdown span:before{content:" ";font-size:2rem;line-height:.1em;margin-right:.25em;position:absolute;right:0;text-align:center;top:-1.5rem;vertical-align:-.4em;width:100%}
 .drop-shadow{filter:drop-shadow(0 0 10px rgba(0,0,0,.5))}
-.form input,.form select,.form textarea,.select,.upload{background:#333;border:0;border:1px solid #666;color:#fff;margin-bottom:1.3em;outline:0;padding:1vh;width:100%}
+.form input,.form select,.form textarea,.select,.upload{margin-bottom:1.3em;padding:1vh;width:100%}
 .label{-webkit-user-select:none;cursor:pointer;display:block;font-size:22px;margin-bottom:12px;padding-left:35px;position:relative;user-select:none}
 .label input{cursor:pointer;opacity:0;position:absolute}
 
@@ -782,7 +782,8 @@ body.blogpost #menu li .fullscreenButt{display:flex}
 
 
 
-.contact-form input,.searchform input,textarea{background:#333;border:1px solid #666;border-radius:8px;color:#fff;font-size:18px;font-weight:600;margin:2vh auto;max-width:100%;opacity:.8;padding:.3vh 2vw;width:100%}
+.contact-form input,.searchform input,textarea{background:var(--theme-ui-colors-headerColor); outline:1px solid #666; border-radius:var(--theme-ui-colors-borderRadius); color:var(--theme-ui-colors-headerColorText);font-size:18px;font-weight:600;margin:2vh auto;max-width:100%;opacity:.9;padding:.3vh 2vw;width:100%}
+.contact-form ::placeholder{color:inherit;}
 
 .contact-form input:focus,.contact-form textarea:focus{background-color:#000;border-color:var(--input-focus-border)}
 .contact-form label{color:#fff;text-shadow:2px 2px 10px var(--primary)}

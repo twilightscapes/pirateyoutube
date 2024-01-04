@@ -209,8 +209,7 @@ const handleSubmit = e => {
 
         </div>
       </div>
-      <br />
-      <br />
+
 
     </Layout>
   );

@@ -59,7 +59,7 @@ return (
             <button
               className="button fire"
               type="submit"
-              style={{marginTop:'-8px', whiteSpace:'nowrap', color:'#22e3f1'
+              style={{marginTop:'-8px', whiteSpace:'nowrap', color:''
             }}
             >
               {dicSignUpButton}&nbsp;
