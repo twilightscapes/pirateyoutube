@@ -355,10 +355,6 @@ margin:0 auto;
   .grid-container {
     column-count: 5;
   }
-  body.homepage .grid-container .post-card1:last-child {
-    width: 94vw;
-    margin:0 auto;
-  }
 }
 
 
