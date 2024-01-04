@@ -1,7 +1,7 @@
 {
   "siteColor": "#ff0000",
   "siteColorText": "white",
-  "headerColor": "rgba(0, 0, 0, .8)",
+  "headerColor": "",
   "headerColorText": "#fff",
   "siteBackground": "#333",
   "siteBackgroundImage": "/assets/pirate-logo-bw.svg",
@@ -9,5 +9,5 @@
   "textShadow": "rgba(0, 0, 0, .1)",
   "borderColor": "#333",
   "borderRadius": "3px",
-  "siteFont": "Titan One"
+  "siteFont": "Audiowide"
 }

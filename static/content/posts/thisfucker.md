@@ -1,7 +1,7 @@
 ---
 template: blog-post
-title: Just another manic monday
-slug: /todd
+title: This fucker
+slug: /fuck
 date: 2023-10-01 09:00
 description: Experience the thrill of PIRATE
 youtube:
@@ -15,20 +15,34 @@ youtube:
  youtubeend: null
  youtubemute: true
  youtubecontrols: false
- youtubeautostart: true
+ youtubeautostart: false
  youtubeloop: true
  clicktoplay: false
+ customcontrols: true
  showVidOnly: true
 comments: false
 shareable: false
-underlayImage: /assets/transparent.png
+underlayImage: 
 featuredImage: /assets/pirate-propaganda.webp
-svgImage: /assets/null.svg
+svgImage: 
 showZoom: false
-showPageNav: false
+showPageNav: true
 spotlight: true
-tags: 
+tags:
+ - test
 category:
+bumpertext: ""
+mediawarnings:
+ viewerwarning: Viewer Discretion Strongly Advised
+ marate: ASS
+ marating1: DA
+ marating2: BS
+ marating3: ss
+ marating4: ss
+ maratingtx1: Dumb Ass
+ maratingtx2: Total BS
+ maratingtx3: sss
+ maratingtx4: ss
 ---
 
 Todd Lambert is a photographer and web developer based in the United States. He has been active in the industry for several years and has gained a reputation for his creative and technically proficient work. Lambert's photography work often focuses on landscapes and nature, and he has been published in a variety of magazines and websites.

@@ -16,7 +16,7 @@ const Category = ({ data, pageContext }) => {
   const categories = data.allMarkdownRemark.group.map((group) => group.fieldValue);
 
 
-  const { showDates } = useSiteMetadata();
+  const { showDates, showModals } = useSiteMetadata();
 
   return (
     <Layout>
@@ -58,7 +58,7 @@ const Category = ({ data, pageContext }) => {
 
             return (
               <div className="post-card1" style={{ justifyContent: "center", alignItems: "center" }} key={node.id}>
-                <Link className="postlink" to={node.frontmatter.slug}>
+                <Link state={showModals ? { modal: true } : {}} className="postlink" to={node.frontmatter.slug}>
                   {featuredImg ? (
                     <GatsbyImage
                       image={node.frontmatter.featuredImage.childImageSharp.gatsbyImageData}

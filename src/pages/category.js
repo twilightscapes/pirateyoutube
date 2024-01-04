@@ -8,8 +8,8 @@ import { Helmet } from "react-helmet";
 const CategoryIndex = ({ data, pageContext }) => {
   const { category } = pageContext;
   const categories = data.allMarkdownRemark.group.map((group) => group.fieldValue);
-  const { postcount } = useSiteMetadata();
-
+  const { postcount, showModals, language } = useSiteMetadata();
+  const { dicCategory } = language;
 
   const [visibleItems, setVisibleItems] = useState(postcount);
 
@@ -35,7 +35,7 @@ const CategoryIndex = ({ data, pageContext }) => {
           }}
           value={category}
         >
-          <option value="">Categories:</option>
+          <option value="">{dicCategory}:</option>
           {categories.map((category) => (
             <option key={category} value={category}>
               {category}
@@ -53,6 +53,7 @@ const CategoryIndex = ({ data, pageContext }) => {
         {categories.slice(0, visibleItems).map((category, index) => (
           <Link
             key={index}
+            state={showModals ? { modal: true } : {}}
             style={{
               display: 'block',
               maxHeight: '',

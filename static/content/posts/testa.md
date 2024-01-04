@@ -1,7 +1,7 @@
 ---
 template: blog-post
-title: A large and long title that might wrap wrong or even cut off possibly
-slug: /boo1
+title: A BIG and large and long title that might wrap wrong or even cut off possibly
+slug: /flop
 date: 2023-10-01 10:00
 description: Experience the thrill of PIRATE
 youtube:
@@ -29,5 +29,20 @@ showZoom: false
 showPageNav: true
 spotlight:
 tags: 
+ - group
+ - test
 category:
+ - test
+bumpertext: ""
+mediawarnings:
+ viewerwarning: Viewer Discretion Strongly Advised
+ marate: 
+ marating1: DA
+ marating2: BS
+ marating3: ss
+ marating4: ss
+ maratingtx1: Dumb Ass
+ maratingtx2: Total BS
+ maratingtx3: sss
+ maratingtx4: ss
 ---

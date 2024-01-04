@@ -19,7 +19,7 @@ const HomePage = ({ data }) => {
   const { showMagic, showMagicCat, showMagicTag, showMagicSearch } = magicOptions;
 
 
-const { dicLoadMore, dicViewArchive, dicCategory, dicKeyword, dicSearch, dicClear, dicResults} = language;
+const { dicLoadMore, dicViewArchive, dicCategory, dicKeyword, dicSearch, dicClear, dicResults, dicPlayVideo, dicPlayMultimedia} = language;
 
 
 
@@ -285,6 +285,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
                   // className={`relative ${index === playingIndex ? 'fixed' : 'relative'}`}
                   style={{
                     position: index === playingIndex ? 'fixed' : 'relative',
+                    
                     // top: index === playingIndex ? '50%' : 'auto',
                     // left: index === playingIndex ? '50%' : 'auto',
                     // transform: index === playingIndex ? 'translate(-50%, -50%)' : 'none',
@@ -320,7 +321,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
                           <div style={{ display: 'flex', justifyContent: 'space-around', gap: '2vw', color: 'fff', }}>
                             <ImPlay className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
                           </div>
-                          Play Video
+                          {dicPlayVideo}
                         </div>
                       </div>
                     </div>}
@@ -336,14 +337,14 @@ const [playingIndex, setPlayingIndex] = useState(null);
                       alt={node.frontmatter.title + " - Featured image"}
                       className="featured-image1"
                       placeholder="blurred"
-                      style={{ position: 'relative', zIndex: '1', maxHeight: '', margin: '0 auto' }}
+                      style={{ position: 'relative', zIndex: '1', maxHeight: '', margin: '0 auto', borderRadius:'var(--theme-ui-colors-borderRadius)' }}
                     />
                   ) : (
                     <StaticImage
                       className="featured-image1"
                       src="../../static/assets/default-og-image.webp"
                       alt="Default Image"
-                      style={{ position: 'relative', zIndex: '' }}
+                      style={{ position: 'relative', zIndex: '1', maxHeight: '', margin: '0 auto', borderRadius:'var(--theme-ui-colors-borderRadius)' }}
                     />
                   )}
 
@@ -355,7 +356,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
                             <ImPlay className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
                             <AiOutlinePicLeft className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', }} />
                           </div>
-                          Play Multimedia
+                          {dicPlayMultimedia}
                         </div>
                       </div>
                     ) : ("")}
@@ -383,7 +384,11 @@ const [playingIndex, setPlayingIndex] = useState(null);
                   </>
                 )} */}
 
-                <div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', alignContent:'center', margin: '10px auto', maxWidth: '', gap: '.4vw', maxHeight: '74px', textAlign: 'left', padding: '10px 5%', fontSize: 'clamp(.7rem,.8vh,12px)', outline:'0px solid #444', overFlow:'hidden', lineHeight:'2.4vh', borderRadius:'3px', background: showTitles ? 'var(--theme-ui-colors-headerColor)' : 'transparent', }}>
+
+
+
+
+                <div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', alignContent:'center', margin: '10px auto', maxWidth: '', gap: '.4vw', maxHeight: '74px', textAlign: 'left', padding: '10px 5%', fontSize: 'clamp(.7rem,.8vh,12px)', outline:'0px solid #444', overFlow:'hidden', lineHeight:'2.4vh', borderRadius:'var(--theme-ui-colors-borderRadius)', background: showTitles ? 'var(--theme-ui-colors-headerColor)' : 'transparent', }}>
                   {showTitles ? (
                     <h2 className="title1" style={{width:'100%', }}>{node.frontmatter.title}</h2>
                   ) : (
@@ -407,7 +412,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
               {dicLoadMore}
             </button>
             {showArchive ? (
-              <Link to="/archive" className="font" style={{ background: 'var(--theme-ui-colors-headerColor)', borderRadius: '', color: 'var(--theme-ui-colors-headerColorText)', display: 'flex', padding: '8px', margin: '0 auto', justifyContent:'center' }}>{dicViewArchive} &nbsp;<MdArrowForwardIos style={{ marginTop: '' }} /></Link>
+              <Link state={showModals ? { modal: true } : {}} to="/archive" className="font" style={{ background: 'var(--theme-ui-colors-headerColor)', borderRadius: 'var(--theme-ui-colors-borderRadius)', color: 'var(--theme-ui-colors-headerColorText)', display: 'flex', padding: '8px', margin: '0 auto', justifyContent:'center' }}>{dicViewArchive} &nbsp;<MdArrowForwardIos style={{ marginTop: '' }} /></Link>
             ) : (
               ""
             )}

@@ -13,22 +13,34 @@ youtube:
  youtubersuggestion3: null
  youtubestart: null
  youtubeend: null
- youtubemute: true
+ youtubemute: null
  youtubecontrols: false
- youtubeautostart: true
+ youtubeautostart: false
  youtubeloop: null
  clicktoplay: false
  showVidOnly: false
 comments: false
 shareable: false
 underlayImage: /assets/transparent.png
-featuredImage: /assets/pirate-propaganda.webp
-svgImage: 
+featuredImage: /assets/trump-fbi.avif
+svgImage: /assets/transparent.png
 showZoom: false
-showPageNav: false
+showPageNav: true
 spotlight: true
 tags: 
 category:
+bumpertext: ""
+mediawarnings:
+ viewerwarning: Viewer Discretion Strongly Advised
+ marate: ss
+ marating1: DA
+ marating2: BS
+ marating3: ss
+ marating4: ss
+ maratingtx1: Dumb Ass
+ maratingtx2: Total BS
+ maratingtx3: sss
+ maratingtx4: ss
 ---
 
 Todd Lambert is a photographer and web developer based in the United States. He has been active in the industry for several years and has gained a reputation for his creative and technically proficient work. Lambert's photography work often focuses on landscapes and nature, and he has been published in a variety of magazines and websites.

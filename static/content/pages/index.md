@@ -1,10 +1,6 @@
 ---
-marating1: x
-marating2: x
 addressText: The Fleet Launches Soon!
 audiotitle: Shoop
-marating3: x
-marating4: x
 youtube:
   youtubersuggestion3: ""
   youtuber2: ""
@@ -36,7 +32,6 @@ scrollable: false
 portfolio:
   openText: ""
   closeText: ""
-viewerwarning: x
 nftdrop: x
 slug: /
 audiostart: "0"
@@ -61,30 +56,36 @@ cta:
   ctaLink: /contact
 homecount: 5
 addressText2: ""
-marate: x
 pagePW: ""
 skillsTitle: ""
 svgImage: null
 template: index-page
 title: Social media by the people for the people
 postLimit: "4"
-maratingtx1: x
 liarliar: false
 description: PIRATE - social media for the people by the people
 svgzindex: x
-maratingtx2: x
 coverletter:
   coverText: About PIRATE
   coverLink: /about
 sharethis: false
 contentinvideo: false
-maratingtx3: x
-maratingtx4: x
 profTitle: Hoist Your Flag!
 tags: 
  - manic
 category:
  - full
+mediawarnings:
+ viewerwarning: Viewer Discretion Strongly Advised
+ marate: X
+ marating1: X
+ marating2: X
+ marating3: X
+ marating4: X
+ maratingtx1: X
+ maratingtx2: X
+ maratingtx3: X
+ maratingtx4: X
 ---
 
 <div style="">

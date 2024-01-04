@@ -69,7 +69,9 @@ import TimeAgo from 'react-timeago'
 
 const Post = ({ data, pageContext }) => {
 
-    const { showModals } = useSiteMetadata();
+    const { showModals, language } = useSiteMetadata();
+    const { dicClickToView } = language;
+    
 
   const Pagination = props => (
 
@@ -587,15 +589,15 @@ const YouTube = frontmatter.youtube.youtuber
           {/* // <div style={{position:'absolute', background:'#111', height:'100vh', width:'100vw', zIndex:'3', top:'0', right:'0', textAlign:'center', display:'grid', placeContent:'start', justifyContent:'center', color:'#fff', fontFamily:'Verdana, Sans-Serif, System' }}> */}
 
           {/* <img className="homepage-bg" src={iconimage} width="250px" height="150px" alt="UrbanFetish" style={{ width:'', margin:'120px auto 0 auto', filter:'drop-shadow(2px 2px 2px #000)', background:'transparent !important', position:'relative', top:''}} /> */}
-
-
-          <div className="flex-items" style={{fontSize:'clamp(.6rem, 1.4vw, 2rem)', fontWeight:'bold', margin:'0 auto 0 auto', textTransform:'uppercase',}}>The following is rated: <strong>{frontmatter.marate}</strong></div>
+{frontmatter.mediawarnings.marate ? (
+<>
+<div className="flex-items" style={{fontSize:'clamp(.6rem, 1.4vw, 2rem)', fontWeight:'bold', margin:'0 auto 0 auto', textTransform:'uppercase',}}>The following is rated: <strong>{frontmatter.mediawarnings.marate}</strong></div>
 
 <div className="flex-container" style={{display:'flex', flexDirection:'row', gap:'1vh', justifyContent:'center', alignItems:'center',  textAlign:'left', margin:'0 auto', color:'#ddd', background:'rgba(0, 0, 0, .8)', width:'auto', maxWidth:'800px', height:'', border:'1px solid #222', borderRadius:'12px', padding:'2vh 5vw' }}>
 
 
-{frontmatter.marate ? (
-            <div className="flex-items" style={{display:'grid', placeContent:'center', width:'', height:'', aspectRatio:'1/1', padding:'0 20px', border:'6.5px solid #fff', margin:'0 auto 0 auto 0', fontSize:'clamp(4rem, 15vw, 5rem)', fontFamily:'Verdana, Sans-Serif, System', fontWeight:'800'}}>{frontmatter.marate}</div>
+{frontmatter.mediawarnings.marate ? (
+            <div className="flex-items" style={{display:'grid', placeContent:'center', width:'', height:'', aspectRatio:'1/1', padding:'0 20px', border:'6.5px solid #fff', margin:'0 auto 0 auto 0', fontSize:'clamp(4rem, 15vw, 5rem)', fontFamily:'Verdana, Sans-Serif, System', fontWeight:'800'}}>{frontmatter.mediawarnings.marate}</div>
             ) : (
               <div className="flex-items" style={{display:'grid', placeContent:'center', width:'', height:'', aspectRatio:'1/1', padding:'0 20px', border:'6.5px solid #fff', margin:'0 auto 0 auto 0', fontSize:'clamp(4rem, 15vw, 5rem)', fontFamily:'Verdana, Sans-Serif, System', fontWeight:'800'}}>PG</div>
             )}
@@ -607,33 +609,33 @@ const YouTube = frontmatter.youtube.youtuber
 <ul style={{display:'flex', flexDirection:'column', position:'relative', left:'', top:'', gap:'.8vh', justifyContent:'space-around', alignContent:'', alignItems:'start', border:'0px solid red', fontSize:'clamp(.5rem, 1.2vw, 2rem)'}}>
 
 
-{frontmatter.maratingtx1 ? (
+{frontmatter.mediawarnings.maratingtx1 ? (
             <li className="flex-items" style={{display:'flex', justifyContent:'center', alignItems:'center', alignContent:'end'}}><strong style={{ }}>
-            {frontmatter.marating1}</strong> {frontmatter.maratingtx1}</li>
+            {frontmatter.mediawarnings.marating1}</strong> {frontmatter.mediawarnings.maratingtx1}</li>
             ) : (
               ""
             )}
 
 
-{frontmatter.maratingtx2 ? (
+{frontmatter.mediawarnings.maratingtx2 ? (
             <li className="flex-items" style={{display:'flex', justifyContent:'center', alignItems:'center', alignContent:'end'}}><strong style={{ }}>
-{frontmatter.marating2}</strong> {frontmatter.maratingtx2} </li>
+{frontmatter.mediawarnings.marating2}</strong> {frontmatter.mediawarnings.maratingtx2} </li>
             ) : (
               ""
             )}
 
 
-{frontmatter.maratingtx3 ? (
+{frontmatter.mediawarnings.maratingtx3 ? (
          <li className="flex-items" style={{display:'flex', justifyContent:'center', alignItems:'center', alignContent:'end'}}><strong style={{ }}>
-{frontmatter.marating3}</strong> {frontmatter.maratingtx3} </li>   
+{frontmatter.mediawarnings.marating3}</strong> {frontmatter.mediawarnings.maratingtx3} </li>   
             ) : (
               ""
             )} 
 
 
-{frontmatter.maratingtx4 ? (
+{frontmatter.mediawarnings.maratingtx4 ? (
        <li className="flex-items" style={{display:'flex', justifyContent:'center', alignItems:'center', alignContent:'end'}}><strong style={{ }}>
-{frontmatter.marating4}</strong> {frontmatter.maratingtx4} </li>           
+{frontmatter.mediawarnings.marating4}</strong> {frontmatter.mediawarnings.maratingtx4} </li>           
             ) : (
               ""
             )} 
@@ -643,12 +645,21 @@ const YouTube = frontmatter.youtube.youtuber
 </ul>
 
 </div>
-<div className="flex-items" style={{position:'relative', right:'', top:'', display:'', fontSize:'clamp(.6rem, 1.4vw, 2rem)', fontWeight:'bold', textTransform:'uppercase', textAlign:'center'}}>{frontmatter.viewerwarning}</div>
+
+<div className="flex-items" style={{position:'relative', right:'', top:'', display:'', fontSize:'clamp(.6rem, 1.4vw, 2rem)', fontWeight:'bold', textTransform:'uppercase', textAlign:'center'}}>{frontmatter.mediawarnings.viewerwarning}</div>
+</>
+) : (
+                
+  ""
+  
+      )}
+
+
 
 
          <div style={{display:'grid', placeContent:'center', position:'relative', zindex:'1', fontWeight:'bold', padding:'3% 0 0 0', fontSize:'clamp(.6rem, 1.4vw, 2rem)', width:'100%', maxWidth:'25vw', height:'', border:'0px solid', borderRadius:'12px', margin:'0 auto 0 auto', opacity:'.99', textShadow:'2px 2px 2px black', color:'#fff' }}>
 <ImPlay style={{margin:'0 auto', width:'50%', fontSize:'clamp(2rem, 4.4vw, 3rem)', filter:'drop-shadow(0px 0px 12px #fff',}} />
-Click to play
+{dicClickToView}
 </div>
 
 
@@ -1070,14 +1081,16 @@ Click to play
    
                 {/* <img className="homepage-bg" src={iconimage} width="250px" height="150px" alt="UrbanFetish" style={{ width:'', margin:'120px auto 0 auto', filter:'drop-shadow(2px 2px 2px #000)', background:'transparent !important', position:'relative', top:''}} /> */}
 
+                {frontmatter.mediawarnings.marate ? (
+<>
 
-                <div className="flex-items" style={{fontSize:'clamp(.6rem, 1.4vw, 2rem)', fontWeight:'bold', margin:'0 auto 0 auto', textTransform:'uppercase',}}>The following is rated: <strong>{frontmatter.marate}</strong></div>
+<div className="flex-items" style={{fontSize:'clamp(.6rem, 1.4vw, 2rem)', fontWeight:'bold', margin:'0 auto 0 auto', textTransform:'uppercase',}}>The following is rated: <strong>{frontmatter.mediawarnings.marate}</strong></div>
 
 <ul className="flex-container" style={{display:'flex', flexDirection:'row', gap:'1vh', justifyContent:'center', alignItems:'center',  textAlign:'left', margin:'0 auto', color:'#ddd', background:'rgba(0, 0, 0, .8)', width:'auto', maxWidth:'800px', height:'', border:'1px solid #222', borderRadius:'12px', padding:'2vh 5vw' }}>
 
 
-{frontmatter.marate ? (
-            <li className="flex-items" style={{display:'grid', placeContent:'center', width:'', height:'', aspectRatio:'1/1', padding:'0 20px', border:'6.5px solid #fff', margin:'0 auto 0 auto 0', fontSize:'clamp(4rem, 15vw, 5rem)', fontFamily:'Verdana, Sans-Serif, System', fontWeight:'800'}}>{frontmatter.marate}</li>
+{frontmatter.mediawarnings.marate ? (
+            <li className="flex-items" style={{display:'grid', placeContent:'center', width:'', height:'', aspectRatio:'1/1', padding:'0 20px', border:'6.5px solid #fff', margin:'0 auto 0 auto 0', fontSize:'clamp(4rem, 15vw, 5rem)', fontFamily:'Verdana, Sans-Serif, System', fontWeight:'800'}}>{frontmatter.mediawarnings.marate}</li>
             ) : (
               <li className="flex-items" style={{display:'grid', placeContent:'center', width:'', height:'', aspectRatio:'1/1', padding:'0 20px', border:'6.5px solid #fff', margin:'0 auto 0 auto 0', fontSize:'clamp(4rem, 15vw, 5rem)', fontFamily:'Verdana, Sans-Serif, System', fontWeight:'800'}}>PG</li>
             )}
@@ -1089,33 +1102,33 @@ Click to play
 <li style={{display:'flex', flexDirection:'column', position:'relative', left:'', top:'', gap:'.8vh', justifyContent:'space-around', alignContent:'', alignItems:'start', border:'0px solid red', fontSize:'clamp(.5rem, 1.2vw, 2rem)'}}>
 
 
-{frontmatter.maratingtx1 ? (
+{frontmatter.mediawarnings.maratingtx1 ? (
             <li className="flex-items" style={{display:'flex', justifyContent:'center', alignItems:'center', alignContent:'end'}}><strong style={{ }}>
-            {frontmatter.marating1}</strong> {frontmatter.maratingtx1}</li>
+            {frontmatter.mediawarnings.marating1}</strong> {frontmatter.mediawarnings.maratingtx1}</li>
             ) : (
               ""
             )}
 
 
-{frontmatter.maratingtx2 ? (
+{frontmatter.mediawarnings.maratingtx2 ? (
             <li className="flex-items" style={{display:'flex', justifyContent:'center', alignItems:'center', alignContent:'end'}}><strong style={{ }}>
-{frontmatter.marating2}</strong> {frontmatter.maratingtx2} </li>
+{frontmatter.mediawarnings.marating2}</strong> {frontmatter.mediawarnings.maratingtx2} </li>
             ) : (
               ""
             )}
 
 
-{frontmatter.maratingtx3 ? (
+{frontmatter.mediawarnings.maratingtx3 ? (
          <li className="flex-items" style={{display:'flex', justifyContent:'center', alignItems:'center', alignContent:'end'}}><strong style={{ }}>
-{frontmatter.marating3}</strong> {frontmatter.maratingtx3} </li>   
+{frontmatter.mediawarnings.marating3}</strong> {frontmatter.mediawarnings.maratingtx3} </li>   
             ) : (
               ""
             )} 
 
 
-{frontmatter.maratingtx4 ? (
+{frontmatter.mediawarnings.maratingtx4 ? (
        <li className="flex-items" style={{display:'flex', justifyContent:'center', alignItems:'center', alignContent:'end'}}><strong style={{ }}>
-{frontmatter.marating4}</strong> {frontmatter.maratingtx4} </li>           
+{frontmatter.mediawarnings.marating4}</strong> {frontmatter.mediawarnings.maratingtx4} </li>           
             ) : (
               ""
             )} 
@@ -1125,16 +1138,22 @@ Click to play
 </li>
 
 </ul>
-<div className="flex-items" style={{position:'relative', right:'', top:'', display:'', fontSize:'clamp(.6rem, 1.4vw, 2rem)', fontWeight:'bold', textTransform:'uppercase', textAlign:'center'}}>{frontmatter.viewerwarning}</div>
+
+
+<div className="flex-items" style={{position:'relative', right:'', top:'', display:'', fontSize:'clamp(.6rem, 1.4vw, 2rem)', fontWeight:'bold', textTransform:'uppercase', textAlign:'center'}}>{frontmatter.mediawarnings.viewerwarning}</div>
 
 
 <div style={{display:'grid', placeContent:'center', position:'relative', zindex:'1', fontWeight:'bold', padding:'1vh 0', fontSize:'clamp(.6rem, 1.4vw, 2rem)', width:'100%', maxWidth:'25vw', height:'', border:'0px solid', borderRadius:'12px', background:'linear-gradient(180deg, rgba(24, 23, 30, 0.2) 1%, rgba(0, 0, 0, .7) 99%)', margin:'0 auto 0 auto', opacity:'.99', textShadow:'2px 2px 2px black', color:'#fff' }}>
 <ImPlay style={{margin:'0 auto', width:'50%', fontSize:'clamp(2rem, 4.4vw, 3rem)', filter:'drop-shadow(0px 0px 12px #fff',}} />
-Click to play
+{dicClickToView}
 </div>
+</>
 
-
-
+) : (
+                
+                ""
+                
+                    )}
 
 
 
@@ -1410,7 +1429,7 @@ zindex:'1'
       {frontmatter.tags && frontmatter.tags.length > 0 && (
         <>
   
-          <div style={{ position: 'relative', zindex: '2', margin: '1vh auto', width: '100%', display: 'flex', justifyContent: 'center', gap: '1vw' }}>
+          <div style={{ position: 'relative', zindex: '', margin: '1vh auto', width: '100%', display: 'flex', justifyContent: 'center', gap: '1vw' }}>
             {frontmatter.tags.map((tag) => (
               <Link to={`/tag/${tag}`} key={tag}>{tag}</Link>
             ))}
@@ -1453,7 +1472,7 @@ zindex:'1'
       {frontmatter.tags && frontmatter.tags.length > 0 && (
         <>
   
-          <div style={{ position: 'relative', zindex: '2', margin: '1vh auto', width: '100%', display: 'flex', justifyContent: 'center', gap: '1vw' }}>
+          <div style={{ position: 'relative', zindex: '', margin: '1vh auto', width: '100%', display: 'flex', justifyContent: 'center', gap: '1vw' }}>
             {frontmatter.tags.map((tag) => (
               <Link to={`/tag/${tag}`} key={tag}>{tag}</Link>
             ))}
@@ -1546,7 +1565,7 @@ textShadow:'2px 2px 0 #222', filter:'drop-shadow(0px 0px 5px rgba(155,155,155,1)
  <div style={{display:'grid', placeContent:'center', fontWeight:'bold', padding:'1rem', fontSize:'2rem', width:'100%', height:'', border:'0px solid', borderRadius:'12px'}}>Support Our Video Sponsors
 
 <ImPlay style={{margin:'0 auto', width:'50%', fontSize:'60px'}} />
-Click to play original video
+{dicClickToView}
 </div>
 </a>                   
        </div>
@@ -1696,6 +1715,18 @@ export const pageQuery = graphql`
           clicktoplay
           youtubeautostart
         }
+        mediawarnings{
+          viewerwarning
+          marate
+          marating1
+          marating2
+          marating3
+          marating4
+          maratingtx1
+          maratingtx2
+          maratingtx3
+          maratingtx4
+        }
         audiostart
         audioend
         audiotitle
@@ -1704,16 +1735,6 @@ export const pageQuery = graphql`
         comments
         shareable
         bumpertext
-        viewerwarning
-        marate
-        marating1
-        marating2
-        marating3
-        marating4
-        maratingtx1
-        maratingtx2
-        maratingtx3
-        maratingtx4
         nftdrop
         svgzindex
         scrollable

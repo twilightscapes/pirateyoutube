@@ -13,7 +13,8 @@ import { MdArrowForwardIos } from 'react-icons/md';
 import ReactPlayer from 'react-player/lazy'
 const TagIndex = ({ data }) => {
 
-  const { showDates, postcount, showTitles, showNav } = useSiteMetadata()
+  const { showDates, postcount, showTitles, showNav, showModals, language } = useSiteMetadata()
+  const { dicKeyword } = language;
 
   const [selectedTag, setSelectedTag] = useState(''); // State to keep track of selected tag
   const [visibleItems, setVisibleItems] = useState(postcount); 
@@ -54,7 +55,7 @@ const TagIndex = ({ data }) => {
       <div className="magicisland">
         <div className="cattags font">
           <select className="" id="tag-select" value={selectedTag} onChange={handleTagChange} style={{ background: '#222', outline: '1px solid #111', borderRadius: '3px', padding: '2px', width:'380px', display:'block', margin:'0 1%', overflow:'hidden', height:'34px', lineHeight:'100%' }}>
-            <option value="">keyword:</option>
+            <option value="">{dicKeyword}:</option>
             {tags.map(tag => (
               <option key={tag} value={tag}>{tag}</option>
             ))}
@@ -82,7 +83,7 @@ const TagIndex = ({ data }) => {
                 return (
                   <div key={node.fields.slug} className="post-card1" style={{  alignItems: "center" }}>
       
-                    <Link className="postlink" to={node.fields.slug}>
+                    <Link state={showModals ? { modal: true } : {}} className="postlink" to={node.fields.slug}>
 
                     {node.frontmatter.youtube.showVidOnly ? (
 

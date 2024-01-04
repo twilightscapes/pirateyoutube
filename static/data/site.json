@@ -53,7 +53,13 @@
       "dicSwipe": "Swipe",
       "dicScroll": "Scroll",
       "dicPirate": "Powered by PIRATE",
-      "dicSiteReport": "Site Report"
+      "dicSiteReport": "Site Report",
+      "dicLight": "Light",
+      "dicDark": "Dark",
+      "dicGoBack": "Go Back",
+      "dicPlayVideo": "Play Video",
+      "dicPlayMultimedia": "Play Multimedia",
+      "dicClickToView": "Click To View"
     }
   }
 }

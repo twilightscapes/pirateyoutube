@@ -52,14 +52,14 @@ import Footer from "../components/footer"
 
 
     const { language } = useSiteMetadata();
-    const { dicSearch, } = language;
+    const { dicSearch, dicGoBack } = language;
 
 const { companyname } = useSiteMetadata()
 const { iconimage } = useSiteMetadata()
 
 const { image } = useSiteMetadata()
 
-// const { showModals } = useSiteMetadata()
+const { showModals } = useSiteMetadata()
 
 const { showNav } = useSiteMetadata()
 const { showNav2 } = useSiteMetadata()
@@ -157,7 +157,7 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFo
   {modal ? (
     <div id="modalCloser" style={{display:'', position:'fixed', top:'60px', right:'5px', padding:'0px', fontSize:'', opacity:'1 !important', zIndex:'22',}}>
     <Link state={{noScroll: true }} to={closeTo} style={{fontSize:'',  textDecoration:'none', lineHeight:'', display:'flex', flexDirection:'column', color:'#fff', cursor:'pointer'}}>
-    <button className="button" style={{ display: 'flex', justifyContent: 'center', padding:'0 .5vw' }}> <span className="icon -left" style={{ paddingRight: '' }}><BiLeftArrow /></span> {" "}Go Back</button>
+    <button className="button" style={{ display: 'flex', justifyContent: 'center', padding:'0 .5vw' }}> <span className="icon -left" style={{ paddingRight: '' }}><BiLeftArrow /></span> {" "}{dicGoBack}</button>
     </Link>
     </div>
   ) : (
@@ -243,7 +243,7 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFo
 
 {showSearch ? (
 <div className="searchIcon">
-   <Link aria-label="Search UrbanFetish" to="/search/" style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', marginTop:'0px', textAlign:'center'}}>
+   <Link state={showModals ? { modal: true } : {}} aria-label="Search" to="/search/" style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', marginTop:'0px', textAlign:'center'}}>
     <SearchIcon style={{height:'30px'}} />
     <span className="themetext">{dicSearch}</span>
    </Link>
@@ -328,7 +328,7 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFo
 
 {showSearch ? (
 <li className="searchIcon">
-   <Link aria-label="Search UrbanFetish" to="/search/" style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', marginTop:'0px', textAlign:'center'}}>
+   <Link state={showModals ? { modal: true } : {}} aria-label="Search" to="/search/" style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', marginTop:'0px', textAlign:'center'}}>
     <SearchIcon style={{height:'30px'}} />
     <span className="themetext">{dicSearch}</span>
    </Link>
@@ -378,17 +378,18 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFo
 
 
 {showPopup ? (
-<div className="signup popper"
+<div className="signup1 popper1"
   style={{
   position:'fixed',
   top:'15vh',
   left:'20vw',
   right:'20vw',
-  zIndex:'1',
+  zIndex:'100',
   margin:'70px auto 0 auto',
   padding:' 0',
   maxWidth:'500px',
   borderRadius:'12px',
+  border:'10px solid red'
   }}>
 <SignUp />
   </div>

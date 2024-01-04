@@ -137,7 +137,23 @@ collections:
             ]
           }
 
-
+       - {
+              label: "Media Warnings",
+              name: "mediawarnings",
+              widget: "object",
+              collapsed: true, # Set to true to collapse panel by default
+            fields: [
+              { label: "Content Rating", name: "marate", widget: "string", default: "MA", required: false },
+              { label: "Content Sub Rating 1", name: "marating1", widget: "string", required: false },
+              { label: "Content Sub Rating 1 Text", name: "maratingtx1", widget: "string", required: false },
+              { label: "Content Sub Rating 2", name: "marating2", widget: "string", required: false },
+              { label: "Content Sub Rating 2 Text", name: "maratingtx2", widget: "string", required: false },
+              { label: "Content Sub Rating 3", name: "marating3", widget: "string", required: false },
+              { label: "Content Sub Rating 3 Text", name: "maratingtx3", widget: "string", required: false },
+              { label: "Content Sub Rating 4", name: "marating4", widget: "string", required: false },
+              { label: "Content Sub Rating 4 Text", name: "maratingtx4", widget: "string", required: false }
+            ]
+          }
 
 
 
@@ -448,6 +464,18 @@ collections:
                     eequired: false
                   - name: "dicSiteReport"
                     label: "Site Report"
+                    widget: "string"
+                    required: false
+                  - name: "dicLight"
+                    label: "Light"
+                    widget: "string"
+                    required: false
+                  - name: "dicDark"
+                    label: "Dark"
+                    widget: "string"
+                    required: false
+                  - name: "dicGoBack"
+                    label: "Go Back"
                     widget: "string"
                     required: false
 

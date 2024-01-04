@@ -55,6 +55,12 @@ const useSiteMetadata = () => {
             dicScroll
             dicPirate
             dicSiteReport
+            dicLight
+            dicDark
+            dicGoBack
+            dicPlayVideo
+            dicPlayMultimedia
+            dicClickToView
           }
         }
       }
