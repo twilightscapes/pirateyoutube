@@ -73,7 +73,7 @@ return (
 
 
             <div style={{padding: '', margin:'5px 0 10px 0', textAlign: 'center', color:'', fontSize:'70%'}}>
-            <Link state={showModals ? { modal: true } : {}} to="/privacy/" className="" style={{textAlign: 'center', padding: '15px',  textDecoration: 'underline', border:'0px solid yellow'}}>{dicPrivacy}</Link>
+            <Link state={showModals ? { modal: true } : {}} to="/privacy/" className="" style={{textAlign: 'center', padding: '',  textDecoration: 'underline', border:'0px solid yellow'}}>{dicPrivacy}</Link>
            
             </div>
 </form>

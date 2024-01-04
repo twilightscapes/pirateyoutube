@@ -243,7 +243,6 @@ const [playingIndex, setPlayingIndex] = useState(null);
                   color: 'var(--theme-ui-colors-siteColorText)',
                   textAlign: 'center',
                   fontSize: '10px',
-                  height: '',
                   maxWidth: '',
                   height: '',
                   lineHeight: '100%',
