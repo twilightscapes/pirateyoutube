@@ -17,7 +17,7 @@ return (
 
 <div className="signup" style={{}}>
 <form  style={{width:'100%', minWidth:'400px', margin:'0 auto 0 auto', display:'flex', flexDirection:'column', justifyContent:'center', background: 'var(--theme-ui-colors-headerColor)',
-  backdropFilter: 'blur(44px)', borderRadius:'var(--theme-ui-colors-borderRadius)', textAlign:'center', alignSelf:'center', overflow:'hidden', color:'#fff', border:'0px solid red'}}
+  backdropFilter: 'blur(44px)', borderRadius:'var(--theme-ui-colors-borderRadius)', textAlign:'center', alignSelf:'center', overflow:'hidden', color:'', border:'0px solid red'}}
           className="contact-form"
           action="/signedup/"
           name="ts-news"
@@ -72,7 +72,7 @@ return (
             </div>
 
 
-            <div style={{padding: '0px 3%', margin:'5px 0 10px 0', textAlign: 'center', color:'#fff', fontSize:'70%'}}>
+            <div style={{padding: '0px 3%', margin:'5px 0 10px 0', textAlign: 'center', color:'', fontSize:'70%'}}>
             <Link state={showModals ? { modal: true } : {}} to="/privacy/" className="" style={{textAlign: 'center', padding: '15px',  textDecoration: 'underline', border:'0px solid yellow'}}>{dicPrivacy}</Link>
            
             </div>

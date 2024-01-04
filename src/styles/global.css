@@ -785,7 +785,7 @@ body.blogpost #menu li .fullscreenButt{display:flex}
 .contact-form input,.searchform input,textarea{background:var(--theme-ui-colors-headerColor); outline:1px solid #666; border-radius:var(--theme-ui-colors-borderRadius); color:var(--theme-ui-colors-headerColorText);font-size:18px;font-weight:600;margin:2vh auto;max-width:100%;opacity:.9;padding:.3vh 2vw;width:100%}
 .contact-form ::placeholder{color:inherit;}
 
-.contact-form input:focus,.contact-form textarea:focus{background-color:#000;border-color:var(--input-focus-border)}
+.contact-form input:focus,.contact-form textarea:focus{background-color:#000;border-color:var(--input-focus-border); border-radius: var(--theme-ui-colors-borderRadius);}
 .contact-form label{color:#fff;text-shadow:2px 2px 10px var(--primary)}
 .contact-form textarea{min-height:200px}
 .contact-page .description{line-height:1.5}
