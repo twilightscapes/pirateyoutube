@@ -143,8 +143,8 @@ collections:
               widget: "object",
               collapsed: true, # Set to true to collapse panel by default
             fields: [
-              { label: "Content Rating", name: "viewerwarning", widget: "string", required: false },
-              { label: "View Warning", name: "marate", widget: "string", default: "MA", required: false },
+              { label: "Viewer Warning", name: "viewerwarning", widget: "string", default: "MA", required: false },
+              { label: "Content Rating", name: "marate", widget: "string", required: false },
               { label: "Content Sub Rating 1", name: "marating1", widget: "string", required: false },
               { label: "Content Sub Rating 1 Text", name: "maratingtx1", widget: "string", required: false },
               { label: "Content Sub Rating 2", name: "marating2", widget: "string", required: false },

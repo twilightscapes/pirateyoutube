@@ -21,7 +21,7 @@ youtube:
  customcontrols: true
  showVidOnly: true
 comments: false
-shareable: false
+shareable: true
 underlayImage: 
 featuredImage: /assets/pirate-propaganda.webp
 svgImage: 
