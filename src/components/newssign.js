@@ -63,7 +63,7 @@ return (
 <div className="signup" >
 <form
   className={`contact-form flexcheek1 ${submitted ? "submitted" : ""}`}
-  action="/install2"
+  // action="/install2"
   name="contact"
   method="POST"
   data-netlify="true"
@@ -77,11 +77,11 @@ return (
 
 <div className="txtshadow" style={{fontSize:'95%', marginTop:'.5rem'}}>{dicSignUpText} 
 
-             <div className="signbox" style={{display:'flex', flexDirection:'column',gap:'10px',}}></div>
+             <div className="signbox" style={{display:'flex', flexDirection:'column',gap:'10px',}}>
 
   {submitted ? (
     <div className="thank-you-message" style={{fontSize:'200%', height:'', textAlign:'center'}}>
-      Thank you - we'll be in touch!
+      Submitted!
     </div>
   ) : (
     <>
@@ -96,6 +96,7 @@ return (
   
 
       <p style={{ margin:'0 20%'}}>
+        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
       <label style={{ color: '#fff' }} htmlFor="email">
   <input
     name="email"
@@ -141,21 +142,25 @@ return (
             
 
         <button
-            className="button"
+            className="button fire"
             type="submit"
             disabled={isSubmitting}
-            style={{ margin:'0 1% 10px 1%', width:'100%'}}
+            style={{ margin:'-8px 1% 10px 1%', whiteSpace:'nowrap', width:'100%'}}
           >
             {isSubmitting ? "Submitting..." : dicSignUpButton}
           </button>
           </p>
 
+          
+
           <div style={{padding: '', margin:'5px 0 10px 0', textAlign: 'center', color:'', fontSize:'70%'}}>
             <Link state={showModals ? { modal: true } : {}} to="/privacy/" className="" style={{textAlign: 'center', padding: '',  textDecoration: 'underline', border:'0px solid yellow'}}>{dicPrivacy}</Link>
            
             </div>
+            
     </>
   )}
+  </div>
   </div>
 </form>
 
