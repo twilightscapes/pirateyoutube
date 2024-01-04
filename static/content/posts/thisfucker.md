@@ -19,7 +19,7 @@ youtube:
  youtubeloop: true
  clicktoplay: false
  customcontrols: true
- showVidOnly: false
+ showVidOnly: true
 comments: false
 shareable: true
 underlayImage: 

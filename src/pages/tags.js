@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useRef } from "react";
 import { graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { StaticImage } from "gatsby-plugin-image"
@@ -14,7 +14,7 @@ import ReactPlayer from 'react-player/lazy'
 const TagIndex = ({ data }) => {
 
   const { showDates, postcount, showTitles, showNav, showModals, language } = useSiteMetadata()
-  const { dicKeyword } = language;
+  const { dicKeyword, dicPlayVideo, dicPlayMultimedia } = language;
 
   const [selectedTag, setSelectedTag] = useState(''); // State to keep track of selected tag
   const [visibleItems, setVisibleItems] = useState(postcount); 
@@ -27,6 +27,28 @@ const TagIndex = ({ data }) => {
     setVisibleItems(visibleItems + postcount);
   };
   
+
+/* eslint-disable no-useless-escape */
+const extractVideoId = (url) => {
+  const match = url.match(/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/[^\/\n\s]+\/(?:\S+\/)?|(?:v|e(?:mbed)?)\/|\S*?[?&]v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+  return match ? match[1] : null;
+};
+/* eslint-enable no-useless-escape */
+  
+const playerRef = useRef(null);
+
+
+const [playingIndex, setPlayingIndex] = useState(null);
+
+  const handleVideoPlay = (index) => {
+    setPlayingIndex(index);
+  };
+
+  const handleVideoPause = () => {
+    setPlayingIndex(null);
+  };
+
+
 
 
   const tags = data.allMarkdownRemark.group.filter(
@@ -54,7 +76,7 @@ const TagIndex = ({ data }) => {
 
       <div className="magicisland">
         <div className="cattags font">
-          <select className="" id="tag-select" value={selectedTag} onChange={handleTagChange} style={{ background: '#222', outline: '1px solid #111', borderRadius: '3px', padding: '2px', width:'380px', display:'block', margin:'0 1%', overflow:'hidden', height:'34px', lineHeight:'100%' }}>
+          <select className="" id="tag-select" value={selectedTag} onChange={handleTagChange} style={{ background: 'var(--theme-ui-colors-siteColor)', color:'var(--theme-ui-colors-siteColorText)', borderRadius: 'var(--theme-ui-colors-borderRadius)', padding: '2px', width:'380px', display:'block', margin:'0 1%', overflow:'hidden', height:'34px', lineHeight:'100%' }}>
             <option value="">{dicKeyword}:</option>
             {tags.map(tag => (
               <option key={tag} value={tag}>{tag}</option>
@@ -65,122 +87,133 @@ const TagIndex = ({ data }) => {
 </div>
        
 
-<div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', paddingTop: showNav ? '' : '0', }}>
-
-
-
+      <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', paddingTop: showNav ? '6vw' : '6vw', }}>
         <div className="sliderSpacer" style={{ height: '', paddingTop: '', display: '' }}></div>
    
           {data.allMarkdownRemark.edges &&
             data.allMarkdownRemark.edges
             
-              .filter(({ node }) => !selectedTag || (node.frontmatter.tags && node.frontmatter.tags.includes(selectedTag)))
+              .filter(({ node }, index) => !selectedTag || (node.frontmatter.tags && node.frontmatter.tags.includes(selectedTag)))
               .reverse()
               .slice(0, visibleItems)
-              .map(({ node }) => {
+              .map(({ node }, index) => {
                 // const { featuredImage } = node.frontmatter;
 
                 return (
-                  <div key={node.fields.slug} className="post-card1" style={{  alignItems: "center" }}>
+                  <div key={index} className="post-card1" style={{ alignItems: '', overflow: 'visible', position:'relative' }}>
       
-                    <Link state={showModals ? { modal: true } : {}} className="postlink" to={node.fields.slug}>
+      {node.frontmatter.youtube.showVidOnly ? (
+<div style={{minWidth:'300px', minHeight: index === playingIndex ? '200px' : '200px', background: index === playingIndex ? 'rgba(0, 0, 0, 0.5)' : 'transparent', zindex:'1'}}>
+                <ReactPlayer
+                playing={index === playingIndex}
+                ref={playerRef}
+                url={node.frontmatter.youtube.youtuber}
+                  allow="web-share"
+                  // style={{ position: 'relative', margin: '0 auto 15px auto', zIndex: '',aspectRatio:'16/9', }}
+                  width="350px"
+                  height="200px"
+                  className='inline'
+                  playsinline
+                  // className={`relative ${index === playingIndex ? 'fixed' : 'relative'}`}
+                  style={{
+                    position: index === playingIndex ? 'fixed' : 'relative',
+                    
+                    // top: index === playingIndex ? '50%' : 'auto',
+                    // left: index === playingIndex ? '50%' : 'auto',
+                    // transform: index === playingIndex ? 'translate(-50%, -50%)' : 'none',
+                    bottom: index === playingIndex ? '10vh' : '',
+                    left: index === playingIndex ? '5%' : '',
+                    margin:'0 auto',
+                    transition: 'all 1.3s ease-in-out',
+                    // width: index === playingIndex ? '100%' : '350px',
+                    // height: index === playingIndex ? '100%' : '200px',
+                    border: index === playingIndex ? '1px solid var(--theme-ui-colors-siteColor)' : 'inherit',
+                    boxShadow: index === playingIndex ? '2px 1px 10px 10px rgba(0, 0, 0, 0.5)' : 'inherit',
+                    // width: '80vw',
+                    // height:'60vh',
+                    // margin: index === playingIndex ? '0' : '0 auto 15px auto',
+                    zIndex: index === playingIndex ? '9999' : '1',
+                    aspectRatio: '16/9',
+                  }}
+                  light={`https://i.ytimg.com/vi/${extractVideoId(node.frontmatter.youtube.youtuber)}/hqdefault.jpg`}
+                  config={{
+                    file: {
+                      attributes: {
+                        crossOrigin: "anonymous",
+                      },
+                    },
+                    youtube: {
+                      playerVars: { showinfo: 0, autoplay: 1, controls: 1, mute: 0, loop: 1 },
+                    },
+                  }}
+                  playIcon={
+                    <div style={{display:'flex', flexDirection:'column', placeContent:'', justifyContent:'', position:'absolute', zindex:'1', top:'', fontWeight:'bold', padding:'3% 0 0 0', width:'100%', maxWidth:'25vw', height:'', border:'0px solid', borderRadius:'12px', margin:'0 auto 0 auto', opacity:'.99', textShadow:'2px 2px 2px black', color:'#fff' }}>
+                      <div className="spotlight font" style={{}}>
+                        <div className="posticons" style={{ flexDirection: 'column', margin: '0 auto' }}>
+                          <div style={{ display: 'flex', justifyContent: 'space-around', gap: '2vw', color: 'fff', }}>
+                            <ImPlay className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
+                          </div>
+                          {dicPlayVideo}
+                        </div>
+                      </div>
+                    </div>}
+                    onPlay={() => handleVideoPlay(index)}
+                    onPause={handleVideoPause}
+                />
+                </div>
+              ) : (
+                <Link className="postlink" state={showModals ? { modal: true } : {}} key={node.fields.slug} to={node.fields.slug}>
 
-                    {node.frontmatter.youtube.showVidOnly ? (
 
-<ReactPlayer
-            
-            url={node.frontmatter.youtube.youtuber}
-            allow="web-share"
-            style={{position:'relative', margin: '0 auto 15px auto', zIndex:''}}
-            width="350px"
-            height="200px"
-            className='inline'
-            playsinline
-            config={{
-              file: {
-                attributes: {
-                  crossOrigin: "anonymous",
-                },
-              },
-              youtube: {
-                playerVars: { showinfo:1, autoplay:0, controls:1, mute:1, loop:1 }
-              },
-            }}
-          />
-          
-) : (
-  <div>
-                {node.frontmatter.featuredImage ? (
-                  <GatsbyImage
-                    image={node.frontmatter.featuredImage.childImageSharp.gatsbyImageData}
-                    alt={node.frontmatter.title + " - Featured image"}
-                    className="featured-image1"
-                    placeholder="blurred"
-                    // loading="eager"
-                    style={{ position: 'relative', zIndex: '1', maxHeight: '', margin: '0 auto' }}
-                  />
-                ) : (
-                  <StaticImage
-                    className="featured-image1"
-                    src="../../static/assets/default-og-image.webp"
-                    alt="Default Image"
-                    style={{ position: 'relative', zIndex: '' }}
-                  />
-                )}
-              </div>
-)}
+                  {node.frontmatter.featuredImage ? (
+                    <GatsbyImage
+                      image={node.frontmatter.featuredImage.childImageSharp.gatsbyImageData}
+                      alt={node.frontmatter.title + " - Featured image"}
+                      className="featured-image1"
+                      placeholder="blurred"
+                      style={{ position: 'relative', zIndex: '1', maxHeight: '', margin: '0 auto', borderRadius:'var(--theme-ui-colors-borderRadius)' }}
+                    />
+                  ) : (
+                    <StaticImage
+                      className="featured-image1"
+                      src="../../static/assets/default-og-image.webp"
+                      alt="Default Image"
+                      style={{ position: 'relative', zIndex: '1', maxHeight: '', margin: '0 auto', borderRadius:'var(--theme-ui-colors-borderRadius)' }}
+                    />
+                  )}
 
+{node.frontmatter.youtube.youtuber ? (
+                      <div className="spotlight font" style={{border:'0px solid'}}>
+                        <div className="posticons" style={{ flexDirection: 'column', margin: '0 auto' }}>
+                          <div style={{ display: 'flex', justifyContent: 'space-around', gap: '2vw', color: 'fff', }}>
+                            <FaImage className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
+                            <ImPlay className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
+                            <AiOutlinePicLeft className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', }} />
+                          </div>
+                          {dicPlayMultimedia}
+                        </div>
+                      </div>
+                    ) : ("")}
+                </Link>
+              )}
 
 <div className="post-content" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%', height: '', position: 'relative', background: '', padding: '', margin: '0 auto 0 auto', textAlign: 'center', overFlow: 'hidden' }}>
 
-
-{node.frontmatter.youtube.showVidOnly ? (
-
+<div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', alignContent:'center', margin: '10px auto', maxWidth: '', gap: '.4vw', maxHeight: '74px', textAlign: 'left', padding: '10px 5%', fontSize: 'clamp(.7rem,.8vh,12px)', outline:'0px solid #444', overFlow:'hidden', lineHeight:'2.4vh', borderRadius:'var(--theme-ui-colors-borderRadius)', background: showTitles ? 'var(--theme-ui-colors-headerColor)' : 'transparent', }}>
+  {showTitles ? (
+    <h2 className="title1" style={{width:'100%', }}>{node.frontmatter.title}</h2>
+  ) : (
     ""
+  )}
 
-) : (
-
-<>
-{node.frontmatter.youtube.youtuber ? (
-<div className="spotlight" style={{ marginLeft: '10%', marginTop: '-28%', margin: '-24% 10% 0 10%' }}>
-<div className="posticons" style={{ flexDirection: 'column', margin: '0 auto' }}>
-<div style={{ display: 'flex', justifyContent: 'space-around', gap: '2vw', color: 'fff', }}>
-  <FaImage className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
-  <ImPlay className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
-  <AiOutlinePicLeft className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px, fontSize: ""' }} />
-</div>
-Play Multimedia
-</div>
-</div>
-) : ("")}
-</>
-
-)}
-
-
-{/* {node.frontmatter.youtube.showVidOnly ? (
-""
-) : (       
-<> */}
-
-<div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', alignContent:'center', margin: '10px auto', maxWidth: '', gap: '.4vw', maxHeight: '74px', textAlign: 'left', padding: '10px 30px', fontSize: 'clamp(.7rem,.7vw,.7rem)', outline:'0px solid #444', opacity:'.9', overFlow:'hidden', lineHeight:'2.4vh', borderRadius:'3px',
-background: showTitles ? 'rgba(0, 0, 0, 0.3)' : 'transparent',
-}}>
-  {showTitles ? (    
-    <h2 className="title1" style={{width:'100%', height:'',}}>{node.frontmatter.title}</h2>
-    ) : (
-  ""
-)}
-
-{showDates ? (
-    <p style={{ position: '', textAlign: 'center', border: '0px solid red', fontSize: '90%', padding:'0', margin:'0 0 0 20px', maxWidth: '60px', lineHeight:'100%' }}>
+  {showDates ? (
+    <p style={{ position: '', textAlign: 'center', border: '0px solid red', fontSize: '', padding:'0', margin:'0 0 0 20px', maxWidth: '60px', lineHeight:'100%' }}>
       <TimeAgo date={node.frontmatter.date} />
     </p>
-    ) : ("")}
-
+  ) : ("")}
 </div>
-              </div>
-            </Link>
+</div>
+
 </div>
                 )
               })}

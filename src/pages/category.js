@@ -25,10 +25,10 @@ const CategoryIndex = ({ data, pageContext }) => {
 
 
       <div className="magicisland">
-        <div className="cattags font">
+        <div className="cattags font panel">
         <select
           className=""
-          style={{ background: '#222', outline: '1px solid #111', borderRadius: '3px', padding: '2px', width:'380px', display:'block', margin:'0 1%', overflow:'hidden', height:'34px', lineHeight:'100%' }}
+          style={{ background: 'var(--theme-ui-colors-siteColor)', borderRadius: 'var(--theme-ui-colors-borderRadius)', padding: '2px', width:'380px', display:'block', margin:'0 1%', overflow:'hidden', height:'34px', lineHeight:'100%', color:'var(--theme-ui-colors-siteColorText)' }}
           onChange={(e) => {
             const selectedCategory = e.target.value;
             navigate(`/category/${selectedCategory}`);

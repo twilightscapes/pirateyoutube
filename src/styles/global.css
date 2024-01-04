@@ -806,8 +806,10 @@ body.blogpost #menu li .fullscreenButt{display:flex}
   height: 100% !important;
   left: inherit !important;
   bottom: inherit !important;
+  border-radius: var(--theme-ui-colors-borderRadius) !important;
 }
 
+.react-player__preview{border-radius: var(--theme-ui-colors-borderRadius) !important;}
 
 /* .grid-container .post-card1 iframe{position:fixed; width:400px !important; display:grid ; place-content: center; z-index: 2 !important; height:200px !important; background: transparent !important;}
 
