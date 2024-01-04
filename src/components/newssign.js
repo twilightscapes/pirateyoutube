@@ -145,8 +145,10 @@ return (
             className="button"
             type="submit"
             disabled={isSubmitting}
-            style={{ margin:'-8px 1% 10px 1%', whiteSpace:'nowrap', width:'100%',
-            background:'transparent', outline: '1px solid var(--theme-ui-colors-siteColor)'
+            style={{ margin:'-8px auto', whiteSpace:'nowrap', width:'100%',
+            border: '1px solid var(--theme-ui-colors-siteColor)',
+            background: 'var(--theme-ui-colors-headerColor)', borderRadius: 'var(--theme-ui-colors-borderRadius)', color: 'var(--theme-ui-colors-headerColorText)',
+
             
           }}
           >
