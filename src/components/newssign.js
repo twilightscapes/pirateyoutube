@@ -8,12 +8,12 @@ export function NewsletterPage() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(
-    localStorage.getItem("formSubmitted") === "true"
+    typeof window !== "undefined" && localStorage.getItem("formSubmitted") === "true"
   );
 
   useEffect(() => {
     if (submitted) {
-      localStorage.setItem("formSubmitted", "true");
+      typeof window !== "undefined" && localStorage.setItem("formSubmitted", "true");
     }
   }, [submitted]);
 
