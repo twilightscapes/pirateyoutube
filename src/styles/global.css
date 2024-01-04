@@ -1641,10 +1641,6 @@ margin:0 auto;
   .grid-container {
     column-count: 5;
   }
-  body.homepage .grid-container .post-card1:last-child {
-    width: 94vw;
-    margin:0 auto;
-  }
 }
 
 
@@ -1655,6 +1651,10 @@ body.social .grid-container {
   padding: 0 3% 0 3%;
 }
 
+/* body.homepage .grid-container .post-card1:last-child {
+  width: 94vw;
+  margin:0 auto;
+} */
 
 .iiz__btn {
   background: rgba(6, 6, 6, 0.4);

@@ -400,11 +400,12 @@ const [playingIndex, setPlayingIndex] = useState(null);
               ""
             )}
             
-            {showPopup ? (
+            <br />
+{showPopup ? (
   <SignUp />
         ) : (
           ""
-        )}
+)}
 
 
         
