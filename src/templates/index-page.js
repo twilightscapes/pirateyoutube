@@ -135,7 +135,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
       {showMagic ? (
         <>
           <div className="magicisland">
-            <div className="cattags font">
+            <div className="cattags font panel" >
               {showMagicCat ? (
                 <>
                   {allCategories.length > 1 && (
