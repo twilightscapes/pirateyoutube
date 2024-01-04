@@ -2,7 +2,6 @@
 import * as React from "react"
 import { useState } from "react"
 import { Link } from "gatsby"
-import { RiSendPlane2Line } from "react-icons/ri"
 import useSiteMetadata from "../hooks/SiteMetadata";
 
 
@@ -61,7 +60,7 @@ return (
 
 
 
-<div className="signup" style={{}}>
+<div className="signup" >
 <form
   className={`contact-form flexcheek1 ${submitted ? "submitted" : ""}`}
   action="/install2"
@@ -71,20 +70,17 @@ return (
   data-netlify-honeypot="bot-field"
   encType="multipart/form-data"
   onSubmit={handleSubmit}
-  style={{
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    opacity: isSubmitting ? 0.5 : 1,
-  }}
-  
+  style={{width:'100%', minWidth:'400px', margin:'0 auto 0 auto', display:'flex', flexDirection:'column', justifyContent:'center', background: 'var(--theme-ui-colors-headerColor)',
+  backdropFilter: 'blur(44px)', borderRadius:'var(--theme-ui-colors-borderRadius)', textAlign:'center', alignSelf:'center', overflow:'hidden', color:'var(--theme-ui-colors-headerColorText)', border:'0px solid red'}}
 >
 
 
+<div className="txtshadow" style={{fontSize:'95%', marginTop:'.5rem'}}>{dicSignUpText} 
 
+             <div className="signbox" style={{display:'flex', flexDirection:'column',gap:'10px',}}></div>
 
   {submitted ? (
-    <div className="thank-you-message" style={{fontSize:'200%', height:'60vh', textAlign:'center'}}>
+    <div className="thank-you-message" style={{fontSize:'200%', height:'', textAlign:'center'}}>
       Thank you - we'll be in touch!
     </div>
   ) : (
@@ -99,11 +95,18 @@ return (
     </p> */}
   
 
-      <p>
-        <label htmlFor="email" aria-label="Your Email">
-          <input id="email" type="email" name="email" placeholder="your@email.com" required />
-        </label>
-      </p>
+      <p style={{ margin:'0 20%'}}>
+      <label style={{ color: '#fff' }} htmlFor="email">
+  <input
+    name="email"
+    type="email"
+    id="email"
+    required={true}
+    placeholder="your@email.com"
+    autoComplete="email"
+  />
+</label>
+      
 
 
     {/* <p>
@@ -111,43 +114,49 @@ return (
         <input type="tel" id="phone" name="phone" placeholder="Your phone number" />
       </label>
     </p> */}
-
-
-
       {/* <p>
         <label htmlFor="message" aria-label="Your Message">
           <textarea id="message" name="message" placeholder="Your Bio" required></textarea>
         </label>
       </p> */}
-
-
-
-
    {/* <label htmlFor="file"  aria-label="Upload your file" style={{padding: '0', color: 'inherit', textShadow:'1px 1px 0 #555', display:'flex', flexDirection:'column', width:'100%', fontSize:'90%', gap:'15px', justifyContent:'center', alignItems:'center'}}>
   Upload file
         <input className="file-input hidden" type="file" id="file" name="file" />
       </label> */}
 
 
-      <p
-        className="text-align-right1"
-        style={{ margin: "0 auto", color: "" }}
-      >
        
+       {/* <button
+              className="button fire"
+              type="submit"
+              style={{marginTop:'-8px', whiteSpace:'nowrap', color:''
+            }}
+            >
+              {dicSignUpButton}&nbsp;
+              <span className="icon -right">
+                <RiSendPlane2Line />
+              </span>
+            </button> */}
+
+            
 
         <button
             className="button"
             type="submit"
             disabled={isSubmitting}
-            style={{width:'90%',}}
+            style={{ margin:'0 1% 10px 1%', width:'100%'}}
           >
-            {isSubmitting ? "Submitting..." : "Continue"}
+            {isSubmitting ? "Submitting..." : dicSignUpButton}
           </button>
+          </p>
 
-
-      </p>
+          <div style={{padding: '', margin:'5px 0 10px 0', textAlign: 'center', color:'', fontSize:'70%'}}>
+            <Link state={showModals ? { modal: true } : {}} to="/privacy/" className="" style={{textAlign: 'center', padding: '',  textDecoration: 'underline', border:'0px solid yellow'}}>{dicPrivacy}</Link>
+           
+            </div>
     </>
   )}
+  </div>
 </form>
 
 </div>
