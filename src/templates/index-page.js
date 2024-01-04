@@ -387,44 +387,34 @@ const [playingIndex, setPlayingIndex] = useState(null);
         ))}
 
 
-
-{showPopup ? (
-  <div className="post-card1"
-    style={{
-    // position:'relative',
-    // top:'0',
-    // left:'20vw',
-    // right:'20vw',
-    // zIndex:'2',
-    // display:'grid',
-    // placeContent:'center',
-    // height:'100%',
-    // width:'100%',
-    // margin:'0 auto 0 auto',
-    // padding:' 0',
-    // maxWidth:'500px',
-    // borderRadius:'12px',
-    // border:'1px solid red'
-    }}>
-  <SignUp />
-    </div>
-        ) : (
-          ""
-        )}
-
-
 {numVisibleItems < filteredPosts.length && (
           <div className="loadmore" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', placeSelf: 'center', gap: '',  textAlign: 'center', zIndex:'1' }}>
+
             <button className="button font" onClick={showMoreItems} style={{maxWidth:''}}>
               {dicLoadMore}
             </button>
+
             {showArchive ? (
               <Link state={showModals ? { modal: true } : {}} to="/archive" className="font" style={{ background: 'var(--theme-ui-colors-headerColor)', borderRadius: 'var(--theme-ui-colors-borderRadius)', color: 'var(--theme-ui-colors-headerColorText)', display: 'flex', padding: '8px', margin: '0 auto', justifyContent:'center' }}>{dicViewArchive} &nbsp;<MdArrowForwardIos style={{ marginTop: '' }} /></Link>
             ) : (
               ""
             )}
+            
+            {showPopup ? (
+  <SignUp />
+        ) : (
+          ""
+        )}
+
+
+        
           </div>
         )}
+
+
+
+
+
 
         
       </div>

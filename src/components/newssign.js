@@ -17,7 +17,7 @@ return (
 
 <div className="signup" style={{}}>
 <form  style={{width:'100%', minWidth:'400px', margin:'0 auto 0 auto', display:'flex', flexDirection:'column', justifyContent:'center', background: 'var(--theme-ui-colors-headerColor)',
-  backdropFilter: 'blur(44px)', borderRadius:'var(--theme-ui-colors-borderRadius)', textAlign:'center', alignSelf:'center', overflow:'hidden', color:'', border:'0px solid red'}}
+  backdropFilter: 'blur(44px)', borderRadius:'var(--theme-ui-colors-borderRadius)', textAlign:'center', alignSelf:'center', overflow:'hidden', color:'var(--theme-ui-colors-headerColorText)', border:'0px solid red'}}
           className="contact-form"
           action="/signedup/"
           name="ts-news"
@@ -31,7 +31,7 @@ return (
             
               {/* <div className="txtshadow" style={{fontSize:'clamp(1.4rem, 1.5vw, 1.5rem)', textAlign:'center', marginTop:'10px'}}><strong>The Fleet Launches Soon!</strong></div>
               <br /> */}
-              <div className="txtshadow" style={{fontSize:'95%', marginTop:'1rem'}}>{dicSignUpText} </div>
+              <div className="txtshadow" style={{fontSize:'95%', marginTop:'.5rem'}}>{dicSignUpText} </div>
 
              <div className="signbox" style={{display:'flex', flexDirection:'column',gap:'10px'}}>
              
@@ -72,7 +72,7 @@ return (
             </div>
 
 
-            <div style={{padding: '0px 3%', margin:'5px 0 10px 0', textAlign: 'center', color:'', fontSize:'70%'}}>
+            <div style={{padding: '', margin:'5px 0 10px 0', textAlign: 'center', color:'', fontSize:'70%'}}>
             <Link state={showModals ? { modal: true } : {}} to="/privacy/" className="" style={{textAlign: 'center', padding: '15px',  textDecoration: 'underline', border:'0px solid yellow'}}>{dicPrivacy}</Link>
            
             </div>
