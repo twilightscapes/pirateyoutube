@@ -6,33 +6,26 @@ import "../styles/global.css"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 import { Helmet } from "react-helmet"
 import Theme from "./theme"
-import SearchIcon from "../img/search"
+import SearchIcon from "../../src/img/search"
 import useSiteMetadata from "../hooks/SiteMetadata"
 import { RiArrowUpFill } from "react-icons/ri"
-import GoBack from "./goBack"
+import GoBack from "../components/goBack"
 import { ModalRoutingContext } from 'gatsby-plugin-modal-routing-4'
+import Menu from "./menu-social"
+import { BiLeftArrow } from "react-icons/bi"
 import defaultColors from "../../static/data/default-colors.json";
 import userStyles from "../../static/data/userStyles.json"
-import Menu from "./menu-social"
 // import MenuSocial from "../components/menu-social"
-import Switch from "./Switch"
+import Switch from "../components/Switch"
 
-import SignUp from "./newssign"
-
+// import SignUp from "../components/newssign"
+// import useNetlifyIdentity from '../components/useNetlifyIdentity';
 import BlueCheck from './bluecheck';
-// import Footer from "./footer"
-// export const Head = () => (
-//   <>
-//   <head>
-//     {/* <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script> */}
-//     <script id="fuck" defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+// import Footer from "../components/footer"
 
-//   </head>
-//   <body className="butthole utilitypage" />
-//   </>
-// )
   const Layout = ({ children }) => {
-
+    // const [loggedIn, setLoggedIn] = useState(false);
+    // useNetlifyIdentity(setLoggedIn);
   
     const [showBackToTop, setShowBackToTop] = useState(false);
   
@@ -58,12 +51,15 @@ import BlueCheck from './bluecheck';
     }, []);
 
 
+    const { language } = useSiteMetadata();
+    const { dicSearch } = language;
+
 const { companyname } = useSiteMetadata()
 const { iconimage } = useSiteMetadata()
 
 const { image } = useSiteMetadata()
 
-// const { showModals } = useSiteMetadata()
+const { showModals } = useSiteMetadata()
 
 const { showNav } = useSiteMetadata()
 const { showNav2 } = useSiteMetadata()
@@ -73,9 +69,9 @@ const { showNav2 } = useSiteMetadata()
 const { showSearch } = useSiteMetadata()
 
 
-// const { showfooter } = useSiteMetadata()
-const { showPopup } = useSiteMetadata()
 
+// const { showPopup } = useSiteMetadata()
+// const { font1 } = useSiteMetadata()
 // const { userStyles } = useSiteMetadata()
 // const { showfooter } = useSiteMetadata()
 const { showSwipe } = useSiteMetadata()
@@ -94,7 +90,7 @@ useEffect(() => {
 
   const handleScroll = () => {
     const currentScrollPos = window.pageYOffset;
-    if (prevScrollpos > currentScrollPos && prevScrollpos - currentScrollPos > 105) {
+    if (prevScrollpos > currentScrollPos && prevScrollpos - currentScrollPos > 65) {
       // document.querySelector('.header').style.transform = 'translateY(0)';
       if (showNav2) {
         document.querySelector('#menuicon').style.transform = 'translateX(0)';
@@ -102,7 +98,7 @@ useEffect(() => {
       document.querySelector('.upbar').style.transform = 'translateY(140px)';
       // document.body.classList.remove('scroll');
       // document.body.classList.add('scroll');
-    } else if (prevScrollpos < currentScrollPos && currentScrollPos - prevScrollpos > 105) {
+    } else if (prevScrollpos < currentScrollPos && currentScrollPos - prevScrollpos > 65) {
       // document.querySelector('.header').style.transform = 'translateY(-100px)';
       if (showNav2) {
         document.querySelector('#menuicon').style.transform = 'translateX(200px)';
@@ -122,7 +118,12 @@ useEffect(() => {
   }
 }, [showNav2]);
 
-const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors.siteFont}&display=swap`;
+// const FontPull = siteFont;
+
+// const fontUrl = "https://fonts.googleapis.com/css?family=" + {siteFont} + "&display=swap";
+
+const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFont}&display=swap`;
+
 
 
 
@@ -154,9 +155,9 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors.siteFon
 {({ modal, closeTo }) => (
 <>
   {modal ? (
-    <div style={{display:'', position:'fixed', top:'50px', right:'3%', padding:'0px', fontSize:'', opacity:'1 !important', zIndex:'10',}}>
+    <div id="modalCloser" style={{display:'', position:'fixed', top:'60px', right:'5px', padding:'0px', fontSize:'', opacity:'1 !important', zIndex:'22',}}>
     <Link state={{noScroll: true }} to={closeTo} style={{fontSize:'',  textDecoration:'none', lineHeight:'', display:'flex', flexDirection:'column', color:'#fff', cursor:'pointer'}}>
-    <button className="button" style={{display:'flex', justifyContent:'center'}}>Exit Help</button>
+    <button className="button" style={{ display: 'flex', justifyContent: 'center', padding:'0 .5vw' }}> <span className="icon -left" style={{ paddingRight: '' }}><BiLeftArrow /></span> {" "}Exit Help</button>
     </Link>
     </div>
   ) : (
@@ -169,7 +170,7 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors.siteFon
 <div
         className={`upbar button ${showBackToTop ? 'visible' : ''}`}
         style={{
-          position:'fixed', bottom:'20px', zIndex:'4', left:'', right:'1vw', display:'flex', justifyContent:'center', width:'auto', maxWidth:'80vw', margin:'0 auto', gap:'5vw', padding:'0', border:'1px solid #666', borderRadius:'', textShadow:'0 1px 1px rgba(0, 0, 0, .7)', fontSize:'', verticalAlign:'center',
+          position:'fixed', bottom:'20px', zIndex:'4', left:'', right:'1vw', display:'flex', justifyContent:'center', width:'auto', maxWidth:'80vw', margin:'0 auto', gap:'5vw', padding:'0', border:'1px solid var(--theme-ui-colors-borderColor)', borderRadius:'', textShadow:'0 1px 1px rgba(0, 0, 0, .7)', fontSize:'', verticalAlign:'center',
           transform: showBackToTop ? 'translateY(0)' : 'translateY(200%)',
         }}
       >
@@ -183,14 +184,15 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors.siteFon
             style={{cursor: 'pointer', height: '', fontSize: ''}}
           >
         <div className="uparrow" style={{display:'flex', flexDirection:'column', gap:'0', padding:'1vh 1vw', alignItems:'center', textAlign:'center'}}>
-            <RiArrowUpFill className="" style={{cursor: 'pointer', color: '#ddd', fontSize: '3rem'}} />
+          
+            <RiArrowUpFill className="" style={{cursor: 'pointer', color: 'var(--theme-ui-colors-siteColorText)', fontSize: '3rem'}} />
         </div>
         </a>
       </div>
 
 
 
-<div id="gobacker" style={{position:'fixed', bottom:'24vh', right:'0', zIndex:'5'}}><GoBack /></div>
+<div id="gobacker" style={{position:'fixed', top:'60px', right:'5px', zIndex:'5'}}><GoBack /></div>
 
 
 
@@ -198,19 +200,21 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors.siteFon
 
 <header className="header" style={{display:'block', height:'51px',}}>
 
-<div id="menu" className="menu print panel1 header" style={{position:'fixed', width:'100vw', top:'0', zIndex:'10', maxHeight:'', overFlow:'', boxShadow:'0 0 2px rgba(0,0,0,.7)', padding:'0 2%', alignItems:'start', borderRadius:'0', display:'flex', justifyContent:'space-around', gap:'10px', color:'#fff',  borderBottom:'1px solid #222',}}>
+<div id="menu" className="menu print panel1 header" style={{position:'fixed', width:'100vw', top:'0', zIndex:'30', maxHeight:'', overFlow:'', boxShadow:'0 0 0 rgba(0,0,0,.7)', padding:'0 2%', alignItems:'start', borderRadius:'0', display:'flex', justifyContent:'space-around', gap:'10px', color:'var(--theme-ui-colors-headerColorText)',  borderBottom:'0px solid #222',}}>
 
-
+{/* {loggedIn ? (
 <div style={{position:'absolute', left:'10px', top:'22px', cursor:'pointer'}}><BlueCheck /></div>
+) : (
+  ""
+  )} */}
+  <div style={{position:'absolute', left:'10px', top:'22px', cursor:'pointer'}}><BlueCheck /></div>
 
 
-
-<Link to="/" className="cornerlogo" name="homereturn" style={{position:'', display:'flex', marginLeft:'5px', alignItems:'center', justifyContent:'center', maxWidth:'', height:'60px', border:'0px solid transparent'}}  aria-label="Link to Top" title="Back to Top">
+<Link to="/" className="cornerlogo" name="homereturn" style={{position:'', display:'flex', marginLeft:'25px', alignItems:'center', justifyContent:'center', maxWidth:'', height:'60px', border:'0px solid transparent'}}  aria-label="Link to Top" title="Back to Top">
 {iconimage ? (
 <img className="cornerlogo" style={{position:'relative', top:'', left:'4%', border:'0px solid white', padding:'0', maxHeight:'60px'}} src={iconimage} alt={companyname} width="111" height="60" />
 ) : (
-<div style={{fontWeight:'bold', display:'grid', justifyContent:'center', alignItems:'center', height:'', fontSize:'clamp(.9rem,2vw,1rem)', color:'#ddd', maxWidth:'50vw' }}>
-  
+<div style={{fontWeight:'', display:'grid', justifyContent:'center', alignItems:'center', height:'', fontSize:'clamp(.9rem,2vw,1rem)', color:'var(--theme-ui-colors-headerColorText)', maxWidth:'50vw' }}>
   {/* {truncateText(companyname, 28)} */}
 {companyname}
 </div>
@@ -239,9 +243,9 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors.siteFon
 
 {showSearch ? (
 <div className="searchIcon">
-   <Link aria-label="Search UrbanFetish" to="/search/" style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', marginTop:'0px', textAlign:'center'}}>
+   <Link state={showModals ? { modal: true } : {}} aria-label="Search" to="/search/" style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', marginTop:'0px', textAlign:'center'}}>
     <SearchIcon style={{height:'30px'}} />
-    <span className="themetext">search</span>
+    <span className="themetext">{dicSearch}</span>
    </Link>
         </div>
       ) : (
@@ -283,11 +287,11 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors.siteFon
   <label htmlFor="openSidebarMenu" className="backdrop1" ></label>
 
 <label id="menuicon" htmlFor="openSidebarMenu" className="sidebarIconToggle bug">
-<div style={{textAlign:'center', opacity:'1', textShadow:'2px 2px 10px 2px #000', maxWidth:'500px', color:'#fff', fontWeight:'bold', border:'0px solid blue'}}>
+<div style={{textAlign:'center', opacity:'1', maxWidth:'500px', color:'var(--theme-ui-colors-headerColorText)', fontWeight:'bold', border:'0px solid blue'}}>
 {iconimage ? (
       <img className="" src={iconimage} alt={companyname} width="120" height="60" style={{maxHeight:'60px', maxWidth:'120px', border:'none'}} />
                 ) : (
-                  <div style={{fontWeight:'bold', color:''}}>{companyname}</div>
+                  <div style={{fontWeight:'', color:''}}>{companyname}</div>
                 )}
 </div>
   </label>
@@ -324,9 +328,9 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors.siteFon
 
 {showSearch ? (
 <li className="searchIcon">
-   <Link aria-label="Search UrbanFetish" to="/search/" style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', marginTop:'0px', textAlign:'center'}}>
+   <Link state={showModals ? { modal: true } : {}} aria-label="Search" to="/search/" style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', marginTop:'0px', textAlign:'center'}}>
     <SearchIcon style={{height:'30px'}} />
-    <span className="themetext">search</span>
+    <span className="themetext">{dicSearch}</span>
    </Link>
         </li>
       ) : (
@@ -373,30 +377,31 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors.siteFon
 
 
 
-{showPopup ? (
-<div className="signup popper"
+{/* {showPopup ? (
+<div className="signup1 popper1"
   style={{
   position:'fixed',
   top:'15vh',
   left:'20vw',
   right:'20vw',
-  zIndex:'1',
+  zIndex:'2',
   margin:'70px auto 0 auto',
   padding:' 0',
   maxWidth:'500px',
   borderRadius:'12px',
+  border:'1px solid red'
   }}>
 <SignUp />
   </div>
 
       ) : (
         ""
-      )}
+      )} */}
 
 
 
 
-<div style={{minHeight:'70vh', maxWidth:'', overflowX:'hidden', position:'relative'}}>
+<div style={{minHeight:'', maxWidth:'', overflowX:'hidden', position:'relative', zIndex:''}}>
 {children}
 </div>
       
