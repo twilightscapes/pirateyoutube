@@ -36,7 +36,7 @@ category:
 bumpertext: ""
 mediawarnings:
  viewerwarning: Viewer Discretion Strongly Advised
- marate: 
+ marate: ss
  marating1: DA
  marating2: BS
  marating3: ss
