@@ -12,10 +12,10 @@ import { MdArrowForwardIos } from 'react-icons/md';
 import Seo from "../components/seo";
 import { getSrc } from "gatsby-plugin-image";
 import ReactPlayer from 'react-player/lazy';
-
+import SignUp from '../components/newssign'
 
 const HomePage = ({ data }) => {
-  const { showModals, showDates, homecount, postcount, language, magicOptions, showNav, showArchive, showTitles } = useSiteMetadata();
+  const { showModals, showDates, homecount, postcount, language, magicOptions, showNav, showArchive, showTitles, showPopup } = useSiteMetadata();
   const { showMagic, showMagicCat, showMagicTag, showMagicSearch } = magicOptions;
 
 
@@ -381,7 +381,37 @@ const [playingIndex, setPlayingIndex] = useState(null);
               </div>
 
           </div>
+
+
+      
         ))}
+
+
+
+{showPopup ? (
+  <div className="post-card1"
+    style={{
+    // position:'relative',
+    // top:'0',
+    // left:'20vw',
+    // right:'20vw',
+    // zIndex:'2',
+    // display:'grid',
+    // placeContent:'center',
+    // height:'100%',
+    // width:'100%',
+    // margin:'0 auto 0 auto',
+    // padding:' 0',
+    // maxWidth:'500px',
+    // borderRadius:'12px',
+    // border:'1px solid red'
+    }}>
+  <SignUp />
+    </div>
+        ) : (
+          ""
+        )}
+
 
 {numVisibleItems < filteredPosts.length && (
           <div className="loadmore" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', placeSelf: 'center', gap: '',  textAlign: 'center', zIndex:'1' }}>
@@ -395,6 +425,8 @@ const [playingIndex, setPlayingIndex] = useState(null);
             )}
           </div>
         )}
+
+        
       </div>
 
 

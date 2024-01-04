@@ -18,7 +18,7 @@ import userStyles from "../../static/data/userStyles.json"
 // import MenuSocial from "../components/menu-social"
 import Switch from "../components/Switch"
 
-import SignUp from "../components/newssign"
+// import SignUp from "../components/newssign"
 // import useNetlifyIdentity from '../components/useNetlifyIdentity';
 import BlueCheck from './bluecheck';
 import Footer from "../components/footer"
@@ -70,7 +70,7 @@ const { showSearch } = useSiteMetadata()
 
 
 // const { showfooter } = useSiteMetadata()
-const { showPopup } = useSiteMetadata()
+// const { showPopup } = useSiteMetadata()
 // const { font1 } = useSiteMetadata()
 // const { userStyles } = useSiteMetadata()
 const { showfooter } = useSiteMetadata()
@@ -377,26 +377,26 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFo
 
 
 
-{showPopup ? (
+{/* {showPopup ? (
 <div className="signup1 popper1"
   style={{
   position:'fixed',
   top:'15vh',
   left:'20vw',
   right:'20vw',
-  zIndex:'100',
+  zIndex:'2',
   margin:'70px auto 0 auto',
   padding:' 0',
   maxWidth:'500px',
   borderRadius:'12px',
-  border:'10px solid red'
+  border:'1px solid red'
   }}>
 <SignUp />
   </div>
 
       ) : (
         ""
-      )}
+      )} */}
 
 
 

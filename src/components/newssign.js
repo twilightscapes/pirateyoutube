@@ -2,46 +2,22 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { RiSendPlane2Line } from "react-icons/ri"
-
-// import Layout from "./layout"
-// import Seo from "./seo"
-// import styled from "styled-components";
-// const CustomBox = styled.div`
+import useSiteMetadata from "../hooks/SiteMetadata";
 
 
-// .newsletter{position:relative;}
+export function NewsletterPage() {
 
-// input::placeholder {
-//   color: #fff !important;
-//   filter: drop-shadow(0px 0px 6px var(--primary-color));
-// }
+  const { showModals, language } = useSiteMetadata();
 
 
 
+const { dicPrivacy, dicSignUpText, dicSignUpButton } = language;
 
+return (
 
-
-
-//     @media (max-width: 58em) {
-
-
-//       .signbox input{margin-bottom:10px; margin-right:20px;}
-
-//     }
-
-
-// }
-
-// `
-
-
-const NewsletterPage = () => (
-
-
-
-
-<form  style={{width:'100%', margin:'0 auto 0 auto', display:'flex', flexDirection:'column', justifyContent:'center', background: 'rgba(0,0,0,0.50)',
-  backdropFilter: 'blur(4px)', border:'1px solid #000', borderRadius:'12px', textAlign:'center', alignSelf:'center', overflow:'hidden', color:'#fff'}}
+<div className="signup" style={{}}>
+<form  style={{width:'100%', minWidth:'400px', margin:'0 auto 0 auto', display:'flex', flexDirection:'column', justifyContent:'center', background: 'var(--theme-ui-colors-headerColor)',
+  backdropFilter: 'blur(44px)', borderRadius:'var(--theme-ui-colors-borderRadius)', textAlign:'center', alignSelf:'center', overflow:'hidden', color:'#fff', border:'0px solid red'}}
           className="contact-form"
           action="/signedup/"
           name="ts-news"
@@ -55,7 +31,7 @@ const NewsletterPage = () => (
             
               {/* <div className="txtshadow" style={{fontSize:'clamp(1.4rem, 1.5vw, 1.5rem)', textAlign:'center', marginTop:'10px'}}><strong>The Fleet Launches Soon!</strong></div>
               <br /> */}
-              <span className="txtshadow" style={{fontSize:'95%'}}>Join wait list - enter your email: </span>
+              <div className="txtshadow" style={{fontSize:'95%', marginTop:'1rem'}}>{dicSignUpText} </div>
 
              <div className="signbox" style={{display:'flex', flexDirection:'column',gap:'10px'}}>
              
@@ -81,12 +57,12 @@ const NewsletterPage = () => (
             
 
             <button
-              className="button"
-              
+              className="button fire"
               type="submit"
-              style={{marginTop:'-8px', fontSize:'clamp(1rem, 1.5vw, 1.5rem)', whiteSpace:'nowrap', color:'#22e3f1', border:'1px solid var(--theme-ui-colors-siteColor)'}}
+              style={{marginTop:'-8px', whiteSpace:'nowrap', color:'#22e3f1'
+            }}
             >
-              Reserve Your Galleon&nbsp;{" "}
+              {dicSignUpButton}&nbsp;
               <span className="icon -right">
                 <RiSendPlane2Line />
               </span>
@@ -97,14 +73,15 @@ const NewsletterPage = () => (
 
 
             <div style={{padding: '0px 3%', margin:'5px 0 10px 0', textAlign: 'center', color:'#fff', fontSize:'70%'}}>
-            <Link state={{modal: true}} to="/privacy/" className="" style={{textAlign: 'center', padding: '15px',  textDecoration: 'underline', border:'0px solid yellow'}}>Privacy Policy (NO SPAM!)</Link>
+            <Link state={showModals ? { modal: true } : {}} to="/privacy/" className="" style={{textAlign: 'center', padding: '15px',  textDecoration: 'underline', border:'0px solid yellow'}}>{dicPrivacy}</Link>
            
             </div>
 </form>
+</div>
 
-
-
-  
 )
+  
+}
 
-  export default NewsletterPage
+export default NewsletterPage;
+

@@ -303,6 +303,8 @@ body.social .searchIcon{visibility:hidden;}
 }
 
 
+.signup{height:50vh; display:grid; place-content: center;}
+
 
 .grid-container .panel, .grid-container .title1, .horizontal-scroll .title1{
   background: none;
@@ -593,7 +595,7 @@ body.homepage .resp-sharing-button__icon svg{height:5vh;width:5vw}
 
 
 
-.signbox{align-items:center;align-self:center;display:flex;flex-direction:column;gap:10px;justify-content:center;overflow:hidden;padding:0 10px;width:100%}
+.signbox{align-items:center;align-self:center;display:flex;flex-direction:column;gap:10px;justify-content:center;overflow:hidden;padding:0 10px;width:100%;}
 .spacer33{height:33vh}
 .spacer66{height:66vh}
 .spacer99{height:99vh}
@@ -678,7 +680,7 @@ body.homepage .pleaseshare{display:none}
 .splitRow{align-items:center;flex-direction:column}
 .squares>*{height:100vh;margin:0 0 45%}
 
-footer{background:linear-gradient(0deg,#111,#222,#000,#111);background-color:#111;background-size:300% 300%;bottom:0; display:flex;justify-content:center;margin:5vh auto 0;opacity:.8;padding:.1rem 0; z-index:2;width:100vw;}
+
 input[type=checkbox]:checked~#secondMenu{transform:translateX(0)}
 input[type=checkbox]:checked~#sidebarMenu{transform:translateX(100%)}
 
@@ -810,6 +812,7 @@ body.blogpost #menu li .fullscreenButt{display:flex}
 }
 
 .react-player__preview{border-radius: var(--theme-ui-colors-borderRadius) !important;}
+
 
 /* .grid-container .post-card1 iframe{position:fixed; width:400px !important; display:grid ; place-content: center; z-index: 2 !important; height:200px !important; background: transparent !important;}
 

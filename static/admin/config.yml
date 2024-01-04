@@ -479,6 +479,26 @@ collections:
                     label: "Go Back"
                     widget: "string"
                     required: false
+                  - name: "dicPlayVideo"
+                    label: "Play Video"
+                    widget: "string"
+                    required: false
+                  - name: "dicPlayMultimedia"
+                    label: "Play Multimedia"
+                    widget: "string"
+                    required: false
+                  - name: "dicClickToView"
+                    label: "Click To View"
+                    widget: "string"
+                    required: false
+                  - name: "dicSignUpButton"
+                    label: "Sign Up"
+                    widget: "string"
+                    required: false
+                  - name: "dicSignUpText"
+                    label: "Sign Up - Enter your email"
+                    widget: "string"
+                    required: false
 
 
               - name: "magicOptions"

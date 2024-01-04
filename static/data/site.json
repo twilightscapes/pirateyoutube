@@ -59,7 +59,9 @@
       "dicGoBack": "Go Back",
       "dicPlayVideo": "Play Video",
       "dicPlayMultimedia": "Play Multimedia",
-      "dicClickToView": "Click To View"
+      "dicClickToView": "Click To View",
+      "dicSignUpButton": "Sign Up",
+      "dicSignUpText": "Sign Up - Enter your email"
     }
   }
 }

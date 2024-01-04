@@ -1,7 +1,7 @@
 {
   "siteColor": "#ff0000",
   "siteColorText": "white",
-  "headerColor": "",
+  "headerColor": "#222",
   "headerColorText": "#fff",
   "siteBackground": "#333",
   "siteBackgroundImage": "/assets/pirate-logo-bw.svg",

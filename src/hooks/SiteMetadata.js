@@ -30,6 +30,7 @@ const useSiteMetadata = () => {
           showLegal
           showModals
           showContact
+          showPopup
           ShowDisclaimer
           magicOptions {
             showMagic
@@ -61,6 +62,8 @@ const useSiteMetadata = () => {
             dicPlayVideo
             dicPlayMultimedia
             dicClickToView
+            dicSignUpText
+            dicSignUpButton
           }
         }
       }
