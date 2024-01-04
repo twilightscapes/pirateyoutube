@@ -6,7 +6,7 @@ date: 2023-10-01 09:00
 description: Experience the thrill of PIRATE
 youtube:
  youtuber: https://youtu.be/9nl00N6I5Ak
- youtuber2: 
+ youtuber2: https://youtu.be/CWf5FYSK7Yc
  youtubeshoworiginal: null
  youtubersuggestion1: null
  youtubersuggestion2: null
@@ -18,8 +18,8 @@ youtube:
  youtubeautostart: false
  youtubeloop: true
  clicktoplay: false
- customcontrols: true
- showVidOnly: true
+ customcontrols: false
+ showVidOnly: false
 comments: false
 shareable: true
 underlayImage: 
@@ -43,6 +43,10 @@ mediawarnings:
  maratingtx2: Total BS
  maratingtx3: sss
  maratingtx4: ss
+audiotitle: Oh Yeah? but you this...
+audioend: "5000"
+audiostart: "20"
+liarliar: 
 ---
 
 Todd Lambert is a photographer and web developer based in the United States. He has been active in the industry for several years and has gained a reputation for his creative and technically proficient work. Lambert's photography work often focuses on landscapes and nature, and he has been published in a variety of magazines and websites.

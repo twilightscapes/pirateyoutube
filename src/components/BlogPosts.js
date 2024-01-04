@@ -80,6 +80,7 @@ const BlogPosts = () => {
 
   return (
     <>
+    
     <div className="horizontal-scroll1 contentpanel">
       {renderContent()}
       
