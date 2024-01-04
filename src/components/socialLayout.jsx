@@ -9,7 +9,7 @@ import Theme from "./theme"
 import SearchIcon from "../../src/img/search"
 import useSiteMetadata from "../hooks/SiteMetadata"
 import { RiArrowUpFill } from "react-icons/ri"
-import GoBack from "../components/goBack"
+// import GoBack from "../components/goBack"
 import { ModalRoutingContext } from 'gatsby-plugin-modal-routing-4'
 import Menu from "./menu-social"
 import { BiLeftArrow } from "react-icons/bi"
@@ -192,7 +192,7 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFo
 
 
 
-<div id="gobacker" style={{position:'fixed', top:'60px', right:'5px', zIndex:'5'}}><GoBack /></div>
+{/* <div id="gobacker" style={{position:'fixed', top:'60px', right:'5px', zIndex:'5'}}><GoBack /></div> */}
 
 
 
