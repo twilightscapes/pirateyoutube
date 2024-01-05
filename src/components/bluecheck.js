@@ -6,7 +6,7 @@ const BlueCheck = () => {
   const location = useLocation();
   // console.log(location);
   const isNetlifyApp = location && location.hostname && location.hostname.endsWith('netlify.app');
-  console.log(isNetlifyApp);
+  // console.log(isNetlifyApp);
 
   return (
     <span title="This site is verified">
