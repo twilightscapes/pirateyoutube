@@ -8,13 +8,13 @@
 }
 html{min-height:100vh; overflow-x: hidden; background:var(--theme-ui-colors-siteBackground); z-index: -1;}
 
-body{z-index: 0; background:var(--theme-ui-colors-siteBackground); }
+body{z-index: 0; background:var(--theme-ui-colors-siteBackground); min-height: 100vh; }
 
-body.scroll {overflow:hidden !important;}
+/* body.scroll {overflow:hidden !important;} */
 
 /* body.homepage:after{content: (''); background-color:inherit; height: 100vh; width:100%; background-size: cover; position:fixed; top:0; left:0; z-index:-1; } */
 
-body.homepage{min-height: 100vh;}
+
 
 
 body.install #menu, body.install #gobacker, body.install .spacer  {display:none !important;}
@@ -1199,9 +1199,7 @@ body.blogpost .featured-image1{border:0 solid red;max-height:70vh !important;max
 
 
 
-.ReactModalPortal .header, .ReactModalPortal footer, .ReactModalPortal div.toppad, .ReactModalPortal .fluff, .ReactModalPortal .audio, .ReactModalPortal .intro:before, .ReactModalPortal .intro:after, .ReactModalPortal .back, .ReactModalPortal .usability, .ReactModalPortal .backimage{
-  display: none !important;
-  }
+
 
 
   
@@ -1210,7 +1208,7 @@ body.blogpost .featured-image1{border:0 solid red;max-height:70vh !important;max
 
 
 
-  .ReactModalPortal {margin:0; width:100; z-index: 10; position:absolute; top:0;}
+  /* .ReactModalPortal {margin:0; width:100; z-index: 10; position:absolute; top:0;}
   
   .ReactModal__Overlay{background-color:transparent !important;   background: rgba(0,0,0,0.90); backdrop-filter: blur(22px);}
   
@@ -1219,7 +1217,7 @@ body.blogpost .featured-image1{border:0 solid red;max-height:70vh !important;max
   
 .ReactModal__Content {background:var(--theme-ui-colors-siteBackground) !important; opacity:.9; }
 
-.ReactModal__Content {inset:0 !important; width:100vw !important; margin-top: 60px; padding-top:0 !important; }
+.ReactModal__Content {inset:0 !important; width:100vw !important; margin-top: 60px; padding-top:0 !important; } */
 
   /* body.install .ReactModalPortal {border:20px blue !important;} */
 
@@ -1303,8 +1301,8 @@ body{z-index: 0; background:var(--theme-ui-colors-siteBackground)}
 
 /* body.scroll {overflow:hidden !important;} */
 /* body.scroll  {overflow-x:hidden !important; } */
-body.scroll #___gatsby{overflow-y:hidden !important;}
-body.scroll footer{position:sticky !important;}
+/* body.scroll #___gatsby{overflow-y:hidden !important;}
+body.scroll footer{position:sticky !important;} */
 /* body.homepage:after{content: (''); background-color:inherit; height: 100vh; width:100%; background-size: cover; position:fixed; top:0; left:0; z-index:-1; } */
 
 body.homepage{min-height: 100vh;}
@@ -2496,17 +2494,17 @@ body.blogpost .featured-image1{border:0 solid red;max-height:70vh !important;max
 
 
 
-.ReactModalPortal .header, .ReactModalPortal footer, .ReactModalPortal div.toppad, .ReactModalPortal .fluff, .ReactModalPortal .audio, .ReactModalPortal .intro:before, .ReactModalPortal .intro:after, .ReactModalPortal .back, .ReactModalPortal .usability, .ReactModalPortal .backimage, .ReactModalPortal .upbar{
+.ReactModalPortal .header, .ReactModalPortal div.toppad, .ReactModalPortal .fluff, .ReactModalPortal .audio, .ReactModalPortal .intro:before, .ReactModalPortal .intro:after, .ReactModalPortal .back, .ReactModalPortal .usability, .ReactModalPortal .backimage{
   display: none !important;
   }
 
-body :has(.ReactModalPortal) {overflow-x:hidden !important; overflow-y:hidden !important;}
+/* body :has(.ReactModalPortal) {overflow-x:hidden !important; overflow-y:hidden !important;} */
   
   .ReactModalPortal {margin:0; width:100; z-index: 10; position:absolute; top:0;}
   
   .ReactModal__Overlay{background-color:transparent !important;   background: rgba(0,0,0,0.90); backdrop-filter: blur(22px);}
   
-  .ReactModal__Content{padding:0 !important; background:transparent !important; margin:0 auto ; overflow: auto !important; border:none !important; box-shadow: 2px 1px 10px 10px rgba(0, 0, 0, 0.5); box-shadow: none !important; border:0px solid !important;}
+  .ReactModal__Content{padding:0 !important; background:transparent !important; margin:0 auto ; overflow: auto !important; box-shadow: none !important; border:0px solid !important;}
   
   
 .ReactModal__Content {background:var(--theme-ui-colors-siteBackground) !important; opacity:.9; }
