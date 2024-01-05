@@ -126,28 +126,6 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFo
 
 
 
-useEffect(() => {
-  const body = document.body;
-
-  // Check if the modal is open and add/remove the no-scroll class accordingly
-  const handleModalState = () => {
-    const modalCloser = document.getElementById('modalCloser');
-    if (modalCloser && modalCloser.style.display !== 'none') {
-      body.classList.add('scroll');
-    } else {
-      body.classList.remove('scroll');
-    }
-  };
-
-  // Add event listener for changes in modal state
-  window.addEventListener('modalStateChange', handleModalState);
-
-  // Cleanup: remove event listener when component unmounts
-  return () => {
-    window.removeEventListener('modalStateChange', handleModalState);
-  };
-}, []);
-
 
   return (
 <>
@@ -444,12 +422,12 @@ useEffect(() => {
 
 
 
-</main>
-{image ? (
+      </main>
+      {image ? (
 <img className="backimage" src={image} alt="Default Background" style={{height:'100vh', width:'100vw', position:'fixed', zIndex:'-2', top:'0', objectFit:'cover',}} width="10" height="10" />
 ) : (
   ""
-)}  
+)}
       </>
 
     
