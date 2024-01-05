@@ -14,7 +14,7 @@ const BlogPosts = () => {
   query {
     allMarkdownRemark(
       sort: [{frontmatter: {spotlight: ASC}}, {frontmatter: {date: DESC}}]
-      filter: {frontmatter: {template: {eq: "blog-post"}}}
+      filter: { frontmatter: { template: { eq: "blog-post" }, draft: { ne: true } } }
       limit: 3
     ) {
       edges {
@@ -36,6 +36,7 @@ const BlogPosts = () => {
             tags
             slug
             spotlight
+            draft
           }
         }
       }
