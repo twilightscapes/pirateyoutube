@@ -404,16 +404,9 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFo
 
 
 
-<main style={{}}>
+
 {children}
 
-      
-
-
- 
-
-
-</main>
       
 {/* show footer */}
 {showfooter ? (

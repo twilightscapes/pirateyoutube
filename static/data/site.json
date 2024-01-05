@@ -1,7 +1,7 @@
 {
   "meta": {
     "iconimage": "",
-    "showModals": true,
+    "showModals": false,
     "showContact": true,
     "showArchive": true,
     "showSearch": true,
