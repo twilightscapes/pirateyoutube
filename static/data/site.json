@@ -1,7 +1,7 @@
 {
   "meta": {
     "iconimage": "",
-    "showModals": false,
+    "showModals": true,
     "showContact": true,
     "showArchive": true,
     "showSearch": true,
@@ -59,7 +59,8 @@
       "dicPlayMultimedia": "Play Multimedia",
       "dicClickToView": "Click To View",
       "dicSignUpButton": "Sign Up",
-      "dicSignUpText": "Sign Up - Enter your email"
+      "dicSignUpText": "Sign Up - Enter your email",
+      "dicClose": "Close"
     }
   }
 }

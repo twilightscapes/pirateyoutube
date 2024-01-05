@@ -12,7 +12,7 @@ import { RiArrowUpFill } from "react-icons/ri"
 import GoBack from "../components/goBack"
 import { ModalRoutingContext } from 'gatsby-plugin-modal-routing-4'
 import Menu from "../components/menu"
-import { BiLeftArrow } from "react-icons/bi"
+// import { BiLeftArrow } from "react-icons/bi"
 import defaultColors from "../../static/data/default-colors.json";
 import userStyles from "../../static/data/userStyles.json"
 // import MenuSocial from "../components/menu-social"
@@ -157,7 +157,10 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFo
   {modal ? (
     <div id="modalCloser" style={{display:'', position:'fixed', top:'60px', right:'5px', padding:'0px', fontSize:'', opacity:'1 !important', zIndex:'22',}}>
     <Link state={{noScroll: true }} to={closeTo} style={{fontSize:'',  textDecoration:'none', lineHeight:'', display:'flex', flexDirection:'column', color:'#fff', cursor:'pointer'}}>
-    <button className="button" style={{ display: 'flex', justifyContent: 'center', padding:'0 .5vw' }}> <span className="icon -left" style={{ paddingRight: '' }}><BiLeftArrow /></span> {" "}{dicGoBack}</button>
+    <button className="button" style={{ display: 'flex', justifyContent: 'center', padding:'0 .5vw' }}>
+      {/* <span className="icon -left" style={{ paddingRight: '' }}><BiLeftArrow /></span> {" "} */}
+    {dicGoBack}
+    </button>
     </Link>
     </div>
   ) : (
