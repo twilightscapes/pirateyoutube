@@ -410,7 +410,7 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFo
  
 
 
-
+</main>
       
 {/* show footer */}
 {showfooter ? (
@@ -422,7 +422,7 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFo
 
 
 
-      </main>
+      
       {image ? (
 <img className="backimage" src={image} alt="Default Background" style={{height:'100vh', width:'100vw', position:'fixed', zIndex:'-2', top:'0', objectFit:'cover',}} width="10" height="10" />
 ) : (
