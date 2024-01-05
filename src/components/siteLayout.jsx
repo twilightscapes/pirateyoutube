@@ -52,7 +52,7 @@ import Footer from "../components/footer"
 
 
     const { language } = useSiteMetadata();
-    const { dicSearch, dicGoBack } = language;
+    const { dicSearch, dicClose } = language;
 
 const { companyname } = useSiteMetadata()
 const { iconimage } = useSiteMetadata()
@@ -159,7 +159,7 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFo
     <Link state={{noScroll: true }} to={closeTo} style={{fontSize:'',  textDecoration:'none', lineHeight:'', display:'flex', flexDirection:'column', color:'#fff', cursor:'pointer'}}>
     <button className="button" style={{ display: 'flex', justifyContent: 'center', padding:'0 .5vw' }}>
       {/* <span className="icon -left" style={{ paddingRight: '' }}><BiLeftArrow /></span> {" "} */}
-    {dicGoBack}
+    {dicClose}
     </button>
     </Link>
     </div>
@@ -173,7 +173,7 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFo
 <div
         className={`upbar button ${showBackToTop ? 'visible' : ''}`}
         style={{
-          position:'fixed', bottom:'20px', zIndex:'4', left:'', right:'1vw', display:'flex', justifyContent:'center', width:'auto', maxWidth:'80vw', margin:'0 auto', gap:'5vw', padding:'0', border:'1px solid var(--theme-ui-colors-borderColor)', borderRadius:'', textShadow:'0 1px 1px rgba(0, 0, 0, .7)', fontSize:'', verticalAlign:'center',
+          position:'fixed', bottom:'20px', zIndex:'4', left:'', right:'1vw', display:'flex', justifyContent:'center', width:'auto', maxWidth:'80vw', margin:'0 auto', gap:'5vw', padding:'0', borderRadius:'', textShadow:'0 1px 1px rgba(0, 0, 0, .7)', fontSize:'', verticalAlign:'center',
           transform: showBackToTop ? 'translateY(0)' : 'translateY(200%)',
         }}
       >
