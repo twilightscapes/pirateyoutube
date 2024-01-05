@@ -504,6 +504,10 @@ collections:
                     label: "Sign Up - Enter your email"
                     widget: "string"
                     required: false
+                  - name: "dicClose"
+                    label: "X Close"
+                    widget: "string"
+                    required: false
 
 
               - name: "magicOptions"
