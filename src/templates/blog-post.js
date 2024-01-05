@@ -1675,7 +1675,13 @@ export default Post
 
 
 export const pageQuery = graphql`
-  query BlogPostQueryBlogPostQuery($id: String!) {
+  fragment isDraft on MarkdownRemark {
+    frontmatter {
+      draft
+    }
+  }
+
+  query BlogPostQuery($id: String!) {
     site {
       siteMetadata {
         title
@@ -1688,6 +1694,7 @@ export const pageQuery = graphql`
       }
     }
     markdownRemark(id: { eq: $id }) {
+      ...isDraft
       id
       html
       excerpt(pruneLength: 148)
@@ -1754,5 +1761,20 @@ export const pageQuery = graphql`
         }
       }
     }
+    allMarkdownRemark(
+      sort: { order: ASC, fields: [frontmatter___date] }
+      filter: { frontmatter: { template: { eq: "blog-post" }, draft: { ne: true } } }
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            slug
+            date(formatString: "MMMM DD, YYYY")
+          }
+        }
+      }
+    }
   }
-`
+`;

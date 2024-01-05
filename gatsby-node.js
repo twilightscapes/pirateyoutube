@@ -18,6 +18,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
               title
               category
               tags
+              draft
+              spotlight
             }
           }
         }
