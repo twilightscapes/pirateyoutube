@@ -921,9 +921,9 @@ ul li{display:inline-block}
 
   .ReactModal__Content {width:100vw !important; }
   
-  .ReactModal__Content{margin-top:130px !important;}
+  .ReactModal__Content{margin-top:0 !important;}
 
-#modalCloser {top:120px !important;}
+#modalCloser {top:125px !important;}
 
 body.contactpage .ReactModal__Content{padding-top:10vh !important;}
 
@@ -943,11 +943,13 @@ body.contactpage .ReactModal__Content{padding-top:10vh !important;}
 
   .flexcheek{width:100% !important; position:inherit; top:inherit;}
 
-  body .spacer{height:135px !important;}
-  body.tagpage .spacer, body.category .spacer, body.search .spacer{
+  body .spacer{height:65px !important;}
+
+  body:has(.tagpage, .category, .searchpage) .spacer{
     display:block;
     height:220px !important;
   }
+
   
 .horizontal-scroll {margin-top:8vh !important;}
   /* body.blogpost  {padding-top:8vh !important;} */
@@ -1224,12 +1226,9 @@ body:has(.ReactModal__Content) {overflow-x:hidden !important; overflow-y:hidden 
   
   .ReactModal__Overlay{background-color:transparent !important;   background: rgba(0,0,0,0.90); backdrop-filter: blur(22px);}
   
-  .ReactModal__Content{padding:0 !important; background:transparent !important; margin:0 auto ; overflow: auto !important; box-shadow: none !important; border:0px solid !important;}
+  .ReactModal__Content{padding:0 !important; background:var(--theme-ui-colors-siteBackground) !important; margin:0 auto ; overflow: auto !important; box-shadow: none !important; border:0px solid !important; opacity:.9; inset:0 !important; width:100vw !important; padding-top:0 !important;}
   
   
-.ReactModal__Content {background:var(--theme-ui-colors-siteBackground) !important; opacity:.9; }
-
-.ReactModal__Content {inset:0 !important; width:100vw !important; margin-top: 60px; padding-top:0 !important; }
 
   /* body.install .ReactModalPortal {border:20px blue !important;} */
 
