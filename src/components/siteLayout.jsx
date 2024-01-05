@@ -173,7 +173,7 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFo
 <div
         className={`upbar button ${showBackToTop ? 'visible' : ''}`}
         style={{
-          position:'fixed', bottom:'20px', zIndex:'4', left:'', right:'1vw', display:'flex', justifyContent:'center', width:'auto', maxWidth:'80vw', margin:'0 auto', gap:'5vw', padding:'0', borderRadius:'', textShadow:'0 1px 1px rgba(0, 0, 0, .7)', fontSize:'', verticalAlign:'center',
+          position:'fixed', bottom:'20px', zIndex:'4', left:'', right:'1vw', display:'flex', justifyContent:'center', width:'auto', maxWidth:'80vw', margin:'0 auto', gap:'5vw', padding:'0',border:'none', borderRadius:'', textShadow:'0 1px 1px rgba(0, 0, 0, .7)', fontSize:'', verticalAlign:'center',
           transform: showBackToTop ? 'translateY(0)' : 'translateY(200%)',
         }}
       >
@@ -184,9 +184,9 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFo
               document.getElementById('top').scrollIntoView({ behavior: 'smooth' });
             }}
             aria-label="Link to Top"
-            style={{cursor: 'pointer', height: '', fontSize: ''}}
+            style={{cursor: 'pointer', height: '', fontSize: '', border:'none', outline:'none'}}
           >
-        <div className="uparrow" style={{display:'flex', flexDirection:'column', gap:'0', padding:'1vh 1vw', alignItems:'center', textAlign:'center'}}>
+        <div className="uparrow" style={{display:'flex', flexDirection:'column', gap:'0', padding:'', alignItems:'center', textAlign:'center'}}>
           
             <RiArrowUpFill className="" style={{cursor: 'pointer', color: 'var(--theme-ui-colors-siteColorText)', fontSize: '3rem'}} />
         </div>

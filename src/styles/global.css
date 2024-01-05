@@ -819,6 +819,9 @@ body.blogpost #menu li .fullscreenButt{display:flex}
   border-radius: var(--theme-ui-colors-borderRadius) !important;
 }
 
+
+.ReactModal__Content .inline{position:relative !important;}
+
 .react-player__preview{border-radius: var(--theme-ui-colors-borderRadius) !important;}
 
 
@@ -988,7 +991,8 @@ body.contactpage .ReactModal__Content{padding-top:10vh !important;}
   }
 
 
-  
+
+
   /* .grid-container {margin:0 auto 0 auto ; padding-top:16vh; } */
   /* body.homepage .grid-container {margin-top:0 ; padding-top:14vh !important;} */
 
@@ -1002,8 +1006,9 @@ body.contactpage .ReactModal__Content{padding-top:10vh !important;}
     min-width: 280px;
   }
   .horizontal-scroll .inline{
-    min-width: 90vw;
-    min-height: 70vh;
+    min-width: 80vw;
+    min-height: 60vh;
+    max-height:70vh;
   }
 
 
@@ -1046,6 +1051,8 @@ body.contactpage .ReactModal__Content{padding-top:10vh !important;}
     align-items: center;
     /* opacity: .9; */
   }
+
+
 
 .selectArrow{
     max-width:380px;
@@ -1092,8 +1099,8 @@ iframe.virtualtour{
 }
 @media(max-width:48rem) {
 
-.grid-container {margin:0 auto 0 auto ; margin-top:0; }
-body.homepage .grid-container {margin-top:0; padding-top:14vh !important;}
+/* .grid-container {margin:0 auto 0 auto ; margin-top:0; } */
+.grid-container {margin-top:0; padding-top:16vh !important;}
 
 
 .horizontal-scroll{margin:16vh auto 0 auto !important;}
@@ -1204,13 +1211,16 @@ body.blogpost .featured-image1{border:0 solid red;max-height:70vh !important;max
 
 
 
-.ReactModalPortal .header, .ReactModalPortal div.toppad, .ReactModalPortal .fluff, .ReactModalPortal .audio, .ReactModalPortal .intro:before, .ReactModalPortal .intro:after, .ReactModalPortal .back, .ReactModalPortal .usability, .ReactModalPortal .backimage, .ReactModalPortal .upbar{
+/* .ReactModalPortal .header, .ReactModalPortal div.toppad, .ReactModalPortal .fluff, .ReactModalPortal .audio, .ReactModalPortal .intro:before, .ReactModalPortal .intro:after, .ReactModalPortal .back, .ReactModalPortal .usability, .ReactModalPortal .backimage, .ReactModalPortal .upbar{
   display: none !important;
-  }
+  } */
 
-body :has(.ReactModalPortal) {overflow-x:hidden !important; overflow-y:hidden !important;}
+  body:has(.ReactModal__Content) .upbar{display: none !important;}
+  body:has(.ReactModal__Content) .magicisland{display: none !important;}
+
+body:has(.ReactModal__Content) {overflow-x:hidden !important; overflow-y:hidden !important;}
   
-  .ReactModalPortal {margin:0; width:100; z-index: 10; position:absolute; top:0;}
+  .ReactModalPortal {margin:0; width:100; z-index: 1; position:absolute; top:0;}
   
   .ReactModal__Overlay{background-color:transparent !important;   background: rgba(0,0,0,0.90); backdrop-filter: blur(22px);}
   
