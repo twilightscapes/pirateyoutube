@@ -240,8 +240,8 @@ const [playingIndex, setPlayingIndex] = useState(null);
 export const query = graphql`
   query {
     allMarkdownRemark(
-      filter: {frontmatter: {template: {eq: "blog-post"}}}
-      sort: {frontmatter: {date: ASC}}
+      filter: { frontmatter: { template: { eq: "blog-post" }, draft: { ne: true } } }
+      sort: { frontmatter: { date: ASC } }
     ) {
       edges {
         node {
@@ -268,7 +268,7 @@ export const query = graphql`
           }
         }
       }
-      group(field: {frontmatter: {tags: SELECT}}) {
+      group(field: { frontmatter: { tags: SELECT } }) {
         fieldValue
       }
     }
@@ -276,3 +276,5 @@ export const query = graphql`
 `;
 
 export default TagIndex;
+
+

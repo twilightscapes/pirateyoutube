@@ -198,7 +198,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
               </div>
 
 
-        ))
+        
 </>
 
               </div>
@@ -212,7 +212,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
 
 export const query = graphql`
   query pageUserstoddlambertSitesbasesrctemplatescategoryJs4001253895($category: String!) {
-    allMarkdownRemark(sort: {frontmatter: {date: DESC}}) {
+    allMarkdownRemark(sort: { frontmatter: { date: DESC } }, filter: { frontmatter: { draft: { ne: true } } }) {
       edges {
         node {
           frontmatter {
@@ -220,13 +220,13 @@ export const query = graphql`
           }
         }
       }
-      group(field: {frontmatter: {category: SELECT}}) {
+      group(field: { frontmatter: { category: SELECT } }) {
         fieldValue
       }
     }
     posts: allMarkdownRemark(
-      filter: {frontmatter: {category: {eq: $category}}}
-      sort: {frontmatter: {date: DESC}}
+      filter: { frontmatter: { category: { eq: $category }, draft: { ne: true } } }
+      sort: { frontmatter: { date: DESC } }
     ) {
       edges {
         node {
@@ -252,3 +252,6 @@ export const query = graphql`
 `;
 
 export default Category;
+
+
+

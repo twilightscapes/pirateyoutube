@@ -435,7 +435,7 @@ export const pageQuery = graphql`
   query ($id: String!, $homecount: Int) {
     allMarkdownRemark(
       sort: [{ frontmatter: { spotlight: ASC } }, { frontmatter: { date: DESC } }]
-      filter: { frontmatter: { template: { eq: "blog-post" } } }
+      filter: { frontmatter: { template: { eq: "blog-post" }, draft: { ne: true } } }
       limit: $homecount
     ) {
       edges {
@@ -458,12 +458,13 @@ export const pageQuery = graphql`
                   quality: 80
                   layout: CONSTRAINED
                   formats: [AUTO, WEBP, AVIF]
-                  )
+                )
               }
             }
             category
             tags
             slug
+            draft 
           }
         }
       }
@@ -487,5 +488,6 @@ export const pageQuery = graphql`
     }
   }
 `;
+
 
 export default HomePage;

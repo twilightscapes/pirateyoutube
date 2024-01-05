@@ -181,7 +181,7 @@ export const query = graphql`
   query($skip: Int!, $limit: Int!) {
     allMarkdownRemark(
       sort: { frontmatter: { date: DESC } }
-      filter: { frontmatter: { template: { eq: "blog-post" } } }
+      filter: { frontmatter: { template: { eq: "blog-post" }, draft: { ne: true } } }
       skip: $skip
       limit: $limit
     ) {

@@ -1,6 +1,6 @@
 ---
 template: blog-post
-title: This fucker
+title: This fucker shouldn't show
 slug: /fuck
 date: 2023-10-01 09:00
 description: Experience the thrill of PIRATE
@@ -31,6 +31,7 @@ spotlight: true
 tags:
  - test
 category:
+ - test
 bumpertext: ""
 mediawarnings:
  viewerwarning: Viewer Discretion Strongly Advised
@@ -47,6 +48,7 @@ audiotitle: Oh Yeah? but you this...
 audioend: "5000"
 audiostart: "20"
 liarliar: true
+draft: true
 ---
 
 Todd Lambert is a photographer and web developer based in the United States. He has been active in the industry for several years and has gained a reputation for his creative and technically proficient work. Lambert's photography work often focuses on landscapes and nature, and he has been published in a variety of magazines and websites.

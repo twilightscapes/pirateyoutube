@@ -419,7 +419,7 @@ export const pageQuery = graphql`
   query ($postcount: Int) {
     allMarkdownRemark(
       sort: [{ frontmatter: { spotlight: ASC } }, { frontmatter: { date: DESC } }]
-      filter: { frontmatter: { template: { eq: "blog-post" } } }
+      filter: { frontmatter: { template: { eq: "blog-post" }, draft: { ne: true } } }
       limit: $postcount
     ) {
       edges {
@@ -441,6 +441,7 @@ export const pageQuery = graphql`
             category
             tags
             slug
+            draft
           }
         }
       }

@@ -84,6 +84,11 @@ collections:
 
 
       - { label: "SEO Description", name: "description", widget: "text" }
+
+
+      - { label: "Make Post Hidden", name: "draft", widget: "boolean", required: false, hint: "This hides the post from search, and filtering across the site. The post is still visible to google and anyone who know the location", }
+
+
       - { label: "Category", name: "category", widget: "list", collapsed: true, default: "Default", required: false, add_to_top: true, field: {label: Category, name: name, widget: string, add_to_top: true,}}
 
 
