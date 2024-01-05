@@ -1,54 +1,54 @@
 ---
+draft: true
+audiotitle: Oh Yeah? but you this...
 template: blog-post
-title: This fucker shouldn't show
+youtube:
+  youtubersuggestion3: null
+  showVidOnly: true
+  youtuber2: https://youtu.be/CWf5FYSK7Yc
+  youtubeloop: true
+  customcontrols: true
+  youtuber: https://youtu.be/9nl00N6I5Ak
+  youtubeautostart: false
+  youtubeshoworiginal: null
+  clicktoplay: false
+  youtubeend: null
+  youtubecontrols: false
+  youtubemute: true
+  youtubersuggestion1: null
+  youtubersuggestion2: null
+  youtubestart: null
+audioend: "5000"
 slug: /fuck
+audiostart: "20"
+title: This fucker shouldn't show
 date: 2023-10-01 09:00
 description: Experience the thrill of PIRATE
-youtube:
- youtuber: https://youtu.be/9nl00N6I5Ak
- youtuber2: https://youtu.be/CWf5FYSK7Yc
- youtubeshoworiginal: null
- youtubersuggestion1: null
- youtubersuggestion2: null
- youtubersuggestion3: null
- youtubestart: null
- youtubeend: null
- youtubemute: true
- youtubecontrols: false
- youtubeautostart: false
- youtubeloop: true
- clicktoplay: false
- customcontrols: true
- showVidOnly: true
-comments: false
-shareable: true
-underlayImage: 
-featuredImage: /assets/pirate-propaganda.webp
-svgImage: 
-showZoom: false
-showPageNav: true
-spotlight: true
-tags:
- - test
 category:
- - test
+  - test
+shareable: true
+showZoom: false
+spotlight: true
+featuredImage: /assets/pirate-propaganda.webp
+underlayImage: null
 bumpertext: ""
+comments: false
+showPageNav: true
+tags:
+  - test
 mediawarnings:
- viewerwarning: Viewer Discretion Strongly Advised
- marate: ASS
- marating1: DA
- marating2: BS
- marating3: ss
- marating4: ss
- maratingtx1: Dumb Ass
- maratingtx2: Total BS
- maratingtx3: sss
- maratingtx4: ss
-audiotitle: Oh Yeah? but you this...
-audioend: "5000"
-audiostart: "20"
+  marating1: DA
+  marating2: BS
+  marating3: ss
+  marating4: ss
+  viewerwarning: Viewer Discretion Strongly Advised
+  marate: ASS
+  maratingtx1: Dumb Ass
+  maratingtx2: Total BS
+  maratingtx3: sss
+  maratingtx4: ss
+svgImage: null
 liarliar: true
-draft: true
 ---
 
 Todd Lambert is a photographer and web developer based in the United States. He has been active in the industry for several years and has gained a reputation for his creative and technically proficient work. Lambert's photography work often focuses on landscapes and nature, and he has been published in a variety of magazines and websites.
