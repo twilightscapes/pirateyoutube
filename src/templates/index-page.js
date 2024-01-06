@@ -374,19 +374,25 @@ const [playingIndex, setPlayingIndex] = useState(null);
 
               <div className="post-content" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%', height: '', position: 'relative', background: '', padding: '', margin: '0 auto 0 auto', textAlign: 'center', overFlow: 'hidden' }}>
 
+{showTitles ? (
+  <>
                 <div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', alignContent:'center', margin: '10px auto', maxWidth: '', gap: '.4vw', maxHeight: '74px', textAlign: 'left', padding: '10px 5%', fontSize: 'clamp(.7rem,.8vh,12px)', outline:'0px solid #444', overFlow:'hidden', lineHeight:'2.4vh', borderRadius:'var(--theme-ui-colors-borderRadius)', background: showTitles ? 'var(--theme-ui-colors-headerColor)' : 'transparent', }}>
-                  {showTitles ? (
+                  
                     <h2 className="title1" style={{width:'100%', }}>{node.frontmatter.title}</h2>
-                  ) : (
-                    ""
-                  )}
+            
 
                   {showDates ? (
                     <p style={{ position: '', textAlign: 'center', border: '0px solid red', fontSize: '', padding:'0', margin:'0 0 0 20px', maxWidth: '60px', lineHeight:'100%' }}>
                       <TimeAgo date={node.frontmatter.date} />
                     </p>
                   ) : ("")}
+
+
                 </div>
+                </>
+) : (
+  ""
+)}
               </div>
 
           </div>
