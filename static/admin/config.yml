@@ -485,6 +485,30 @@ collections:
                     label: "X Close"
                     widget: "string"
                     required: false
+                  - name: "dicName"
+                    label: "Your Name"
+                    widget: "string"
+                    required: false
+                  - name: "dicEmail"
+                    label: "your@email.com"
+                    widget: "string"
+                    required: false
+                  - name: "dicMessage"
+                    label: "Your Message"
+                    widget: "string"
+                    required: false
+                  - name: "dicSubmit"
+                    label: "Send Message"
+                    widget: "string"
+                    required: false
+                  - name: "dicPhone"
+                    label: "Your Phone Number"
+                    widget: "string"
+                    required: false
+                  - name: "dicConfirmation"
+                    label: "Message Received"
+                    widget: "string"
+                    required: false
 
 
               - name: "magicOptions"
@@ -688,7 +712,7 @@ collections:
         fields:
           - label: "Override Site Styles"
             name: "userStyles"
-            widget: "markdown"
+            widget: "text"
             hint: "Additional CSS can be written here, overwriting the site's default styles."
 
       - label: "Default Theme"

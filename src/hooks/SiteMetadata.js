@@ -65,6 +65,12 @@ const useSiteMetadata = () => {
             dicSignUpText
             dicSignUpButton
             dicClose
+            dicName
+            dicEmail
+            dicMessage
+            dicSubmit
+            dicPhone
+            dicConfirmation
           }
         }
       }

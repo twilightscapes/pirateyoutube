@@ -4,6 +4,7 @@ import { useState } from "react";
 import { graphql } from "gatsby";
 import Seo from "../components/seo";
 import Layout from "../components/siteLayout";
+import useSiteMetadata from "../hooks/SiteMetadata"
 // import useSiteMetadata from "../hooks/SiteMetadata";
 import { Helmet } from "react-helmet";
 
@@ -33,6 +34,10 @@ export const pageQuery = graphql`
 
 const Contact = ({ data }) => {
   // const { showNav } = useSiteMetadata();
+
+  const { language } = useSiteMetadata();
+  const { dicName, dicEmail, dicMessage, dicSubmit, dicPhone, dicConfirmation } = language;
+
   const { markdownRemark, site } = data;
   const { frontmatter, html } = markdownRemark;
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -106,7 +111,7 @@ const handleSubmit = e => {
 
         <div
           className="wrapper flexbutt"
-          style={{ padding: "0 10%", maxWidth: "", margin: "0 auto", display: "flex", flexDirection: "", justifyContent: "center" }}
+          style={{ padding: "0 10% 10vh 10%", maxWidth: "", margin: "0 auto", display: "flex", flexDirection: "", justifyContent: "center" }}
         >
 
 
@@ -142,7 +147,7 @@ const handleSubmit = e => {
 
   {submitted ? (
     <div className="thank-you-message" style={{fontSize:'200%', height:'60vh', textAlign:'center'}}>
-      Thank you - we'll be in touch!
+      {dicConfirmation}
     </div>
   ) : (
     <>
@@ -151,21 +156,21 @@ const handleSubmit = e => {
       {frontmatter.contactname && (
     <p>
       <label htmlFor="name" aria-label="Your Name">
-        <input type="text" id="name" name="name" placeholder="Your name" required />
+        <input type="text" id="name" name="name" placeholder={dicName} required />
       </label>
     </p>
   )}
 
       <p>
         <label htmlFor="email" aria-label="Your Email">
-          <input id="email" type="email" name="email" placeholder="your@email.com" required />
+          <input id="email" type="email" name="email" placeholder={dicEmail} required />
         </label>
       </p>
 
       {frontmatter.contactphone && (
     <p>
       <label htmlFor="phone" aria-label="Your Phone">
-        <input type="tel" id="phone" name="phone" placeholder="Your phone number" />
+        <input type="tel" id="phone" name="phone" placeholder={dicPhone} />
       </label>
     </p>
   )}
@@ -173,7 +178,7 @@ const handleSubmit = e => {
 
       <p>
         <label htmlFor="message" aria-label="Your Message">
-          <textarea id="message" name="message" placeholder="Your Bio" required></textarea>
+          <textarea id="message" name="message" placeholder={dicMessage} required></textarea>
         </label>
       </p>
 
@@ -198,7 +203,7 @@ const handleSubmit = e => {
             disabled={isSubmitting}
             style={{width:'90%',}}
           >
-            {isSubmitting ? "Submitting..." : "Continue › › ›"}
+            {isSubmitting ? "Submitting..." : dicSubmit}
           </button>
 
 
