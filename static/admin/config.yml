@@ -375,6 +375,29 @@ collections:
                 label: Hide Pirate Branding
                 required: false
 
+              - name: "navOptions"
+                label: "Navigation Options"
+                widget: "object"
+                collapsed: true
+                fields:
+
+                  - widget: boolean
+                    name: showNav 
+                    label: Show Top Nav
+                    required: false
+                    default: true
+
+                  - widget: boolean
+                    name: showNav2 
+                    label: Show Side Nav
+                    required: false
+                  
+                  - widget: boolean
+                    name: showFooterMenu 
+                    label: Show Footer Menu
+                    required: false
+
+
               - name: "language"
                 label: "UI Language"
                 widget: "object"
@@ -567,15 +590,7 @@ collections:
                 hint: "Max #50"
 
 
-              - widget: boolean
-                name: showNav 
-                label: Show Top Nav
-                required: false
 
-              - widget: boolean
-                name: showNav2 
-                label: Show Side Nav
-                required: false
                 
 
               - widget: boolean
