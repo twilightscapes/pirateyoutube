@@ -4,7 +4,8 @@ import Menu from "../../static/data/menu.json";
 import useSiteMetadata from "../hooks/SiteMetadata";
 
 export function MenuInc() {
-  const { showModals } = useSiteMetadata();
+  const { proOptions } = useSiteMetadata();
+  const { showModals } = proOptions
 
   const newMenu = Menu.menuItems.map((menu) => (
     <Link
