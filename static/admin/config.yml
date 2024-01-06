@@ -64,14 +64,6 @@ collections:
         }
 
 
-      - { label: "Title", name: "title", widget: "string", tagname: "h1", hint: "Page Title (seo)" }
-      - {
-          label: "Slug or URL or Location (seo)",
-          name: "slug",
-          widget: "string",
-          hint: "Start slug with /. Use only alphanumeric characters, - and _. AVOID SPACES",
-          default: "/",
-        }
       - {
           label: "Publish Date",
           name: "date",
@@ -81,6 +73,15 @@ collections:
           format: "YYYY-MM-DD HH:mm",
         }
 
+      - {
+          label: "Slug or URL or Location (seo)",
+          name: "slug",
+          widget: "string",
+          hint: "Start slug with /. Use only alphanumeric characters, - and _. AVOID SPACES",
+          default: "/",
+        }
+
+      - { label: "Title", name: "title", widget: "string", tagname: "h1", hint: "Page Title (seo)" }
 
 
       - { label: "Page Description", name: "description", widget: "string", hint: "Short description of the page. This is the description text in search engine results (seo)" }
