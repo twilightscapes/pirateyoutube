@@ -51,39 +51,22 @@ import Footer from "../components/footer"
     }, []);
 
 
-    const { language, navOptions } = useSiteMetadata();
+    const { language, navOptions, featureOptions } = useSiteMetadata();
     const { dicSearch, dicClose } = language;
 
     const { showNav, showNav2 } = navOptions
+
+
+    const { showfooter, showSwipe, showModals, showSearch   } = featureOptions
 
 const { companyname } = useSiteMetadata()
 const { iconimage } = useSiteMetadata()
 
 const { image } = useSiteMetadata()
 
-const { showModals } = useSiteMetadata()
 
 
-// const { showInfo } = useSiteMetadata()
-// const { showFeature } = useSiteMetadata()
-// const { showPosts } = useSiteMetadata()
-const { showSearch } = useSiteMetadata()
 
-
-// const { showfooter } = useSiteMetadata()
-// const { showPopup } = useSiteMetadata()
-// const { font1 } = useSiteMetadata()
-// const { userStyles } = useSiteMetadata()
-const { showfooter } = useSiteMetadata()
-const { showSwipe } = useSiteMetadata()
-
-// function truncateText(text, maxLength) {
-//   if (text.length > maxLength) {
-//     return text.substring(0, maxLength) + '';
-//   } else {
-//     return text;
-//   }
-// }
 
 useEffect(() => {
   sessionStorage.setItem("currentScrollPos", window.pageYOffset)

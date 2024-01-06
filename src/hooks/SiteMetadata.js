@@ -14,27 +14,29 @@ const useSiteMetadata = () => {
           twitterUsername
           iconimage
           companyname
-          showfooter
+          postcount
+          homecount
+          featureOptions{
+            showfooter
+            showDates
+            showSearch
+            showSwipe
+            showArchive
+            showTitles
+            showConsent
+            showSocial
+            showBranding
+            showLegal
+            showModals
+            showContact
+            showPopup
+            ShowDisclaimer
+          }
           navOptions{
             showFooterMenu
             showNav
             showNav2
           }
-          showDates
-          showSearch
-          showSwipe
-          postcount
-          homecount
-          showArchive
-          showTitles
-          showConsent
-          showSocial
-          showBranding
-          showLegal
-          showModals
-          showContact
-          showPopup
-          ShowDisclaimer
           magicOptions {
             showMagic
             showMagicCat

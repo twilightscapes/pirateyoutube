@@ -350,30 +350,30 @@ collections:
                 name: companyname
                 label: Company Name or Site Name
                 required: true
-              - widget: boolean
-                name: showfooter
-                label: Show the Footer
-                required: false
-              - widget: boolean
-                name: showContact
-                label: Show Contact in Footer
-                required: false
-              - widget: boolean
-                name: showConsent
-                label: Show Cookie Consent Banner
-                required: false
-              - widget: boolean
-                name: showLegal
-                label: Show Legal Pages (note the pages are still there just not visible)
-                required: false
-              - widget: boolean
-                name: showModals
-                label: Show Posts in Modal Window
-                required: false
-              - widget: boolean
-                name: showBranding
-                label: Hide Pirate Branding
-                required: false
+              - widget: "number"
+                label: "Number of posts on HOME PAGE"
+                name: "homecount"
+                default: 5
+                value_type: "int"
+                min: 1
+                max: 51
+                step: 2
+                hint: "Max #50"
+              - widget: "number"
+                label: "Number of posts on other pages"
+                name: "postcount"
+                default: 18
+                value_type: "int"
+                min: 1
+                max: 51
+                step: 2
+                hint: "Max #50"
+
+
+
+
+
+
 
               - name: "navOptions"
                 label: "Navigation Options"
@@ -568,30 +568,36 @@ collections:
                     required: false
                     default: true
 
-              - widget: "number"
-                label: "Number of posts on HOME PAGE"
-                name: "homecount"
-                default: 5
-                value_type: "int"
-                min: 1
-                max: 51
-                step: 2
-                hint: "Max #50"
 
-
-              - widget: "number"
-                label: "Number of posts on other pages"
-                name: "postcount"
-                default: 18
-                value_type: "int"
-                min: 1
-                max: 51
-                step: 2
-                hint: "Max #50"
-
-
-
-                
+              - name: "featureOptions"
+                label: "Site Features"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - widget: boolean
+                    name: showfooter
+                    label: Show the Footer
+                    required: false
+                  - widget: boolean
+                    name: showContact
+                    label: Show Contact in Footer
+                    required: false
+                  - widget: boolean
+                    name: showConsent
+                    label: Show Cookie Consent Banner
+                    required: false
+                  - widget: boolean
+                    name: showLegal
+                    label: Show Legal Pages (note the pages are still there just not visible)
+                    required: false
+                  - widget: boolean
+                    name: showModals
+                    label: Show Posts in Modal Window
+                    required: false
+                  - widget: boolean
+                    name: showBranding
+                    label: Hide Pirate Branding
+                    required: false
 
               - widget: boolean
                 name: showTitles
@@ -627,6 +633,8 @@ collections:
                 name: showPopup 
                 label: Show Sign Up Form In Posts
                 required: false
+
+              
 
 
 

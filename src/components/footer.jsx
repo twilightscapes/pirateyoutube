@@ -176,24 +176,20 @@ export default function Footer() {
 
 
 
-  const { language, navOptions } = useSiteMetadata();
+  const { language, navOptions, featureOptions } = useSiteMetadata();
 
   const { showFooterMenu } = navOptions
+  
+  const { showfooter, showSwipe, showModals, showSearch, showConsent, showSocial, showBranding, showLegal, showContact   } = featureOptions
 
   const { dicSocial, dicDisclaimer, dicPrivacy, dicTerms, dicCopyright, dicContact, dicPirate, dicSiteReport, dicSearch } = language;
 
 
   const { iconimage } = useSiteMetadata()
-  const { showSearch } = useSiteMetadata()
-  const { showModals } = useSiteMetadata()
-  const { showSwipe } = useSiteMetadata()
+
+
   const { companyname } = useSiteMetadata()
-  const { showfooter } = useSiteMetadata()
-  const { showConsent } = useSiteMetadata()
-  const { showSocial } = useSiteMetadata();
-  const { showBranding } = useSiteMetadata();
-  const { showLegal } = useSiteMetadata();
-  const { showContact } = useSiteMetadata();
+
   
 
 
