@@ -142,6 +142,10 @@ collections:
               { label: "YouTube Controls", name: "youtubecontrols", widget: "boolean", default: false, required: false },
               { label: "YouTube Use Custom Controls", name: "customcontrols", widget: "boolean", default: false, required: false },
               { label: "YouTube Click To Play", name: "clicktoplay", widget: "boolean", default: false, required: false }
+
+              { label: "Place content inside Video Frame", name: "contentinvideo", widget: "boolean", default: "false", hint: "For Devs to place the content of the post directly into video frame area, allowing for custom layout and features - By doing so, this replaces the normally visible content on your page - BEWARE", required: false }
+              
+              { label: "Fact Checked NO Mark", name: "liarliar", widget: "boolean", default: "false", hint: "Shows Red X mark next to 2nd Video", required: false }
             ]
           }
 
@@ -171,11 +175,9 @@ collections:
       - { label: "Page Level Navigation", name: "showPageNav", widget: "boolean", default: true, required: false }
       - { label: "Spotlight on Homepage", name: "spotlight", widget: "boolean", required: false, hint: "This weights this post to always show on the top of page results" }
 
-      - { label: "Turn Page Scroll On", name: "scrollable", widget: "boolean", default: "false", hint: "Allows post to be scrolled vertically", required: false  }
+      # - { label: "Turn Page Scroll On", name: "scrollable", widget: "boolean", default: "false", hint: "Allows post to be scrolled vertically", required: false  }
 
-      - { label: "Place content inside Video Frame", name: "contentinvideo", widget: "boolean", default: "false", hint: "For Devs to place the content of the post directly into video frame area, allowing for custom layout and features - By doing so, this replaces the normally visible content on your page - BEWARE", required: false }
 
-      - { label: "Fact Checked NO Mark", name: "liarliar", widget: "boolean", default: "false", hint: "Shows Red X mark next to 2nd Video", required: false }
 
       - {
           label: "Body Content",
