@@ -650,7 +650,7 @@ a[aria-current]{box-shadow:none;text-decoration:none}
 
 a.cornerlogo, .footerlinks a, #sidebarMenu a {border-bottom: 0px solid transparent ;}
 
-body.homepage .pleaseshare{display:none; color:#f707a7;}
+body.homepage .pleaseshare{display:none}
 
 
 #openSidebarMenu{display:none}
@@ -1240,7 +1240,7 @@ body:has(.ReactModal__Content) {overflow-x:hidden !important; overflow-y:hidden 
   
   .ReactModal__Overlay{background-color:transparent !important;   background: rgba(0,0,0,0.90); backdrop-filter: blur(22px);}
   
-  .ReactModal__Content{padding:0 !important; background:var(--theme-ui-colors-siteBackground) !important; margin:0 auto ; overflow: auto !important; box-shadow: none !important; border:0px solid !important; inset:0 !important; width:100vw !important; padding-top:0 !important;}
+  .ReactModal__Content{padding:0 !important; background:var(--theme-ui-colors-siteBackground) !important; margin:0 auto ; overflow: auto !important; box-shadow: none !important; border:0px solid !important; opacity:.99; inset:0 !important; width:100vw !important; padding-top:0 !important;}
   
   
 
