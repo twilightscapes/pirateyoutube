@@ -64,12 +64,12 @@ collections:
         }
 
 
-      - { label: "Title", name: "title", widget: "string", tagname: "h1" }
+      - { label: "Title", name: "title", widget: "string", tagname: "h1", hint: "Page Title (seo)" }
       - {
-          label: "Slug",
+          label: "Slug or URL or Location (seo)",
           name: "slug",
           widget: "string",
-          hint: "Start slug with /. Use only alphanumeric characters, - and _. Avoid spaces in any cases.",
+          hint: "Start slug with /. Use only alphanumeric characters, - and _. AVOID SPACES",
           default: "/",
         }
       - {
@@ -83,12 +83,12 @@ collections:
 
 
 
-      - { label: "SEO Description", name: "description", widget: "string" }
+      - { label: "Page Description", name: "description", widget: "string", hint: "Short description of the page. This is the description text in search engine results (seo)" }
 
 
-      - { label: "Category", name: "category", widget: "list", collapsed: true, default: "Default", required: false, add_to_top: true, field: {label: Category, name: name, widget: string, add_to_top: true,}}
+      - { label: "Category", name: "category", widget: "list", collapsed: true, default: "Default", required: false, add_to_top: true, field: {label: Category, name: name, widget: string, add_to_top: true,}, hint: "Create categories to segment a group of posts"}
 
-      - { label: "Tags", name: "tags", widget: "list", collapsed: true, default: "tagged", required: false, add_to_top: true, field: {label: Tag, name: name, widget: string, add_to_top: true, collapsed: true,}}
+      - { label: "Tags", name: "tags", widget: "list", collapsed: true, default: "tagged", required: false, add_to_top: true, field: {label: Tag, name: name, widget: string, add_to_top: true, collapsed: true,}, hint: "Create tags to segment a group of posts"}
 
 
       - {
@@ -163,16 +163,16 @@ collections:
             ]
           }
 
-      - { label: "Make Post Hidden", name: "draft", widget: "boolean", required: false, hint: "This hides the post from search, and filtering across the site. The post is still visible to google and anyone who know the location", }
+      - { label: "Post is Hidden", name: "draft", widget: "boolean", required: false, hint: "This hides the post from search, and filtering across the site. The post is still visible to google and anyone who know the location", }
 
-      - { label: "Make Post Shareable?", name: "shareable", widget: "boolean", default: false, required: false }
-      - { label: "Make Feature Image Zoom", name: "showZoom", widget: "boolean", default: false, required: false }
-      - { label: "Turn on Page Level Nav", name: "showPageNav", widget: "boolean", default: true, required: false }
-      - { label: "Spotlight on Homepage", name: "spotlight", widget: "boolean", required: false }
+      - { label: "Share Buttons", name: "shareable", widget: "boolean", default: false, required: false }
+      - { label: "Header Image Zoom", name: "showZoom", widget: "boolean", default: false, required: false }
+      - { label: "Page Level Navigation", name: "showPageNav", widget: "boolean", default: true, required: false }
+      - { label: "Spotlight on Homepage", name: "spotlight", widget: "boolean", required: false, hint: "This weights this post to always show on the top of page results" }
 
 
       - {
-          label: "Body",
+          label: "Body Content",
           name: "body",
           widget: "markdown",
           required: false,
