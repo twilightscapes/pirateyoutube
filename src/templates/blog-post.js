@@ -398,7 +398,7 @@ const OriginalUrl = frontmatter.youtube.youtuber
           url={iframeUrl3}
           width="100%"
           height=""
-          style={{margin:'0 auto', position:'relatuve', top:'', left:'', right:'', zIndex:'3', maxWidth:'80vw', display:'flex', justifyContent:'center', border:'0px solid blue'}}
+          style={{margin:'0 auto', position:'relatuve', top:'', left:'', right:'', zIndex:'3', maxWidth:'80vw', display:'flex', justifyContent:'center', border:'0px solid blue', margin:'10px auto 20px auto'}}
           config={{
             
             youtube: {
@@ -410,9 +410,9 @@ const OriginalUrl = frontmatter.youtube.youtuber
           playing
           playsinline
           playIcon={
-            <button aria-label="Click To Play" className="clickplays" style={{position:'relative', zIndex:'4', top:'', border:'0px  solid red', width:'100vw', height:'0', background:'transparent', color:'', fontSize:'18px', textAlign:'center', display:'flex', flexDirection:'column', verticalAlign:'center', justifyContent:'center', alignItems:'center', paddingTop:'0', borderRadius:'12px'}}>
+            <button aria-label="Click To Play" className="clickplays" style={{position:'relative', zIndex:'3', top:'20px', border:'0px  solid red', width:'100vw', height:'0', background:'transparent', color:'', fontSize:'18px', textAlign:'center', display:'flex', flexDirection:'column', verticalAlign:'center', justifyContent:'center', alignItems:'center', paddingTop:'0', borderRadius:'12px'}}>
           
-        <div className="audiopopper" style={{position:'absolute', top:'-100px', right:'', zIndex:'5', textAlign:'center', animation:'fadeIn 3s', display:'flex', justifyContent:'center', width:'auto', marginBottom:''}}>
+        <div className="audiopopper" style={{position:'absolute', top:'', right:'', zIndex:'5', textAlign:'center', animation:'fadeIn 3s', display:'flex', justifyContent:'center', width:'auto', marginBottom:''}}>
           
       
           {/* <div className="" style={{fontSize:'14px', fontWeight:'', padding:'0 0 0 .3rem',}}>Click For Audio</div> */}
@@ -1732,6 +1732,9 @@ query BlogPostQuery($id: String!) {
         youtubeautostart
         liarliar
         contentinvideo
+        audiostart
+        audioend
+        audiotitle
       }
       mediawarnings {
         viewerwarning
@@ -1745,9 +1748,6 @@ query BlogPostQuery($id: String!) {
         maratingtx3
         maratingtx4
       }
-      audiostart
-      audioend
-      audiotitle
       comments
       shareable
       bumpertext

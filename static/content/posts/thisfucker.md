@@ -1,6 +1,5 @@
 ---
-draft: true
-audiotitle: Oh Yeah? but you this...
+draft:
 template: blog-post
 youtube:
   youtubersuggestion3: null
@@ -20,9 +19,10 @@ youtube:
   youtubestart: null
   liarliar: true
   contentinside: true
-audioend: "5000"
+  audiostart: "20"
+  audioend: "5000"
+  audiotitle: Oh Yeah? but you said this...
 slug: /fuck
-audiostart: "20"
 title: This fucker shouldn't show
 date: 2023-10-01 09:00
 description: Experience the thrill of PIRATE
