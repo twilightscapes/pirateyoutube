@@ -15,7 +15,7 @@
     "navOptions": {
       "showNav": true,
       "showNav2": true,
-      "showFooterMenu": "true"
+      "showFooterMenu": true
     },
     "featureOptions": {
       "showArchive": true,
