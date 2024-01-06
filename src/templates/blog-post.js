@@ -398,7 +398,7 @@ const OriginalUrl = frontmatter.youtube.youtuber
           url={iframeUrl3}
           width="100%"
           height=""
-          style={{margin:'0 auto', position:'relatuve', top:'', left:'', right:'', zIndex:'3', maxWidth:'80vw', display:'flex', justifyContent:'center', border:'0px solid blue', margin:'10px auto 20px auto'}}
+          style={{position:'relatuve', top:'', left:'', right:'', zIndex:'3', maxWidth:'80vw', display:'flex', justifyContent:'center', border:'0px solid blue', margin:'10px auto 20px auto'}}
           config={{
             
             youtube: {
