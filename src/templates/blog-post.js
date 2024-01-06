@@ -100,8 +100,8 @@ const Post = ({ data, pageContext }) => {
         )}
   
         <div className="specialfont" style={{fontSize:'clamp(1rem, 1vw, 1rem)', marginTop:'', fontWeight:'bold', border:'0px solid', display:'grid', color:'#999', placeItems:'center', justifyContent:'center', margin:'0 auto'}}>
-          <Link title="Go Home" state={showModals ? { modal: true } : {}} to="/" style={{padding:'0 1rem', textAlign:'center', display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', width:'40px',}}>
-          GO TO<br />
+          <Link title="Go Home" state={showModals ? { modal: true } : {}} to="/" style={{padding:'', textAlign:'center', display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', width:'80px',}}>
+          <div style={{}}>GO TO</div>
           <FaHome style={{fontSize:'25px'}} /></Link>
         </div>
   
