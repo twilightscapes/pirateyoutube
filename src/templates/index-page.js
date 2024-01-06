@@ -146,8 +146,8 @@ const [playingIndex, setPlayingIndex] = useState(null);
                         background: 'var(--theme-ui-colors-siteColor)',
                         color: 'var(--theme-ui-colors-siteColorText)',
                         borderRadius: 'var(--theme-ui-colors-borderRadius)',
-                        minWidth: '80px',
-                        maxWidth: '30%',
+                        minWidth: '100px',
+                        maxWidth: '20%',
                         overflow: 'hidden',
                         height: '',
                         lineHeight: '100%',
@@ -178,7 +178,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
           background: 'var(--theme-ui-colors-siteColor)',
           color: 'var(--theme-ui-colors-siteColorText)',
           borderRadius: 'var(--theme-ui-colors-borderRadius)',
-          minWidth: '80px',
+          minWidth: '100px',
           maxWidth: '30%',
           overflow: 'hidden',
           height: '',
@@ -204,7 +204,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
 
               {showMagicSearch ? (
                 <>
-                  <label style={{ maxWidth: '' }}>
+                
                     <input
                       id="clearme"
                       type="text"
@@ -219,12 +219,12 @@ const [playingIndex, setPlayingIndex] = useState(null);
                         height: '',
                         lineHeight: '100%',
                         padding: '6px 6px',
-                        minWidth: '80px',
+                        minWidth: '100px',
                         maxWidth: '80%',
                       }}
                       aria-label="Search"
                     />
-                  </label>
+                  
                 </>
               ) : (
                 ""
