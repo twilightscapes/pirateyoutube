@@ -1730,6 +1730,8 @@ query BlogPostQuery($id: String!) {
         customcontrols
         clicktoplay
         youtubeautostart
+        liarliar
+        contentinvideo
       }
       mediawarnings {
         viewerwarning
@@ -1746,8 +1748,6 @@ query BlogPostQuery($id: String!) {
       audiostart
       audioend
       audiotitle
-      liarliar
-      contentinvideo
       comments
       shareable
       bumpertext
