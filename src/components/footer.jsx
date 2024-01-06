@@ -225,7 +225,7 @@ export default function Footer() {
   <div style={{position:'absolute', left:'10px', top:'22px', cursor:'pointer'}}><BlueCheck /></div>
 
 
-<Link to="/" className="cornerlogo" name="homereturn" style={{position:'', display:'flex', marginLeft:'25px', alignItems:'center', justifyContent:'center', maxWidth:'', height:'60px', border:'0px solid transparent'}}  aria-label="Link to Top" title="Back to Top">
+<Link state={showModals ? { modal: true } : {}} to="/" className="cornerlogo" name="homereturn" style={{position:'', display:'flex', marginLeft:'25px', alignItems:'center', justifyContent:'center', maxWidth:'', height:'60px', border:'0px solid transparent'}}  aria-label="Link to Top" title="Back to Top">
 {iconimage ? (
 <img className="cornerlogo" style={{position:'relative', top:'', left:'4%', border:'0px solid white', padding:'0', maxHeight:'60px'}} src={iconimage} alt={companyname} width="111" height="60" />
 ) : (

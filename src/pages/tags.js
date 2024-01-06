@@ -229,7 +229,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
   <button className="button load-more" onClick={showMoreItems}>
     Load more
   </button>
-  <Link to="/archive" style={{background:'rgba(0, 0, 0, 0.8)', borderRadius:'5px', color:'#fff', display:'flex', padding:'0 1vh',  margin:'0 auto'}}>View Archive &nbsp;<MdArrowForwardIos style={{marginTop:'4px'}} /></Link>
+  <Link state={showModals ? { modal: true } : {}} to="/archive" style={{background:'rgba(0, 0, 0, 0.8)', borderRadius:'5px', color:'#fff', display:'flex', padding:'0 1vh',  margin:'0 auto'}}>View Archive &nbsp;<MdArrowForwardIos style={{marginTop:'4px'}} /></Link>
 </div>
 )}
 

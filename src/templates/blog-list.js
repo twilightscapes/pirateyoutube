@@ -161,7 +161,7 @@ const BlogList = ({ data, pageContext }) => {
             const page = startPage + i;
             const path = page === 1 ? '/archive' : `/archive/${page}`;
             return (
-              <Link key={`pagination-link-${page}`} to={path} activeClassName="active" style={{ padding: '4px 20px' }}>
+              <Link  state={showModals ? { modal: true } : {}} key={`pagination-link-${page}`} to={path} activeClassName="active" style={{ padding: '4px 20px' }}>
                 {page}
               </Link>
             );

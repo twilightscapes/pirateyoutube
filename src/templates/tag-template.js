@@ -13,7 +13,10 @@ import TimeAgo from 'react-timeago'
 const Tag = ({ data, pageContext }) => {
   const { tag } = pageContext;
   const posts = data.allMarkdownRemark.edges;
-  const { showDates } = useSiteMetadata()
+
+  const { featureOptions, proOptions } = useSiteMetadata()
+  const { showDates } = featureOptions
+  const { showModals  } = proOptions
 
 
   const [selectedTag, setSelectedTag] = useState(tag);
@@ -69,7 +72,7 @@ const Tag = ({ data, pageContext }) => {
             <div className='post-card1' style={{ justifyContent: 'center', alignItems: 'center' }} key={node.id}>
               {/* Render featured image thumbnail if it exists */}
         
-              <Link className="postlink" to={node.frontmatter.slug}>
+              <Link state={showModals ? { modal: true } : {}} className="postlink" to={node.frontmatter.slug}>
 
 {node.frontmatter.featuredImage ? (
     <GatsbyImage

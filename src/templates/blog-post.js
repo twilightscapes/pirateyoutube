@@ -87,7 +87,7 @@ const Post = ({ data, pageContext }) => {
   
       {props.next && props.next.frontmatter.template === "blog-post" && (
           <li style={{display:'flex', justifyContent:'space-between', width:'50%'}}>
-  <Link to={props.next.frontmatter.slug + "/"} state={showModals ? { modal: true } : {}}  rel="next">
+  <Link  state={showModals ? { modal: true } : {}} to={props.next.frontmatter.slug + "/"}  rel="next">
   <button className="" style={{display:'flex', justifyContent:'', }}>
   <span className="page-title">
     {props.next.frontmatter.title}
@@ -1338,7 +1338,7 @@ zindex:'1'
   
           <div style={{ position: 'relative', zindex: '2', margin: '1vh auto', width: '100%', display: 'flex', justifyContent: 'center', gap: '1vw' }}>xx
             {frontmatter.tags.map((tag) => (
-              <Link to={`/tag/${tag}`} key={tag}>{tag}</Link>
+              <Link state={showModals ? { modal: true } : {}} to={`/tag/${tag}`} key={tag}>{tag}</Link>
             ))}
           </div>
         </>
@@ -1367,7 +1367,7 @@ zindex:'1'
   
           <div style={{ position: 'relative', zindex: '2', margin: '1vh auto', width: '100%', display: 'flex', justifyContent: 'center', gap: '1vw' }}>
             {frontmatter.tags.map((tag) => (
-              <Link to={`/tag/${tag}`} key={tag}>{tag}</Link>
+              <Link state={showModals ? { modal: true } : {}} to={`/tag/${tag}`} key={tag}>{tag}</Link>
             ))}
           </div>
         </>
@@ -1440,7 +1440,7 @@ zindex:'1'
   
           <div style={{ position: 'relative', zindex: '', margin: '1vh auto', width: '100%', display: 'flex', justifyContent: 'center', gap: '1vw' }}>
             {frontmatter.tags.map((tag) => (
-              <Link to={`/tag/${tag}`} key={tag}>{tag}</Link>
+              <Link state={showModals ? { modal: true } : {}} to={`/tag/${tag}`} key={tag}>{tag}</Link>
             ))}
           </div>
         </>
@@ -1483,7 +1483,7 @@ zindex:'1'
   
           <div style={{ position: 'relative', zindex: '', margin: '1vh auto', width: '100%', display: 'flex', justifyContent: 'center', gap: '1vw' }}>
             {frontmatter.tags.map((tag) => (
-              <Link to={`/tag/${tag}`} key={tag}>{tag}</Link>
+              <Link state={showModals ? { modal: true } : {}} to={`/tag/${tag}`} key={tag}>{tag}</Link>
             ))}
           </div>
         </>
@@ -1599,7 +1599,7 @@ textShadow:'2px 2px 0 #222', filter:'drop-shadow(0px 0px 5px rgba(155,155,155,1)
 
 <div className="panel fade legal" style={{ textAlign: 'center', padding:'1rem',  justifyContent: 'center', fontSize: '.95rem', textDecoration:'none', maxWidth:'90vw'}}>
             Legal:<br />
-            <Link to="/disclaimer/">Disclaimer</Link>  |  <Link to="/privacy/">Privacy Policy</Link>  |  <Link to="/terms/">Terms of Service</Link>
+            <Link state={showModals ? { modal: true } : {}} to="/disclaimer/">Disclaimer</Link>  |  <Link state={showModals ? { modal: true } : {}} to="/privacy/">Privacy Policy</Link>  |  <Link state={showModals ? { modal: true } : {}} to="/terms/">Terms of Service</Link>
       <br /> <br />
     <div style={{display:'grid', placeContent:'center'}}>
       <p style={{textAlign:'left'}}>
