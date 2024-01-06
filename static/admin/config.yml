@@ -143,9 +143,9 @@ collections:
               { label: "YouTube Use Custom Controls", name: "customcontrols", widget: "boolean", default: false, required: false },
               { label: "YouTube Click To Play", name: "clicktoplay", widget: "boolean", default: false, required: false }
 
-              { label: "Place content inside Video Frame", name: "contentinvideo", widget: "boolean", default: "false", hint: "For Devs to place the content of the post directly into video frame area, allowing for custom layout and features - By doing so, this replaces the normally visible content on your page - BEWARE", required: false }
+              { label: "Place content inside Video Frame", name: "contentinvideo", widget: "boolean", default: false, hint: "For Devs to place the content of the post directly into video frame area, allowing for custom layout and features - By doing so, this replaces the normally visible content on your page - BEWARE", required: false }
               
-              { label: "Fact Checked NO Mark", name: "liarliar", widget: "boolean", default: "false", hint: "Shows Red X mark next to 2nd Video", required: false }
+              { label: "Fact Checked NO Mark", name: "liarliar", widget: "boolean", default: false, hint: "Shows Red X mark next to 2nd Video", required: false }
             ]
           }
 
