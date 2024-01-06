@@ -16,13 +16,15 @@ import SignUp from '../components/newssign'
 
 const HomePage = ({ data }) => {
 
-const { showModals, showDates, homecount, postcount, language, magicOptions, navOptions, showArchive, showTitles, showPopup } = useSiteMetadata();
+  const { postcount, homecount, language, magicOptions, featureOptions, proOptions, navOptions  } = useSiteMetadata();
 
-const { showMagic, showMagicCat, showMagicTag, showMagicSearch } = magicOptions;
-
-const { showNav } = navOptions
-
-const { dicLoadMore, dicViewArchive, dicCategory, dicKeyword, dicSearch, dicClear, dicResults, dicPlayVideo, dicPlayMultimedia} = language;
+  const { showMagic, showMagicCat, showMagicTag, showMagicSearch } = magicOptions;
+  
+  const { showModals, showPopup } = proOptions
+  const { showDates, showArchive, showTitles } = featureOptions
+  const { showNav } = navOptions
+  
+  const { dicLoadMore, dicViewArchive, dicCategory, dicKeyword, dicSearch, dicClear, dicResults, dicPlayVideo, dicPlayMultimedia  } = language;
 
 
 

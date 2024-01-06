@@ -13,7 +13,14 @@ import { MdArrowForwardIos, MdArrowBackIos } from 'react-icons/md';
 import ReactPlayer from 'react-player/lazy';
 const BlogList = ({ data, pageContext }) => {
 
-  const { showModals, postcount, showDates, showNav, showTitles } = useSiteMetadata();
+  const { postcount, featureOptions, proOptions } = useSiteMetadata();
+
+
+
+  const {  showDates, showNav, showTitles } = featureOptions
+
+  const { showModals } = proOptions
+  
   const posts = data.allMarkdownRemark.edges;
   const { numPages, currentPage } = pageContext;
 

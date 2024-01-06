@@ -16,9 +16,11 @@ const Category = ({ data, pageContext }) => {
   const posts = data.posts.edges;
   const categories = data.allMarkdownRemark.group.map((group) => group.fieldValue);
 
-  const { showModals, showDates, language, showNav, showTitles } = useSiteMetadata();
+  const {  language, featureOptions, proOptions  } = useSiteMetadata();
 
+  const { showNav, showTitles, showDates, } = featureOptions
 
+  const { showModals  } = proOptions
 
 const {dicPlayVideo, dicPlayMultimedia} = language;
 

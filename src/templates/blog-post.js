@@ -69,9 +69,14 @@ import TimeAgo from 'react-timeago'
 
 const Post = ({ data, pageContext }) => {
 
-    const { showModals, language } = useSiteMetadata();
+    const { language, proOptions, featureOptions } = useSiteMetadata();
     const { dicClickToView } = language;
+
+    const { showModals, ShowDisclaimer   } = proOptions
+    const { showDates, showTitles } = featureOptions
+
     
+
 
   const Pagination = props => (
 
@@ -466,13 +471,13 @@ const YouTube = frontmatter.youtube.youtuber
   
 
 
-  const { siteUrl, ShowDisclaimer } = useSiteMetadata()
+  const { siteUrl } = useSiteMetadata()
   // const { companyname } = useSiteMetadata()
   // const { iconimage } = useSiteMetadata()
 
 
   // const { showNav } = useSiteMetadata()
-  const { showDates, showTitles } = useSiteMetadata()
+
 
 
 

@@ -8,8 +8,17 @@ import { Helmet } from "react-helmet";
 const CategoryIndex = ({ data, pageContext }) => {
   const { category } = pageContext;
   const categories = data.allMarkdownRemark.group.map((group) => group.fieldValue);
-  const { postcount, showModals, language } = useSiteMetadata();
+
+
+
+
+
+
+  const {  postcount, language, proOptions } = useSiteMetadata()
+
+  const { showModals  } = proOptions
   const { dicCategory } = language;
+
 
   const [visibleItems, setVisibleItems] = useState(postcount);
 

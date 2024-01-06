@@ -13,8 +13,13 @@ import { MdArrowForwardIos } from 'react-icons/md';
 import ReactPlayer from 'react-player/lazy'
 const TagIndex = ({ data }) => {
 
-  const { showDates, postcount, showTitles, showNav, showModals, language } = useSiteMetadata()
+  const {  postcount, language, featureOptions, proOptions } = useSiteMetadata()
+  const { showDates, showTitles, showNav } = featureOptions
+  const { showModals  } = proOptions
   const { dicKeyword, dicPlayVideo, dicPlayMultimedia } = language;
+
+
+  
 
   const [selectedTag, setSelectedTag] = useState(''); // State to keep track of selected tag
   const [visibleItems, setVisibleItems] = useState(postcount); 

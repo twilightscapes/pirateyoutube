@@ -10,16 +10,26 @@ import useSiteMetadata from "../../hooks/SiteMetadata";
 import TimeAgo from 'react-timeago';
 import { MdArrowForwardIos } from 'react-icons/md';
 import Seo from "../../components/seo";
+import SignUp from '../../components/newssign'
 // import { getSrc } from "gatsby-plugin-image";
 import ReactPlayer from 'react-player/lazy';
 
 const SearchPage = ({ data }) => {
-  const { showModals, showDates, postcount, language, magicOptions, showArchive, showTitles, navOptions } = useSiteMetadata();
+  const { postcount, language, magicOptions, featureOptions, proOptions  } = useSiteMetadata();
+
   const { showMagic, showMagicCat, showMagicTag, showMagicSearch } = magicOptions;
+  
+  const { showModals, showPopup } = proOptions
+  const { showDates, showArchive, showTitles, showNav } = featureOptions
+  
+  const { dicLoadMore, dicViewArchive, dicCategory, dicKeyword, dicSearch, dicClear, dicResults} = language;
+  
 
-  const { showNav } = navOptions
 
-const { dicLoadMore, dicViewArchive, dicCategory, dicKeyword, dicSearch, dicClear, dicResults} = language;
+
+
+
+
 
 
   // const { markdownRemark } = data;
@@ -401,17 +411,40 @@ const [playingIndex, setPlayingIndex] = useState(null);
 
 {numVisibleItems < filteredPosts.length && (
           <div className="loadmore" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', placeSelf: 'center', gap: '',  textAlign: 'center', zIndex:'1' }}>
+
             <button className="button font" onClick={showMoreItems} style={{maxWidth:''}}>
               {dicLoadMore}
             </button>
+
             {showArchive ? (
-              <Link state={showModals ? { modal: true } : {}} to="/archive" className="font" style={{ background: 'var(--theme-ui-colors-headerColor)', borderRadius: '', color: 'var(--theme-ui-colors-headerColorText)', display: 'flex', padding: '8px', margin: '0 auto', justifyContent:'center' }}>{dicViewArchive} &nbsp;<MdArrowForwardIos style={{ marginTop: '' }} /></Link>
+              <Link state={showModals ? { modal: true } : {}} to="/archive" className="font" style={{ background: 'var(--theme-ui-colors-headerColor)', borderRadius: 'var(--theme-ui-colors-borderRadius)', color: 'var(--theme-ui-colors-headerColorText)', display: 'flex', padding: '8px', margin: '0 auto', justifyContent:'center' }}>{dicViewArchive} &nbsp;<MdArrowForwardIos style={{ marginTop: '' }} /></Link>
             ) : (
               ""
             )}
+            
+            <br />
+{showPopup ? (
+  <SignUp />
+        ) : (
+          ""
+)}
+
+
+        
           </div>
         )}
+
+
+
+
+
+
+        
       </div>
+
+
+
+
     </Layout>
   );
 };
