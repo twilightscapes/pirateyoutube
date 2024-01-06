@@ -400,11 +400,11 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFo
 )}
 {/* end show footer */}
 
-
+{/* <object className="backimage" id="svg12" data={image} type="image/svg+xml" style={{height:'100vh', width:'100vw', position:'fixed', zIndex:'-2', top:'0', objectFit:'cover', backgroundImage:'url({image})', backgroundSize:'cover', backgroundPosition:'center 60%', backgroundRepeat:'repeat'}}alt="animated content" title="animated content" ></object> */}
 
       
       {image ? (
-<img className="backimage" src={image} alt="Default Background" style={{height:'100vh', width:'100vw', position:'fixed', zIndex:'-2', top:'0', objectFit:'cover',}} width="10" height="10" />
+<img type="image/svg+xml" className="backimage" src={image} alt="Default Background" style={{height:'100vh', width:'100vw', position:'fixed', zIndex:'-2', top:'0', objectFit:'cover',}} width="10" height="10" />
 ) : (
   ""
 )}
