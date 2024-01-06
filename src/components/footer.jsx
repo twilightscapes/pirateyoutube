@@ -176,11 +176,13 @@ export default function Footer() {
 
 
 
-  const { language, navOptions, featureOptions } = useSiteMetadata();
+  const { language, navOptions, featureOptions, proOptions } = useSiteMetadata();
 
   const { showFooterMenu } = navOptions
-  
-  const { showfooter, showSwipe, showModals, showSearch, showConsent, showSocial, showBranding, showLegal, showContact   } = featureOptions
+
+  const { showfooter, showSwipe, showSearch, showSocial  } = featureOptions
+
+  const { showModals, showConsent, showBranding, showLegal, showContact   } = proOptions
 
   const { dicSocial, dicDisclaimer, dicPrivacy, dicTerms, dicCopyright, dicContact, dicPirate, dicSiteReport, dicSearch } = language;
 

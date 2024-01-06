@@ -550,21 +550,18 @@ collections:
                   - name: "showMagicCat"
                     label: "Show Categories?"
                     widget: "boolean"
-                    # if: "showMagic == true"
                     required: false
                     default: true
 
                   - name: "showMagicTag"
                     label: "Show Tags?"
                     widget: "boolean"
-                    # if: "showMagic == true"
                     required: false
                     default: "true"
 
                   - name: "showMagicSearch"
                     label: "Show Search?"
                     widget: "boolean"
-                    # if: "showMagic == true"
                     required: false
                     default: true
 
@@ -579,36 +576,12 @@ collections:
                     label: Show the Footer
                     required: false
                   - widget: boolean
-                    name: showContact
-                    label: Show Contact in Footer
-                    required: false
-                  - widget: boolean
-                    name: showConsent
-                    label: Show Cookie Consent Banner
-                    required: false
-                  - widget: boolean
-                    name: showLegal
-                    label: Show Legal Pages (note the pages are still there just not visible)
-                    required: false
-                  - widget: boolean
-                    name: showModals
-                    label: Show Posts in Modal Window
-                    required: false
-                  - widget: boolean
-                    name: showBranding
-                    label: Hide Pirate Branding
-                    required: false
-                  - widget: boolean
                     name: showTitles
                     label: Show Post Titles
                     required: false
                   - widget: boolean
                     name: showDates
                     label: Show Dates
-                    required: false
-                  - widget: boolean
-                    name: showSocial 
-                    label: Show Social Links
                     required: false
                   - widget: boolean
                     name: showSearch
@@ -619,13 +592,48 @@ collections:
                     label: Show Swipe Icon
                     required: false
                   - widget: boolean
+                    name: showSocial 
+                    label: Show Social Links
+                    required: false
+                  - widget: boolean
                     name: showArchive 
                     label: Show Archive link under "Load More" button
+                    required: false
+                    # PRO BELOW
+              - name: "proOptions"
+                label: "Site Features"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - widget: boolean
+                    name: showModals
+                    label: Show Posts in Modal Window
+                    required: false
+                  - widget: boolean
+                    name: showBranding
+                    label: Hide Pirate Branding
                     required: false
                   - widget: boolean
                     name: showPopup 
                     label: Show Sign Up Form In Posts
                     required: false
+                  - widget: boolean
+                    name: showLegal
+                    label: Show Legal Pages (note the pages are still there just not visible)
+                    required: false
+                  - widget: boolean
+                    name: showContact
+                    label: Show Contact in Footer
+                    required: false
+                  - widget: boolean
+                    name: showConsent
+                    label: Show Cookie Consent Banner
+                    required: false
+
+
+
+
+
 
               
 

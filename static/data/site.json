@@ -18,18 +18,20 @@
       "showFooterMenu": "true"
     },
     "featureOptions": {
-      "showModals": true,
-      "showContact": true,
       "showArchive": true,
       "showSearch": true,
       "showDates": true,
-      "showSocial": true,
-      "showBranding": true,
-      "ShowDisclaimer": false,
       "showTitles": true,
       "showfooter": true,
+      "showSocial": true,
+      "showSwipe": true
+    },
+    "proOptions": {
+      "showModals": true,
+      "showContact": true,
+      "showBranding": true,
+      "ShowDisclaimer": false,
       "showLegal": true,
-      "showSwipe": true,
       "showConsent": true,
       "showPopup": true
     },

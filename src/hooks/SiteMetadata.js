@@ -16,6 +16,8 @@ const useSiteMetadata = () => {
           companyname
           postcount
           homecount
+
+
           featureOptions{
             showfooter
             showDates
@@ -23,8 +25,11 @@ const useSiteMetadata = () => {
             showSwipe
             showArchive
             showTitles
-            showConsent
             showSocial
+          }
+
+          proOptions{
+            showConsent
             showBranding
             showLegal
             showModals
