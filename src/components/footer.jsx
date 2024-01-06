@@ -22,7 +22,7 @@ import {
 } from "react-icons/ri"
 import { FaWordpress, FaVk } from "react-icons/fa"
 import Xlogo from "../img/xcorp-logo.svg"
-
+import Menu from "../components/menu"
 import { Link } from "gatsby"
 // import {
 //   footerStyle,
@@ -30,9 +30,10 @@ import { Link } from "gatsby"
 //   blurb,
 //   // logos,
 // } from "./footer.module.css"
-
-
-
+import BlueCheck from './bluecheck';
+import SearchIcon from "../../src/img/search"
+import Theme from "./theme"
+import Switch from "../components/Switch"
 
 const sIcons = Icons.socialIcons.map((icons, index) => {
 
@@ -177,9 +178,14 @@ export default function Footer() {
 
   const { language } = useSiteMetadata();
 
-  const { dicSocial, dicDisclaimer, dicPrivacy, dicTerms, dicCopyright, dicContact, dicPirate, dicSiteReport } = language;
+  const { dicSocial, dicDisclaimer, dicPrivacy, dicTerms, dicCopyright, dicContact, dicPirate, dicSiteReport, dicSearch } = language;
 
 
+  const { iconimage } = useSiteMetadata()
+  const { showSearch } = useSiteMetadata()
+  const { showModals } = useSiteMetadata()
+  const { showSwipe } = useSiteMetadata()
+  const { showFooterMenu } = useSiteMetadata()
   const { companyname } = useSiteMetadata()
   const { showfooter } = useSiteMetadata()
   const { showConsent } = useSiteMetadata()
@@ -208,6 +214,82 @@ export default function Footer() {
 
 
     
+{showFooterMenu ? (
+  <header>
+  <div id="footermenu" className="menu print panel1 header" style={{position:'relative', width:'100vw', top:'0', zIndex:'', maxHeight:'', overFlow:'', boxShadow:'0 0 0 rgba(0,0,0,.7)', padding:'0 2%', alignItems:'start', borderRadius:'0', display:'flex', justifyContent:'space-around', gap:'10px', color:'var(--theme-ui-colors-headerColorText)',  borderBottom:'0px solid #222',}}>
+
+{/* {loggedIn ? (
+<div style={{position:'absolute', left:'10px', top:'22px', cursor:'pointer'}}><BlueCheck /></div>
+) : (
+  ""
+  )} */}
+  <div style={{position:'absolute', left:'10px', top:'22px', cursor:'pointer'}}><BlueCheck /></div>
+
+
+<Link to="/" className="cornerlogo" name="homereturn" style={{position:'', display:'flex', marginLeft:'25px', alignItems:'center', justifyContent:'center', maxWidth:'', height:'60px', border:'0px solid transparent'}}  aria-label="Link to Top" title="Back to Top">
+{iconimage ? (
+<img className="cornerlogo" style={{position:'relative', top:'', left:'4%', border:'0px solid white', padding:'0', maxHeight:'60px'}} src={iconimage} alt={companyname} width="111" height="60" />
+) : (
+<div style={{fontWeight:'', display:'grid', justifyContent:'center', alignItems:'center', height:'', fontSize:'clamp(.9rem,2vw,1rem)', color:'var(--theme-ui-colors-headerColorText)', maxWidth:'50vw' }}>
+  {/* {truncateText(companyname, 28)} */}
+{companyname}
+</div>
+)}
+</Link>
+
+
+          
+
+
+
+
+
+<ul className="topmenu" style={{ fontSize:'clamp(.6rem, 1.6vw, 1.8rem)',  textAlign:'center',maxHeight:'', display:'flex', justifyContent:'space-between', gap:'4vw',  alignItems:'center', margin:'0 auto 0 auto', padding:'1.5vh 2% 0 2%', border:'0px solid white',}}>
+      
+{/* {loggedIn ? (
+      <MenuSocial />
+                ) : (
+                  <Menu />
+                  
+                )} */}
+                <Menu />
+</ul>
+
+<div id="missioncontrol" className="missioncontrol sitecontrols" style={{display:'flex', justifyContent:'space-around', fontSize:'clamp(.8rem, 2.3vw, 2.5rem)', gap:'3vw', textAlign:'center', maxHeight:'', alignItems:'center', paddingTop:'5px'}}>
+
+{showSearch ? (
+<div className="searchIcon">
+   <Link state={showModals ? { modal: true } : {}} aria-label="Search" to="/search/" style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', marginTop:'0px', textAlign:'center'}}>
+    <SearchIcon style={{height:'30px'}} />
+    <span className="themetext">{dicSearch}</span>
+   </Link>
+        </div>
+      ) : (
+        ""
+      )}
+
+
+  <div>
+      <Theme  style={{}} />
+        </div>
+
+  
+        {showSwipe ? (
+  <Switch />
+      ) : (
+        ""
+      )}
+ 
+
+
+</div>
+
+</div>
+</header>
+) : (
+  ""
+  )}
+
 
 
     {/* <Install /> */}
@@ -216,7 +298,7 @@ export default function Footer() {
     
 
     { showContact ? (
-      <Link id="footercontact" state={{modal: true}} to="/contact/" className="button fire font" style={{margin:'2rem 2rem', textDecoration:'none', padding:'1vh 2rem',}}>{dicContact}</Link>
+      <Link id="footercontact" state={{modal: true}} to="/contact/" className="button fire font" style={{margin:'3rem 2rem', textDecoration:'none', padding:'1vh 2rem',}}>{dicContact}</Link>
       ) : (
         ""
       )}
@@ -224,7 +306,7 @@ export default function Footer() {
 
 
 { showSocial ? (
-  <div className="social-icons" style={{textAlign:'center', justifyContent:'center', display:'flex', alignItems:'center', margin:'3rem 0'}}>
+  <div className="social-icons" style={{textAlign:'center', justifyContent:'center', display:'flex', alignItems:'center', margin:'2rem 0'}}>
        <div className="socialtext" style={{fontSize:'14px',}}>{dicSocial}</div> {sIcons}
         </div>
       ) : (
