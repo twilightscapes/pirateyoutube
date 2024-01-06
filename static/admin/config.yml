@@ -83,41 +83,43 @@ collections:
 
 
 
-      - { label: "SEO Description", name: "description", widget: "text" }
-
-
-      - { label: "Make Post Hidden", name: "draft", widget: "boolean", required: false, hint: "This hides the post from search, and filtering across the site. The post is still visible to google and anyone who know the location", }
+      - { label: "SEO Description", name: "description", widget: "string" }
 
 
       - { label: "Category", name: "category", widget: "list", collapsed: true, default: "Default", required: false, add_to_top: true, field: {label: Category, name: name, widget: string, add_to_top: true,}}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-      - { label: "Make Post Shareable?", name: "shareable", widget: "boolean", default: false, required: false }
-      - { label: "Make Feature Image Zoom", name: "showZoom", widget: "boolean", default: false, required: false }
-      - { label: "Turn on Page Level Nav", name: "showPageNav", widget: "boolean", default: true, required: false }
-      - { label: "Spotlight on Homepage", name: "spotlight", widget: "boolean", required: false }
-
-
-
-
-
-
-
-
-
       - { label: "Page Tags", name: "tags", widget: "list", collapsed: true, default: "tagged", required: false, add_to_top: true, field: {label: Tag, name: name, widget: string, add_to_top: true, collapsed: true,}}
+
+
+      - {
+          label: "Featured Image",
+          name: "featuredImage",
+          widget: "image",
+          hint: "The primary image used for all social media, blog previews and the feature image at the top of the post",
+          required: false,
+          tagname: "",
+          # default: "/assets/transparent.png"
+        }
+      - {
+          label: "Underlay Image",
+          name: "underlayImage",
+          widget: "image",
+          hint: "This is used to put a transparent png over the video but under the animation layer",
+          required: false,
+          tagname: "",
+          # default: "/assets/transparent.png"
+        }
+      - {
+          label: "SVG",
+          name: "svgImage",
+          widget: "image",
+          hint: "This is the animation layer where your animated or static SVG image goes - it is on the top of the stack",
+          required: false,
+          tagname: "",
+          # default: "/assets/null.svg"
+        }
+
+
 
       - {
               label: "YouTube",
@@ -161,38 +163,12 @@ collections:
             ]
           }
 
+      - { label: "Make Post Hidden", name: "draft", widget: "boolean", required: false, hint: "This hides the post from search, and filtering across the site. The post is still visible to google and anyone who know the location", }
 
-
-      
-      - {
-          label: "Featured Image",
-          name: "featuredImage",
-          widget: "image",
-          hint: "The primary image used for all social media, blog previews and the feature image at the top of the post",
-          required: false,
-          tagname: "",
-          # default: "/assets/transparent.png"
-        }
-      - {
-          label: "Underlay Image",
-          name: "underlayImage",
-          widget: "image",
-          hint: "This is used to put a transparent png over the video but under the animation layer",
-          required: false,
-          tagname: "",
-          # default: "/assets/transparent.png"
-        }
-      - {
-          label: "SVG",
-          name: "svgImage",
-          widget: "image",
-          hint: "This is the animation layer where your animated or static SVG image goes - it is on the top of the stack",
-          required: false,
-          tagname: "",
-          # default: "/assets/null.svg"
-        }
-
-
+      - { label: "Make Post Shareable?", name: "shareable", widget: "boolean", default: false, required: false }
+      - { label: "Make Feature Image Zoom", name: "showZoom", widget: "boolean", default: false, required: false }
+      - { label: "Turn on Page Level Nav", name: "showPageNav", widget: "boolean", default: true, required: false }
+      - { label: "Spotlight on Homepage", name: "spotlight", widget: "boolean", required: false }
 
 
       - {
