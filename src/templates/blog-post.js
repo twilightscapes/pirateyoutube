@@ -267,8 +267,8 @@ if (Suggestion1) {
 
 
 
-const ContentinVideo = frontmatter.contentinvideo
-const LiarLiar = frontmatter.liarliar
+const ContentinVideo = frontmatter.youtube.contentinvideo
+const LiarLiar = frontmatter.youtube.liarliar
 
 if (Suggestion1) {
   <ShowSuggestion />

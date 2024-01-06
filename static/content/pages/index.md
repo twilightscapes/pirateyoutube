@@ -17,6 +17,7 @@ youtube:
   youtubersuggestion2: ""
   youtubestart: ""
   showVidOnly: false
+  contentinvideo: false
 audioend: ""
 profText: >-
   <p>PIRATE is a social network with NO central control or ownership. It's based
@@ -69,7 +70,6 @@ coverletter:
   coverText: About PIRATE
   coverLink: /about
 sharethis: false
-contentinvideo: false
 profTitle: Hoist Your Flag!
 tags: 
  - manic
