@@ -1,6 +1,6 @@
 backend:
-  # name: test-repo
-  name: git-gateway
+  name: test-repo
+  # name: git-gateway
   branch: main
   commit_messages:
     create: "Create {{collection}} “{{slug}}”"
@@ -88,7 +88,7 @@ collections:
 
       - { label: "Category", name: "category", widget: "list", collapsed: true, default: "Default", required: false, add_to_top: true, field: {label: Category, name: name, widget: string, add_to_top: true,}}
 
-      - { label: "Page Tags", name: "tags", widget: "list", collapsed: true, default: "tagged", required: false, add_to_top: true, field: {label: Tag, name: name, widget: string, add_to_top: true, collapsed: true,}}
+      - { label: "Tags", name: "tags", widget: "list", collapsed: true, default: "tagged", required: false, add_to_top: true, field: {label: Tag, name: name, widget: string, add_to_top: true, collapsed: true,}}
 
 
       - {
