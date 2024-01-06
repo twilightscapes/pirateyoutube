@@ -9,7 +9,7 @@ import React, { useState, useRef, useEffect, forwardRef } from "react";
 import InnerImageZoom from 'react-inner-image-zoom'
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css'
 
-
+import { FaHome } from "react-icons/fa";
 
 // import Controls from "../components/Controls";
 // import { document } from "browser-monads"
@@ -99,7 +99,11 @@ const Post = ({ data, pageContext }) => {
           </li>
         )}
   
-        <div className="specialfont" style={{fontSize:'clamp(1.5rem, 2vw, 2.8rem)', marginTop:'-5px', width:'10vw', fontWeight:'bold', border:'0px solid', display:'grid', color:'#999', placeContent:'center'}}>GO TO</div>
+        <div className="specialfont" style={{fontSize:'clamp(1rem, 1vw, 1rem)', marginTop:'', fontWeight:'bold', border:'0px solid', display:'grid', color:'#999', placeItems:'center', justifyContent:'center', margin:'0 auto'}}>
+          <Link title="Go Home" state={showModals ? { modal: true } : {}} to="/" style={{padding:'0 1rem', textAlign:'center', display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', width:'40px',}}>
+          GO TO<br />
+          <FaHome style={{fontSize:'25px'}} /></Link>
+        </div>
   
         
   {props.previous && props.previous.frontmatter.template === "blog-post" && (
