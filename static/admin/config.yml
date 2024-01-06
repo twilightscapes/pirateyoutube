@@ -601,7 +601,7 @@ collections:
                     required: false
                     # PRO BELOW
               - name: "proOptions"
-                label: "Site Features"
+                label: "PIRATE Plus Features"
                 widget: "object"
                 collapsed: true
                 fields:
