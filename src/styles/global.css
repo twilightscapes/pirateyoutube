@@ -721,7 +721,7 @@ to{opacity:0;z-index:-3}
 
 .controls{animation:fade1;animation-delay:5s;animation-duration:1s;animation-fill-mode:forwards;background:rgba(0,0,0,.9);border:1px solid #666;border-radius:12px;color:#999;cursor:pointer;display:grid;font-size:1rem;font-weight:700;height:60px;opacity:1;padding:2px;place-content:center;position:relative;width:60px}
 
-.controlsbox{display:flex;gap:20px;justify-content:center;position:absolute;top:0;}
+.controlsbox{display:flex;gap:20px;justify-content:center;position:absolute;top:0; z-index: 1;}
 
 .hudicon{font-size:60px;position:absolute}
 
