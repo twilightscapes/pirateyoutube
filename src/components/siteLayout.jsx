@@ -188,7 +188,7 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFo
           >
         <div className="uparrow" style={{display:'flex', flexDirection:'column', gap:'0', padding:'', alignItems:'center', textAlign:'center'}}>
           
-            <RiArrowUpFill className="" style={{cursor: 'pointer', color: 'var(--theme-ui-colors-siteColorText)', fontSize: '3rem'}} />
+            <RiArrowUpFill className="" style={{cursor: 'pointer', color: 'var(--theme-ui-colors-siteColorText)', fill:'var(--theme-ui-colors-siteColorText)', fontSize: '3rem'}} />
         </div>
         </a>
       </div>

@@ -430,7 +430,7 @@ bottom: 10px !important;
 
 
 
-.uparrow::after{content:" top "; color:#fff; font-size: .7rem;}
+.uparrow::after{content:" top "; color:var(--theme-ui-colors-siteColorText); font-size: .7rem;}
 
 
 
@@ -890,9 +890,17 @@ ul li{display:inline-block}
 .flex-container li strong{aspect-ratio:1/1;border:2px solid;margin-right:1.5vw;padding:.8em;text-align:center}
 .font{font-family:var(--theme-ui-colors-siteFont);}
 .normal{font-family:sans-serif}
-.pagemenu, .upbar{background:var(--theme-ui-colors-headerColor); color:var(--theme-ui-colors-headerColorText); transition:all .8s ease-in-out;}
-.pagemenu svg:hover,.pagemenu:hover{color:var(--theme-ui-colors-headerColorText);fill:var(--theme-ui-colors-headerColorText)}
-.pagemenu,.pagemenu svg{color:var(--theme-ui-colors-headerColorText);fill:var(--theme-ui-colors-headerColorText)}
+
+
+
+.pagemenu svg:hover,.pagemenu:hover{color:var(--theme-ui-colors-headerColorText);fill:var(--theme-ui-colors-siteColorText)}
+.pagemenu,.pagemenu svg{color:var(--theme-ui-colors-headerColorText);fill:var(--theme-ui-colors-siteColorText)}
+
+.pagemenu, .upbar{background:var(--theme-ui-colors-headerColor); color:var(--theme-ui-colors-siteColorText); transition:all .8s ease-in-out;}
+
+.upbar:hover{
+  color:var(--theme-ui-colors-siteColor);
+}
 
 
 .droop{color:rgba(4, 155, 77, 0.9);}
@@ -1218,11 +1226,11 @@ body.blogpost .featured-image1{border:0 solid red;max-height:70vh !important;max
   } */
 
   body:has(.ReactModal__Content) .upbar{display: none !important;}
-  body:has(.ReactModal__Content) .magicisland{display: none !important;}
+  /* body:has(.ReactModal__Content) .magicisland{display: none !important;} */
 
 body:has(.ReactModal__Content) {overflow-x:hidden !important; overflow-y:hidden !important;}
   
-  .ReactModalPortal {margin:0; width:100; z-index: 1; position:absolute; top:0;}
+  .ReactModalPortal {margin:0; width:100; z-index: 2; position:absolute; top:0;}
   
   .ReactModal__Overlay{background-color:transparent !important;   background: rgba(0,0,0,0.90); backdrop-filter: blur(22px);}
   
