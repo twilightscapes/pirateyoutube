@@ -15,9 +15,11 @@ const useSiteMetadata = () => {
           iconimage
           companyname
           showfooter
-          showFooterMenu
-          showNav
-          showNav2
+          navOptions{
+            showFooterMenu
+            showNav
+            showNav2
+          }
           showDates
           showSearch
           showSwipe

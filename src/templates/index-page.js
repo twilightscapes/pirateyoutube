@@ -15,9 +15,12 @@ import ReactPlayer from 'react-player/lazy';
 import SignUp from '../components/newssign'
 
 const HomePage = ({ data }) => {
-  const { showModals, showDates, homecount, postcount, language, magicOptions, showNav, showArchive, showTitles, showPopup } = useSiteMetadata();
-  const { showMagic, showMagicCat, showMagicTag, showMagicSearch } = magicOptions;
 
+const { showModals, showDates, homecount, postcount, language, magicOptions, navOptions, showArchive, showTitles, showPopup } = useSiteMetadata();
+
+const { showMagic, showMagicCat, showMagicTag, showMagicSearch } = magicOptions;
+
+const { showNav } = navOptions
 
 const { dicLoadMore, dicViewArchive, dicCategory, dicKeyword, dicSearch, dicClear, dicResults, dicPlayVideo, dicPlayMultimedia} = language;
 

@@ -3,9 +3,11 @@
     "iconimage": "",
     "showModals": true,
     "showContact": true,
-    "showNav": true,
-    "showNav2": true,
-    "showFooterMenu": "true",
+    "navOptions": {
+      "showNav": true,
+      "showNav2": true,
+      "showFooterMenu": "true"
+    },
     "showArchive": true,
     "showSearch": true,
     "companyname": "Jimmy Crack Horn All Night Long",

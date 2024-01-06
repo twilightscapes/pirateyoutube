@@ -176,7 +176,9 @@ export default function Footer() {
 
 
 
-  const { language } = useSiteMetadata();
+  const { language, navOptions } = useSiteMetadata();
+
+  const { showFooterMenu } = navOptions
 
   const { dicSocial, dicDisclaimer, dicPrivacy, dicTerms, dicCopyright, dicContact, dicPirate, dicSiteReport, dicSearch } = language;
 
@@ -185,7 +187,6 @@ export default function Footer() {
   const { showSearch } = useSiteMetadata()
   const { showModals } = useSiteMetadata()
   const { showSwipe } = useSiteMetadata()
-  const { showFooterMenu } = useSiteMetadata()
   const { companyname } = useSiteMetadata()
   const { showfooter } = useSiteMetadata()
   const { showConsent } = useSiteMetadata()

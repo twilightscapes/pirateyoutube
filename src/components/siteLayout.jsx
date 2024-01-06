@@ -51,8 +51,10 @@ import Footer from "../components/footer"
     }, []);
 
 
-    const { language } = useSiteMetadata();
+    const { language, navOptions } = useSiteMetadata();
     const { dicSearch, dicClose } = language;
+
+    const { showNav, showNav2 } = navOptions
 
 const { companyname } = useSiteMetadata()
 const { iconimage } = useSiteMetadata()
@@ -61,8 +63,7 @@ const { image } = useSiteMetadata()
 
 const { showModals } = useSiteMetadata()
 
-const { showNav } = useSiteMetadata()
-const { showNav2 } = useSiteMetadata()
+
 // const { showInfo } = useSiteMetadata()
 // const { showFeature } = useSiteMetadata()
 // const { showPosts } = useSiteMetadata()

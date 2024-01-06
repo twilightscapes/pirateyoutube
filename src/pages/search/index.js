@@ -14,9 +14,10 @@ import Seo from "../../components/seo";
 import ReactPlayer from 'react-player/lazy';
 
 const SearchPage = ({ data }) => {
-  const { showModals, showDates, postcount, language, magicOptions, showNav, showArchive, showTitles } = useSiteMetadata();
+  const { showModals, showDates, postcount, language, magicOptions, showArchive, showTitles, navOptions } = useSiteMetadata();
   const { showMagic, showMagicCat, showMagicTag, showMagicSearch } = magicOptions;
 
+  const { showNav } = navOptions
 
 const { dicLoadMore, dicViewArchive, dicCategory, dicKeyword, dicSearch, dicClear, dicResults} = language;
 
