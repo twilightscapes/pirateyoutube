@@ -183,10 +183,10 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFo
 <div id="gobacker" style={{position:'fixed', top:'60px', right:'5px', zIndex:'5'}}><GoBack /></div>
 
 
-
+<header className="header" style={{display:'block', height:'51px',}}>
 {showNav ? (
 
-<header className="header" style={{display:'block', height:'51px',}}>
+
 <div id="menu" className="menu print panel1 header" style={{position:'fixed', width:'100vw', top:'0', zIndex:'30', maxHeight:'', overFlow:'', boxShadow:'0 0 0 rgba(0,0,0,.7)', padding:'0 2%', alignItems:'start', borderRadius:'0', display:'flex', justifyContent:'space-around', gap:'10px', color:'var(--theme-ui-colors-headerColorText)',  borderBottom:'0px solid #222',}}>
 
 {/* {loggedIn ? (
@@ -256,12 +256,12 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFo
 </div>
 
             </div>
-            </header>
+            
 
 ) : (
   ""
 )}
-
+</header>
 
 
 
