@@ -924,6 +924,8 @@ ul li{display:inline-block}
     /* height: 100% !important; */
   }
 
+
+
   body.blogpost {padding-top:8vh !important;}
   /* .grid-container .post-card1 iframe{margin-left:-5%;} */
 
@@ -967,7 +969,6 @@ body.contactpage .ReactModal__Content{padding-top:10vh !important;}
   .horizontal-scroll iframe{max-height:200px !important; margin-top:8vh; }
 
 
-
   .topmenu {gap:1vw ; padding:0 ;}
   .topmenu li {margin-top:2vh ;}
 
@@ -976,16 +977,14 @@ body.contactpage .ReactModal__Content{padding-top:10vh !important;}
     color:#ddd;
   }
 
-  .topmenu {gap:1vw ; padding:0 ;}
-  .topmenu li {margin-top:2vh ;
-    padding:0 1vw; border-radius: 10px 12px 0 0;}
-  
 
+    footer .missioncontrol {position: relative !important;}
+    footer header{margin-bottom: 2vh !important;}
+    footer .topmenu {margin-top:4vh !important; width:100vw !important;}
 
+  } 
 
-  }
-
-  
+  /* END 48rem */
 
 
 
