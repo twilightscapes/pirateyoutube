@@ -4,7 +4,7 @@ import { PiHandSwipeRightFill } from "react-icons/pi";
 import useSiteMetadata from "../hooks/SiteMetadata";
 
 function Header() {
-    const [archiveView, setArchiveView] = useState("true");
+    const [archiveView, setArchiveView] = useState("");
     const [showSwipe] = useState(true);
 
     const { language } = useSiteMetadata();

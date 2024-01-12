@@ -35,8 +35,9 @@ export const pageQuery = graphql`
 const Contact = ({ data }) => {
   // const { showNav } = useSiteMetadata();
 
-  const { language } = useSiteMetadata();
+  const { language, proOptions } = useSiteMetadata();
   const { dicName, dicEmail, dicMessage, dicSubmit, dicPhone, dicConfirmation } = language;
+  const { showContact   } = proOptions
 
   const { markdownRemark, site } = data;
   const { frontmatter, html } = markdownRemark;
@@ -107,112 +108,119 @@ const handleSubmit = e => {
   <div style={{ padding: "3vh 6% 0 6%", textAlign:'center' }} dangerouslySetInnerHTML={{ __html: html }} />
 
         
-
-
-        <div
-          className="wrapper flexbutt"
-          style={{ padding: "0 10% 10vh 10%", maxWidth: "", margin: "0 auto", display: "flex", flexDirection: "", justifyContent: "center" }}
-        >
+  { showContact ? (
+      <div
+      className="wrapper flexbutt"
+      style={{ padding: "0 10% 10vh 10%", maxWidth: "", margin: "0 auto", display: "flex", flexDirection: "", justifyContent: "center" }}
+    >
 
 
 {/* <div className="flexcheek" style={{display:'flex', justifyContent:'center', maxWidth:'300px', maxHeight:'40vh', width:'300px', margin:'40px auto 0 auto'}}>
 
 <Map id="contactMap" options={{
-                  center: { lat: 39.92483, lng: -86.10551 },
-                  zoom: 15,
-                }}
+              center: { lat: 39.92483, lng: -86.10551 },
+              zoom: 15,
+            }}
 />
 </div> */}
 
 
 <form
-  className={`contact-form flexcheek1 ${submitted ? "submitted" : ""}`}
-  action="/install2"
-  name="contact"
-  method="POST"
-  data-netlify="true"
-  data-netlify-honeypot="bot-field"
-  encType="multipart/form-data"
-  onSubmit={handleSubmit}
-  style={{
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    opacity: isSubmitting ? 0.5 : 1,
-  }}
+className={`contact-form flexcheek1 ${submitted ? "submitted" : ""}`}
+action="/install2"
+name="contact"
+method="POST"
+data-netlify="true"
+data-netlify-honeypot="bot-field"
+encType="multipart/form-data"
+onSubmit={handleSubmit}
+style={{
+display: "flex",
+flexDirection: "column",
+justifyContent: "center",
+opacity: isSubmitting ? 0.5 : 1,
+}}
 >
 
 
 
 
-  {submitted ? (
-    <div className="thank-you-message" style={{fontSize:'200%', height:'60vh', textAlign:'center'}}>
-      {dicConfirmation}
-    </div>
-  ) : (
-    <>
-      <input type="hidden" name="form-name" value="contact" />
+{submitted ? (
+<div className="thank-you-message" style={{fontSize:'200%', height:'60vh', textAlign:'center'}}>
+  {dicConfirmation}
+</div>
+) : (
+<>
+  <input type="hidden" name="form-name" value="contact" />
 
-      {frontmatter.contactname && (
-    <p>
-      <label htmlFor="name" aria-label="Your Name">
-        <input type="text" id="name" name="name" placeholder={dicName} required />
-      </label>
-    </p>
-  )}
+  {frontmatter.contactname && (
+<p>
+  <label htmlFor="name" aria-label="Your Name">
+    <input type="text" id="name" name="name" placeholder={dicName} required />
+  </label>
+</p>
+)}
 
-      <p>
-        <label htmlFor="email" aria-label="Your Email">
-          <input id="email" type="email" name="email" placeholder={dicEmail} required />
-        </label>
-      </p>
+  <p>
+    <label htmlFor="email" aria-label="Your Email">
+      <input id="email" type="email" name="email" placeholder={dicEmail} required />
+    </label>
+  </p>
 
-      {frontmatter.contactphone && (
-    <p>
-      <label htmlFor="phone" aria-label="Your Phone">
-        <input type="tel" id="phone" name="phone" placeholder={dicPhone} />
-      </label>
-    </p>
-  )}
-
-
-      <p>
-        <label htmlFor="message" aria-label="Your Message">
-          <textarea id="message" name="message" placeholder={dicMessage} required></textarea>
-        </label>
-      </p>
+  {frontmatter.contactphone && (
+<p>
+  <label htmlFor="phone" aria-label="Your Phone">
+    <input type="tel" id="phone" name="phone" placeholder={dicPhone} />
+  </label>
+</p>
+)}
 
 
+  <p>
+    <label htmlFor="message" aria-label="Your Message">
+      <textarea id="message" name="message" placeholder={dicMessage} required></textarea>
+    </label>
+  </p>
 
-      {frontmatter.contactupload && (
-   <label htmlFor="file"  aria-label="Upload your file" style={{padding: '0', color: 'inherit', textShadow:'1px 1px 0 #555', display:'flex', flexDirection:'column', width:'100%', fontSize:'90%', gap:'15px', justifyContent:'center', alignItems:'center'}}>
-    {frontmatter.uploadtext}
-        <input className="file-input hidden" type="file" id="file" name="file" />
-      </label>
-  )}
 
-      <p
-        className="text-align-right1"
-        style={{ margin: "0 auto", color: "#fff" }}
+
+  {frontmatter.contactupload && (
+<label htmlFor="file"  aria-label="Upload your file" style={{padding: '0', color: 'inherit', textShadow:'1px 1px 0 #555', display:'flex', flexDirection:'column', width:'100%', fontSize:'90%', gap:'15px', justifyContent:'center', alignItems:'center'}}>
+{frontmatter.uploadtext}
+    <input className="file-input hidden" type="file" id="file" name="file" />
+  </label>
+)}
+
+  <p
+    className="text-align-right1"
+    style={{ margin: "0 auto", color: "#fff" }}
+  >
+   
+
+    <button
+        className="button specialfont1"
+        type="submit"
+        disabled={isSubmitting}
+        style={{width:'90%',}}
       >
-       
-
-        <button
-            className="button specialfont1"
-            type="submit"
-            disabled={isSubmitting}
-            style={{width:'90%',}}
-          >
-            {isSubmitting ? "Submitting..." : dicSubmit}
-          </button>
+        {isSubmitting ? "Submitting..." : dicSubmit}
+      </button>
 
 
-      </p>
-    </>
-  )}
+  </p>
+</>
+)}
 </form>
 
-        </div>
+    </div>
+      ) : (
+        "Please Upgrade to Plus"
+      )}
+
+  
+
+
+
       </div>
 
 

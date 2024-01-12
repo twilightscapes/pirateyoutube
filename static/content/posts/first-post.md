@@ -1,52 +1,28 @@
 ---
 template: blog-post
-title: This fucker
-slug: /fuck
+title: Test Post 1
+slug: /first-post
 date: 2023-10-01 09:00
 description: Experience the thrill of PIRATE
+featuredImage: /assets/trump-fbi.avif
+showZoom: true
+showPageNav: true
 youtube:
- youtuber: https://youtu.be/9nl00N6I5Ak
- youtuber2: https://youtu.be/CWf5FYSK7Yc
- youtubeshoworiginal: null
- youtubersuggestion1: null
- youtubersuggestion2: null
- youtubersuggestion3: null
- youtubestart: null
- youtubeend: null
- youtubemute: true
+ youtubeshoworiginal: false
+ youtubestart: ""
+ youtubeend: ""
+ youtubemute: false
  youtubecontrols: false
  youtubeautostart: false
- youtubeloop: true
+ youtubeloop: false
  clicktoplay: false
- customcontrols: true
- showVidOnly: true
-comments: false
-shareable: true
-underlayImage: 
-featuredImage: /assets/pirate-propaganda.webp
-svgImage: 
-showZoom: false
-showPageNav: true
-spotlight: true
-tags:
- - test
-category:
-bumpertext: ""
-mediawarnings:
- viewerwarning: Viewer Discretion Strongly Advised
- marate: ASS
- marating1: DA
- marating2: BS
- marating3: ss
- marating4: ss
- maratingtx1: Dumb Ass
- maratingtx2: Total BS
- maratingtx3: sss
- maratingtx4: ss
-audiotitle: Oh Yeah? but you this...
-audioend: "5000"
-audiostart: "20"
-liarliar: true
+ showVidOnly: false
+ customcontrols: false
+ audioend: ""
+ audiotitle: ""
+ audiostart: ""
+
+
 ---
 
 Todd Lambert is a photographer and web developer based in the United States. He has been active in the industry for several years and has gained a reputation for his creative and technically proficient work. Lambert's photography work often focuses on landscapes and nature, and he has been published in a variety of magazines and websites.

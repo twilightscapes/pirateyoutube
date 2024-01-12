@@ -278,7 +278,8 @@ const [playingIndex, setPlayingIndex] = useState(null);
 
 <div key={index} className="post-card1" style={{ alignItems: '', overflow: 'visible', position:'relative' }}>
 
-{node.frontmatter.youtube.showVidOnly ? (
+{(node.frontmatter.youtube?.showVidOnly && node.frontmatter.youtube.showVidOnly) ? (
+
 <div style={{minWidth:'300px', minHeight: index === playingIndex ? '200px' : '200px', background: index === playingIndex ? 'rgba(0, 0, 0, 0.5)' : 'transparent', zindex:'1'}}>
                 <ReactPlayer
                 playing={index === playingIndex}
@@ -355,7 +356,8 @@ const [playingIndex, setPlayingIndex] = useState(null);
                     />
                   )}
 
-{node.frontmatter.youtube.youtuber ? (
+
+{(node.frontmatter.youtube?.youtuber && node.frontmatter.youtube.youtuber) ? (
                       <div className="spotlight font" style={{border:'0px solid'}}>
                         <div className="posticons" style={{ flexDirection: 'column', margin: '0 auto' }}>
                           <div style={{ display: 'flex', justifyContent: 'space-around', gap: '2vw', color: 'fff', }}>

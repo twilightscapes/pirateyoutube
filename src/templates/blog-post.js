@@ -222,13 +222,14 @@ const Post = ({ data, pageContext }) => {
 //   )
 // }
 
+const ShowOriginal = frontmatter.youtube ? frontmatter.youtube.youtubeshoworiginal : false;
 
 // const IsNft = frontmatter.isnftforsale
-const ShowOriginal = frontmatter.youtube.youtubeshoworiginal
+// const ShowOriginal = frontmatter.youtube.youtubeshoworiginal
 const ShareThis = frontmatter.shareable
 // const Comments = frontmatter.comments
 
-const YouTubeStart = frontmatter.youtube.youtubestart
+const YouTubeStart = frontmatter.youtube.youtubestart ? frontmatter.youtube.youtubestart : null;
 const YouTubeEnd = frontmatter.youtube.youtubeend
 const YouTubeMute = frontmatter.youtube.youtubemute
 const YouTubeControls = frontmatter.youtube.youtubecontrols
@@ -1090,7 +1091,8 @@ const YouTube = frontmatter.youtube.youtuber
    
                 {/* <img className="homepage-bg" src={iconimage} width="250px" height="150px" alt="UrbanFetish" style={{ width:'', margin:'120px auto 0 auto', filter:'drop-shadow(2px 2px 2px #000)', background:'transparent !important', position:'relative', top:''}} /> */}
 
-                {frontmatter.mediawarnings.marate ? (
+                {frontmatter.mediawarnings?.marate ? (
+                // {frontmatter.mediawarnings.marate ? (
 <>
 
 <div className="flex-items" style={{fontSize:'clamp(.6rem, 1.4vw, 2rem)', fontWeight:'bold', margin:'0 auto 0 auto', textTransform:'uppercase',}}>The following is rated: <strong>{frontmatter.mediawarnings.marate}</strong></div>
@@ -1492,7 +1494,7 @@ zindex:'1'
       </header>
               )}
 
-<div className="panel" style={{padding:'0 0', borderTop:'0px solid', margin:'0 0', textAlign:'center', fontSize:'1.5rem', minWidth:'50%', width:'100%', maxWidth:'', border:'0px solid yellow', borderRadius:''}}>
+<div className="panel" style={{padding:'2vh 0', borderTop:'0px solid', margin:'0 0', textAlign:'center', fontSize:'1.5rem', minWidth:'50%', width:'100%', maxWidth:'', border:'0px solid yellow', borderRadius:''}}>
 <div
   className="blog-post-content bodycontent" style={{ fontSize:'clamp(1.2rem, 2.8vw, 1.8rem)', textAlign:'center', width:'100%', maxWidth:'', padding:'0 6% 0 6%', margin:'0 auto', color:'inherit !important'}}
   dangerouslySetInnerHTML={{ __html: html }}
@@ -1562,32 +1564,26 @@ textShadow:'2px 2px 0 #222', filter:'drop-shadow(0px 0px 5px rgba(155,155,155,1)
 
 
 
- {ShowOriginal ? (
-      <div id="original" style={{height:'', margin:'10vh auto', paddingTop:'5vh',   display:'grid', placeContent:'center', border:'0px solid blue'}}>
+         {ShowOriginal && (
+  <div id="original" style={{ height: '', margin: '10vh auto', paddingTop: '5vh', display: 'grid', placeContent: 'center', border: '0px solid blue' }}>
+    {YouTube && (
+      <div className="panel" style={{ position: 'relative', width: '100%', maxWidth: '800px', margin: '0 auto', textAlign: 'center', display: 'flex', flexDirection: 'column', fontSize: '100%', borderRadius: '' }}>
+        <div style={{ maxWidth: '90vw', width: '100%', height: '', maxHeight: '', padding: '0', position: 'relative', bottom: '0', textAlign: 'center', border: '0px solid blue', margin: '0 auto', borderRadius: '12px' }}>
+          {/* <Iframer2 /> */}
+          <a href={OriginalUrl} rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <div style={{ display: 'grid', placeContent: 'center', fontWeight: 'bold', padding: '1rem', fontSize: '2rem', width: '100%', height: '', border: '0px solid', borderRadius: '12px' }}>
+              Support Our Video Sponsors
+              <ImPlay style={{ margin: '0 auto', width: '50%', fontSize: '60px' }} />
+              {dicClickToView}
+            </div>
+          </a>
+        </div>
+      </div>
+    )}
+    <br />
+  </div>
+)}
 
-{YouTube ? (
-          <div  className="panel" style={{position:'relative', width:'100%', maxWidth:'800px', margin:'0 auto', textAlign:'center', display:'flex', flexDirection:'column', fontSize:'100%', borderRadius:'' }}>
-<div style={{maxWidth:'90vw', width:'100%', height:'', maxHeight:'', padding:'0', position:'relative', bottom:'0', textAlign:'center', border:'0px solid blue', margin:'0 auto', borderRadius:'12px'}}>
-
-                    {/* <Iframer2 /> */}
-<a href={OriginalUrl} rel="noopener noreferrer" style={{textDecoration:'none', color:'inherit'}}>
- <div style={{display:'grid', placeContent:'center', fontWeight:'bold', padding:'1rem', fontSize:'2rem', width:'100%', height:'', border:'0px solid', borderRadius:'12px'}}>Support Our Video Sponsors
-
-<ImPlay style={{margin:'0 auto', width:'50%', fontSize:'60px'}} />
-{dicClickToView}
-</div>
-</a>                   
-       </div>
- 
-       </div>
-           ) : (
-            ""
-          )}
-<br />
-</div>
-    ) : (
-            ""
-          )}
 
 
 

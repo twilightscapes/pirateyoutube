@@ -198,6 +198,8 @@ export default function Footer() {
   return (
 
 
+    
+
     showfooter ? (
   
 
@@ -326,10 +328,13 @@ export default function Footer() {
       <nav className="footerlinks" aria-label="footer">
 
 
-      { showLegal ? (
+      
         <div style={{width:'100%', textAlign: 'center', justifyContent: 'center', fontSize: '.95rem', textDecoration:'none', display:'grid', margin:'1rem auto'}}>
-
+{ showLegal ? (
 <div style={{display:'flex', justifyContent:'center', gap:'4%' }}><Link state={{modal: true}} to="/disclaimer/">{dicDisclaimer}</Link> | <Link state={{modal: true}} to="/privacy/">{dicPrivacy}</Link> | <Link state={{modal: true}} to="/terms/">{dicTerms}</Link></div>
+) : (
+""
+  )}
   <br />
   <br />
 {dicCopyright} &copy;
@@ -337,9 +342,7 @@ export default function Footer() {
 &nbsp;
  {companyname}
 </div>
-      ) : (
-""
-  )}
+      
 
 
 
@@ -366,7 +369,15 @@ export default function Footer() {
     </footer>
 
     ) : (
-      ""
+      <footer className="" style={{display:'flex', flexDirection:'column', zIndex:'1', justifyContent:'end', padding:'0', marginTop:'0', width:'100vw',textAlign:'center'}}>
+          { showBranding ? (
+      <div style={{textAlign: 'center', margin: '0 0 2rem 0', justifyContent: 'center', fontSize: '.75rem', position:'relative', right:'', top:'10px'}}>
+    <a href="https://pirateweb.org" rel="noreferrer">{dicPirate}</a> &nbsp; | &nbsp; <a href={speedIt} rel="noreferrer">{dicSiteReport}</a>
+    </div>
+          ) : (
+    ""
+      )}
+      </footer>
     )
 
 
