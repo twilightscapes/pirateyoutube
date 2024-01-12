@@ -929,7 +929,7 @@ ul li{display:inline-block}
 
   .ReactModal__Content {width:100vw !important; }
   
-  .ReactModal__Content{margin-top:0 !important;}
+  .ReactModal__Content{margin-top:8vh !important;}
 
 #modalCloser {top:125px !important;}
 
@@ -980,6 +980,8 @@ body.contactpage .ReactModal__Content{padding-top:10vh !important;}
   .topmenu li {margin-top:2vh ;
     padding:0 1vw; border-radius: 10px 12px 0 0;}
   
+
+
 
   }
 

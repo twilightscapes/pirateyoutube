@@ -14,7 +14,7 @@
     "icon512": "/assets/logo.svg",
     "navOptions": {
       "showNav": true,
-      "showNav2": true,
+      "showNav2": false,
       "showFooterMenu": true
     },
     "featureOptions": {
