@@ -17,16 +17,16 @@ import ReactPlayer from 'react-player/lazy';
 const BlogList = ({ data, pageContext }) => {
 
   const { postcount, featureOptions, proOptions, navOptions, language  } = useSiteMetadata();
-
-
-  
   const { showModals } = proOptions
   const { showDates, showTitles } = featureOptions
   const { showNav } = navOptions
+  const { dicPlayMultimedia, dicPlayVideo  } = language;
   
 
-  
-  const { dicPlayMultimedia, dicPlayVideo  } = language;
+
+
+
+
   
   const posts = data.allMarkdownRemark.edges;
   const { numPages, currentPage } = pageContext;
