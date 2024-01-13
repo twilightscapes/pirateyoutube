@@ -99,10 +99,16 @@ const [playingIndex, setPlayingIndex] = useState(null);
 
   const handleCategoryChange = (event) => {
     const category = event.target.value;
-    setSelectedCategory(category);
-    setSelectedTag("");
+    // Check if there are categories before updating the state
+    if (allCategories.includes(category)) {
+      setSelectedCategory(category);
+    } else {
+      setSelectedCategory('');
+    }
+    setSelectedTag('');
     setVisibleItems(homecount);
   };
+  
 
   const handleTagChange = (event) => {
     const tag = event.target.value;
@@ -173,37 +179,32 @@ const [playingIndex, setPlayingIndex] = useState(null);
                 ""
               )}
 
-{showMagicTag ? (
-  <>
-    {sortedTags.length > 1 && (
-      <select
-        value={selectedTag}
-        onChange={handleTagChange}
-        style={{
-          background: 'var(--theme-ui-colors-siteColor)',
-          color: 'var(--theme-ui-colors-siteColorText)',
-          borderRadius: 'var(--theme-ui-colors-borderRadius)',
-          minWidth: '100px',
-          maxWidth: '30%',
-          overflow: 'hidden',
-          height: '',
-          lineHeight: '100%',
-          padding: '5px 2px',
-        }}
-        aria-label="Select Keyword"
-      >
-        <option value="">{dicKeyword}</option>
-        {sortedTags.map((tag, index) => (
-          <option key={`${tag}_${index}`} value={tag.trim()}>
-            {tag.trim()} ({allPosts.filter(({ node }) => (node.frontmatter.tags || []).includes(tag)).length})
-          </option>
-        ))}
-      </select>
-    )}
-  </>
-) : (
-  ""
+{showMagicTag && allTags.length > 0 && (
+  <select
+    value={selectedTag}
+    onChange={handleTagChange}
+    style={{
+      background: 'var(--theme-ui-colors-siteColor)',
+      color: 'var(--theme-ui-colors-siteColorText)',
+      borderRadius: 'var(--theme-ui-colors-borderRadius)',
+      minWidth: '100px',
+      maxWidth: '30%',
+      overflow: 'hidden',
+      height: '',
+      lineHeight: '100%',
+      padding: '5px 2px',
+    }}
+    aria-label="Select Keyword"
+  >
+    <option value="">{dicKeyword}</option>
+    {sortedTags.map((tag, index) => (
+      <option key={`${tag}_${index}`} value={tag.trim()}>
+        {tag.trim()} ({allPosts.filter(({ node }) => (node.frontmatter.tags || []).includes(tag)).length})
+      </option>
+    ))}
+  </select>
 )}
+
 
 
 
@@ -232,7 +233,26 @@ const [playingIndex, setPlayingIndex] = useState(null);
                   
                 </>
               ) : (
-                ""
+                <input
+                      id="clearme"
+                      type="text"
+                      placeholder={dicSearch + ":"}
+                      onChange={handleSearch}
+                      style={{
+                        width: '',
+                        background: 'var(--theme-ui-colors-siteColor)',
+                        color: 'var(--theme-ui-colors-siteColorText)',
+                        marginRight: '',
+                        borderRadius: 'var(--theme-ui-colors-borderRadius)',
+                        height: '',
+                        lineHeight: '100%',
+                        padding: '0',
+                        minWidth: '0',
+                        maxWidth: '0',
+                        visibility: 'hidden'
+                      }}
+                      aria-label="Search"
+                    />
               )}
 
               <button
