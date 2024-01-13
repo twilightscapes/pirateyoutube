@@ -14,10 +14,10 @@ const Tag = ({ data, pageContext }) => {
   const { tag } = pageContext;
   const posts = data.allMarkdownRemark.edges;
 
-  const { featureOptions, proOptions } = useSiteMetadata()
-  const { showDates, showNav } = featureOptions
+  const { featureOptions, proOptions, language } = useSiteMetadata()
+  const { showDates, showNav, showTitles } = featureOptions
   const { showModals  } = proOptions
-  // const {  } = language;
+  const { dicPlayMultimedia } = language;
 
 
   const [selectedTag, setSelectedTag] = useState(tag);
@@ -40,37 +40,6 @@ const Tag = ({ data, pageContext }) => {
     return <p>No posts found.</p>;
   }
 
-
-  // const [visibleItems, setVisibleItems] = useState(postcount); 
-  // console.log("Post count:", postcount);
-
-
-
-  // const showMoreItems = () => {
-  //   setVisibleItems(visibleItems + postcount);
-  // };
-  
-
-/* eslint-disable no-useless-escape */
-// const extractVideoId = (url) => {
-//   const match = url.match(/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/[^\/\n\s]+\/(?:\S+\/)?|(?:v|e(?:mbed)?)\/|\S*?[?&]v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
-//   return match ? match[1] : null;
-// };
-/* eslint-enable no-useless-escape */
-  
-// const playerRef = useRef(null);
-
-
-// const [ setPlayingIndex] = useState(null);
-
-//   const handleVideoPlay = (index) => {
-//     setPlayingIndex(index);
-//   };
-
-//   const handleVideoPause = () => {
-//     setPlayingIndex(null);
-//   };
-  
 
   return (
     <Layout>
@@ -103,76 +72,59 @@ const Tag = ({ data, pageContext }) => {
         {filteredPosts.map(({ node }) => {
           // const featuredImg = node.frontmatter.featuredImage;
           return (
-            <div className='post-card1' style={{ justifyContent: 'center', alignItems: 'center' }} key={node.id}>
+            <div className='post-card1' style={{ alignItems: '', overflow: 'visible', position:'relative' }} key={node.id}>
               {/* Render featured image thumbnail if it exists */}
         
-              <Link state={showModals ? { modal: true } : {}} className="postlink" to={node.frontmatter.slug}>
+              <Link className="postlink" state={showModals ? { modal: true } : {}} key={node.frontmatter.slug} to={node.frontmatter.slug}>
+
 
 {node.frontmatter.featuredImage ? (
-    <GatsbyImage
-      image={node.frontmatter.featuredImage.childImageSharp.gatsbyImageData}
-      alt={node.frontmatter.title + " - Featured image"}
-      className="featured-image1"
-      placeholder="blurred"
-      loading="eager"
-      style={{ position: 'relative', zIndex: '1', maxHeight: '', margin: '0 auto' }}
-    />
+  <GatsbyImage
+    image={node.frontmatter.featuredImage.childImageSharp.gatsbyImageData}
+    alt={node.frontmatter.title + " - Featured image"}
+    className="featured-image1"
+    placeholder="blurred"
+    style={{ position: 'relative', zIndex: '1', maxHeight: '', margin: '0 auto', borderRadius:'var(--theme-ui-colors-borderRadius)' }}
+  />
 ) : (
-
-    <StaticImage
-      className="featured-image1"
-      src="../../static/assets/default-og-image.webp"
-      alt="Default Image"
-      style={{ position: 'relative', zIndex: '' }}
-    />
-
+  <StaticImage
+    className="featured-image1"
+    src="../../static/assets/default-og-image.webp"
+    alt="Default Image"
+    style={{ position: 'relative', zIndex: '1', maxHeight: '', margin: '0 auto', borderRadius:'var(--theme-ui-colors-borderRadius)' }}
+  />
 )}
 
-
-<div className="post-content" style={{display:'flex', flexDirection:'column', justifyContent:'start', width:'100%', height:'', position:'relative', background:'', padding:'0', margin:'0 auto 0 auto', textAlign:'center', overFlow:'hidden'}}>
-
-  {node.frontmatter.youtube.youtuber ? (
-
-<div className="spotlight" style={{border:'0px solid green', }}>
-<div className="posticons" style={{flexDirection:'column', justifyContent:'center', margin:'0 auto'}}>
-<div style={{display:'flex', justifyContent:'space-around', gap:'2vw', color:'fff', }}>
-<FaImage className="posticon" style={{margin:'0 auto', width:'60%', height:'30px', fontSize:''}} />
-<ImPlay className="posticon" style={{margin:'0 auto', width:'60%', height:'30px', fontSize:''}} />
-<AiOutlinePicLeft className="posticon" style={{margin:'0 auto', width:'60%', height:'30px', fontSize:''}} />
-</div>
-Play Multimedia
-</div>
-</div>
-
-) : (
-""
-)}
-
-<div className="panel" style={{display:'flex', justifyContent:'space-between', alignItems:'center', margin:'10px auto', width:'auto', maxWidth:'80vw', gap:'.4vw', height:'', textAlign:'center', padding:'1vh 2vw', fontSize:'clamp(1rem, 1vw, 1rem)',  background:'rgba(0, 0, 0, 0.7)', borderRadius:'', border:'0px solid red', color:'#aaa' }}>
-      <h2 className="title" style={{ }}>
-        {node.frontmatter.title}
-      </h2>
-    {/* <p style={{position:'', textAlign:'center', border:'0px solid red', fontSize:'70%', minWidth:'100px'}}>
-      <TimeAgo date={node.frontmatter.date}/>
-    </p> */}
-  </div>
-
-
-
-
-
-
-
-</div>
-
+{node.frontmatter.youtube.youtuber ? (
+    <div className="spotlight font" style={{border:'0px solid'}}>
+      <div className="posticons" style={{ flexDirection: 'column', margin: '0 auto' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-around', gap: '2vw', color: 'fff', }}>
+          <FaImage className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
+          <ImPlay className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
+          <AiOutlinePicLeft className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', }} />
+        </div>
+        {dicPlayMultimedia}
+      </div>
+    </div>
+  ) : ("")}
 </Link>
-{showDates ? (
-            <p style={{position:'', textAlign:'center', border:'0px solid red', fontSize:'70%', minWidth:'100px'}}>
-            <TimeAgo date={node.frontmatter.date}/>
-          </p>
-          ) : (
-            ""
-          )}
+
+<div className="post-content" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%', height: '', position: 'relative', background: '', padding: '', margin: '0 auto 0 auto', textAlign: 'center', overFlow: 'hidden' }}>
+
+<div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', alignContent:'center', margin: '10px auto', maxWidth: '', gap: '.4vw', maxHeight: '74px', textAlign: 'left', padding: '10px 5%', fontSize: 'clamp(.7rem,.8vh,12px)', outline:'0px solid #444', overFlow:'hidden', lineHeight:'2.4vh', borderRadius:'var(--theme-ui-colors-borderRadius)', background: showTitles ? 'var(--theme-ui-colors-headerColor)' : 'transparent', }}>
+  {showTitles ? (
+    <h2 className="title1" style={{width:'100%', }}>{node.frontmatter.title}</h2>
+  ) : (
+    ""
+  )}
+
+  {showDates ? (
+    <p style={{ position: '', textAlign: 'center', border: '0px solid red', fontSize: '', padding:'0', margin:'0 0 0 20px', maxWidth: '60px', lineHeight:'100%' }}>
+      <TimeAgo date={node.frontmatter.date} />
+    </p>
+  ) : ("")}
+</div>
+</div>
               
             </div>
           );
@@ -187,7 +139,13 @@ Play Multimedia
 export const query = graphql`
   query($tag: String!) {
     allMarkdownRemark(
-      filter: {frontmatter: {tags: {in: [$tag]}}}
+      filter: {
+        frontmatter: {
+          template: { eq: "blog-post" }
+          draft: { ne: true }
+          tags: { in: [$tag] }
+        }
+      }
       sort: {frontmatter: {date: DESC}}
     ) {
       edges {
@@ -203,7 +161,11 @@ export const query = graphql`
             }
             featuredImage {
               childImageSharp {
-                gatsbyImageData(placeholder: BLURRED, layout: CONSTRAINED)
+                gatsbyImageData(
+                  quality: 80
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                )
               }
             }
             tags

@@ -13,10 +13,15 @@ import { MdArrowForwardIos } from 'react-icons/md';
 import ReactPlayer from 'react-player/lazy'
 const TagIndex = ({ data }) => {
 
-  const {  postcount, language, featureOptions, proOptions } = useSiteMetadata()
-  const { showDates, showTitles, showNav } = featureOptions
-  const { showModals  } = proOptions
-  const { dicKeyword, dicPlayVideo, dicPlayMultimedia } = language;
+  const { postcount, language, featureOptions, proOptions, navOptions  } = useSiteMetadata();
+
+  // const { showMagic, showMagicCat, showMagicTag, showMagicSearch } = magicOptions;
+  
+  const { showModals } = proOptions
+  const { showDates, showTitles } = featureOptions
+  const { showNav } = navOptions
+  
+  const { dicKeyword, dicPlayVideo, dicPlayMultimedia  } = language;
 
 
   

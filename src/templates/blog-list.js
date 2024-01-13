@@ -6,20 +6,22 @@ import useSiteMetadata from '../hooks/SiteMetadata';
 import { StaticImage } from 'gatsby-plugin-image';
 import { Helmet } from 'react-helmet';
 import TimeAgo from 'react-timeago';
-import { ImPlay } from 'react-icons/im';
-import { FaImage } from 'react-icons/fa';
-import { AiOutlinePicLeft } from 'react-icons/ai';
+// import { ImPlay } from 'react-icons/im';
+// import { FaImage } from 'react-icons/fa';
+// import { AiOutlinePicLeft } from 'react-icons/ai';
 import { MdArrowForwardIos, MdArrowBackIos } from 'react-icons/md';
 import ReactPlayer from 'react-player/lazy';
 const BlogList = ({ data, pageContext }) => {
 
-  const { postcount, featureOptions, proOptions } = useSiteMetadata();
+  const { postcount, featureOptions, proOptions, navOptions  } = useSiteMetadata();
 
 
-
-  const {  showDates, showNav, showTitles } = featureOptions
-
+  
   const { showModals } = proOptions
+  const { showDates, showTitles } = featureOptions
+  const { showNav } = navOptions
+  
+  // const { dicLoadMore, dicViewArchive, dicCategory, dicKeyword, dicSearch, dicClear, dicResults, dicPlayVideo, dicPlayMultimedia  } = language;
   
   const posts = data.allMarkdownRemark.edges;
   const { numPages, currentPage } = pageContext;
@@ -38,7 +40,7 @@ const BlogList = ({ data, pageContext }) => {
         <body className="archivepage utilitypage" />
       </Helmet>
 
-      <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', paddingTop: showNav ? '8vh' : '8vh', }}>
+      <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', paddingTop: showNav ? '8vw' : '8vw', }}>
         <div className="sliderSpacer" style={{ height: '', paddingTop: '', display: '' }}></div>
 
         {posts.slice(0, currentPage * postcount).map(({ node }, index) => (
@@ -46,7 +48,7 @@ const BlogList = ({ data, pageContext }) => {
             <Link className="postlink" state={showModals ? { modal: true } : {}} key={node.frontmatter.slug} to={node.frontmatter.slug}>
 
 {(node.frontmatter.youtube?.showVidOnly && node.frontmatter.youtube.showVidOnly) ? (
-                <ReactPlayer
+<ReactPlayer
                   url={node.frontmatter.youtube.youtuber}
                   allow="web-share"
                   style={{ position: 'relative', margin: '0 auto 15px auto', zIndex: '' }}
@@ -86,41 +88,27 @@ const BlogList = ({ data, pageContext }) => {
                 </div>
               )}
 
-              <div className="post-content" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%', height: '', position: 'relative', background: '', padding: '', margin: '0 auto 0 auto', textAlign: 'center', overFlow: 'hidden' }}>
-              {(node.frontmatter.youtube?.showVidOnly && node.frontmatter.youtube.showVidOnly) ? (
-                  ""
-                ) : (
-                  <>
+<div className="post-content" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%', height: '', position: 'relative', background: '', padding: '', margin: '0 auto 0 auto', textAlign: 'center', overFlow: 'hidden' }}>
 
-{(node.frontmatter.youtube?.youtuber && node.frontmatter.youtube.youtuber) ? (
-
-                      <div className="spotlight" style={{ marginLeft: '10%', marginTop: '-28%', margin: '-24% 10% 0 10%' }}>
-                        <div className="posticons" style={{ flexDirection: 'column', margin: '0 auto' }}>
-                          <div style={{ display: 'flex', justifyContent: 'space-around', gap: '2vw', color: 'fff', }}>
-                            <FaImage className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
-                            <ImPlay className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
-                            <AiOutlinePicLeft className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px, fontSize: ""' }} />
-                          </div>
-                          Play Multimedia
-                        </div>
-                      </div>
-                    ) : ("")}
-                  </>
-                )}
-
-                <div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', alignContent:'center', margin: '10px auto', maxWidth: '', gap: '.4vw', maxHeight: '74px', textAlign: 'left', padding: '10px 30px', fontSize: 'clamp(.7rem,.8vw,.7rem)', outline:'0px solid #444', overFlow:'hidden', lineHeight:'2.4vh', borderRadius:'3px', background: showTitles ? 'rgba(0, 0, 0, 0.8)' : 'transparent', }}>
-                  {showTitles ? (
-                    <h2 className="title1" style={{width:'100%', textShadow:'0 1px 1px #222',}}>{node.frontmatter.title}</h2>
-                  ) : (
-                    ""
-                  )}
+{showTitles ? (
+  <>
+                <div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', alignContent:'center', margin: '10px auto', maxWidth: '', gap: '.4vw', maxHeight: '74px', textAlign: 'left', padding: '10px 5%', fontSize: 'clamp(.7rem,.8vh,12px)', outline:'0px solid #444', overFlow:'hidden', lineHeight:'2.4vh', borderRadius:'var(--theme-ui-colors-borderRadius)', background: showTitles ? 'var(--theme-ui-colors-headerColor)' : 'transparent', }}>
+                  
+                    <h2 className="title1" style={{width:'100%', }}>{node.frontmatter.title}</h2>
+            
 
                   {showDates ? (
                     <p style={{ position: '', textAlign: 'center', border: '0px solid red', fontSize: '', padding:'0', margin:'0 0 0 20px', maxWidth: '60px', lineHeight:'100%' }}>
                       <TimeAgo date={node.frontmatter.date} />
                     </p>
                   ) : ("")}
+
+
                 </div>
+                </>
+) : (
+  ""
+)}
               </div>
             </Link>
             
