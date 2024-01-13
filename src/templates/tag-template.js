@@ -15,11 +15,13 @@ const Tag = ({ data, pageContext }) => {
   const posts = data.allMarkdownRemark.edges;
 
   const { featureOptions, proOptions } = useSiteMetadata()
-  const { showDates } = featureOptions
+  const { showDates, showNav } = featureOptions
   const { showModals  } = proOptions
+  // const {  } = language;
 
 
   const [selectedTag, setSelectedTag] = useState(tag);
+  
 
   const allTags = data.allMarkdownRemark.group.map(tag => tag.fieldValue);
   
@@ -38,6 +40,38 @@ const Tag = ({ data, pageContext }) => {
     return <p>No posts found.</p>;
   }
 
+
+  // const [visibleItems, setVisibleItems] = useState(postcount); 
+  // console.log("Post count:", postcount);
+
+
+
+  // const showMoreItems = () => {
+  //   setVisibleItems(visibleItems + postcount);
+  // };
+  
+
+/* eslint-disable no-useless-escape */
+// const extractVideoId = (url) => {
+//   const match = url.match(/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/[^\/\n\s]+\/(?:\S+\/)?|(?:v|e(?:mbed)?)\/|\S*?[?&]v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+//   return match ? match[1] : null;
+// };
+/* eslint-enable no-useless-escape */
+  
+// const playerRef = useRef(null);
+
+
+// const [ setPlayingIndex] = useState(null);
+
+//   const handleVideoPlay = (index) => {
+//     setPlayingIndex(index);
+//   };
+
+//   const handleVideoPause = () => {
+//     setPlayingIndex(null);
+//   };
+  
+
   return (
     <Layout>
       <Helmet>
@@ -50,7 +84,7 @@ const Tag = ({ data, pageContext }) => {
       <div className="magicisland">
         <div className="cattags font">
         
-      <select className="" value={selectedTag} onChange={handleTagChange} style={{ background: '#222', outline: '1px solid #111', borderRadius: '3px', padding: '2px', width:'380px', display:'block', margin:'0 1%', overflow:'hidden', height:'34px', lineHeight:'100%' }}>
+        <select className="" id="tag-select" value={selectedTag} onChange={handleTagChange} style={{ background: 'var(--theme-ui-colors-siteColor)', color:'var(--theme-ui-colors-siteColorText)', borderRadius: 'var(--theme-ui-colors-borderRadius)', padding: '2px', width:'380px', display:'block', margin:'0 1%', overflow:'hidden', height:'34px', lineHeight:'100%' }}>
   <option value=''>All Keywords</option>
   {allTags.map(tag => (
     <option key={tag} value={tag}>
@@ -63,7 +97,7 @@ const Tag = ({ data, pageContext }) => {
 
       <section id="showPosts" style={{marginTop:''}}>
 
-      <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', marginTop: '' }}>
+      <div className="contentpanel grid-container" style={{ justifyContent: 'center', alignItems: 'center', paddingTop: showNav ? '8vw' : '8vw', }}>
         <div className='sliderSpacer' style={{ height: '', paddingTop: '0', display: 'none' }}></div>
 
         {filteredPosts.map(({ node }) => {
