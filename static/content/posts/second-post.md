@@ -1,10 +1,10 @@
 ---
 template: blog-post
-title: Test Post 1
-slug: /first-post
-date: 2023-10-01 09:00
-description: Experience the thrill of PIRATE
-featuredImage: /assets/pirate-propaganda.webp
+title: Second Test Post
+slug: /second-post
+date: 2023-10-01 10:00
+description: Pirates life for me!
+featuredImage: /assets/trump-drunk.png
 showPageNav: true
 tags:
  - test

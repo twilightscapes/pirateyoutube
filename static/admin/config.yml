@@ -130,8 +130,8 @@ collections:
             fields: [
               { label: "Video Url", name: "youtuber", widget: "string",required: false },
               { label: "Show Video Only (PIRATE Plus ONLY)", name: "showVidOnly", widget: "boolean", default: false, required: false },
-              { label: "Primary Video Start Time", name: "youtubestart", widget: "string", required: false },
-              { label: "Primary Video End Time", name: "youtubeend", widget: "string", required: false },
+              { label: "Primary Video Start Time", name: "youtubestart", widget: "string", default: "0", required: false },
+              { label: "Primary Video End Time", name: "youtubeend", widget: "string", default: "0", required: false },
               { label: "Video Mute", name: "youtubemute", widget: "boolean", default: false, required: false },
               { label: "Video AutoPlay", name: "youtubeautostart", widget: "boolean", default: false, required: false },
               { label: "Video Loop", name: "youtubeloop", widget: "boolean", default: true, required: false },
@@ -139,9 +139,9 @@ collections:
               { label: "Video Use Custom Controls", name: "customcontrols", widget: "boolean", default: false, required: false },
               { label: "Click To Play", name: "clicktoplay", widget: "boolean", default: false, required: false },
               { label: "Secondary Video", name: "youtuber2", widget: "string", required: false },
-              { label: "Secondary Video Start", name: "audiostart", widget: "string", required: false },
-              { label: "Secondary Video End", name: "audioend", widget: "string", required: false },
-              { label: "Secondary Video Title", name: "audiotitle", widget: "string", required: false },
+              { label: "Secondary Video Start", name: "audiostart", widget: "string",  default: "0", required: false },
+              { label: "Secondary Video End", name: "audioend", widget: "string", default: "0", required: false },
+              { label: "Secondary Video Title", name: "audiotitle", widget: "string", default: "0", required: false },
 
               { label: "Place content inside Video Frame", name: "contentinvideo", widget: "boolean", default: false, hint: "(PIRATE Plus ONLY) For Devs to place the content of the post directly into video frame area, allowing for custom layout and features - By doing so, this replaces the normally visible content on your page - BEWARE", required: false },
               

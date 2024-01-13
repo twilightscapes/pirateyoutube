@@ -183,7 +183,7 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFo
 <div id="gobacker" style={{position:'fixed', top:'60px', right:'5px', zIndex:'5'}}><GoBack /></div>
 
 
-<header className="header" style={{display:'block', height:'', height: showNav ? '60px' : '0',}}>
+<header className="header" style={{display:'block', height: showNav ? '60px' : '0',}}>
 {showNav ? (
 
 
