@@ -4,8 +4,7 @@ title: Test Post 1
 slug: /first-post
 date: 2023-10-01 09:00
 description: Experience the thrill of PIRATE
-featuredImage: /assets/trump-drunk.png
-showZoom: true
+featuredImage: /assets/pirate-propaganda.webp
 showPageNav: true
 youtube:
  youtubeshoworiginal: false

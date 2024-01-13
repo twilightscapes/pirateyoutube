@@ -39,7 +39,7 @@
       "showMagic": true,
       "showMagicCat": true,
       "showMagicTag": true,
-      "showMagicSearch": true
+      "showMagicSearch": false
     },
     "language": {
       "dicLoadMore": "Load More",

@@ -994,7 +994,7 @@ const YouTube = frontmatter.youtube.youtuber
     {FrontImage ? (
       // Show zoom or regular Gatsby image based on showZoom flag
       frontmatter.showZoom ? (
-        <div className="imageonly" style={{ display: "flex", justifyContent: "center", maxHeight: "" }}>
+        <div className="imageonly" style={{ display: "flex", justifyContent: "center", minHeight: "45vh" }}>
           <InnerImageZoom
           // className="featured-image1"
             src={getSrc(FrontImage)}
