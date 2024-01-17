@@ -139,7 +139,7 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFo
 {({ modal, closeTo }) => (
 <>
   {modal ? (
-    <div id="modalCloser" style={{display:'', position:'fixed', top:'60px', right:'5px', padding:'0px', fontSize:'', opacity:'1 !important', zIndex:'22',}}>
+    <div id="modalCloser" style={{display:'', position:'fixed', top:'', right:'', padding:'0px', fontSize:'', opacity:'1 !important', zIndex:'22',}}>
     <Link state={{noScroll: true }} to={closeTo} style={{fontSize:'',  textDecoration:'none', lineHeight:'', display:'flex', flexDirection:'column', color:'#fff', cursor:'pointer'}}>
     <button className="button" style={{ display: 'flex', justifyContent: 'center', padding:'0 .5vw' }}>
       {/* <span className="icon -left" style={{ paddingRight: '' }}><BiLeftArrow /></span> {" "} */}
@@ -180,7 +180,7 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFo
 
 
 
-<div id="gobacker" style={{position:'fixed', top:'60px', right:'5px', zIndex:'5'}}><GoBack /></div>
+<div id="gobacker"><GoBack /></div>
 
 
 <header className="header" style={{display:'block', height: showNav ? '60px' : '0',}}>

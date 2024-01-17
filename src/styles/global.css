@@ -933,7 +933,7 @@ ul li{display:inline-block}
   
   .ReactModal__Content{margin-top:8vh !important;}
 
-#modalCloser {top:125px !important;}
+#modalCloser {top:70vh !important; right:1vw;}
 
 body.contactpage .ReactModal__Content{padding-top:10vh !important;}
 
@@ -1075,6 +1075,8 @@ body.contactpage .ReactModal__Content{padding-top:10vh !important;}
 }
 
 
+#gobacker{position:fixed; top:60px ; right:1vw; z-index:11;}
+
 
 iframe.virtualtour{
 	filter: invert(90%) grayscale(1);
@@ -1129,7 +1131,7 @@ iframe.virtualtour{
 #resume span{display:flex;flex-direction:column;gap:20px;position:-webkit-sticky;position:sticky;top:0}
 #resume span div{display:block;width:100%}
 .nameblock{background:transparent;color:inherit;text-shadow:none}
-#gobacker{position:fixed; top:80vh ; right:1vw; z-index:11;}
+#gobacker{position:fixed; top:70vh ; right:1vw; z-index:11;}
 
 
 
