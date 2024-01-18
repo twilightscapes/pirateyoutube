@@ -497,6 +497,7 @@ export const pageQuery = graphql`
             tags
             slug
             draft 
+            spotlight
           }
         }
       }
