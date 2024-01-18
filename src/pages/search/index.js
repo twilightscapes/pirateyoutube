@@ -55,6 +55,8 @@ const SearchPage = ({ data }) => {
   
     return titleMatch && categoryMatch && tagMatch;
   });
+  
+  
 
   const sortedTags = allTags
   .filter(tag => tag)
@@ -65,14 +67,13 @@ const SearchPage = ({ data }) => {
     return countB - countA;
   });
 
-
 /* eslint-disable no-useless-escape */
 const extractVideoId = (url) => {
   const match = url.match(/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/[^\/\n\s]+\/(?:\S+\/)?|(?:v|e(?:mbed)?)\/|\S*?[?&]v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
   return match ? match[1] : null;
 };
 /* eslint-enable no-useless-escape */
-
+  
 const playerRef = useRef(null);
 
 
@@ -85,6 +86,8 @@ const [playingIndex, setPlayingIndex] = useState(null);
   const handleVideoPause = () => {
     setPlayingIndex(null);
   };
+
+
 
 
   useEffect(() => {
@@ -108,6 +111,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
     setSelectedTag('');
     setVisibleItems(postcount);
   };
+  
 
   const handleTagChange = (event) => {
     const tag = event.target.value;
@@ -501,7 +505,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
 export const pageQuery = graphql`
   query ($postcount: Int) {
     allMarkdownRemark(
-      sort: [ { frontmatter: { date: DESC } }]
+      sort: { frontmatter: { date: DESC } }
       filter: { frontmatter: { template: { eq: "blog-post" }, draft: { ne: true } } }
       limit: $postcount
     ) {
@@ -525,6 +529,7 @@ export const pageQuery = graphql`
             tags
             slug
             draft
+            spotlight
           }
         }
       }
