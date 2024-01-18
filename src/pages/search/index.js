@@ -501,7 +501,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
 export const pageQuery = graphql`
   query ($postcount: Int) {
     allMarkdownRemark(
-      sort: [{ frontmatter: { spotlight: ASC } }, { frontmatter: { date: DESC } }]
+      sort: [{ frontmatter: { frontmatter: { date: DESC } }]
       filter: { frontmatter: { template: { eq: "blog-post" }, draft: { ne: true } } }
       limit: $postcount
     ) {
