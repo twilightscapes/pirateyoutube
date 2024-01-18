@@ -910,6 +910,7 @@ ul li{display:inline-block}
 
 .horizontal-scroll{margin:10vh auto 0 auto !important;}
 
+#modalCloser {top:60px ; right:1vw;}
 
 @media(max-width:48rem) {
   .mobilehide{display:none}
