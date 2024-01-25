@@ -68,9 +68,16 @@ const BlogPosts = ({ isSliderVisible }) => {
 
 
     useEffect(() => {
-        // Save the current state to local storage when isSliderVisible changes
-        localStorage.setItem("isSliderVisible", JSON.stringify(isSliderVisible));
-    }, [isSliderVisible]); // Include isSliderVisible in the dependency array
+      // Check if window is defined to ensure it's running in a client-side environment
+      if (typeof window !== 'undefined') {
+          // Save the current state to local storage when isSliderVisible changes
+          localStorage.setItem("isSliderVisible", JSON.stringify(isSliderVisible));
+      }
+  }, [isSliderVisible]); // Include isSliderVisible in the dependency array
+  
+
+
+
 
   const handleScroll = (e) => {
     if (scrollRef.current) {
@@ -78,6 +85,8 @@ const BlogPosts = ({ isSliderVisible }) => {
     }
   };
 
+
+  
 
 
   // const markdownRemark = data.allMarkdownRemark.edges[0]?.node;
