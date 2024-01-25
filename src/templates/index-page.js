@@ -1,22 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
-// import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
-
 import Layout from "../components/siteLayout";
 import { Helmet } from "react-helmet";
-// import useSiteMetadata from "../hooks/SiteMetadata";
-import BlogPosts from "../components/HomePosts";
+import BlogPosts from "../components/BlogPosts";
 import Seo from "../components/seo";
 import { getSrc } from "gatsby-plugin-image";
 
-
 const HomePage = ({ data }) => {
-
-  
-  // const { dicLoadMore, dicViewArchive, dicCategory, dicKeyword, dicSearch, dicClear, dicResults, dicPlayVideo, dicPlayMultimedia  } = language;
-
-
-
   const { markdownRemark } = data;
   const { frontmatter, excerpt } = markdownRemark;
 
@@ -41,11 +31,15 @@ const HomePage = ({ data }) => {
     };
 
     // Add event listener for storage change
-    window.addEventListener("storage", handleStorageChange);
+    if (typeof window !== 'undefined') {
+      window.addEventListener("storage", handleStorageChange);
+    }
 
     // Cleanup function to remove event listener
     return () => {
-      window.removeEventListener("storage", handleStorageChange);
+      if (typeof window !== 'undefined') {
+        window.removeEventListener("storage", handleStorageChange);
+      }
     };
   }, []);
 
@@ -58,19 +52,18 @@ const HomePage = ({ data }) => {
       <Seo
         title={frontmatter.title}
         description={frontmatter.description ? frontmatter.description : excerpt}
-        image={getSrc(frontmatter.featuredImage)}
+        image={frontmatter.featuredImage ? getSrc(frontmatter.featuredImage) : null}
       />
 
-<div className="post-container">
-<BlogPosts isSliderVisible={isSliderVisible} />
-</div>
-
+      <div className="post-container">
+        <BlogPosts isSliderVisible={isSliderVisible} />
+      </div>
     </Layout>
   );
 };
 
 export const pageQuery = graphql`
-query ($id: String!) {
+  query ($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html
@@ -90,6 +83,5 @@ query ($id: String!) {
     }
   }
 `;
-
 
 export default HomePage;

@@ -1,10 +1,9 @@
-// Test.js
 import React, { useState, useEffect } from "react";
 import Seo from "../../components/seo";
 import Layout from "../../components/siteLayout";
 import BlogPosts from "../../components/BlogPosts";
 
-const Test = () => {
+const Search = () => {
   const [isSliderVisible, setIsSliderVisible] = useState(() => {
     const storedValue = localStorage.getItem("isSliderVisible");
     try {
@@ -17,11 +16,14 @@ const Test = () => {
   useEffect(() => {
     // Update isSliderVisible when it changes in localStorage
     const handleStorageChange = () => {
-      const storedValue = localStorage.getItem("isSliderVisible");
-      try {
-        setIsSliderVisible(JSON.parse(storedValue) ?? true);
-      } catch (error) {
-        setIsSliderVisible(true);
+      // Check if window is defined to ensure it's running in a client-side environment
+      if (typeof window !== 'undefined') {
+        const storedValue = localStorage.getItem("isSliderVisible");
+        try {
+          setIsSliderVisible(JSON.parse(storedValue) ?? true);
+        } catch (error) {
+          setIsSliderVisible(true);
+        }
       }
     };
 
@@ -46,4 +48,4 @@ const Test = () => {
   );
 };
 
-export default Test;
+export default Search;
