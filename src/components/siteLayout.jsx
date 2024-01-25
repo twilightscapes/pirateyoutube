@@ -19,13 +19,11 @@ import userStyles from "../../static/data/userStyles.json"
 import Switch from "../components/Switch"
 
 // import SignUp from "../components/newssign"
-// import useNetlifyIdentity from '../components/useNetlifyIdentity';
+
 import BlueCheck from './bluecheck';
 import Footer from "../components/footer"
 
   const Layout = ({ children }) => {
-    // const [loggedIn, setLoggedIn] = useState(false);
-    // useNetlifyIdentity(setLoggedIn);
   
     const [showBackToTop, setShowBackToTop] = useState(false);
   
@@ -102,14 +100,8 @@ useEffect(() => {
   }
 }, [showNav2]);
 
-// const FontPull = siteFont;
-
-// const fontUrl = "https://fonts.googleapis.com/css?family=" + {siteFont} + "&display=swap";
 
 const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFont}&display=swap`;
-
-
-
 
   return (
 <>
@@ -118,15 +110,10 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFo
 
 <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-
-
     <link id="yyy" rel="stylesheet" href={fontUrl} crossOrigin="anonymous" referrerPolicy="no-referrer-when-downgrade" />
-
   <style>{`
     ${userStyles.userStyles}
   `}</style>
-
-    {/* <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script> */}
 </Helmet>
 
 
@@ -189,11 +176,7 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFo
 
 <div id="menu" className="menu print panel1 header" style={{position:'fixed', width:'100vw', top:'0', zIndex:'30', maxHeight:'', overFlow:'', boxShadow:'0 0 0 rgba(0,0,0,.7)', padding:'0 2%', alignItems:'start', borderRadius:'0', display:'flex', justifyContent:'space-around', gap:'10px', color:'var(--theme-ui-colors-headerColorText)',  borderBottom:'0px solid #222',}}>
 
-{/* {loggedIn ? (
-<div style={{position:'absolute', left:'10px', top:'22px', cursor:'pointer'}}><BlueCheck /></div>
-) : (
-  ""
-  )} */}
+
   <div style={{position:'absolute', left:'10px', top:'22px', cursor:'pointer'}}><BlueCheck /></div>
 
 
@@ -216,14 +199,7 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFo
 
 
 <ul className="topmenu" style={{ fontSize:'clamp(.6rem, 1.6vw, 1.8rem)',  textAlign:'center',maxHeight:'', display:'flex', justifyContent:'space-between', gap:'4vw',  alignItems:'center', margin:'0 auto 0 auto', padding:'1.5vh 2% 0 2%', border:'0px solid white',}}>
-      
-{/* {loggedIn ? (
-      <MenuSocial />
-                ) : (
-                  <Menu />
-                  
-                )} */}
-                <Menu />
+<Menu />
 </ul>
 
 <div id="missioncontrol" className="missioncontrol sitecontrols" style={{display:'flex', justifyContent:'space-around', fontSize:'clamp(.8rem, 2.3vw, 2.5rem)', gap:'3vw', textAlign:'center', maxHeight:'', alignItems:'center', paddingTop:'5px'}}>
@@ -299,12 +275,6 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFo
             </AnchorLink>
     </li>
 
-{/* {loggedIn ? (
-      <Menu />
-    ) : (
-       <Menu />
-                  
-)} */}
 <Menu />
 
 <li>
@@ -351,43 +321,6 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFo
   ""
 )}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/* {showPopup ? (
-<div className="signup1 popper1"
-  style={{
-  position:'fixed',
-  top:'15vh',
-  left:'20vw',
-  right:'20vw',
-  zIndex:'2',
-  margin:'70px auto 0 auto',
-  padding:' 0',
-  maxWidth:'500px',
-  borderRadius:'12px',
-  border:'1px solid red'
-  }}>
-<SignUp />
-  </div>
-
-      ) : (
-        ""
-      )} */}
-
-
-
-
 <main>
 <div id="top" name="pagetop"></div>
 {children}
@@ -409,7 +342,7 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFo
 )}
 {/* end show footer */}
 
-{/* <object className="backimage" id="svg12" data={image} type="image/svg+xml" style={{height:'100vh', width:'100vw', position:'fixed', zIndex:'-2', top:'0', objectFit:'cover', backgroundImage:'url({image})', backgroundSize:'cover', backgroundPosition:'center 60%', backgroundRepeat:'repeat'}}alt="animated content" title="animated content" ></object> */}
+
 
       
       {image ? (

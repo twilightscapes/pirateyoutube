@@ -17,11 +17,11 @@ const BlogPosts = ({ isSliderVisible }) => {
 
 
   const data = useStaticQuery(graphql`
-  query ($postcount: Int) {
+  query ($homecount: Int) {
     allMarkdownRemark(
       sort: [{ frontmatter: { spotlight: ASC } }, { frontmatter: { date: DESC } }]
       filter: { frontmatter: { template: { eq: "blog-post" }, draft: { ne: true } } }
-      limit: $postcount
+      limit: $homecount
     ) {
       edges {
         node {

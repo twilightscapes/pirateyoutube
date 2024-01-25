@@ -1,78 +1,91 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { BsFillGrid3X2GapFill } from "react-icons/bs";
 import { PiHandSwipeRightFill } from "react-icons/pi";
 import useSiteMetadata from "../hooks/SiteMetadata";
 
 function Header() {
-    const [archiveView, setArchiveView] = useState("");
-    const [showSwipe] = useState(true);
 
-    const { language } = useSiteMetadata();
-    const { dicSwipe, dicScroll } = language;
 
-    const applyArchiveView = useCallback(() => {
-        const elements = document.querySelectorAll(".contentpanel");
-        elements.forEach((el) => {
-            if (archiveView === "grid") {
-                el.classList.remove("horizontal-scroll", "panels");
-                el.classList.add("grid-container");
-                document.body.classList.remove('scroll');
-            } else if (archiveView === "swipe") {
-                el.classList.remove("grid-container");
-                el.classList.add("horizontal-scroll", "panels");
-                document.querySelector(".contentpanel").style.transition = "all .5s ease-in-out";
-                window.scrollTo(0, 0);
-                document.body.classList.add('scroll');
-            }
-        });
-    }, [archiveView]);
+  const { language } = useSiteMetadata();
+  const { dicSwipe, dicScroll } = language;
 
-    useEffect(() => {
-        if (showSwipe) {
-            const storedArchiveView = localStorage.getItem("archiveView");
-            // Use the stored value or default to 'grid' or 'swipe'
-            setArchiveView(storedArchiveView || (showSwipe ? "grid" : "swipe"));
-        }
-    }, [showSwipe]);
+  const [isSliderVisible, setIsSliderVisible] = useState(() => {
+    const storedValue = localStorage.getItem("isSliderVisible");
+    try {
+      return JSON.parse(storedValue) ?? true;
+    } catch (error) {
+      return true;
+    }
+  });
 
-    useEffect(() => {
-        applyArchiveView();
-        // Update local storage whenever archiveView changes
-        localStorage.setItem("archiveView", archiveView);
-    }, [archiveView, applyArchiveView]);
+  const toggleSlider = () => {
+    setIsSliderVisible((prev) => {
+      const newValue = !prev;
+      localStorage.setItem("isSliderVisible", JSON.stringify(newValue));
 
-    const toggleArchiveView = () => {
-        const newArchiveView = archiveView === "grid" ? "swipe" : "grid";
-        setArchiveView(newArchiveView);
+      // Broadcast the change to other tabs/windows
+      window.dispatchEvent(new StorageEvent("storage", { key: "isSliderVisible" }));
+
+      return newValue;
+    });
+  };
+
+  useEffect(() => {
+    const handleStorageChange = (event) => {
+      if (event.key === "isSliderVisible") {
+        const storedValue = localStorage.getItem("isSliderVisible");
+        setIsSliderVisible(JSON.parse(storedValue));
+      }
     };
 
-    return (
-        <div>
-            <button
-                aria-label="Grid/Swipe View"
-                onClick={toggleArchiveView}
-                className="swipescroll"
-                style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    marginTop: "0px",
-                    textAlign: "center",
-                    width: "100%"
-                }}
-            >
-                {archiveView === "grid" ? (
-                    <div className="themer"><PiHandSwipeRightFill style={{ width: '36px', height: '30px' }} /></div>
-                ) : (
-                    <div className="themer"><BsFillGrid3X2GapFill style={{ width: '36px', height: '30px' }} /></div>
-                )}
-                <span className="themetext" style={{ fontSize: '' }}>
-                    {archiveView === "grid" ? dicSwipe : dicScroll}
-                </span>
-            </button>
-        </div>
-    );
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, []);
+
+  useEffect(() => {
+    const saveToLocalStorage = () => {
+      localStorage.setItem("isSliderVisible", JSON.stringify(isSliderVisible));
+    };
+
+    window.addEventListener("beforeunload", saveToLocalStorage);
+
+    return () => {
+      window.removeEventListener("beforeunload", saveToLocalStorage);
+    };
+  }, [isSliderVisible]);
+
+  return (
+    <div>
+      <button
+        aria-label="Toggle View"
+        onClick={() => {
+          toggleSlider();
+        }}
+        className="swipescroll"
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: "0px",
+          textAlign: "center",
+          width: "100%"
+        }}
+      >
+        {isSliderVisible ? (
+          <div className="themer"><BsFillGrid3X2GapFill style={{ width: '36px', height: '30px' }} /></div>
+        ) : (
+          <div className="themer"><PiHandSwipeRightFill style={{ width: '36px', height: '30px' }} /></div>
+        )}
+        <span className="themetext" style={{ fontSize: '' }}>
+          {isSliderVisible ? dicScroll : dicSwipe}
+        </span>
+      </button>
+    </div>
+  );
 }
 
 export default Header;
