@@ -216,7 +216,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
           className="slider"
           style={{
             display: "flex",
-            flexDirection: "row",
+            flexDirection: "row"
           }}
         >
 
@@ -567,8 +567,8 @@ const [playingIndex, setPlayingIndex] = useState(null);
         ref={scrollRef}
         style={{
           overflowX: "auto",
-          overflowY: "hidden",
-          // whiteSpace: "nowrap",
+          overflowY: "hidden"
+
         }}
       >
 
