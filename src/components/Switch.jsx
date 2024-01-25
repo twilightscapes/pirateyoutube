@@ -4,57 +4,64 @@ import { PiHandSwipeRightFill } from "react-icons/pi";
 import useSiteMetadata from "../hooks/SiteMetadata";
 
 function Header() {
-
-
   const { language } = useSiteMetadata();
   const { dicSwipe, dicScroll } = language;
 
   const [isSliderVisible, setIsSliderVisible] = useState(() => {
-    const storedValue = localStorage.getItem("isSliderVisible");
-    try {
-      return JSON.parse(storedValue) ?? true;
-    } catch (error) {
-      return true;
+    if (typeof window !== 'undefined') {
+      const storedValue = localStorage.getItem("isSliderVisible");
+      try {
+        return JSON.parse(storedValue) ?? true;
+      } catch (error) {
+        return true;
+      }
     }
+    return true;
   });
 
   const toggleSlider = () => {
     setIsSliderVisible((prev) => {
       const newValue = !prev;
-      localStorage.setItem("isSliderVisible", JSON.stringify(newValue));
-
-      // Broadcast the change to other tabs/windows
-      window.dispatchEvent(new StorageEvent("storage", { key: "isSliderVisible" }));
-
+      if (typeof window !== 'undefined') {
+        localStorage.setItem("isSliderVisible", JSON.stringify(newValue));
+        // Broadcast the change to other tabs/windows
+        window.dispatchEvent(new StorageEvent("storage", { key: "isSliderVisible" }));
+      }
       return newValue;
     });
   };
 
   useEffect(() => {
     const handleStorageChange = (event) => {
-      if (event.key === "isSliderVisible") {
+      if (event.key === "isSliderVisible" && typeof window !== 'undefined') {
         const storedValue = localStorage.getItem("isSliderVisible");
         setIsSliderVisible(JSON.parse(storedValue));
       }
     };
 
-    window.addEventListener("storage", handleStorageChange);
+    if (typeof window !== 'undefined') {
+      window.addEventListener("storage", handleStorageChange);
 
-    return () => {
-      window.removeEventListener("storage", handleStorageChange);
-    };
+      return () => {
+        window.removeEventListener("storage", handleStorageChange);
+      };
+    }
   }, []);
 
   useEffect(() => {
     const saveToLocalStorage = () => {
-      localStorage.setItem("isSliderVisible", JSON.stringify(isSliderVisible));
+      if (typeof window !== 'undefined') {
+        localStorage.setItem("isSliderVisible", JSON.stringify(isSliderVisible));
+      }
     };
 
-    window.addEventListener("beforeunload", saveToLocalStorage);
+    if (typeof window !== 'undefined') {
+      window.addEventListener("beforeunload", saveToLocalStorage);
 
-    return () => {
-      window.removeEventListener("beforeunload", saveToLocalStorage);
-    };
+      return () => {
+        window.removeEventListener("beforeunload", saveToLocalStorage);
+      };
+    }
   }, [isSliderVisible]);
 
   return (
