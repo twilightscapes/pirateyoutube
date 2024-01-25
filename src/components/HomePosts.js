@@ -559,7 +559,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
         style={{
           overflowX: "auto",
           overflowY: "hidden",
-          whiteSpace: "nowrap",
+          // whiteSpace: "nowrap",
         }}
       >
 
