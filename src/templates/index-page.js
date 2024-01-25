@@ -10,23 +10,31 @@ const HomePage = ({ data }) => {
   const { markdownRemark } = data;
   const { frontmatter, excerpt } = markdownRemark;
 
-  const [isSliderVisible, setIsSliderVisible] = useState(() => {
-    const storedValue = localStorage.getItem("isSliderVisible");
-    try {
-      return JSON.parse(storedValue) ?? true;
-    } catch (error) {
-      return true;
-    }
-  });
+  const [isSliderVisible, setIsSliderVisible] = useState(true); // Default value
 
   useEffect(() => {
-    // Update isSliderVisible when it changes in localStorage
-    const handleStorageChange = () => {
+    // Check if window is defined to ensure it's running in a client-side environment
+    if (typeof window !== 'undefined') {
       const storedValue = localStorage.getItem("isSliderVisible");
       try {
         setIsSliderVisible(JSON.parse(storedValue) ?? true);
       } catch (error) {
         setIsSliderVisible(true);
+      }
+    }
+  }, []); // Empty dependency array ensures it runs only once during component mount on the client side
+
+  useEffect(() => {
+    // Update isSliderVisible when it changes in localStorage
+    const handleStorageChange = () => {
+      // Check if window is defined to ensure it's running in a client-side environment
+      if (typeof window !== 'undefined') {
+        const storedValue = localStorage.getItem("isSliderVisible");
+        try {
+          setIsSliderVisible(JSON.parse(storedValue) ?? true);
+        } catch (error) {
+          setIsSliderVisible(true);
+        }
       }
     };
 
