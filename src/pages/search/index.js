@@ -4,17 +4,9 @@ import Layout from "../../components/siteLayout";
 import BlogPosts from "../../components/BlogPosts";
 
 const Search = () => {
-  const [isSliderVisible, setIsSliderVisible] = useState(() => {
-    const storedValue = localStorage.getItem("isSliderVisible");
-    try {
-      return JSON.parse(storedValue) ?? true;
-    } catch (error) {
-      return true;
-    }
-  });
+  const [isSliderVisible, setIsSliderVisible] = useState(true);
 
   useEffect(() => {
-    // Update isSliderVisible when it changes in localStorage
     const handleStorageChange = () => {
       // Check if window is defined to ensure it's running in a client-side environment
       if (typeof window !== 'undefined') {
@@ -28,11 +20,15 @@ const Search = () => {
     };
 
     // Add event listener for storage change
-    window.addEventListener("storage", handleStorageChange);
+    if (typeof window !== 'undefined') {
+      window.addEventListener("storage", handleStorageChange);
+    }
 
     // Cleanup function to remove event listener
     return () => {
-      window.removeEventListener("storage", handleStorageChange);
+      if (typeof window !== 'undefined') {
+        window.removeEventListener("storage", handleStorageChange);
+      }
     };
   }, []);
 
