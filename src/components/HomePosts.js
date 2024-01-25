@@ -211,9 +211,9 @@ const [playingIndex, setPlayingIndex] = useState(null);
           }}
         >
 
-          
+{/*           
                 <div className="horizontal-scroll1 contentpanel1" style={{ justifyContent: 'center', alignItems: 'center', paddingTop: showNav ? '8vw' : '8vw', }}>
-        <div className="sliderSpacer" style={{ height: '', paddingTop: '', display: '' }}></div>
+        <div className="sliderSpacer" style={{ height: '', paddingTop: '', display: '' }}></div> */}
 
         {filteredPosts.slice(0, numVisibleItems).map(({ node }, index) => (
   
@@ -376,7 +376,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
 
         
       </div>
-        </div>
+
       );
     } else {
       return (
@@ -553,7 +553,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
   return (
     <>
       <div
-        className="horizontal-scroll1 contentpanel1"
+        className="todd"
         onWheel={handleScroll}
         ref={scrollRef}
         style={{
