@@ -566,7 +566,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
         onWheel={handleScroll}
         ref={scrollRef}
         style={{
-          overflowX: "auto",
+          overflowX: "hidden",
           overflowY: "hidden"
         }}
       >

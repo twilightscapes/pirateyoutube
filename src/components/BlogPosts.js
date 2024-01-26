@@ -557,7 +557,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
   return (
     <>
       <div
-        className="horizontal-scroll1 contentpanel1"
+        className="todd"
         onWheel={handleScroll}
         ref={scrollRef}
         style={{
