@@ -13,7 +13,7 @@ import { AiOutlinePicLeft } from "react-icons/ai";
 // import { getSrc } from "gatsby-plugin-image";
 const BlogPosts = ({ isSliderVisible }) => {
 
-  const { postcount, homecount, language, magicOptions, featureOptions, proOptions, navOptions  } = useSiteMetadata();
+  const { postcount, language, magicOptions, featureOptions, proOptions, navOptions  } = useSiteMetadata();
 
 
   const data = useStaticQuery(graphql`
@@ -94,7 +94,7 @@ const BlogPosts = ({ isSliderVisible }) => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedTag, setSelectedTag] = useState("");
   // eslint-disable-next-line
-  const [visibleItems, setVisibleItems] = useState(homecount);
+  const [visibleItems, setVisibleItems] = useState(postcount);
 
   const allCategoriesSet = new Set(allPosts.flatMap(({ node }) => node.frontmatter.category));
   const allCategories = Array.from(allCategoriesSet);
@@ -151,13 +151,13 @@ const [playingIndex, setPlayingIndex] = useState(null);
 
 
   useEffect(() => {
-    setVisibleItems(homecount);
-  }, [filteredPosts, homecount]);
+    setVisibleItems(postcount);
+  }, [filteredPosts, postcount]);
 
   const handleSearch = (event) => {
     const query = event.target.value;
     setQuery(query);
-    setVisibleItems(homecount);
+    setVisibleItems(postcount);
   };
 
   const handleCategoryChange = (event) => {
@@ -169,7 +169,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
       setSelectedCategory('');
     }
     setSelectedTag('');
-    setVisibleItems(homecount);
+    setVisibleItems(postcount);
   };
   
 
@@ -177,10 +177,10 @@ const [playingIndex, setPlayingIndex] = useState(null);
     const tag = event.target.value;
     setSelectedTag(tag);
     setSelectedCategory("");
-    setVisibleItems(homecount);
+    setVisibleItems(postcount);
   };
 
-  const [numVisibleItems, setNumVisibleItems] = useState(homecount);
+  const [numVisibleItems, setNumVisibleItems] = useState(postcount);
 
   const showMoreItems = () => {
     setNumVisibleItems((prevNumVisibleItems) => prevNumVisibleItems + postcount);
@@ -191,7 +191,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
     setQuery('');
     setSelectedCategory('');
     setSelectedTag('');
-    setVisibleItems(homecount);
+    setVisibleItems(postcount);
   }
 
 

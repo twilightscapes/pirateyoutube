@@ -214,6 +214,8 @@ const [playingIndex, setPlayingIndex] = useState(null);
       return (
         <div
           className="slider"
+          onWheel={handleScroll}
+        ref={scrollRef}
           style={{
             display: "flex",
             flexDirection: "row"
@@ -566,7 +568,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
         onWheel={handleScroll}
         ref={scrollRef}
         style={{
-          overflowX: "hidden",
+          overflowX: "auto",
           overflowY: "hidden"
         }}
       >
