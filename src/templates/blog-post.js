@@ -78,52 +78,51 @@ const Post = ({ data, pageContext }) => {
     
 
 
+  const Pagination = props => (
 
-    
-    const Pagination = props => {
-
-    
-      return (
-        <div className="pagination -post1" style={{ position: '', bottom: '' }}>
-          <ul className="" style={{ display: 'flex', gap: '2vw', justifyContent: 'space-around', paddingTop: '5px', alignItems: 'center' }}>
-            {props.next && props.next.frontmatter.template === "blog-post" && !props.next.frontmatter.draft && (
-              <li style={{ display: 'flex', justifyContent: 'space-between', width: '50%' }}>
-                <Link state={showModals ? { modal: true } : {}} to={props.next.frontmatter.slug + "/"} rel="next">
-                  <button className="" style={{ display: 'flex', justifyContent: '' }}>
-                    <span className="page-title">
-                      {props.next.frontmatter.title}
-                    </span>
-                  </button>
-                </Link>
-              </li>
-            )}
-    
-            <div className="specialfont" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '#999', placeItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
-              <Link title="Go Home" state={showModals ? { modal: true } : {}} to="/" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '80px' }}>
-                <div style={{}}>GO TO</div>
-                <FaHome style={{ fontSize: '25px' }} />
-              </Link>
-            </div>
-    
-            {props.previous && props.previous.frontmatter.template === "blog-post" && !props.previous.frontmatter.draft && (
-              <li style={{ display: 'flex', justifyContent: 'space-between', width: '50%' }}>
-                <Link style={{}} to={props.previous.frontmatter.slug + "/"} state={showModals ? { modal: true } : {}} rel="prev">
-                  <button className="" style={{ display: 'flex', justifyContent: '' }}>
-                    <span className="page-title">
-                      {props.previous.frontmatter.title}
-                    </span>
-                  </button>
-                </Link>
-              </li>
-            )}
-          </ul>
+  
+    <div className="pagination -post1" style={{position:'', bottom:'',}}>
+      <ul className="" style={{display:'flex', gap:'2vw', justifyContent:'space-around', paddingTop:'5px', alignItems:'center'}}>
+        
+  
+      {props.next && props.next.frontmatter.template === "blog-post" && (
+          <li style={{display:'flex', justifyContent:'space-between', width:'50%'}}>
+  <Link  state={showModals ? { modal: true } : {}} to={props.next.frontmatter.slug + "/"}  rel="next">
+  <button className="" style={{display:'flex', justifyContent:'', }}>
+  <span className="page-title">
+    {props.next.frontmatter.title}
+  {/* Newer */}
+  </span>
+  {/* &nbsp;&nbsp;<AiFillCaretLeft /> */}
+  </button>
+  </Link>
+          </li>
+        )}
+  
+        <div className="specialfont" style={{fontSize:'clamp(1rem, 1vw, 1rem)', marginTop:'', fontWeight:'bold', border:'0px solid', display:'grid', color:'#999', placeItems:'center', justifyContent:'center', margin:'0 auto'}}>
+          <Link title="Go Home" state={showModals ? { modal: true } : {}} to="/" style={{padding:'', textAlign:'center', display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', width:'80px',}}>
+          <div style={{}}>GO TO</div>
+          <FaHome style={{fontSize:'25px'}} /></Link>
         </div>
-      );
-    };
-    
-      
-    
-
+  
+        
+  {props.previous && props.previous.frontmatter.template === "blog-post" && (
+          // <li style={{border:'1px solid', borderRadius:'12px', filter:'drop-shadow(0 0px 6px rgba(0, 0, 0, 1))'}}>
+          <li style={{display:'flex', justifyContent:'space-between', width:'50%'}}>
+  <Link style={{}}  to= {props.previous.frontmatter.slug + "/"} state={showModals ? { modal: true } : {}}  rel="prev">
+   <button className="" style={{display:'flex', justifyContent:'',}}>
+   {/* <AiFillCaretRight />&nbsp;&nbsp; */}
+    <span className="page-title">
+  {props.previous.frontmatter.title}
+  {/* Previous */}
+  </span>
+  </button>
+            </Link>
+          </li>
+        )}
+      </ul>
+    </div>
+  )
 
   const [isMenuOpen, setIsMenuOpen] = useState(true);
   /* eslint-disable-next-line no-unused-vars */
@@ -1712,7 +1711,6 @@ query BlogPostQuery($id: String!) {
       description
       showZoom
       showPageNav
-      draft
       youtube {
         youtuber
         youtuber2
@@ -1768,10 +1766,9 @@ query BlogPostQuery($id: String!) {
       }
     }
   }
-
   allMarkdownRemark(
-    sort: { frontmatter: { date: ASC } }
-    filter: { frontmatter: { template: { eq: "blog-post" }, draft: { eq: false } } }
+    sort: {frontmatter: {date: ASC}}
+    filter: {frontmatter: {template: {eq: "blog-post"}, draft: {ne: true}}}
   ) {
     edges {
       node {
@@ -1780,13 +1777,9 @@ query BlogPostQuery($id: String!) {
           title
           slug
           date(formatString: "MMMM DD, YYYY")
-          draft
         }
       }
     }
   }
-  
 }
-
 `;
-

@@ -1,4 +1,4 @@
-# !/bin/bash
+#!/bin/bash
 
 # Set the URL of your central repository
 THEME_REPO_URL="https://github.com/piratesocial/pirate"
