@@ -457,7 +457,7 @@ module.exports = {
         lang: `en`,
         theme_color: `#111`,
         display: `standalone`,
- icon: `/static${settings.meta.icon512}`, // This path is relative to the root of the site.
+ icon: `static${settings.meta.icon512}`, // This path is relative to the root of the site.
  icon_options: {
   purpose: `any maskable`,
 },
