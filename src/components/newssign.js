@@ -70,7 +70,7 @@ return (
   data-netlify-honeypot="bot-field"
   encType="multipart/form-data"
   onSubmit={handleSubmit}
-  style={{width:'100%', minWidth:'400px', margin:'0 auto 0 auto', display:'flex', flexDirection:'column', justifyContent:'center', background: 'var(--theme-ui-colors-headerColor)',
+  style={{width:'100%', minWidth:'300px', maxWidth:'400px', margin:'0 auto 0 auto', display:'flex', flexDirection:'column', justifyContent:'center', background: 'var(--theme-ui-colors-headerColor)',
   backdropFilter: 'blur(44px)', borderRadius:'var(--theme-ui-colors-borderRadius)', textAlign:'center', alignSelf:'center', overflow:'hidden', color:'var(--theme-ui-colors-headerColorText)', border:'0px solid red'}}
 >
 
@@ -95,7 +95,7 @@ return (
     </p> */}
   
 
-      <p style={{ margin:'0 20%'}}>
+      
         {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
       <label style={{ color: '#fff' }} htmlFor="email">
   <input
@@ -145,7 +145,7 @@ return (
             className="button"
             type="submit"
             disabled={isSubmitting}
-            style={{ margin:'-8px auto', whiteSpace:'nowrap', width:'100%',
+            style={{ margin:'-8px auto', whiteSpace:'nowrap', width:'80%',
             border: '1px solid var(--theme-ui-colors-siteColor)',
             background: 'var(--theme-ui-colors-headerColor)', borderRadius: 'var(--theme-ui-colors-borderRadius)', color: 'var(--theme-ui-colors-headerColorText)',
 
@@ -154,7 +154,7 @@ return (
           >
             {isSubmitting ? "Submitting..." : dicSignUpButton}
           </button>
-          </p>
+          
 
           
 
