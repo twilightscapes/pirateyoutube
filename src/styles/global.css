@@ -1293,6 +1293,10 @@ body:has(.ReactModal__Content) {overflow-x:hidden !important; overflow-y:hidden 
   scroll-snap-align: center;
   transition:transform .2s;
   padding: 8vh 10vw 0 10vw;
+  overflow-x: auto;
+  overflow-y: hidden;
+  z-index: 0;
+  position:relative;
 }
 
 

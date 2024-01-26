@@ -58,7 +58,7 @@ const BlogPosts = ({ isSliderVisible }) => {
     
 
 
-    const { showMagic, showMagicCat, showMagicTag, showMagicSearch } = magicOptions;
+    const { showMagic, showMagicCat, showMagicTag } = magicOptions;
   
     const { showModals, showPopup } = proOptions
     const { showDates, showArchive, showTitles } = featureOptions
@@ -632,8 +632,6 @@ const [playingIndex, setPlayingIndex] = useState(null);
 
 
 
-              {showMagicSearch ? (
-                <>
                 
                     <input
                       id="clearme"
@@ -655,8 +653,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
                       aria-label="Search"
                     />
                   
-                </>
-              ) : (
+
                 <input
                       id="clearme"
                       type="text"
@@ -677,7 +674,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
                       }}
                       aria-label="Search"
                     />
-              )}
+            
 
               <button
                 type="reset"

@@ -22,18 +22,18 @@
       "showSearch": true,
       "showDates": true,
       "showTitles": true,
-      "showfooter": false,
-      "showSocial": false,
+      "showfooter": true,
+      "showSocial": true,
       "showSwipe": true
     },
     "proOptions": {
-      "showModals": false,
-      "showContact": false,
+      "showModals": true,
+      "showContact": true,
       "showBranding": true,
-      "ShowDisclaimer": false,
-      "showLegal": false,
+      "ShowDisclaimer": true,
+      "showLegal": true,
       "showConsent": false,
-      "showPopup": false
+      "showPopup": true
     },
     "magicOptions": {
       "showMagic": true,
