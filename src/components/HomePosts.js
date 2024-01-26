@@ -14,6 +14,7 @@ import { AiOutlinePicLeft } from "react-icons/ai";
 // const HomePosts = ({ isSliderVisible }) => {
 
 const HomePosts = ({ isSliderVisible }) => {
+// eslint-disable-next-line
   const [sliderVisible, setSliderVisible] = useState(false); // Change the state variable name
 
 
