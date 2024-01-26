@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import { RiArrowLeftSLine, RiBugLine } from "react-icons/ri"
+import { RiArrowLeftSLine } from "react-icons/ri"
 import { StaticImage } from "gatsby-plugin-image"
 // import { AiFillRobot } from "react-icons/ai"
 import Seo from "../components/seo"

@@ -120,7 +120,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
     categoryArray.forEach((singleCategory) => {
       createPage({
-        path: `/category/${singleCategory.toLowerCase()}`,
+        path: `/category${singleCategory.toLowerCase()}`,
         component: categoryTemplate,
         context: {
           category: singleCategory.toLowerCase(),
@@ -136,7 +136,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
       if (categoryPosts.length > 0) {
         createPage({
-          path: `/category/${singleCategory.toLowerCase()}/`,
+          path: `/category${singleCategory.toLowerCase()}/`,
           component: categoryTemplate,
           context: {
             category: singleCategory.toLowerCase(),
@@ -146,7 +146,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         });
       } else {
         createPage({
-          path: `/category/${singleCategory.toLowerCase()}/`,
+          path: `/category${singleCategory.toLowerCase()}/`,
           component: categoryTemplate,
           context: {
             category: singleCategory.toLowerCase(),

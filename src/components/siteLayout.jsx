@@ -50,7 +50,7 @@ import Footer from "../components/footer"
 
 
     const { language, navOptions, featureOptions, proOptions } = useSiteMetadata();
-    const { dicSearch, dicClose, dicPirate } = language;
+    const { dicSearch, dicPirate } = language;
     const { showNav, showNav2 } = navOptions
     const { showfooter, showSwipe, showSearch } = featureOptions
     const { showModals, showBranding } = proOptions
