@@ -642,7 +642,7 @@ collections:
                     label: Show Swipe(horizontal scroll) by default
                     required: false
                     default: false
-                  - widget: text
+                  - widget: string
                     name: startUrl
                     label: the url of the page you want when your app is installed
                     hint: "to make your contact page or resume just type contact or     resume"
