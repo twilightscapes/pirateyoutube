@@ -36,6 +36,7 @@ const useSiteMetadata = () => {
             showPopup
             ShowDisclaimer
             showDefault
+            startUrl
           }
           navOptions{
             showFooterMenu
