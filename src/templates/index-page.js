@@ -10,44 +10,29 @@ const HomePage = ({ data }) => {
   const { markdownRemark } = data;
   const { frontmatter, excerpt } = markdownRemark;
 
-  const [isSliderVisible, setIsSliderVisible] = useState(true); // Default value
+  // Set the initial state directly from localStorage
+  const storedValue = localStorage.getItem("isSliderVisible");
+  const initialSliderVisible = storedValue ? JSON.parse(storedValue) : true;
+
+  const [isSliderVisible, setIsSliderVisible] = useState(initialSliderVisible);
 
   useEffect(() => {
-    // Check if window is defined to ensure it's running in a client-side environment
-    if (typeof window !== 'undefined') {
+    // Update isSliderVisible when it changes in localStorage
+    const handleStorageChange = () => {
       const storedValue = localStorage.getItem("isSliderVisible");
       try {
         setIsSliderVisible(JSON.parse(storedValue) ?? true);
       } catch (error) {
         setIsSliderVisible(true);
       }
-    }
-  }, []); // Empty dependency array ensures it runs only once during component mount on the client side
-
-  useEffect(() => {
-    // Update isSliderVisible when it changes in localStorage
-    const handleStorageChange = () => {
-      // Check if window is defined to ensure it's running in a client-side environment
-      if (typeof window !== 'undefined') {
-        const storedValue = localStorage.getItem("isSliderVisible");
-        try {
-          setIsSliderVisible(JSON.parse(storedValue) ?? true);
-        } catch (error) {
-          setIsSliderVisible(true);
-        }
-      }
     };
 
     // Add event listener for storage change
-    if (typeof window !== 'undefined') {
-      window.addEventListener("storage", handleStorageChange);
-    }
+    window.addEventListener("storage", handleStorageChange);
 
     // Cleanup function to remove event listener
     return () => {
-      if (typeof window !== 'undefined') {
-        window.removeEventListener("storage", handleStorageChange);
-      }
+      window.removeEventListener("storage", handleStorageChange);
     };
   }, []);
 
