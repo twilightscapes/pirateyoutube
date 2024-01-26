@@ -15,6 +15,7 @@ const BlogPosts = ({ isSliderVisible }) => {
 
   const { postcount, homecount, language, magicOptions, featureOptions, proOptions, navOptions  } = useSiteMetadata();
 
+  
 
   const data = useStaticQuery(graphql`
   query ($homecount: Int) {
@@ -54,7 +55,7 @@ const BlogPosts = ({ isSliderVisible }) => {
 `);
 
 
-    const scrollRef = useRef(null);
+
     
 
 
@@ -79,11 +80,31 @@ const BlogPosts = ({ isSliderVisible }) => {
 
 
 
+  const scrollRef = useRef(null);
+
   const handleScroll = (e) => {
     if (scrollRef.current) {
       scrollRef.current.scrollLeft += e.deltaY;
     }
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Your scroll handling logic
+    };
+  
+    const currentScrollRef = scrollRef.current;
+  
+    if (currentScrollRef) {
+      currentScrollRef.addEventListener("scroll", handleScroll);
+    }
+  
+    return () => {
+      if (currentScrollRef) {
+        currentScrollRef.removeEventListener("scroll", handleScroll);
+      }
+    };
+  }, [scrollRef]);
 
 
   
@@ -392,7 +413,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
     } else {
       return (
         <div className="contentpanel1 grid-container" style={{ justifyContent: 'center', alignItems: 'center', paddingTop: showNav ? '8vw' : '8vw', width:'100vw' }}>
-        <div className="sliderSpacer" style={{ height: '', paddingTop: '', display: '' }}></div>
+
 
         {filteredPosts.slice(0, numVisibleItems).map(({ node }, index) => (
   

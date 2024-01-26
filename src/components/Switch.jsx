@@ -11,12 +11,12 @@ function Header() {
     if (typeof window !== 'undefined') {
       const storedValue = localStorage.getItem("isSliderVisible");
       try {
-        return JSON.parse(storedValue) ?? true;
+        return JSON.parse(storedValue) ?? false;
       } catch (error) {
-        return true;
+        return false;
       }
     }
-    return true;
+    return false;
   });
 
   const toggleSlider = () => {
