@@ -19,6 +19,17 @@ function Header() {
     return false;
   });
 
+  useEffect(() => {
+    if (isSliderVisible) {
+      // Set initial scroll position to the top when in grid view
+      window.scrollTo(0, 0);
+    }
+  }, [isSliderVisible]);
+
+  useEffect(() => {
+    document.body.style.overflowX = isSliderVisible ? 'hidden' : 'auto';
+  }, [isSliderVisible]);
+
   const toggleSlider = () => {
     setIsSliderVisible((prev) => {
       const newValue = !prev;

@@ -1298,7 +1298,7 @@ body:has(.ReactModal__Content) {overflow-x:hidden !important; overflow-y:hidden 
   scroll-snap-align: center;
   transition:transform .8s;
   margin:8vh 20vw 0 0 ;
-  /* padding:0 10vw; */
+  padding:0 5vw 0 10vw;
   overflow-x: scroll;
   overflow-y: hidden;
   white-space:nowrap;

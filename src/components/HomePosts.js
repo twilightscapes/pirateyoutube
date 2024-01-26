@@ -11,7 +11,13 @@ import { ImPlay } from "react-icons/im";
 import { FaImage } from "react-icons/fa";
 import { AiOutlinePicLeft } from "react-icons/ai";
 // import { getSrc } from "gatsby-plugin-image";
-const BlogPosts = ({ isSliderVisible }) => {
+// const HomePosts = ({ isSliderVisible }) => {
+
+const HomePosts = ({ isSliderVisible }) => {
+  const [sliderVisible, setSliderVisible] = useState(false); // Change the state variable name
+
+
+
 
   const { postcount, homecount, language, magicOptions, featureOptions, proOptions, navOptions  } = useSiteMetadata();
 
@@ -68,17 +74,28 @@ const BlogPosts = ({ isSliderVisible }) => {
     const { dicLoadMore, dicViewArchive, dicCategory, dicKeyword, dicSearch, dicClear, dicResults, dicPlayVideo, dicPlayMultimedia  } = language;
 
 
-    useEffect(() => {
-      // Check if window is defined to ensure it's running in a client-side environment
-      if (typeof window !== 'undefined') {
-          // Save the current state to local storage when isSliderVisible changes
-          localStorage.setItem("isSliderVisible", JSON.stringify(isSliderVisible));
-      }
-  }, [isSliderVisible]); // Include isSliderVisible in the dependency array
+
+    
   
 
 
-
+    useEffect(() => {
+      // Check if window is defined to ensure it's running in a client-side environment
+      if (typeof window !== 'undefined') {
+        // Set the default visibility to true if localStorage value is not available
+        const storedSliderVisibility = localStorage.getItem("isSliderVisible");
+        const initialSliderVisible = storedSliderVisibility ? JSON.parse(storedSliderVisibility) : true;
+        // Set the initial visibility based on the prop or localStorage
+        setSliderVisible(isSliderVisible ?? initialSliderVisible);
+      }
+  
+      // Cleanup function if needed
+      return () => {
+        // Cleanup logic here...
+      };
+    }, [isSliderVisible]); // Run this effect whenever isSliderVisible changes
+    
+    
 
   const scrollRef = useRef(null);
 
@@ -236,7 +253,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
         <div
           className="slider"
           onWheel={handleScroll}
-        ref={scrollRef}
+          ref={scrollRef}
           style={{
             display: "flex",
             flexDirection: "row"
@@ -746,4 +763,4 @@ const [playingIndex, setPlayingIndex] = useState(null);
   );
 };
 
-export default BlogPosts;
+export default HomePosts;
