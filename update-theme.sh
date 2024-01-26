@@ -1,7 +1,7 @@
-#!/bin/bash
+# !/bin/bash
 
 # Set the URL of your central repository
-THEME_REPO_URL="https://github.com/piratesocial/pirate"
+THEME_REPO_URL="https://github.com/twilightscapes/pirateplus"
 
 # Set the branch or tag you want to pull updates from
 BRANCH_OR_TAG="main"
@@ -34,7 +34,8 @@ cp tmp_theme/package.json .
 # Clean up
 rm -rf tmp_theme
 
-echo "Theme updated successfully!"
+echo "PIRATE Plus updated successfully!"
+
 
 
 # echo "No Theme Updated - Needed"
