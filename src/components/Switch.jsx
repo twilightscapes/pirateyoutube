@@ -43,6 +43,42 @@ function Header() {
   };
 
   useEffect(() => {
+    const handleScroll = () => {
+      // Your scroll-related logic here
+      // For example, you can log the scroll position
+      console.log("Scroll position:", window.scrollY);
+    };
+  
+    if (isSliderVisible) {
+      window.addEventListener('scroll', handleScroll);
+    } else {
+      window.removeEventListener('scroll', handleScroll);
+    }
+  
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [isSliderVisible]);
+  
+  useEffect(() => {
+    const handleStorageChange = (event) => {
+      if (event.key === "isSliderVisible" && typeof window !== 'undefined') {
+        const storedValue = localStorage.getItem("isSliderVisible");
+        setIsSliderVisible(JSON.parse(storedValue));
+      }
+    };
+  
+    if (typeof window !== 'undefined') {
+      window.addEventListener("storage", handleStorageChange);
+  
+      return () => {
+        window.removeEventListener("storage", handleStorageChange);
+      };
+    }
+  }, []);
+  
+
+  useEffect(() => {
     const handleStorageChange = (event) => {
       if (event.key === "isSliderVisible" && typeof window !== 'undefined') {
         const storedValue = localStorage.getItem("isSliderVisible");

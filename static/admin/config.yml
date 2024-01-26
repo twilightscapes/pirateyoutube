@@ -616,6 +616,7 @@ collections:
                     name: showModals
                     label: Show Posts in Modal Window
                     required: false
+                    default: true
                   - widget: boolean
                     name: showBranding
                     label: Hide Pirate Branding
@@ -636,6 +637,11 @@ collections:
                     name: showConsent
                     label: Show Cookie Consent Banner
                     required: false
+                  - widget: boolean
+                    name: showDefault
+                    label: Show Swipe(horizontal scroll) by default
+                    required: false
+                    default: false
 
 
 

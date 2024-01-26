@@ -5,17 +5,19 @@ import { Helmet } from "react-helmet";
 import HomePosts from "../components/HomePosts";
 import Seo from "../components/seo";
 import { getSrc } from "gatsby-plugin-image";
-
+import useSiteMetadata from "../hooks/SiteMetadata";
 const HomePage = ({ data }) => {
   const { markdownRemark } = data;
   const { frontmatter, excerpt } = markdownRemark;
 
+  const { proOptions  } = useSiteMetadata();
+  const { showDefault } = proOptions
   // Check if localStorage is available
   const isLocalStorageAvailable = typeof window !== "undefined" && window.localStorage;
 
   // Set the initial state directly from localStorage if available, otherwise set to true
   const storedValue = isLocalStorageAvailable ? localStorage.getItem("isSliderVisible") : null;
-  const initialSliderVisible = storedValue ? JSON.parse(storedValue) : false;
+  const initialSliderVisible = storedValue ? JSON.parse(storedValue) : showDefault;
 
   const [isSliderVisible, setIsSliderVisible] = useState(initialSliderVisible);
 
