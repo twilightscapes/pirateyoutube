@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/siteLayout";
 import { Helmet } from "react-helmet";
-import BlogPosts from "../components/BlogPosts";
+import BlogPosts from "../components/HomePosts";
 import Seo from "../components/seo";
 import { getSrc } from "gatsby-plugin-image";
 
