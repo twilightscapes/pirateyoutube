@@ -24,7 +24,11 @@ youtube:
 
 showPageNav: false
 showZoom: false
-profText:
+profText: <p>PIRATE is a social network with NO central control or ownership. It's based on leading Open-Source platforms and runs on individually owned websites. </p>
+
+ <p>PIRATE leverages the power of free services to host your own web app that you can control from any device, all for FREE! </p>
+
+ <p>Easily edit your homepage, update your profile, and publish engaging content on your OWN website/app.</p>
 tagline: You're the Captain of your content!
 featuredImage: /assets/losser.webp
 secondaryImage: /assets/default-user.webp
@@ -37,7 +41,7 @@ slug: /
 
 excludeFromRSS: true
 skillsText: 
-underlayImage: /assets/default-user.webp
+underlayImage: /assets/transparent.png
 bumpertext: x
 cta:
   ctaText: Reserve Your Galleon
@@ -54,7 +58,7 @@ description: PIRATE - social media for the people by the people
 svgzindex: x
 coverletter:
   coverText: About PIRATE
-  coverLink: /about
+  coverLink: /contact
 sharethis: false
 profTitle: Hoist Your Flag!
 tags: 
