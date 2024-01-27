@@ -14,26 +14,26 @@
     "icon512": "/assets/pirate-logo-bw.svg",
     "navOptions": {
       "showNav": true,
-      "showNav2": false,
-      "showFooterMenu": false
+      "showNav2": true,
+      "showFooterMenu": true
     },
     "featureOptions": {
       "showArchive": true,
-      "showSearch": false,
+      "showSearch": true,
       "showDates": true,
       "showTitles": true,
-      "showfooter": false,
+      "showfooter": true,
       "showSocial": true,
       "showSwipe": true
     },
     "proOptions": {
       "showModals": true,
-      "showContact": false,
+      "showContact": true,
       "showBranding": true,
-      "ShowDisclaimer": true,
+      "ShowDisclaimer": false,
       "showLegal": true,
-      "showConsent": false,
-      "showDefault": false,
+      "showConsent": true,
+      "showDefault": true,
       "startUrl": "youtube",
       "showPopup": true
     },
@@ -41,7 +41,7 @@
       "showMagic": true,
       "showMagicCat": true,
       "showMagicTag": true,
-      "showMagicSearch": false
+      "showMagicSearch": true
     },
     "language": {
       "dicLoadMore": "Load More",
