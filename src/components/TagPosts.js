@@ -20,7 +20,7 @@ const TagPosts = ({ isSliderVisible }) => {
 
 
 
-  const { postcount, language, magicOptions, featureOptions, proOptions, navOptions  } = useSiteMetadata();
+  const { postcount, language, magicOptions, featureOptions, proOptions  } = useSiteMetadata();
 
   
 
@@ -66,11 +66,11 @@ const TagPosts = ({ isSliderVisible }) => {
     
 
 
-    const { showMagicCat, showMagicTag } = magicOptions;
+    const { showMagicCat } = magicOptions;
   
     const { showModals, showPopup } = proOptions
     const { showDates, showArchive, showTitles } = featureOptions
-    const { showNav } = navOptions
+
     
     const { dicLoadMore, dicViewArchive, dicCategory, dicKeyword, dicSearch, dicClear, dicResults, dicPlayVideo, dicPlayMultimedia  } = language;
 
