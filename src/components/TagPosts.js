@@ -1,4 +1,4 @@
-// BlogPosts.jsx
+// TagPosts.jsx
 import React, { useState, useEffect, useRef } from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
@@ -13,7 +13,7 @@ import { AiOutlinePicLeft } from "react-icons/ai";
 // import { getSrc } from "gatsby-plugin-image";
 // const HomePosts = ({ isSliderVisible }) => {
 
-const BlogPosts = ({ isSliderVisible }) => {
+const TagPosts = ({ isSliderVisible }) => {
 // eslint-disable-next-line
   const [sliderVisible, setSliderVisible] = useState(false); // Change the state variable name
 
@@ -474,7 +474,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
                 ""
               )}
 
-{showMagicTag && allTags.length > 0 && (
+{ allTags.length > 0 && (
   <select
     value={selectedTag}
     onChange={handleTagChange}
@@ -568,4 +568,4 @@ const [playingIndex, setPlayingIndex] = useState(null);
   );
 };
 
-export default BlogPosts;
+export default TagPosts;

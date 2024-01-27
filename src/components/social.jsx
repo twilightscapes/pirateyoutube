@@ -4,12 +4,11 @@ import * as React from "react"
 import Xlogo from "../img/xcorp-logo.svg"
 
 // import Install from "../components/Install-footer"
-import Icons from "../../src/util/socialmedia.json"
+import Icons from "../../static/data/socialmedia.json"
 // import { FaHandPointDown } from "react-icons/fa"
 
 import {
   RiFacebookBoxFill,
-  RiTwitterFill,
   RiLinkedinBoxFill,
   RiYoutubeFill,
   RiInstagramFill,
@@ -76,7 +75,7 @@ const sIcons = Icons.socialIcons.map((icons, index) => {
         ""
       )}
       {icons.icon === "rss" ? (
-        <a className="social" href={icons.url} rel="noreferrer" target="_blank">
+        <a aria-label="Link to RSS" className="social" href={icons.url} rel="noreferrer" target="_blank">
           <RiRssFill />
         </a>
       ) : (

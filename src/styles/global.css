@@ -1284,6 +1284,7 @@ body:has(.ReactModal__Content) {overflow-x:hidden !important; overflow-y:hidden 
 
 .slider {
   display: flex;
+  flex-direction: row;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   gap: 20vw;
@@ -1298,7 +1299,7 @@ body:has(.ReactModal__Content) {overflow-x:hidden !important; overflow-y:hidden 
   scroll-snap-align: center;
   transition:transform .8s;
   margin:8vh 20vw 0 0 ;
-  padding:0 5vw 0 10vw;
+  padding:4vh 5vw 0 10vw;
   overflow-x: scroll;
   overflow-y: hidden;
   white-space:nowrap;
@@ -1333,6 +1334,10 @@ min-width: 80vw;
     justify-content: center;
     flex: 0 0 33.3333%;
   }
+
+.magicshell .grid-container{
+padding-top: 12vh;
+}
 
 
   .slider .post-card1 .inline{
