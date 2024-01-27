@@ -1152,16 +1152,7 @@ iframe.virtualtour{
 
 
 
-@media(hover:none) {
-.slider{scroll-snap-type:y mandatory}
-}
-@media(hover:hover) {
-.slider{scroll-snap-type:y mandatory}
-}
-@media(pointer:coarse) {
 
-.slider{scroll-snap-type:y mandatory;}
-}
 @media(max-width:48rem) {
 .fullscreenButt{display:none}
 }
@@ -1285,7 +1276,6 @@ body:has(.ReactModal__Content) {overflow-x:hidden !important; overflow-y:hidden 
 .slider {
   display: flex;
   flex-direction: row;
-  scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   gap: 20vw;
   /* justify-items: center; */
@@ -1294,7 +1284,7 @@ body:has(.ReactModal__Content) {overflow-x:hidden !important; overflow-y:hidden 
   /* align-items: center;
   align-content: center;
   align-self: center; */
-  /* scroll-padding: 0 5vw; */
+  scroll-padding: 0 5vw;
   overscroll-behavior: contain;
   scroll-snap-align: center;
   transition:transform .8s;
@@ -1310,6 +1300,20 @@ body:has(.ReactModal__Content) {overflow-x:hidden !important; overflow-y:hidden 
   min-width: 100vw;
 }
 
+@media(hover:none) {
+  .slider{scroll-snap-type:x mandatory}
+  .slider .post-card1 {
+    scroll-snap-align: center;
+    min-width: 100%;
+  }
+  }
+  @media(hover:hover) {
+  .slider{scroll-snap-type:x mandatory}
+  }
+  @media(pointer:coarse) {
+  
+  .slider{scroll-snap-type:x mandatory;}
+  }
 
 .slider iframe{max-height:60vh; max-width: 80vw; margin-top:8vh; }
 
@@ -1320,6 +1324,7 @@ body:has(.ReactModal__Content) {overflow-x:hidden !important; overflow-y:hidden 
     width:100vw;
     height: 100%;
   }
+
 
   .slider .post-card1 {
 min-width: 80vw;
