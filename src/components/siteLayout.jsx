@@ -248,13 +248,13 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFo
 <>{ /* eslint-disable-next-line jsx-a11y/label-has-associated-control */ }</>
   <label htmlFor="openSidebarMenu" className="backdrop1" ></label>
 
-<label id="menuicon" htmlFor="openSidebarMenu" className="sidebarIconToggle bug">
-<div style={{textAlign:'center', opacity:'1', maxWidth:'500px', color:'var(--theme-ui-colors-headerColorText)', fontWeight:'bold', border:'0px solid blue'}}>
+<label id="menuicon" htmlFor="openSidebarMenu" className="sidebarIconToggle bug panel">
+<div style={{textAlign:'center', opacity:'1', maxWidth:'500px', color:'var(--theme-ui-colors-headerColorText)', fontWeight:'bold'}}>
 {iconimage ? (
-      <img className="" src={iconimage} alt={companyname} width="120" height="60" style={{maxHeight:'60px', maxWidth:'120px', border:'none'}} />
-                ) : (
-                  <div style={{fontWeight:'', color:''}}>{companyname}</div>
-                )}
+<img className="" src={iconimage} alt={companyname} width="120" height="60" style={{maxHeight:'60px', maxWidth:'120px', border:'none'}} />
+) : (
+<div className="fire" style={{opacity:'.6', fontWeight:'', color:'', border:'0px solid blue', padding:'1vh 2vw', marginRight:'4px', boxShadow:'0px 0px 0px 0px var(--theme-ui-colors-headerColorText)'}}>{companyname}</div>
+)}
 </div>
   </label>
 
@@ -274,7 +274,7 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFo
             </AnchorLink>
     </li>
 
-<Menu />
+<Menu id="sidechick" />
 
 <li>
 <ul className="missioncontrol sitecontrols" style={{display:'flex', justifyContent:'space-around', fontSize:'clamp(.8rem, 2.3vw, 2.5rem)', gap:'', textAlign:'center', maxHeight:'', alignItems:'center', paddingTop:'5px'}}>

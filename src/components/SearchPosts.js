@@ -389,31 +389,31 @@ const [playingIndex, setPlayingIndex] = useState(null);
         ))}
 
 
+<div className="loadmore post-card1" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '',  textAlign: 'center', zIndex:'1' }}>
 {numVisibleItems < filteredPosts.length && (
-          <div className="loadmore" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '',  textAlign: 'center', zIndex:'1' }}>
+          
           <button className="button font" onClick={showMoreItems} style={{maxWidth:''}}>
               {dicLoadMore}
           </button>
-          </div>
+          
         )}
 
+{showArchive ? (
+      
+      <Link state={showModals ? { modal: true } : {}} to="/archive" className="font" style={{ background: 'var(--theme-ui-colors-headerColor)', borderRadius: 'var(--theme-ui-colors-borderRadius)', color: 'var(--theme-ui-colors-headerColorText)', display: 'flex', padding: '8px', margin: '0 auto', justifyContent:'center', maxWidth:'300px', alignItems:'center', }}>{dicViewArchive} &nbsp;<MdArrowForwardIos style={{ marginTop: '' }} /></Link>
+
+  ) : (
+    ""
+  )}
+</div>
 
 {showPopup ? (
-  <div className="loadmore" style={{ display: 'grid', flexDirection: 'column', placeContent: 'center', gap: '',  textAlign: 'center', zIndex:'1' }}>
+  <div className="loadmore post-card1" style={{ display: 'grid', flexDirection: 'column', placeContent: 'center', gap: '',  textAlign: 'center', zIndex:'1' }}>
             <SignUp />
   </div>
         ) : (
           ""
 )}
-
-
-{showArchive ? (
-              <div className="loadmore" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '', textAlign: 'center', zIndex:'1' }}>
-                <Link state={showModals ? { modal: true } : {}} to="/archive" className="font" style={{ background: 'var(--theme-ui-colors-headerColor)', borderRadius: 'var(--theme-ui-colors-borderRadius)', color: 'var(--theme-ui-colors-headerColorText)', display: 'flex', padding: '8px', margin: '0 auto', justifyContent:'center', maxWidth:'300px', alignItems:'center', }}>{dicViewArchive} &nbsp;<MdArrowForwardIos style={{ marginTop: '' }} /></Link>
-            </div>
-            ) : (
-              ""
-            )}
 
 
 

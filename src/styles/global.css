@@ -661,6 +661,9 @@ body.homepage .pleaseshare{display:none}
 #sidebarMenu input[type=checkbox]:checked~.sidebarIconToggle{display:none}
 .homepage .sidebarIconToggle div span{animation-delay:4s;border-radius:20px;color:var(--primary-color)}
 
+
+.sidebarMenuInner li a{color:var(--theme-ui-colors-siteColorText);}
+
 .modal-btn{box-shadow:none}
 .modal-btn:hover{background:#222}
 .react-tabs__tab{border:0 solid #ccc;border-radius:0;color:#fff;cursor:pointer;display:inline-block;letter-spacing:1px;margin-bottom:10px;padding:12px 5px;text-decoration:underline;text-transform:uppercase;transition:all .3s}
@@ -1308,7 +1311,11 @@ body:has(.ReactModal__Content) {overflow-x:hidden !important; overflow-y:hidden 
   }
   }
   @media(hover:hover) {
-  .slider{scroll-snap-type:x mandatory}
+  .slider{scroll-snap-type:none}
+  /* .slider .post-card1 {
+    scroll-snap-align: center;
+    min-width: 100%;
+  } */
   }
   @media(pointer:coarse) {
   
