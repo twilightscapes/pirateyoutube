@@ -20,7 +20,7 @@ const BlogPosts = ({ isSliderVisible }) => {
 
 
 
-  const { postcount, language, magicOptions, featureOptions, proOptions, navOptions  } = useSiteMetadata();
+  const { postcount, language, magicOptions, featureOptions, proOptions  } = useSiteMetadata();
 
   
 
@@ -70,7 +70,6 @@ const BlogPosts = ({ isSliderVisible }) => {
   
     const { showModals, showPopup } = proOptions
     const { showDates, showArchive, showTitles } = featureOptions
-    const { showNav } = navOptions
     
     const { dicLoadMore, dicViewArchive, dicCategory, dicKeyword, dicSearch, dicClear, dicResults, dicPlayVideo, dicPlayMultimedia  } = language;
 

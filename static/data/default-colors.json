@@ -1,11 +1,11 @@
 {
-  "siteColor": "rgba(4, 155, 77, 0.9)",
+  "siteColor": "rgba(4, 155, 77, 1)",
   "siteColorText": "white",
   "headerColor": "",
-  "headerColorText": "#111",
+  "headerColorText": "rgba(0, 0, 0, .99)",
   "siteBackground": "#aaa",
-  "text": "#111",
-  "textShadow": "#222",
+  "text": "#333",
+  "textShadow": "rgba(0, 0, 0, .3)",
   "borderColor": "#888",
   "borderRadius": "0",
   "siteFont": "Audiowide"

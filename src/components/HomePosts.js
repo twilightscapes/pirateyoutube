@@ -20,13 +20,13 @@ const HomePosts = ({ isSliderVisible }) => {
 
 
 
-  const { postcount, homecount, language, magicOptions, featureOptions, proOptions, navOptions  } = useSiteMetadata();
+  const { postcount, homecount, language, magicOptions, featureOptions, proOptions  } = useSiteMetadata();
 
   const { showMagic, showMagicCat, showMagicTag, showMagicSearch } = magicOptions;
   
   const { showModals, showPopup } = proOptions
   const { showDates, showArchive, showTitles } = featureOptions
-  const { showNav } = navOptions
+
     
   const { dicLoadMore, dicViewArchive, dicCategory, dicKeyword, dicSearch, dicClear, dicResults, dicPlayVideo, dicPlayMultimedia  } = language;
 

@@ -1,8 +1,9 @@
 ---
 addressText: The Fleet Launches Soon!
-youtube:
- youtuber: "null"
- youtuber2: "null"
+addressText2: It's Completely FREE!
+youtube: 
+ youtuber: https://youtu.be/TLV4_xaYynY?si=KqEjW-0fs2w5ybVd
+ youtuber2: https://youtu.be/TLV4_xaYynY?si=KqEjW-0fs2w5ybVd
  youtubeshoworiginal: false
  youtubersuggestion1: "null"
  youtubersuggestion2: "null"
@@ -17,7 +18,7 @@ youtube:
  showVidOnly: false
  customcontrols: false
  audioend: "0"
- audiotitle: "null"
+ audiotitle: "Test Video"
  audiostart: "0"
  contentinvideo: false
  liarliar: false
@@ -30,7 +31,8 @@ profText: <p>PIRATE is a social network with NO central control or ownership. It
 
  <p>Easily edit your homepage, update your profile, and publish engaging content on your OWN website/app.</p>
 tagline: You're the Captain of your content!
-featuredImage: /assets/losser.webp
+
+featuredImage: 
 secondaryImage: /assets/default-user.webp
 scrollable: false
 portfolio:
@@ -47,7 +49,6 @@ cta:
   ctaText: Reserve Your Galleon
   ctaLink: /contact
 homecount: 5
-addressText2: ""
 pagePW: ""
 skillsTitle: ""
 svgImage: /assets/transparent.png
