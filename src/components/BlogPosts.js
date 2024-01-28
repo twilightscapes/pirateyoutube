@@ -249,7 +249,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
   
 
   const renderContent = () => {
-    const containerClass = isSliderVisible ? "slider" : "grid-container contentpanel1";
+    const containerClass = isSliderVisible ? "slider" : "grid-container contentpanel";
     return (
       <>
 <div className={containerClass}

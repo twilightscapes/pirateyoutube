@@ -22,7 +22,7 @@ function Header() {
   useEffect(() => {
     if (isSliderVisible) {
       // Set initial scroll position to the top when in grid view
-      window.scrollTo(0, 0);
+      // window.scrollTo(0, 0);
     }
   }, [isSliderVisible]);
 
