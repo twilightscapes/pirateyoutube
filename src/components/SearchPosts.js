@@ -432,7 +432,6 @@ const [playingIndex, setPlayingIndex] = useState(null);
     <>
       <div
         className="magicshell"
-
         style={{
           overflowX: "auto",
           overflowY: "hidden"
