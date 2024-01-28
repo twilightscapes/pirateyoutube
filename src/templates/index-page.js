@@ -26,7 +26,7 @@ const HomePage = ({ data }) => {
 
   const { showProfile, showDefault, showFeature } = proOptions
 
-  const { dicClickToView } = language;
+  const { dicClickToView , dicPlayVideo} = language;
 
   
   const { markdownRemark } = data;
@@ -111,7 +111,25 @@ const HomePage = ({ data }) => {
       // const { iconimage } = useSiteMetadata()
       
 
-   
+   /* eslint-disable no-useless-escape */
+const extractVideoId = (url) => {
+  const match = url.match(/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/[^\/\n\s]+\/(?:\S+\/)?|(?:v|e(?:mbed)?)\/|\S*?[?&]v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+  return match ? match[1] : null;
+};
+/* eslint-enable no-useless-escape */
+  
+
+
+const playerRef = useRef(null);
+const [playingIndex, setPlayingIndex] = useState(null);
+
+  const handleVideoPlay = (index) => {
+    setPlayingIndex(index);
+  };
+
+  const handleVideoPause = () => {
+    setPlayingIndex(null);
+  };
   
 
   
@@ -175,9 +193,47 @@ const HomePage = ({ data }) => {
   {YouTube ? (
     <div>
   
+
+  <ReactPlayer
+                playing="true"
+                ref={playerRef}
+                url={frontmatter.youtube.youtuber}
+                  allow="web-share"
+                  style={{ position: 'relative', margin: '0 auto 0 auto', zIndex: '',aspectRatio:'16/9', }}
+                  width="100vw"
+                  height="100%"
+                  className='inline'
+                  playsinline
+                  // className={`relative ${index === playingIndex ? 'fixed' : 'relative'}`}
+            
+                  light={`https://i.ytimg.com/vi/${extractVideoId(frontmatter.youtube.youtuber)}/hqdefault.jpg`}
+                  config={{
+                    file: {
+                      attributes: {
+                        crossOrigin: "anonymous",
+                      },
+                    },
+                    youtube: {
+                      playerVars: { showinfo: 0, autoplay: 1, controls: 1, mute: 0, loop: 1 },
+                    },
+                  }}
+                  playIcon={
+                    <div style={{display:'flex', flexDirection:'column', placeContent:'', justifyContent:'', position:'absolute', zindex:'1', top:'', fontWeight:'bold', padding:'3% 0 0 0', width:'100%', maxWidth:'25vw', height:'', border:'0px solid', borderRadius:'12px', margin:'0 auto 0 auto', opacity:'.99', textShadow:'2px 2px 2px black', color:'#fff' }}>
+                      <div className="spotlight font" style={{}}>
+                        <div className="posticons" style={{ flexDirection: 'column', margin: '0 auto' }}>
+                          <div style={{ display: 'flex', justifyContent: 'space-around', gap: '2vw', color: 'fff', }}>
+                            <ImPlay className="posticon" style={{ margin: '0 auto', width: '60%', height: '30px', fontSize: '' }} />
+                          </div>
+                          {dicPlayVideo}
+                        </div>
+                      </div>
+                    </div>}
+                    onPlay={() => handleVideoPlay()}
+                    onPause={handleVideoPause}
+                />
   
   {/* PURPLE */}
-              <ReactPlayer
+              {/* <ReactPlayer
                 allow="web-share"
                 ref={playerRef}
                 style={{position:'asbolute', zIndex:'99'}}
@@ -250,7 +306,7 @@ const HomePage = ({ data }) => {
               </div>
               }
               
-              />
+              /> */}
     </div>
     ) : (
       ""
@@ -402,7 +458,7 @@ const ClickToPlay = frontmatter.youtube.clicktoplay
     loop: YoutubeLoop,
   });
 
-  const playerRef = useRef(null);
+
   const controlsRef = useRef(null);
 
   const {
