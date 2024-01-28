@@ -36,7 +36,7 @@
       "showDefault": true,
       "startUrl": "youtube",
       "showProfile": true,
-      "showFeature": false,
+      "showFeature": true,
       "showPopup": true
     },
     "magicOptions": {

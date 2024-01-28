@@ -2,17 +2,17 @@
 addressText: The Fleet Launches Soon!
 addressText2: It's Completely FREE!
 youtube: 
- youtuber: https://youtu.be/TLV4_xaYynY?si=KqEjW-0fs2w5ybVd
- youtuber2: https://youtu.be/TLV4_xaYynY?si=KqEjW-0fs2w5ybVd
+ youtuber: https://youtu.be/TLV4_xaYynY
+ youtuber2: https://youtu.be/TLV4_xaYynY
  youtubeshoworiginal: false
- youtubersuggestion1: "null"
- youtubersuggestion2: "null"
+ youtubersuggestion1: "nuhttps://youtu.be/TLV4_xaYynYll"
+ youtubersuggestion2: "https://youtu.be/TLV4_xaYynY"
  youtubersuggestion3: "null"
- youtubestart: "0"
- youtubeend: "0"
+ youtubestart: ""
+ youtubeend: ""
  youtubemute: false
  youtubecontrols: false
- youtubeautostart: false
+ youtubeautostart: true
  youtubeloop: false
  clicktoplay: false
  showVidOnly: false
@@ -43,7 +43,7 @@ slug: /
 
 excludeFromRSS: true
 skillsText: 
-underlayImage: /assets/transparent.png
+underlayImage: 
 bumpertext: x
 cta:
   ctaText: Reserve Your Galleon
@@ -51,7 +51,7 @@ cta:
 homecount: 5
 pagePW: ""
 skillsTitle: ""
-svgImage: /assets/transparent.png
+svgImage: 
 template: index-page
 title: Social media by the people for the people
 postLimit: "4"

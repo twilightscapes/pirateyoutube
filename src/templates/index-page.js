@@ -22,11 +22,11 @@ import { AiOutlineAudioMuted } from 'react-icons/ai';
 import { StaticImage } from "gatsby-plugin-image"
 const HomePage = ({ data }) => {
 
-  const { proOptions  } = useSiteMetadata();
+  const { language, proOptions  } = useSiteMetadata();
 
   const { showProfile, showDefault, showFeature } = proOptions
 
-
+  const { dicClickToView } = language;
 
   
   const { markdownRemark } = data;
@@ -50,6 +50,7 @@ const HomePage = ({ data }) => {
       // const SkillsText = frontmatter.skillsText
       const coverText = frontmatter.coverletter.coverText
       const YouTube2 = frontmatter.youtube.youtuber2
+      const YouTube = frontmatter.youtube.youtuber
 
   const CommonElements = ({ title, tagline, description }) => (
     <div className=" mob print" style={{ position:'sticky', top:'0', fontSize: 'clamp(1rem, 1.5vw, 3.2rem)' }}>
@@ -112,17 +113,7 @@ const HomePage = ({ data }) => {
 
    
   
-    let iframeFiltered;
-  // if (Suggestion1) {
-    iframeFiltered = [
-      frontmatter.youtube.youtuber,
-      frontmatter.youtube.youtubersuggestion1,
-      frontmatter.youtube.youtubersuggestion2,
-      frontmatter.youtube.youtubersuggestion3,
-    ];
-  // } else {
-  //   iframeFiltered = frontmatter.youtube.youtuber;
-  // }
+
   
   
   const Svg = frontmatter.svgImage;
@@ -165,7 +156,7 @@ const HomePage = ({ data }) => {
   
   
   
-  const YouTube = frontmatter.youtube.youtuber
+
   
     if (!YouTube) {
   
@@ -318,10 +309,24 @@ const HomePage = ({ data }) => {
     const Suggestion1 = frontmatter.youtube.youtubersuggestion1
 
 
+    let iframeFiltered;
+    if (Suggestion1) {
+      iframeFiltered = [
+        frontmatter.youtube.youtuber,
+        frontmatter.youtube.youtubersuggestion1,
+        frontmatter.youtube.youtubersuggestion2,
+        frontmatter.youtube.youtubersuggestion3,
+      ];
+    } else {
+      iframeFiltered = frontmatter.youtube.youtuber;
+    }
+
+
 const YoutubeLoop = frontmatter.youtube.youtubeloop
 
 const ClickToPlay = frontmatter.youtube.clicktoplay
-const hasYoutubeFrontmatter = frontmatter.youtube.youtuber
+
+
 
     const AudioStart = frontmatter.audiostart
     const AudioEnd = frontmatter.audioend
@@ -389,201 +394,326 @@ const hasYoutubeFrontmatter = frontmatter.youtube.youtuber
   
     // const Playing  = useState(true);
   
-    const [state] = useState({
-      playing: YouTubeAutostart,
-      controls: YouTubeControls,
-      light: ClickToPlay,
-      muted: YouTubeMute,
-      loop: YoutubeLoop,
-    });
+    const [state, setState] = useState({
+    playing: YouTubeAutostart,
+    controls: YouTubeControls,
+    light: ClickToPlay,
+    muted: YouTubeMute,
+    loop: YoutubeLoop,
+  });
+
+  const playerRef = useRef(null);
+  const controlsRef = useRef(null);
+
+  const {
+    playing,
+    controls,
+    light,
+    muted,
+    loop,
+    played,
+  } = state;
+
+  const handlePlayPause = () => {
+    setState({ ...state, playing: !state.playing });
+  };
+
+  const handleMute = () => {
+    setState({ ...state, muted: !state.muted });
+  };
+
+
+
+
+
+
+  const Controls = forwardRef(
+    (
+      {
+        // onSeek,
+        // onSeekMouseDown,
+        // onSeekMouseUp,
+        // onDuration,
+        // onRewind,
+        onPlayPause,
+        // onFastForward,
+        playing,
+        // played,
+        // elapsedTime,
+        // totalDuration,
+        onMute,
+        muted,
+        // onVolumeSeekDown,
+        // onChangeDispayFormat,
+        // playbackRate,
+        // onPlaybackRateChange,
+        // onToggleFullScreen,
+        volume,
+        // onVolumeChange,
+        // onBookmark,
+      },
+      ref
+    ) => {
+      // const classes = useStyles();
+      // const [anchorEl, setAnchorEl] = React.useState(null);
+      // const handleClick = (event) => {
+      //   setAnchorEl(event.currentTarget);
+      // };
   
-    const playerRef = useRef(null);
+      // const handleClose = () => {
+      //   setAnchorEl(null);
+      // };
+  
+      // const open = Boolean(anchorEl);
+      // const id = open ? "simple-popover" : undefined;
+  
+      // const { iconimage } = useSiteMetadata()
+  
+  
+      return (
+  
+  <div>
+  
+  
+  
+        {playing ? (
+""
+        ) : (
 
   
-    const {
-      playing,
-      controls,
-      light,
-      muted,
-      loop,
-    } = state;
   
-    // const handlePlayPause = () => {
-    //   setState({ ...state, playing: !state.playing });
-    // };
-  
-    // const handleMute = () => {
-    //   setState({ ...state, muted: !state.muted });
-    // };
-  
-    const Controls = forwardRef(
-      (
-        {
-          // onSeek,
-          // onSeekMouseDown,
-          // onSeekMouseUp,
-          // onDuration,
-          // onRewind,
-          onPlayPause,
-          // onFastForward,
-          playing,
-          // played,
-          // elapsedTime,
-          // totalDuration,
-          onMute,
-          muted,
-          // onVolumeSeekDown,
-          // onChangeDispayFormat,
-          // playbackRate,
-          // onPlaybackRateChange,
-          // onToggleFullScreen,
-          volume,
-          // onVolumeChange,
-          // onBookmark,
-        },
-        ref
-      ) => {
-  
-    
-        // const { iconimage } = useSiteMetadata()
-    
-    
-        return (
-    
-    <div>
-    
-    
-    
-          {playing ? (
-  ""
-          ) : (
-  
-  <div style={{position:'absolute', height:'100vh', width:'100vw', zIndex:'3', top:'0', right:'0', textAlign:'center', display:'grid', placeContent:'center', justifyContent:'center', color:'var(--theme-ui-colors-text)', fontFamily:'Verdana, Sans-Serif, System' }}>
-  
-  <button aria-label="Click To Play" name="Click to play"  className="clickplays videohide" style={{position:'relative', zIndex:'', top:'70px', border:'0px  solid red', width:'100vw', height:'', backgroundColor:'var(--theme-ui-colors-bodyBg)', color:'', fontSize:'', textAlign:'center', display:'', flexDirection:'column', verticalAlign:'center', justifyContent:'center', alignItems:'center', padding:'2vh 0 0 0'}}>
-  
-  
-            
-           <div style={{display:'grid', placeContent:'center', position:'relative', zindex:'1', fontWeight:'bold', padding:'1vh 0', fontSize:'clamp(.6rem, 1.4vw, 2rem)', width:'100%', maxWidth:'25vw', height:'', border:'0px solid', borderRadius:'12px', background:'linear-gradient(180deg, rgba(24, 23, 30, 0.2) 1%, rgba(0, 0, 0, .7) 99%)', margin:'0 auto 0 auto', opacity:'.99', textShadow:'2px 2px 2px black', color:'#fff' }}>
-  <ImPlay style={{margin:'0 auto', width:'50%', fontSize:'clamp(2rem, 4.4vw, 3rem)', filter:'drop-shadow(0px 0px 12px #fff',}} />
-  Click to play
-  </div>
-  
-  <div style={{fontSize:'clamp(1rem, 2vw, 2.5rem)', margin:'5vh 0 0 0', padding:'0 10px', maxWidth:'1000px'}}>
-  {frontmatter.bumpertext ? (
-  <h3>{frontmatter.bumpertext}</h3>
-      ) : (
-  <h3>{frontmatter.title}</h3>
-  )}
-  </div>
-        </button>
-  
-        <button
-          onClick={onPlayPause}
-          className="videohide" 
-          aria-label="Click To Play" name="Click to play" 
-          style={{
-           color:'#ddd',
-           width:'100vw', 
-           height:'100vh',
-           display:'grid',
-           placeContent:'center',
-           position:'absolute',
-           top:'0',left:'0',right:'0',bottom:'0',
-           zindex:'1'
-          }}
-        ></button>
-  
-        </div>
-  
-   )}
-   {/* end playing check */}
-    
+
    
+
+
+<div className="videohide1 554 pane1" style={{position:'absolute', height:'auto', aspectRatio:'16/9', width:'100vw', zIndex:'3', top:'', right:'0', textAlign:'center', display:'grid', placeContent:'', justifyContent:'', color:'var(--theme-ui-colors-text)', fontFamily:'Verdana, Sans-Serif, System' }}>
+
+
+
+
+<div aria-label="Click To Play" className="clickplays videohide 555" style={{position:'relative', zIndex:'', top:'0', border:'0px  solid red', width:'100vw', height:'', minHeight:'300px', aspectRatio:'16/9', maxHeight:'', fontSize:'', textAlign:'center', display:'grid', flexDirection:'column', verticalAlign:'center', justifyContent:'center', alignItems:'center', padding:'2vh 0 0 0', background:'#111', color:'#ddd', transition:'all 2s ease-in-out', cursor:'pointer'}}>
+
+
+
+
+
+
+          {/* // <div style={{position:'absolute', background:'#111', height:'100vh', width:'100vw', zIndex:'3', top:'0', right:'0', textAlign:'center', display:'grid', placeContent:'start', justifyContent:'center', color:'#fff', fontFamily:'Verdana, Sans-Serif, System' }}> */}
+
+          {/* <img className="homepage-bg" src={iconimage} width="250px" height="150px" alt="UrbanFetish" style={{ width:'', margin:'120px auto 0 auto', filter:'drop-shadow(2px 2px 2px #000)', background:'transparent !important', position:'relative', top:''}} /> */}
+{frontmatter.mediawarnings.marate ? (
+<>
+<div className="flex-items" style={{fontSize:'clamp(.6rem, 1.4vw, 2rem)', fontWeight:'bold', margin:'0 auto 0 auto', textTransform:'uppercase',}}>The following is rated: <strong>{frontmatter.mediawarnings.marate}</strong></div>
+
+<div className="flex-container" style={{display:'flex', flexDirection:'row', gap:'1vh', justifyContent:'center', alignItems:'center',  textAlign:'left', margin:'0 auto', color:'#ddd', background:'rgba(0, 0, 0, .8)', width:'auto', maxWidth:'800px', height:'', border:'1px solid #222', borderRadius:'12px', padding:'2vh 5vw' }}>
+
+
+{frontmatter.mediawarnings.marate ? (
+            <div className="flex-items" style={{display:'grid', placeContent:'center', width:'', height:'', aspectRatio:'1/1', padding:'0 20px', border:'6.5px solid #fff', margin:'0 auto 0 auto 0', fontSize:'clamp(4rem, 15vw, 5rem)', fontFamily:'Verdana, Sans-Serif, System', fontWeight:'800'}}>{frontmatter.mediawarnings.marate}</div>
+            ) : (
+              <div className="flex-items" style={{display:'grid', placeContent:'center', width:'', height:'', aspectRatio:'1/1', padding:'0 20px', border:'6.5px solid #fff', margin:'0 auto 0 auto 0', fontSize:'clamp(4rem, 15vw, 5rem)', fontFamily:'Verdana, Sans-Serif, System', fontWeight:'800'}}>PG</div>
+            )}
+
+
+
+
+
+<ul style={{display:'flex', flexDirection:'column', position:'relative', left:'', top:'', gap:'.8vh', justifyContent:'space-around', alignContent:'', alignItems:'start', border:'0px solid red', fontSize:'clamp(.5rem, 1.2vw, 2rem)'}}>
+
+
+{frontmatter.mediawarnings.maratingtx1 ? (
+            <li className="flex-items" style={{display:'flex', justifyContent:'center', alignItems:'center', alignContent:'end'}}><strong style={{ }}>
+            {frontmatter.mediawarnings.marating1}</strong> {frontmatter.mediawarnings.maratingtx1}</li>
+            ) : (
+              ""
+            )}
+
+
+{frontmatter.mediawarnings.maratingtx2 ? (
+            <li className="flex-items" style={{display:'flex', justifyContent:'center', alignItems:'center', alignContent:'end'}}><strong style={{ }}>
+{frontmatter.mediawarnings.marating2}</strong> {frontmatter.mediawarnings.maratingtx2} </li>
+            ) : (
+              ""
+            )}
+
+
+{frontmatter.mediawarnings.maratingtx3 ? (
+         <li className="flex-items" style={{display:'flex', justifyContent:'center', alignItems:'center', alignContent:'end'}}><strong style={{ }}>
+{frontmatter.mediawarnings.marating3}</strong> {frontmatter.mediawarnings.maratingtx3} </li>   
+            ) : (
+              ""
+            )} 
+
+
+{frontmatter.mediawarnings.maratingtx4 ? (
+       <li className="flex-items" style={{display:'flex', justifyContent:'center', alignItems:'center', alignContent:'end'}}><strong style={{ }}>
+{frontmatter.mediawarnings.marating4}</strong> {frontmatter.mediawarnings.maratingtx4} </li>           
+            ) : (
+              ""
+            )} 
+
+
+
+</ul>
+
+</div>
+
+<div className="flex-items" style={{position:'relative', right:'', top:'', display:'', fontSize:'clamp(.6rem, 1.4vw, 2rem)', fontWeight:'bold', textTransform:'uppercase', textAlign:'center'}}>{frontmatter.mediawarnings.viewerwarning}</div>
+</>
+) : (
+                
+  ""
   
-    <div ref={ref} className="controlsbox" style={{width:'', height:'', border:'0px solid red', }}>
-  <button
-          onClick={onPlayPause}
-          className="videohide" 
-          aria-label="Click To Play" name="Click to play" 
-          style={{
-           color:'#ddd',
-           width:'100vw', 
-           height:'85vh',
-           display:'grid',
-           placeContent:'center',
-           position:'absolute',
-           top:'0',left:'0',right:'0',bottom:'0',
-           zindex:'1'
-          }}
-        ></button>
-  
-     <button
+      )}
+
+
+
+
+         <div style={{display:'grid', placeContent:'center', position:'relative', zindex:'1', fontWeight:'bold', padding:'3% 0 0 0', fontSize:'clamp(.6rem, 1.4vw, 2rem)', width:'100%', maxWidth:'25vw', height:'', border:'0px solid', borderRadius:'12px', margin:'0 auto 0 auto', opacity:'.99', textShadow:'2px 2px 2px black', color:'#fff' }}>
+<ImPlay style={{margin:'0 auto', width:'50%', fontSize:'clamp(2rem, 4.4vw, 3rem)', filter:'drop-shadow(0px 0px 12px #fff',}} />
+{dicClickToView}
+</div>
+
+
+
+
+      
+
+<div className="bumper" style={{fontSize:'clamp(1rem, 2vw, 2.5rem)', margin:'5vh 0 0 0', padding:'0 10px', maxWidth:'1000px'}}>
+{frontmatter.bumpertext ? (
+<h3>{frontmatter.bumpertext}</h3>
+    ) : (
+<h3>{frontmatter.title}</h3>
+)}
+</div>
+
+<button aria-label="Video Play/Pause Button"
         onClick={onPlayPause}
-        className="controls panel" 
-         style={{
-        backgroundColor:'rgba(0,0,0, 0.6)',
-        color:'#999',
-        borderRadius:'8px', overFlow:'hidden'
-        }}>
-                      {playing ? (
-                        
-                        <MdPause className="hudicon" style={{}} />
-                        
-                      ) : (
-                  
-                  <MdPlayArrow className="hudicon" style={{}}  />
-                  
-                      )}
-                    </button>
-    
-                    <button
-                      // onClick={() => setState({ ...state, muted: !state.muted })}
-                      onClick={onMute}
-                      className="controls panel"
-                      style={{
-                        backgroundColor:'rgba(0,0,0, 0.6)',
-                        color:'#999',
-                        borderRadius:'8px', overFlow:'hidden'
-                    }}
-                    >
-                      {muted ? (
-                        <MdVolumeOff className="hudicon" fontSize="" style={{}}  />
-                      ) : volume > 0.5 ? (
-                        <MdVolumeUp className="hudicon" fontSize="" style={{}}  />
-                      ) : (
-                        <MdVolumeUp className="hudicon" fontSize="" style={{}}  />
-                      )}
-                    </button>
-    
-          </div>
-          
-          </div>
-        );
-      }
-    );
-    
-    Controls.propTypes = {
-      onSeek: PropTypes.func,
-      onSeekMouseDown: PropTypes.func,
-      onSeekMouseUp: PropTypes.func,
-      onDuration: PropTypes.func,
-      onRewind: PropTypes.func,
-      onPlayPause: PropTypes.func,
-      onFastForward: PropTypes.func,
-      onVolumeSeekDown: PropTypes.func,
-      onChangeDispayFormat: PropTypes.func,
-      onPlaybackRateChange: PropTypes.func,
-      onToggleFullScreen: PropTypes.func,
-      onMute: PropTypes.func,
-      playing: PropTypes.bool,
-      light: PropTypes.bool,
-      played: PropTypes.number,
-      elapsedTime: PropTypes.string,
-      totalDuration: PropTypes.string,
-      muted: PropTypes.bool,
-      playbackRate: PropTypes.number,
-    };
+        className="videohide 644 pane2" 
+        style={{
+         color:'#ddd',
+         width:'100vw', 
+         height:'',
+         display:'grid',
+         placeContent:'center',
+         position:'absolute',
+         aspectRatio:'16/9',
+         top:'',left:'0',right:'0',bottom:'0',
+         border:'0px solid blue',
+         zindex:'1'
+        }}
+      ></button>
+      
+      
+      </div>
+      </div>
+
+
+
+
+ )}
+ {/* end playing check */}
+  
+ 
+  
+  
+        
+  
+  
+  <div ref={ref} className="controlsbox" style={{width:'', height:'', border:'0px solid red', }}>
+  
+<button
+        aria-label="Video Play/Pause Button"
+        onClick={onPlayPause}
+        className="videohide 679 pane3" 
+        style={{
+         color:'#ddd',
+         width:'100vw', 
+         height:'auto',
+         display:'block',
+         placeContent:'',
+         position:'relative',
+         aspectRatio:'16/9',
+         top:'0',
+         left:'0',
+         right:'0',
+         border:'0px solid yellow',
+         zindex:'1', 
+         cursor:'pointer'
+        //  animation: 'fadeout 4s forwards'
+        }}
+      ></button>
+
+
+  <div className="vidcontrols">
+                  <button
+                    onClick={onPlayPause}
+                    className="controls panel" 
+                    style={{
+                      backgroundColor:'rgba(0,0,0, 0.6)',
+                      color:'#999',
+                      borderRadius:'', overFlow:'hidden'
+                  }}
+                  >
+                    {/* <MdPlayArrow style={{fontSize:'50px', position:'absolute'}}  /> */}
+                    {playing ? (
+                      
+                      <MdPause className="hudicon" style={{}} />
+                      
+                    ) : (
+                
+                <MdPlayArrow className="hudicon" style={{}}  />
+                
+                    )}
+                  </button>
+  
+                  <button
+                    // onClick={() => setState({ ...state, muted: !state.muted })}
+                    onClick={onMute}
+                    className="controls panel"
+                    style={{
+                      backgroundColor:'rgba(0,0,0, 0.6)',
+                      color:'#999',
+                      borderRadius:'', overFlow:'hidden'
+                  }}
+                  >
+                    {muted ? (
+                      <MdVolumeOff className="hudicon" fontSize="" style={{}}  />
+                    ) : volume > 0.5 ? (
+                      <MdVolumeUp className="hudicon" fontSize="" style={{}}  />
+                    ) : (
+                      <MdVolumeUp className="hudicon" fontSize="" style={{}}  />
+                    )}
+                  </button>
+                  </div>
+
+        </div>
+        </div>
+      );
+    }
+  );
+  
+  Controls.propTypes = {
+    onSeek: PropTypes.func,
+    onSeekMouseDown: PropTypes.func,
+    onSeekMouseUp: PropTypes.func,
+    onDuration: PropTypes.func,
+    onRewind: PropTypes.func,
+    onPlayPause: PropTypes.func,
+    onFastForward: PropTypes.func,
+    onVolumeSeekDown: PropTypes.func,
+    onChangeDispayFormat: PropTypes.func,
+    onPlaybackRateChange: PropTypes.func,
+    onToggleFullScreen: PropTypes.func,
+    onMute: PropTypes.func,
+    playing: PropTypes.bool,
+    light: PropTypes.bool,
+    played: PropTypes.number,
+    elapsedTime: PropTypes.string,
+    totalDuration: PropTypes.string,
+    muted: PropTypes.bool,
+    playbackRate: PropTypes.number,
+  };
 
 
 
@@ -642,18 +772,17 @@ style={{height:'auto', width:'100vw', maxHeight:'', position:'relative', zIndex:
 
 
           ) : (
-
-            <StaticImage src="../../static/assets/default-og-image.webp" alt="Default Image" style={{height:'auto', maxHeight:'100vh', position:'relative', zIndex:'0', top:'0',border:'0px solid !important', objectFit:'contain', margin:'0 auto'}} />
+""
+            // <StaticImage src="../../static/assets/default-og-image.webp" alt="Default Image" style={{height:'auto', maxHeight:'100vh', position:'relative', zIndex:'0', top:'0',border:'0px solid !important', objectFit:'contain', margin:'0 auto'}} />
   
           )}
 
 {YouTube ? (
-            <div style={{position:'absolute', top:'0'}}><Iframer /></div>
+            <Iframer />
        
           ) : (
             ""
           )}
-          <strong>Coming Soon</strong>
       </div>
       
   </article>
