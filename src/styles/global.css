@@ -727,7 +727,7 @@ to{opacity:0;z-index:-3}
 }
 .themer:hover, .swipescroll:hover{color:var(--theme-ui-colors-siteColor) ; }
 
-/* .wrap-element iframe{border:0;height:100%;left:0;position:absolute;top:0;width:100vw} */
+.wrap-element iframe{border:0;height:100%;left:0;position:absolute;top:0;width:100vw}
 body.blogpost #menu li .fullscreenButt{display:flex}
 
 
@@ -941,7 +941,7 @@ body.contactpage .ReactModal__Content{padding-top:10vh !important;}
 
   .react-player__preview{max-height:200px !important; margin-top:8vh;}
   
-  /* .horizontal-scroll iframe{max-height:200px !important; margin-top:8vh; } */
+  .horizontal-scroll iframe{max-height:200px !important; margin-top:8vh; }
 
 
   .topmenu {gap:1vw ; padding:0 ;}

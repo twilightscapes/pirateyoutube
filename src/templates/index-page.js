@@ -22,7 +22,7 @@ import { AiOutlineAudioMuted } from 'react-icons/ai';
 import { StaticImage } from "gatsby-plugin-image"
 const HomePage = ({ data }) => {
 
-  const { language, proOptions  } = useSiteMetadata();
+  const { language, proOptions, siteUrl  } = useSiteMetadata();
 
   const { showProfile, showDefault, showFeature } = proOptions
 
@@ -187,7 +187,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
   function Iframer() {
     
       return (
-        <div className="wrap-element effects" style={{aspectRatio:'16/9', minHeight:'300px', width:'100vw', maxHeight:'90vh', overFlow:'hidden'}}>
+        <div className="wrap-element effects" style={{aspectRatio:'16/9', minHeight:'300px', width:'100vw', maxHeight:'100vh', overFlow:'hidden'}}>
   
   
   {YouTube ? (
@@ -199,14 +199,15 @@ const [playingIndex, setPlayingIndex] = useState(null);
                 ref={playerRef}
                 url={frontmatter.youtube.youtuber}
                   allow="web-share"
-                  style={{ position: 'relative', margin: '0 auto 0 auto', zIndex: '',aspectRatio:'16/9', }}
+                  style={{ position: 'absolute', top:'0', margin: '0 auto 0 auto', zIndex: '1',aspectRatio:'16/9', }}
                   width="100vw"
                   height="100%"
                   className='inline'
                   playsinline
                   // className={`relative ${index === playingIndex ? 'fixed' : 'relative'}`}
             
-                  light={`https://i.ytimg.com/vi/${extractVideoId(frontmatter.youtube.youtuber)}/hqdefault.jpg`}
+                  // light={`https://i.ytimg.com/vi/${extractVideoId(frontmatter.youtube.youtuber)}/hqdefault.jpg`}
+                  light='{frontmatter.underlayImage}'
                   config={{
                     file: {
                       attributes: {
@@ -322,7 +323,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
                   alt={frontmatter.title + " - image"}
                   className="mcboaty1"
                   style={{height:'auto', width:'', maxHeight:'100vh', overflow:'hidden', position:'absolute', left:'0', right:'0', bottom:'0', top:'', zIndex:'0',
-                 objectFit:'cover', border:'1px solid red !important', background:'transparent',}}
+                 objectFit:'cover', border:'0px solid red !important', background:'transparent',}}
                 />
                 
               ) : (
@@ -821,15 +822,15 @@ alt={frontmatter.title + " - Featured image"}
 className="featuredimage"
 placeholder="blurred"
 loading="eager"
-style={{height:'auto', width:'100vw', maxHeight:'', position:'relative', zIndex:'0', top:'0', left:'0', right:'0', border:'0px solid #888 !important', objectFit:'contain', margin:'0 2%'}}
+style={{height:'auto', width:'100vw', maxHeight:'', position:'absolute', zIndex:'0', top:'0', left:'0', right:'0', border:'0px solid #888 !important', objectFit:'contain', margin:'0 2%'}}
 />
 
 
 
 
           ) : (
-""
-            // <StaticImage src="../../static/assets/default-og-image.webp" alt="Default Image" style={{height:'auto', maxHeight:'100vh', position:'relative', zIndex:'0', top:'0',border:'0px solid !important', objectFit:'contain', margin:'0 auto'}} />
+
+            <StaticImage src="../../static/assets/default-og-image.webp" alt="Default Image" style={{height:'auto', maxHeight:'100vh', position:'absolute', zIndex:'0', top:'0',border:'0px solid !important', objectFit:'contain', margin:'0 auto'}} />
   
           )}
 
@@ -854,7 +855,7 @@ style={{height:'auto', width:'100vw', maxHeight:'', position:'relative', zIndex:
   <section className="scroll-area panel" id="info" order="2" name="info" style={{ display:'', height:'100%', minHeight:'100vh', position:'relative', zIndex:'0', overflow:'visible', margin:'0 auto 0 auto', padding:'0 0 0 0', background:'var(--theme-ui-colors-background)', color:'var(--theme-ui-colors-text)', maxWidth:'95%', borderRadius:'8px', }}>
   <article style={{ margin:'0 0 0 0'}}>
 
-  <div className="" style={{maxHeight:'100vh', width:'100vw', height:'', overflow:'visible',position:'absolute', top:'', zIndex:'-1',}}>
+  {/* <div className="" style={{maxHeight:'100vh', width:'100vw', height:'', overflow:'visible',position:'absolute', top:'', zIndex:'-1',}}>
 {UnderlayImage ? (
             <GatsbyImage
             image={UnderlayImage}
@@ -866,7 +867,7 @@ style={{height:'auto', width:'100vw', maxHeight:'', position:'relative', zIndex:
           ) : (
             ""
           )}
-</div>
+</div> */}
 
 <div id="profiletop" className="flexbutt" style={{display:'', gap:'10px', justifyContent:'center', alignItems:"center", margin:'0 0',
   padding:'0 2% 0 2%', position:'relative', color: ''}}>

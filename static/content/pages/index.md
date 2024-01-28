@@ -32,7 +32,7 @@ profText: <p>PIRATE is a social network with NO central control or ownership. It
  <p>Easily edit your homepage, update your profile, and publish engaging content on your OWN website/app.</p>
 tagline: You're the Captain of your content!
 
-featuredImage: 
+featuredImage: /assets/Experiences-Header-5.jpg
 secondaryImage: /assets/default-user.webp
 scrollable: false
 portfolio:
@@ -43,7 +43,7 @@ slug: /
 
 excludeFromRSS: true
 skillsText: 
-underlayImage: 
+underlayImage: /assets/losser.webp
 bumpertext: x
 cta:
   ctaText: Reserve Your Galleon
