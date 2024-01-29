@@ -557,7 +557,6 @@ display:'flex', justifyContent:'center', width:'200px', maxHeight:'80px !importa
 {/* show feature */}
 {showFeature ? (   
 <section id="feature" name="feature" className="print scroll-area panel" style={{  width:'100vw', height:'', maxHeight:'', margin:'0 auto 0 auto', padding:'0 0 0 0', position:'relative',
-
  alignContent:'center', display:'flex', textAlign:'left', justifyContent:'start', verticalAlign:'center',
   color:'#fff',
   fontSize:'clamp(1rem, 1.8vw, 3.2rem)',
@@ -565,10 +564,7 @@ display:'flex', justifyContent:'center', width:'200px', maxHeight:'80px !importa
   // backdropFilter:'blur(8px)',
   // borderRadius:'10px',
   textShadow:'0 2px 7px #000',
-  // maxWidth:'95%',
-  // border:'1px solid #333',
   backgroundColor:'var(--theme-ui-colors-headerColor)'
-
 }}>
   <article>
 
