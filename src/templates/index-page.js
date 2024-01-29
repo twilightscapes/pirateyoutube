@@ -195,7 +195,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
   
 
   <ReactPlayer
-                playing
+                
                 ref={playerRef}
                 url={frontmatter.youtube.youtuber}
                   allow="web-share"
