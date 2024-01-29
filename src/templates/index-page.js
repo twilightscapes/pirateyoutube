@@ -24,7 +24,7 @@ const HomePage = ({ data }) => {
 
   const { language, proOptions, siteUrl  } = useSiteMetadata();
 
-  const { showProfile, showDefault, showFeature } = proOptions
+  const { showProfile, showDefault, showFeature, showHomePosts } = proOptions
 
   const { dicClickToView , dicPlayVideo} = language;
 
@@ -199,24 +199,24 @@ const [playingIndex, setPlayingIndex] = useState(null);
                 ref={playerRef}
                 url={frontmatter.youtube.youtuber}
                   allow="web-share"
-                  style={{ position: 'absolute', top:'0', margin: '0 auto 0 auto', zIndex: '2', aspectRatio:'16/9', }}
+                  style={{ position: 'absolute', top:'0', margin: '0 auto 0 auto', zIndex: '1', aspectRatio:'16/9', }}
                   width="100vw"
                   height="100%"
-                  className='inline'
+                  className='inline1'
                   playsinline
 
             
-                  // light={`https://i.ytimg.com/vi/${extractVideoId(frontmatter.youtube.youtuber)}/hqdefault.jpg`}
+                  // light={frontmatter.underlayImage || `https://i.ytimg.com/vi/${extractVideoId(frontmatter.youtube.youtuber)}/hqdefault.jpg`}
             
 
                   light={
                     frontmatter.underlayImage ? (
                       <GatsbyImage
                         image={frontmatter.underlayImage}
-                        alt={frontmatter.title + " - image"}
-                        className="mcboaty print"
+                        alt={frontmatter.title + " - ppimage"}
+                        className="print"
                         placeholder="blurred" loading="eager"
-                        style={{ position: 'absolute', top: '0', height: 'auto', width: '100vw', maxHeight: '100vh', objectFit: 'cover', overflow: 'visible', border: '0px solid red !important' }}
+                        style={{ position: '', top: '0', height: 'auto', width: '100vw', maxHeight: '100vh', objectFit: 'cover', overflow: 'visible', border: '2px solid red !important' }}
                       />
                     ) : (
                       <img src={`https://i.ytimg.com/vi/${extractVideoId(frontmatter.youtube.youtuber)}/hqdefault.jpg`} width="100%" height="auto" alt="Fallback Image" />
@@ -238,7 +238,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
                     },
                   }}
                   playIcon={
-                    <div style={{display:'flex', flexDirection:'column', placeContent:'', justifyContent:'', position:'absolute', zindex:'1', top:'', fontWeight:'bold', padding:'3% 0 0 0', width:'100%', maxWidth:'25vw', height:'', border:'0px solid', borderRadius:'12px', margin:'0 auto 0 auto', opacity:'.99', textShadow:'2px 2px 2px black', color:'#fff' }}>
+                    <div style={{display:'flex', flexDirection:'column', placeContent:'', justifyContent:'', position:'absolute', zindex:'3', top:'', fontWeight:'bold', padding:'3% 0 0 0', width:'100%', maxWidth:'25vw', height:'', border:'0px solid', borderRadius:'12px', margin:'0 auto 0 auto', opacity:'.99', textShadow:'2px 2px 2px black', color:'#fff' }}>
                       <div className="spotlight font" style={{}}>
                         <div className="posticons" style={{ flexDirection: 'column', margin: '0 auto' }}>
                           <div style={{ display: 'flex', justifyContent: 'space-around', gap: '2vw', color: 'fff', }}>
@@ -260,14 +260,14 @@ const [playingIndex, setPlayingIndex] = useState(null);
   
     
     
-    <div className="" style={{maxHeight:'100vh', width:'100vw', height:'auto', overflow:'visible',position:'absolute', top:'0', zIndex:'1',}}>
+    <div className="" style={{maxHeight:'100vh', width:'100vw', height:'auto', overflow:'visible',position:'absolute', top:'0', zIndex:'',}}>
 {UnderlayImage ? (
             <GatsbyImage
             image={UnderlayImage}
             alt={frontmatter.title + " - image"}
-            className="mcboaty print"
+            className="print"
             placeholder="blurred" loading="eager"
-              style={{height:'auto', width:'100vw', maxHeight:'100vh',  objectFit:'cover', overflow:'visible', border:'1px solid red !important'}}
+              style={{height:'auto', width:'100vw', maxHeight:'100vh',  objectFit:'cover', overflow:'visible', border:'0px solid red !important'}}
           />
           ) : (
             ""
@@ -333,8 +333,8 @@ const AudioTitle = frontmatter.youtube.audiotitle
       const iframeUrl3 = "https://www.youtube.com/embed/" + frontmatter.youtube.youtuber2
       return (
         
-  <div style={{marginTop:'10px', position:'relative', zIndex:'1',
-  display:'flex', justifyContent:'center', maxHeight:'80px !important', height:'150px', border:'0px solid yellow', width:'100%'
+  <div style={{marginTop:'0', position:'relative', zIndex:'1',
+  display:'flex', justifyContent:'center', width:'200px', maxHeight:'80px !important', height:'150px', border:'0px solid yellow', width:'100%'
   }}>
   
   
@@ -342,7 +342,7 @@ const AudioTitle = frontmatter.youtube.audiotitle
             allow="web-share"
             className='react-player67'
             url={iframeUrl3}
-            width="250px"
+            width="200px"
             height="100%"
             style={{
               border:'0px solid red'
@@ -356,13 +356,13 @@ const AudioTitle = frontmatter.youtube.audiotitle
             playing
             playsinline
             playIcon={
-              <button aria-label="Click To Play" className="clickplays" style={{position:'relative', zIndex:'0', top:'', border:'0px  solid red', width:'100vw', height:'', background:'transparent', color:'#fff', fontSize:'18px', textAlign:'center', display:'flex', flexDirection:'column', verticalAlign:'center', justifyContent:'center', alignItems:'center', paddingTop:'0', borderRadius:'12px'}}>
+              <button aria-label="Click To Play" className="clickplays" style={{position:'relative', zIndex:'0', top:'', border:'0px  solid red', width:'', height:'', background:'transparent', color:'#fff', fontSize:'18px', textAlign:'center', display:'flex', flexDirection:'column', verticalAlign:'center', justifyContent:'center', alignItems:'center', paddingTop:'0', borderRadius:'12px'}}>
             
           <div className="" style={{position:'', top:'', zIndex:'0', textAlign:'center', animation:'fadeIn 3s', display:'flex', justifyContent:'center', width:'auto', marginBottom:''}}>
             
       
   
-            <div className="popped" style={{display:'flex', width:'80%', minWidth:'300px', margin:'0 auto', fontWeight:'bold', padding:'.2rem .4rem', fontSize:'2rem', background:'rgba(0,0,0,0.30)', borderRadius:'12px', border:'1px solid #333', filter:'drop-shadow(2px 2px 2px #000)', textAlign:'center'}}>
+            <div className="popped" style={{display:'flex', width:'80%', minWidth:'200px', margin:'0 auto', fontWeight:'bold', padding:'.2rem .4rem', fontSize:'2rem', background:'rgba(0,0,0,0.30)', borderRadius:'12px', border:'1px solid #333', filter:'drop-shadow(2px 2px 2px #000)', textAlign:'center'}}>
               
               <div style={{fontSize:'.8rem', fontWeight:'', width:'100%', padding:'0 0 0 .3rem', filter:'drop-shadow(2px 2px 2px #000)', textAlign:'center'}}>
               I just listened to:<br />
@@ -402,315 +402,15 @@ const AudioTitle = frontmatter.youtube.audiotitle
 
   const controlsRef = useRef(null);
 
-  const {
-    playing,
-    controls,
-    light,
-    muted,
-    loop,
-    played,
-  } = state;
-
-  const handlePlayPause = () => {
-    setState({ ...state, playing: !state.playing });
-  };
-
-  const handleMute = () => {
-    setState({ ...state, muted: !state.muted });
-  };
 
 
 
 
 
 
-  const Controls = forwardRef(
-    (
-      {
-        // onSeek,
-        // onSeekMouseDown,
-        // onSeekMouseUp,
-        // onDuration,
-        // onRewind,
-        onPlayPause,
-        // onFastForward,
-        playing,
-        // played,
-        // elapsedTime,
-        // totalDuration,
-        onMute,
-        muted,
-        // onVolumeSeekDown,
-        // onChangeDispayFormat,
-        // playbackRate,
-        // onPlaybackRateChange,
-        // onToggleFullScreen,
-        volume,
-        // onVolumeChange,
-        // onBookmark,
-      },
-      ref
-    ) => {
-      // const classes = useStyles();
-      // const [anchorEl, setAnchorEl] = React.useState(null);
-      // const handleClick = (event) => {
-      //   setAnchorEl(event.currentTarget);
-      // };
-  
-      // const handleClose = () => {
-      //   setAnchorEl(null);
-      // };
-  
-      // const open = Boolean(anchorEl);
-      // const id = open ? "simple-popover" : undefined;
-  
-      // const { iconimage } = useSiteMetadata()
-  
-  
-      return (
-  
-  <div>
-  
-  
-  
-        {playing ? (
-""
-        ) : (
 
-  
   
 
-   
-
-
-<div className="videohide1 554 pane1" style={{position:'absolute', height:'auto', aspectRatio:'16/9', width:'100vw', zIndex:'3', top:'', right:'0', textAlign:'center', display:'grid', placeContent:'', justifyContent:'', color:'var(--theme-ui-colors-text)', fontFamily:'Verdana, Sans-Serif, System' }}>
-
-
-
-
-<div aria-label="Click To Play" className="clickplays videohide 555" style={{position:'relative', zIndex:'', top:'0', border:'0px  solid red', width:'100vw', height:'', minHeight:'300px', aspectRatio:'16/9', maxHeight:'', fontSize:'', textAlign:'center', display:'grid', flexDirection:'column', verticalAlign:'center', justifyContent:'center', alignItems:'center', padding:'2vh 0 0 0', background:'#111', color:'#ddd', transition:'all 2s ease-in-out', cursor:'pointer'}}>
-
-
-
-
-
-
-          {/* // <div style={{position:'absolute', background:'#111', height:'100vh', width:'100vw', zIndex:'3', top:'0', right:'0', textAlign:'center', display:'grid', placeContent:'start', justifyContent:'center', color:'#fff', fontFamily:'Verdana, Sans-Serif, System' }}> */}
-
-          {/* <img className="homepage-bg" src={iconimage} width="250px" height="150px" alt="UrbanFetish" style={{ width:'', margin:'120px auto 0 auto', filter:'drop-shadow(2px 2px 2px #000)', background:'transparent !important', position:'relative', top:''}} /> */}
-{frontmatter.mediawarnings.marate ? (
-<>
-<div className="flex-items" style={{fontSize:'clamp(.6rem, 1.4vw, 2rem)', fontWeight:'bold', margin:'0 auto 0 auto', textTransform:'uppercase',}}>The following is rated: <strong>{frontmatter.mediawarnings.marate}</strong></div>
-
-<div className="flex-container" style={{display:'flex', flexDirection:'row', gap:'1vh', justifyContent:'center', alignItems:'center',  textAlign:'left', margin:'0 auto', color:'#ddd', background:'rgba(0, 0, 0, .8)', width:'auto', maxWidth:'800px', height:'', border:'1px solid #222', borderRadius:'12px', padding:'2vh 5vw' }}>
-
-
-{frontmatter.mediawarnings.marate ? (
-            <div className="flex-items" style={{display:'grid', placeContent:'center', width:'', height:'', aspectRatio:'1/1', padding:'0 20px', border:'6.5px solid #fff', margin:'0 auto 0 auto 0', fontSize:'clamp(4rem, 15vw, 5rem)', fontFamily:'Verdana, Sans-Serif, System', fontWeight:'800'}}>{frontmatter.mediawarnings.marate}</div>
-            ) : (
-              <div className="flex-items" style={{display:'grid', placeContent:'center', width:'', height:'', aspectRatio:'1/1', padding:'0 20px', border:'6.5px solid #fff', margin:'0 auto 0 auto 0', fontSize:'clamp(4rem, 15vw, 5rem)', fontFamily:'Verdana, Sans-Serif, System', fontWeight:'800'}}>PG</div>
-            )}
-
-
-
-
-
-<ul style={{display:'flex', flexDirection:'column', position:'relative', left:'', top:'', gap:'.8vh', justifyContent:'space-around', alignContent:'', alignItems:'start', border:'0px solid red', fontSize:'clamp(.5rem, 1.2vw, 2rem)'}}>
-
-
-{frontmatter.mediawarnings.maratingtx1 ? (
-            <li className="flex-items" style={{display:'flex', justifyContent:'center', alignItems:'center', alignContent:'end'}}><strong style={{ }}>
-            {frontmatter.mediawarnings.marating1}</strong> {frontmatter.mediawarnings.maratingtx1}</li>
-            ) : (
-              ""
-            )}
-
-
-{frontmatter.mediawarnings.maratingtx2 ? (
-            <li className="flex-items" style={{display:'flex', justifyContent:'center', alignItems:'center', alignContent:'end'}}><strong style={{ }}>
-{frontmatter.mediawarnings.marating2}</strong> {frontmatter.mediawarnings.maratingtx2} </li>
-            ) : (
-              ""
-            )}
-
-
-{frontmatter.mediawarnings.maratingtx3 ? (
-         <li className="flex-items" style={{display:'flex', justifyContent:'center', alignItems:'center', alignContent:'end'}}><strong style={{ }}>
-{frontmatter.mediawarnings.marating3}</strong> {frontmatter.mediawarnings.maratingtx3} </li>   
-            ) : (
-              ""
-            )} 
-
-
-{frontmatter.mediawarnings.maratingtx4 ? (
-       <li className="flex-items" style={{display:'flex', justifyContent:'center', alignItems:'center', alignContent:'end'}}><strong style={{ }}>
-{frontmatter.mediawarnings.marating4}</strong> {frontmatter.mediawarnings.maratingtx4} </li>           
-            ) : (
-              ""
-            )} 
-
-
-
-</ul>
-
-</div>
-
-<div className="flex-items" style={{position:'relative', right:'', top:'', display:'', fontSize:'clamp(.6rem, 1.4vw, 2rem)', fontWeight:'bold', textTransform:'uppercase', textAlign:'center'}}>{frontmatter.mediawarnings.viewerwarning}</div>
-</>
-) : (
-                
-  ""
-  
-      )}
-
-
-
-
-         <div style={{display:'grid', placeContent:'center', position:'relative', zindex:'1', fontWeight:'bold', padding:'3% 0 0 0', fontSize:'clamp(.6rem, 1.4vw, 2rem)', width:'100%', maxWidth:'25vw', height:'', border:'0px solid', borderRadius:'12px', margin:'0 auto 0 auto', opacity:'.99', textShadow:'2px 2px 2px black', color:'#fff' }}>
-<ImPlay style={{margin:'0 auto', width:'50%', fontSize:'clamp(2rem, 4.4vw, 3rem)', filter:'drop-shadow(0px 0px 12px #fff',}} />
-{dicClickToView}
-</div>
-
-
-
-
-      
-
-<div className="bumper" style={{fontSize:'clamp(1rem, 2vw, 2.5rem)', margin:'5vh 0 0 0', padding:'0 10px', maxWidth:'1000px'}}>
-{frontmatter.bumpertext ? (
-<h3>{frontmatter.bumpertext}</h3>
-    ) : (
-<h3>{frontmatter.title}</h3>
-)}
-</div>
-
-<button aria-label="Video Play/Pause Button"
-        onClick={onPlayPause}
-        className="videohide 644 pane2" 
-        style={{
-         color:'#ddd',
-         width:'100vw', 
-         height:'',
-         display:'grid',
-         placeContent:'center',
-         position:'absolute',
-         aspectRatio:'16/9',
-         top:'',left:'0',right:'0',bottom:'0',
-         border:'0px solid blue',
-         zindex:'1'
-        }}
-      ></button>
-      
-      
-      </div>
-      </div>
-
-
-
-
- )}
- {/* end playing check */}
-  
- 
-  
-  
-        
-  
-  
-  <div ref={ref} className="controlsbox" style={{width:'', height:'', border:'0px solid red', }}>
-  
-<button
-        aria-label="Video Play/Pause Button"
-        onClick={onPlayPause}
-        className="videohide 679 pane3" 
-        style={{
-         color:'#ddd',
-         width:'100vw', 
-         height:'auto',
-         display:'block',
-         placeContent:'',
-         position:'relative',
-         aspectRatio:'16/9',
-         top:'0',
-         left:'0',
-         right:'0',
-         border:'0px solid yellow',
-         zindex:'1', 
-         cursor:'pointer'
-        //  animation: 'fadeout 4s forwards'
-        }}
-      ></button>
-
-
-  <div className="vidcontrols">
-                  <button
-                    onClick={onPlayPause}
-                    className="controls panel" 
-                    style={{
-                      backgroundColor:'rgba(0,0,0, 0.6)',
-                      color:'#999',
-                      borderRadius:'', overFlow:'hidden'
-                  }}
-                  >
-                    {/* <MdPlayArrow style={{fontSize:'50px', position:'absolute'}}  /> */}
-                    {playing ? (
-                      
-                      <MdPause className="hudicon" style={{}} />
-                      
-                    ) : (
-                
-                <MdPlayArrow className="hudicon" style={{}}  />
-                
-                    )}
-                  </button>
-  
-                  <button
-                    // onClick={() => setState({ ...state, muted: !state.muted })}
-                    onClick={onMute}
-                    className="controls panel"
-                    style={{
-                      backgroundColor:'rgba(0,0,0, 0.6)',
-                      color:'#999',
-                      borderRadius:'', overFlow:'hidden'
-                  }}
-                  >
-                    {muted ? (
-                      <MdVolumeOff className="hudicon" fontSize="" style={{}}  />
-                    ) : volume > 0.5 ? (
-                      <MdVolumeUp className="hudicon" fontSize="" style={{}}  />
-                    ) : (
-                      <MdVolumeUp className="hudicon" fontSize="" style={{}}  />
-                    )}
-                  </button>
-                  </div>
-
-        </div>
-        </div>
-      );
-    }
-  );
-  
-  Controls.propTypes = {
-    onSeek: PropTypes.func,
-    onSeekMouseDown: PropTypes.func,
-    onSeekMouseUp: PropTypes.func,
-    onDuration: PropTypes.func,
-    onRewind: PropTypes.func,
-    onPlayPause: PropTypes.func,
-    onFastForward: PropTypes.func,
-    onVolumeSeekDown: PropTypes.func,
-    onChangeDispayFormat: PropTypes.func,
-    onPlaybackRateChange: PropTypes.func,
-    onToggleFullScreen: PropTypes.func,
-    onMute: PropTypes.func,
-    playing: PropTypes.bool,
-    light: PropTypes.bool,
-    played: PropTypes.number,
-    elapsedTime: PropTypes.string,
-    totalDuration: PropTypes.string,
-    muted: PropTypes.bool,
-    playbackRate: PropTypes.number,
-  };
 
 
 
@@ -764,7 +464,7 @@ const AudioTitle = frontmatter.youtube.audiotitle
                   image={UnderlayImage}
                   alt={frontmatter.title + " - image"}
                   className="mcboaty1"
-                  style={{height:'auto', width:'100%', maxHeight:'100vh', overflow:'hidden', position:'absolute', left:'0', right:'0', bottom:'', top:'0', zIndex:'0',
+                  style={{height:'auto', width:'100%', maxHeight:'100vh', overflow:'hidden', position:'absolute', left:'0', right:'0', bottom:'', top:'0', zIndex:'',
                  objectFit:'cover', border:'0px solid red !important', background:'transparent',}}
                 />
                 
@@ -926,9 +626,12 @@ Become a PIRATE!
 
 
 
-
+{showHomePosts ? (
     <HomePosts isSliderVisible={isSliderVisible} />
-
+    ) : (
+      ""
+    
+  )}
 
 
 
