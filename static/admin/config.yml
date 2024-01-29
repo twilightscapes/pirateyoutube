@@ -613,6 +613,20 @@ collections:
                 collapsed: true
                 fields:
                   - widget: boolean
+                    name: showFeature
+                    label: Show Feature Image Video section on homepage
+                    required: false
+                  - widget: boolean
+                    name: showProfile
+                    label: Show Profile section on homepage
+                    required: false
+                  - widget: boolean
+                    name: showPosts
+                    label: Show posts section on homepage
+                    required: false
+                    default: true
+
+                  - widget: boolean
                     name: showModals
                     label: Show Posts in Modal Window
                     required: false
