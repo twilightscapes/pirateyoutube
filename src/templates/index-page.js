@@ -195,7 +195,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
   
 
   <ReactPlayer
-                playing="false"
+                playing
                 ref={playerRef}
                 url={frontmatter.youtube.youtuber}
                   allow="web-share"
@@ -213,10 +213,10 @@ const [playingIndex, setPlayingIndex] = useState(null);
                     frontmatter.underlayImage ? (
                       <GatsbyImage
                         image={frontmatter.underlayImage}
-                        alt={frontmatter.title + " - ppimage"}
+                        alt=""
                         className="print"
                         placeholder="blurred" loading="eager"
-                        style={{ position: '', top: '0', height: 'auto', width: '100vw', maxHeight: '100vh', objectFit: 'cover', overflow: 'visible', border: '2px solid red !important' }}
+                        style={{ position: 'absolute', top: '0', height: 'auto', width: '100vw', maxHeight: '100vh', objectFit: 'cover', overflow: 'visible', border: 'none', outline:'none' }}
                       />
                     ) : (
                       <img src={`https://i.ytimg.com/vi/${extractVideoId(frontmatter.youtube.youtuber)}/hqdefault.jpg`} width="100%" height="auto" alt="Fallback Image" />
