@@ -475,7 +475,7 @@ to{opacity:1}
 .has-app{display:none}
 .no-app{display:block}
 .promocode{font-size:2vw;position:absolute;text-align:center;top:20px;width:100%;z-index:1}
-.tagline1{margin:4px 0 0;padding-bottom:1.7rem;padding-top:1rem;text-align:center}
+.tagline1{margin:4px 0 0;padding-bottom:1.7rem;padding-top:1rem;}
 .title1, .title{font-size:clamp(1rem, 1.5vw, 2rem);}
 
 

@@ -23,7 +23,7 @@ import { AiOutlineAudioMuted } from 'react-icons/ai';
 import { StaticImage } from "gatsby-plugin-image"
 const HomePage = ({ data }) => {
 
-  const { language, proOptions, siteUrl  } = useSiteMetadata();
+  const { language, proOptions, companyname  } = useSiteMetadata();
 
   const { showProfile, showDefault, showFeature, showHomePosts } = proOptions
 
@@ -45,8 +45,8 @@ const HomePage = ({ data }) => {
   ? frontmatter.underlayImage.childImageSharp.gatsbyImageData
   : null;
   
-  const ProfText = frontmatter.profText
-  const { showCover } = useSiteMetadata()
+
+
       const { showSocial } = useSiteMetadata()
       // const SkillsText = frontmatter.skillsText
       const coverText = frontmatter.coverletter.coverText
@@ -366,7 +366,7 @@ display:'flex', justifyContent:'center', width:'200px', maxHeight:'80px !importa
         <div className="popped" style={{display:'flex', width:'80%', minWidth:'200px', margin:'0 auto', fontWeight:'bold', padding:'.2rem .4rem', fontSize:'2rem', background:'rgba(0,0,0,0.30)', borderRadius:'12px', border:'1px solid #333', filter:'drop-shadow(2px 2px 2px #000)', textAlign:'center'}}>
           
           <div style={{fontSize:'.8rem', fontWeight:'', width:'100%', padding:'0 0 0 .3rem', filter:'drop-shadow(2px 2px 2px #000)', textAlign:'center'}}>
-        {dicProfileAudioText}I just listened to:<br />
+        {dicProfileAudioText}<br />
 
 
 
@@ -441,19 +441,6 @@ display:'flex', justifyContent:'center', width:'200px', maxHeight:'80px !importa
   <section className="scroll-area panel" id="profile" name="profile" style={{ display:'', height:'100%', minHeight:'100vh', position:'relative', zIndex:'0', overflow:'visible', margin:'0 auto 0 auto', padding:'0 0 0 0', background:'var(--theme-ui-colors-background)', color:'var(--theme-ui-colors-text)', width:'100vw', borderRadius:'', }}>
   <article style={{ margin:'0 0 0 0'}}>
 
-  {/* <div className="" style={{maxHeight:'100vh', width:'100vw', height:'', overflow:'visible',position:'absolute', top:'', zIndex:'-1',}}>
-{UnderlayImage ? (
-            <GatsbyImage
-            image={UnderlayImage}
-            alt={frontmatter.title + " - image"}
-            className="mcboaty print"
-            placeholder="blurred" loading="eager"
-              style={{height:'auto', width:'100vw', maxHeight:'100vh',  objectFit:'cover', overflow:'visible', border:'0px solid red !important'}}
-          />
-          ) : (
-            ""
-          )}
-</div> */}
 
 <div id="profiletop" className="flexbutt" style={{display:'', gap:'10px', justifyContent:'center', alignItems:"center", margin:'0 0',
   padding:'0 2% 0 2%', position:'relative', color: ''}}>
@@ -491,7 +478,7 @@ display:'flex', justifyContent:'center', width:'200px', maxHeight:'80px !importa
           ) : (
             ""
           )}
-<div className="nameblock" style={{margin:'0 auto 0 auto', padding:'0 0 0 0',alignContent:'center', display:'grid', textAlign:'center', justifyContent:'center', verticalAlign:'center',
+<div className="nameblock font" style={{margin:'0 auto 0 auto', padding:'0 0 0 0',alignContent:'center', display:'grid', textAlign:'center', justifyContent:'center', verticalAlign:'center',
   color:'#fff',
   paddingTop:'', 
   fontSize:'clamp(1rem, 1.4vw, 3.2rem)',
@@ -501,7 +488,14 @@ display:'flex', justifyContent:'center', width:'200px', maxHeight:'80px !importa
   textShadow:'0 2px 0px #000',
   maxWidth:'70%'
 }}>
-  <span style={{margin:'10px auto', fontSize:'160%'}}>your name</span>
+
+{frontmatter.profileName ? (
+    <span style={{margin:'10px auto', fontSize:'160%'}}>{frontmatter.profileName}</span>
+  ) : (
+    ""
+  )}
+
+  {/* <span style={{margin:'10px auto', fontSize:'160%'}}>{companyname}</span> */}
     {/* <span style={{margin:'10px auto', fontSize:'160%'}}>Become a PIRATE!</span> */}
   
   {frontmatter.addressText ? (
@@ -676,7 +670,7 @@ export const pageQuery = graphql`
         tags
         description
         profTitle
-        profText
+        profileName
         tagline
         addressText
         addressText2
