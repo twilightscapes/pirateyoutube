@@ -5,8 +5,8 @@ youtube:
  youtuber: https://youtu.be/TLV4_xaYynY
  youtuber2: https://youtu.be/TLV4_xaYynY
  youtubeshoworiginal: false
- youtubersuggestion1: "nuhttps://youtu.be/TLV4_xaYynYll"
- youtubersuggestion2: "https://youtu.be/TLV4_xaYynY"
+ youtubersuggestion1: ""
+ youtubersuggestion2: ""
  youtubersuggestion3: "null"
  youtubestart: ""
  youtubeend: ""
@@ -18,7 +18,7 @@ youtube:
  showVidOnly: false
  customcontrols: false
  audioend: "0"
- audiotitle: "Test Video"
+ audiotitle: "Mama Mia"
  audiostart: "0"
  contentinvideo: false
  liarliar: false
@@ -32,8 +32,9 @@ profText: <p>PIRATE is a social network with NO central control or ownership. It
  <p>Easily edit your homepage, update your profile, and publish engaging content on your OWN website/app.</p>
 tagline: You're the Captain of your content!
 
-featuredImage: /assets/Experiences-Header-5.jpg
+featuredImage: /assets/pirate-propaganda.webp
 secondaryImage: /assets/default-user.webp
+underlayImage: /assets/losser.webp
 scrollable: false
 portfolio:
   openText: ""
@@ -43,7 +44,7 @@ slug: /
 
 excludeFromRSS: true
 skillsText: 
-underlayImage: /assets/losser.webp
+
 bumpertext: x
 cta:
   ctaText: Reserve Your Galleon
