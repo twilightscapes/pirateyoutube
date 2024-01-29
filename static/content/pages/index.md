@@ -25,6 +25,7 @@ youtube:
 
 showPageNav: false
 showZoom: false
+showPostContact: true
 profText: ""
 tagline: You're the Captain of your content!
 
@@ -45,6 +46,7 @@ bumpertext: x
 cta:
   ctaText: Become a PIRATE!
   ctaLink: /contact
+  showCTA: true
 homecount: 5
 pagePW: ""
 skillsTitle: ""
@@ -57,6 +59,7 @@ svgzindex: x
 coverletter:
   coverText: About PIRATE
   coverLink: /contact
+  showCover: false
 sharethis: false
 profTitle: Hoist Your Flag!
 tags: 

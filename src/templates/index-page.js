@@ -27,7 +27,7 @@ const HomePage = ({ data }) => {
 
   const { showProfile, showDefault, showFeature, showHomePosts } = proOptions
 
-  const { dicClickToView , dicPlayVideo} = language;
+  const { dicPlayVideo, dicProfileAudioText, dicProfileAudioActionText} = language;
 
   
   const { markdownRemark } = data;
@@ -366,14 +366,14 @@ display:'flex', justifyContent:'center', width:'200px', maxHeight:'80px !importa
         <div className="popped" style={{display:'flex', width:'80%', minWidth:'200px', margin:'0 auto', fontWeight:'bold', padding:'.2rem .4rem', fontSize:'2rem', background:'rgba(0,0,0,0.30)', borderRadius:'12px', border:'1px solid #333', filter:'drop-shadow(2px 2px 2px #000)', textAlign:'center'}}>
           
           <div style={{fontSize:'.8rem', fontWeight:'', width:'100%', padding:'0 0 0 .3rem', filter:'drop-shadow(2px 2px 2px #000)', textAlign:'center'}}>
-          I just listened to:<br />
+        {dicProfileAudioText}I just listened to:<br />
 
 
 
           <div style={{fontSize:'1rem', fontWeight:'bold', marginTop:'5px' }}>{ AudioTitle }</div>
     
           <div style={{display:'flex', justifyContent:'center', marginTop:'5px'}}>
-          <div><AiOutlineAudioMuted style={{margin:'0 auto', fontSize:'20px', filter:'drop-shadow(2px 2px 2px #000),', color:'var(--theme-ui-colors-siteColor)'}} /></div> &nbsp; <div>Click to listen </div>
+          <div><AiOutlineAudioMuted style={{margin:'0 auto', fontSize:'20px', filter:'drop-shadow(2px 2px 2px #000),', color:'var(--theme-ui-colors-siteColor)'}} /></div> &nbsp; <div>{dicProfileAudioActionText} </div>
           
           </div>
           </div>
@@ -436,9 +436,133 @@ display:'flex', justifyContent:'center', width:'200px', maxHeight:'80px !importa
 <div className="post-container">
 
 
+{/* show profile */}
+{showProfile ? (
+  <section className="scroll-area panel" id="profile" name="profile" style={{ display:'', height:'100%', minHeight:'100vh', position:'relative', zIndex:'0', overflow:'visible', margin:'0 auto 0 auto', padding:'0 0 0 0', background:'var(--theme-ui-colors-background)', color:'var(--theme-ui-colors-text)', width:'100vw', borderRadius:'', }}>
+  <article style={{ margin:'0 0 0 0'}}>
+
+  {/* <div className="" style={{maxHeight:'100vh', width:'100vw', height:'', overflow:'visible',position:'absolute', top:'', zIndex:'-1',}}>
+{UnderlayImage ? (
+            <GatsbyImage
+            image={UnderlayImage}
+            alt={frontmatter.title + " - image"}
+            className="mcboaty print"
+            placeholder="blurred" loading="eager"
+              style={{height:'auto', width:'100vw', maxHeight:'100vh',  objectFit:'cover', overflow:'visible', border:'0px solid red !important'}}
+          />
+          ) : (
+            ""
+          )}
+</div> */}
+
+<div id="profiletop" className="flexbutt" style={{display:'', gap:'10px', justifyContent:'center', alignItems:"center", margin:'0 0',
+  padding:'0 2% 0 2%', position:'relative', color: ''}}>
+
+
+
+
+  <div className="nameblock flexcheek" style={{position:'', top:'0', marginTop: '', padding: '1rem 2rem 0 2rem', maxHeight: '', fontSize: 'clamp(1rem, 1.4vw, 3.2rem)',  borderRadius: '10px' }}>
+
+
+  <div className=" mob print" style={{ position:'sticky', top:'0', fontSize: 'clamp(1rem, 1.5vw, 3.2rem)' }}>
+      <h1 className="title1" style={{ fontSize: 'clamp(2rem, 4.5vw, 3.2rem)' }}>{frontmatter.profTitle}</h1>
+      <h2 className="tagline1" style={{ fontSize: 'clamp(1.2rem, 1.8vw, 3.2rem)' }}>
+        {frontmatter.tagline}
+      </h2>
+      <div style={{ fontSize: 'clamp(1.2rem, 1.8vw, 3.2rem)' }} className="description" dangerouslySetInnerHTML={{ __html: html }} />
+    </div>
+
+
+  
+  </div>
+
+
+
+
+      <div className="flexcheek mob2 print" style={{position:'', top:'0', minWidth:'500px', overflow:'', marginBottom:'', paddingTop:'2vh', borderRadius:'0 0 10px 10px',
+      }}>
+{SecondaryImage ? (
+            <GatsbyImage
+              image={SecondaryImage}
+              alt={frontmatter.title + " - Featured image"}
+              className="avatar-frame"
+              style={{ maxWidth:'300px', margin:'0 auto', height:'', maxHeight:'300px', position:'relative', top:'', objectFit:'contain', backgroundSize:'contain', marginBottom:'0', border:'0'}}
+            />
+          ) : (
+            ""
+          )}
+<div className="nameblock" style={{margin:'0 auto 0 auto', padding:'0 0 0 0',alignContent:'center', display:'grid', textAlign:'center', justifyContent:'center', verticalAlign:'center',
+  color:'#fff',
+  paddingTop:'', 
+  fontSize:'clamp(1rem, 1.4vw, 3.2rem)',
+  background:'rgba(0,0,0,0.50)',
+  backdropFilter:'blur(8px)',
+  border:'10px double var(--theme-ui-colors-buttonHoverBg)', borderRadius:'12px',
+  textShadow:'0 2px 0px #000',
+  maxWidth:'70%'
+}}>
+  <span style={{margin:'10px auto', fontSize:'160%'}}>your name</span>
+    {/* <span style={{margin:'10px auto', fontSize:'160%'}}>Become a PIRATE!</span> */}
+  
+  {frontmatter.addressText ? (
+    frontmatter.addressText
+  ) : (
+    ""
+  )}
+  <br />
+  {frontmatter.addressText2 ? (
+    frontmatter.addressText2
+  ) : (
+    ""
+  )}
+  <br />
+
+  {frontmatter.cta.showCTA ? (
+  <Link to={frontmatter.cta.ctaLink} state={{modal: true}} className="button print" style={{ display: 'flex', justifyContent: 'center', padding:'1vh .5vw', maxWidth:'250px', margin:'30px auto' }}>{frontmatter.cta.ctaText}</Link>
+  ) : (
+    ""
+  )}
+
+
+
+
+  {frontmatter.coverletter.showCover ? (
+    <Link to={frontmatter.coverletter.coverLink} state={{modal: true}} className="print" style={{color:'', fontSize:'', margin:'5px auto 10px auto', textAlign:'center', textDecoration:'underline', maxWidth:'600px', padding:'0 2rem'}}>{coverText}</Link>
+  ) : (
+    ""
+  )}
+  
+
+  {showSocial ? (
+    <Social />
+  ) : (
+    ""
+  )}
+
+{frontmatter.youtube.youtuber2 ? (
+    <Iframer3 />
+  ) : (
+    ""
+  )}
+  
+
+
+</div>
+
+
+</div>
+</div> 
+</article>
+</section>
+  ) : (
+    ""
+)}
+{/* end show profile */}
+
+
 {/* show feature */}
 {showFeature ? (   
-<section id="feature" order="1" name="feature" className="print scroll-area" style={{  width:'100vw', height:'', maxHeight:'', margin:'0 auto 0 auto', padding:'0 0 0 0', position:'relative',
+<section id="feature" name="feature" className="print scroll-area panel" style={{  width:'100vw', height:'', maxHeight:'', margin:'0 auto 0 auto', padding:'0 0 0 0', position:'relative',
 
  alignContent:'center', display:'flex', textAlign:'left', justifyContent:'start', verticalAlign:'center',
   color:'#fff',
@@ -511,135 +635,8 @@ style={{height:'auto', width:'100vw', maxHeight:'100vh', position:'absolute', zI
 {/* end show feature */}
 
 
-        
-{showProfile ? (
-  <section className="scroll-area panel" id="info" order="2" name="info" style={{ display:'', height:'100%', minHeight:'100vh', position:'relative', zIndex:'0', overflow:'visible', margin:'0 auto 0 auto', padding:'0 0 0 0', background:'var(--theme-ui-colors-background)', color:'var(--theme-ui-colors-text)', width:'100vw', borderRadius:'', }}>
-  <article style={{ margin:'0 0 0 0'}}>
-
-  {/* <div className="" style={{maxHeight:'100vh', width:'100vw', height:'', overflow:'visible',position:'absolute', top:'', zIndex:'-1',}}>
-{UnderlayImage ? (
-            <GatsbyImage
-            image={UnderlayImage}
-            alt={frontmatter.title + " - image"}
-            className="mcboaty print"
-            placeholder="blurred" loading="eager"
-              style={{height:'auto', width:'100vw', maxHeight:'100vh',  objectFit:'cover', overflow:'visible', border:'0px solid red !important'}}
-          />
-          ) : (
-            ""
-          )}
-</div> */}
-
-<div id="profiletop" className="flexbutt" style={{display:'', gap:'10px', justifyContent:'center', alignItems:"center", margin:'0 0',
-  padding:'0 2% 0 2%', position:'relative', color: ''}}>
-
-
-
-
-  <div className="nameblock flexcheek" style={{position:'', top:'0', marginTop: '', padding: '1rem 2rem 0 2rem', maxHeight: '', fontSize: 'clamp(1rem, 1.4vw, 3.2rem)',  borderRadius: '10px' }}>
-
-
-  <div className=" mob print" style={{ position:'sticky', top:'0', fontSize: 'clamp(1rem, 1.5vw, 3.2rem)' }}>
-      <h1 className="title1" style={{ fontSize: 'clamp(2rem, 4.5vw, 3.2rem)' }}>{frontmatter.profTitle}</h1>
-      <h2 className="tagline1" style={{ fontSize: 'clamp(1.2rem, 1.8vw, 3.2rem)' }}>
-        {frontmatter.tagline}
-      </h2>
-      <div style={{ fontSize: 'clamp(1.2rem, 1.8vw, 3.2rem)' }} className="description" dangerouslySetInnerHTML={{ __html: html }} />
-    </div>
-
-
-  
-  </div>
-
-
-
-
-      <div className="flexcheek mob2 print" style={{position:'', top:'0', minWidth:'500px', overflow:'', marginBottom:'', paddingTop:'2vh', borderRadius:'0 0 10px 10px',
-      }}>
-{SecondaryImage ? (
-            <GatsbyImage
-              image={SecondaryImage}
-              alt={frontmatter.title + " - Featured image"}
-              className="avatar-frame"
-              style={{ maxWidth:'300px', margin:'0 auto', height:'', maxHeight:'300px', position:'relative', top:'', objectFit:'contain', backgroundSize:'contain', marginBottom:'0', border:'0'}}
-            />
-          ) : (
-            ""
-          )}
-<div className="nameblock" style={{margin:'0 auto 0 auto', padding:'0 0 0 0',alignContent:'center', display:'grid', textAlign:'center', justifyContent:'center', verticalAlign:'center',
-  color:'#fff',
-  paddingTop:'', 
-  fontSize:'clamp(1rem, 1.4vw, 3.2rem)',
-  background:'rgba(0,0,0,0.50)',
-  backdropFilter:'blur(8px)',
-  border:'10px double var(--theme-ui-colors-buttonHoverBg)', borderRadius:'12px',
-  textShadow:'0 2px 0px #000',
-  maxWidth:'70%'
-}}>
-  {/* <span style={{margin:'10px auto', fontSize:'160%'}}>{companyname}</span> */}
-    <span style={{margin:'10px auto', fontSize:'160%'}}>Become a PIRATE!</span>
-  
-  {frontmatter.addressText ? (
-    frontmatter.addressText
-  ) : (
-    ""
-  )}
-  <br />
-  {frontmatter.addressText2 ? (
-    frontmatter.addressText2
-  ) : (
-    ""
-  )}
-  <br />
-  <Link to={frontmatter.cta.ctaLink} state={{modal: true}} className="button print" style={{ display: 'flex', justifyContent: 'center', padding:'1vh .5vw', maxWidth:'250px', margin:'30px auto' }}>{frontmatter.cta.ctaText}</Link>
-
-    {/* <AnchorLink to='/install' className="button actionJackson print" style={{ display: 'flex', justifyContent: 'center', padding:'1vh .5vw', maxWidth:'250px', color:'#fff' }}>Install Now</AnchorLink> */}
-  {/* <br /> */}
-  {/* <SignUp /> */}
-  {/* <Link className="button" state={{modal: true}} to="/install" rel="nofollow">
-Become a PIRATE!
-</Link> */}
-
-  {/* <br /> */}
-
-  <Link to={frontmatter.coverletter.coverLink} state={{modal: true}} className="print" style={{color:'', fontSize:'', margin:'5px auto', textAlign:'center', textDecoration:'underline', maxWidth:'600px', padding:'0 2rem'}}>{coverText}</Link>
-
-  {showCover ? (
-    <Link to={frontmatter.coverletter.coverLink} state={{modal: true}} className="print" style={{color:'', fontSize:'', margin:'5px auto 10px auto', textAlign:'center', textDecoration:'underline', maxWidth:'600px', padding:'0 2rem'}}>{coverText}</Link>
-  ) : (
-    ""
-  )}
-  
-
-  {showSocial ? (
-    <Social />
-  ) : (
-    ""
-  )}
-
-{frontmatter.youtube.youtuber2 ? (
-    <Iframer3 />
-  ) : (
-    ""
-  )}
-  
-
-
-</div>
-
-
-</div>
-</div> 
-</article>
-</section>
-  ) : (
-    ""
-)}
-
-
-
 {showHomePosts ? (
-  <section className="scroll-area panel" id="posts" order="3" name="posts" style={{  height:'100%', minHeight:'100vh', position:'relative', zIndex:'0', overflow:'visible', margin:'0 auto 0 auto', padding:'0 0 0 0', background:'var(--theme-ui-colors-background)', color:'var(--theme-ui-colors-text)', width:'100vw', borderRadius:'', }}>
+  <section className="scroll-area" id="homeposts" name="homeposts" style={{  height:'100%', minHeight:'100vh', position:'relative', zIndex:'0', overflow:'visible', margin:'0 auto 0 auto', padding:'0 0 0 0', background:'var(--theme-ui-colors-background)', color:'var(--theme-ui-colors-text)', width:'100vw', borderRadius:'', }}>
     <HomePosts isSliderVisible={isSliderVisible} />
     </section>
     ) : (
@@ -688,10 +685,12 @@ export const pageQuery = graphql`
         cta{
           ctaText
           ctaLink
+          showCTA
         }
         coverletter{
           coverText
           coverLink
+          showCover
         }
         youtube {
           youtuber

@@ -244,25 +244,34 @@ collections:
             name: "cta"
             widget: "object"
             fields:
+              - name: "showCTA"
+                label: "Show CTA (call to action button)"
+                widget: "boolean"
               - name: "ctaText"
-                label: "CTA text"
+                label: "CTA (call to action button) Text"
                 widget: "string"
               - name: "ctaLink"
-                label: "CTA Link"
+                label: "CTA (call to action button) - Link"
                 widget: "string"
 
           - label: "Cover Letter"
             name: "coverletter"
             widget: "object"
             fields:
+              - name: "showCover"
+                label: "Show Cover Link"
+                widget: "boolean"
               - name: "coverText"
-                label: "Custom Cover Letter Text"
+                label: "Custom Cover Link Text"
                 widget: "string"
               - name: "coverLink"
                 label: "Custom Cover Link"
                 widget: "string"
 
           - { label: "Body", name: "body", widget: "markdown" }
+
+
+
 
       - label: "Privacy Policy Page"
         name: "privacy"
@@ -581,6 +590,14 @@ collections:
                     label: "Message Received"
                     widget: "string"
                     required: false
+                  - name: "dicProfileAudioText"
+                    label: "I just listened to:"
+                    widget: "string"
+                    required: false
+                  - name: "dicProfileAudioActionText"
+                    label: "Click to listen"
+                    widget: "string"
+                    required: false                  
 
 
               - name: "magicOptions"

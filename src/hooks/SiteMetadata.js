@@ -85,6 +85,8 @@ const useSiteMetadata = () => {
             dicSubmit
             dicPhone
             dicConfirmation
+            dicProfileAudioText
+            dicProfileAudioActionText
           }
         }
       }
