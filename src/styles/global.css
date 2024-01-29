@@ -178,6 +178,8 @@ body.homepage #gobacker, body.social #gobacker{display: none !important;}
 
 .gatsby-image-wrapper img{height:inherit !important; object-fit: scale-down !important;}
 
+/* .mcBoaty1{width:100vw !important;} */
+
 .bglogo{
   max-width:50vw;
   opacity:.5;
