@@ -12,6 +12,7 @@ import { RiArrowUpFill } from "react-icons/ri"
 import GoBack from "../components/goBack"
 import { ModalRoutingContext } from 'gatsby-plugin-modal-routing-4'
 import Menu from "../components/menu"
+import Consent from "../components/Consent"
 // import { BiLeftArrow } from "react-icons/bi"
 import defaultColors from "../../static/data/default-colors.json";
 import userStyles from "../../static/data/userStyles.json"
@@ -53,7 +54,7 @@ import Footer from "../components/footer"
     const { dicSearch, dicPirate } = language;
     const { showNav, showNav2 } = navOptions
     const { showfooter, showSwipe, showSearch } = featureOptions
-    const { showModals, showBranding } = proOptions
+    const { showModals, showBranding, showConsent } = proOptions
 
     
 
@@ -349,6 +350,16 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFo
 ) : (
   ""
 )}
+
+
+{showConsent ? (
+    <Consent />
+  ) : (
+""
+    )}
+
+
+
       </>
 
     

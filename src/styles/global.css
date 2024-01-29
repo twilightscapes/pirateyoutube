@@ -1217,12 +1217,37 @@ body:has(.ReactModal__Content) {overflow-x:hidden !important; overflow-y:hidden 
   /* body.install .ReactModalPortal {border:20px blue !important;} */
 
 
-
-
   .post-container {
+    display: flex;
+    flex-direction: column;
+    /* overflow-y: scroll; */
+    -webkit-overflow-scrolling: touch;
+    width: 100vw;
+    min-height: 100%;
+    /* scroll-snap-points-y: repeat(100vh); */
+    scroll-snap-type: y mandatory;
+    scroll-padding: 0 5vw;
+  overscroll-behavior: contain;
+  scroll-snap-align: start;
+  }
+
+  .post-container section{
+    /* justify-content: center;
+    align-items: center; */
+    width: 100vw;
+    height: 100vh;
+    scroll-padding: 5vh 0;
+  overscroll-behavior: contain;
+    /* border-top: 4vh solid black;
+    border-bottom: 4vh solid black; */
+    scroll-snap-align: start;
+  }
+
+  /* .post-container {
   padding: 0 ;
   width: 100vw;
-}
+  min-height: 100vh;
+} */
 
 
 /* .horizontal-scroll1{max-height:100vw;overflow-y:auto;position:relative; scroll-padding:0 5%;transition:transform .2s;width:100%} */

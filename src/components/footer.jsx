@@ -2,7 +2,7 @@ import * as React from "react"
 import useSiteMetadata from "../hooks/SiteMetadata"
 // import GoBack from "../components/goBack"
 // import Theme from "../components/theme"
-import Consent from "./Consent"
+// import Consent from "./Consent"
 // import Install from "./install-footer"
 import Icons from "../../static/data/socialmedia.json"
 import {
@@ -182,7 +182,7 @@ export default function Footer() {
 
   const { showfooter, showSwipe, showSearch, showSocial  } = featureOptions
 
-  const { showModals, showConsent, showBranding, showLegal, showContact   } = proOptions
+  const { showModals, showBranding, showLegal, showContact   } = proOptions
 
   const { dicSocial, dicDisclaimer, dicPrivacy, dicTerms, dicCopyright, dicContact, dicPirate, dicSiteReport, dicSearch } = language;
 
@@ -207,11 +207,11 @@ export default function Footer() {
 
       <footer className="panel" style={{display:'flex', flexDirection:'column', zIndex:'1', justifyContent:'end', padding:'0', marginTop:'0', width:'100vw',textAlign:'center', background:'var(--theme-ui-colors-headerColor)'}}>
 
-{showConsent ? (
+{/* {showConsent ? (
     <Consent />
   ) : (
 ""
-    )}
+    )} */}
 
 
     

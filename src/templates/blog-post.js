@@ -389,9 +389,11 @@ const OriginalUrl = frontmatter.youtube.youtuber
 
 
   function Iframer3() {
+    if (!frontmatter.youtube.youtuber2) {
+      return null; // or you can return a default component or placeholder
+    }
     const iframeUrl3 = "https://www.youtube.com/embed/" + frontmatter.youtube.youtuber2
     return (
-
 
 <ReactPlayer
           allow="web-share"
@@ -439,12 +441,8 @@ const OriginalUrl = frontmatter.youtube.youtuber
             light="/assets/transparent.png"
           />
      
-
-
-
-
-    )
-  }
+          )
+        }
 
 
 
@@ -1298,12 +1296,11 @@ zindex:'1'
       
 
 <article className="blog-post" style={{marginTop:'0',}}>
-        {YouTube2 ? (
-            <Iframer3 />
-       
-          ) : (
-            ""
-          )}
+
+{frontmatter.youtube.youtuber2 && <Iframer3 />}
+
+
+
 {/* ((((((((((body content)))))))))) */}
 
 
