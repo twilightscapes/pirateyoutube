@@ -39,7 +39,7 @@ const Search = () => {
     <Layout className="search">
       <Seo title="Search" />
 
-      <div className="post-container">
+      <div className="post-container" id="posttop">
         {/* Pass isSliderVisible as a prop to BlogPosts */}
         <SearchPosts isSliderVisible={isSliderVisible} />
       </div>

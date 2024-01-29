@@ -39,7 +39,7 @@ const Tags = () => {
     <Layout className="tags">
       <Seo title="Tags" />
 
-      <div className="post-container">
+      <div className="post-container" id="posttop">
         {/* Pass isSliderVisible as a prop to BlogPosts */}
         <TagPosts isSliderVisible={isSliderVisible} />
       </div>

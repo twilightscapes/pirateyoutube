@@ -254,7 +254,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
     const containerClass = isSliderVisible ? "slider" : "grid-container contentpanel";
     return (
       <>
-<div className={containerClass}
+<div id="stoptop" className={containerClass}
       onWheel={handleScroll}
       ref={scrollRef}
       // style={{ paddingTop: showNav ? '8vw' : '8vw'}}

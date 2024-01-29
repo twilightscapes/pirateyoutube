@@ -42,13 +42,16 @@ function Header() {
         if (newValue) {
           const posttopElement = document.getElementById("posttop");
           if (posttopElement) {
-            posttopElement.scrollIntoView({ behavior: "smooth" });
+            // Add 60px to the scrollTop
+            const offset = posttopElement.offsetTop - 60;
+            window.scrollTo({ top: offset, behavior: "smooth" });
           }
         }
       }
       return newValue;
     });
   };
+  
   
 
   useEffect(() => {
