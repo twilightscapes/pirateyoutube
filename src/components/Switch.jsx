@@ -37,10 +37,19 @@ function Header() {
         localStorage.setItem("isSliderVisible", JSON.stringify(newValue));
         // Broadcast the change to other tabs/windows
         window.dispatchEvent(new StorageEvent("storage", { key: "isSliderVisible" }));
+  
+        // Scroll to the named anchor "posttop" when switching to grid view
+        if (newValue) {
+          const posttopElement = document.getElementById("posttop");
+          if (posttopElement) {
+            posttopElement.scrollIntoView({ behavior: "smooth" });
+          }
+        }
       }
       return newValue;
     });
   };
+  
 
   useEffect(() => {
     const handleScroll = () => {

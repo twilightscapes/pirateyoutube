@@ -630,7 +630,7 @@ style={{height:'auto', width:'100vw', maxHeight:'100vh', position:'absolute', zI
 
 
 {showHomePosts ? (
-  <section className="scroll-area" id="homeposts" name="homeposts" style={{  height:'100%', minHeight:'100vh', position:'relative', zIndex:'0', overflow:'visible', margin:'0 auto 0 auto', padding:'0 0 0 0', background:'var(--theme-ui-colors-background)', color:'var(--theme-ui-colors-text)', width:'100vw', borderRadius:'', }}>
+  <section className="scroll-area" id="posttop" name="posttop" style={{  height:'100%', minHeight:'100vh', position:'relative', zIndex:'0', overflow:'visible', margin:'0 auto 0 auto', padding:'0 0 0 0', background:'var(--theme-ui-colors-background)', color:'var(--theme-ui-colors-text)', width:'100vw', borderRadius:'', }}>
     <HomePosts isSliderVisible={isSliderVisible} />
     </section>
     ) : (
