@@ -215,10 +215,52 @@ collections:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Tagline", name: "tagline", widget: "string" }
           - { label: "Featured Image", name: "featuredImage", widget: "image", required: false }
-          
-
           - { label: "Secondary Image", name: "secondaryImage", widget: "image", hint: "this image is used for the profile photo in the info section", required: false }
           - { label: "Underlay Image", name: "underlayImage", widget: "image", required: false }
+
+          - {
+              label: "YouTube",
+              name: "youtube",
+              widget: "object",
+              collapsed: true, # Set to true to collapse panel by default
+            fields: [
+              { label: "YouTube Url", name: "youtuber", widget: "string",required: false },
+              { label: "YouTube Start", name: "youtubestart", widget: "string", required: false },
+              { label: "YouTube End", name: "youtubeend", widget: "string", required: false },
+              { label: "YouTube Audio", name: "youtuber2", widget: "string", required: false },
+              { label: "YouTube Audio Start", name: "audiostart", widget: "string", required: false },
+              { label: "YouTube Audio End", name: "audioend", widget: "string", required: false },
+              { label: "YouTube Audio Title", name: "audiotitle", widget: "string", required: false },
+              { label: "YouTube Mute", name: "youtubemute", widget: "boolean", default: false, required: false },
+              { label: "YouTube AutoPlay", name: "youtubeautostart", widget: "boolean", default: false, required: false },
+              { label: "YouTube Loop", name: "youtubeloop", widget: "boolean", default: true, required: false },
+              { label: "YouTube Controls", name: "youtubecontrols", widget: "boolean", default: false, required: false },
+              { label: "YouTube Use Custom Controls", name: "customcontrols", widget: "boolean", default: true, required: false },
+              { label: "YouTube Click To Play", name: "clicktoplay", widget: "boolean", default: false, required: false }
+            ]
+          }
+
+          - label: "CTA"
+            name: "cta"
+            widget: "object"
+            fields:
+              - name: "ctaText"
+                label: "CTA text"
+                widget: "string"
+              - name: "ctaLink"
+                label: "CTA Link"
+                widget: "string"
+
+          - label: "Cover Letter"
+            name: "coverletter"
+            widget: "object"
+            fields:
+              - name: "coverText"
+                label: "Custom Cover Letter Text"
+                widget: "string"
+              - name: "coverLink"
+                label: "Custom Cover Link"
+                widget: "string"
 
           - { label: "Body", name: "body", widget: "markdown" }
 
