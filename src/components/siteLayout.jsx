@@ -52,7 +52,7 @@ import Footer from "../components/footer"
 
     const { language, navOptions, featureOptions, proOptions } = useSiteMetadata();
     const { dicSearch, dicPirate } = language;
-    const { showNav, showNav2 } = navOptions
+    const { showNav, showNav2, showFooterMenu } = navOptions
     const { showfooter, showSwipe, showSearch } = featureOptions
     const { showModals, showBranding, showConsent } = proOptions
 
@@ -360,14 +360,13 @@ const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFo
 
 
 
-{!showNav ? (
-<div id="minicontrol" className="missioncontrol sitecontrols panel" style={{display:'flex', justifyContent:'space-around', fontSize:'clamp(.8rem, 2.3vw, 2.5rem)', gap:'3vw', textAlign:'center', border:'', alignItems:'center', padding:'3px 20px', position:'fixed', top:'3px', right:'3px', zIndex:'55', color:'#fff !important', borderRadius:'9px', border:'0 0 0 1px solid transparent'}}>
-<Theme  style={{}} />
-<Switch />
-</div>
-  ) : (
-    ""
+{showNav !== true && showNav2 !== true && showFooterMenu !== true && (
+  <div id="minicontrol" className="missioncontrol sitecontrols panel" style={{ display: 'flex', justifyContent: 'space-around', fontSize: 'clamp(.8rem, 2.3vw, 2.5rem)', gap: '3vw', textAlign: 'center', border: '', alignItems: 'center', padding: '3px 20px', position: 'fixed', top: '3px', right: '3px', zIndex: '55', color: '#fff !important', borderRadius: '9px', border: '0 0 0 1px solid transparent' }}>
+    <Theme style={{}} />
+    <Switch />
+  </div>
 )}
+
 
 
 
