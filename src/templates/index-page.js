@@ -444,7 +444,7 @@ const AudioTitle = frontmatter.youtube.audiotitle
 
 {/* show profile */}
 {showProfile ? (
-  <section className="scroll-area panel" id="profile" name="profile" style={{ display:'', height:'100%', minHeight:'100vh', position:'relative', zIndex:'0', overflow:'visible', margin:'0 auto 0 auto', padding:'60px 0 0 0', background:'var(--theme-ui-colors-background)', color:'var(--theme-ui-colors-text)', width:'100vw', borderRadius:'', }}>
+  <section className="scroll-area panel" id="profile" name="profile" style={{ display:'', height:'100%', minHeight:'100vh', position:'relative', zIndex:'0', overflow:'visible', margin:'0 auto 10vh auto', padding:'60px 0 0 0', background:'var(--theme-ui-colors-background)', color:'var(--theme-ui-colors-text)', width:'100vw', borderRadius:'', }}>
   <article style={{ margin:'0 0 0 0'}}>
 
 
@@ -533,7 +533,7 @@ const AudioTitle = frontmatter.youtube.audiotitle
   )}
   
 
-  {showSocial ? (
+  {frontmatter.profileSocial ? (
     <Social />
   ) : (
     ""
@@ -563,7 +563,7 @@ const AudioTitle = frontmatter.youtube.audiotitle
 
 {/* show feature */}
 {showFeature ? (   
-<section id="feature" name="feature" className="print scroll-area panel" style={{  width:'100vw', height:'', maxHeight:'', margin:'0 auto 0 auto', padding:'0 0 0 0', position:'relative',
+<section id="feature" name="feature" className="print scroll-area panel" style={{  width:'100vw', height:'100%', minHeight:'100%', margin:'0 auto 0 auto', padding:'0 0 0 0', position:'relative',
  alignContent:'center', display:'flex', textAlign:'left', justifyContent:'start', verticalAlign:'center',
   color:'#fff',
   fontSize:'clamp(1rem, 1.8vw, 3.2rem)',
@@ -637,16 +637,15 @@ style={{height:'auto', width:'100vw', maxHeight:'100vh', position:'absolute', zI
 
 
 
-
+{/* show posts */}
 {showHomePosts ? (
-  <section className="scroll-area" id="posttop" name="posttop" style={{  height:'100%', minHeight:'', position:'relative', zIndex:'', overflow:'visible', margin:'0 auto 0 auto', padding:'0 0 0 0', background:'var(--theme-ui-colors-background)', color:'var(--theme-ui-colors-text)', width:'100vw', borderRadius:'', }}>
+  <section className="scroll-area" id="posttop" name="posttop" style={{   height:'100%', minHeight:'100vh', position:'relative', zIndex:'', overflow:'visible', margin:'0 auto 0 auto', padding:'0 0 0 0', background:'var(--theme-ui-colors-background)', color:'var(--theme-ui-colors-text)', width:'100vw', borderRadius:'', }}>
     <HomePosts isSliderVisible={isSliderVisible} />
     </section>
     ) : (
       ""
-    
   )}
-
+{/* end show posts */}
 
 
     
@@ -681,6 +680,7 @@ export const pageQuery = graphql`
         description
         profTitle
         profileName
+        profileSocial
         tagline
         addressText
         addressText2

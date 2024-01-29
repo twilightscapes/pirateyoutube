@@ -1,5 +1,6 @@
 ---
 profileName: BECOME A PIRATE!
+profileSocial: true
 addressText: The Fleet Launches Soon
 addressText2: It's Completely FREE
 youtube: 
