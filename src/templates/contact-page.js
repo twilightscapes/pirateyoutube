@@ -46,7 +46,7 @@ const Contact = ({ data }) => {
 
 
 const encode = data => {
-  console.log(data);
+  // console.log(data);
   return Object.keys(data)
     .map(key => {
       if (key === "file") {
@@ -70,7 +70,7 @@ const handleSubmit = e => {
       data[key] = value;
     }
   });
-  console.log(frontmatter.redirect);
+  // console.log(frontmatter.redirect);
   if (frontmatter.redirect === true) {
     setTimeout(() => {
       window.location.href = "/install2";

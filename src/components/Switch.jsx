@@ -56,7 +56,7 @@ function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      console.log("Scroll position:", window.scrollY);
+      // console.log("Scroll position:", window.scrollY);
     };
   
     if (isSliderVisible) {

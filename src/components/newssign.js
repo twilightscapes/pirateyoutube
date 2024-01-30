@@ -13,7 +13,7 @@ export function NewsletterPage() {
   const [submitted, setSubmitted] = useState(false);
 
   const encode = data => {
-    console.log(data);
+    // console.log(data);
     return Object.keys(data)
       .map(key => {
         if (key === "file") {
