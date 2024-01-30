@@ -63,9 +63,15 @@ const Layout = ({ children }) => {
   return (
     <>
       <Helmet>
+      <meta
+    http-equiv="Content-Security-Policy"
+    content="font-src 'self' https://fonts.gstatic.com"
+  />
         <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link id="yyy" rel="stylesheet" href={fontUrl} crossOrigin="anonymous" referrerPolicy="no-referrer-when-downgrade" />
+        
+
         <style>{`
         
           ${userStyles.userStyles}
