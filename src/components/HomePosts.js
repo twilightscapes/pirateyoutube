@@ -268,7 +268,10 @@ const [playingIndex, setPlayingIndex] = useState(null);
 <div id="posttop" className={containerClass}
       onWheel={handleScroll}
       ref={scrollRef}
-      // style={{ paddingTop: showNav ? '8vw' : '8vw'}}
+      style={{ 
+        // paddingTop: showNav ? '8vw' : '8vw'
+        padding:''
+    }}
       >
 
 
