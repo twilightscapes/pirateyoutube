@@ -214,6 +214,9 @@ const [playingIndex, setPlayingIndex] = useState(null);
     }
     setSelectedTag('');
     setVisibleItems(postcount);
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft = 0;
+    }
   };
   
 
@@ -222,6 +225,9 @@ const [playingIndex, setPlayingIndex] = useState(null);
     setSelectedTag(tag);
     setSelectedCategory("");
     setVisibleItems(postcount);
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft = 0;
+    }
   };
 
   const [numVisibleItems, setNumVisibleItems] = useState(postcount);
@@ -236,6 +242,9 @@ const [playingIndex, setPlayingIndex] = useState(null);
     setSelectedCategory('');
     setSelectedTag('');
     setVisibleItems(postcount);
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft = 0;
+    }
   }
 
 

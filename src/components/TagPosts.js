@@ -236,7 +236,13 @@ const [playingIndex, setPlayingIndex] = useState(null);
     setSelectedCategory('');
     setSelectedTag('');
     setVisibleItems(postcount);
+  
+    // Programmatically scroll the container to the leftmost position
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft = 0;
+    }
   }
+  
 
 
 
