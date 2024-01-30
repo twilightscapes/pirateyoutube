@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ReactPlayer from 'react-player/lazy';
 import { FaHome } from "react-icons/fa";
-import { Link } from "gatsby"
-import useSiteMetadata from "../hooks/SiteMetadata"
+import { Link } from "gatsby";
+import useSiteMetadata from "../hooks/SiteMetadata";
 
 const YouTubePlayer = () => {
   const [youtubelink, setYoutubelink] = useState("");
@@ -12,20 +12,20 @@ const YouTubePlayer = () => {
   const { showModals } = proOptions;
 
   useEffect(() => {
-    fillFormFromClipboard();
-  }, []);
+    const fillFormFromClipboard = () => {
+      navigator.clipboard.readText().then((clipboardText) => {
+        if (clipboardText.includes("youtu")) {
+          setYoutubelink(clipboardText);
+          handleShow();
+        }
+      });
+    };
 
-  const fillFormFromClipboard = () => {
-    navigator.clipboard.readText().then((clipboardText) => {
-      if (clipboardText.includes("youtu")) {
-        setYoutubelink(clipboardText);
-        handleShow();
-      }
-    });
-  };
+    fillFormFromClipboard();
+  }, []); // Empty dependency array to run the effect only once
 
   const handleInputChange = (event) => {
-    const { value, name } = event.target;
+    const { value } = event.target;
     setYoutubelink(value);
   };
 
@@ -35,7 +35,6 @@ const YouTubePlayer = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Add your form submission logic if needed
   };
 
   const handleReset = () => {
@@ -69,12 +68,12 @@ const YouTubePlayer = () => {
       {!isActive ? (
         <div className="form-container">
           <form className="youtubeform frontdrop" onSubmit={handleSubmit}>
-          <div className="specialfont" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '#999', placeItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
-            <Link title="Go Home" state={showModals ? { modal: true } : {}} to="/" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '60px', }}>
-              <div style={{}}>GO TO</div>
-              <FaHome style={{ fontSize: '25px' }} />
-            </Link>
-          </div>
+            <div className="specialfont" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '#999', placeItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
+              <Link title="Go Home" state={showModals ? { modal: true } : {}} to="/" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '60px', }}>
+                <div style={{}}>GO TO</div>
+                <FaHome style={{ fontSize: '25px' }} />
+              </Link>
+            </div>
             <p className="specialfont" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '#999', placeItems: 'center', justifyContent: 'center', margin: '0 auto', width:'60px' }}><div>Paste</div> Link:</p>
             <input
               type="text"
@@ -94,12 +93,12 @@ const YouTubePlayer = () => {
       ) : (
         <div className="form-container">
           <form className="youtubeform frontdrop" onSubmit={handleSubmit}>
-          <div className="specialfont" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '#999', placeItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
-            <Link title="Go Home" state={showModals ? { modal: true } : {}} to="/" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '60px', }}>
-              <div style={{}}>GO TO</div>
-              <FaHome style={{ fontSize: '25px' }} />
-            </Link>
-          </div>
+            <div className="specialfont" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '#999', placeItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
+              <Link title="Go Home" state={showModals ? { modal: true } : {}} to="/" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '60px', }}>
+                <div style={{}}>GO TO</div>
+                <FaHome style={{ fontSize: '25px' }} />
+              </Link>
+            </div>
             <p className="specialfont" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '#999', placeItems: 'center', justifyContent: 'center', margin: '0 auto', width:'60px' }}><div>Pasted</div> Link:</p>
             <input
               type="text"

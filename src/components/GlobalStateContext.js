@@ -12,6 +12,17 @@ export const GlobalStateProvider = ({ children }) => {
   );
 };
 
+// Add this if it's not already there
+export const shouldUpdateScroll = () => {
+  window.scrollTo(0, 0);
+  return false;
+};
+
+// Add this if it's not already there
+export const onPreRouteUpdate = () => {
+  window.scrollTo(0, 0);
+};
+
 export const useGlobalState = () => {
   const context = useContext(GlobalStateContext);
   if (!context) {

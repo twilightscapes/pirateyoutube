@@ -1,5 +1,5 @@
 import React from "react"
-import { useState, useRef, useEffect, forwardRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { graphql, Link } from "gatsby"
 import Layout from "../components/siteLayout";
 import { Helmet } from "react-helmet";
@@ -9,18 +9,18 @@ import { getSrc } from "gatsby-plugin-image";
 import useSiteMetadata from "../hooks/SiteMetadata";
 import { GatsbyImage } from "gatsby-plugin-image"
 import Social from "../components/social"
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import ReactPlayer from 'react-player/lazy'
 import { ImPlay } from "react-icons/im"
-import { MdVolumeUp } from "react-icons/md"
-import { MdPlayArrow } from "react-icons/md"
-import { MdPause } from "react-icons/md"
-import { MdVolumeOff } from "react-icons/md"
-import { ImCross } from "react-icons/im"
+// import { MdVolumeUp } from "react-icons/md"
+// import { MdPlayArrow } from "react-icons/md"
+// import { MdPause } from "react-icons/md"
+// import { MdVolumeOff } from "react-icons/md"
+// import { ImCross } from "react-icons/im"
 // import { FaRegPlusSquare } from 'react-icons/fa';
 // import { IoShareOutline } from 'react-icons/io5';
 import { AiOutlineAudioMuted } from 'react-icons/ai';
-import { StaticImage } from "gatsby-plugin-image"
+// import { StaticImage } from "gatsby-plugin-image"
 const HomePage = ({ data }) => {
 
   const { language, proOptions, featureOptions  } = useSiteMetadata();
@@ -97,14 +97,14 @@ const HomePage = ({ data }) => {
 
 
   const ContentinVideo = frontmatter.contentinvideo
-  const LiarLiar = frontmatter.liarliar
+  // const LiarLiar = frontmatter.liarliar
   
     /* eslint-disable-next-line no-unused-vars */
-      const CtaLink = frontmatter.cta.ctaLink
+      // const CtaLink = frontmatter.cta.ctaLink
 
-      const title = frontmatter.title
-      const tagline = frontmatter.tagline
-      const description = frontmatter.description
+      // const title = frontmatter.title
+      // const tagline = frontmatter.tagline
+      // const description = frontmatter.description
   
       // const { iconimage } = useSiteMetadata()
       
@@ -119,6 +119,7 @@ const extractVideoId = (url) => {
 
 
 const playerRef = useRef(null);
+    /* eslint-disable-next-line no-unused-vars */
 const [playingIndex, setPlayingIndex] = useState(null);
 
   const handleVideoPlay = (index) => {
@@ -182,14 +183,15 @@ const [playingIndex, setPlayingIndex] = useState(null);
       <Iframer />
     }
   
-  function Iframer() {
+    function Iframer() {
+      if (!YouTube) {
+        return null; 
+      }
     
       return (
-        <div className="wrap-element effects" style={{aspectRatio:'16/9', minHeight:'300px', width:'100vw', maxHeight:'100vh', overFlow:'hidden'}}>
-  
-  
-  {YouTube ? (
-    <div>
+        <div className="wrap-element effects" style={{ aspectRatio: '16/9', minHeight: '300px', width: '100vw', maxHeight: '100vh', overflow: 'hidden' }}>
+          {YouTube ? (
+            <div>
   
 
   <ReactPlayer
@@ -211,13 +213,13 @@ const [playingIndex, setPlayingIndex] = useState(null);
                     frontmatter.underlayImage ? (
                       <GatsbyImage
                         image={frontmatter.underlayImage}
-                        alt=""
+                        alt="Page Feature Image"
                         className="print"
                         placeholder="blurred" loading="eager"
                         style={{ position: 'absolute', top: '0', height: 'auto', width: '100vw', maxHeight: '100vh', objectFit: 'cover', overflow: 'visible', border: 'none', outline:'none' }}
                       />
                     ) : (
-                      <img src={`https://i.ytimg.com/vi/${extractVideoId(frontmatter.youtube.youtuber)}/hqdefault.jpg`} width="100%" height="auto" alt="Fallback Image" />
+                      <img src={`https://i.ytimg.com/vi/${extractVideoId(frontmatter.youtube.youtuber)}/hqdefault.jpg`} width="100%" height="auto" alt="" />
                     )
                   }
                   
@@ -299,26 +301,26 @@ const [playingIndex, setPlayingIndex] = useState(null);
     }
   
     
-    const YouTubeStart = frontmatter.youtube.youtubestart ? frontmatter.youtube.youtubestart : null;
-    const YouTubeEnd = frontmatter.youtube.youtubeend
+    // const YouTubeStart = frontmatter.youtube.youtubestart ? frontmatter.youtube.youtubestart : null;
+    // const YouTubeEnd = frontmatter.youtube.youtubeend
     const YouTubeMute = frontmatter.youtube.youtubemute
     const YouTubeControls = frontmatter.youtube.youtubecontrols
     const YouTubeAutostart = frontmatter.youtube.youtubeautostart
-    const CustomControls = frontmatter.youtube.customcontrols
-    const Suggestion1 = frontmatter.youtube.youtubersuggestion1
+    // const CustomControls = frontmatter.youtube.customcontrols
+    // const Suggestion1 = frontmatter.youtube.youtubersuggestion1
 
 
-    let iframeFiltered;
-    if (Suggestion1) {
-      iframeFiltered = [
-        frontmatter.youtube.youtuber,
-        frontmatter.youtube.youtubersuggestion1,
-        frontmatter.youtube.youtubersuggestion2,
-        frontmatter.youtube.youtubersuggestion3,
-      ];
-    } else {
-      iframeFiltered = frontmatter.youtube.youtuber;
-    }
+    // let iframeFiltered;
+    // if (Suggestion1) {
+    //   iframeFiltered = [
+    //     frontmatter.youtube.youtuber,
+    //     frontmatter.youtube.youtubersuggestion1,
+    //     frontmatter.youtube.youtubersuggestion2,
+    //     frontmatter.youtube.youtubersuggestion3,
+    //   ];
+    // } else {
+    //   iframeFiltered = frontmatter.youtube.youtuber;
+    // }
 
 
 const YoutubeLoop = frontmatter.youtube.youtubeloop
@@ -330,13 +332,13 @@ const AudioTitle = frontmatter.youtube.audiotitle
 
 function Iframer3() {
   if (!frontmatter.youtube.youtuber2) {
-    return null; // or you can return a default component or placeholder
+    return null; 
   }
   const iframeUrl3 = "https://www.youtube.com/embed/" + frontmatter.youtube.youtuber2
   return (
     
 <div style={{marginTop:'0', position:'relative', zIndex:'1',
-display:'flex', justifyContent:'center', width:'200px', maxHeight:'80px !important', height:'150px', border:'0px solid yellow', width:'100%'
+display:'flex', justifyContent:'center', maxHeight:'80px !important', height:'150px', border:'0px solid yellow', width:'100%'
 }}>
 
 
@@ -392,7 +394,7 @@ display:'flex', justifyContent:'center', width:'200px', maxHeight:'80px !importa
 }
   
     // const Playing  = useState(true);
-  
+      /* eslint-disable-next-line no-unused-vars */
     const [state, setState] = useState({
     playing: YouTubeAutostart,
     controls: YouTubeControls,
@@ -402,7 +404,7 @@ display:'flex', justifyContent:'center', width:'200px', maxHeight:'80px !importa
   });
 
 
-  const controlsRef = useRef(null);
+  // const controlsRef = useRef(null);
 
 
 

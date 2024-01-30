@@ -459,7 +459,7 @@ const OriginalUrl = frontmatter.youtube.youtuber
 // const svgUrl = "../assets/" + frontmatter.svgImage.relativePath + ""
 
 const YouTube = frontmatter.youtube.youtuber
-  const YouTube2 = frontmatter.youtube.youtuber2
+  // const YouTube2 = frontmatter.youtube.youtuber2
   const AudioStart = frontmatter.youtube.audiostart
   const AudioEnd = frontmatter.youtube.audioend
   
