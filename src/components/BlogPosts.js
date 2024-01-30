@@ -365,7 +365,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
   <>
                 <div className="panel" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', alignContent:'center', margin: '10px auto', maxWidth: '', gap: '.4vw', maxHeight: '74px', textAlign: 'left', padding: '10px 5%', fontSize: 'clamp(.7rem,.8vh,12px)', outline:'0px solid #444', overFlow:'hidden', lineHeight:'2.4vh', borderRadius:'var(--theme-ui-colors-borderRadius)', background: showTitles ? 'var(--theme-ui-colors-headerColor)' : 'transparent', }}>
                   
-                    <h2 className="title1" style={{width:'100%', }}>{node.frontmatter.title}</h2>
+                    <h2 className="title1" style={{width:'', }}>{node.frontmatter.title}</h2>
             
 
                   {showDates ? (
