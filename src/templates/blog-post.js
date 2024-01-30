@@ -1309,7 +1309,7 @@ zindex:'1'
 <div>
 
 {ShareThis ? (
-<header style={{ height:'', display:'grid', placeContent:'center'}}>
+<div style={{ height:'', display:'grid', placeContent:'center'}}>
 
   <div id="sharethis1" style={{width:'auto', height:'', padding:'0', display:'grid', placeContent:'center', border:'0px solid'}}>
   <ShareSocial />
@@ -1344,9 +1344,9 @@ zindex:'1'
       )}
 
   </div>
-</header>
+</div>
             ) : (
-              <header style={{ height:'', display:'grid', placeContent:'center'}}>
+              <div style={{ height:'', display:'grid', placeContent:'center'}}>
                 <div className="article-header" style={{textAlign:'center', paddingTop:'', height:'auto', color:'', borderRadius:'', marginTop:'0'}}>
 
                 {showTitles ? (   
@@ -1379,7 +1379,7 @@ zindex:'1'
           
           
           </div>
-                </header>
+                </div>
             )}
 
 
@@ -1402,7 +1402,7 @@ zindex:'1'
 
 
 
-<header style={{ height:'', display:'grid', placeContent:'center'}}>
+<div style={{ height:'', display:'grid', placeContent:'center'}}>
 <div style={{width:'auto', height:'', padding:'0', display:'grid', placeContent:'center', border:'0px solid'}}>
     <ShareSocial style={{}} />
     </div>
@@ -1458,9 +1458,9 @@ zindex:'1'
 
 
 </div>
-</header>
+</div>
               ) : (
-                <header style={{ height:'', display:'grid', placeContent:'center'}}>
+                <div style={{ height:'', display:'grid', placeContent:'center'}}>
                 <div className="article-header" style={{textAlign:'center', paddingTop:'', height:'auto', color:''}}>
 
 
@@ -1488,7 +1488,7 @@ zindex:'1'
         </>
       )}
 
-      </header>
+      </div>
               )}
 
 <div className="panel" style={{padding:'2vh 0', borderTop:'0px solid', margin:'0 0', textAlign:'center', fontSize:'1.5rem', minWidth:'50%', width:'100%', maxWidth:'', border:'0px solid yellow', borderRadius:''}}>

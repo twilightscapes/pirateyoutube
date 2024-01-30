@@ -102,6 +102,7 @@ const BlogPosts = ({ isSliderVisible }) => {
   const handleScroll = (e) => {
     if (scrollRef.current) {
       scrollRef.current.scrollLeft += e.deltaY;
+      behavior: 'smooth'
     }
   };
 

@@ -216,6 +216,9 @@ const [playingIndex, setPlayingIndex] = useState(null);
     setVisibleItems(postcount);
     if (scrollRef.current) {
       scrollRef.current.scrollLeft = 0;
+      scrollRef.current.scroll({
+        behavior: 'smooth',
+      });
     }
   };
   
@@ -227,6 +230,9 @@ const [playingIndex, setPlayingIndex] = useState(null);
     setVisibleItems(postcount);
     if (scrollRef.current) {
       scrollRef.current.scrollLeft = 0;
+      scrollRef.current.scroll({
+        behavior: 'smooth',
+      });
     }
   };
 
@@ -244,6 +250,9 @@ const [playingIndex, setPlayingIndex] = useState(null);
     setVisibleItems(postcount);
     if (scrollRef.current) {
       scrollRef.current.scrollLeft = 0;
+      scrollRef.current.scroll({
+        behavior: 'smooth',
+      });
     }
   }
 

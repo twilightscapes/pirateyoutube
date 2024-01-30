@@ -3,7 +3,7 @@ import React from "react";
 // import { StaticImage } from "gatsby-plugin-image"
 // import {Link} from "gatsby"
 
-import Layout from "../components/socialLayout"
+import Layout from "../components/siteLayout"
 import { Helmet } from "react-helmet"
 import FavoriteFeeds from "../components/FavoriteFeeds";
 

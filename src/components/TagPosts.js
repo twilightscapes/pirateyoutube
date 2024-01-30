@@ -214,6 +214,12 @@ const [playingIndex, setPlayingIndex] = useState(null);
     }
     setSelectedTag('');
     setVisibleItems(postcount);
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft = 0;
+      scrollRef.current.scroll({
+        behavior: 'smooth',
+      });
+    }
   };
   
 
@@ -222,6 +228,12 @@ const [playingIndex, setPlayingIndex] = useState(null);
     setSelectedTag(tag);
     setSelectedCategory("");
     setVisibleItems(postcount);
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft = 0;
+      scrollRef.current.scroll({
+        behavior: 'smooth',
+      });
+    }
   };
 
   const [numVisibleItems, setNumVisibleItems] = useState(postcount);
@@ -237,9 +249,11 @@ const [playingIndex, setPlayingIndex] = useState(null);
     setSelectedTag('');
     setVisibleItems(postcount);
   
-    // Programmatically scroll the container to the leftmost position
     if (scrollRef.current) {
       scrollRef.current.scrollLeft = 0;
+      scrollRef.current.scroll({
+        behavior: 'smooth',
+      });
     }
   }
   
