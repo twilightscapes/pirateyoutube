@@ -475,6 +475,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
                         padding: '5px 2px',
                       }}
                       aria-label="Select Category"
+                      id="categoryselect"
                     >
                       <option value="">{dicCategory}</option>
                       {allCategories.filter(category => category).map((category, index) => (
@@ -491,6 +492,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
 
 {showMagicTag && allTags.length > 0 && (
   <select
+    id="tagselect"
     value={selectedTag}
     onChange={handleTagChange}
     style={{
@@ -566,6 +568,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
               )}
 
               <button
+                id="clearbutton"
                 type="reset"
                 value="reset"
                 className="muted"
@@ -590,7 +593,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
                 {dicClear}
               </button>
 
-              <div style={{ position: '', right: '', top: '', textAlign: 'center', fontSize: '9px', color: 'var(--theme-ui-colors-headerColorText)', maxWidth: '' }}>
+              <div style={{ position: '', right: '', top: '', textAlign: 'center', fontSize: '9px', color: 'var(--theme-ui-colors-headerColorText)', borderRadius: 'var(--theme-ui-colors-borderRadius)', }}>
                 {filteredPosts.length} <br />
                 {dicResults}{filteredPosts.length !== 1 && 's'}
               </div>

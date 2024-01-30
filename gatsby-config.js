@@ -453,9 +453,9 @@ module.exports = {
         start_url: `${settings.meta.proOptions.startUrl}/?user_mode=app`,
         // start_url: `/?user_mode=app`,
         description: settings.meta.description,
-        background_color: `#111`,
+        background_color: `transparent`,
         lang: `en`,
-        theme_color: `#111`,
+        theme_color: `transparent`,
         display: `standalone`,
  icon: `static${settings.meta.icon512}`, // This path is relative to the root of the site.
  icon_options: {
