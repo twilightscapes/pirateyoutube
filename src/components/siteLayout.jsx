@@ -43,7 +43,7 @@ const Layout = ({ children }) => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',  // Add smooth behavior for scrolling
+      behavior: 'smooth', 
     });
   };
 
@@ -83,7 +83,6 @@ const Layout = ({ children }) => {
       <ModalRoutingContext.Consumer>
         {({ modal, closeTo }) => (
           <>
-            {/* Your modal-related code */}
           </>
         )}
       </ModalRoutingContext.Consumer>
@@ -93,7 +92,7 @@ const Layout = ({ children }) => {
         style={{
           position: 'fixed',
           bottom: '20px',
-          zIndex: '4',
+          zIndex: '60',
           left: '',
           right: '1vw',
           display: 'flex',

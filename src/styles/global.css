@@ -1203,7 +1203,7 @@ body.blogpost .featured-image1{border:0 solid red;max-height:70vh !important;max
   display: none !important;
   } */
 
-  /* body:has(.ReactModal__Content) .upbar{display: none !important;} */
+  body:has(.ReactModal__Content) .upbar{z-index: 9999 !important;}
   /* body:has(.ReactModal__Content) .magicisland{display: none !important;} */
 
 body:has(.ReactModal__Content) {overflow-x:hidden !important; overflow-y:hidden !important;}
