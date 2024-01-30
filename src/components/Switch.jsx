@@ -3,7 +3,7 @@ import { BsFillGrid3X2GapFill } from "react-icons/bs";
 import { PiHandSwipeRightFill } from "react-icons/pi";
 import useSiteMetadata from "../hooks/SiteMetadata";
 
-function Header() {
+function Switch() {
   const { language } = useSiteMetadata();
   const { dicSwipe, dicScroll } = language;
 
@@ -152,4 +152,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default Switch;

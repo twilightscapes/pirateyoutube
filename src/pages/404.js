@@ -10,7 +10,7 @@ const NotFound = () => (
   <Layout className="not-found-page">
     <Seo title="Page not found" />
 
-      <header>
+      <div>
 
         {/* <AiFillRobot
           style={{
@@ -38,7 +38,7 @@ const NotFound = () => (
       </Link>
       </div>
 
-</header>
+</div>
   </Layout>
 )
 
