@@ -202,7 +202,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
                   style={{ position: 'absolute', top:'0', margin: '0 auto 0 auto', zIndex: '1', aspectRatio:'16/9', }}
                   width="100vw"
                   height="100%"
-                  className='inline1'
+                  className='inline'
                   playsinline
 
             
@@ -213,10 +213,10 @@ const [playingIndex, setPlayingIndex] = useState(null);
                     frontmatter.underlayImage ? (
                       <GatsbyImage
                         image={frontmatter.underlayImage}
-                        alt="Page Feature Image"
-                        className="print"
+                        alt="Page Feature Image beegee"
+                        className=""
                         placeholder="blurred" loading="eager"
-                        style={{ position: 'absolute', top: '0', height: 'auto', width: '100vw', maxHeight: '100vh', objectFit: 'cover', overflow: 'visible', border: 'none', outline:'none' }}
+                        style={{ position: 'absolute', top: '0', height: 'auto', width: '100vw', maxHeight: '100vh', objectFit: 'cover', overflow: 'hidden', border: '0', outline:'0' }}
                       />
                     ) : (
                       <img src={`https://i.ytimg.com/vi/${extractVideoId(frontmatter.youtube.youtuber)}/hqdefault.jpg`} width="100%" height="auto" alt="" />
