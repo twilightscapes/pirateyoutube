@@ -67,6 +67,7 @@ const Layout = ({ children }) => {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link id="yyy" rel="stylesheet" href={fontUrl} crossOrigin="anonymous" referrerPolicy="no-referrer-when-downgrade" />
         <style>{`
+        
           ${userStyles.userStyles}
         `}</style>
       </Helmet>
@@ -104,7 +105,7 @@ const Layout = ({ children }) => {
           transform: showBackToTop ? 'translateY(0)' : 'translateY(200%)',
         }}
       >
-        <Link
+        <AnchorLink
           to="#top"
           aria-label="Link to Top"
           onClick={scrollToTop}
@@ -116,7 +117,7 @@ const Layout = ({ children }) => {
               style={{ cursor: 'pointer', color: 'var(--theme-ui-colors-siteColorText)', fill: 'var(--theme-ui-colors-siteColorText)', fontSize: '3rem' }}
             />
           </div>
-        </Link>
+        </AnchorLink>
       </div>
 
       <div id="gobacker"><GoBack /></div>
