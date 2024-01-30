@@ -628,7 +628,8 @@ style={{height:'auto', width:'100vw', maxHeight:'100vh', position:'absolute', zI
 
 {showHomePosts ? (
 
-    <HomePosts isSliderVisible={isSliderVisible} className="print scroll-area" id="posttop" name="posttop" />
+
+    <HomePosts isSliderVisible={isSliderVisible} className="scroll-area panel" id="posttop" name="posttop" style={{ display:'', height:'100%', minHeight:'', position:'relative', overflow:'visible', margin:'0 auto 0 auto', padding:'0 0 0 0', background:'var(--theme-ui-colors-background)', color:'var(--theme-ui-colors-text)', width:'100vw', borderRadius:'', }} />
 
     ) : (
       ""
