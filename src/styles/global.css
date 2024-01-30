@@ -1577,6 +1577,8 @@ padding-top: 12vh;
   #gatsby-focus-wrapper > main {
     grid-area: main;
     /* overflow: auto; */
+    max-width:100vw;
+    /* overflow-y:hidden; */
   }
   
   /* #gatsby-focus-wrapper > footer {
@@ -1588,6 +1590,7 @@ padding-top: 12vh;
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr 600px 1fr;
+    max-width: 100vw;
   }
 
   body.category .contentpanel a:first-of-type{display:none !important}

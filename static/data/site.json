@@ -8,7 +8,7 @@
       "showSearch": true,
       "showDates": true,
       "showTitles": true,
-      "showfooter": true,
+      "showfooter": false,
       "showSocial": true,
       "showDefault": true,
       "showSwipe": true
@@ -19,7 +19,7 @@
     "homecount": 3,
     "magicOptions": {
       "showMagic": true,
-      "showMagicCat": true,
+      "showMagicCat": false,
       "showMagicTag": true,
       "showMagicSearch": true
     },
@@ -34,7 +34,7 @@
       "showBranding": true,
       "showFeature": true,
       "showLegal": true,
-      "showConsent": true
+      "showConsent": false
     },
     "titleTemplate": "%s",
     "title": "PIRATE SOCIAL",

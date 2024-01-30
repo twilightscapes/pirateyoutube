@@ -189,7 +189,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
       }
     
       return (
-        <div className="wrap-element effects" style={{ aspectRatio: '16/9', minHeight: '300px', width: '100vw', maxHeight: '100vh', overflow: 'hidden' }}>
+        <div className="wrap-element effects" style={{ aspectRatio: '16/9', minHeight: '300px', width: '100vw', maxHeight: '100vh', maxWidth:'100vw', overFlowY:'hidden' }}>
           {YouTube ? (
             <div>
   
@@ -436,12 +436,12 @@ display:'flex', justifyContent:'center', maxHeight:'80px !important', height:'15
 
 
 
-<div className="post-container">
+<div className="post-container" style={{maxWidth:'100vw', overFlowY:'hidden'}}>
 
 
 {/* show profile */}
 {showProfile ? (
-  <section className="scroll-area panel" id="profile" name="profile" style={{ display:'', height:'100%', minHeight:'100vh', position:'relative', overflow:'visible', margin:'0 auto 0 auto', padding:'0 0 60px 0', background:'var(--theme-ui-colors-background)', color:'var(--theme-ui-colors-text)', width:'100vw', borderRadius:'', }}>
+  <section className="scroll-area panel" id="profile" name="profile" style={{ display:'', height:'100%', minHeight:'100vh', position:'relative', overflow:'hidden', margin:'0 auto 0 auto', padding:'0 0 60px 0', background:'var(--theme-ui-colors-background)', color:'var(--theme-ui-colors-text)', width:'100vw', borderRadius:'', }}>
   <article style={{ margin:'0 0 0 0'}}>
 
 
@@ -559,13 +559,10 @@ display:'flex', justifyContent:'center', maxHeight:'80px !important', height:'15
 
 {/* show feature */}
 {showFeature ? (   
-<section id="feature" name="feature" className="print scroll-area panel" style={{  width:'100vw', height:'', maxHeight:'', margin:'0 auto 0 auto', padding:'0 0 0 0', position:'relative',
- alignContent:'center', display:'flex', textAlign:'left', justifyContent:'start', verticalAlign:'center',
+<section id="feature" name="feature" className="print scroll-area panel" style={{  width:'100vw', margin:'0 auto 0 auto', padding:'0 0 0 0', position:'relative',
+ alignContent:'center', maxWidth:'100vw', overFlowY:'hidden', display:'flex', textAlign:'left', justifyContent:'start', verticalAlign:'center',
   color:'#fff',
   fontSize:'clamp(1rem, 1.8vw, 3.2rem)',
-  // background:'rgba(0,0,0,0.50)',
-  // backdropFilter:'blur(8px)',
-  // borderRadius:'10px',
   textShadow:'0 2px 7px #000',
   backgroundColor:'var(--theme-ui-colors-headerColor)'
 }}>
@@ -631,7 +628,7 @@ style={{height:'auto', width:'100vw', maxHeight:'100vh', position:'absolute', zI
 {showHomePosts ? (
 
 
-    <HomePosts isSliderVisible={isSliderVisible} className="scroll-area" id="posttop" name="posttop" style={{minHeight:'100vh'}} />
+    <HomePosts isSliderVisible={isSliderVisible} className="scroll-area" id="posttop" name="posttop" style={{minHeight:'100vh', width:'100vw'}} />
 
     ) : (
       ""
