@@ -10,6 +10,7 @@
       "showTitles": true,
       "showfooter": true,
       "showSocial": true,
+      "showDefault": true,
       "showSwipe": true
     },
     "twitterUsername": "toddlambert",
@@ -25,7 +26,6 @@
     "proOptions": {
       "showModals": true,
       "showContact": true,
-      "showDefault": true,
       "showProfile": true,
       "startUrl": "youtube",
       "showPopup": true,
@@ -76,8 +76,8 @@
     },
     "image": "/assets/pirate-logo.svg",
     "navOptions": {
-      "showNav": false,
-      "showNav2": true,
+      "showNav": true,
+      "showNav2": false,
       "showFooterMenu": false
     },
     "description": "Pirate Social media for the people by the people",

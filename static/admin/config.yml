@@ -658,6 +658,11 @@ collections:
                     label: Show Swipe Icon
                     required: false
                   - widget: boolean
+                    name: showDefault
+                    label: Show Swipe(horizontal scroll) by default
+                    required: false
+                    default: false
+                  - widget: boolean
                     name: showSocial 
                     label: Show Social Links
                     required: false
@@ -710,11 +715,6 @@ collections:
                     name: showConsent
                     label: Show Cookie Consent Banner
                     required: false
-                  - widget: boolean
-                    name: showDefault
-                    label: Show Swipe(horizontal scroll) by default
-                    required: false
-                    default: false
                   - widget: string
                     name: startUrl
                     label: the url of the page you want when your app is installed

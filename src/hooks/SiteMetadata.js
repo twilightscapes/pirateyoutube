@@ -22,6 +22,7 @@ const useSiteMetadata = () => {
             showDates
             showSearch
             showSwipe
+            showDefault
             showArchive
             showTitles
             showSocial
@@ -35,7 +36,6 @@ const useSiteMetadata = () => {
             showContact
             showPopup
             ShowDisclaimer
-            showDefault
             startUrl
             showProfile
             showFeature

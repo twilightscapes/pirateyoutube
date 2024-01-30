@@ -16,15 +16,17 @@ import { MdVolumeUp } from "react-icons/md"
 import { MdPlayArrow } from "react-icons/md"
 import { MdPause } from "react-icons/md"
 import { MdVolumeOff } from "react-icons/md"
+import { ImCross } from "react-icons/im"
 // import { FaRegPlusSquare } from 'react-icons/fa';
 // import { IoShareOutline } from 'react-icons/io5';
 import { AiOutlineAudioMuted } from 'react-icons/ai';
 import { StaticImage } from "gatsby-plugin-image"
 const HomePage = ({ data }) => {
 
-  const { language, proOptions, siteUrl  } = useSiteMetadata();
+  const { language, proOptions, featureOptions  } = useSiteMetadata();
 
-  const { showProfile, showDefault, showFeature, showHomePosts } = proOptions
+  const { showProfile, showFeature, showHomePosts } = proOptions
+  const { showDefault } = featureOptions
 
   const { dicPlayVideo, dicProfileAudioText, dicProfileAudioActionText} = language;
 
@@ -44,24 +46,14 @@ const HomePage = ({ data }) => {
   ? frontmatter.underlayImage.childImageSharp.gatsbyImageData
   : null;
   
-  const ProfText = frontmatter.profText
-  const { showCover } = useSiteMetadata()
+
+
       const { showSocial } = useSiteMetadata()
       // const SkillsText = frontmatter.skillsText
       const coverText = frontmatter.coverletter.coverText
-      const YouTube2 = frontmatter.youtube.youtuber2
+
       const YouTube = frontmatter.youtube.youtuber
 
-
-
-      const LiarLiar = frontmatter.liarliar
-      
-        /* eslint-disable-next-line no-unused-vars */
-
-    
-          const title = frontmatter.title
-          const tagline = frontmatter.tagline
-          const description = frontmatter.description
 
 
 
@@ -105,10 +97,14 @@ const HomePage = ({ data }) => {
 
 
   const ContentinVideo = frontmatter.contentinvideo
-  // const LiarLiar = frontmatter.liarliar
+  const LiarLiar = frontmatter.liarliar
   
     /* eslint-disable-next-line no-unused-vars */
       const CtaLink = frontmatter.cta.ctaLink
+
+      const title = frontmatter.title
+      const tagline = frontmatter.tagline
+      const description = frontmatter.description
   
       // const { iconimage } = useSiteMetadata()
       
@@ -331,68 +327,69 @@ const AudioStart = frontmatter.youtube.audiostart
 const AudioEnd = frontmatter.youtube.audioend
 const AudioTitle = frontmatter.youtube.audiotitle
   
-    function Iframer3() {
-      if (!frontmatter.youtube.youtuber2) {
-        return null; // or you can return a default component or placeholder
-      }
-      const iframeUrl3 = "https://www.youtube.com/embed/" + frontmatter.youtube.youtuber2
-      return (
+
+function Iframer3() {
+  if (!frontmatter.youtube.youtuber2) {
+    return null; // or you can return a default component or placeholder
+  }
+  const iframeUrl3 = "https://www.youtube.com/embed/" + frontmatter.youtube.youtuber2
+  return (
+    
+<div style={{marginTop:'0', position:'relative', zIndex:'1',
+display:'flex', justifyContent:'center', width:'200px', maxHeight:'80px !important', height:'150px', border:'0px solid yellow', width:'100%'
+}}>
+
+
+<ReactPlayer
+        allow="web-share"
+        className='react-player67'
+        url={iframeUrl3}
+        width="200px"
+        height="100%"
+        style={{
+          border:'0px solid red'
+      }}
+        config={{
+          youtube: {
+            playerVars: { showinfo:0, autoplay:1, controls:0, start:AudioStart, end:AudioEnd, mute:0,  }
+          },
+        }}
+        loop
+        playing
+        playsinline
+        playIcon={
+          <button aria-label="Click To Play" className="clickplays" style={{position:'relative', zIndex:'0', top:'', border:'0px  solid red', width:'', height:'', background:'transparent', color:'#fff', fontSize:'18px', textAlign:'center', display:'flex', flexDirection:'column', verticalAlign:'center', justifyContent:'center', alignItems:'center', paddingTop:'0', borderRadius:'12px'}}>
         
-  <div style={{marginTop:'0', position:'relative', zIndex:'1',
-  display:'flex', justifyContent:'center', width:'200px', maxHeight:'80px !important', height:'150px', border:'0px solid yellow', width:'100%'
-  }}>
+      <div className="" style={{position:'', top:'', zIndex:'0', textAlign:'center', animation:'', display:'flex', justifyContent:'center', width:'auto', marginBottom:''}}>
+        
   
-  
-  <ReactPlayer
-            allow="web-share"
-            className='react-player67'
-            url={iframeUrl3}
-            width="200px"
-            height="100%"
-            style={{
-              border:'0px solid red'
-          }}
-            config={{
-              youtube: {
-                playerVars: { showinfo:0, autoplay:1, controls:0, start:AudioStart, end:AudioEnd, mute:0,  }
-              },
-            }}
-            loop
-            playing
-            playsinline
-            playIcon={
-              <button aria-label="Click To Play" className="clickplays" style={{position:'relative', zIndex:'0', top:'', border:'0px  solid red', width:'', height:'', background:'transparent', color:'#fff', fontSize:'18px', textAlign:'center', display:'flex', flexDirection:'column', verticalAlign:'center', justifyContent:'center', alignItems:'center', paddingTop:'0', borderRadius:'12px'}}>
-            
-            <div className="" style={{position:'', top:'', zIndex:'0', textAlign:'center', animation:'', display:'flex', justifyContent:'center', width:'auto', marginBottom:''}}>
-            
-      
-  
-            <div className="popped" style={{display:'flex', width:'80%', minWidth:'200px', margin:'0 auto', fontWeight:'bold', padding:'.2rem .4rem', fontSize:'2rem', background:'rgba(0,0,0,0.30)', borderRadius:'12px', border:'1px solid #333', filter:'drop-shadow(2px 2px 2px #000)', textAlign:'center'}}>
-              
-            <div style={{fontSize:'.8rem', fontWeight:'', width:'100%', padding:'0 0 0 .3rem', filter:'drop-shadow(2px 2px 2px #000)', textAlign:'center'}}>
+
+        <div className="popped" style={{display:'flex', width:'80%', minWidth:'200px', margin:'0 auto', fontWeight:'bold', padding:'.2rem .4rem', fontSize:'2rem', background:'rgba(0,0,0,0.30)', borderRadius:'12px', border:'1px solid #333', filter:'drop-shadow(2px 2px 2px #000)', textAlign:'center'}}>
+          
+          <div style={{fontSize:'.8rem', fontWeight:'', width:'100%', padding:'0 0 0 .3rem', filter:'drop-shadow(2px 2px 2px #000)', textAlign:'center'}}>
         {dicProfileAudioText}<br />
-  
-  
-  
-              <div style={{fontSize:'1rem', fontWeight:'bold', marginTop:'5px' }}>{ AudioTitle }</div>
-        
-              <div style={{display:'flex', justifyContent:'center', marginTop:'5px'}}>
-              <div><AiOutlineAudioMuted style={{margin:'0 auto', fontSize:'20px', filter:'drop-shadow(2px 2px 2px #000),', color:'var(--theme-ui-colors-siteColor)'}} /></div> &nbsp; <div>{dicProfileAudioActionText} </div>
-              
-              </div>
-              </div>
-  
-            </div>
-           
-            </div>
-            </button>}
-     
-              light="/assets/transparent.png"
-            />
-       </div>
-  
-      )
-    }
+
+
+
+          <div style={{fontSize:'1rem', fontWeight:'bold', marginTop:'5px' }}>{ AudioTitle }</div>
+    
+          <div style={{display:'flex', justifyContent:'center', marginTop:'5px'}}>
+          <div><AiOutlineAudioMuted style={{margin:'0 auto', fontSize:'20px', filter:'drop-shadow(2px 2px 2px #000),', color:'var(--theme-ui-colors-siteColor)'}} /></div> &nbsp; <div>{dicProfileAudioActionText} </div>
+          
+          </div>
+          </div>
+
+        </div>
+       
+        </div>
+        </button>}
+ 
+          light="/assets/transparent.png"
+        />
+   </div>
+
+  )
+}
   
     // const Playing  = useState(true);
   
@@ -440,11 +437,9 @@ const AudioTitle = frontmatter.youtube.audiotitle
 <div className="post-container">
 
 
-
-
 {/* show profile */}
 {showProfile ? (
-  <section className="scroll-area panel" id="profile" name="profile" style={{ display:'', height:'100%', minHeight:'100vh', position:'relative', zIndex:'0', overflow:'visible', margin:'0 auto 10vh auto', padding:'60px 0 0 0', background:'var(--theme-ui-colors-background)', color:'var(--theme-ui-colors-text)', width:'100vw', borderRadius:'', }}>
+  <section className="scroll-area panel" id="profile" name="profile" style={{ display:'', height:'100%', minHeight:'100vh', position:'relative', overflow:'visible', margin:'0 auto 0 auto', padding:'60px 0 0 0', background:'var(--theme-ui-colors-background)', color:'var(--theme-ui-colors-text)', width:'100vw', borderRadius:'', }}>
   <article style={{ margin:'0 0 0 0'}}>
 
 
@@ -533,7 +528,7 @@ const AudioTitle = frontmatter.youtube.audiotitle
   )}
   
 
-  {frontmatter.profileSocial ? (
+  {showSocial ? (
     <Social />
   ) : (
     ""
@@ -560,10 +555,9 @@ const AudioTitle = frontmatter.youtube.audiotitle
 {/* end show profile */}
 
 
-
 {/* show feature */}
 {showFeature ? (   
-<section id="feature" name="feature" className="print scroll-area panel" style={{  width:'100vw', height:'100%', minHeight:'100%', margin:'0 auto 0 auto', padding:'0 0 0 0', position:'relative',
+<section id="feature" name="feature" className="print scroll-area panel" style={{  width:'100vw', height:'', maxHeight:'', margin:'0 auto 0 auto', padding:'0 0 0 0', position:'relative',
  alignContent:'center', display:'flex', textAlign:'left', justifyContent:'start', verticalAlign:'center',
   color:'#fff',
   fontSize:'clamp(1rem, 1.8vw, 3.2rem)',
@@ -632,24 +626,18 @@ style={{height:'auto', width:'100vw', maxHeight:'100vh', position:'absolute', zI
 {/* end show feature */}
 
 
-
-        
-
-
-
-{/* show posts */}
 {showHomePosts ? (
-  <section className="scroll-area" id="posttop" name="posttop" style={{   height:'100%', minHeight:'100vh', position:'relative', zIndex:'', overflow:'visible', margin:'0 auto 0 auto', padding:'0 0 0 0', background:'var(--theme-ui-colors-background)', color:'var(--theme-ui-colors-text)', width:'100vw', borderRadius:'', }}>
-    <HomePosts isSliderVisible={isSliderVisible} />
-    </section>
+
+    <HomePosts isSliderVisible={isSliderVisible} className="scroll-area1" id="posttop" name="posttop" />
+
     ) : (
       ""
   )}
-{/* end show posts */}
+
 
 
     
-      </div>
+</div>
     </Layout>
   );
 };
@@ -680,7 +668,6 @@ export const pageQuery = graphql`
         description
         profTitle
         profileName
-        profileSocial
         tagline
         addressText
         addressText2

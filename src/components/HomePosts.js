@@ -22,13 +22,7 @@ const HomePosts = ({ isSliderVisible }) => {
 
   const { postcount, homecount, language, magicOptions, featureOptions, proOptions  } = useSiteMetadata();
 
-  const { showMagic, showMagicCat, showMagicTag, showMagicSearch } = magicOptions;
-  
-  const { showModals, showPopup } = proOptions
-  const { showDates, showArchive, showTitles } = featureOptions
 
-    
-  const { dicLoadMore, dicViewArchive, dicCategory, dicKeyword, dicSearch, dicClear, dicResults, dicPlayVideo, dicPlayMultimedia  } = language;
 
   const data = useStaticQuery(graphql`
   query ($homecount: Int) {
@@ -69,7 +63,13 @@ const HomePosts = ({ isSliderVisible }) => {
 
 
 
-    
+const { showMagic, showMagicCat, showMagicTag, showMagicSearch } = magicOptions;
+  
+const { showModals, showPopup } = proOptions
+const { showDates, showArchive, showTitles } = featureOptions
+
+  
+const { dicLoadMore, dicViewArchive, dicCategory, dicKeyword, dicSearch, dicClear, dicResults, dicPlayVideo, dicPlayMultimedia  } = language;
 
 
 
