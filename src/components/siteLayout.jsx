@@ -33,14 +33,19 @@ const Layout = ({ children }) => {
   };
 
   useEffect(() => {
-    // Attach scroll event listener to the document
     document.addEventListener('scroll', handleScroll);
 
-    // Remove event listener on component unmount
     return () => {
       document.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',  // Add smooth behavior for scrolling
+    });
+  };
 
   const { language, navOptions, featureOptions, proOptions } = useSiteMetadata();
   const { dicSearch, dicPirate } = language;
@@ -99,9 +104,10 @@ const Layout = ({ children }) => {
           transform: showBackToTop ? 'translateY(0)' : 'translateY(200%)',
         }}
       >
-        <AnchorLink
+        <Link
           to="#top"
           aria-label="Link to Top"
+          onClick={scrollToTop}
           style={{ cursor: 'pointer', height: '', fontSize: '', border: 'none', outline: 'none' }}
         >
           <div className="uparrow" style={{ display: 'flex', flexDirection: 'column', gap: '0', padding: '', alignItems: 'center', textAlign: 'center' }}>
@@ -110,7 +116,7 @@ const Layout = ({ children }) => {
               style={{ cursor: 'pointer', color: 'var(--theme-ui-colors-siteColorText)', fill: 'var(--theme-ui-colors-siteColorText)', fontSize: '3rem' }}
             />
           </div>
-        </AnchorLink>
+        </Link>
       </div>
 
       <div id="gobacker"><GoBack /></div>

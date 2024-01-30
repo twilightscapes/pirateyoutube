@@ -5,7 +5,7 @@
 .animated{-webkit-animation-duration:1ms;-webkit-animation-iteration-count:1;-webkit-transition-duration:1ms;animation-duration:1ms;animation-iteration-count:1;transition-duration:1ms}
 *{animation-duration:.01ms;animation-iteration-count:1;scroll-behavior:auto;transition-duration:.01ms}
 }
-html{min-height:100vh; overflow-y: hidden; background:var(--theme-ui-colors-siteBackground); z-index: -1;}
+html{min-height:100vh; overflow-y:auto; background:var(--theme-ui-colors-siteBackground); z-index: -1;}
 
 body{z-index: 0; background:var(--theme-ui-colors-siteBackground)}
 
@@ -1203,7 +1203,7 @@ body.blogpost .featured-image1{border:0 solid red;max-height:70vh !important;max
   display: none !important;
   } */
 
-  body:has(.ReactModal__Content) .upbar{display: none !important;}
+  /* body:has(.ReactModal__Content) .upbar{display: none !important;} */
   /* body:has(.ReactModal__Content) .magicisland{display: none !important;} */
 
 body:has(.ReactModal__Content) {overflow-x:hidden !important; overflow-y:hidden !important;}
