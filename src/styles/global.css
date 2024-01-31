@@ -1443,8 +1443,16 @@ padding-top: 12vh;
 
 .slider:before{animation:fadeout 4s forwards;animation-delay:4s;background:rgba(0,0,0,.7);border-radius:var(--theme-ui-colors-borderRadius);bottom:50px;color:#fff;content:" 〈 swipe ";display:flex;flex-direction:column;font-size:clamp(1.3rem,2.5vw,2.8rem);justify-content:center;margin:auto;opacity:.7;padding:10px;position:absolute;right:10vw;text-shadow:0 1px 1px var(--theme-ui-colors-textShadow);z-index:2}
 
-  /* .pagemenu {
-    background:rgba(0, 0, 0, .5);
+
+/* .ReactModalPortal .pagemenu:first-of-type{ border:1px solid red!important;} */
+
+.ReactModalPortal body div:first-of-type{display: none;}
+
+.ReactModalPortal main div:first-of-type{display: none;}
+/* .gatsby-focus-wrapper main  div:first-of-type{visibility: hidden;} */
+
+  .pagemenu {
+    /* background:rgba(0, 0, 0, .5); */
     transition: all .3s ease-in-out;
   }
   
@@ -1455,7 +1463,7 @@ padding-top: 12vh;
   .font{
     font-family:var(--theme-ui-colors-siteFont);
     line-height:100% !important;
-  } */
+  }
 
 
 

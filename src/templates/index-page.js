@@ -233,7 +233,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
                     },
                   }}
                   playIcon={
-                    <div style={{display:'flex', flexDirection:'column', placeContent:'', justifyContent:'', position:'absolute', zindex:'3', top:'', fontWeight:'bold', padding:'3% 0 0 0', width:'100%', maxWidth:'25vw', height:'', border:'0px solid', borderRadius:'var(--theme-ui-colors-borderRadius)', margin:'0 auto 0 auto', opacity:'.99', textShadow:'2px 2px 2px black', color:'#fff' }}>
+                    <div style={{display:'flex', flexDirection:'column', placeContent:'', justifyContent:'', position:'absolute', zindex:'3', top:'', fontWeight:'bold', padding:'0 0 0 0', width:'100%', maxWidth:'25vw', height:'', border:'0px solid', borderRadius:'var(--theme-ui-colors-borderRadius)', margin:'0 auto 0 auto', opacity:'.99', textShadow:'2px 2px 2px black', color:'#fff' }}>
                       <div className="spotlight font" style={{}}>
                         <div className="posticons" style={{ flexDirection: 'column', margin: '0 auto' }}>
                           <div style={{ display: 'flex', justifyContent: 'space-around', gap: '2vw', color: 'fff', }}>

@@ -17,7 +17,7 @@ youtube:
  youtubeautostart: true
  youtubeloop: false
  clicktoplay: false
- showVidOnly: false
+ showVidOnly: true
  customcontrols: false
  audioend: "0"
  audiotitle: "Mama Mia"

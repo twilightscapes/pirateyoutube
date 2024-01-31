@@ -907,7 +907,7 @@ const YouTube = frontmatter.youtube.youtuber
             gap: "5vw",
             background: "rgba(0, 0, 0, .5)",
             padding: "",
-            border: "1px solid #666",
+            border: "0px solid #666",
             borderRadius: "",
             textShadow: "0 1px 1px rgba(0, 0, 0, .7)",
             fontSize: "clamp(2rem, 3vw, 3rem)",
