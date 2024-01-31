@@ -7,7 +7,7 @@
 }
 html{min-height:100vh; background:var(--theme-ui-colors-siteBackground); z-index: -1;}
 
-body{z-index: 0; background:var(--theme-ui-colors-siteBackground)}
+body{z-index: 0; background:var(--theme-ui-colors-siteBackground);overscroll-behavior:none;}
 
 /* body.scroll {overflow:hidden !important;} */
 /* body.scroll  {overflow-x:hidden !important; } */
@@ -1635,7 +1635,8 @@ body:has(.ReactModal__Content) .upbar{border: 1px solid blue !important; z-index
   #___gatsby > main {
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: 1fr 600px 1fr;
+    grid-template-columns: 1fr 100% 1fr;
+    overscroll-behavior:contain;
   }
 
   body.category .contentpanel a:first-of-type{display:none !important}

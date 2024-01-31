@@ -8,7 +8,7 @@
       "showSearch": true,
       "showDates": true,
       "showTitles": true,
-      "showfooter": false,
+      "showfooter": true,
       "showSocial": true,
       "showDefault": true,
       "showSwipe": true
