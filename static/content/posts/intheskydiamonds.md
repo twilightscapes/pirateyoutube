@@ -31,4 +31,6 @@ youtube:
  audioend: ""
  audiotitle: ""
  audiostart: ""
+homepage: false
+draft: null
 ---
