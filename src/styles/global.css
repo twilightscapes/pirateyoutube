@@ -1446,10 +1446,14 @@ padding-top: 12vh;
 
 /* .ReactModalPortal .pagemenu:first-of-type{ border:1px solid red!important;} */
 
-.ReactModalPortal body div:first-of-type{display: none;}
+/* .ReactModalPortal body div:first-of-type{display: none;} */
 
-.ReactModalPortal main div:first-of-type{display: none;}
+/* .ReactModalPortal main div:first-of-type{display: none;} */
 /* .gatsby-focus-wrapper main  div:first-of-type{visibility: hidden;} */
+
+body:has(.ReactModal__Content) .upbar{border: 1px solid blue !important; z-index:100 !important;}
+
+body:has(.ReactModal__Content) {overflow: hidden !important;}
 
   .pagemenu {
     /* background:rgba(0, 0, 0, .5); */
