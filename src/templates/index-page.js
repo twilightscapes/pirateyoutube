@@ -610,7 +610,7 @@ style={{height:'auto', width:'100vw', maxHeight:'100vh', position:'absolute', zI
 {showHomePosts ? (
 
 
-    <HomePosts isSliderVisible={isSliderVisible} className="scroll-area" id="posttop" name="posttop" style={{minHeight:'100vh', width:'100vw'}} />
+    <HomePosts isSliderVisible={isSliderVisible} className="scroll-area" id="posttop" name="posttop" style={{minHeight:'100%', width:'100vw'}} />
 
     ) : (
       ""
