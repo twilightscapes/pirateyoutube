@@ -5,7 +5,11 @@ slug: /first-post
 date: 2023-10-01 09:00
 description: Experience the thrill of PIRATE
 featuredImage: /assets/pirate-propaganda.webp
+svgImage: /assets/null.svg
+underlayImage: /assets/transparent.png
 showPageNav: true
+homepage: false
+draft: null
 tags:
  - test
  - poop

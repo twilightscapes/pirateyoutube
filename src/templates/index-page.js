@@ -440,7 +440,7 @@ display:'flex', justifyContent:'center', maxHeight:'80px !important', height:'15
 
 {frontmatter.underlayImage ? (
                 <GatsbyImage
-                  image={frontmatter.underlayImage}
+                  image={frontmatter.underlayImage.childImageSharp.gatsbyImageData}
                   alt={frontmatter.title + " - image"}
                   className="mcboaty1"
                   style={{height:'auto', width:'100%', maxHeight:'100vh', overflow:'hidden', position:'absolute', left:'0', right:'0', bottom:'', top:'0', zIndex:'',
@@ -452,7 +452,7 @@ display:'flex', justifyContent:'center', maxHeight:'80px !important', height:'15
 <>
 {FrontImage ? (
 <GatsbyImage
-image={FrontImage}
+image={frontmatter.featuredImage.childImageSharp.gatsbyImageData}
 alt={frontmatter.title + " - Featured image"}
 className="featuredimage"
 placeholder="blurred"
