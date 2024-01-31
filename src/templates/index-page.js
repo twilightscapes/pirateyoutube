@@ -541,7 +541,7 @@ display:'flex', justifyContent:'center', maxHeight:'80px !important', height:'15
 
 {/* show feature */}
 {showFeature ? (   
-<section id="feature" name="feature" className="print scroll-area panel" style={{  width:'100vw', margin:'0 auto 0 auto', padding:'0 0 0 0', position:'relative',
+<section id="feature" name="feature" className="print scroll-area panel" style={{  width:'100vw', minHeight:'100vh', margin:'0 auto 0 auto', padding:'0 0 0 0', position:'relative',
  alignContent:'center', maxWidth:'100vw', overFlowY:'hidden', display:'flex', textAlign:'left', justifyContent:'start', verticalAlign:'center',
   color:'#fff',
   fontSize:'clamp(1rem, 1.8vw, 3.2rem)',

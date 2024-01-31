@@ -186,8 +186,7 @@ const Layout = ({ children }) => {
       )}
 
 
-<div
-        className={`upbar button ${showBackToTop ? 'visible' : ''}`}
+<div className={`upbar button ${showBackToTop ? 'visible' : ''}`}
         style={{
           position: 'fixed',
           bottom: '20px',
