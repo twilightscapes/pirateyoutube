@@ -445,7 +445,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
   
   return (
     <>
-      <section
+      <div
         className="magicshell"
         style={{
           overflowX: "auto",
@@ -606,7 +606,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
 
       
         {renderContent()}
-      </section>
+      </div>
     </>
   );
 };

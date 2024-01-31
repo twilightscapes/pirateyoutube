@@ -1,10 +1,10 @@
 ---
 template: blog-post
-title: Test Post 1
-slug: /first-post
+title: Post with no Image
+slug: /post-no-image
 date: 2023-10-01 09:00
-description: Experience the thrill of PIRATE
-featuredImage: /assets/pirate-propaganda.webp
+description: A blog post with no image
+featuredImage: 
 showPageNav: true
 tags:
  - test
