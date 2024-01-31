@@ -1263,7 +1263,7 @@ body:has(.ReactModal__Content) {overflow-x:hidden !important; overflow-y:hidden 
     display:flex;
         flex-flow: column;
     width: 100vw;
-    height: 100%;
+    height: 100vh;
     min-height: 100vh;
     /* scroll-padding: 5vh 0; */
   overscroll-behavior: contain;
@@ -1617,10 +1617,16 @@ body:has(.ReactModal__Content) .upbar{border: 1px solid blue !important; z-index
   scroll-snap-align: center;
   scroll-snap-stop: start;
   scroll-padding: 0;
+  height:100vh;
   }
   
 
-  main section, main div{scroll-snap-align:center;scroll-snap-stop: start; scroll-padding: 0; }
+  main section, main div{
+    scroll-snap-align:center;
+    scroll-snap-stop: center;
+    scroll-padding: 0; 
+  }
+
   /* #gatsby-focus-wrapper > footer {
     grid-area: footer;
   } */
