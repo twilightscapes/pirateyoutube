@@ -12,7 +12,7 @@ youtube:
  youtubersuggestion3: "null"
  youtubestart: ""
  youtubeend: ""
- youtubemute: false
+ youtubemute: true
  youtubecontrols: false
  youtubeautostart: true
  youtubeloop: false

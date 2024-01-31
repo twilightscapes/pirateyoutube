@@ -1,31 +1,29 @@
 ---
 template: blog-post
-title: Second Test Post
-slug: /second-post
-date: 2023-10-01 10:00
-description: Pirates life for me!
-featuredImage: /assets/trump-drunk.png
+title: Post with no Image
+slug: /post-no-image
+date: 2023-10-01 09:00
+description: A blog post with no image
+featuredImage: 
 showPageNav: true
 tags:
  - test
  - poop
 youtube:
- youtuber: https://youtu.be/iOvlsAL1bFw?si=jEmN8jPN2DoWhrF6
  youtubeshoworiginal: false
  youtubestart: ""
  youtubeend: ""
- youtubemute: true
+ youtubemute: false
  youtubecontrols: false
  youtubeautostart: false
- youtubeloop: true
+ youtubeloop: false
  clicktoplay: false
  showVidOnly: false
- customcontrols: true
+ customcontrols: false
  audioend: ""
  audiotitle: ""
  audiostart: ""
-mediawarnings:
-  viewerwarning: MA
+
 
 ---
 

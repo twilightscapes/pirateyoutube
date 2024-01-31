@@ -137,7 +137,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
   
   function AddSvg() {
     if (!Svg) {
-      return null; // or you can return a default SVG or placeholder
+      return null; 
     }
   
     const svgUrl = Svg.publicURL;
@@ -185,15 +185,14 @@ const [playingIndex, setPlayingIndex] = useState(null);
   
     function Iframer() {
       if (!YouTube) {
-        return null; 
+        return null;
       }
     
       return (
-        <div className="wrap-element effects" style={{ aspectRatio: '16/9', minHeight: '300px', width: '100vw', maxHeight: '100vh', maxWidth:'100vw', overFlowY:'hidden' }}>
+        <div className="wrap-element effects" style={{ aspectRatio: '16/9', minHeight: '300px', width: '100%', maxHeight: '100vh', maxWidth: '100vw', overFlowY: 'hidden' }}>
+
           {YouTube ? (
             <div>
-  
-
   <ReactPlayer
                 
                 ref={playerRef}
@@ -212,7 +211,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
                   light={
                     frontmatter.underlayImage ? (
                       <GatsbyImage
-                        image={frontmatter.underlayImage}
+                        image={UnderlayImage}
                         alt="Page Feature Image beegee"
                         className=""
                         placeholder="blurred" loading="eager"
@@ -222,11 +221,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
                       <img src={`https://i.ytimg.com/vi/${extractVideoId(frontmatter.youtube.youtuber)}/hqdefault.jpg`} width="100%" height="auto" alt="" />
                     )
                   }
-                  
 
-
-
-                  
                   config={{
                     file: {
                       attributes: {
@@ -248,8 +243,8 @@ const [playingIndex, setPlayingIndex] = useState(null);
                         </div>
                       </div>
                     </div>}
-                    onPlay={() => handleVideoPlay()}
-                    onPause={handleVideoPause}
+                    // onPlay={() => handleVideoPlay()}
+                    // onPause={handleVideoPause}
                 />
     </div>
     ) : (
@@ -260,14 +255,14 @@ const [playingIndex, setPlayingIndex] = useState(null);
   
     
     
-    <div className="" style={{maxHeight:'100vh', width:'100vw', height:'auto', overflow:'visible',position:'absolute', top:'0', zIndex:'',}}>
-{UnderlayImage ? (
+    <div className="" style={{maxHeight:'100vh', width:'100vw', height:'auto', overflow:'hidden',position:'absolute', top:'0', zIndex:'',}}>
+{frontmatter.underlayImage ? (
             <GatsbyImage
-            image={UnderlayImage}
-            alt={frontmatter.title + " - image"}
+            image={frontmatter.underlayImage}
+            alt="Page Feature Image ceebee"
             className="print"
             placeholder="blurred" loading="eager"
-              style={{height:'auto', width:'100vw', maxHeight:'100vh',  objectFit:'cover', overflow:'visible', border:'0px solid red !important'}}
+              style={{height:'auto', width:'100vw', maxHeight:'100vh',  objectFit:'cover', overflow:'hidden', outline:'0', border:'0'}}
           />
           ) : (
             ""
@@ -275,20 +270,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
 </div>
     
   
-    
-    {/*  SPECIAL CONTENT */}
-    
-    {ContentinVideo ? (
-      <div id="contentvideo"
-            className="blog-post-content effects" style={{ fontSize:'1.1rem', textAlign:'left', padding:'', margin:'0 auto', color:'inherit !important', border:'0px solid transparent', position:'absolute', bottom:'0', left:'0', top:'0', right:'0', zindex:'-1', maxHeight:'100vh', borderBottom:'0px solid', }}
-            dangerouslySetInnerHTML={{ __html: html }}
-          >
-            
-          </div>
-     ) : (
-      ""
-    )}
-    
+
     
             
     {Svg ? (
@@ -574,9 +556,9 @@ display:'flex', justifyContent:'center', maxHeight:'80px !important', height:'15
 
 
 
-{UnderlayImage ? (
+{frontmatter.underlayImage ? (
                 <GatsbyImage
-                  image={UnderlayImage}
+                  image={frontmatter.underlayImage}
                   alt={frontmatter.title + " - image"}
                   className="mcboaty1"
                   style={{height:'auto', width:'100%', maxHeight:'100vh', overflow:'hidden', position:'absolute', left:'0', right:'0', bottom:'', top:'0', zIndex:'',
