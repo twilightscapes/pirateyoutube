@@ -631,9 +631,13 @@ body.homepage .pleaseshare{display:none}
   filter:brightness(.7);
 }
 
+.sidebarMenuInner li{
+  color:#aaa !important;
+  text-shadow: 0 0px 1px var(--theme-ui-colors-textShadow) !important;
+}
+
 .signup{
   background-color:rgba(0, 0, 0, 0.1);
-color:#999 !important;
 }
 
 
