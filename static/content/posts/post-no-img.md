@@ -4,7 +4,7 @@ title: Post with no Image
 slug: /post-no-image
 date: 2023-10-01 09:00
 description: A blog post with no image
-featuredImage: 
+featuredImage: /assets/pirate-propaganda.webp
 showPageNav: true
 tags:
  - test
