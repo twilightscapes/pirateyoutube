@@ -1253,7 +1253,7 @@ body:has(.ReactModal__Content) {overflow-x:hidden !important; overflow-y:hidden 
     scroll-snap-type: y mandatory;
     scroll-padding: 0 5vw;
   overscroll-behavior: contain;
-  scroll-snap-align: start;
+  scroll-snap-align: center;
   
   }
 
@@ -1269,7 +1269,7 @@ body:has(.ReactModal__Content) {overflow-x:hidden !important; overflow-y:hidden 
   overscroll-behavior: contain;
     /* border-top: 4vh solid black;
     border-bottom: 4vh solid black; */
-    scroll-snap-align: start;
+    scroll-snap-align: center;
   }
 
 
