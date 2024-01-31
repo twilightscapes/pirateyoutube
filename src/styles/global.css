@@ -1453,7 +1453,7 @@ padding-top: 12vh;
 
 body:has(.ReactModal__Content) .upbar{border: 1px solid blue !important; z-index:100 !important;}
 
-body:has(.ReactModal__Content) {overflow: hidden !important;}
+/* body:has(.ReactModal__Content) {overflow: hidden !important;} */
 
   .pagemenu {
     /* background:rgba(0, 0, 0, .5); */
