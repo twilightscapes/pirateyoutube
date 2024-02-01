@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReactPlayer from 'react-player/lazy';
 import { FaHome } from "react-icons/fa";
+import { ImYoutube2 } from "react-icons/im";
 import { Link } from "gatsby";
 import useSiteMetadata from "../hooks/SiteMetadata";
 
@@ -88,6 +89,12 @@ const YouTubePlayer = () => {
             <button type="reset" onClick={handleReset} style={{ fontSize: '90%', color: '#fff', fontWeight: 'bold', textAlign: 'left', width: '100px', margin: '5px 15px 0 0' }}>
               Reset
             </button>
+            <div className="specialfont" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '#999', placeItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
+              <a title="Go Home" href="https://youtube.com" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '60px', }}>
+                {/* <div style={{}}>GO TO</div> */}
+                <ImYoutube2 style={{ fontSize: '50px' }} />
+              </a>
+            </div>
           </form>
         </div>
       ) : (
@@ -113,6 +120,12 @@ const YouTubePlayer = () => {
             <button type="reset" onClick={handleReset} style={{ fontSize: '90%', color: '#fff', fontWeight: 'bold', textAlign: 'left', width: '100px', margin: '5px 15px 0 0' }}>
               Reset
             </button>
+            <div className="specialfont" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '#999', placeItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
+              <a title="Go Home" href="https://youtube.com" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '60px', }}>
+                {/* <div style={{}}>GO TO</div> */}
+                <ImYoutube2 style={{ fontSize: '50px' }} />
+              </a>
+            </div>
           </form>
         </div>
       )}
