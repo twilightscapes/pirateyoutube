@@ -344,13 +344,10 @@ display:'flex', justifyContent:'center', maxHeight:'80px !important', height:'15
 
 <ReactPlayer
         allow="web-share"
-        className='react-player67'
+        style={{ position: 'absolute', top:'0', margin: '0 auto 0 auto', zIndex: '1', aspectRatio:'16/9', }}
         url={iframeUrl3}
         width="200px"
         height="100%"
-        style={{
-          border:'0px solid red'
-      }}
         config={{
           youtube: {
             playerVars: { showinfo:0, autoplay:1, controls:0, start:AudioStart, end:AudioEnd, mute:0,  }
@@ -559,9 +556,9 @@ display:'flex', justifyContent:'center', maxHeight:'80px !important', height:'15
 
 {/* show feature */}
 {showFeature ? (   
-<section id="feature" name="feature" className="print scroll-area panel" style={{  width:'100vw', margin:'0 auto 0 auto', padding:'0 0 0 0', position:'relative',
+<section id="feature" name="feature" className="print scroll-area" style={{  width:'100vw', minHeight:'100vh', margin:'0 auto 0 auto', padding:'0 0 0 0', position:'relative',
  alignContent:'center', maxWidth:'100vw', overFlowY:'hidden', display:'flex', textAlign:'left', justifyContent:'start', verticalAlign:'center',
-  color:'#fff',
+  color:'',
   fontSize:'clamp(1rem, 1.8vw, 3.2rem)',
   textShadow:'0 2px 7px #000',
   backgroundColor:'var(--theme-ui-colors-headerColor)'

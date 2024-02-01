@@ -1618,16 +1618,16 @@ body:has(.ReactModal__Content) .upbar{ z-index:100 !important;}
     grid-area: main;
 
   scroll-snap-type:y mandatory;
-  scroll-snap-align: center;
+  scroll-snap-align: start;
   scroll-snap-stop: start;
   scroll-padding: 0;
-  height:100vh;
+  height:100%;
   }
   
 
   main section, main div{
     scroll-snap-align:center;
-    scroll-snap-stop: center;
+    scroll-snap-stop: start;
     scroll-padding: 0; 
   }
 
