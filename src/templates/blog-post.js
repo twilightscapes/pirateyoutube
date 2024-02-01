@@ -1319,7 +1319,7 @@ zindex:'1'
     
   {showTitles ? (   
     <>
-            <h1 className="headline" style={{color:'#fff', borderRadius:''}}>{frontmatter.title}</h1>
+            <h1 className="headline" style={{color:'', borderRadius:''}}>{frontmatter.title}</h1>
             <time sx={{color: ""}}>{frontmatter.date}</time>
             Posted: <TimeAgo date={frontmatter.date} style={{color:''}} />
     </> 
@@ -1351,7 +1351,7 @@ zindex:'1'
 
                 {showTitles ? (   
     <>
-            <h1 className="headline" style={{color:'#fff', borderRadius:''}}>{frontmatter.title}</h1>
+            <h1 className="headline" style={{color:'', borderRadius:''}}>{frontmatter.title}</h1>
             <time sx={{color: ""}}>{frontmatter.date}</time>
             Posted: <TimeAgo date={frontmatter.date} style={{color:''}} />
     </> 
@@ -1411,7 +1411,7 @@ zindex:'1'
 
 {showTitles ? (   
     <>
-            <h1 className="headline" style={{color:'#fff', borderRadius:''}}>{frontmatter.title}</h1>
+            <h1 className="headline" style={{color:'', borderRadius:''}}>{frontmatter.title}</h1>
     </> 
       ) : (
       ""
@@ -1466,7 +1466,7 @@ zindex:'1'
 
                 {showTitles ? (   
     <>
-            <h1 className="headline" style={{color:'#fff', borderRadius:''}}>{frontmatter.title}</h1>
+            <h1 className="headline" style={{color:'', borderRadius:''}}>{frontmatter.title}</h1>
     </> 
       ) : (
       ""

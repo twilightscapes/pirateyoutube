@@ -474,9 +474,9 @@ display:'flex', justifyContent:'center', maxHeight:'80px !important', height:'15
 {SecondaryImage ? (
             <GatsbyImage
               image={SecondaryImage}
-              alt={frontmatter.title + " - Featured image"}
+              alt={frontmatter.title + " - Profile Image"}
               className="avatar-frame"
-              style={{ maxWidth:'300px', margin:'0 auto', height:'', maxHeight:'300px', position:'relative', top:'', objectFit:'contain', backgroundSize:'contain', marginBottom:'0', border:'0'}}
+              style={{ maxWidth:'280px', margin:'0 auto', height:'', maxHeight:'280px', position:'relative', top:'', objectFit:'contain', backgroundSize:'contain', marginBottom:'0', border:'0'}}
             />
           ) : (
             ""
@@ -491,9 +491,9 @@ display:'flex', justifyContent:'center', maxHeight:'80px !important', height:'15
   textShadow:'0 2px 0px #000',
   maxWidth:'70%'
 }}>
-
+  <br />
 {frontmatter.profileName ? (
-    <span style={{margin:'10px auto', fontSize:'160%'}}>{frontmatter.profileName}</span>
+    <span style={{margin:'2vh auto', fontSize:'160%'}}>{frontmatter.profileName}</span>
   ) : (
     ""
   )}
@@ -506,7 +506,7 @@ display:'flex', justifyContent:'center', maxHeight:'80px !important', height:'15
   ) : (
     ""
   )}
-  <br />
+  <br /><br />
   {frontmatter.addressText2 ? (
     frontmatter.addressText2
   ) : (
@@ -626,10 +626,7 @@ style={{height:'auto', width:'100vw', maxHeight:'100vh', position:'absolute', zI
 
 
 {showHomePosts ? (
-
-
     <HomePosts isSliderVisible={isSliderVisible} className="scroll-area" id="posttop" name="posttop" style={{minHeight:'100vh', width:'100vw'}} />
-
     ) : (
       ""
   )}

@@ -1,7 +1,7 @@
 ---
 template: blog-post
 date: 2023-11-30 05:42
-slug: /
+slug: /intothedark
 title: Unique Night Photography by Twilightscapes
 description: A new interactive Photo "Experience" from Twilightscapes
 category:
