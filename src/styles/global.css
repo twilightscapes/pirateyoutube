@@ -1306,6 +1306,8 @@ display: none !important;}
   
 }
 
+.player-wrapper iframe{max-height: 94vh; overflow:hidden; height:94vh !important;}
+
 /* Form container */
 .form-container {
 

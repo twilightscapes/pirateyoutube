@@ -45,7 +45,7 @@ const YouTubePlayer = () => {
           <ReactPlayer
             className='react-player'
             url={finalUrl}
-            width='100%'
+            width='100vw'
             height='94vh'
             config={{
               youtube: {
@@ -55,6 +55,7 @@ const YouTubePlayer = () => {
             playing
             color="white"
             controls
+            style={{position:'absolute', top:'0', zIndex:'0', maxHeight:'94vh', overflow:'hidden'}}
           />
         )}
       </div>
@@ -77,23 +78,14 @@ const YouTubePlayer = () => {
               <a title="Go Home" href="https://www.twitch.tv/directory" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '', }}>
                 <FaTwitch style={{ fontSize: '30px' }} />
               </a>
-      
-
-            {/* 
-            https://www.facebook.com/watch/ 
-            https://www.twitch.tv/directory
-            */}
-
-
-            {/* <p className="specialfont" style={{ fontSize: 'clamp(.8rem, .8vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '', placeItems: 'center', justifyContent: 'center', margin: '0 auto', width:'' }}><div>Paste</div> Link:</p> */}
             <input
               type="text"
               name="youtubelink"
               value={youtubelink}
               onInput={handleInputChange}
               onChange={handleShow}
-              style={{ padding: '1vh .5vw', width:'100%', minWidth: '220px', outline: '1px solid #333', borderRadius: '', color: 'var(--theme-ui-colors-siteColor)' }}
-              placeholder="example: https://youtu.be/cVsQLlk-T0s"
+              style={{ padding: '1vh 1vw', width:'100%', minWidth: '220px', outline: '1px solid #333', borderRadius: '', color: 'var(--theme-ui-colors-siteColor)' }}
+              placeholder="Paste Video Link"
               className="youtubelinker"
             />
             <button type="reset" onClick={handleReset} style={{ fontSize: '90%', color: '', fontWeight: 'bold', textAlign: 'left', width: '', margin: '5px 15px 0 0' }}>
@@ -124,8 +116,8 @@ const YouTubePlayer = () => {
               value={youtubelink}
               onInput={handleInputChange}
               onChange={handleShow}
-              style={{ padding: '1vh .5vw', width:'100%', minWidth: '220px', outline: '1px solid #333', borderRadius: '', color: 'var(--theme-ui-colors-siteColor)' }}
-              placeholder="example: https://youtu.be/cVsQLlk-T0s"
+              style={{ padding: '1vh 1vw', width:'100%', minWidth: '220px', outline: '1px solid #333', borderRadius: '', color: 'var(--theme-ui-colors-siteColor)' }}
+              placeholder="Paste Video Link"
               className="youtubelinker"
             />
             <button type="reset" onClick={handleReset} style={{ fontSize: '90%', color: '', fontWeight: 'bold', textAlign: 'left', width: '', margin: '5px 15px 0 0' }}>
