@@ -5,7 +5,7 @@
   "headerColorText": "rgba(0, 0, 0, .99)",
   "siteBackground": "#aaa",
   "text": "#333",
-  "textShadow": "rgba(0, 0, 0, .3)",
+  "textShadow": "rgba(255, 255, 255, .3)",
   "borderColor": "#888",
   "borderRadius": "0",
   "siteFont": "Audiowide"
