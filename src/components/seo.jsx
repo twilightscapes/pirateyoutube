@@ -44,7 +44,7 @@ export default function Seo({
     image: `${image || siteImage}`,
    
   }
-
+  const themeColor = siteColor.siteColor;
 
   return (
     <Helmet
@@ -57,7 +57,7 @@ export default function Seo({
       <meta httpEquiv="x-ua-compatible" content="ie=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
       <meta name="description" content={seo.description} />
-      <meta content={siteColor} name="theme-color" />
+      <meta content={themeColor} name="theme-color" />
       
       {/* <meta name="robots" content="noindex,nofollow" /> */}
       <meta name="image" content={seo.image} />
