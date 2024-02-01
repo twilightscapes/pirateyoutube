@@ -561,7 +561,7 @@ display:'flex', justifyContent:'center', maxHeight:'80px !important', height:'15
   color:'',
   fontSize:'clamp(1rem, 1.8vw, 3.2rem)',
   textShadow:'0 2px 7px #000',
-  backgroundColor:'var(--theme-ui-colors-headerColor)'
+  // backgroundColor:'var(--theme-ui-colors-headerColor)'
 }}>
   <article>
 
