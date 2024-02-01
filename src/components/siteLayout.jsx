@@ -81,11 +81,24 @@ const Layout = ({ children }) => {
       <Seo />
 
       <ModalRoutingContext.Consumer>
-        {({ modal, closeTo }) => (
-          <>
-          </>
-        )}
-      </ModalRoutingContext.Consumer>
+  {({ modal, closeTo }) => {
+    // if (modal) {
+    //   document.body.style.position = 'fixed';
+    //   document.body.style.width = '100%';
+    //   return () => {
+    //     document.body.style.position = '';
+    //     document.body.style.width = '';
+    //   };
+    // }
+    return (
+      <>
+        <div>
+          {/* ... (modal-related code) */}
+        </div>
+      </>
+    );
+  }}
+</ModalRoutingContext.Consumer>
 
 
 
@@ -147,8 +160,8 @@ const Layout = ({ children }) => {
       <main id="top" name="pagetop">
         {children}
 
-        {showfooter ? (
-        <Footer />
+  {showfooter ? (
+    <Footer />
       ) : (
         <footer className="" style={{display:'flex', flexDirection:'column', zIndex:'1', justifyContent:'end', padding:'0', marginTop:'0', width:'100vw',textAlign:'center'}}>
           {showBranding ? (

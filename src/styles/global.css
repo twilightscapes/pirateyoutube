@@ -1226,7 +1226,20 @@ body.blogpost .featured-image1{border:0 solid red;max-height:70vh !important;max
   display: none !important;
   } */
 
-  body:has(.ReactModal__Content) .upbar{z-index: 9999 !important;}
+  /* if (modal) {
+    document.body.style.position = 'fixed';
+    document.body.style.width = '100%';
+    return () => {
+      document.body.style.position = '';
+      document.body.style.width = '';
+    };
+  } */
+
+  body:has(.ReactModal__Content){position: fixed !important; overflow-y: hidden !important;}
+
+
+
+
   /* body:has(.ReactModal__Content) .magicisland{display: none !important;} */
 
 body:has(.ReactModal__Content) {overflow-x:hidden !important; overflow-y:hidden !important;}
@@ -1471,7 +1484,7 @@ padding-top: 12vh;
 /* body.homepage .ReactModalPortal .pagemenu:first-of-type{ display:none !important;} */
 
 
-body:has(.ReactModal__Content) .pagemenu{ z-index:100 !important;}
+/* body:has(.ReactModal__Content) .pagemenu{ z-index:100 !important;} */
 
 
 .ReactModalPortal body div:first-of-type{display: none;}
@@ -1479,7 +1492,9 @@ body:has(.ReactModal__Content) .pagemenu{ z-index:100 !important;}
 /* .ReactModalPortal main div:first-of-type{display: none;} */
 /* .gatsby-focus-wrapper main  div:first-of-type{visibility: hidden;} */
 
-body:has(.ReactModal__Content) .upbar{ z-index:100 !important;}
+
+
+/* body:has(.ReactModal__Content) .upbar{ transform:translateY(0) !important;} */
 
 /* body:has(.ReactModal__Content) {overflow: hidden !important;} */
 
