@@ -8,7 +8,7 @@
       "showSearch": true,
       "showDates": true,
       "showTitles": true,
-      "showfooter": false,
+      "showfooter": true,
       "showSocial": true,
       "showDefault": true,
       "showSwipe": true
@@ -19,7 +19,7 @@
     "homecount": 3,
     "magicOptions": {
       "showMagic": true,
-      "showMagicCat": false,
+      "showMagicCat": true,
       "showMagicTag": true,
       "showMagicSearch": true
     },
@@ -54,6 +54,7 @@
       "dicSocial": "Social Links",
       "dicKeyword": "Keyword",
       "dicGoBack": "Go Back",
+      "dicProfileAudioActionText": "Listen Now!",
       "dicClear": "Clear",
       "dicPhone": "Your Phone Number",
       "dicConfirmation": "Message Received",
@@ -61,6 +62,7 @@
       "dicSubmit": "Send Message",
       "dicPirate": "PIRATE Plus",
       "dicResults": "Result",
+      "dicProfileAudioText": "I'm grooving to:",
       "dicLight": "Light",
       "dicDisclaimer": "Disclaimer",
       "dicSiteReport": "Site Report",
@@ -70,9 +72,7 @@
       "dicCategory": "Category",
       "dicPlayMultimedia": "Play Multimedia",
       "dicEmail": "your@email.com",
-      "dicViewArchive": "View Archive",
-      "dicProfileAudioText": "I'm grooving to:",
-      "dicProfileAudioActionText": "Listen Now!"
+      "dicViewArchive": "View Archive"
     },
     "image": "/assets/pirate-logo.svg",
     "navOptions": {
