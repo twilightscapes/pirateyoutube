@@ -91,63 +91,10 @@ const YouTubePlayer = () => {
 
   return (
     <>
-      <div className='player-wrapper '>
-        {youtubelink && (
-          <ReactPlayer
-            className='react-player'
-            url={finalUrl}
-            width='100vw'
-            height='94vh'
-            config={{
-              youtube: {
-                playerVars: { showinfo: 1, autoplay: 1, controls: 1, mute: 0 }
-              },
-            }}
-            playing
-            color="white"
-            controls
-            style={{position:'absolute', top:'0', zIndex:'0', maxHeight:'94vh', overflow:'hidden'}}
-          />
-        )}
-      </div>
-
-      <div className="form-container" style={{background:'var(--theme-ui-colors-headerColor)', padding:'0 2%'}}>
-  
-        
-          <div style={{ maxWidth:'800px', margin:'0 auto'}}>
-          <form className="youtubeform frontdrop" onSubmit={handleSubmit}>
-      
-              <a title="Go Home" href="https://youtube.com" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '', }}>
-                <ImYoutube2 style={{ fontSize:'50px' }} />
-              </a>
-          
-  
-              <a title="Go Home" href="https://www.facebook.com/watch/" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '', }}>
-                <FaFacebookSquare style={{ fontSize: '30px' }} />
-              </a>
-
-              <a title="Go Home" href="https://www.twitch.tv/directory" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '', }}>
-                <FaTwitch style={{ fontSize: '30px' }} />
-              </a>
-            <input
-              type="text"
-              name="youtubelink"
-              value={youtubelink}
-              onInput={handleInputChange}
-              onChange={handleShow}
-              style={{ padding: '1vh 1vw', width:'100%', minWidth: '220px', outline: '1px solid #333', borderRadius: '', color: 'var(--theme-ui-colors-siteColor)' }}
-              placeholder="Paste Video Link"
-              className="youtubelinker"
-            />
-            <button type="reset" onClick={handleReset} style={{ fontSize: '90%', color: '', fontWeight: 'bold', textAlign: 'left', width: '', margin: '5px 15px 0 0' }}>
-              Reset
-            </button>
-          </form>
-
-          <div
+        <div
           className="pagemenu panel"
           style={{
-            position: "absolute",
+            position: "fixed",
             top: "1vw",
             zIndex: "1",
             left: "1vw",
@@ -161,7 +108,7 @@ const YouTubePlayer = () => {
             gap: "5vw",
             background: "rgba(0, 0, 0, .5)",
             padding: "",
-            border: "1px solid #666",
+            // border: "1px solid #666",
             borderRadius: "var(--theme-ui-colors-borderRadius)",
             textShadow: "0 1px 1px rgba(0, 0, 0, .7)",
             // fontSize: "clamp(2rem, 3vw, 3rem)",
@@ -205,7 +152,7 @@ A web revolution
   <br /><br />
 It's completely FREE!
   <br />
-  <Link to="/contact" state={{modal: true}} className="button print" style={{ display: 'flex', justifyContent: 'center', padding:'1vh .5vw', maxWidth:'250px', margin:'30px auto' }}>Full verion of PIRATE</Link>
+  <Link to="/contact" state={{modal: true}} className="button print" style={{ display: 'flex', justifyContent: 'center', padding:'1vh .5vw', maxWidth:'250px', margin:'30px auto' }}>Become a PIRATE!</Link>
 
 </div>
 </div>
@@ -226,7 +173,7 @@ It's completely FREE!
 }}>
   <br />
 
-    <span style={{margin:'2vh auto', fontSize:'160%'}}>PIRATE pro</span>
+    <span style={{margin:'2vh auto', fontSize:'160%'}}>PIRATE+</span>
 
 
   {/* <span style={{margin:'10px auto', fontSize:'160%'}}>{companyname}</span> */}
@@ -240,7 +187,7 @@ Stake your claim
 
 
 
-  <Link to="/contact" state={{modal: true}} className="button print" style={{ display: 'flex', justifyContent: 'center', padding:'1vh .5vw', maxWidth:'250px', margin:'30px auto' }}>Get PIRATE pro</Link>
+  <Link to="/contact" state={{modal: true}} className="button print" style={{ display: 'flex', justifyContent: 'center', padding:'1vh .5vw', maxWidth:'250px', margin:'30px auto' }}>Get PIRATE+ Now</Link>
 
 
   
@@ -266,6 +213,61 @@ Stake your claim
             <MenuIcon style={{maxHeight:'45px'}} />
           </button>
         </div>
+
+      <div className='player-wrapper'>
+        {youtubelink && (
+          <ReactPlayer
+            className='react-player'
+            url={finalUrl}
+            width='100vw'
+            height='93vh'
+            config={{
+              youtube: {
+                playerVars: { showinfo: 1, autoplay: 1, controls: 1, mute: 0 }
+              },
+            }}
+            playing
+            color="white"
+            controls
+            style={{position:'relative', top:'0', zIndex:'0', height:'93vh', overflow:'hidden'}}
+          />
+        )}
+      </div>
+
+      <div className="form-container controller" style={{marginTop:'0', height:'7vh', padding:'0 2%', width:'100vw', background:'var(--theme-ui-colors-headerColor)'}}>
+  
+        
+          <div style={{ maxWidth:'800px', margin:'0 auto'}}>
+          <form className="youtubeform frontdrop" onSubmit={handleSubmit}>
+      
+              <a title="Go Home" href="https://youtube.com" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '', }}>
+                <ImYoutube2 style={{ fontSize:'50px' }} />
+              </a>
+          
+  
+              <a title="Go Home" href="https://www.facebook.com/watch/" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '', }}>
+                <FaFacebookSquare style={{ fontSize: '30px' }} />
+              </a>
+
+              <a title="Go Home" href="https://www.twitch.tv/directory" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '', }}>
+                <FaTwitch style={{ fontSize: '30px' }} />
+              </a>
+            <input
+              type="text"
+              name="youtubelink"
+              value={youtubelink}
+              onInput={handleInputChange}
+              onChange={handleShow}
+              style={{ padding: '1vh 1vw', width:'100%', minWidth: '220px', outline: '1px solid #333', borderRadius: 'var(--theme-ui-colors-borderRadius)', color: 'var(--theme-ui-colors-siteColor)' }}
+              placeholder="Paste Video Link"
+              className="youtubelinker"
+            />
+            <button type="reset" onClick={handleReset} style={{ fontSize: '90%', color: '', fontWeight: 'bold', textAlign: 'left', width: '', margin: '5px 15px 0 0' }}>
+              Reset
+            </button>
+          </form>
+
+      
 
 
 
