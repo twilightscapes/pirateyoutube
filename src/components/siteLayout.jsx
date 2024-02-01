@@ -150,7 +150,7 @@ const Layout = ({ children }) => {
         {showfooter ? (
         <Footer />
       ) : (
-        <footer className="panel" style={{display:'flex', flexDirection:'column', zIndex:'1', justifyContent:'end', padding:'0', marginTop:'0', width:'100vw',textAlign:'center', background:'var(--theme-ui-colors-headerColor)'}}>
+        <footer className="" style={{display:'flex', flexDirection:'column', zIndex:'1', justifyContent:'end', padding:'0', marginTop:'0', width:'100vw',textAlign:'center'}}>
           {showBranding ? (
             <div style={{ textAlign: 'center', margin: '0 0 2rem 0', justifyContent: 'center', fontSize: '.75rem', position: 'relative', right: '', top: '10px' }}>
               <a className="panel" href="https://pirateweb.org" rel="noreferrer">{dicPirate}</a>
