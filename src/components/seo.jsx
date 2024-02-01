@@ -2,6 +2,7 @@ import * as React from "react"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 import { useLocation } from "@reach/router"
+import siteColor from "../../static/data/default-colors.json"
 export default function Seo({
   title = "",
   description = "",
@@ -56,6 +57,8 @@ export default function Seo({
       <meta httpEquiv="x-ua-compatible" content="ie=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
       <meta name="description" content={seo.description} />
+      <meta content={siteColor} name="theme-color" />
+      
       {/* <meta name="robots" content="noindex,nofollow" /> */}
       <meta name="image" content={seo.image} />
       <meta property="og:title" content={seo.title} />

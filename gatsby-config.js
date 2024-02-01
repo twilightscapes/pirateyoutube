@@ -448,31 +448,20 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: settings.meta.companyname,
-        short_name: settings.meta.companyname,
-        start_url: `${settings.meta.proOptions.startUrl}/?user_mode=app`,
-        // start_url: `/?user_mode=app`,
-        description: settings.meta.description,
-        background_color: `transparent`,
-        lang: `en`,
-        theme_color: `transparent`,
-        display: `standalone`,
- icon: `static${settings.meta.icon512}`, // This path is relative to the root of the site.
- icon_options: {
+name: settings.meta.companyname,
+short_name: settings.meta.companyname,
+start_url: `${settings.meta.proOptions.startUrl}/?user_mode=app`,
+description: settings.meta.description,
+background_color: `transparent`,
+lang: `en`,
+theme_color: `transparent`,
+display: `standalone`,
+icon: `static${settings.meta.icon512}`, // path is relative to the root of the site.
+crossOrigin: `use-credentials`,
+theme_color_in_head: false,
+icon_options: {
   purpose: `any maskable`,
 },
-      // icons: [
-      //   {
-      //     src: `/static/siteimages/manifest-icon-192.maskable.png`,
-      //     sizes: `192x192`,
-      //     type: `image/png`,
-      //   },
-      //   {
-      //     src: `/static/siteimages/manifest-icon-512.maskable.png`,
-      //     sizes: `512x512`,
-      //     type: `image/png`,
-      //   },
-      // ], // Add or remove icon sizes as desired
       },
     },
     "gatsby-plugin-offline",

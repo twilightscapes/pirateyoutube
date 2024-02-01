@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import ReactPlayer from 'react-player/lazy';
-import { FaHome } from "react-icons/fa";
+// import { FaHome } from "react-icons/fa";
 import { ImYoutube2 } from "react-icons/im";
-import { Link } from "gatsby";
-import useSiteMetadata from "../hooks/SiteMetadata";
+// import { Link } from "gatsby";
+// import useSiteMetadata from "../hooks/SiteMetadata";
 
 const YouTubePlayer = () => {
   const [youtubelink, setYoutubelink] = useState("");
   const [isActive, setIsActive] = useState(false);
 
-  const { proOptions } = useSiteMetadata();
-  const { showModals } = proOptions;
+  // const { proOptions } = useSiteMetadata();
+  // const {  } = proOptions;
 
   useEffect(() => {
     const fillFormFromClipboard = () => {
