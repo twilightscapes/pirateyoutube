@@ -75,7 +75,13 @@ const YouTubePlayer = () => {
                 <FaHome style={{ fontSize: '25px' }} />
               </Link>
             </div> */}
-            <p className="specialfont" style={{ fontSize: 'clamp(.8rem, .8vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '', placeItems: 'center', justifyContent: 'center', margin: '0 auto', width:'' }}><div>Paste</div> Link:</p>
+            <div className="specialfont" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '', placeItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
+              <a title="Go Home" href="https://youtube.com" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '60px', }}>
+                {/* <div style={{}}>GO TO</div> */}
+                <ImYoutube2 style={{ fontSize: '50px' }} />
+              </a>
+            </div>
+            <p className="specialfont" style={{ fontSize: 'clamp(.8rem, .8vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '', placeItems: 'center', justifyContent: 'center', margin: '0 auto', width:'' }}>Link:</p>
             <input
               type="text"
               name="youtubelink"
@@ -89,12 +95,6 @@ const YouTubePlayer = () => {
             <button type="reset" onClick={handleReset} style={{ fontSize: '90%', color: '', fontWeight: 'bold', textAlign: 'left', width: '', margin: '5px 15px 0 0' }}>
               Reset
             </button>
-            <div className="specialfont" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '', placeItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
-              <a title="Go Home" href="https://youtube.com" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '60px', }}>
-                {/* <div style={{}}>GO TO</div> */}
-                <ImYoutube2 style={{ fontSize: '50px' }} />
-              </a>
-            </div>
           </form>
         </div>
       ) : (
@@ -106,7 +106,13 @@ const YouTubePlayer = () => {
                 <FaHome style={{ fontSize: '25px' }} />
               </Link>
             </div> */}
-            <p className="specialfont" style={{ fontSize: 'clamp(.8rem, .8vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '', placeItems: 'center', justifyContent: 'center', margin: '0 auto', width:'' }}><div>Pasted</div> Link:</p>
+              <div className="specialfont" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '', placeItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
+              <a title="Go Home" href="https://youtube.com" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '60px', }}>
+                {/* <div style={{}}>GO TO</div> */}
+                <ImYoutube2 style={{ fontSize: '50px' }} />
+              </a>
+            </div>
+            <p className="specialfont" style={{ fontSize: 'clamp(.8rem, .8vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '', placeItems: 'center', justifyContent: 'center', margin: '0 auto', width:'' }}>Link:</p>
             <input
               type="text"
               name="youtubelink"
@@ -120,12 +126,6 @@ const YouTubePlayer = () => {
             <button type="reset" onClick={handleReset} style={{ fontSize: '90%', color: '', fontWeight: 'bold', textAlign: 'left', width: '', margin: '5px 15px 0 0' }}>
               Reset
             </button>
-            <div className="specialfont" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '', placeItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
-              <a title="Go Home" href="https://youtube.com" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '60px', }}>
-                {/* <div style={{}}>GO TO</div> */}
-                <ImYoutube2 style={{ fontSize: '50px' }} />
-              </a>
-            </div>
           </form>
         </div>
       )}
