@@ -436,6 +436,75 @@ display:'flex', justifyContent:'center', maxHeight:'80px !important', height:'15
 <div className="post-container" style={{maxWidth:'100vw', overFlowY:'hidden'}}>
 
 
+
+{/* show feature */}
+{showFeature ? (   
+<section id="feature" name="feature" className="print scroll-area" style={{  width:'100vw', minHeight:'100vh', margin:'0 auto 0 auto', padding:'0 0 0 0', position:'relative',
+ alignContent:'center', maxWidth:'100vw', overFlowY:'hidden', display:'flex', textAlign:'left', justifyContent:'start', verticalAlign:'center',
+  color:'',
+  fontSize:'clamp(1rem, 1.8vw, 3.2rem)',
+  textShadow:'0 2px 7px #000',
+  // backgroundColor:'var(--theme-ui-colors-headerColor)'
+}}>
+  <article>
+
+  <div className="" style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', color:'#999'}}  >
+
+
+
+
+
+{UnderlayImage ? (
+                <GatsbyImage
+                  image={UnderlayImage}
+                  alt={frontmatter.title + " - image"}
+                  className="mcboaty1"
+                  style={{height:'auto', width:'100%', maxHeight:'100vh', overflow:'hidden', position:'absolute', left:'0', right:'0', bottom:'', top:'0', zIndex:'',
+                 objectFit:'cover', border:'0px solid red !important', background:'transparent',}}
+                />
+                
+              ) : (
+                
+<>
+{FrontImage ? (
+<GatsbyImage
+image={FrontImage}
+alt={frontmatter.title + " - Featured image"}
+className="featuredimage"
+placeholder="blurred"
+loading="eager"
+style={{height:'auto', width:'100vw', maxHeight:'100vh', position:'absolute', zIndex:'1', top:'0', left:'0', right:'0', border:'0px solid #888 !important', objectFit:'contain', margin:'0'}}
+/>
+          ) : (
+""
+          )}
+</>
+
+              )}
+{/* 
+            <StaticImage src="../../static/assets/default-og-image.webp" alt="Default Image" style={{height:'auto', maxHeight:'100vh', position:'relative', zIndex:'0', top:'0',border:'0px solid !important', objectFit:'contain', margin:'0 auto'}} /> */}
+
+{YouTube ? (
+            <Iframer />
+       
+          ) : (
+            ""
+          )}
+
+
+
+
+
+      </div>
+      
+  </article>
+</section>
+) : (
+  ""
+)}
+{/* end show feature */}
+
+
 {/* show profile */}
 {showProfile ? (
   <section className="scroll-area panel" id="profile" name="profile" style={{ display:'', height:'100%', minHeight:'100vh', position:'relative', overflow:'hidden', margin:'0 auto 0 auto', padding:'0 0 60px 0', background:'var(--theme-ui-colors-background)', color:'var(--theme-ui-colors-text)', width:'100vw', borderRadius:'var(--theme-ui-colors-borderRadius)', }}>
@@ -552,74 +621,6 @@ display:'flex', justifyContent:'center', maxHeight:'80px !important', height:'15
     ""
 )}
 {/* end show profile */}
-
-
-{/* show feature */}
-{showFeature ? (   
-<section id="feature" name="feature" className="print scroll-area" style={{  width:'100vw', minHeight:'100vh', margin:'0 auto 0 auto', padding:'0 0 0 0', position:'relative',
- alignContent:'center', maxWidth:'100vw', overFlowY:'hidden', display:'flex', textAlign:'left', justifyContent:'start', verticalAlign:'center',
-  color:'',
-  fontSize:'clamp(1rem, 1.8vw, 3.2rem)',
-  textShadow:'0 2px 7px #000',
-  // backgroundColor:'var(--theme-ui-colors-headerColor)'
-}}>
-  <article>
-
-  <div className="" style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', color:'#999'}}  >
-
-
-
-
-
-{UnderlayImage ? (
-                <GatsbyImage
-                  image={UnderlayImage}
-                  alt={frontmatter.title + " - image"}
-                  className="mcboaty1"
-                  style={{height:'auto', width:'100%', maxHeight:'100vh', overflow:'hidden', position:'absolute', left:'0', right:'0', bottom:'', top:'0', zIndex:'',
-                 objectFit:'cover', border:'0px solid red !important', background:'transparent',}}
-                />
-                
-              ) : (
-                
-<>
-{FrontImage ? (
-<GatsbyImage
-image={FrontImage}
-alt={frontmatter.title + " - Featured image"}
-className="featuredimage"
-placeholder="blurred"
-loading="eager"
-style={{height:'auto', width:'100vw', maxHeight:'100vh', position:'absolute', zIndex:'1', top:'0', left:'0', right:'0', border:'0px solid #888 !important', objectFit:'contain', margin:'0'}}
-/>
-          ) : (
-""
-          )}
-</>
-
-              )}
-{/* 
-            <StaticImage src="../../static/assets/default-og-image.webp" alt="Default Image" style={{height:'auto', maxHeight:'100vh', position:'relative', zIndex:'0', top:'0',border:'0px solid !important', objectFit:'contain', margin:'0 auto'}} /> */}
-
-{YouTube ? (
-            <Iframer />
-       
-          ) : (
-            ""
-          )}
-
-
-
-
-
-      </div>
-      
-  </article>
-</section>
-) : (
-  ""
-)}
-{/* end show feature */}
 
 
 {showHomePosts ? (

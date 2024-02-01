@@ -57,7 +57,7 @@ const YouTubePlayer = () => {
             height='94vh'
             config={{
               youtube: {
-                playerVars: { showinfo: 1, controls: 1, mute: 1 }
+                playerVars: { showinfo: 1, controls: 1, mute: 0 }
               },
             }}
             playing

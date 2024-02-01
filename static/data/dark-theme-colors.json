@@ -7,6 +7,6 @@
   "text": "#ddd",
   "textShadow": "rgba(0, 0, 0, .6)",
   "borderColor": "#333",
-  "borderRadius": "3px",
+  "borderRadius": "8px",
   "siteFont": "Audiowide"
 }
