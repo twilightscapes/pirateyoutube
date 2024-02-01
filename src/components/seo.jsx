@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import { useLocation } from "@reach/router";
 import defaultColors from "../../static/data/default-colors.json";
 import darkColors from "../../static/data/dark-theme-colors.json";
-import { useColorMode } from "@theme-ui/core";
+import { useColorMode } from "theme-ui";
 
 export default function Seo({
   title = "",
