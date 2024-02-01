@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ReactPlayer from 'react-player/lazy';
 import { ImYoutube2 } from "react-icons/im";
-import { FaTwitch } from "react-icons/fa";
+import { FaTwitch, FaFacebookSquare  } from "react-icons/fa";
+
 const YouTubePlayer = () => {
   const [youtubelink, setYoutubelink] = useState("");
   const [isActive, setIsActive] = useState(false);
@@ -35,7 +36,7 @@ const YouTubePlayer = () => {
     setIsActive(false);
   };
 
-  const finalUrl = `https://www.youtube.com/embed/${youtubelink}?controls=1&showinfo=1&color=white&rel=0&autoplay=1&loop=1&mute=0&playlist=${youtubelink}`;
+  const finalUrl = youtubelink
 
   return (
     <>
@@ -53,23 +54,37 @@ const YouTubePlayer = () => {
             }}
             playing
             color="white"
+            controls
           />
         )}
       </div>
 
+      <div className="form-container" style={{background:'var(--theme-ui-colors-headerColor)', padding:'0 2%'}}>
       {!isActive ? (
-        <div className="form-container">
+        
+          <div style={{ maxWidth:'800px', margin:'0 auto'}}>
           <form className="youtubeform frontdrop" onSubmit={handleSubmit}>
-          <div className="specialfont" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '', placeItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
+      
               <a title="Go Home" href="https://youtube.com" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '', }}>
                 <ImYoutube2 style={{ fontSize: '50px' }} />
               </a>
-            </div>
-            <div className="specialfont" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '', placeItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
+          
+  
+              <a title="Go Home" href="https://www.facebook.com/watch/" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '', }}>
+                <FaFacebookSquare style={{ fontSize: '30px' }} />
+              </a>
+
               <a title="Go Home" href="https://www.twitch.tv/directory" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '', }}>
                 <FaTwitch style={{ fontSize: '30px' }} />
               </a>
-            </div>
+      
+
+            {/* 
+            https://www.facebook.com/watch/ 
+            https://www.twitch.tv/directory
+            */}
+
+
             {/* <p className="specialfont" style={{ fontSize: 'clamp(.8rem, .8vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '', placeItems: 'center', justifyContent: 'center', margin: '0 auto', width:'' }}><div>Paste</div> Link:</p> */}
             <input
               type="text"
@@ -77,7 +92,7 @@ const YouTubePlayer = () => {
               value={youtubelink}
               onInput={handleInputChange}
               onChange={handleShow}
-              style={{ padding: '1vh .5vw', minWidth: '220px', outline: '1px solid #333', borderRadius: '', color: 'var(--theme-ui-colors-siteColor)' }}
+              style={{ padding: '1vh .5vw', width:'100%', minWidth: '220px', outline: '1px solid #333', borderRadius: '', color: 'var(--theme-ui-colors-siteColor)' }}
               placeholder="example: https://youtu.be/cVsQLlk-T0s"
               className="youtubelinker"
             />
@@ -85,27 +100,31 @@ const YouTubePlayer = () => {
               Reset
             </button>
           </form>
-        </div>
+          </div>
+    
       ) : (
-        <div className="form-container">
+
+          <div style={{ maxWidth:'800px', margin:'0 auto'}}>
           <form className="youtubeform frontdrop" onSubmit={handleSubmit}>
-          <div className="specialfont" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '', placeItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
-              <a title="Go Home" href="https://youtube.com" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '', }}>
+          <a title="Go Home" href="https://youtube.com" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '', }}>
                 <ImYoutube2 style={{ fontSize: '50px' }} />
               </a>
-            </div>
-            <div className="specialfont" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '', placeItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
+          
+  
+              <a title="Go Home" href="https://www.facebook.com/watch/" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '', }}>
+                <FaFacebookSquare style={{ fontSize: '30px' }} />
+              </a>
+
               <a title="Go Home" href="https://www.twitch.tv/directory" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '', }}>
                 <FaTwitch style={{ fontSize: '30px' }} />
               </a>
-            </div>
-            <input
+              <input
               type="text"
               name="youtubelink"
               value={youtubelink}
               onInput={handleInputChange}
               onChange={handleShow}
-              style={{ padding: '1vh .5vw', minWidth: '220px', outline: '1px solid #333', borderRadius: '', color: 'var(--theme-ui-colors-siteColor)' }}
+              style={{ padding: '1vh .5vw', width:'100%', minWidth: '220px', outline: '1px solid #333', borderRadius: '', color: 'var(--theme-ui-colors-siteColor)' }}
               placeholder="example: https://youtu.be/cVsQLlk-T0s"
               className="youtubelinker"
             />
@@ -113,8 +132,10 @@ const YouTubePlayer = () => {
               Reset
             </button>
           </form>
-        </div>
+          </div>
+        
       )}
+      </div>
     </>
   );
 };

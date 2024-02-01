@@ -1308,16 +1308,16 @@ display: none !important;}
 
 /* Form container */
 .form-container {
-  margin: 0 auto;
-  justify-content: center;
-  align-items: center;
-  background:var(--theme-ui-colors-headerColor);
+
+  /* justify-content: center;
+  align-items: center; */
   padding: 0;
   box-sizing: border-box;
-  gap: 5px;
+  gap: 10px;
   /* white-space: nowrap;  */
-  display:flex;
+  /* display:flex; */
 
+margin: 0 auto;
 }
 
 /* Form styles (adjust as needed) */
@@ -1326,6 +1326,7 @@ display: none !important;}
   flex-wrap: nowrap; /* Prevent wrapping */
   align-items: center;
   margin: 0 auto;
+  max-width:800px;
   /* max-width: 380px; */
 }
 
