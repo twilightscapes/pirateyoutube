@@ -137,7 +137,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
   
   function AddSvg() {
     if (!Svg) {
-      return null; 
+      return null; // or you can return a default SVG or placeholder
     }
   
     const svgUrl = Svg.publicURL;
@@ -185,14 +185,15 @@ const [playingIndex, setPlayingIndex] = useState(null);
   
     function Iframer() {
       if (!YouTube) {
-        return null;
+        return null; 
       }
     
       return (
-        <div className="wrap-element effects" style={{ aspectRatio: '16/9', minHeight: '300px', width: '100%', maxHeight: '100vh', maxWidth: '100vw', overFlowY: 'hidden' }}>
-
+        <div className="wrap-element effects" style={{ aspectRatio: '16/9', minHeight: '300px', width: '100vw', maxHeight: '100vh', maxWidth:'100vw', overFlowY:'hidden' }}>
           {YouTube ? (
             <div>
+  
+
   <ReactPlayer
                 
                 ref={playerRef}
@@ -211,7 +212,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
                   light={
                     frontmatter.underlayImage ? (
                       <GatsbyImage
-                        image={UnderlayImage}
+                        image={frontmatter.underlayImage}
                         alt="Page Feature Image beegee"
                         className=""
                         placeholder="blurred" loading="eager"
@@ -221,7 +222,11 @@ const [playingIndex, setPlayingIndex] = useState(null);
                       <img src={`https://i.ytimg.com/vi/${extractVideoId(frontmatter.youtube.youtuber)}/hqdefault.jpg`} width="100%" height="auto" alt="" />
                     )
                   }
+                  
 
+
+
+                  
                   config={{
                     file: {
                       attributes: {
@@ -233,7 +238,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
                     },
                   }}
                   playIcon={
-                    <div style={{display:'flex', flexDirection:'column', placeContent:'', justifyContent:'', position:'absolute', zindex:'3', top:'', fontWeight:'bold', padding:'0 0 0 0', width:'100%', maxWidth:'25vw', height:'', border:'0px solid', borderRadius:'var(--theme-ui-colors-borderRadius)', margin:'0 auto 0 auto', opacity:'.99', textShadow:'2px 2px 2px black', color:'#fff' }}>
+                    <div style={{display:'flex', flexDirection:'column', placeContent:'', justifyContent:'', position:'absolute', zindex:'3', top:'', fontWeight:'bold', padding:'3% 0 0 0', width:'100%', maxWidth:'25vw', height:'', border:'0px solid', borderRadius:'var(--theme-ui-colors-borderRadius)', margin:'0 auto 0 auto', opacity:'.99', textShadow:'2px 2px 2px black', color:'#fff' }}>
                       <div className="spotlight font" style={{}}>
                         <div className="posticons" style={{ flexDirection: 'column', margin: '0 auto' }}>
                           <div style={{ display: 'flex', justifyContent: 'space-around', gap: '2vw', color: 'fff', }}>
@@ -243,8 +248,8 @@ const [playingIndex, setPlayingIndex] = useState(null);
                         </div>
                       </div>
                     </div>}
-                    // onPlay={() => handleVideoPlay()}
-                    // onPause={handleVideoPause}
+                    onPlay={() => handleVideoPlay()}
+                    onPause={handleVideoPause}
                 />
     </div>
     ) : (
@@ -255,14 +260,14 @@ const [playingIndex, setPlayingIndex] = useState(null);
   
     
     
-    <div className="" style={{maxHeight:'100vh', width:'100vw', height:'auto', overflow:'hidden',position:'absolute', top:'0', zIndex:'',}}>
-{frontmatter.underlayImage ? (
+    <div className="" style={{maxHeight:'100vh', width:'100vw', height:'auto', overflow:'visible',position:'absolute', top:'0', zIndex:'',}}>
+{UnderlayImage ? (
             <GatsbyImage
-            image={frontmatter.underlayImage}
-            alt="Page Feature Image ceebee"
+            image={UnderlayImage}
+            alt={frontmatter.title + " - image"}
             className="print"
             placeholder="blurred" loading="eager"
-              style={{height:'auto', width:'100vw', maxHeight:'100vh',  objectFit:'cover', overflow:'hidden', outline:'0', border:'0'}}
+              style={{height:'auto', width:'100vw', maxHeight:'100vh',  objectFit:'cover', overflow:'visible', border:'0px solid red !important'}}
           />
           ) : (
             ""
@@ -270,7 +275,20 @@ const [playingIndex, setPlayingIndex] = useState(null);
 </div>
     
   
-
+    
+    {/*  SPECIAL CONTENT */}
+    
+    {ContentinVideo ? (
+      <div id="contentvideo"
+            className="blog-post-content effects" style={{ fontSize:'1.1rem', textAlign:'left', padding:'', margin:'0 auto', color:'inherit !important', border:'0px solid transparent', position:'absolute', bottom:'0', left:'0', top:'0', right:'0', zindex:'-1', maxHeight:'100vh', borderBottom:'0px solid', }}
+            dangerouslySetInnerHTML={{ __html: html }}
+          >
+            
+          </div>
+     ) : (
+      ""
+    )}
+    
     
             
     {Svg ? (
@@ -556,9 +574,9 @@ display:'flex', justifyContent:'center', maxHeight:'80px !important', height:'15
 
 
 
-{frontmatter.underlayImage ? (
+{UnderlayImage ? (
                 <GatsbyImage
-                  image={frontmatter.underlayImage}
+                  image={UnderlayImage}
                   alt={frontmatter.title + " - image"}
                   className="mcboaty1"
                   style={{height:'auto', width:'100%', maxHeight:'100vh', overflow:'hidden', position:'absolute', left:'0', right:'0', bottom:'', top:'0', zIndex:'',

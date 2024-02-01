@@ -12,12 +12,12 @@ youtube:
  youtubersuggestion3: "null"
  youtubestart: ""
  youtubeend: ""
- youtubemute: true
+ youtubemute: false
  youtubecontrols: false
  youtubeautostart: true
  youtubeloop: false
  clicktoplay: false
- showVidOnly: true
+ showVidOnly: false
  customcontrols: false
  audioend: "0"
  audiotitle: "Mama Mia"
@@ -52,7 +52,7 @@ cta:
 homecount: 5
 pagePW: ""
 skillsTitle: ""
-svgImage: 
+svgImage: /assets/null.svg
 template: index-page
 title: Social media by the people for the people
 postLimit: "4"

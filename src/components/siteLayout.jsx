@@ -146,14 +146,11 @@ const Layout = ({ children }) => {
 
       <main id="top" name="pagetop">
         {children}
-      </main>
 
-
-
-      {showfooter ? (
+        {showfooter ? (
         <Footer />
       ) : (
-        <footer className="" style={{ display: 'flex', flexDirection: 'column', zIndex: '1', justifyContent: 'end', padding: '0', marginTop: '0', width: '100vw', textAlign: 'center' }}>
+        <footer className="panel" style={{display:'flex', flexDirection:'column', zIndex:'1', justifyContent:'end', padding:'0', marginTop:'0', width:'100vw',textAlign:'center', background:'var(--theme-ui-colors-headerColor)'}}>
           {showBranding ? (
             <div style={{ textAlign: 'center', margin: '0 0 2rem 0', justifyContent: 'center', fontSize: '.75rem', position: 'relative', right: '', top: '10px' }}>
               <a className="panel" href="https://pirateweb.org" rel="noreferrer">{dicPirate}</a>
@@ -163,6 +160,23 @@ const Layout = ({ children }) => {
           )}
         </footer>
       )}
+      
+      </main>
+
+
+
+
+
+      
+
+
+
+<div id="gobacker"><GoBack /></div>
+
+
+
+
+
 
       {image ? (
         <img type="image/svg+xml" className="backimage" src={image} alt="Default Background" style={{ height: '100vh', width: '100vw', position: 'fixed', zIndex: '-2', top: '0', objectFit: 'cover' }} width="10" height="10" />
@@ -177,8 +191,7 @@ const Layout = ({ children }) => {
       )}
 
 
-<div
-        className={`upbar button ${showBackToTop ? 'visible' : ''}`}
+<div className={`upbar button ${showBackToTop ? 'visible' : ''}`}
         style={{
           position: 'fixed',
           bottom: '20px',
@@ -215,7 +228,7 @@ const Layout = ({ children }) => {
         </AnchorLink>
       </div>
 
-      <div id="gobacker"><GoBack /></div>
+
 
 
       {showNav2 ? (

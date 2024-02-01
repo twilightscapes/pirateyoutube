@@ -10,22 +10,21 @@ tags:
  - test
  - poop
 youtube:
- youtuber: https://youtu.be/iOvlsAL1bFw?si=jEmN8jPN2DoWhrF6
+ youtuber: https://youtu.be/TLV4_xaYynY?si=KqEjW-0fs2w5ybVd
  youtubeshoworiginal: false
  youtubestart: ""
  youtubeend: ""
  youtubemute: true
  youtubecontrols: false
- youtubeautostart: false
+ youtubeautostart: true
  youtubeloop: true
  clicktoplay: false
- showVidOnly: false
- customcontrols: true
+ showVidOnly: true
+ customcontrols: false
  audioend: ""
  audiotitle: ""
  audiostart: ""
-mediawarnings:
-  viewerwarning: MA
+
 
 ---
 
