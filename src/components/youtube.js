@@ -1,24 +1,16 @@
 import React, { useState, useEffect } from "react";
 import ReactPlayer from 'react-player/lazy';
-// import { FaHome } from "react-icons/fa";
 import { ImYoutube2 } from "react-icons/im";
-// import { Link } from "gatsby";
-// import useSiteMetadata from "../hooks/SiteMetadata";
-
+import { FaTwitch } from "react-icons/fa";
 const YouTubePlayer = () => {
   const [youtubelink, setYoutubelink] = useState("");
   const [isActive, setIsActive] = useState(false);
 
-  // const { proOptions } = useSiteMetadata();
-  // const {  } = proOptions;
-
   useEffect(() => {
     const fillFormFromClipboard = () => {
       navigator.clipboard.readText().then((clipboardText) => {
-        if (clipboardText.includes("youtu")) {
-          setYoutubelink(clipboardText);
-          handleShow();
-        }
+        setYoutubelink(clipboardText);
+        handleShow();
       });
     };
 
@@ -43,13 +35,12 @@ const YouTubePlayer = () => {
     setIsActive(false);
   };
 
-  const urlNoProtocol = youtubelink.replace(/^.*((youtu.be\/))/i, "");
-  const finalUrl = `https://www.youtube.com/embed/${urlNoProtocol}?controls=1&showinfo=1&color=white&rel=0&autoplay=1&loop=1&mute=0&playlist=${urlNoProtocol}`;
+  const finalUrl = `https://www.youtube.com/embed/${youtubelink}?controls=1&showinfo=1&color=white&rel=0&autoplay=1&loop=1&mute=0&playlist=${youtubelink}`;
 
   return (
     <>
       <div className='player-wrapper '>
-        {urlNoProtocol && (
+        {youtubelink && (
           <ReactPlayer
             className='react-player'
             url={finalUrl}
@@ -69,19 +60,17 @@ const YouTubePlayer = () => {
       {!isActive ? (
         <div className="form-container">
           <form className="youtubeform frontdrop" onSubmit={handleSubmit}>
-            {/* <div className="specialfont" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '#999', placeItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
-              <Link title="Go Home" state={showModals ? { modal: true } : {}} to="/" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '60px', }}>
-                <div style={{}}>GO TO</div>
-                <FaHome style={{ fontSize: '25px' }} />
-              </Link>
-            </div> */}
-            <div className="specialfont" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '', placeItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
-              <a title="Go Home" href="https://youtube.com" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '60px', }}>
-                {/* <div style={{}}>GO TO</div> */}
+          <div className="specialfont" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '', placeItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
+              <a title="Go Home" href="https://youtube.com" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '', }}>
                 <ImYoutube2 style={{ fontSize: '50px' }} />
               </a>
             </div>
-            <p className="specialfont" style={{ fontSize: 'clamp(.8rem, .8vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '', placeItems: 'center', justifyContent: 'center', margin: '0 auto', width:'' }}>Link:</p>
+            <div className="specialfont" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '', placeItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
+              <a title="Go Home" href="https://www.twitch.tv/directory" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '', }}>
+                <FaTwitch style={{ fontSize: '30px' }} />
+              </a>
+            </div>
+            {/* <p className="specialfont" style={{ fontSize: 'clamp(.8rem, .8vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '', placeItems: 'center', justifyContent: 'center', margin: '0 auto', width:'' }}><div>Paste</div> Link:</p> */}
             <input
               type="text"
               name="youtubelink"
@@ -100,19 +89,16 @@ const YouTubePlayer = () => {
       ) : (
         <div className="form-container">
           <form className="youtubeform frontdrop" onSubmit={handleSubmit}>
-            {/* <div className="specialfont" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '#999', placeItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
-              <Link title="Go Home" state={showModals ? { modal: true } : {}} to="/" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '60px', }}>
-                <div style={{}}>GO TO</div>
-                <FaHome style={{ fontSize: '25px' }} />
-              </Link>
-            </div> */}
-              <div className="specialfont" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '', placeItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
-              <a title="Go Home" href="https://youtube.com" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '60px', }}>
-                {/* <div style={{}}>GO TO</div> */}
+          <div className="specialfont" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '', placeItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
+              <a title="Go Home" href="https://youtube.com" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '', }}>
                 <ImYoutube2 style={{ fontSize: '50px' }} />
               </a>
             </div>
-            <p className="specialfont" style={{ fontSize: 'clamp(.8rem, .8vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '', placeItems: 'center', justifyContent: 'center', margin: '0 auto', width:'' }}>Link:</p>
+            <div className="specialfont" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '', placeItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
+              <a title="Go Home" href="https://www.twitch.tv/directory" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '', }}>
+                <FaTwitch style={{ fontSize: '30px' }} />
+              </a>
+            </div>
             <input
               type="text"
               name="youtubelink"
