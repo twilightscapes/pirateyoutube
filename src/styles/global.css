@@ -1345,7 +1345,7 @@ display: none !important;}
   background: rgba(0, 0, 0, 0.50);
   padding: 1vh 0.5vw;
   min-width: 200px;
-  outline: 1px solid #333;
+  outline: 1px solid #333333;
   border-radius: var(--theme-ui-colors-borderRadius);
   color: var(--theme-ui-colors-siteColor);
 }
