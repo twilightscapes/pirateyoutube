@@ -2,8 +2,9 @@ import * as React from "react";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 import { useLocation } from "@reach/router";
-import lightThemeColors from "../../static/data/default-colors.json";
-import darkThemeColors from "../../static/data/dark-theme-colors.json";
+import defaultColors from "../../static/data/default-colors.json";
+import darkColors from "../../static/data/dark-theme-colors.json";
+import { useColorMode } from "@theme-ui/core";
 
 export default function Seo({
   title = "",
@@ -11,7 +12,6 @@ export default function Seo({
   pathname = "",
   image = "",
   children = null,
-  isDarkMode = false, // Set this variable based on your dark/light mode logic
 }) {
   const location = useLocation();
   const {
@@ -47,7 +47,9 @@ export default function Seo({
     image: `${image || siteImage}`,
   };
 
-  const themeColor = isDarkMode ? darkThemeColors.siteColor : lightThemeColors.siteColor;
+  const [colorMode] = useColorMode();
+  const colors = colorMode === "dark" ? darkColors : defaultColors;
+  const themeColor = colors.siteColor;
 
   return (
     <Helmet
@@ -65,7 +67,22 @@ export default function Seo({
       <meta name="description" content={seo.description} />
       <meta content={themeColor} name="theme-color" />
 
-      {/* ... other meta tags ... */}
+      {/* Other meta tags */}
+      <meta name="robots" content="index, follow" />
+      <meta name="image" content={seo.image} />
+      <meta property="og:title" content={seo.title} />
+      <meta property="og:url" content={seo.url} />
+      <meta property="og:description" content={seo.description} />
+      <meta property="og:image" content={seo.image} />
+      <meta property="og:type" content="website" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={seo.title} />
+      <meta name="twitter:url" content={seo.url} />
+      <meta name="twitter:description" content={seo.description} />
+      <meta name="twitter:creator" content={twitterUsername} />
+      <meta name="twitter:image" content={seo.image} />
+
+      <meta name="apple-mobile-web-app-capable" content="yes" />
 
       {children}
     </Helmet>
