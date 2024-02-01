@@ -238,7 +238,7 @@ const Layout = ({ children }) => {
           <>{/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}</>
           <label htmlFor="openSidebarMenu" className="backdrop1"></label>
 
-          <label id="menuicon" htmlFor="openSidebarMenu" className="sidebarIconToggle bug panel">
+          <label id="menuicon" htmlFor="openSidebarMenu" className="sidebarIconToggle bug">
             <div style={{ textAlign: 'center', opacity: '1', maxWidth: '500px', color: 'var(--theme-ui-colors-headerColorText)', fontWeight: 'bold' }}>
               {iconimage ? (
                 <img className="" src={iconimage} alt={companyname} width="120" height="60" style={{ maxHeight: '60px', maxWidth: '120px', border: 'none' }} />

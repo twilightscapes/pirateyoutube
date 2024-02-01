@@ -287,7 +287,7 @@ export default function Footer() {
     
 
     { showContact ? (
-      <Link id="footercontact" state={{modal: true}} to="/contact/" className="button fire font" style={{margin:'2rem', textDecoration:'none', padding:'1vh 2rem',}}>{dicContact}</Link>
+      <Link id="footercontact" state={{modal: true}} to="/contact/" className="button  font" style={{margin:'2rem', textDecoration:'none', padding:'1vh 2rem',}}>{dicContact}</Link>
       ) : (
         ""
       )}
