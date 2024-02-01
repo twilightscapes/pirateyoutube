@@ -173,38 +173,7 @@ const Layout = ({ children }) => {
           )}
         </footer>
       )}
-      
-      </main>
-
-
-
-
-
-      
-
-
-
-<div id="gobacker"><GoBack /></div>
-
-
-
-
-
-
-      {image ? (
-        <img type="image/svg+xml" className="backimage" src={image} alt="Default Background" style={{ height: '100vh', width: '100vw', position: 'fixed', zIndex: '-2', top: '0', objectFit: 'cover' }} width="10" height="10" />
-      ) : (
-        ""
-      )}
-
-      {showConsent ? (
-        <Consent />
-      ) : (
-        ""
-      )}
-
-
-<div className={`upbar button ${showBackToTop ? 'visible' : ''}`}
+      <div className={`upbar button ${showBackToTop ? 'visible' : ''}`}
         style={{
           position: 'fixed',
           bottom: '20px',
@@ -240,6 +209,37 @@ const Layout = ({ children }) => {
           </div>
         </AnchorLink>
       </div>
+      </main>
+
+
+
+
+
+      
+
+
+
+<div id="gobacker"><GoBack /></div>
+
+
+
+
+
+
+      {image ? (
+        <img type="image/svg+xml" className="backimage" src={image} alt="Default Background" style={{ height: '100vh', width: '100vw', position: 'fixed', zIndex: '-2', top: '0', objectFit: 'cover' }} width="10" height="10" />
+      ) : (
+        ""
+      )}
+
+      {showConsent ? (
+        <Consent />
+      ) : (
+        ""
+      )}
+
+
+
 
 
 

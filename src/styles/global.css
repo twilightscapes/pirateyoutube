@@ -1492,9 +1492,11 @@ padding-top: 12vh;
 /* .ReactModalPortal main div:first-of-type{display: none;} */
 /* .gatsby-focus-wrapper main  div:first-of-type{visibility: hidden;} */
 
+/* .upbar{z-index: 115 !important;} */
 
+body:has(.ReactModal__Content) .upbar{ visibility: visible !important; transform:translateY(0)}
 
-body:has(.ReactModal__Content) .upbar{z-index: 5 !important; transform:translateY(0) !important;}
+/* body.homepage:has(.ReactModal__Content) .upbar{ display:none;} */
 
 /* body:has(.ReactModal__Content) {overflow: hidden !important;} */
 
