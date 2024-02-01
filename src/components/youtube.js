@@ -75,7 +75,7 @@ const YouTubePlayer = () => {
                 <FaHome style={{ fontSize: '25px' }} />
               </Link>
             </div> */}
-            <p className="specialfont" style={{ fontSize: 'clamp(.8rem, .8vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '#999', placeItems: 'center', justifyContent: 'center', margin: '0 auto', width:'60px' }}><div>Paste</div> Link:</p>
+            <p className="specialfont" style={{ fontSize: 'clamp(.8rem, .8vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '#999', placeItems: 'center', justifyContent: 'center', margin: '0 auto', width:'' }}><div>Paste</div> Link:</p>
             <input
               type="text"
               name="youtubelink"
@@ -106,7 +106,7 @@ const YouTubePlayer = () => {
                 <FaHome style={{ fontSize: '25px' }} />
               </Link>
             </div> */}
-            <p className="specialfont" style={{ fontSize: 'clamp(.8rem, .8vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '#999', placeItems: 'center', justifyContent: 'center', margin: '0 auto', width:'60px' }}><div>Pasted</div> Link:</p>
+            <p className="specialfont" style={{ fontSize: 'clamp(.8rem, .8vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '#999', placeItems: 'center', justifyContent: 'center', margin: '0 auto', width:'' }}><div>Pasted</div> Link:</p>
             <input
               type="text"
               name="youtubelink"
