@@ -1293,14 +1293,16 @@ body:has(.ReactModal__Content) {overflow-x:hidden !important; overflow-y:hidden 
 
   body.youtube header.header {height:0 !important;}
 
-  body.youtube #header,
-  body.youtube #menu {
+  body.youtube #header, body.youtube footer,
+  body.youtube #menu, body.youtube #gobacker {
 display: none !important;}
+
+
 
 /* Video panel */
 .player-wrapper {
   position: relative;
-  min-height: 85vh;
+  min-height: 94vh;
   
 }
 
@@ -1315,6 +1317,7 @@ display: none !important;}
   gap: 5px;
   /* white-space: nowrap;  */
   display:flex;
+
 }
 
 /* Form styles (adjust as needed) */
@@ -1323,6 +1326,7 @@ display: none !important;}
   flex-wrap: nowrap; /* Prevent wrapping */
   align-items: center;
   margin: 0 auto;
+  /* max-width: 380px; */
 }
 
 .frontdrop {
@@ -1352,7 +1356,7 @@ display: none !important;}
   color: var(--theme-ui-colors-headerColorText);
   font-weight: bold;
   text-align: left;
-  width: 100px;
+  /* width: 100px; */
   margin: 5px 15px 0 0;
 }
 

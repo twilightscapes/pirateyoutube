@@ -54,7 +54,7 @@ const YouTubePlayer = () => {
             className='react-player'
             url={finalUrl}
             width='100%'
-            height='85vh'
+            height='94vh'
             config={{
               youtube: {
                 playerVars: { showinfo: 1, controls: 1, mute: 1 }
@@ -69,13 +69,13 @@ const YouTubePlayer = () => {
       {!isActive ? (
         <div className="form-container">
           <form className="youtubeform frontdrop" onSubmit={handleSubmit}>
-            <div className="specialfont" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '#999', placeItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
+            {/* <div className="specialfont" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '#999', placeItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
               <Link title="Go Home" state={showModals ? { modal: true } : {}} to="/" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '60px', }}>
                 <div style={{}}>GO TO</div>
                 <FaHome style={{ fontSize: '25px' }} />
               </Link>
-            </div>
-            <p className="specialfont" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '#999', placeItems: 'center', justifyContent: 'center', margin: '0 auto', width:'60px' }}><div>Paste</div> Link:</p>
+            </div> */}
+            <p className="specialfont" style={{ fontSize: 'clamp(.8rem, .8vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '#999', placeItems: 'center', justifyContent: 'center', margin: '0 auto', width:'60px' }}><div>Paste</div> Link:</p>
             <input
               type="text"
               name="youtubelink"
@@ -86,7 +86,7 @@ const YouTubePlayer = () => {
               placeholder="example: https://youtu.be/cVsQLlk-T0s"
               className="youtubelinker"
             />
-            <button type="reset" onClick={handleReset} style={{ fontSize: '90%', color: '#fff', fontWeight: 'bold', textAlign: 'left', width: '100px', margin: '5px 15px 0 0' }}>
+            <button type="reset" onClick={handleReset} style={{ fontSize: '90%', color: '#fff', fontWeight: 'bold', textAlign: 'left', width: '', margin: '5px 15px 0 0' }}>
               Reset
             </button>
             <div className="specialfont" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '#999', placeItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
@@ -100,13 +100,13 @@ const YouTubePlayer = () => {
       ) : (
         <div className="form-container">
           <form className="youtubeform frontdrop" onSubmit={handleSubmit}>
-            <div className="specialfont" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '#999', placeItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
+            {/* <div className="specialfont" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '#999', placeItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
               <Link title="Go Home" state={showModals ? { modal: true } : {}} to="/" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '60px', }}>
                 <div style={{}}>GO TO</div>
                 <FaHome style={{ fontSize: '25px' }} />
               </Link>
-            </div>
-            <p className="specialfont" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '#999', placeItems: 'center', justifyContent: 'center', margin: '0 auto', width:'60px' }}><div>Pasted</div> Link:</p>
+            </div> */}
+            <p className="specialfont" style={{ fontSize: 'clamp(.8rem, .8vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '#999', placeItems: 'center', justifyContent: 'center', margin: '0 auto', width:'60px' }}><div>Pasted</div> Link:</p>
             <input
               type="text"
               name="youtubelink"
@@ -117,7 +117,7 @@ const YouTubePlayer = () => {
               placeholder="example: https://youtu.be/cVsQLlk-T0s"
               className="youtubelinker"
             />
-            <button type="reset" onClick={handleReset} style={{ fontSize: '90%', color: '#fff', fontWeight: 'bold', textAlign: 'left', width: '100px', margin: '5px 15px 0 0' }}>
+            <button type="reset" onClick={handleReset} style={{ fontSize: '90%', color: '#fff', fontWeight: 'bold', textAlign: 'left', width: '', margin: '5px 15px 0 0' }}>
               Reset
             </button>
             <div className="specialfont" style={{ fontSize: 'clamp(1rem, 1vw, 1rem)', marginTop: '', fontWeight: 'bold', border: '0px solid', display: 'grid', color: '#999', placeItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
