@@ -1494,7 +1494,7 @@ padding-top: 12vh;
 
 /* .upbar{z-index: 115 !important;} */
 
-body:has(.ReactModal__Content) .upbar{ visibility: visible !important; transform:translateY(0)}
+body:has(.ReactModal__Content) .upbar{ transform:translateY(0);}
 
 /* body.homepage:has(.ReactModal__Content) .upbar{ display:none;} */
 
