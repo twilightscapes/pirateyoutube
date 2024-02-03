@@ -68,7 +68,7 @@ const YouTubePlayer = () => {
           style={{
             position: "fixed",
             top: "200px",
-            zIndex: "1000",
+            zIndex: "1",
             left: "1vw",
             right: "",
             display: "flex",
