@@ -1309,7 +1309,7 @@ display: none !important;}
 /* Video panel */
 .player-wrapper {
   position: relative;
-  min-height:93vh;
+  height:auto;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr auto;
