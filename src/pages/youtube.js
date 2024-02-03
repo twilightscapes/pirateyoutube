@@ -53,6 +53,10 @@ const YouTubePlayer = () => {
     setYoutubelink(value);
   };
 
+  const handleInputClick = () => {
+    fillFormFromClipboard(); // Trigger clipboard check manually
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     // Add any additional logic you need on form submission
@@ -484,7 +488,7 @@ zindex:'1'
               name="youtubelink"
               value={youtubelink}
               onInput={handleInputChange}
-              onClick={handleInputChange}
+              onClick={handleInputClick}
               // onChange={handleInputChange}
               style={{ padding: '1vh 1vw', width:'100%', minWidth: '220px', outline: '1px solid #333', borderRadius: 'var(--theme-ui-colors-borderRadius)', color: 'var(--theme-ui-colors-siteColor)' }}
               placeholder="Paste Video Link"
