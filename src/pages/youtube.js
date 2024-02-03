@@ -62,6 +62,25 @@ const YouTubePlayer = () => {
     // Add any additional logic you need on form submission
   };
 
+  // Add the following lines to your code
+  useEffect(() => {
+    document.ontouchmove = function (e) {
+      e.preventDefault();
+    };
+
+    const input = document.getElementById("youtubelink-input");
+    input.onfocus = function () {
+      window.scrollTo(0, 0);
+      document.body.scrollTop = 0;
+    };
+
+    // Cleanup function to remove the event listeners when the component is unmounted
+    return () => {
+      document.ontouchmove = null;
+      input.onfocus = null;
+    };
+  }, []); // Empty dependency array to run the effect only once
+
   const finalUrl = youtubelink
 
 
