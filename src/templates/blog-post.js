@@ -471,9 +471,6 @@ const YouTube = frontmatter.youtube.youtuber
     next,
   }
 
-  
-
-
   const { siteUrl } = useSiteMetadata()
   // const { companyname } = useSiteMetadata()
   // const { iconimage } = useSiteMetadata()
@@ -484,12 +481,16 @@ const YouTube = frontmatter.youtube.youtuber
 
 
 
+
+
+
+
+
   // const [showControls, setShowControls] = useState(false);
   // const [count, setCount] = useState(0);
   // const [anchorEl, setAnchorEl] = React.useState(null);
 
     // const Playing  = useState(true);
-
   const [state, setState] = useState({
     playing: YouTubeAutostart,
     controls: YouTubeControls,
