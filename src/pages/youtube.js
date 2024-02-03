@@ -62,7 +62,7 @@ const YouTubePlayer = () => {
 
   useEffect(() => {
     inputElement.current.onfocus = () => {
-      window.scrollTo(0, 0);
+      window.scrollBy(0, 0);
       document.body.scrollTop = 0;
     };
   });
