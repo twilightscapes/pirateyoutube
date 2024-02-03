@@ -44,7 +44,7 @@ const MenuComponent = () => {
     color: "#fff",
     fontSize: 'clamp(2rem, 3vw, 3rem)',
     position: 'absolute',
-    position:'absolute', left:'-20px', top:'20px',
+    position:'absolute', left:'0px', top:'20px',
     width: '100px',
     zIndex: '1',
  // Adjust the borderRadius values as needed

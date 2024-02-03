@@ -7,6 +7,8 @@ import { RiQuestionLine, RiCloseCircleFill } from "react-icons/ri"
 import PirateLogo from "../img/logo.svg"
 import PageMenu from "../components/PageMenu"
 import Layout from "../components/siteLayout"
+import Seo from "../components/seo";
+import { Helmet } from "react-helmet";
 const YouTubePlayer = () => {
   const [youtubelink, setYoutubelink] = useState("");
 
@@ -52,7 +54,13 @@ const YouTubePlayer = () => {
     <>
 
 <Layout>
-
+<Helmet>
+    <body id="body" className="youtube" />
+  </Helmet>
+<Seo
+    title="AdFree Video Player"
+    description="Adfree Video Player"
+  />
 
       <div className='player-wrapper'>
       <div
