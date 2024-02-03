@@ -1320,7 +1320,7 @@ display: none !important;}
 
 .player-wrapper iframe{max-height: 100% !important; overflow:hidden; object-fit:contain !important;  margin:0 auto !important;}
 
-.fb-video, .fb-video iframe, .fb-video video {position:absolute !important; margin:0 auto !important; top:0 !important; z-index: 1000 !important; aspect-ratio:16/9,}
+/* .fb-video, .fb-video iframe, .fb-video video {position:absolute !important; margin:0 auto !important; top:0 !important; z-index: 1000 !important; aspect-ratio:16/9,} */
 
 
 /* Form container */
