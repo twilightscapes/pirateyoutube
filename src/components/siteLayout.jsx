@@ -157,7 +157,7 @@ const Layout = ({ children }) => {
 
 
 
-      <main id="top" name="pagetop">
+      <main id="top" name="top">
         {children}
       <div className={`upbar button ${showBackToTop ? 'visible' : ''}`}
         style={{

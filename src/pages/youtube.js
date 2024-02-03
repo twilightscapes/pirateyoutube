@@ -69,7 +69,7 @@ const YouTubePlayer = () => {
             position: "fixed",
             top: "200px",
             zIndex: "1",
-            left: "1vw",
+            left: "0",
             right: "",
             display: "flex",
             justifyContent: "center",
@@ -85,6 +85,7 @@ const YouTubePlayer = () => {
             textShadow: "0 1px 1px rgba(0, 0, 0, .7)",
             // fontSize: "clamp(2rem, 3vw, 3rem)",
             verticalAlign: "center",
+            color:'#fff'
           }}
         >
 <PageMenu />
@@ -102,7 +103,8 @@ const YouTubePlayer = () => {
             playing
             color="white"
             controls
-            style={{position:'relative', top:'0', zIndex:'0', height:'93vh', overflow:'hidden', background:'transparent'}}
+            style={{
+            position: 'absolute', top:'0', margin: '0 auto 0 auto', zIndex: '0', aspectRatio:'16/9', overflow:'hidden', background:'transparent'}}
           />
       </div>
 

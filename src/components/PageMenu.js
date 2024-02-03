@@ -43,14 +43,15 @@ const MenuComponent = () => {
     padding: "0",
     color: "#fff",
     fontSize: 'clamp(2rem, 3vw, 3rem)',
-    position:'absolute', left:'-20px', top:'20px',
+    position: 'absolute',
+    position:'absolute', left:'0', top:'10px',
     width: '100px',
     zIndex: '1',
     color:'#fff'
  // Adjust the borderRadius values as needed
   }}
 >
-  <MenuIcon style={{ maxHeight: '160px', zIndex:'2' }} />
+  <MenuIcon style={{ maxHeight: '160px', zIndex:'2', color:'#fff' }} />
 </button>
 
 <div className="menusnapp" style={{ gap: "0", padding: "2vh 2vw", alignItems: "center", display: isMenuOpen ? "block" : "none", background:'var(--theme-ui-colors-headerBackground)', backgroundColor:'#222',  }}>
@@ -87,7 +88,7 @@ const MenuComponent = () => {
   </div>
 
   <button
- className=""
+ className="flag"
   onClick={handleButtonClick}
   aria-label={isMenuOpen ? "Collapse menu" : "Expand menu"}
   style={{
@@ -96,14 +97,14 @@ const MenuComponent = () => {
     color: "#fff",
     fontSize: 'clamp(2rem, 3vw, 3rem)',
     position: 'absolute',
-    position:'absolute', left:'0px', top:'20px',
+    position:'absolute', left:'0', top:'10px',
     width: '100px',
     zIndex: '1',
     color:'#fff'
  // Adjust the borderRadius values as needed
   }}
 >
-  <RiCloseCircleFill style={{ maxHeight: '160px', zIndex:'2' }} />
+  <MenuIcon style={{ maxHeight: '160px', zIndex:'2', color:'#fff' }} />
 </button>
 </div>
 

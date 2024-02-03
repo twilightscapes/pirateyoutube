@@ -1294,7 +1294,7 @@ body:has(.ReactModal__Content) {overflow-x:hidden !important; overflow-y:hidden 
   body.youtube header.header {height:0 !important;}
 
   body.youtube #header, body.youtube footer,
-  body.youtube #menu, body.youtube #menuicon {
+  body.youtube #menu, body.youtube #gobacker, body.youtube #menuicon, body.youtube .upbar {
 display: none !important;}
 
 
@@ -1318,7 +1318,7 @@ display: none !important;}
     'controller'
 }
 
-.player-wrapper iframe{max-height: 93vh; overflow:hidden; height:93vh !important;}
+/* .player-wrapper iframe{max-height: 93vh; overflow:hidden; height:93vh !important;} */
 
 /* Form container */
 .form-container {
