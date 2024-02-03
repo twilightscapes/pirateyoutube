@@ -35,15 +35,16 @@ const YouTubePlayer = () => {
 
   const [youtubelink, setYoutubelink] = useState("");
 
+  const fillFormFromClipboard = async () => {
+    try {
+      const clipboardText = await navigator.clipboard.readText();
+      setYoutubelink(clipboardText);
+    } catch (error) {
+      console.error("Error reading clipboard:", error);
+    }
+  };
 
   useEffect(() => {
-    const fillFormFromClipboard = () => {
-      navigator.clipboard.readText().then((clipboardText) => {
-        setYoutubelink(clipboardText);
-        // handleShow();
-      });
-    };
-
     fillFormFromClipboard();
   }, []); // Empty dependency array to run the effect only once
 
@@ -52,17 +53,9 @@ const YouTubePlayer = () => {
     setYoutubelink(value);
   };
 
-  // const handleShow = () => {
-  //   setIsActive(true);
-  // };
-
   const handleSubmit = (event) => {
     event.preventDefault();
-  };
-
-  const handleReset = () => {
-    setYoutubelink("");
-    // setIsActive(false);
+    // Add any additional logic you need on form submission
   };
 
   const finalUrl = youtubelink
@@ -192,12 +185,12 @@ const YouTubePlayer = () => {
   
   
   
-  <div aria-label="Click To Play" className="clickplays videohide 555" style={{position:'relative', zIndex:'', top:'0', border:'0px  solid blue', width:'100%', height:'', minHeight:'300px', aspectRatio:'16/9', maxHeight:'', fontSize:'', textAlign:'center', display:'grid', flexDirection:'column', verticalAlign:'center', justifyContent:'center', alignItems:'center', padding:'2vh 0 0 0', background:'#111', color:'#ddd', transition:'all 2s ease-in-out', cursor:'pointer'}}>
+  <div aria-label="Click To Play" className="clickplays videohide 555" style={{position:'relative', zIndex:'', top:'0', border:'0px  solid blue', width:'100%', height:'', minHeight:'300px', aspectRatio:'', maxHeight:'', fontSize:'', textAlign:'center', display:'grid', flexDirection:'column', verticalAlign:'center', justifyContent:'center', alignItems:'center', padding:'2vh 0 0 0', background:'', color:'#ddd', transition:'all 2s ease-in-out', cursor:'pointer'}}>
   
   
 
   
-           <div style={{display:'grid', placeContent:'center', position:'relative', zindex:'1', fontWeight:'bold', padding:'3% 0 0 0', fontSize:'clamp(.6rem, 1.4vw, 2rem)', width:'100%', maxWidth:'25vw', height:'', border:'0px solid', borderRadius:'12px', margin:'0 auto 0 auto', opacity:'.99', textShadow:'2px 2px 2px black', color:'#fff' }}>
+           {/* <div style={{display:'grid', placeContent:'center', position:'relative', zindex:'1', fontWeight:'bold', padding:'3% 0 0 0', fontSize:'clamp(.6rem, 1.4vw, 2rem)', width:'100%', maxWidth:'25vw', height:'', border:'0px solid', borderRadius:'12px', margin:'0 auto 0 auto', opacity:'.99', textShadow:'2px 2px 2px black', color:'#fff' }}>
 
 
 <img className="homepage-bg" src={iconimage} width="250px" height="150px" alt="UrbanFetish" style={{ width:'', margin:'120px auto 0 auto', filter:'drop-shadow(2px 2px 2px #000)', background:'transparent !important', position:'relative', top:''}} />
@@ -206,7 +199,7 @@ const YouTubePlayer = () => {
 
   <ImPlay style={{margin:'0 auto', width:'50%', fontSize:'clamp(2rem, 4.4vw, 3rem)', filter:'drop-shadow(0px 0px 12px #fff',}} />
   {dicClickToView}
-  </div>
+  </div> */}
   
   
   <button aria-label="Video Play/Pause Button"
@@ -239,7 +232,7 @@ const YouTubePlayer = () => {
           
     
     
-    <div ref={ref} className="controlsbox" style={{width:'', height:'', border:'2px solid blue', }}>
+    <div ref={ref} className="controlsbox" style={{width:'', height:'', border:'0px solid blue', }}>
     
   <button
           aria-label="Video Play/Pause Button"
@@ -248,11 +241,11 @@ const YouTubePlayer = () => {
           style={{
            color:'#ddd',
            width:'99vw', 
-           height:'calc(100vh - 150px)',
+           height:'auto',
            display:'block',
            placeContent:'',
            aspectRatio:'16/9',
-           top:'0',
+           bottom:'0',
            left:'0',
            right:'0',
            border:'0px solid yellow',
@@ -387,7 +380,7 @@ const YouTubePlayer = () => {
               allow="web-share"
               ref={playerRef}
               style={{
-                position: 'relative', top:'0', margin: '0 auto 0 auto', zIndex: '0', aspectRatio:'16/9', overflow:'hidden', width:'100vw', minHeight:'100%', height:'100%', background:'transparent'}}
+                position: 'relative', top:'0', margin: '0 auto 0 auto', zIndex: '0', aspectRatio:'16/9', overflow:'hidden', width:'100vw', minHeight:'90%', height:'100%', background:'transparent'}}
               width="100%"
               height="100%"
                 // url={[iframeUrl, Suggestion1, Suggestion2, Suggestion3]}
@@ -474,6 +467,7 @@ zindex:'1'
                 <FaTwitch style={{ fontSize: '30px' }} />
               </a>
             <input
+            id="youtubelink-input"
               type="text"
               name="youtubelink"
               value={youtubelink}
@@ -483,7 +477,7 @@ zindex:'1'
               placeholder="Paste Video Link"
               className="youtubelinker"
             />
-            <button type="reset" onClick={handleReset} style={{ fontSize: '90%', color: '', fontWeight: 'bold', textAlign: 'left', width: '', margin: '5px 15px 0 0' }}>
+            <button type="reset" onClick={() => setYoutubelink("")} style={{ fontSize: '90%', color: '', fontWeight: 'bold', textAlign: 'left', width: '', margin: '5px 15px 0 0' }}>
               Reset
             </button>
           </form>
