@@ -66,7 +66,9 @@ export default function Seo({
       />
       <meta name="description" content={seo.description} />
       <meta content={themeColor} name="theme-color" />
-      <meta http-equiv="Content-Security-Policy" content="connect-src 'self' {siteUrl}; clipboard-read 'self'"></meta>
+      <meta http-equiv="Content-Security-Policy" content={`connect-src 'self' https://www.youtube.com ${siteUrl}; clipboard-read 'self'`} />
+
+
 
       {/* Other meta tags */}
       <meta name="robots" content="index, follow" />
