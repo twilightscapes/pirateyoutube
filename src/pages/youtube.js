@@ -35,8 +35,6 @@ const YouTubePlayer = () => {
 
   const [youtubelink, setYoutubelink] = useState("");
 
-  const [intervalId, setIntervalId] = useState(null);
-
   const fillFormFromClipboard = async () => {
     try {
       const clipboardText = await navigator.clipboard.readText();
@@ -47,23 +45,16 @@ const YouTubePlayer = () => {
   };
 
   useEffect(() => {
-    // Start the interval on component mount
-    const id = setInterval(fillFormFromClipboard, 1000); // Check every second
-    setIntervalId(id);
-
-    // Clear the interval on component unmount
-    return () => {
-      if (intervalId) {
-        clearInterval(intervalId);
-      }
-    };
+    fillFormFromClipboard();
   }, []); // Empty dependency array to run the effect only once
-
-
 
   const handleInputChange = (event) => {
     const { value } = event.target;
     setYoutubelink(value);
+  };
+
+  const handleInputClick = () => {
+    fillFormFromClipboard(); // Trigger clipboard check manually
   };
 
   const handleSubmit = (event) => {
@@ -82,7 +73,7 @@ const YouTubePlayer = () => {
   const YouTubeMute = false
   const YouTubeControls = true
   const YouTubeAutostart = true
-  const CustomControls = true
+  const CustomControls = false
   const Suggestion1 = null
   // const Suggestion2 = frontmatter.youtube.youtubersuggestion2
   // const Suggestion3 = frontmatter.youtube.youtubersuggestion3
@@ -215,7 +206,7 @@ const YouTubePlayer = () => {
   </div> */}
   
   
-  {/* <button aria-label="Video Play/Pause Button"
+  <button aria-label="Video Play/Pause Button"
           onClick={onPlayPause}
           className="videohide 644 pane2" 
           style={{
@@ -230,7 +221,7 @@ const YouTubePlayer = () => {
            border:'0px solid blue',
            zindex:'1'
           }}
-        ></button> */}
+        ></button>
         
         
         </div>
@@ -247,7 +238,7 @@ const YouTubePlayer = () => {
     
     <div ref={ref} className="controlsbox" style={{width:'', height:'', border:'0px solid blue', }}>
     
-  {/* <button
+  <button
           aria-label="Video Play/Pause Button"
           onClick={onPlayPause}
           className="videohide 679 pane3" 
@@ -267,11 +258,11 @@ const YouTubePlayer = () => {
            position:'absolute'
           //  animation: 'fadeout 4s forwards'
           }}
-        ></button> */}
+        ></button>
   
   
     <div className="vidcontrols">
-                    {/* <button
+                    <button
                       onClick={onPlayPause}
                       className="controls panel" 
                       style={{
@@ -280,7 +271,7 @@ const YouTubePlayer = () => {
                         borderRadius:'', overFlow:'hidden'
                     }}
                     >
-        
+                      {/* <MdPlayArrow style={{fontSize:'50px', position:'absolute'}}  /> */}
                       {playing ? (
                         
                         <MdPause className="hudicon" style={{}} />
@@ -290,7 +281,7 @@ const YouTubePlayer = () => {
                   <MdPlayArrow className="hudicon" style={{}}  />
                   
                       )}
-                    </button> */}
+                    </button>
     
                     <button
                       // onClick={() => setState({ ...state, muted: !state.muted })}
@@ -485,6 +476,7 @@ zindex:'1'
               name="youtubelink"
               value={youtubelink}
               onInput={handleInputChange}
+              onClick={handleInputClick}
               // onChange={handleInputChange}
               style={{ padding: '1vh 1vw', width:'100%', minWidth: '220px', outline: '1px solid #333', borderRadius: 'var(--theme-ui-colors-borderRadius)', color: 'var(--theme-ui-colors-siteColor)' }}
               placeholder="Paste Video Link"
