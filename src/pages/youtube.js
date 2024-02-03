@@ -81,6 +81,23 @@ const YouTubePlayer = () => {
     };
   }, []); // Empty dependency array to run the effect only once
 
+
+
+  const inputElement = useRef(null);
+
+  useEffect(() => {
+    inputElement.current.onfocus = () => {
+      window.scrollTo(0, 0);
+      document.body.scrollTop = 0;
+    };
+  });
+
+
+
+
+
+
+
   const finalUrl = youtubelink
 
 
@@ -491,6 +508,7 @@ zindex:'1'
               </a>
             <input
             id="youtubelink-input"
+            ref={inputElement}
               type="text"
               name="youtubelink"
               value={youtubelink}
