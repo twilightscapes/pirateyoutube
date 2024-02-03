@@ -53,35 +53,10 @@ const YouTubePlayer = () => {
     setYoutubelink(value);
   };
 
-  const handleInputClick = () => {
-    fillFormFromClipboard(); // Trigger clipboard check manually
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     // Add any additional logic you need on form submission
   };
-
-  // Add the following lines to your code
-  useEffect(() => {
-    document.ontouchmove = function (e) {
-      e.preventDefault();
-    };
-
-    const input = document.getElementById("youtubelink-input");
-    input.onfocus = function () {
-      window.scrollTo(0, 0);
-      document.body.scrollTop = 0;
-    };
-
-    // Cleanup function to remove the event listeners when the component is unmounted
-    return () => {
-      document.ontouchmove = null;
-      input.onfocus = null;
-    };
-  }, []); // Empty dependency array to run the effect only once
-
-
 
   const inputElement = useRef(null);
 
@@ -99,10 +74,6 @@ const YouTubePlayer = () => {
 
 
   const finalUrl = youtubelink
-
-
-  
-
 
   const YouTubeStart = "0"
   const YouTubeEnd = null
@@ -507,13 +478,13 @@ zindex:'1'
                 <FaTwitch style={{ fontSize: '30px' }} />
               </a>
             <input
-            id="youtubelink-input"
             ref={inputElement}
+            id="youtubelink-input"
               type="text"
               name="youtubelink"
               value={youtubelink}
               onInput={handleInputChange}
-              onClick={handleInputClick}
+              onClick={handleInputChange}
               // onChange={handleInputChange}
               style={{ padding: '1vh 1vw', width:'100%', minWidth: '220px', outline: '1px solid #333', borderRadius: 'var(--theme-ui-colors-borderRadius)', color: 'var(--theme-ui-colors-siteColor)' }}
               placeholder="Paste Video Link"
