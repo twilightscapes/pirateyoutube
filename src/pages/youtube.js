@@ -69,7 +69,7 @@ const YouTubePlayer = () => {
   const YouTubeMute = false
   const YouTubeControls = true
   const YouTubeAutostart = true
-  const CustomControls = true
+  const CustomControls = false
   const Suggestion1 = null
   // const Suggestion2 = frontmatter.youtube.youtubersuggestion2
   // const Suggestion3 = frontmatter.youtube.youtubersuggestion3
