@@ -369,7 +369,7 @@ const YouTubePlayer = () => {
           style={{
             position: "fixed",
             top: "0",
-            zIndex: "30",
+            zIndex: "3",
             left: "0",
             right: "",
             display: "flex",

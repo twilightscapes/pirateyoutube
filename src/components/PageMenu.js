@@ -44,7 +44,7 @@ const MenuComponent = () => {
     fontSize: 'clamp(2rem, 3vw, 3rem)',
     position: 'absolute',
     position:'absolute', left:'0', top:'10px',
-    width: '100px',
+    width: '60px',
     zIndex: '1',
     opacity: '.5',
     color:''
