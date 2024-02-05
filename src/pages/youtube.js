@@ -356,19 +356,19 @@ const YouTubePlayer = () => {
 
 <Layout>
 <Helmet>
-    <body id="body" className="youtube" />
+    <body id="body" className="youtube"/>
   </Helmet>
 <Seo
     title="AdFree Video Player"
     description="Adfree Video Player"
   />
 
-      <div className='player-wrapper'>
+      <div className='player-wrapper' style={{marginTop:''}}>
       <div
           className="pagemenu panel"
           style={{
             position: "fixed",
-            top: "0",
+            top: "60px",
             zIndex: "3",
             left: "0",
             right: "",
