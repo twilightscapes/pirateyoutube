@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { RiCloseCircleFill } from "react-icons/ri";
 import PirateLogo from "../img/logo.svg";
 import Flag from "../img/logo.svg";

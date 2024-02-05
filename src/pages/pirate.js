@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 // import useSiteMetadata from "../hooks/SiteMetadata"
 // import { StaticImage } from "gatsby-plugin-image"
-import {Link} from "gatsby"
+// import {Link} from "gatsby"
 
 import Layout from "../components/siteLayout"
 import { Helmet } from "react-helmet"
