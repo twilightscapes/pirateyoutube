@@ -10,6 +10,8 @@ import useSiteMetadata from "../hooks/SiteMetadata";
 import { GatsbyImage } from "gatsby-plugin-image"
 import Social from "../components/social"
 // import PropTypes from "prop-types";
+
+import YouTubePlayer from "../pages/video";
 import ReactPlayer from 'react-player/lazy'
 import { ImPlay } from "react-icons/im"
 // import { MdVolumeUp } from "react-icons/md"
@@ -26,7 +28,7 @@ const HomePage = ({ data }) => {
   const { language, proOptions, featureOptions  } = useSiteMetadata();
 
   const { showProfile, showFeature, showHomePosts } = proOptions
-  const { showDefault } = featureOptions
+  const { showDefault, showVideoPlayer } = featureOptions
 
   const { dicPlayVideo, dicProfileAudioText, dicProfileAudioActionText} = language;
 
@@ -439,7 +441,7 @@ display:'flex', justifyContent:'center', maxHeight:'80px !important', height:'15
 
 {/* show feature */}
 {showFeature ? (   
-<section id="feature" name="feature" className="print scroll-area" style={{  width:'100vw', minHeight:'100vh', margin:'0 auto 0 auto', padding:'0 0 0 0', position:'relative',
+<section id="feature" name="feature" className="print scroll-area" style={{  width:'100vw', minHeight:'100dvh', margin:'0 auto 0 auto', padding:'0 0 0 0', position:'relative',
  alignContent:'center', maxWidth:'100vw', overFlowY:'hidden', display:'flex', textAlign:'left', justifyContent:'start', verticalAlign:'center',
   color:'',
   fontSize:'clamp(1rem, 1.8vw, 3.2rem)',
@@ -507,7 +509,7 @@ style={{height:'auto', width:'100vw', maxHeight:'100vh', position:'absolute', zI
 
 {/* show profile */}
 {showProfile ? (
-  <section className="scroll-area panel" id="profile" name="profile" style={{ display:'', height:'100%', minHeight:'100vh', position:'relative', overflow:'hidden', margin:'0 auto 0 auto', padding:'0 0 60px 0', background:'var(--theme-ui-colors-background)', color:'var(--theme-ui-colors-text)', width:'100vw', borderRadius:'var(--theme-ui-colors-borderRadius)', }}>
+  <section className="scroll-area panel" id="profile" name="profile" style={{ display:'', height:'100%', minHeight:'100dvh', position:'relative', overflow:'hidden', margin:'0 auto 0 auto', padding:'0 0 60px 0', background:'var(--theme-ui-colors-background)', color:'var(--theme-ui-colors-text)', width:'100vw', borderRadius:'var(--theme-ui-colors-borderRadius)', }}>
   <article style={{ margin:'0 0 0 0'}}>
 
 
@@ -624,15 +626,30 @@ style={{height:'auto', width:'100vw', maxHeight:'100vh', position:'absolute', zI
 
 
 {showHomePosts ? (
-    <HomePosts isSliderVisible={isSliderVisible} className="scroll-area" id="posttop" name="posttop" style={{minHeight:'100vh', width:'100vw'}} />
+    <HomePosts isSliderVisible={isSliderVisible} className="scroll-area" id="posttop" name="posttop" style={{minHeight:'100dvh', width:'100vw'}} />
     ) : (
       ""
   )}
+
+{showVideoPlayer ? (
+  <section id="VideoPlayer" name="VideoPlayer" className="print scroll-area" style={{  width:'100vw', minHeight:'100dvh', margin:'0 auto 0 auto', padding:'0 0 0 0', position:'relative',
+ alignContent:'center', maxWidth:'100vw', overFlowY:'hidden', display:'flex', textAlign:'left', justifyContent:'start', verticalAlign:'center',
+  color:'',
+  fontSize:'clamp(1rem, 1.8vw, 3.2rem)',
+  textShadow:'0 2px 7px #000',
+  // backgroundColor:'var(--theme-ui-colors-headerColor)'
+}}>
+<YouTubePlayer />
+</section>
+     ) : (
+       ""
+   )} 
 
 
 
     
 </div>
+
     </Layout>
   );
 };

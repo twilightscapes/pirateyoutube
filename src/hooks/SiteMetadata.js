@@ -26,6 +26,7 @@ const useSiteMetadata = () => {
             showArchive
             showTitles
             showSocial
+            showVideoPlayer
           }
 
           proOptions{

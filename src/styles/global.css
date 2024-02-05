@@ -1292,10 +1292,10 @@ body:has(.ReactModal__Content) {overflow-x:hidden !important; overflow-y:hidden 
 
 
 
-  body.youtube header.header {height:0 !important;}
+  /* body.youtube header.header {height:0 !important;} */
   body.youtube {position:fixed; overflow-y: auto;}
 
-  body.youtube #header,
+  /* body.youtube #header, */
   /* body.youtube footer, */
   body.youtube #menu,
   body.youtube #gobacker,
@@ -1388,7 +1388,7 @@ margin: 0 auto;
   bottom:0 !important;
 } */
 
-.fb-video, .fb-video iframe, .fb-video video {aspect-ratio:16/9; width:100%; max-height: 100%;}
+/* .fb-video, .fb-video iframe, .fb-video video {aspect-ratio:16/9; width:100%; max-height: 100%;} */
 
 
 
