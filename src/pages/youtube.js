@@ -368,7 +368,7 @@ const YouTubePlayer = () => {
           className="pagemenu panel"
           style={{
             position: "fixed",
-            top: "200px",
+            top: "0",
             zIndex: "30",
             left: "0",
             right: "",
@@ -377,8 +377,9 @@ const YouTubePlayer = () => {
             alignItems: "center",
             width: "auto",
             maxWidth: "98vw",
+            maxHeight:'80vh',
             margin: "0 auto",
-            gap: "5vw",
+            gap: "2vw",
             background: "rgba(0, 0, 0, .5)",
             padding: "",
             // border: "1px solid #666",

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { RiCloseCircleFill } from "react-icons/ri";
 import PirateLogo from "../img/logo.svg";
-import Flag from "../img/flag.svg";
+import Flag from "../img/logo.svg";
 
 import {Link} from "gatsby"
 const MenuComponent = () => {
@@ -32,7 +32,7 @@ const MenuComponent = () => {
 
   return (
     <>
-<div style={{position:'fixed', top:'15vh', left:'0'}}>
+<div style={{position:'fixed', top:'0', left:'0'}}>
 
 <button
  className="flag"
@@ -41,22 +41,22 @@ const MenuComponent = () => {
   style={{
     cursor: "pointer",
     padding: "0",
-    color: "#fff",
     fontSize: 'clamp(2rem, 3vw, 3rem)',
     position: 'absolute',
     position:'absolute', left:'0', top:'10px',
     width: '100px',
     zIndex: '1',
-    color:'#fff'
+    opacity: '.5',
+    color:''
  // Adjust the borderRadius values as needed
   }}
 >
-  <MenuIcon style={{ maxHeight: '160px', zIndex:'2', color:'#fff' }} />
+  <MenuIcon style={{ maxHeight: '', zIndex:'2', color:'' }} />
 </button>
 
 <div className="menusnapp" style={{ gap: "0", padding: "2vh 2vw", alignItems: "center", display: isMenuOpen ? "block" : "none", background:'var(--theme-ui-colors-headerBackground)', backgroundColor:'#222',  }}>
   
-  <div id="" className="flexbutt" style={{ display: '', gap: '3vh', justifyContent: 'center', alignItems: "center", margin: '0 0', padding: '0', position: 'relative' }}>
+  <div id="" className="flexbutt" style={{ display: '', gap: '3vh', justifyContent: 'center', alignItems: "center", margin: '0 0', padding: '0', position: 'relative', minWidth:'80vw' }}>
     <div style={{ minWidth: '25vw', maxHeight: '20vh', textAlign: 'center', alignItems: "", }}>
       <PirateLogo style={{ minWidth: '', maxHeight: '20vh', position:'', top:'', left:'' }} />
       the web revolution
@@ -100,11 +100,11 @@ const MenuComponent = () => {
     position:'absolute', left:'0', top:'10px',
     width: '100px',
     zIndex: '1',
-    color:'#fff'
+    color:''
  // Adjust the borderRadius values as needed
   }}
 >
-  <MenuIcon style={{ maxHeight: '160px', zIndex:'2', color:'#fff' }} />
+  <MenuIcon style={{ maxHeight: '', zIndex:'2', color:'' }} />
 </button>
 </div>
 
