@@ -371,7 +371,7 @@ const YouTubePlayer = () => {
             alignItems: "center",
             width: "auto",
             maxWidth: "98vw",
-            maxHeight:'80vh',
+            maxHeight:'80dvh',
             margin: "0 auto",
             gap: "2vw",
             background: "rgba(0, 0, 0, .5)",
@@ -440,18 +440,18 @@ zindex:'1'
 
       <div className="form-container controller" style={{marginTop:'0', height:'', padding:'2vh 2%', width:'100vw', background:'var(--theme-ui-colors-headerColor)'}}>
           <div style={{ maxWidth:'800px', margin:'0 auto'}}>
-          <form className="youtubeform frontdrop" onSubmit={handleSubmit}>
+          <form className="youtubeform frontdrop" onSubmit={handleSubmit} id="youtubeform" name="youtubeform">
       
-              <a title="Go Home" href="https://youtube.com" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '', }}>
+              <a title="Open YouTube" aria-label="Open YouTube" href="https://youtube.com" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '', }}>
                 <ImYoutube2 style={{ fontSize:'50px' }} />
               </a>
           
   
-              <a title="Go Home" href="https://www.facebook.com/watch/" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '', }}>
+              <a title="Open Facebook" aria-label="Open Facebook" href="https://www.facebook.com/watch/" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '', }}>
                 <FaFacebookSquare style={{ fontSize: '30px' }} />
               </a>
 
-              <a title="Go Home" href="https://www.twitch.tv/directory" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '', }}>
+              <a title="Open Twitch" aria-label="Open Twitch" href="https://www.twitch.tv/directory" style={{ padding: '', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '', }}>
                 <FaTwitch style={{ fontSize: '30px' }} />
               </a>
             <input
