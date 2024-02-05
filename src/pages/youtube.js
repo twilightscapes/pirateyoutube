@@ -11,7 +11,7 @@ import Layout from "../components/siteLayout"
 import Seo from "../components/seo";
 import { Helmet } from "react-helmet";
 import useSiteMetadata from "../hooks/SiteMetadata"
-
+import Player from "../components/Player";
 import PropTypes from "prop-types";
 import { MdPlayArrow } from "react-icons/md"
 import { MdPause } from "react-icons/md"
@@ -392,14 +392,15 @@ const YouTubePlayer = () => {
         >
 <PageMenu />
         </div>
-          <ReactPlayer
+
+        <Player />
+          {/* <ReactPlayer
               allow="web-share"
               ref={playerRef}
               style={{
                 position: 'relative', top:'0', margin: '0 auto 0 auto', zIndex: '0', aspectRatio:'16/9', overflow:'hidden', width:'100vw', minHeight:'90%', height:'100%', background:'transparent'}}
               width="100%"
               height="100%"
-                // url={[iframeUrl, Suggestion1, Suggestion2, Suggestion3]}
               url={finalUrl}
               playing={playing}
               controls={controls}
@@ -417,14 +418,9 @@ const YouTubePlayer = () => {
                   youtube: {
                     playerVars: { showinfo:false, autoplay:YouTubeAutostart, controls:YouTubeControls, start:YouTubeStart, end:YouTubeEnd, mute:YouTubeMute, loop:YoutubeLoop }
                   },
-                  // facebook: {
-                  //   appId: '12345',
-                  //   attributes: ''
-                  // }
               }}
             playIcon={
               <div style={{position:'absolute',
-              // backgroundColor:'var(--theme-ui-colors-bodyBg)',
               backgroundColor:'rgba(0,0,0,0.6)',
                width:'100vw', height:'100%', minHeight:'40vh', maxHeight:'85vh', zIndex:'0', top:'0', right:'0', textAlign:'center', display:'grid', placeContent:'center', justifyContent:'center', 
               color:'#ddd',
@@ -433,15 +429,6 @@ const YouTubePlayer = () => {
 
 
 <button aria-label="Click To Play" className="clickplays videohide 1042" style={{position:'relative', zIndex:'', top:'0', border:'0px  solid red', width:'100vw', background:'transparent', color:'', fontSize:'18px', textAlign:'center', display:'', flexDirection:'column', verticalAlign:'center', justifyContent:'center', alignItems:'center', aspectRatio:'16/9'}}>
-              {/* // <div style={{position:'absolute', background:'#111', height:'100vh', width:'100vw', zIndex:'3', top:'0', right:'0', textAlign:'center', display:'grid', placeContent:'start', justifyContent:'center', color:'#fff', fontFamily:'Verdana, Sans-Serif, System' }}> */}
- 
-              {/* <img className="homepage-bg" src={iconimage} width="250px" height="150px" alt="UrbanFetish" style={{ width:'', margin:'120px auto 0 auto', filter:'drop-shadow(2px 2px 2px #000)', background:'transparent !important', position:'relative', top:''}} /> */}
-
-
-
-
-
-
 </button>
 
 <button
@@ -462,7 +449,7 @@ zindex:'1'
           </div>
           }
           
-          />
+          /> */}
       </div>
 
 
