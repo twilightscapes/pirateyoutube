@@ -402,12 +402,6 @@ const YouTubePlayer = () => {
               muted={muted}
               playsinline
               config={{
-                file: {
-                  attributes: {
-                    sameSite: "none",
-                    crossorigin: "anonymous",
-                  },
-                },
                   youtube: {
                     playerVars: { showinfo:false, autoplay:YouTubeAutostart, controls:YouTubeControls, start:YouTubeStart, end:YouTubeEnd, mute:YouTubeMute, loop:YoutubeLoop }
                   },

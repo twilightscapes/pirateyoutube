@@ -1325,9 +1325,9 @@ body:has(.ReactModal__Content) {overflow-x:hidden !important; overflow-y:hidden 
     'controller'
 }
 
-.player-wrapper iframe{max-height: 100% !important; overflow:hidden; object-fit:contain !important;  margin:0 auto !important;}
+.player-wrapper iframe{max-height: 100%; overflow:hidden; object-fit:contain;  margin:0 auto;}
 
-.fb-video, .fb-video iframe, .fb-video video {position:absolute !important; margin:0 auto !important; top:0 !important; z-index: 1000 !important; aspect-ratio:16/9; width:100vw;}
+
 
 
 /* Form container */
@@ -1381,14 +1381,14 @@ margin: 0 auto;
   margin: 5px 15px 0 0;
 }
 
-.fb_iframe_widget_fluid_desktop, .fb_iframe_widget_fluid_desktop span, .fb_iframe_widget_fluid_desktop iframe{
+/* .fb_iframe_widget_fluid_desktop, .fb_iframe_widget_fluid_desktop span, .fb_iframe_widget_fluid_desktop iframe{
   width:100vw !important;
   max-height: 100% !important;
-  position:absolute !important;
-  top:0 !important;
-}
+  position:relative !important;
+  bottom:0 !important;
+} */
 
-  
+.fb-video, .fb-video iframe, .fb-video video {aspect-ratio:16/9; width:100%; max-height: 100%;}
 
 
 
