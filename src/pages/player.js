@@ -218,7 +218,7 @@ function App() {
             className="player"
             url={finalUrl}
             width="100vw"
-            height="92vh"
+            height="87vh"
             playing={playing}
             volume={volume}
             muted={muted}
