@@ -8,7 +8,7 @@
       "showSearch": true,
       "showDates": true,
       "showTitles": true,
-      "showfooter": false,
+      "showfooter": true,
       "showSocial": true,
       "showVideoPlayer": true,
       "showDefault": true,
@@ -27,13 +27,13 @@
     "proOptions": {
       "showModals": true,
       "showContact": true,
-      "showProfile": false,
+      "showProfile": true,
       "startUrl": "video",
       "showPopup": true,
       "showHomePosts": true,
       "ShowDisclaimer": false,
       "showBranding": true,
-      "showFeature": false,
+      "showFeature": true,
       "showLegal": true,
       "showConsent": false
     },
@@ -78,7 +78,7 @@
     "image": "/assets/pirate-logo.svg",
     "navOptions": {
       "showNav": true,
-      "showNav2": true,
+      "showNav2": false,
       "showFooterMenu": false
     },
     "description": "Pirate Social media for the people by the people",
