@@ -53,9 +53,9 @@ const YouTubePlayer = () => {
     setYoutubelink(value);
   };
 
-  // const handleInputClick = () => {
-  //   fillFormFromClipboard(); // Trigger clipboard check manually
-  // };
+  const handleInputClick = () => {
+    fillFormFromClipboard(); // Trigger clipboard check manually
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -462,7 +462,7 @@ zindex:'1'
               value={youtubelink}
               onInput={handleInputChange}
               
-              // onClick={handleInputClick}
+              onClick={handleInputClick}
               // onChange={handleInputChange}
               style={{ padding: '1vh 1vw', width:'100%', minWidth: '', outline: '1px solid #333', borderRadius: 'var(--theme-ui-colors-borderRadius)', color: 'var(--theme-ui-colors-siteColor)' }}
               placeholder="Paste Video Link"
