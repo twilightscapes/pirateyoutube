@@ -344,12 +344,6 @@ const YouTubePlayer = () => {
 
 
 
-
-
-
-
-
-
   return (
     
     <>
@@ -393,8 +387,8 @@ const YouTubePlayer = () => {
 <PageMenu />
         </div>
 
-        <Player />
-          {/* <ReactPlayer
+        {/* <Player /> */}
+          <ReactPlayer
               allow="web-share"
               ref={playerRef}
               style={{
@@ -449,7 +443,7 @@ zindex:'1'
           </div>
           }
           
-          /> */}
+          />
       </div>
 
 
@@ -478,7 +472,7 @@ zindex:'1'
               onInput={handleInputChange}
               // onClick={handleInputClick}
               // onChange={handleInputChange}
-              style={{ padding: '1vh 1vw', width:'100%', minWidth: '220px', outline: '1px solid #333', borderRadius: 'var(--theme-ui-colors-borderRadius)', color: 'var(--theme-ui-colors-siteColor)' }}
+              style={{ padding: '1vh 1vw', width:'100%', minWidth: '', outline: '1px solid #333', borderRadius: 'var(--theme-ui-colors-borderRadius)', color: 'var(--theme-ui-colors-siteColor)' }}
               placeholder="Paste Video Link"
               className="youtubelinker"
             />
@@ -511,5 +505,3 @@ zindex:'1'
 };
 
 export default YouTubePlayer;
-
-

@@ -42,7 +42,6 @@ const MenuComponent = () => {
     cursor: "pointer",
     padding: "0",
     fontSize: 'clamp(2rem, 3vw, 3rem)',
-    position: 'absolute',
     position:'absolute', left:'0', top:'10px',
     width: '60px',
     zIndex: '1',
@@ -96,11 +95,9 @@ const MenuComponent = () => {
     padding: "0",
     color: "#fff",
     fontSize: 'clamp(2rem, 3vw, 3rem)',
-    position: 'absolute',
     position:'absolute', left:'0', top:'10px',
     width: '100px',
     zIndex: '1',
-    color:''
  // Adjust the borderRadius values as needed
   }}
 >
