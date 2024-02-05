@@ -91,14 +91,14 @@ const Control = ({
 
 
   return (
-    <div className="control_Container" ref ={controlRef}>
+    <div className="control_Container" ref ={controlRef} style={{width:'100dvw', height:'70dvh', border:'1px solid red', display:'none'}}>
       <div className="top_container">
         {/* <h2>Video PLayer</h2> */}
       </div>
       <div className="mid__container">
-        <div className="icon__btn" onDoubleClick={onRewind}>
+        {/* <div className="icon__btn" onDoubleClick={onRewind}>
           <FastRewind fontSize="medium" />
-        </div>
+        </div> */}
 
         <div className="icon__btn" onClick={onPlayPause}>
           {playing ? (
@@ -108,11 +108,11 @@ const Control = ({
           )}{" "}
         </div>
 
-        <div className="icon__btn">
+        {/* <div className="icon__btn">
           <FastForward fontSize="medium" onDoubleClick={onForward} />
-        </div>
+        </div> */}
       </div>
-      <div className="bottom__container">
+      <div className="bottom__container" style={{display:'none'}}>
         <div className="slider__container">
           <PrettoSlider
             min={0}

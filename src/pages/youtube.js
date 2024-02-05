@@ -85,10 +85,11 @@ const YouTubePlayer = () => {
   const YouTubeControls = true
   const YouTubeAutostart = true
   const CustomControls = true
+  const YoutubeLoop = false
   // const Suggestion2 = frontmatter.youtube.youtubersuggestion2
   // const Suggestion3 = frontmatter.youtube.youtubersuggestion3
   
-  const YoutubeLoop = false
+
   
   const ClickToPlay = false
   
@@ -412,9 +413,6 @@ const YouTubePlayer = () => {
                width:'100vw', height:'100%', minHeight:'40vh', maxHeight:'85vh', zIndex:'0', top:'0', right:'0', textAlign:'center', display:'grid', placeContent:'center', justifyContent:'center', 
               color:'#ddd',
               fontFamily:'Verdana, Sans-Serif, System' }}>
-
-
-
 <button aria-label="Click To Play" className="clickplays videohide 1042" style={{position:'relative', zIndex:'', top:'0', border:'0px  solid red', width:'100vw', background:'transparent', color:'', fontSize:'18px', textAlign:'center', display:'', flexDirection:'column', verticalAlign:'center', justifyContent:'center', alignItems:'center', aspectRatio:'16/9'}}>
 </button>
 
@@ -440,7 +438,7 @@ zindex:'1'
       </div>
 
 
-      <div className="form-container controller" style={{marginTop:'0', height:'7vh', padding:'0 2%', width:'100vw', background:'var(--theme-ui-colors-headerColor)'}}>
+      <div className="form-container controller" style={{marginTop:'0', height:'', padding:'2vh 2%', width:'100vw', background:'var(--theme-ui-colors-headerColor)'}}>
           <div style={{ maxWidth:'800px', margin:'0 auto'}}>
           <form className="youtubeform frontdrop" onSubmit={handleSubmit}>
       
