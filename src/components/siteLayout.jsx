@@ -226,7 +226,7 @@ const Layout = ({ children }) => {
 
 
       {image ? (
-        <img type="image/svg+xml" className="backimage" src={image} alt="Default Background" style={{ height: '100vh', width: '100vw', position: 'fixed', zIndex: '-2', top: '0', objectFit: 'cover' }} width="10" height="10" />
+        <img type="image/svg+xml" className="backimage" src={image} alt="Default Background" style={{}} width="10" height="10" />
       ) : (
         ""
       )}

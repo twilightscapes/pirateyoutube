@@ -61,8 +61,6 @@
     "react-share-social": "^0.1.55",
     "react-timeago": "^7.2.0",
     "rss-parser": "^3.13.0",
-    "@material-ui/core": "^4.12.4",
-    "@material-ui/icons": "^4.11.3",
     "theme-ui": "^0.16.1"
   },
   "devDependencies": {
