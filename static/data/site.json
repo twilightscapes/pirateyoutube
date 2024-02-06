@@ -10,7 +10,7 @@
       "showDates": true,
       "showSocial": true,
       "showTitles": true,
-      "showfooter": true,
+      "showfooter": false,
       "showSwipe": true,
       "showVideoPlayer": true
     },
@@ -27,13 +27,13 @@
     "proOptions": {
       "showModals": true,
       "showContact": true,
-      "showProfile": true,
+      "showProfile": false,
       "startUrl": "video",
       "showPopup": true,
-      "showHomePosts": true,
+      "showHomePosts": false,
       "ShowDisclaimer": false,
       "showBranding": true,
-      "showFeature": true,
+      "showFeature": false,
       "showLegal": true,
       "showConsent": false
     },
