@@ -722,7 +722,7 @@ to{opacity:0;z-index:-3}
 
 .pagination ul li{border-radius:var(--theme-ui-colors-borderRadius);color:#fff;cursor:pointer;font-size:1rem;font-weight:700;padding:0}
 
-.vidcontrols{top:120px;display:flex;flex-direction:column;gap:2vw;position:fixed;right:1vw; z-index: 1;}
+.vidcontrols{bottom:250px;display:flex;flex-direction:column;gap:2vw;position:fixed;right:1vw; z-index: 1;}
 
 .wrap-element{color:#fff;display:block;position:relative;top:0}
 

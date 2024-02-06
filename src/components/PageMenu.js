@@ -41,21 +41,21 @@ const MenuComponent = () => {
   style={{
     cursor: "pointer",
     padding: "0",
-    fontSize: 'clamp(1rem, 1vw, 1rem)',
-    position:'absolute', left:'0', top:'10px',
+    fontSize: 'clamp(3rem, 3vw, 3rem)',
+    position:'absolute', right:'2px', top:'35vh',
     width: '60px',
     height:'60px',
-    zIndex: '1',
+    zIndex: '3',
     opacity: '.5',
     color:'',
     display:'flex'
  // Adjust the borderRadius values as needed
   }}
 >
-  <MenuIcon style={{height:'100%', maxHeight: '60px', zIndex:'2', color:'#fff' }} />
+  <MenuIcon style={{height:'100%', maxHeight: '60px', zIndex:'3', color:'#fff' }} />
 </button>
 
-<div className="menusnapp" style={{ gap: "0", padding: "2vh 2vw", alignItems: "center", display: isMenuOpen ? "block" : "none", background:'var(--theme-ui-colors-headerBackground)', backgroundColor:'#222',  }}>
+<div className="menusnapp" style={{position:'absolute', zIndex:'2', top:'0', gap: "0", padding: "2vh 2vw", alignItems: "center", display: isMenuOpen ? "block" : "none", background:'var(--theme-ui-colors-headerBackground)', backgroundColor:'#222', width:'100dvw'  }}>
   
   <div id="" className="flexbutt" style={{ display: '', gap: '3vh', justifyContent: 'center', alignItems: "center", margin: '0 0', padding: '0', position: 'relative', minWidth:'80vw' }}>
     <div style={{ minWidth: '25vw', maxHeight: '20vh', textAlign: 'center', alignItems: "", }}>
@@ -88,7 +88,7 @@ const MenuComponent = () => {
     </div>
   </div>
 
-  <button
+  {/* <button
  className="flag"
   onClick={handleButtonClick}
   aria-label={isMenuOpen ? "Collapse menu" : "Expand menu"}
@@ -107,7 +107,7 @@ const MenuComponent = () => {
   }}
 >
 <MenuIcon style={{height:'100%', maxHeight: '60px', zIndex:'2', color:'#fff' }} />
-</button>
+</button> */}
 </div>
 
 
