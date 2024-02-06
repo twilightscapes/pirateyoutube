@@ -10,7 +10,7 @@
       "showDates": true,
       "showSocial": true,
       "showTitles": true,
-      "showfooter": false,
+      "showfooter": true,
       "showSwipe": true,
       "showVideoPlayer": true
     },
@@ -27,15 +27,15 @@
     "proOptions": {
       "showModals": true,
       "showContact": true,
-      "showProfile": false,
+      "showProfile": true,
       "startUrl": "video",
       "showPopup": true,
-      "showHomePosts": false,
+      "showHomePosts": true,
       "ShowDisclaimer": false,
       "showBranding": true,
-      "showFeature": false,
+      "showFeature": true,
       "showLegal": true,
-      "showConsent": false
+      "showConsent": true
     },
     "titleTemplate": "%s",
     "title": "PIRATE SOCIAL",
@@ -78,8 +78,8 @@
     "image": "/assets/pirate-logo.svg",
     "navOptions": {
       "showNav": true,
-      "showNav2": false,
-      "showFooterMenu": false
+      "showNav2": true,
+      "showFooterMenu": true
     },
     "description": "Pirate Social media for the people by the people",
     "icon512": "/assets/pirate-icon.svg"
