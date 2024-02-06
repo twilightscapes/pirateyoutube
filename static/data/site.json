@@ -10,7 +10,7 @@
       "showTitles": true,
       "showfooter": true,
       "showSocial": true,
-      "showVideoPlayer": true,
+      "showVideoPlayer": false,
       "showDefault": true,
       "showSwipe": true
     },
@@ -33,7 +33,7 @@
       "showHomePosts": true,
       "ShowDisclaimer": false,
       "showBranding": true,
-      "showFeature": false,
+      "showFeature": true,
       "showLegal": true,
       "showConsent": false
     },
