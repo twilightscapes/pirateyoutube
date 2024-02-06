@@ -377,7 +377,7 @@ const Video = () => {
             gap: "2vw",
             background: "rgba(0, 0, 0, .5)",
             padding: "",
-            // border: "1px solid #666",
+            border: "1px solid red",
             borderRadius: "var(--theme-ui-colors-borderRadius)",
             textShadow: "0 1px 1px rgba(0, 0, 0, .7)",
             // fontSize: "clamp(2rem, 3vw, 3rem)",

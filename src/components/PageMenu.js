@@ -32,7 +32,7 @@ const MenuComponent = () => {
 
   return (
     <>
-<div style={{position:'fixed', top:'0', left:'0'}}>
+
 
 <button
  className="flag"
@@ -41,16 +41,18 @@ const MenuComponent = () => {
   style={{
     cursor: "pointer",
     padding: "0",
-    fontSize: 'clamp(2rem, 3vw, 3rem)',
+    fontSize: 'clamp(1rem, 1vw, 1rem)',
     position:'absolute', left:'0', top:'10px',
     width: '60px',
+    height:'60px',
     zIndex: '1',
     opacity: '.5',
-    color:''
+    color:'',
+    display:'flex'
  // Adjust the borderRadius values as needed
   }}
 >
-  <MenuIcon style={{ maxHeight: '', zIndex:'2', color:'' }} />
+  <MenuIcon style={{height:'100%', maxHeight: '60px', zIndex:'2', color:'#fff' }} />
 </button>
 
 <div className="menusnapp" style={{ gap: "0", padding: "2vh 2vw", alignItems: "center", display: isMenuOpen ? "block" : "none", background:'var(--theme-ui-colors-headerBackground)', backgroundColor:'#222',  }}>
@@ -97,15 +99,18 @@ const MenuComponent = () => {
     fontSize: 'clamp(2rem, 3vw, 3rem)',
     position:'absolute', left:'0', top:'10px',
     width: '100px',
+    height: '60px',
     zIndex: '1',
+    display:'flex',
+    gap:'2vw'
  // Adjust the borderRadius values as needed
   }}
 >
-  <MenuIcon style={{ maxHeight: '', zIndex:'2', color:'' }} />
+<MenuIcon style={{height:'100%', maxHeight: '60px', zIndex:'2', color:'#fff' }} />
 </button>
 </div>
 
-</div>
+
 </>
   );
 };

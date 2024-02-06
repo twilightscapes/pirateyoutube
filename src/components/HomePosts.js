@@ -467,8 +467,8 @@ const [playingIndex, setPlayingIndex] = useState(null);
                         background: 'var(--theme-ui-colors-siteColor)',
                         color: 'var(--theme-ui-colors-siteColorText)',
                         borderRadius: 'var(--theme-ui-colors-borderRadius)',
-                        minWidth: 'auto',
-                        maxWidth: '25%',
+                        minWidth: '85px',
+                        maxWidth: '20%',
                         overflow: 'hidden',
                         height: '',
                         lineHeight: '100%',
@@ -499,8 +499,8 @@ const [playingIndex, setPlayingIndex] = useState(null);
       background: 'var(--theme-ui-colors-siteColor)',
       color: 'var(--theme-ui-colors-siteColorText)',
       borderRadius: 'var(--theme-ui-colors-borderRadius)',
-      minWidth: 'auto',
-      maxWidth: '25%',
+      minWidth: '85px',
+      maxWidth: '30%',
       overflow: 'hidden',
       height: '',
       lineHeight: '100%',
@@ -537,8 +537,8 @@ const [playingIndex, setPlayingIndex] = useState(null);
                         height: '',
                         lineHeight: '100%',
                         padding: '6px 6px',
-                        minWidth: 'auto',
-                        maxWidth: '30%',
+                        minWidth: '85px',
+                        maxWidth: '35%',
                       }}
                       aria-label="Search"
                     />
@@ -593,7 +593,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
                 {dicClear}
               </button>
 
-              <div style={{ position: '', right: '', top: '', textAlign: 'center', fontSize: '9px', color: 'var(--theme-ui-colors-headerColorText)', borderRadius: 'var(--theme-ui-colors-borderRadius)', minWidth: '40px', }}>
+              <div style={{ display:'block', minWidth:'40px', position: '', right: '', top: '', textAlign: 'center', fontSize: '9px', color: 'var(--theme-ui-colors-headerColorText)', borderRadius: 'var(--theme-ui-colors-borderRadius)', }}>
                 {filteredPosts.length} <br />
                 {dicResults}{filteredPosts.length !== 1 && 's'}
               </div>
