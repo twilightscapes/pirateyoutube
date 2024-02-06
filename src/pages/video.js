@@ -6,10 +6,10 @@ import { FaTwitch, FaFacebookSquare  } from "react-icons/fa";
 // import {Link} from "gatsby"
 // import { RiQuestionLine, RiCloseCircleFill } from "react-icons/ri"
 // import PirateLogo from "../img/logo.svg"
-import PageMenu from "./PageMenu"
-// import Layout from "../components/siteLayout"
-// import Seo from "../components/seo";
-// import { Helmet } from "react-helmet";
+import PageMenu from "../components/PageMenu"
+import Layout from "../components/siteLayout"
+import Seo from "../components/seo";
+import { Helmet } from "react-helmet";
 // import useSiteMetadata from "../hooks/SiteMetadata"
 // import Player from "../components/Player";
 import PropTypes from "prop-types";
@@ -24,7 +24,7 @@ import { MdVolumeUp } from "react-icons/md"
 
 // import { IoArrowRedoSharp, IoArrowUndoSharp } from "react-icons/io5"
 
-const VideoPlayer = () => {
+const Video = () => {
 
 
   // const { language } = useSiteMetadata();
@@ -348,28 +348,27 @@ const VideoPlayer = () => {
     
     <>
 
-{/* <Layout>
+<Layout>
 <Helmet>
     <body id="body" className="youtube"/>
   </Helmet>
 <Seo
     title="AdFree Video Player"
     description="Adfree Video Player"
-  /> */}
+  />
 
-<PageMenu />
+
+<PageMenu/>
 
       <div className='player-wrapper' style={{marginTop:''}}>
 
-      
-  
 
         {/* <Player /> */}
           <ReactPlayer
               allow="web-share"
               ref={playerRef}
               style={{
-                position: 'relative', top:'0', margin: '0 auto 0 auto', zIndex: '0', aspectRatio:'16/9', overflow:'hidden', width:'100vw', minHeight:'', height:'', background:'transparent'}}
+                position: 'relative', top:'0', margin: '0 auto 0 auto', zIndex: '0', aspectRatio:'16/9', overflow:'hidden', width:'100vw', minHeight:'90%', height:'100%', background:'transparent'}}
               width="100%"
               height="100%"
               url={finalUrl}
@@ -413,7 +412,8 @@ zindex:'1'
           
           />
       </div>
-    
+
+
       <div className="form-container controller" style={{position:'relative', zindex:'10', marginTop:'0', height:'', padding:'2vh 2%', width:'100vw', background:'var(--theme-ui-colors-headerColor)'}}>
           <div style={{ maxWidth:'800px', margin:'0 auto'}}>
           <form className="youtubeform frontdrop" onSubmit={handleSubmit} id="youtubeform" name="youtubeform">
@@ -466,11 +466,10 @@ zindex:'1'
    ""
           )} */}
 
-      {/* </Layout> */}
-
+      </Layout>
     </>
     
   );
 };
 
-export default VideoPlayer;
+export default Video;
