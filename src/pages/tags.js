@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Seo from "../components/seo";
 import Layout from "../components/siteLayout";
 import TagPosts from "../components/TagPosts";
-
+import { Helmet } from "react-helmet"
 const Tags = () => {
   // Check if localStorage is available
   const isLocalStorageAvailable = typeof window !== "undefined" && window.localStorage;
@@ -38,6 +38,9 @@ const Tags = () => {
   return (
     <Layout className="tags">
       <Seo title="Tags" />
+<Helmet>
+<body id="body" className="tagspage" />
+</Helmet>
 
       <div className="post-container" id="posttop">
         {/* Pass isSliderVisible as a prop to BlogPosts */}

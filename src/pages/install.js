@@ -74,7 +74,7 @@ Setup Account
 </a> */}
 
 <Link className="button" state={{modal: true}} to="/install2" rel="nofollow">
-Install PIRATE
+You will need a valid email
 </Link>
 <br />
 

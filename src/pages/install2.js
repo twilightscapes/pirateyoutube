@@ -59,7 +59,12 @@ function Install2() {
 
 <h3>STEP TWO (2 of 3)</h3>
 
-<br />Setup Account and Create YOUR Website<br />
+
+<br /><br /><strong>There is no Step Two!</strong><br /><br />
+
+{/* <br />Setup Account and Create YOUR Website<br />
+
+
 
 <ul className="bulletlist">
   <li>You will need a valid email address to create your GitHub</li>
@@ -71,13 +76,13 @@ Simply follow the prompts and ignore the scary jargon
 <br />
 <br />
 <strong>Don't worry - we handle all the hard stuff for you!</strong>
-<br />
+<br /> */}
 {/* <a style={{display:'grid', placeContent:'center', margin:'0 auto 0 auto'}} class="button" href="https://app.netlify.com/start/deploy?repository=https://github.com/piratesocial/piratesocial&amp;stack=cms&amp;SITE_LOGO=https://https://piratesocial.org/assets/logo.svg" target="_blank" rel="nofollow">
 Setup Account
 </a> */}
 
 <Link className="button" state={{modal: true}} to="/install3" rel="nofollow">
-Install PIRATE
+Continue
 </Link>
 <br />
 
