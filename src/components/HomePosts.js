@@ -314,6 +314,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
                     // margin: index === playingIndex ? '0' : '0 auto 15px auto',
                     zIndex: index === playingIndex ? '9999' : '1',
                     aspectRatio: '16/9',
+                    maxHeight:'40dvh'
                   }}
                   light={`https://i.ytimg.com/vi/${extractVideoId(node.frontmatter.youtube.youtuber)}/hqdefault.jpg`}
                   config={{

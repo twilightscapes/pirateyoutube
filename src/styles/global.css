@@ -972,7 +972,7 @@ body.contactpage .ReactModal__Content{padding-top:10vh !important;}
 /* .horizontal-scroll {margin-top:8vh !important;} */
   /* body.blogpost  {padding-top:8vh !important;} */
 
-  .magicshell .react-player__preview{display: block;}
+  .react-player__preview{display: block;}
   
   /* .horizontal-scroll iframe{max-height:200px !important; margin-top:8vh; } */
 
@@ -1469,7 +1469,7 @@ margin: 0 auto;
   .slider{scroll-snap-type:x mandatory;}
   }
 
-.slider iframe{max-height:60vh; max-width: 80vw; margin-top:8vh; }
+
 
   
   .post-card1 {
