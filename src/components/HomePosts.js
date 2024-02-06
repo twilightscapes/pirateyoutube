@@ -327,7 +327,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
                     },
                   }}
                   playIcon={
-                    <div style={{display:'flex', flexDirection:'column', placeContent:'', justifyContent:'', position:'absolute', zindex:'1', top:'', fontWeight:'bold', padding:'3% 0 0 0', width:'100%', maxWidth:'25vw', height:'', border:'0px solid', borderRadius:'12px', margin:'0 auto 0 auto', opacity:'.99', textShadow:'2px 2px 2px black', color:'#fff' }}>
+                    <div style={{display:'flex', flexDirection:'column', placeContent:'', justifyContent:'', position:'absolute', zindex:'1', top:'', fontWeight:'bold', padding:'3% 0 0 0', width:'100%', maxWidth:'25vw', height:'100%', border:'0px solid', borderRadius:'12px', margin:'0 auto 0 auto', opacity:'.99', textShadow:'2px 2px 2px black', color:'#fff' }}>
                       <div className="spotlight font" style={{}}>
                         <div className="posticons" style={{ flexDirection: 'column', margin: '0 auto' }}>
                           <div style={{ display: 'flex', justifyContent: 'space-around', gap: '2vw', color: 'fff', }}>
@@ -467,8 +467,8 @@ const [playingIndex, setPlayingIndex] = useState(null);
                         background: 'var(--theme-ui-colors-siteColor)',
                         color: 'var(--theme-ui-colors-siteColorText)',
                         borderRadius: 'var(--theme-ui-colors-borderRadius)',
-                        minWidth: '100px',
-                        maxWidth: '20%',
+                        minWidth: 'auto',
+                        maxWidth: '25%',
                         overflow: 'hidden',
                         height: '',
                         lineHeight: '100%',
@@ -499,8 +499,8 @@ const [playingIndex, setPlayingIndex] = useState(null);
       background: 'var(--theme-ui-colors-siteColor)',
       color: 'var(--theme-ui-colors-siteColorText)',
       borderRadius: 'var(--theme-ui-colors-borderRadius)',
-      minWidth: '100px',
-      maxWidth: '30%',
+      minWidth: 'auto',
+      maxWidth: '25%',
       overflow: 'hidden',
       height: '',
       lineHeight: '100%',
@@ -537,8 +537,8 @@ const [playingIndex, setPlayingIndex] = useState(null);
                         height: '',
                         lineHeight: '100%',
                         padding: '6px 6px',
-                        minWidth: '100px',
-                        maxWidth: '80%',
+                        minWidth: 'auto',
+                        maxWidth: '30%',
                       }}
                       aria-label="Search"
                     />
@@ -593,7 +593,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
                 {dicClear}
               </button>
 
-              <div style={{ position: '', right: '', top: '', textAlign: 'center', fontSize: '9px', color: 'var(--theme-ui-colors-headerColorText)', borderRadius: 'var(--theme-ui-colors-borderRadius)', }}>
+              <div style={{ position: '', right: '', top: '', textAlign: 'center', fontSize: '9px', color: 'var(--theme-ui-colors-headerColorText)', borderRadius: 'var(--theme-ui-colors-borderRadius)', minWidth: '40px', }}>
                 {filteredPosts.length} <br />
                 {dicResults}{filteredPosts.length !== 1 && 's'}
               </div>

@@ -972,7 +972,7 @@ body.contactpage .ReactModal__Content{padding-top:10vh !important;}
 /* .horizontal-scroll {margin-top:8vh !important;} */
   /* body.blogpost  {padding-top:8vh !important;} */
 
-  .magicshell .react-player__preview{max-height:200px !important; margin-top:8vh;}
+  .magicshell .react-player__preview{display: block;}
   
   /* .horizontal-scroll iframe{max-height:200px !important; margin-top:8vh; } */
 

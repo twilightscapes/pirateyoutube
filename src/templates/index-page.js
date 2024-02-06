@@ -159,8 +159,8 @@ const [playingIndex, setPlayingIndex] = useState(null);
           overflow: '',
           border: '0px solid red',
           zIndex: '',
-          aspectRatio: '',
-          width: '100vw',
+          aspectRatio: '16/9',
+          width: '100dvw',
           background: 'transparent',
           objectFit: 'cover'
         }}
@@ -193,7 +193,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
       return (
         <div className="wrap-element effects" style={{ aspectRatio: '16/9', minHeight: '300px', width: '100dvw', maxHeight: '100dvh', maxWidth:'100dvw', overFlow:'hidden' }}>
           {YouTube ? (
-            <div>
+    
   
 
   <ReactPlayer
@@ -253,7 +253,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
                     // onPlay={() => handleVideoPlay()}
                     // onPause={handleVideoPause}
                 />
-    </div>
+  
     ) : (
       ""
     
@@ -443,8 +443,9 @@ display:'flex', justifyContent:'center', maxHeight:'80px !important', height:'15
 {showFeature ? (   
 <section id="feature" name="feature" className="print scroll-area" style={{  
   // backgroundColor:'var(--theme-ui-colors-headerColor)'
+  height:'100% !important'
 }}>
-  <article style={{height:'100dvh', overFlow:'hidden', width:'100dvw'}}>
+  <article style={{}}>
 
   <div className="" style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', color:'#999', position:'relative'}}  >
 
@@ -459,7 +460,7 @@ display:'flex', justifyContent:'center', maxHeight:'80px !important', height:'15
                 image={UnderlayImage}
                 alt={frontmatter.title + " - image"}
                 className="mcboaty1"
-                style={{height:'auto', width:'100%', maxHeight:'100dvh', overflow:'hidden', position:'absolute', left:'0', right:'0', bottom:'', top:'0', zIndex:'',
+                style={{height:'auto', width:'100%', maxHeight:'100dvh', overflow:'hidden', margin:'0 auto', position:'absolute', left:'0', right:'0', bottom:'', top:'0', zIndex:'',
                objectFit:'cover', border:'0px solid red !important', background:'transparent',}}
               />
               
