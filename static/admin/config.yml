@@ -638,6 +638,10 @@ collections:
                 collapsed: true
                 fields:
                   - widget: boolean
+                    name: showVideoPlayer
+                    label: Show Pirate Video on home page
+                    required: false
+                  - widget: boolean
                     name: showfooter
                     label: Show the Footer
                     required: false
