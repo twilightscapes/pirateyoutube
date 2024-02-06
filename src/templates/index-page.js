@@ -122,15 +122,15 @@ const extractVideoId = (url) => {
 
 const playerRef = useRef(null);
     /* eslint-disable-next-line no-unused-vars */
-const [playingIndex, setPlayingIndex] = useState(null);
+// const [playingIndex, setPlayingIndex] = useState(null);
 
-  const handleVideoPlay = (index) => {
-    setPlayingIndex(index);
-  };
+  // const handleVideoPlay = (index) => {
+  //   setPlayingIndex(index);
+  // };
 
-  const handleVideoPause = () => {
-    setPlayingIndex(null);
-  };
+  // const handleVideoPause = () => {
+  //   setPlayingIndex(null);
+  // };
   
 
   
@@ -221,7 +221,7 @@ const [playingIndex, setPlayingIndex] = useState(null);
                         style={{ position: 'absolute', top: '0', height: 'auto', width: '100dvw', maxHeight: '100dvh', objectFit: 'cover', overflow: 'hidden', border: '0', outline:'0' }}
                       />
                     ) : (
-                      <img src={`https://i.ytimg.com/vi/${extractVideoId(frontmatter.youtube.youtuber)}/hqdefault.jpg`} width="100dvw" height="auto" alt="Video Image" />
+                      <img src={`https://i.ytimg.com/vi/${extractVideoId(frontmatter.youtube.youtuber)}/hqdefault.jpg`} width="100dvw" height="auto" alt="Video Preview" />
                     )
                   }
                   
