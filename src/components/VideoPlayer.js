@@ -356,10 +356,10 @@ const VideoPlayer = () => {
     title="AdFree Video Player"
     description="Adfree Video Player"
   /> */}
-<PageMenu />
+
       <div className='player-wrapper' style={{marginTop:''}}>
 
-
+      
   
 
         {/* <Player /> */}
@@ -367,7 +367,7 @@ const VideoPlayer = () => {
               allow="web-share"
               ref={playerRef}
               style={{
-                position: 'relative', top:'0', margin: '0 auto 0 auto', zIndex: '0', aspectRatio:'16/9', overflow:'hidden', width:'100vw', minHeight:'90%', height:'100%', background:'transparent'}}
+                position: 'relative', top:'0', margin: '0 auto 0 auto', zIndex: '0', aspectRatio:'16/9', overflow:'hidden', width:'100vw', minHeight:'', height:'', background:'transparent'}}
               width="100%"
               height="100%"
               url={finalUrl}
@@ -411,7 +411,7 @@ zindex:'1'
           
           />
       </div>
-
+      <PageMenu />
 
       <div className="form-container controller" style={{position:'relative', zindex:'10', marginTop:'0', height:'', padding:'2vh 2%', width:'100vw', background:'var(--theme-ui-colors-headerColor)'}}>
           <div style={{ maxWidth:'800px', margin:'0 auto'}}>
@@ -451,7 +451,7 @@ zindex:'1'
       </div>
 
 
-      {CustomControls ? (
+      {/* {CustomControls ? (
          <Controls
          ref={controlsRef}
          onPlayPause={handlePlayPause}
@@ -463,7 +463,7 @@ zindex:'1'
        
           ) : (
    ""
-          )}
+          )} */}
 
       {/* </Layout> */}
 
