@@ -66,8 +66,8 @@ const Video = () => {
 
   useEffect(() => {
     inputElement.current.onfocus = () => {
-      // window.scrollBy(0, 0);
-      document.body.scrollTop = 0;
+      window.scrollBy(0, 0);
+      // document.body.scrollTop = 0;
     };
   });
 

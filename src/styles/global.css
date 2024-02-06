@@ -18,7 +18,7 @@ body.scroll footer{position:sticky !important;} */
 /* body.homepage{min-height: 100vh;} */
 
 
-body.install #menu, body.install .spacer  {display:none !important;}
+body.install #menu, body.install #gobacker, body.install .spacer  {display:none !important;}
 
 /* #menu{z-index: 20 !important;} */
 
