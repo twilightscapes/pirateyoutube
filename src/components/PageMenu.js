@@ -46,9 +46,7 @@ const MenuComponent = () => {
     position:'absolute', top:'38%',
     width: '60px',
     height:'60px',
-    zIndex: '2',
-    color:'#999',
-    cursor:'pointer',
+    zIndex: '4',
     display:'flex',
     flexDirection:'column',
     justifySelf:'flex-start',
@@ -56,9 +54,9 @@ const MenuComponent = () => {
  // Adjust the borderRadius values as needed
   }}
 >
-  <MenuIcon style={{height:'100%', maxHeight: '60px', top:'0', zIndex:'2', color:'#fff' }} />
+  <MenuIcon style={{height:'100%', maxHeight: '60px', top:'0', zIndex:'4', color:'#fff' }} />
 </button>
-<div className="menusnapp" style={{position:'absolute', zIndex:'1', top:'38%', gap: "0", padding: "2vh 2vw", alignItems: "center", display: isMenuOpen ? "block" : "none", background:'var(--theme-ui-colors-headerBackground)', backgroundColor:'#222', width:'100dvw'  }}>
+<div className="menusnapp" style={{position:'absolute', zIndex:'3', top:'38%', gap: "0", padding: "2vh 2vw", alignItems: "center", display: isMenuOpen ? "block" : "none", background:'var(--theme-ui-colors-headerBackground)', backgroundColor:'#222', width:'100dvw'  }}>
 
 
   
