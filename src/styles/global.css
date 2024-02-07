@@ -1297,7 +1297,7 @@ body:has(.ReactModal__Content) {overflow-x:hidden !important; overflow-y:hidden 
 
 
 
-
+html:has body.youtube{position:fixed !important; overflow: hidden !important;}
 
   body.youtube{position:fixed !important; overflow: hidden !important;}
 
