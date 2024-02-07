@@ -405,10 +405,10 @@ bottom: 10px !important;
 
 
 
-.bug{height:auto;max-width:150px;opacity:.7}
+.bug{height:auto;max-width:150px;opacity:.7;}
 .bug:hover{opacity:.6}
 
-.bug::after{content:" menu "; color:#fff;}
+.bug::after, .flag::after{content:" menu "; color:#fff; font-size: 10px; text-align: center; display:flex; flex-direction: column; justify-content: center; width:60px; margin:0 auto;}
 
 .fire{box-shadow:0 4px 22px var(--theme-ui-colors-siteColor)}
 

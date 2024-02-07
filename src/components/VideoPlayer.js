@@ -6,7 +6,7 @@ import { FaTwitch, FaFacebookSquare  } from "react-icons/fa";
 // import {Link} from "gatsby"
 // import { RiQuestionLine, RiCloseCircleFill } from "react-icons/ri"
 // import PirateLogo from "../img/logo.svg"
-// import PageMenu from "./PageMenu"
+import PageMenu from "./PageMenu"
 // import Layout from "../components/siteLayout"
 // import Seo from "../components/seo";
 // import { Helmet } from "react-helmet";
@@ -148,8 +148,8 @@ const VideoPlayer = () => {
           
           />
       
-      {/* <PageMenu /> */}
-      <div className="form-container controller font" style={{position:'relative', zIndex:'2', top:'0', marginTop:'0', height:'', padding:'2vh 2%', width:'100vw', background:'var(--theme-ui-colors-headerColor)'}}>
+      <PageMenu />
+      <div className="form-container controller font" style={{position:'relative', zIndex:'1', top:'0', marginTop:'0', height:'', padding:'2vh 2%', width:'100vw', background:'var(--theme-ui-colors-headerColor)'}}>
           <div style={{ maxWidth:'800px', margin:'0 auto'}}>
           <form className="youtubeform frontdrop" onSubmit={handleSubmit} id="youtubeform" name="youtubeform">
       
