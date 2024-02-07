@@ -25,7 +25,21 @@ import PageMenu from "./PageMenu"
 // import { IoArrowRedoSharp, IoArrowUndoSharp } from "react-icons/io5"
 
 const VideoPlayer = () => {
+  const inputElement = useRef(null);
+  useEffect(() => {
+    const inputRef = inputElement.current;
+    inputRef.onfocus = () => {
+      document.body.scrollTop = 0;
+    };
+    inputRef.onblur = () => {
+      document.body.scrollTop = 0;
+    };
 
+    return () => {
+      inputRef.onfocus = null;
+      inputRef.onblur = null;
+    };
+  }, []);
 
   // const { language } = useSiteMetadata();
   // const { dicClickToView } = language;
@@ -62,18 +76,7 @@ const VideoPlayer = () => {
     // Add any additional logic you need on form submission
   };
 
-  const inputElement = useRef(null);
 
-  useEffect(() => {
-    inputElement.current.onfocus = () => {
-      // window.scrollBy(0, 0);
-      document.body.scrollTop = 0;
-    };
-    inputElement.current.onblur = () => {
-      // window.scrollBy(0, 0);
-      document.body.scrollTop = 0;
-    };
-  });
 
 
 
@@ -136,8 +139,8 @@ const VideoPlayer = () => {
               width="100%"
               height="100%"
               url={finalUrl}
-              playing={"true"}
-              controls={"true"}
+              playing={true}
+              controls={true}
               playsinline
               config={{
                   youtube: {

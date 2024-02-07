@@ -26,6 +26,23 @@ import { Helmet } from "react-helmet";
 
 const Video = () => {
 
+  const inputElement = useRef(null);
+
+  useEffect(() => {
+    const inputRef = inputElement.current;
+    inputRef.onfocus = () => {
+      document.body.scrollTop = 0;
+    };
+    inputRef.onblur = () => {
+      document.body.scrollTop = 0;
+    };
+
+    return () => {
+      inputRef.onfocus = null;
+      inputRef.onblur = null;
+    };
+  }, []);
+
 
   // const { language } = useSiteMetadata();
   // const { dicClickToView } = language;
@@ -62,18 +79,7 @@ const Video = () => {
     // Add any additional logic you need on form submission
   };
 
-  const inputElement = useRef(null);
 
-  useEffect(() => {
-    inputElement.current.onfocus = () => {
-      // window.scrollBy(0, 0);
-      document.body.scrollTop = 0;
-    };
-    inputElement.current.onblur = () => {
-      // window.scrollBy(0, 0);
-      document.body.scrollTop = 0;
-    };
-  });
 
 
 
@@ -127,8 +133,8 @@ const Video = () => {
               width="100%"
               height="100%"
               url={finalUrl}
-              playing={"true"}
-              controls={"true"}
+              playing={true}
+              controls={true}
               playsinline
               config={{
                   youtube: {
