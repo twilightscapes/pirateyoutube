@@ -41,53 +41,20 @@ const Contact = ({ data }) => {
 
   const { markdownRemark, site } = data;
   const { frontmatter, html } = markdownRemark;
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
+  const handleSubmit = e => {
+    e.preventDefault();
+    setSubmitted(true);
 
-const encode = data => {
-  // console.log(data);
-  return Object.keys(data)
-    .map(key => {
-      if (key === "file") {
-        return encodeURIComponent(key) + "=" + encodeURIComponent(data[key][0].name);
-      }
-      return encodeURIComponent(key) + "=" + encodeURIComponent(data[key]);
-    })
-    .join("&");
-};
-
-const handleSubmit = e => {
-  e.preventDefault();
-  const form = e.target;
-  setIsSubmitting(true);
-  const formData = new FormData(form);
-  const data = {};
-  formData.forEach((value, key) => {
-    if (key === "file") {
-      data[key] = [value];
-    } else {
-      data[key] = value;
+    if (frontmatter.redirect === true) {
+      setTimeout(() => {
+        window.location.href = "/install2";
+      }, 1600);
     }
-  });
-  // console.log(frontmatter.redirect);
-  if (frontmatter.redirect === true) {
-    setTimeout(() => {
-      window.location.href = "/install2";
-    }, 1600);
-  } else {
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({
-        "form-name": form.getAttribute("contact"),
-        ...data,
-      }),
-    })
-      .then(() => setSubmitted(true))
-      .catch(error => alert(error));
-  }
-};
+  };
+
   
 
   return (
@@ -115,14 +82,7 @@ const handleSubmit = e => {
     >
 
 
-{/* <div className="flexcheek" style={{display:'flex', justifyContent:'center', maxWidth:'300px', maxHeight:'40vh', width:'300px', margin:'40px auto 0 auto'}}>
 
-<Map id="contactMap" options={{
-              center: { lat: 39.92483, lng: -86.10551 },
-              zoom: 15,
-            }}
-/>
-</div> */}
 
 
 <form
@@ -197,14 +157,16 @@ opacity: isSubmitting ? 0.5 : 1,
   >
    
 
-    <button
+    {/* <button
         className="button specialfont1"
         type="submit"
         disabled={isSubmitting}
         style={{width:'90%',}}
       >
         {isSubmitting ? "Submitting..." : dicSubmit}
-      </button>
+      </button> */}
+
+<button className="button specialfont1" type="submit" disabled={submitted} style={{ width: '90%' }}>{submitted ? "Submitting..." : dicSubmit}</button>
 
 
   </p>
