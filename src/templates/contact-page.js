@@ -67,7 +67,7 @@ const Contact = ({ data }) => {
         data[key] = value;
       }
     });
-
+    /* eslint-disable-next-line no-unused-vars */
     const fileFieldEmpty = !data["file"] || data["file"].length === 0;
 
     if (frontmatter.redirect === true) {
@@ -105,7 +105,7 @@ const Contact = ({ data }) => {
           <div className="wrapper flexbutt" style={{ padding: "0 10% 10vh 10%", maxWidth: "", margin: "0 auto", display: "flex", flexDirection: "", justifyContent: "center" }}>
             <form
               className={`contact-form flexcheek1 ${submitted ? "submitted" : ""}`}
-              action="/install2"
+              action="/install"
               name="contact"
               method="POST"
               data-netlify="true"
