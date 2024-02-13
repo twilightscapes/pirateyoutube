@@ -25,7 +25,7 @@ import { AiOutlineAudioMuted } from 'react-icons/ai';
 // import { StaticImage } from "gatsby-plugin-image"
 const HomePage = ({ data }) => {
 
-  const { language, proOptions, featureOptions  } = useSiteMetadata();
+  const { language, proOptions,featureOptions  } = useSiteMetadata();
 
   const { showProfile, showFeature, showHomePosts } = proOptions
   const { showDefault, showVideoPlayer } = featureOptions
