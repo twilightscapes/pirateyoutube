@@ -4,7 +4,7 @@ slug: /contact
 title: Contact
 redirect: false
 contactname: true
-contactphone: false
+contactphone: true
 contactupload: true
 scrollable: false
 uploadtext: JPG preferred - (1600px wide)
