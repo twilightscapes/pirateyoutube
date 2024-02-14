@@ -54,10 +54,10 @@ const Contact = ({ data }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const form = e.target;
+    const form = e.target; // Get the form element
     setIsSubmitting(true);
   
-    // Create a new FormData object
+    // Create a new FormData object using the form element
     const formData = new FormData(form);
   
     // Submit the form using fetch API
@@ -83,6 +83,8 @@ const Contact = ({ data }) => {
     }
   };
   
+  
+  
 
   return (
     <Layout className="contact-page">
@@ -100,21 +102,23 @@ const Contact = ({ data }) => {
 
         {showContact ? (
           <div className="wrapper flexbutt" style={{ padding: "0 10% 10vh 10%", maxWidth: "", margin: "0 auto", display: "flex", flexDirection: "", justifyContent: "center" }}>
-            <form
-              className={`contact-form flexcheek1 ${submitted ? "submitted" : ""}`}
-              name="contact"
-              method="POST"
-              data-netlify="true"
-              data-netlify-honeypot="bot-field"
-              {...(frontmatter.redirect ? { action: frontmatter.redirectUrl } : { action: "/thanks" })}
-              encType="multipart/form-data"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                opacity: isSubmitting ? 0.5 : 1,
-              }}
-            >
+<form
+  className={`contact-form flexcheek1 ${submitted ? "submitted" : ""}`}
+  name="contact"
+  method="POST"
+  data-netlify="true"
+  data-netlify-honeypot="bot-field"
+  {...(frontmatter.redirect ? { action: frontmatter.redirectUrl } : { action: "/thanks" })}
+  encType="multipart/form-data"
+  onSubmit={handleSubmit} // Use onSubmit event on the form
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    opacity: isSubmitting ? 0.5 : 1,
+  }}
+>
+
               {submitted ? (
                 <div className="thank-you-message" style={{ fontSize: '200%', height: '60vh', textAlign: 'center' }}>
                   {dicConfirmation}
@@ -175,7 +179,7 @@ const Contact = ({ data }) => {
                       type="submit"
                       disabled={isSubmitting}
                       style={{ width: '90%' }}
-                      onClick={handleSubmit}
+                      // onClick={handleSubmit}
                     >
                       {isSubmitting ? "Submitting..." : dicSubmit}
                     </button>
