@@ -52,6 +52,24 @@ const Contact = ({ data }) => {
     }
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    setIsSubmitting(true);
+
+    const formData = new FormData(form);
+    let fileAttached = false; // Initialize fileAttached flag
+    formData.forEach((value, key) => {
+        if (key === "file" && value !== "") {
+            fileAttached = true;
+        }
+    });
+    setFileAttached(fileAttached); // Update fileAttached state
+
+    // Your form submission logic...
+    // For example, you can send the formData to an API endpoint or handle it with a serverless function.
+};
+
   return (
     <Layout className="contact-page">
       <Helmet>
@@ -118,14 +136,24 @@ const Contact = ({ data }) => {
                       <textarea id="message" name="message" placeholder={dicMessage} required></textarea>
                     </label>
                   </p>
+
                   {frontmatter.contactupload && (
+                    <label htmlFor="file" aria-label="Upload your file" style={{ padding: '0', color: 'inherit', textShadow: '1px 1px 0 #555', display: 'flex', flexDirection: 'column', width: '100%', fontSize: '90%', gap: '15px', justifyContent: 'center', alignItems: 'center' }}>
+                      <span>{submitted && !fileAttached ? "No Attachments" : fileAttached ? "File Attached" : frontmatter.uploadtext}</span>
+                      <input className="file-input hidden" type="file" id="file" name="file" onChange={handleFileInputChange} />
+                    </label>
+                  )}
+
+{/* {frontmatter.contactupload && (
     <label htmlFor="file" aria-label="Upload your file" style={{ padding: '0', color: 'inherit', textShadow: '1px 1px 0 #555', display: 'flex', flexDirection: 'column', width: '100%', fontSize: '90%', gap: '15px', justifyContent: 'center', alignItems: 'center' }}>
-        {submitted && (
-            <span>{!fileAttached ? "No Attachments" : "File Attached"}</span>
+        {submitted ? (
+            fileAttached ? "File Attached" : "No Attachments"
+        ) : (
+            frontmatter.uploadtext
         )}
         <input className="file-input hidden" type="file" id="file" name="file" onChange={handleFileInputChange} />
     </label>
-)}
+)} */}
 
                   <p className="text-align-right1" style={{ margin: "0 auto", color: "#fff" }}>
                     <button
