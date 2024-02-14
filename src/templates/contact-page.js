@@ -162,10 +162,6 @@ const Contact = ({ data }) => {
                       type="submit"
                       disabled={isSubmitting}
                       style={{ width: '90%' }}
-                      onClick={() => {
-                        setIsSubmitting(true); // Set isSubmitting state to true
-                        setSubmitted(true); // Set submitted state to true
-                      }}
                     >
                       {isSubmitting ? "Submitting..." : dicSubmit}
                     </button>
