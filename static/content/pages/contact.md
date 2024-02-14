@@ -3,7 +3,7 @@ template: contact-page
 slug: /contact
 title: Contact
 redirect: true
-redirectUrl: "https://pirateplus.netlify.app/"
+redirectUrl: "/pirate"
 contactname: true
 contactphone: true
 contactupload: true
