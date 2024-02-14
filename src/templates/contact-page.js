@@ -75,6 +75,12 @@ const Contact = ({ data }) => {
               data-netlify="true"
               data-netlify-honeypot="bot-field"
               {...(frontmatter.redirect ? { action: frontmatter.redirectUrl } : { action: "#" })}
+              onSubmit={(e) => {
+                e.preventDefault(); // Prevent default form submission behavior
+                setIsSubmitting(true); // Set isSubmitting state to true
+                setSubmitted(true); // Set submitted state to true
+                // Additional logic for form submission (e.g., sending data to server)
+              }}
               // action={frontmatter.redirect ? frontmatter.redirectUrl : ""}
               encType="multipart/form-data"
               style={{
@@ -152,7 +158,6 @@ const Contact = ({ data }) => {
                       type="submit"
                       disabled={isSubmitting}
                       style={{ width: '90%' }}
-                      onClick={submitted}
                     >
                       {isSubmitting ? "Submitting..." : dicSubmit}
                     </button>
