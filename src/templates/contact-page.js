@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { graphql } from "gatsby";
 import Seo from "../components/seo";
 import Layout from "../components/siteLayout";
@@ -37,10 +37,21 @@ const Contact = ({ data }) => {
   const { markdownRemark, site } = data;
   const { frontmatter, html } = markdownRemark;
   const [fileAttached, setFileAttached] = useState(false);
+  const fileInputRef = useRef(null);
 
-  const handleFileInputChange = (event) => {
-    const files = event.target.files;
-    if (files.length > 0) {
+  useEffect(() => {
+    const input = fileInputRef.current;
+    if (input) {
+      input.addEventListener("change", handleFileInputChange);
+      return () => {
+        input.removeEventListener("change", handleFileInputChange);
+      };
+    }
+  }, []);
+
+  const handleFileInputChange = () => {
+    const input = fileInputRef.current;
+    if (input && input.files && input.files.length > 0) {
       setFileAttached(true);
     } else {
       setFileAttached(false);
@@ -114,7 +125,7 @@ const Contact = ({ data }) => {
                 ) : (
                   <span>{frontmatter.uploadtext}</span>
                 )}
-                <input className="file-input hidden" type="file" id="file" name="file" onChange={handleFileInputChange} />
+                <input ref={fileInputRef} className="file-input hidden" type="file" id="file" name="file" />
               </label>
 
               <p className="text-align-right1" style={{ margin: "0 auto", color: "#fff" }}>
