@@ -1,6 +1,5 @@
 import React from 'react'
-// import { navigate } from 'gatsby-link'
-// import { FaEnvelope } from 'react-icons/fa'
+
 
 
 const Contact = class extends React.Component {
