@@ -131,7 +131,7 @@ const Contact = ({ data }) => {
                       className="button specialfont1"
                       type="submit"
                       disabled={isSubmitting}
-                      style={{ width: '90%' }}
+                      style={{ width:'90%' }}
                     >
                       {isSubmitting ? "Submitting..." : dicSubmit}
                     </button>
