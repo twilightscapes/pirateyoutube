@@ -75,10 +75,6 @@ const Contact = ({ data }) => {
               data-netlify="true"
               data-netlify-honeypot="bot-field"
               {...(frontmatter.redirect ? { action: frontmatter.redirectUrl } : { action: "" })}
-              onSubmit={() => {
-                setIsSubmitting(true); // Set isSubmitting state to true
-                setSubmitted(true); // Set submitted state to true
-              }}
               // action={frontmatter.redirect ? frontmatter.redirectUrl : ""}
               encType="multipart/form-data"
               style={{
