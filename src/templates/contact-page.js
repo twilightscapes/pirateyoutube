@@ -43,7 +43,6 @@ const Contact = ({ data }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitted(true);
     const formData = new FormData(e.target);
     let fileAttached = false;
     formData.forEach((value, key) => {
@@ -52,7 +51,7 @@ const Contact = ({ data }) => {
       }
     });
     setFileAttached(fileAttached);
-    // You can handle form submission here, if needed
+    // Your form submission logic...
   };
 
   return (
@@ -66,7 +65,7 @@ const Contact = ({ data }) => {
       />
 
       <div className="container panel" style={{ maxWidth: "1024px", margin: "0 auto", paddingTop: "5vh" }}>
-        <div style={{ padding: "3vh 6% 0 6%", textAlign: 'center' }} dangerouslySetInnerHTML={{ __html: html }} />
+        <div style={{ padding: "3vh 6% 0 6%", textAlign:'center' }} dangerouslySetInnerHTML={{ __html: html }} />
         {showContact ? (
           <div className="wrapper flexbutt" style={{ padding: "0 10% 10vh 10%", maxWidth: "", margin: "0 auto", display: "flex", flexDirection: "", justifyContent: "center" }}>
             <form
@@ -75,7 +74,7 @@ const Contact = ({ data }) => {
               method="POST"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
-              action={frontmatter.redirect ? frontmatter.redirectUrl : ""}
+              {...(frontmatter.redirect ? { action: frontmatter.redirectUrl } : { action: "" })}
               encType="multipart/form-data"
               style={{
                 display: "flex",
