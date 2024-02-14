@@ -121,7 +121,7 @@ const Contact = ({ data }) => {
 
                   {frontmatter.contactupload && (
                     <label htmlFor="file" aria-label="Upload your file" style={{ padding: '0', color: 'inherit', textShadow: '1px 1px 0 #555', display: 'flex', flexDirection: 'column', width: '100%', fontSize: '90%', gap: '15px', justifyContent: 'center', alignItems: 'center' }}>
-                      <span>{submitted && !fileAttached ? "No Attachments" : fileAttached ? "File Attached" : frontmatter.uploadtext}</span>
+                      <span>{submitted ? (fileAttached ? "File Attached" : "No Attachments") : frontmatter.uploadtext}</span>
                       <input className="file-input hidden" type="file" id="file" name="file" onChange={handleFileInputChange} />
                     </label>
                   )}
@@ -131,7 +131,7 @@ const Contact = ({ data }) => {
                       className="button specialfont1"
                       type="submit"
                       disabled={isSubmitting}
-                      style={{ width:'90%' }}
+                      style={{ width: '90%' }}
                     >
                       {isSubmitting ? "Submitting..." : dicSubmit}
                     </button>
