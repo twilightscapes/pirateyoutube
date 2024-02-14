@@ -64,7 +64,7 @@ const Contact = ({ data }) => {
               method="POST"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
-              action={frontmatter.redirect ? frontmatter.redirectUrl : "/thanks"} // Use redirectUrl if available, otherwise fallback to "/thanks"
+              {...(frontmatter.redirect ? { action: frontmatter.redirectUrl } : {})} // Conditionally render action attribute
               encType="multipart/form-data" // Include enctype attribute for file uploads
               style={{
                 display: "flex",
