@@ -52,20 +52,6 @@ const Contact = ({ data }) => {
     }
   };
 
-  const handleSubmit = async () => {
-    setIsSubmitting(true);
-  
-    try {
-      // Perform any form submission related logic here, such as sending a POST request to a server or submitting to Netlify
-      // After successful submission, set the submitted state to true
-      setSubmitted(true);
-    } catch (error) {
-      console.error("Error submitting form:", error);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <Layout className="contact-page">
       <Helmet>
@@ -91,7 +77,6 @@ const Contact = ({ data }) => {
               // {...(frontmatter.redirect ? { action: frontmatter.redirectUrl } : { action: "/thanks" })}
               action={frontmatter.redirect ? frontmatter.redirectUrl : ""}
               encType="multipart/form-data"
-              onSubmit={handleSubmit}
               style={{
                 display: "flex",
                 flexDirection: "column",
@@ -159,7 +144,6 @@ const Contact = ({ data }) => {
                       type="submit"
                       disabled={isSubmitting}
                       style={{ width: '90%' }}
-                      
                     >
                       {isSubmitting ? "Submitting..." : dicSubmit}
                     </button>
