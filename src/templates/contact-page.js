@@ -1,14 +1,10 @@
-// import { jsx } from "theme-ui";
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { graphql } from "gatsby";
 import Seo from "../components/seo";
 import Layout from "../components/siteLayout";
-import useSiteMetadata from "../hooks/SiteMetadata"
-// import useSiteMetadata from "../hooks/SiteMetadata";
+import useSiteMetadata from "../hooks/SiteMetadata";
 import { Helmet } from "react-helmet";
 
-// import Map from "../components/contact-map"
 export const pageQuery = graphql`
   query ContactQuery($id: String!) {
     markdownRemark(id: { eq: $id }) {
@@ -22,6 +18,7 @@ export const pageQuery = graphql`
         contactphone
         contactupload
         uploadtext
+        redirectUrl
       }
     }
     site {
@@ -33,8 +30,6 @@ export const pageQuery = graphql`
 `;
 
 const Contact = ({ data }) => {
-  // const { showNav } = useSiteMetadata();
-
   const { language, proOptions } = useSiteMetadata();
   const { dicName, dicEmail, dicMessage, dicSubmit, dicPhone, dicConfirmation } = language;
   const { showContact } = proOptions;
@@ -43,34 +38,18 @@ const Contact = ({ data }) => {
   const { frontmatter, html } = markdownRemark;
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const redirectUrl = frontmatter.redirectUrl || "/thanks";
 
   const handleSubmit = e => {
     e.preventDefault();
-    const form = e.target;
     setIsSubmitting(true);
-    const formData = new FormData(form);
-    // Remove the encoding part
-    // const data = {};
-    // formData.forEach((value, key) => {
-    //   if (key === "file") {
-    //     data[key] = [value];
-    //   } else {
-    //     data[key] = value;
-    //   }
-    // });
-    // console.log(frontmatter.redirect);
+
     if (frontmatter.redirect === true) {
-      setTimeout(() => {
-        window.location.href = "/pirate";
-      }, 1600);
+      // Use redirectUrl in action attribute
+      // Form submission will be handled by the browser automatically
     } else {
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString(),
-      })
-        .then(() => setSubmitted(true))
-        .catch(error => alert(error));
+      // Display thank you message
+      setSubmitted(true);
     }
   };
 
@@ -96,6 +75,7 @@ const Contact = ({ data }) => {
               method="POST"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
+              action={redirectUrl}
               onSubmit={handleSubmit}
               style={{
                 display: "flex",

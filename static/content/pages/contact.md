@@ -3,6 +3,7 @@ template: contact-page
 slug: /contact
 title: Contact
 redirect: true
+redirectUrl: "/install"
 contactname: true
 contactphone: true
 contactupload: true
