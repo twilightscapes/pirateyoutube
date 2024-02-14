@@ -31,7 +31,7 @@ export const pageQuery = graphql`
 
 const Contact = ({ data }) => {
   const { language, proOptions } = useSiteMetadata();
-  const { dicName, dicEmail, dicMessage, dicSubmit, dicPhone, dicConfirmation } = language;
+  const { dicName, dicEmail, dicMessage, dicSubmit, dicPhone } = language;
   const { showContact } = proOptions;
 
   const { markdownRemark, site } = data;
@@ -40,17 +40,10 @@ const Contact = ({ data }) => {
 
   const handleFileInputChange = (event) => {
     const files = event.target.files;
-    const uploadText = document.getElementById("uploadText");
     if (files.length > 0) {
       setFileAttached(true);
-      if (uploadText) {
-        uploadText.textContent = "File Attached";
-      }
     } else {
       setFileAttached(false);
-      if (uploadText) {
-        uploadText.textContent = frontmatter.uploadtext;
-      }
     }
   };
 
@@ -85,6 +78,7 @@ const Contact = ({ data }) => {
               }}
             >
               <input type="hidden" name="form-name" value="contact" />
+              <input type="hidden" name="fileAttached" value={fileAttached ? "true" : "false"} />
 
               {frontmatter.contactname && (
                 <p>
