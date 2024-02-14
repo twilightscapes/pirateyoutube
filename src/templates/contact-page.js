@@ -88,8 +88,8 @@ const Contact = ({ data }) => {
               method="POST"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
-              // {...(frontmatter.redirect ? { action: frontmatter.redirectUrl } : { action: "/thanks" })}
-              action={frontmatter.redirect ? frontmatter.redirectUrl : ""}
+              {...(frontmatter.redirect ? { action: frontmatter.redirectUrl } : { action: "" })}
+              // action={frontmatter.redirect ? frontmatter.redirectUrl : ""}
               encType="multipart/form-data"
               onSubmit={handleSubmit}
               style={{
