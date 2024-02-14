@@ -45,10 +45,17 @@ const Contact = ({ data }) => {
 
   const handleFileInputChange = (event) => {
     const files = event.target.files;
+    const uploadText = document.getElementById("uploadText");
     if (files.length > 0) {
       setFileAttached(true);
+      if (uploadText) {
+        uploadText.textContent = "File Attached";
+      }
     } else {
       setFileAttached(false);
+      if (uploadText) {
+        uploadText.textContent = frontmatter.uploadtext;
+      }
     }
   };
 
@@ -133,11 +140,10 @@ const Contact = ({ data }) => {
 
 
 <label htmlFor="file" aria-label="Upload your file" style={{ padding: '0', color: 'inherit', textShadow: '1px 1px 0 #555', display: 'flex', flexDirection: 'column', width: '100%', fontSize: '90%', gap: '15px', justifyContent: 'center', alignItems: 'center' }}>
-{!fileAttached && !submitted && <span>{frontmatter.uploadtext}</span>}
-        {fileAttached && <span>File Attached</span>}
-        {!fileAttached && <span>No Attachment</span>}
-        <input className="file-input hidden" type="file" id="file" name="file" onChange={handleFileInputChange} />
-      </label>
+  <span id="uploadText">{frontmatter.uploadtext}</span>
+  <input className="file-input hidden" type="file" id="file" name="file" onChange={handleFileInputChange} />
+</label>                  
+
 
 {/* {frontmatter.contactupload && (
     <label htmlFor="file" aria-label="Upload your file" style={{ padding: '0', color: 'inherit', textShadow: '1px 1px 0 #555', display: 'flex', flexDirection: 'column', width: '100%', fontSize: '90%', gap: '15px', justifyContent: 'center', alignItems: 'center' }}>
@@ -156,7 +162,7 @@ const Contact = ({ data }) => {
                       type="submit"
                       disabled={isSubmitting}
                       style={{ width: '90%' }}
-                      onSubmit={() => {
+                      onClick={() => {
                         setIsSubmitting(true); // Set isSubmitting state to true
                         setSubmitted(true); // Set submitted state to true
                       }}
