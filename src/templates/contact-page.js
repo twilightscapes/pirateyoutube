@@ -118,13 +118,12 @@ const Contact = ({ data }) => {
                       <textarea id="message" name="message" placeholder={dicMessage} required></textarea>
                     </label>
                   </p>
-
                   {frontmatter.contactupload && (
-                    <label htmlFor="file" aria-label="Upload your file" style={{ padding: '0', color: 'inherit', textShadow: '1px 1px 0 #555', display: 'flex', flexDirection: 'column', width: '100%', fontSize: '90%', gap: '15px', justifyContent: 'center', alignItems: 'center' }}>
-                      <span>{submitted && !fileAttached ? "No Attachments" : fileAttached ? "File Attached" : frontmatter.uploadtext}</span>
-                      <input className="file-input hidden" type="file" id="file" name="file" onChange={handleFileInputChange} />
-                    </label>
-                  )}
+    <label htmlFor="file" aria-label="Upload your file" style={{ padding: '0', color: 'inherit', textShadow: '1px 1px 0 #555', display: 'flex', flexDirection: 'column', width: '100%', fontSize: '90%', gap: '15px', justifyContent: 'center', alignItems: 'center' }}>
+        <span>{submitted && !fileAttached ? "No Attachments" : fileAttached ? "File Attached" : frontmatter.uploadtext}</span>
+        <input className="file-input hidden" type="file" id="file" name="file" onChange={handleFileInputChange} />
+    </label>
+)}
 
                   <p className="text-align-right1" style={{ margin: "0 auto", color: "#fff" }}>
                     <button
