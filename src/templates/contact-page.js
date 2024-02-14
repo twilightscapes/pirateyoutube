@@ -1,11 +1,8 @@
-// import { jsx } from "theme-ui";
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { graphql } from "gatsby";
 import Seo from "../components/seo";
 import Layout from "../components/siteLayout";
-import useSiteMetadata from "../hooks/SiteMetadata"
-// import useSiteMetadata from "../hooks/SiteMetadata";
+import useSiteMetadata from "../hooks/SiteMetadata";
 import { Helmet } from "react-helmet";
 
 export const pageQuery = graphql`
@@ -83,39 +80,23 @@ const Contact = ({ data }) => {
 
         {showContact ? (
           <div className="wrapper flexbutt" style={{ padding: "0 10% 10vh 10%", maxWidth: "", margin: "0 auto", display: "flex", flexDirection: "", justifyContent: "center" }}>
-            {/* <form
+            <form
               className={`contact-form flexcheek1 ${submitted ? "submitted" : ""}`}
               name="contact"
               method="POST"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
-              {...(frontmatter.redirect ? { action: frontmatter.redirectUrl } : { action: "/thanks" })}
+              action={frontmatter.redirect ? frontmatter.redirectUrl : ""}
               encType="multipart/form-data"
+              onSubmit={handleSubmit} // Use onSubmit event on the form
               style={{
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
                 opacity: isSubmitting ? 0.5 : 1,
               }}
-            > */}
-
-<form
-  className={`contact-form flexcheek1 ${submitted ? "submitted" : ""}`}
-  name="contact"
-  method="POST"
-  data-netlify="true"
-  data-netlify-honeypot="bot-field"
-  action={frontmatter.redirect ? frontmatter.redirectUrl : ""}
-  encType="multipart/form-data"
-  onSubmit={handleSubmit} // Use onSubmit event on the form
-  style={{
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    opacity: isSubmitting ? 0.5 : 1,
-  }}
->
-
+            >
+  
               {submitted ? (
                 <div className="thank-you-message" style={{ fontSize: '200%', height: '60vh', textAlign: 'center' }}>
                   {dicConfirmation}
@@ -158,17 +139,6 @@ const Contact = ({ data }) => {
                       <input className="file-input hidden" type="file" id="file" name="file" onChange={handleFileInputChange} />
                     </label>
                   )}
-
-{/* {frontmatter.contactupload && (
-    <label htmlFor="file" aria-label="Upload your file" style={{ padding: '0', color: 'inherit', textShadow: '1px 1px 0 #555', display: 'flex', flexDirection: 'column', width: '100%', fontSize: '90%', gap: '15px', justifyContent: 'center', alignItems: 'center' }}>
-        {submitted ? (
-            fileAttached ? "File Attached" : "No Attachments"
-        ) : (
-            frontmatter.uploadtext
-        )}
-        <input className="file-input hidden" type="file" id="file" name="file" onChange={handleFileInputChange} />
-    </label>
-)} */}
 
                   <p className="text-align-right1" style={{ margin: "0 auto", color: "#fff" }}>
                     <button
