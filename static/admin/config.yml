@@ -332,17 +332,18 @@ collections:
               default: "/contact/",
             }
           - { label: "Title", name: "title", widget: "string" }
-          - { label: "Redirect to Thanks Page",
+          - { label: "Redirect to another page",
               name: "redirect",
               widget: "boolean",
               default: false,
               required: false
             }
+
           - {
-              label: "Redirect To Url On Submit",
+              label: "Redirect Url",
               name: "redirectUrl",
               widget: "string",
-              default: "/"
+              default: "/",
             }
 
           - { label: "Show Name Field",
@@ -645,8 +646,8 @@ collections:
                 fields:
                   - widget: boolean
                     name: showVideoPlayer
-                    label: Show Pirate Video on ho
-                    required: false  "showVideoPlayer": false,
+                    label: Show Pirate Video on home page
+                    required: false 
                   - widget: boolean
                     name: showfooter
                     label: Show the Footer
