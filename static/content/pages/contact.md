@@ -2,8 +2,8 @@
 template: contact-page
 slug: /contact
 title: Contact
-redirect: false
-redirectUrl: "/install"
+redirect: true
+redirectUrl: "/timeline"
 contactname: true
 contactphone: true
 contactupload: true
