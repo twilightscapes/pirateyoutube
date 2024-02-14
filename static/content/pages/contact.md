@@ -2,7 +2,7 @@
 template: contact-page
 slug: /contact
 title: Contact
-redirect: true
+redirect: false
 redirectUrl: "/pirate"
 contactname: true
 contactphone: true
