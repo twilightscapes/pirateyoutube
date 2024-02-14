@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+// import { jsx } from "theme-ui";
+import React from "react";
+import { useState } from "react";
 import { graphql } from "gatsby";
 import Seo from "../components/seo";
 import Layout from "../components/siteLayout";
-import useSiteMetadata from "../hooks/SiteMetadata";
+import useSiteMetadata from "../hooks/SiteMetadata"
+// import useSiteMetadata from "../hooks/SiteMetadata";
 import { Helmet } from "react-helmet";
 
 export const pageQuery = graphql`
@@ -14,11 +17,11 @@ export const pageQuery = graphql`
       frontmatter {
         title
         redirect
+        redirectUrl
         contactname
         contactphone
         contactupload
         uploadtext
-        redirectUrl
       }
     }
     site {
@@ -38,33 +41,6 @@ const Contact = ({ data }) => {
   const { frontmatter, html } = markdownRemark;
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const redirectUrl = frontmatter.redirectUrl || "/thanks";
-
-  const handleSubmit = async e => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    if (frontmatter.redirect === true) {
-      // Submit form programmatically
-      const form = e.target;
-      const formData = new FormData(form);
-      const response = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString(),
-      });
-
-      if (response.ok) {
-        window.location.href = redirectUrl;
-      } else {
-        setIsSubmitting(false);
-        alert("Failed to submit the form. Please try again later.");
-      }
-    } else {
-      // Display thank you message
-      setSubmitted(true);
-    }
-  };
 
   return (
     <Layout className="contact-page">
@@ -88,9 +64,8 @@ const Contact = ({ data }) => {
               method="POST"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
-              action={redirectUrl}
-              onSubmit={handleSubmit}
-              enctype="multipart/form-data"
+              action={frontmatter.redirect ? frontmatter.redirectUrl : "/thanks"} // Use redirectUrl if available, otherwise fallback to "/thanks"
+              encType="multipart/form-data" // Include enctype attribute for file uploads
               style={{
                 display: "flex",
                 flexDirection: "column",
@@ -146,7 +121,7 @@ const Contact = ({ data }) => {
                       className="button specialfont1"
                       type="submit"
                       disabled={isSubmitting}
-                      style={{ width: '90%', }}
+                      style={{ width: '90%' }}
                     >
                       {isSubmitting ? "Submitting..." : dicSubmit}
                     </button>
