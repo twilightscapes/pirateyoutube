@@ -52,7 +52,7 @@ const Contact = ({ data }) => {
       }
     });
     setFileAttached(fileAttached);
-    // Optional: You can handle form submission here, if needed
+    // You can handle form submission here, if needed
   };
 
   return (
