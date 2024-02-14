@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+// import { jsx } from "theme-ui";
+import React from "react";
+import { useState } from "react";
 import { graphql } from "gatsby";
 import Seo from "../components/seo";
 import Layout from "../components/siteLayout";
-import useSiteMetadata from "../hooks/SiteMetadata";
+import useSiteMetadata from "../hooks/SiteMetadata"
+// import useSiteMetadata from "../hooks/SiteMetadata";
 import { Helmet } from "react-helmet";
 
 export const pageQuery = graphql`
@@ -42,21 +45,10 @@ const Contact = ({ data }) => {
 
   const handleFileInputChange = (event) => {
     const files = event.target.files;
-    setFileAttached(files.length > 0);
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      // Perform form submission here, such as sending a POST request to a server or submitting to Netlify
-      // After successful submission, set the submitted state to true
-      setSubmitted(true);
-    } catch (error) {
-      console.error("Error submitting form:", error);
-    } finally {
-      setIsSubmitting(false);
+    if (files.length > 0) {
+      setFileAttached(true);
+    } else {
+      setFileAttached(false);
     }
   };
 
@@ -71,7 +63,8 @@ const Contact = ({ data }) => {
       />
 
       <div className="container panel" style={{ maxWidth: "1024px", margin: "0 auto", paddingTop: "5vh" }}>
-        <div style={{ padding: "3vh 6% 0 6%", textAlign: 'center' }} dangerouslySetInnerHTML={{ __html: html }} />
+
+        <div style={{ padding: "3vh 6% 0 6%", textAlign:'center' }} dangerouslySetInnerHTML={{ __html: html }} />
 
         {showContact ? (
           <div className="wrapper flexbutt" style={{ padding: "0 10% 10vh 10%", maxWidth: "", margin: "0 auto", display: "flex", flexDirection: "", justifyContent: "center" }}>
@@ -83,7 +76,6 @@ const Contact = ({ data }) => {
               data-netlify-honeypot="bot-field"
               {...(frontmatter.redirect ? { action: frontmatter.redirectUrl } : { action: "/thanks" })}
               encType="multipart/form-data"
-              onSubmit={handleSubmit} // Use onSubmit event on the form
               style={{
                 display: "flex",
                 flexDirection: "column",
@@ -133,6 +125,17 @@ const Contact = ({ data }) => {
                       <input className="file-input hidden" type="file" id="file" name="file" onChange={handleFileInputChange} />
                     </label>
                   )}
+
+{/* {frontmatter.contactupload && (
+    <label htmlFor="file" aria-label="Upload your file" style={{ padding: '0', color: 'inherit', textShadow: '1px 1px 0 #555', display: 'flex', flexDirection: 'column', width: '100%', fontSize: '90%', gap: '15px', justifyContent: 'center', alignItems: 'center' }}>
+        {submitted ? (
+            fileAttached ? "File Attached" : "No Attachments"
+        ) : (
+            frontmatter.uploadtext
+        )}
+        <input className="file-input hidden" type="file" id="file" name="file" onChange={handleFileInputChange} />
+    </label>
+)} */}
 
                   <p className="text-align-right1" style={{ margin: "0 auto", color: "#fff" }}>
                     <button
