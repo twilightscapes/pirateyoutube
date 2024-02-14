@@ -40,13 +40,26 @@ const Contact = ({ data }) => {
   const [submitted, setSubmitted] = useState(false);
   const redirectUrl = frontmatter.redirectUrl || "/thanks";
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     setIsSubmitting(true);
 
     if (frontmatter.redirect === true) {
-      // Use redirectUrl in action attribute
-      // Form submission will be handled by the browser automatically
+      // Submit form programmatically
+      const form = e.target;
+      const formData = new FormData(form);
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString(),
+      });
+
+      if (response.ok) {
+        window.location.href = redirectUrl;
+      } else {
+        setIsSubmitting(false);
+        alert("Failed to submit the form. Please try again later.");
+      }
     } else {
       // Display thank you message
       setSubmitted(true);
