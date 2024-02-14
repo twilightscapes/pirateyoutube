@@ -1,6 +1,6 @@
 backend:
-  name: test-repo
-  # name: git-gateway
+  # name: test-repo
+  name: git-gateway
   branch: main
   commit_messages:
     create: "Create {{collection}} “{{slug}}”"
@@ -9,7 +9,7 @@ backend:
     uploadMedia: "[skip ci] Upload “{{path}}”"
     deleteMedia: "[skip ci] Delete “{{path}}”"
 
-# Uncomment local_backend when you need to develop in your local fu
+# Uncomment local_backend when you need to develop in your local
 local_backend: true # run npx netlify-cms-proxy-server for local testing
 logo_url: https://piratesocial.org/assets/pirate-logo-bw.svg
 media_folder: "static/assets"
@@ -338,6 +338,12 @@ collections:
               default: false,
               required: false
             }
+          - {
+              label: "Redirect To Url On Submit",
+              name: "redirectUrl",
+              widget: "string",
+              default: "/",
+            }
 
           - { label: "Show Name Field",
               name: "contactname",
@@ -639,8 +645,8 @@ collections:
                 fields:
                   - widget: boolean
                     name: showVideoPlayer
-                    label: Show Pirate Video on home page
-                    required: false
+                    label: Show Pirate Video on ho
+                    required: false  "showVideoPlayer": false,
                   - widget: boolean
                     name: showfooter
                     label: Show the Footer
