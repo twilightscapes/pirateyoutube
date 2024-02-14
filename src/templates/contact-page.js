@@ -31,7 +31,7 @@ export const pageQuery = graphql`
 
 const Contact = ({ data }) => {
   const { language, proOptions } = useSiteMetadata();
-  const { dicName, dicEmail, dicMessage, dicSubmit, dicPhone, dicConfirmation } = language;
+  const { dicName, dicEmail, dicMessage, dicSubmit, dicPhone } = language;
   const { showContact } = proOptions;
 
   const { markdownRemark, site } = data;
@@ -114,11 +114,15 @@ const Contact = ({ data }) => {
                 </label>
               </p>
 
+
+              <span style={{ padding: '0', color: 'inherit', textShadow: '1px 1px 0 #555', display: 'flex', flexDirection: 'column', width: '100%', fontSize: '90%', gap: '15px', justifyContent: 'center', alignItems: 'center' }}>{frontmatter.uploadtext}</span>
+
               <label htmlFor="file" aria-label="Upload your file" style={{ padding: '0', color: 'inherit', textShadow: '1px 1px 0 #555', display: 'flex', flexDirection: 'column', width: '100%', fontSize: '90%', gap: '15px', justifyContent: 'center', alignItems: 'center' }}>
                 {fileAttached ? (
                   <span>File Attached</span>
                 ) : (
-                  <span>{frontmatter.uploadtext}</span>
+                  ""
+                  // <span>{frontmatter.uploadtext}</span>
                 )}
                 <input className="file-input hidden" type="file" id="file" name="file" onChange={handleFileInputChange} />
               </label>
