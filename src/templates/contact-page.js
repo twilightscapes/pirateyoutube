@@ -65,9 +65,6 @@ const Contact = ({ data }) => {
         }
     });
     setFileAttached(fileAttached); // Update fileAttached state
-
-    // Your form submission logic...
-    // For example, you can send the formData to an API endpoint or handle it with a serverless function.
 };
 
   return (
@@ -161,6 +158,7 @@ const Contact = ({ data }) => {
                       type="submit"
                       disabled={isSubmitting}
                       style={{ width: '90%' }}
+                      onClick={handleSubmit}
                     >
                       {isSubmitting ? "Submitting..." : dicSubmit}
                     </button>
