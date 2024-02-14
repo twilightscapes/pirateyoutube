@@ -52,6 +52,21 @@ const Contact = ({ data }) => {
     }
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      // Perform form submission here, such as sending a POST request to a server or submitting to Netlify
+      // After successful submission, set the submitted state to true
+      setSubmitted(true);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <Layout className="contact-page">
       <Helmet>
@@ -68,7 +83,7 @@ const Contact = ({ data }) => {
 
         {showContact ? (
           <div className="wrapper flexbutt" style={{ padding: "0 10% 10vh 10%", maxWidth: "", margin: "0 auto", display: "flex", flexDirection: "", justifyContent: "center" }}>
-            <form
+            {/* <form
               className={`contact-form flexcheek1 ${submitted ? "submitted" : ""}`}
               name="contact"
               method="POST"
@@ -82,7 +97,25 @@ const Contact = ({ data }) => {
                 justifyContent: "center",
                 opacity: isSubmitting ? 0.5 : 1,
               }}
-            >
+            > */}
+
+<form
+  className={`contact-form flexcheek1 ${submitted ? "submitted" : ""}`}
+  name="contact"
+  method="POST"
+  data-netlify="true"
+  data-netlify-honeypot="bot-field"
+  action={frontmatter.redirect ? frontmatter.redirectUrl : ""}
+  encType="multipart/form-data"
+  onSubmit={handleSubmit} // Use onSubmit event on the form
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    opacity: isSubmitting ? 0.5 : 1,
+  }}
+>
+
               {submitted ? (
                 <div className="thank-you-message" style={{ fontSize: '200%', height: '60vh', textAlign: 'center' }}>
                   {dicConfirmation}
