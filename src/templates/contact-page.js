@@ -126,91 +126,80 @@ const handleSubmit = e => {
 
 
 <form
-className={`contact-form flexcheek1 ${submitted ? "submitted" : ""}`}
-action="/install2"
-name="contact"
-method="POST"
-data-netlify="true"
-data-netlify-honeypot="bot-field"
-encType="multipart/form-data"
-onSubmit={handleSubmit}
-style={{
-display: "flex",
-flexDirection: "column",
-justifyContent: "center",
-opacity: isSubmitting ? 0.5 : 1,
-}}
+  className={`contact-form flexcheek1 ${submitted ? "submitted" : ""}`}
+  name="contact"
+  method="POST"
+  data-netlify="true"
+  data-netlify-honeypot="bot-field"
+  encType="multipart/form-data"
+  onSubmit={handleSubmit}
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    opacity: isSubmitting ? 0.5 : 1,
+  }}
 >
+  {submitted ? (
+    <div className="thank-you-message" style={{ fontSize: '200%', height: '60vh', textAlign: 'center' }}>
+      {dicConfirmation}
+    </div>
+  ) : (
+    <>
+      <input type="hidden" name="form-name" value="contact" />
 
+      {frontmatter.contactname && (
+        <p>
+          <label htmlFor="name" aria-label="Your Name">
+            <input type="text" id="name" name="name" placeholder={dicName} required />
+          </label>
+        </p>
+      )}
 
+      <p>
+        <label htmlFor="email" aria-label="Your Email">
+          <input id="email" type="email" name="email" placeholder={dicEmail} required />
+        </label>
+      </p>
 
+      {frontmatter.contactphone && (
+        <p>
+          <label htmlFor="phone" aria-label="Your Phone">
+            <input type="tel" id="phone" name="phone" placeholder={dicPhone} />
+          </label>
+        </p>
+      )}
 
-{submitted ? (
-<div className="thank-you-message" style={{fontSize:'200%', height:'60vh', textAlign:'center'}}>
-  {dicConfirmation}
-</div>
-) : (
-<>
-  <input type="hidden" name="form-name" value="contact" />
+      <p>
+        <label htmlFor="message" aria-label="Your Message">
+          <textarea id="message" name="message" placeholder={dicMessage} required></textarea>
+        </label>
+      </p>
 
-  {frontmatter.contactname && (
-<p>
-  <label htmlFor="name" aria-label="Your Name">
-    <input type="text" id="name" name="name" placeholder={dicName} required />
-  </label>
-</p>
-)}
+      {frontmatter.contactupload && (
+        <label htmlFor="file" aria-label="Upload your file" style={{ padding: '0', color: 'inherit', textShadow: '1px 1px 0 #555', display: 'flex', flexDirection: 'column', width: '100%', fontSize: '90%', gap: '15px', justifyContent: 'center', alignItems: 'center' }}>
+          {frontmatter.uploadtext}
+          <input className="file-input hidden" type="file" id="file" name="file" />
+        </label>
+      )}
 
-  <p>
-    <label htmlFor="email" aria-label="Your Email">
-      <input id="email" type="email" name="email" placeholder={dicEmail} required />
-    </label>
-  </p>
-
-  {frontmatter.contactphone && (
-<p>
-  <label htmlFor="phone" aria-label="Your Phone">
-    <input type="tel" id="phone" name="phone" placeholder={dicPhone} />
-  </label>
-</p>
-)}
-
-
-  <p>
-    <label htmlFor="message" aria-label="Your Message">
-      <textarea id="message" name="message" placeholder={dicMessage} required></textarea>
-    </label>
-  </p>
-
-
-
-  {frontmatter.contactupload && (
-<label htmlFor="file"  aria-label="Upload your file" style={{padding: '0', color: 'inherit', textShadow:'1px 1px 0 #555', display:'flex', flexDirection:'column', width:'100%', fontSize:'90%', gap:'15px', justifyContent:'center', alignItems:'center'}}>
-{frontmatter.uploadtext}
-    <input className="file-input hidden" type="file" id="file" name="file" />
-  </label>
-)}
-
-  <p
-    className="text-align-right1"
-    style={{ margin: "0 auto", color: "#fff" }}
-  >
-   
-
-    <button
-        className="button specialfont1"
-        type="submit"
-        disabled={isSubmitting}
-        style={{width:'90%',}}
+      <p
+        className="text-align-right1"
+        style={{ margin: "0 auto", color: "#fff" }}
       >
-        {isSubmitting ? "Submitting..." : dicSubmit}
-      </button>
-
-
-  </p>
-</>
-)}
+        <button
+          className="button specialfont1"
+          type="submit"
+          disabled={isSubmitting}
+          style={{ width: '90%', }}
+        >
+          {isSubmitting ? "Submitting..." : dicSubmit}
+        </button>
+      </p>
+    </>
+  )}
 </form>
+
 
     </div>
       ) : (
