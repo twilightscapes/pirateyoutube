@@ -69,12 +69,12 @@ const Contact = ({ data }) => {
         {showContact ? (
           <div className="wrapper flexbutt" style={{ padding: "0 10% 10vh 10%", maxWidth: "", margin: "0 auto", display: "flex", flexDirection: "", justifyContent: "center" }}>
             <form
-              className={`contact-form flexcheek1`}
+              className={`contact-form flexcheek1 ${submitted ? "submitted" : ""}`}
               name="contact"
               method="POST"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
-              {...(frontmatter.redirect ? { action: frontmatter.redirectUrl } : { action: "" })}
+              {...(frontmatter.redirect ? { action: frontmatter.redirectUrl } : { action: "#" })}
               onSubmit={() => {
                 setIsSubmitting(true); // Set isSubmitting state to true
                 setSubmitted(true); // Set submitted state to true
