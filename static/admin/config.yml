@@ -342,7 +342,7 @@ collections:
               label: "Redirect To Url On Submit",
               name: "redirectUrl",
               widget: "string",
-              default: "/",
+              default: "/"
             }
 
           - { label: "Show Name Field",
