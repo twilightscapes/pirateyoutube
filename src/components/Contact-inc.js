@@ -9,13 +9,13 @@ const Contact = class extends React.Component {
       <form
         className="contact-form specialfont2"
         action="/thanks"
-        name="signup"
+        name="contactinc"
         method="POST"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
         enctype="multipart/form-data"
       >
-        <input type="hidden" name="form-name" value="signup" />
+        <input type="hidden" name="form-name" value="contactinc" />
         <p>
           <label>
             <input type="text" name="name" placeholder="Name" required />
