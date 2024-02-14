@@ -126,7 +126,6 @@ const Contact = ({ data }) => {
         <input className="file-input hidden" type="file" id="file" name="file" onChange={handleFileInputChange} />
     </label>
 )}
-)}
 
                   <p className="text-align-right1" style={{ margin: "0 auto", color: "#fff" }}>
                     <button
