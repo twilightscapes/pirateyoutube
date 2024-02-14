@@ -42,18 +42,17 @@ const Contact = ({ data }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const form = e.target;
     setIsSubmitting(true);
-    const formData = new FormData(form);
-    let fileAttached = false; // Initialize fileAttached flag
+    setSubmitted(true);
+    const formData = new FormData(e.target);
+    let fileAttached = false;
     formData.forEach((value, key) => {
       if (key === "file" && value !== "") {
         fileAttached = true;
       }
     });
-    setFileAttached(fileAttached); // Update fileAttached state
-
-    // Your form submission logic...
+    setFileAttached(fileAttached);
+    // Optional: You can handle form submission here, if needed
   };
 
   return (
@@ -67,7 +66,7 @@ const Contact = ({ data }) => {
       />
 
       <div className="container panel" style={{ maxWidth: "1024px", margin: "0 auto", paddingTop: "5vh" }}>
-        <div style={{ padding: "3vh 6% 0 6%", textAlign:'center' }} dangerouslySetInnerHTML={{ __html: html }} />
+        <div style={{ padding: "3vh 6% 0 6%", textAlign: 'center' }} dangerouslySetInnerHTML={{ __html: html }} />
         {showContact ? (
           <div className="wrapper flexbutt" style={{ padding: "0 10% 10vh 10%", maxWidth: "", margin: "0 auto", display: "flex", flexDirection: "", justifyContent: "center" }}>
             <form
@@ -77,6 +76,7 @@ const Contact = ({ data }) => {
               data-netlify="true"
               data-netlify-honeypot="bot-field"
               action={frontmatter.redirect ? frontmatter.redirectUrl : ""}
+              encType="multipart/form-data"
               style={{
                 display: "flex",
                 flexDirection: "column",
