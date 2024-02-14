@@ -3,7 +3,7 @@ template: contact-page
 slug: /contact
 title: Contact
 redirect: true
-redirectUrl: "/timeline"
+redirectUrl: "../timeline"
 contactname: true
 contactphone: true
 contactupload: true
