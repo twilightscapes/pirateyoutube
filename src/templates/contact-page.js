@@ -41,6 +41,16 @@ const Contact = ({ data }) => {
   const { frontmatter, html } = markdownRemark;
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [fileAttached, setFileAttached] = useState(false);
+
+  const handleFileInputChange = (event) => {
+    const files = event.target.files;
+    if (files.length > 0) {
+      setFileAttached(true);
+    } else {
+      setFileAttached(false);
+    }
+  };
 
   return (
     <Layout className="contact-page">
@@ -64,7 +74,7 @@ const Contact = ({ data }) => {
               method="POST"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
-              {...(frontmatter.redirect ? { action: frontmatter.redirectUrl } : {action:""})} 
+              {...(frontmatter.redirect ? { action: frontmatter.redirectUrl } : { action: "" })}
               encType="multipart/form-data"
               style={{
                 display: "flex",
@@ -111,8 +121,8 @@ const Contact = ({ data }) => {
 
                   {frontmatter.contactupload && (
                     <label htmlFor="file" aria-label="Upload your file" style={{ padding: '0', color: 'inherit', textShadow: '1px 1px 0 #555', display: 'flex', flexDirection: 'column', width: '100%', fontSize: '90%', gap: '15px', justifyContent: 'center', alignItems: 'center' }}>
-                      {frontmatter.uploadtext}
-                      <input className="file-input hidden" type="file" id="file" name="file" />
+                      <span>{submitted && !fileAttached ? "No Attachments" : fileAttached ? "File Attached" : frontmatter.uploadtext}</span>
+                      <input className="file-input hidden" type="file" id="file" name="file" onChange={handleFileInputChange} />
                     </label>
                   )}
 
