@@ -90,6 +90,7 @@ const Contact = ({ data }) => {
               data-netlify-honeypot="bot-field"
               action={redirectUrl}
               onSubmit={handleSubmit}
+              enctype="multipart/form-data"
               style={{
                 display: "flex",
                 flexDirection: "column",
