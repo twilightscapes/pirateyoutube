@@ -56,16 +56,33 @@ const Contact = ({ data }) => {
     e.preventDefault();
     const form = e.target;
     setIsSubmitting(true);
-
+  
+    // Create a new FormData object
     const formData = new FormData(form);
-    let fileAttached = false; // Initialize fileAttached flag
-    formData.forEach((value, key) => {
-        if (key === "file" && value !== "") {
-            fileAttached = true;
-        }
-    });
-    setFileAttached(fileAttached); // Update fileAttached state
-};
+  
+    // Submit the form using fetch API
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        body: formData,
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      });
+  
+      // Check if the form submission was successful
+      if (response.ok) {
+        setSubmitted(true); // Update the submitted state
+      } else {
+        throw new Error("Form submission failed");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+  
 
   return (
     <Layout className="contact-page">
