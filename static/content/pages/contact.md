@@ -2,7 +2,7 @@
 template: contact-page
 slug: /contact
 title: Contact
-redirect: false
+redirect: true
 redirectUrl: "/timeline"
 contactname: true
 contactphone: true
