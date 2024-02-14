@@ -77,6 +77,10 @@ const Contact = ({ data }) => {
               {...(frontmatter.redirect ? { action: frontmatter.redirectUrl } : { action: "" })}
               // action={frontmatter.redirect ? frontmatter.redirectUrl : ""}
               encType="multipart/form-data"
+              // onSubmit={() => {
+              //   setIsSubmitting(true); // Set isSubmitting state to true
+              //   setSubmitted(true); // Set submitted state to true
+              // }}
               style={{
                 display: "flex",
                 flexDirection: "column",
@@ -152,6 +156,10 @@ const Contact = ({ data }) => {
                       type="submit"
                       disabled={isSubmitting}
                       style={{ width: '90%' }}
+                      onSubmit={() => {
+                        setIsSubmitting(true); // Set isSubmitting state to true
+                        setSubmitted(true); // Set submitted state to true
+                      }}
                     >
                       {isSubmitting ? "Submitting..." : dicSubmit}
                     </button>
