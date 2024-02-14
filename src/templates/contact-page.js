@@ -64,8 +64,8 @@ const Contact = ({ data }) => {
               method="POST"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
-              {...(frontmatter.redirect ? { action: frontmatter.redirectUrl } : {})} // Conditionally render action attribute
-              encType="multipart/form-data" // Include enctype attribute for file uploads
+              {...(frontmatter.redirect ? { action: frontmatter.redirectUrl } : { action: "" })}
+              encType="multipart/form-data"
               style={{
                 display: "flex",
                 flexDirection: "column",
