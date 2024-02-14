@@ -129,10 +129,10 @@ const Contact = ({ data }) => {
 
 
 <label htmlFor="file" aria-label="Upload your file" style={{ padding: '0', color: 'inherit', textShadow: '1px 1px 0 #555', display: 'flex', flexDirection: 'column', width: '100%', fontSize: '90%', gap: '15px', justifyContent: 'center', alignItems: 'center' }}>
-  {fileAttached && <span>File Attached</span>}
-  {!fileAttached && !submitted && <span>{frontmatter.uploadtext}</span>}
-  <input className="file-input hidden" type="file" id="file" name="file" onChange={handleFileInputChange} />
-</label>
+        {fileAttached && <span>File Attached</span>}
+        {!fileAttached && !submitted && <span>{frontmatter.uploadtext}</span>}
+        <input className="file-input hidden" type="file" id="file" name="file" onChange={handleFileInputChange} />
+      </label>
 
 {/* {frontmatter.contactupload && (
     <label htmlFor="file" aria-label="Upload your file" style={{ padding: '0', color: 'inherit', textShadow: '1px 1px 0 #555', display: 'flex', flexDirection: 'column', width: '100%', fontSize: '90%', gap: '15px', justifyContent: 'center', alignItems: 'center' }}>
