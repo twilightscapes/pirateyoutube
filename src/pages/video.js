@@ -25,11 +25,12 @@ const Video = () => {
     };
 
     // Check if running in standalone mode
-    if (window && window.matchMedia) {
+    if (typeof window !== 'undefined' && window.matchMedia) {
       setIsStandalone(window.matchMedia('(display-mode: standalone)').matches);
     }
   }, []);
 
+  
   const handleShareButtonClick = () => {
     if (navigator.share) { 
       navigator.share({
