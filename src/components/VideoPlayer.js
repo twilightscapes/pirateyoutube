@@ -34,7 +34,7 @@ const VideoPlayer = () => {
   };
 
   function isRunningStandalone() {
-    return (typeof window !== 'undefined' && window.matchMedia('(display-mode: standalone)').matches);
+    return (window.matchMedia('(display-mode: standalone)').matches);
   }
 
   const handleShareButtonClick = () => {
@@ -57,48 +57,11 @@ const VideoPlayer = () => {
 
   return (
     <>
-      <div className='player-wrapper' style={{}}>
-        <ReactPlayer
-          ref={playerRef}
-          allow="web-share"
-          style={{
-            position: 'relative', top: '0', margin: '0 auto 0 auto', zIndex: '1',  overflow: 'hidden', width: '100vw', minHeight: '', height: '100%', background: 'transparent'
-          }}
-          width="100%"
-          height="100%"
-          url={youtubelink}
-          playing={true}
-          controls={true}
-          playsinline
-          config={{
-            youtube: {
-              playerVars: { showinfo: false, autoplay: false, controls: true, start: "0", end: null, mute: false, loop: false }
-            },
-          }}
-        />
-        <div className="form-container controller font" style={{position:'relative', zIndex:'2', top:'0', marginTop:'0', height:'auto', padding:'2vh 2%', width:'100vw', background:'var(--theme-ui-colors-headerColor)'}}>
-          <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-            <form className="youtubeform frontdrop" onSubmit={handleSubmit}id="youtubeform" name="youtubeform">
-
-
-              {isRunningStandalone() ? (
-                <>
-                  <a title="Open YouTube" aria-label="Open YouTube" href="https://youtube.com">
-                    <ImYoutube2 style={{ fontSize: '50px' }} />
-                  </a>
-                  <a title="Open Facebook" aria-label="Open Facebook" href="https://www.facebook.com/watch/">
-                    <FaFacebookSquare style={{ fontSize: '30px' }} />
-                  </a>
-                  <a title="Open Twitch" aria-label="Open Twitch" href="https://www.twitch.tv/directory">
-                    <FaTwitch style={{ fontSize: '30px' }} />
-                  </a>
-                </>
-              ) : (
-                <>
-                  <div className="share-dialog" style={{ display: showShareDialog ? 'block' : 'none' }}>
+    <div className='player-wrapper' style={{}}>
+    <div className="share-dialog" style={{ display: showShareDialog ? 'block' : 'none' }}>
                     <h3 className="dialog-title">Install PIRATE</h3>
                     <button className="close-button" onClick={closeShareDialog}>Close</button>
-                    {/* <div className="targets">
+                    <div className="targets">
                       <a className="button">
                         <svg>
                           <use href="#facebook"></use>
@@ -123,12 +86,50 @@ const VideoPlayer = () => {
                         </svg>
                         <span>Email</span>
                       </a>
-                    </div> */}
+                    </div>
                     <div className="link">
                       <div className="pen-url">https://pirateyoutube.com</div>
                       <button className="copy-link">Copy Link</button>
                     </div>
                   </div>
+        <ReactPlayer
+          ref={playerRef}
+          allow="web-share"
+          style={{
+            position: 'relative', top: '0', margin: '0 auto 0 auto', zIndex: '1',  overflow: 'hidden', width: '100vw', minHeight: '', height: '100%', background: 'transparent'
+          }}
+          width="100%"
+          height="100%"
+          url={youtubelink}
+          playing={true}
+          controls={true}
+          playsinline
+          config={{
+            youtube: {
+              playerVars: { showinfo: false, autoplay: false, controls: true, start: "0", end: null, mute: false, loop: false }
+            },
+          }}
+        />
+        <div className="form-container controller font" style={{position:'relative', zIndex:'5', top:'0', marginTop:'0', height:'auto', padding:'2vh 2%', width:'100vw', background:'var(--theme-ui-colors-headerColor)'}}>
+          <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+            <form className="youtubeform frontdrop" onSubmit={handleSubmit}id="youtubeform" name="youtubeform">
+
+
+              {isRunningStandalone() ? (
+                <>
+                  <a title="Open YouTube" aria-label="Open YouTube" href="https://youtube.com">
+                    <ImYoutube2 style={{ fontSize: '50px' }} />
+                  </a>
+                  <a title="Open Facebook" aria-label="Open Facebook" href="https://www.facebook.com/watch/">
+                    <FaFacebookSquare style={{ fontSize: '30px' }} />
+                  </a>
+                  <a title="Open Twitch" aria-label="Open Twitch" href="https://www.twitch.tv/directory">
+                    <FaTwitch style={{ fontSize: '30px' }} />
+                  </a>
+                </>
+              ) : (
+                <>
+
 
                   
                   <button style={{ display: "flex", justifyContent: "center", padding: "0 .3vw", maxWidth: "", margin: "0 auto", textAlign:'center', fontSize:'14px', fontWeight:'light', textShadow:'0 1px 0 #000' }} className="button print" type="button" title="Add To Home Screen To Install PIRATE" onClick={handleShareButtonClick}>

@@ -1742,50 +1742,24 @@ body:has(.ReactModal__Content) .upbar{ transform:translateY(0);}
     margin-right: 7px;
   }
   
-  /*   button, .button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;c
-    height: auto;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    color: #777;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.1;
-    letter-spacing: 2px;
-    text-transform: capitalize;
-    text-decoration: none;
-    white-space: nowrap;
-    border-radius: 4px;
-    border: 1px solid #ddd;
-    cursor: pointer;
-  } */
-  
-  /* button:hover, .button:hover {
-    border-color: #cdd;
-  } */
-  
-  /* .share-button, .copy-link {
-    padding-left: 30px;
-    padding-right: 30px;
-  } */
+
   
   .share-dialog {
     position: absolute;
+    top:0;
     left:0;
-    transform: translate(0, -100%);
+    /* transform: translate(30vw, 0); */
     display: none;
-    width: 95%;
-    max-width:500px;
-    /* min-height: 50vh; */
-    box-shadow: 0 8px 16px rgba(0,0,0,.15);
-    z-index: 3;
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 4px;
-    background-color: #fff;
+    width: 100%;
+    min-width: 350px;
+    min-height:88px;
+    z-index: 999999;
+    padding: 1vh 2vw;
+    margin:0 auto;
+    border-radius: var(--theme-ui-colors-borderRadius);
+    background-color: #111;
+    color: #fff;
+  
 
 }
 
@@ -1814,8 +1788,9 @@ body:has(.ReactModal__Content) .upbar{ transform:translateY(0);}
     border: none;
     padding: 0;
     position:absolute;
-    top:0; 
+    top:.5vh; 
     right:1vw;
+    z-index: 4;
   }
   
   .close-button svg {
