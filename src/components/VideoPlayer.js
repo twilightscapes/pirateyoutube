@@ -26,6 +26,12 @@ const VideoPlayer = () => {
   const handleInputChange = (event) => {
     const { value } = event.target;
     setYoutubelink(value);
+  
+    // Scroll to the #piratevideo element
+    const pirateVideoElement = document.getElementById('VideoPlayer');
+    if (pirateVideoElement) {
+      pirateVideoElement.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const handleSubmit = (event) => {
@@ -60,7 +66,7 @@ const VideoPlayer = () => {
 
   return (
     <>
-    <div className='player-wrapper' style={{}}>
+    <div id="piratevideo" className='player-wrapper' style={{}}>
     <div className="share-dialog" style={{ display: showShareDialog ? 'block' : 'none' }}>
                     <h3 className="dialog-title">Install PIRATE</h3>
                     <button className="close-button" onClick={closeShareDialog}>Close</button>

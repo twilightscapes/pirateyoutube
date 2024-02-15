@@ -29,6 +29,12 @@ const Video = () => {
   const handleInputChange = (event) => {
     const { value } = event.target;
     setYoutubelink(value);
+  
+    // Scroll to the #piratevideo element
+    const pirateVideoElement = document.getElementById('VideoPlayer');
+    if (pirateVideoElement) {
+      pirateVideoElement.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const handleSubmit = (event) => {
