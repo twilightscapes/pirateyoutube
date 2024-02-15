@@ -33,10 +33,9 @@ const VideoPlayer = () => {
     // Add any additional logic you need on form submission
   };
 
-    // Check if running in standalone mode
-    if (window && window.matchMedia) {
-      setIsStandalone(window.matchMedia('(display-mode: standalone)').matches);
-    }
+  function isRunningStandalone() {
+    return (window.matchMedia('(display-mode: standalone)').matches);
+  }
 
   const handleShareButtonClick = () => {
     if (navigator.share) { 
@@ -131,8 +130,6 @@ const VideoPlayer = () => {
                     </div>
                   </div>
 
-
-                  {/* <button type="button" onClick={closeShareDialog} state={{ modal: true }} className="button print" style={{ display: "flex", justifyContent: "center", padding: "10px .3vw", maxWidth: "", margin: "0 auto", textAlign:'center', fontSize:'14px', fontWeight:'light', textShadow:'0 1px 0 #000' }} title="Add To Home Screen To Install PIRATE">Add To Home Screen To Install PIRATE</button> */}
                   
                   <button style={{ display: "flex", justifyContent: "center", padding: "0 .3vw", maxWidth: "", margin: "0 auto", textAlign:'center', fontSize:'14px', fontWeight:'light', textShadow:'0 1px 0 #000' }} className="button print" type="button" title="Add To Home Screen To Install PIRATE" onClick={handleShareButtonClick}>
                     

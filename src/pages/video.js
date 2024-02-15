@@ -3,8 +3,8 @@ import ReactPlayer from 'react-player/lazy';
 import { ImYoutube2 } from "react-icons/im";
 import { FaTwitch, FaFacebookSquare } from "react-icons/fa";
 import { Link } from "gatsby";
-import PageMenu from "../components/PageMenu"
-import Layout from "../components/siteLayout"
+import PageMenu from "../components/PageMenu";
+import Layout from "../components/siteLayout";
 import Seo from "../components/seo";
 import { Helmet } from "react-helmet";
 
@@ -13,6 +13,7 @@ const Video = () => {
   const playerRef = useRef(null);
   const [youtubelink, setYoutubelink] = useState("");
   const [isStandalone, setIsStandalone] = useState(false);
+  const [showShareDialog, setShowShareDialog] = useState(false);
 
   useEffect(() => {
     const inputRef = inputElement.current;
@@ -24,19 +25,28 @@ const Video = () => {
     };
 
     // Check if running in standalone mode
-    const checkStandalone = () => {
-      if (typeof window !== 'undefined' && window.matchMedia) {
-        setIsStandalone(window.matchMedia('(display-mode: standalone)').matches);
-      }
-    };
-
-    checkStandalone();
-
-    return () => {
-      inputRef.onfocus = null;
-      inputRef.onblur = null;
-    };
+    if (window && window.matchMedia) {
+      setIsStandalone(window.matchMedia('(display-mode: standalone)').matches);
+    }
   }, []);
+
+  const handleShareButtonClick = () => {
+    if (navigator.share) { 
+      navigator.share({
+        title: 'PIRATE',
+        url: 'https://pirateyoutube.com'
+      }).then(() => {
+        console.log('Thanks for being a PIRATE!');
+      })
+      .catch(console.error);
+    } else {
+      setShowShareDialog(true);
+    }
+  };
+
+  const closeShareDialog = () => {
+    setShowShareDialog(false);
+  };
 
   const fillFormFromClipboard = async () => {
     try {
@@ -92,20 +102,43 @@ const Video = () => {
               <form className="youtubeform frontdrop" onSubmit={handleSubmit} id="youtubeform" name="youtubeform">
 
               {isStandalone ? (
-                  <>
-                    <a title="Open YouTube" aria-label="Open YouTube" href="https://youtube.com">
-                      <ImYoutube2 style={{ fontSize: '50px' }} />
-                    </a>
-                    <a title="Open Facebook" aria-label="Open Facebook" href="https://www.facebook.com/watch/">
-                      <FaFacebookSquare style={{ fontSize: '30px' }} />
-                    </a>
-                    <a title="Open Twitch" aria-label="Open Twitch" href="https://www.twitch.tv/directory">
-                      <FaTwitch style={{ fontSize: '30px' }} />
-                    </a>
-                  </>
-                ) : (
-                  <Link onClick={closeShareDialog} to="/install" state={{ modal: true }} className="button print" style={{ display: "flex", justifyContent: "center", padding: "10px .3vw", maxWidth: "", margin: "0 auto", textAlign:'center', fontSize:'14px', fontWeight:'light', textShadow:'0 1px 0 #000' }}>Add To Home Screen To Install PIRATE</Link>
-                )}
+                <>
+                  <a title="Open YouTube" aria-label="Open YouTube" href="https://youtube.com">
+                    <ImYoutube2 style={{ fontSize: '50px' }} />
+                  </a>
+                  <a title="Open Facebook" aria-label="Open Facebook" href="https://www.facebook.com/watch/">
+                    <FaFacebookSquare style={{ fontSize: '30px' }} />
+                  </a>
+                  <a title="Open Twitch" aria-label="Open Twitch" href="https://www.twitch.tv/directory">
+                    <FaTwitch style={{ fontSize: '30px' }} />
+                  </a>
+                </>
+              ) : (
+                <>
+                  <div className="share-dialog" style={{ display: showShareDialog ? 'block' : 'none' }}>
+                    <h3 className="dialog-title">Install PIRATE</h3>
+                    <button className="close-button" onClick={closeShareDialog}>Close</button>
+                    <div className="link">
+                      <div className="pen-url">https://pirateyoutube.com</div>
+                      <button className="copy-link">Copy Link</button>
+                    </div>
+                  </div>
+                  
+                  <button style={{ display: "flex", justifyContent: "center", padding: "0 .3vw", maxWidth: "", margin: "0 auto", textAlign:'center', fontSize:'14px', fontWeight:'light', textShadow:'0 1px 0 #000' }} className="button print" type="button" title="Add To Home Screen To Install PIRATE" onClick={handleShareButtonClick}>
+                    <div style={{ display: "flex", alignItems:'center', justifyContent: "center", padding: "4px .3vw", maxWidth: "", margin: "0 auto", textAlign:'center', fontSize:'14px', fontWeight:'light', textShadow:'0 1px 0 #000' }}>
+                      <svg style={{maxWidth:'30px', maxHeight:'30px'}}>
+                        <use href="#share-icon"></use>
+                      </svg> Add To Home Screen To Install PIRATE
+                    </div>
+                  </button>
+                  
+                  <svg className="hidden">
+                    <defs>
+                      <symbol id="share-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-share"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></symbol>
+                    </defs>
+                  </svg>
+                </>
+              )}
 
                 <input
                   ref={inputElement}
