@@ -40,10 +40,10 @@ const VideoPlayer = () => {
   const handleShareButtonClick = () => {
     if (navigator.share) { 
       navigator.share({
-        title: 'WebShare API Demo',
-        url: 'https://codepen.io/ayoisaiah/pen/YbNazJ'
+        title: 'PIRATE',
+        url: 'https://pirateweb.org'
       }).then(() => {
-        console.log('Thanks for sharing!');
+        console.log('Thanks for being a PIRATE!');
       })
       .catch(console.error);
     } else {
@@ -79,6 +79,8 @@ const VideoPlayer = () => {
         <div className="form-container controller font" style={{position:'relative', zIndex:'2', top:'0', marginTop:'0', height:'', padding:'2vh 2%', width:'100vw', background:'var(--theme-ui-colors-headerColor)'}}>
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>
             <form className="youtubeform frontdrop" onSubmit={handleSubmit}id="youtubeform" name="youtubeform">
+
+
               {isRunningStandalone() ? (
                 <>
                   <a title="Open YouTube" aria-label="Open YouTube" href="https://youtube.com">
@@ -128,21 +130,30 @@ const VideoPlayer = () => {
                     </div>
                   </div>
 
+
+                  {/* <button type="button" onClick={closeShareDialog} state={{ modal: true }} className="button print" style={{ display: "flex", justifyContent: "center", padding: "10px .3vw", maxWidth: "", margin: "0 auto", textAlign:'center', fontSize:'14px', fontWeight:'light', textShadow:'0 1px 0 #000' }} title="Add To Home Screen To Install PIRATE">Add To Home Screen To Install PIRATE</button> */}
                   
-                  <button style={{ display: "flex", justifyContent: "center", padding: "10px .3vw", maxWidth: "", margin: "0 auto", textAlign:'center', fontSize:'14px', fontWeight:'light', textShadow:'0 1px 0 #000' }} className="button print" type="button" title="Add To Home Screen To Install PIRATE" onClick={handleShareButtonClick}>
-                    <svg style={{maxWidth:'50px'}}>
+                  <button style={{ display: "flex", justifyContent: "center", padding: "0 .3vw", maxWidth: "", margin: "0 auto", textAlign:'center', fontSize:'14px', fontWeight:'light', textShadow:'0 1px 0 #000' }} className="button print" type="button" title="Add To Home Screen To Install PIRATE" onClick={handleShareButtonClick}>
+                    
+                    <div style={{ display: "flex", alignItems:'center', justifyContent: "center", padding: "4px .3vw", maxWidth: "", margin: "0 auto", textAlign:'center', fontSize:'14px', fontWeight:'light', textShadow:'0 1px 0 #000' }}>
+
+                    <svg style={{maxWidth:'30px', maxHeight:'30px'}}>
                       <use href="#share-icon"></use>
-                    </svg>
-                    <div style={{ display: "flex", justifyContent: "center", padding: "10px .3vw", maxWidth: "", margin: "0 auto", textAlign:'center', fontSize:'14px', fontWeight:'light', textShadow:'0 1px 0 #000' }}>Add To Home Screen To Install PIRATE</div>
+                    </svg> Add To Home Screen To Install PIRATE</div>
                   </button>
+
+                  
                   <svg className="hidden">
                     <defs>
                       <symbol id="share-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-share"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></symbol>
-                      {/* Define other SVG symbols here */}
                     </defs>
                   </svg>
                 </>
               )}
+
+
+
+
               <input
                 ref={inputElement}
                 id="youtubelink-input"

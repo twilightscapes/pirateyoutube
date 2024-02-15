@@ -1736,11 +1736,11 @@ body:has(.ReactModal__Content) .upbar{ transform:translateY(0);}
     display: none;
   }
   
-.share-button svg {
+/* .share-dialog svg {
     width: 20px;
     height: 20px;
     margin-right: 7px;
-  }
+  } */
   
   /*   button, .button {
     display: inline-flex;
@@ -1775,7 +1775,7 @@ body:has(.ReactModal__Content) .upbar{ transform:translateY(0);}
   .share-dialog {
     position: absolute;
     left:0;
-    /* transform: translate(-50%, -50%); */
+    transform: translate(0, -100%);
     display: none;
     width: 95%;
     max-width:500px;
@@ -1815,7 +1815,7 @@ body:has(.ReactModal__Content) .upbar{ transform:translateY(0);}
     padding: 0;
     position:absolute;
     top:0; 
-    right:20vw;
+    right:1vw;
   }
   
   .close-button svg {
@@ -1828,6 +1828,11 @@ body:has(.ReactModal__Content) .upbar{ transform:translateY(0);}
     align-items: center;
     padding: 10px;
     border-radius: 4px;
-    background-color: #eee;
   }
   
+  .pen-url {
+    margin-right: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
