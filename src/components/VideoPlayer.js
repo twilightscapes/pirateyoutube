@@ -7,8 +7,9 @@ import useSiteMetadata from "../hooks/SiteMetadata"
 
 const VideoPlayer = () => {
 
-  const { proOptions } = useSiteMetadata();
+  const { proOptions, featureOptions } = useSiteMetadata();
   const { showBranding } = proOptions
+  const { showNav } = featureOptions
 
 
   const inputElement = useRef(null);
@@ -72,7 +73,7 @@ const VideoPlayer = () => {
 
   return (
     <>
-    <div id="piratevideo" className='player-wrapper' style={{ display:'grid', placeContent:'', width:'100dvw', transition: 'all 1s ease-in-out'}}>
+    <div id="piratevideo" className='player-wrapper' style={{ display:'grid', placeContent:'', width:'100vw', transition: 'all 1s ease-in-out'}}>
 
 
     <div className="share-dialog" style={{ display: showShareDialog ? 'block' : 'none' }}>
@@ -110,26 +111,8 @@ const VideoPlayer = () => {
                     </div>
     </div>
 
-        <ReactPlayer
-          ref={playerRef}
-          allow="web-share"
-          style={{
-            position: 'relative', top: '0', margin: '0 auto 0 auto', zIndex: '1',  overflow: 'hidden', width: '100vw', minHeight: '', height: '100%', background: 'transparent',
-            transition: 'all 1s ease-in-out'
-          }}
-          width="100%"
-          height="100%"
-          url={youtubelink}
-          playing={true}
-          controls={true}
-          playsinline
-          config={{
-            youtube: {
-              playerVars: { showinfo: false, autoplay: false, controls: true, start: "0", end: null, mute: false, loop: false }
-            },
-          }}
-        />
-        <div className="form-container controller font" style={{position:'relative', zIndex:'4', top:'0', marginTop:'0', height:'auto', padding:'2vh 2%', width:'100vw', nargin:'0 auto', transition: 'all 1s ease-in-out', background:'var(--theme-ui-colors-headerColor)'}}>
+
+    <div className="form-container controller font" style={{position:'relative', zIndex:'4', top:'0', height:'auto', width:'100vw', margin:'0 auto',marginTop: showNav ? '0' : '0', transition: 'all 1s ease-in-out', background:'var(--theme-ui-colors-headerColor)'}}>
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>
             <form className="youtubeform frontdrop" onSubmit={handleSubmit}id="youtubeform" name="youtubeform">
 
@@ -195,6 +178,31 @@ const VideoPlayer = () => {
             </form>
           </div>
         </div>
+
+
+
+        <ReactPlayer
+          ref={playerRef}
+          allow="web-share"
+          style={{
+            position: 'relative', top: '0', margin: '0 auto 0 auto', zIndex: '1',  overflow: 'hidden', width: '100vw', minHeight: '', height: '100%', background: 'transparent',
+            transition: 'all 1s ease-in-out',
+            
+            
+          }}
+          width="100%"
+          height="100%"
+          url={youtubelink}
+          playing={true}
+          controls={true}
+          playsinline
+          config={{
+            youtube: {
+              playerVars: { showinfo: false, autoplay: false, controls: true, start: "0", end: null, mute: false, loop: false }
+            },
+          }}
+        />
+
       </div>
     </>
   );
