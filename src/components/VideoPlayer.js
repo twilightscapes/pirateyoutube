@@ -136,13 +136,15 @@ const VideoPlayer = () => {
                   
 {showBranding ? (
                   <>
-                  <button style={{ display: "flex", justifyContent: "center", padding: "0 .3vw", maxWidth: "", margin: "0 auto", textAlign:'center', fontSize:'14px', fontWeight:'light', textShadow:'0 1px 0 #000' }} className=" print" type="button" title="Add To Home Screen To Install PIRATE" onClick={handleShareButtonClick}>
+                  <button style={{ display: "flex", justifyContent: "center", padding: "0 .3vw", maxWidth: "", margin: "0 auto", textAlign:'center', fontSize:'14px', fontWeight:'light', textShadow:'0 1px 0 #000', pointer:'none' }} className=" print" type="button" title="Add To Home Screen To Install PIRATE" 
+                  // onClick={handleShareButtonClick}
+                  >
                     
                     <div style={{ display: "flex", alignItems:'center', justifyContent: "center", padding: "4px .3vw", maxWidth: "", margin: "0 auto", textAlign:'center', fontSize:'14px', fontWeight:'light', textShadow:'0 1px 0 #000' }}>
 
                     <svg style={{maxWidth:'30px', maxHeight:'30px'}}>
                       <use href="#share-icon"></use>
-                    </svg> Add To Home Screen To Install PIRATE</div>
+                    </svg> Add To Home Screen To Install PIRATE Lite</div>
                   </button>
 
                   
