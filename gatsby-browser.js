@@ -1,9 +1,9 @@
-import React from "react";
-import { GlobalStateProvider } from "./src/components/GlobalStateContext";
+// import React from "react";
+// import { GlobalStateProvider } from "./src/components/GlobalStateContext";
 
-export const wrapRootElement = ({ element }) => {
-  return <GlobalStateProvider>{element}</GlobalStateProvider>;
-};
+// export const wrapRootElement = ({ element }) => {
+//   return <GlobalStateProvider>{element}</GlobalStateProvider>;
+// };
 
 export const onServiceWorkerUpdateReady = () => {
   // Check if window is defined before using it

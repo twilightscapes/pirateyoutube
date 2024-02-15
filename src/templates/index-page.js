@@ -435,7 +435,24 @@ display:'flex', justifyContent:'center', maxHeight:'80px !important', height:'15
 
 
 
-<div className="post-container" style={{maxWidth:'100vw', overFlowY:'hidden', paddingTop: showNav ? '8vw' : '8vw'}}>
+<div className="post-container" style={{maxWidth:'100vw', overFlowY:'hidden', paddingTop: showNav ? '0' : '0'}}>
+
+
+
+{showVideoPlayer ? (
+  <section id="VideoPlayer" name="VideoPlayer" className="print scroll-area" style={{  width:'100vw', height:'auto', margin:'0 auto 0 auto', padding:'0 0 0 0', position:'relative',
+ alignContent:'center', maxWidth:'100vw', display:'flex', textAlign:'left', justifyContent:'start', verticalAlign:'center',
+  color:'',
+  fontSize:'clamp(1rem, 1.8vw, 3.2rem)',
+  textShadow:'0 2px 7px #000',
+  paddingTop: showNav ? '0' : '0'
+  // backgroundColor:'var(--theme-ui-colors-headerColor)'
+}}>
+<YouTubePlayer />
+</section>
+     ) : (
+       ""
+   )} 
 
 
 
@@ -508,7 +525,7 @@ style={{height:'auto', width:'100dvw', maxHeight:'100dvh', position:'absolute', 
 
 {/* show profile */}
 {!showProfile ? (
-  <section className="scroll-area panel" id="profile" name="profile" style={{ display:'', height:'100%', minHeight:'', position:'relative', overflow:'hidden', margin:'0 auto 0 auto', padding:'0 0 60px 0', background:'var(--theme-ui-colors-background)', color:'var(--theme-ui-colors-text)', width:'100vw', borderRadius:'var(--theme-ui-colors-borderRadius)', }}>
+  <section className="scroll-area panel" id="profile" name="profile" style={{ display:'', height:'', minHeight:'', position:'relative', overflow:'hidden', margin:'0 auto 0 auto', padding:'0 0 0 0', background:'var(--theme-ui-colors-background)', color:'var(--theme-ui-colors-text)', width:'100vw', borderRadius:'var(--theme-ui-colors-borderRadius)', }}>
   <article style={{ margin:'0 0 0 0'}}>
 
 
@@ -591,7 +608,7 @@ style={{height:'auto', width:'100dvw', maxHeight:'100dvh', position:'absolute', 
 
 
   {frontmatter.coverletter.showCover ? (
-    <Link to={frontmatter.coverletter.coverLink} state={{modal: true}} className="button print" style={{color:'', fontSize:'', margin:'15px auto 10px auto', textAlign:'center', textDecoration:'underline', maxWidth:'600px', padding:'1vh 2rem'}}>{coverText}</Link>
+    <Link to={frontmatter.coverletter.coverLink} state={{modal: true}} className=" print" style={{color:'', fontSize:'', margin:'15px auto 10px auto', textAlign:'center', textDecoration:'underline', maxWidth:'600px', padding:'1vh 2rem'}}>{coverText}</Link>
   ) : (
     ""
   )}

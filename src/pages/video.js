@@ -6,8 +6,13 @@ import PageMenu from "../components/PageMenu";
 import Layout from "../components/siteLayout";
 import Seo from "../components/seo";
 import { Helmet } from "react-helmet";
-
+import useSiteMetadata from "../hooks/SiteMetadata"
 const Video = () => {
+
+
+  const { proOptions } = useSiteMetadata();
+  const { showBranding } = proOptions
+
   const inputElement = useRef(null);
   const playerRef = useRef(null);
   const [youtubelink, setYoutubelink] = useState("");
@@ -53,7 +58,7 @@ const Video = () => {
     if (navigator.share) { 
       navigator.share({
         title: 'PIRATE',
-        url: 'https://pirateyoutube.com'
+        url: 'https://piratevideo.org'
       }).then(() => {
         console.log('Thanks for being a PIRATE!');
       })
@@ -78,7 +83,12 @@ const Video = () => {
           description="Pirate Video Player"
         />
     <div className='player-wrapper' style={{}}>
+    {showBranding ? (
     <PageMenu />
+    ) : (
+      ""
+    )}
+
     <div className="share-dialog" style={{ display: showShareDialog ? 'block' : 'none' }}>
                     <h3 className="dialog-title">Install PIRATE</h3>
                     <button className="close-button" onClick={closeShareDialog}>Close</button>
@@ -109,10 +119,12 @@ const Video = () => {
                       </a>
                     </div>
                     <div className="link">
-                      <div className="pen-url">https://pirateyoutube.com</div>
+                      <div className="pen-url">https://piratevideo.org</div>
                       <button className="copy-link">Copy Link</button>
                     </div>
                   </div>
+
+                  
         <ReactPlayer
           ref={playerRef}
           allow="web-share"
@@ -150,10 +162,9 @@ const Video = () => {
                 </>
               ) : (
                 <>
-
-
-                  
-                  <button style={{ display: "flex", justifyContent: "center", padding: "0 .3vw", maxWidth: "", margin: "0 auto", textAlign:'center', fontSize:'14px', fontWeight:'light', textShadow:'0 1px 0 #000' }} className="button print" type="button" title="Add To Home Screen To Install PIRATE" onClick={handleShareButtonClick}>
+                {showBranding ? (
+                  <>
+                  <button style={{ display: "flex", justifyContent: "center", padding: "0 .3vw", maxWidth: "", margin: "0 auto", textAlign:'center', fontSize:'14px', fontWeight:'light', textShadow:'0 1px 0 #000' }} className=" print" type="button" title="Add To Home Screen To Install PIRATE" onClick={handleShareButtonClick}>
                     
                     <div style={{ display: "flex", alignItems:'center', justifyContent: "center", padding: "4px .3vw", maxWidth: "", margin: "0 auto", textAlign:'center', fontSize:'14px', fontWeight:'light', textShadow:'0 1px 0 #000' }}>
 
@@ -168,6 +179,11 @@ const Video = () => {
                       <symbol id="share-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-share"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></symbol>
                     </defs>
                   </svg>
+                  </>
+                  ) : (
+            ""
+          )}
+
                 </>
               )}
 
