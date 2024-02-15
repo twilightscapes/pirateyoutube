@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import ReactPlayer from 'react-player/lazy';
 import { ImYoutube2 } from "react-icons/im";
 import { FaTwitch, FaFacebookSquare } from "react-icons/fa";
-import { Link } from "gatsby";
+// import { Link } from "gatsby";
 
 const VideoPlayer = () => {
   const inputElement = useRef(null);
@@ -41,7 +41,7 @@ const VideoPlayer = () => {
     if (navigator.share) { 
       navigator.share({
         title: 'PIRATE',
-        url: 'https://pirateweb.org'
+        url: 'https://pirateyoutube.com'
       }).then(() => {
         console.log('Thanks for being a PIRATE!');
       })
@@ -125,7 +125,7 @@ const VideoPlayer = () => {
                       </a>
                     </div> */}
                     <div className="link">
-                      <div className="pen-url">https://pirateweb.org</div>
+                      <div className="pen-url">https://pirateyoutube.com</div>
                       <button className="copy-link">Copy Link</button>
                     </div>
                   </div>

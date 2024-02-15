@@ -46,9 +46,10 @@ const Video = () => {
     event.preventDefault();
   };
 
-  function isRunningStandalone() {
-    return (window.matchMedia('(display-mode: standalone)').matches);
-  }
+    // Check if running in standalone mode
+    if (window && window.matchMedia) {
+      setIsStandalone(window.matchMedia('(display-mode: standalone)').matches);
+    }
 
   useEffect(() => {
     fillFormFromClipboard();
@@ -89,7 +90,7 @@ const Video = () => {
             <div style={{ maxWidth: '800px', margin: '0 auto' }}>
               <form className="youtubeform frontdrop" onSubmit={handleSubmit} id="youtubeform" name="youtubeform">
 
-                {isRunningStandalone() ? (
+              {isRunningStandalone() ? (
                   <>
                     <a title="Open YouTube" aria-label="Open YouTube" href="https://youtube.com">
                       <ImYoutube2 style={{ fontSize: '50px' }} />
@@ -102,7 +103,7 @@ const Video = () => {
                     </a>
                   </>
                 ) : (
-                  <Link to="/install" state={{ modal: true }} className="button print" style={{ display: "flex", justifyContent: "center", padding: ".5vh .5vw", maxWidth: "", margin: "0 auto", textAlign:'center', fontSize:'16px' }}>Add To Home Screen To Install Pirate</Link>
+                  <Link onClick={closeShareDialog} to="/install" state={{ modal: true }} className="button print" style={{ display: "flex", justifyContent: "center", padding: "10px .3vw", maxWidth: "", margin: "0 auto", textAlign:'center', fontSize:'14px', fontWeight:'light', textShadow:'0 1px 0 #000' }}>Add To Home Screen To Install PIRATE</Link>
                 )}
 
                 <input
