@@ -12,6 +12,7 @@ const Video = () => {
   const inputElement = useRef(null);
   const playerRef = useRef(null);
   const [youtubelink, setYoutubelink] = useState("");
+  const [isStandalone, setIsStandalone] = useState(false);
 
   useEffect(() => {
     const inputRef = inputElement.current;
@@ -21,6 +22,15 @@ const Video = () => {
     inputRef.onblur = () => {
       document.body.scrollTop = 0;
     };
+
+    // Check if running in standalone mode
+    const checkStandalone = () => {
+      if (typeof window !== 'undefined' && window.matchMedia) {
+        setIsStandalone(window.matchMedia('(display-mode: standalone)').matches);
+      }
+    };
+
+    checkStandalone();
 
     return () => {
       inputRef.onfocus = null;
@@ -45,17 +55,6 @@ const Video = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
   };
-
-// Check if running in standalone mode
-const checkStandalone = () => {
-  if (typeof window !== 'undefined' && window.matchMedia) {
-    setIsStandalone(window.matchMedia('(display-mode: standalone)').matches);
-  }
-};
-
-  useEffect(() => {
-    fillFormFromClipboard();
-  }, []); // Empty dependency array to run the effect only once
 
   return (
     <>
@@ -92,22 +91,21 @@ const checkStandalone = () => {
             <div style={{ maxWidth: '800px', margin: '0 auto' }}>
               <form className="youtubeform frontdrop" onSubmit={handleSubmit} id="youtubeform" name="youtubeform">
 
-              {checkStandalone() ? (
-  <>
-    <a title="Open YouTube" aria-label="Open YouTube" href="https://youtube.com">
-      <ImYoutube2 style={{ fontSize: '50px' }} />
-    </a>
-    <a title="Open Facebook" aria-label="Open Facebook" href="https://www.facebook.com/watch/">
-      <FaFacebookSquare style={{ fontSize: '30px' }} />
-    </a>
-    <a title="Open Twitch" aria-label="Open Twitch" href="https://www.twitch.tv/directory">
-      <FaTwitch style={{ fontSize: '30px' }} />
-    </a>
-  </>
-) : (
-  <Link onClick={closeShareDialog} to="/install" state={{ modal: true }} className="button print" style={{ display: "flex", justifyContent: "center", padding: "10px .3vw", maxWidth: "", margin: "0 auto", textAlign:'center', fontSize:'14px', fontWeight:'light', textShadow:'0 1px 0 #000' }}>Add To Home Screen To Install PIRATE</Link>
-)}
-
+              {isStandalone ? (
+                  <>
+                    <a title="Open YouTube" aria-label="Open YouTube" href="https://youtube.com">
+                      <ImYoutube2 style={{ fontSize: '50px' }} />
+                    </a>
+                    <a title="Open Facebook" aria-label="Open Facebook" href="https://www.facebook.com/watch/">
+                      <FaFacebookSquare style={{ fontSize: '30px' }} />
+                    </a>
+                    <a title="Open Twitch" aria-label="Open Twitch" href="https://www.twitch.tv/directory">
+                      <FaTwitch style={{ fontSize: '30px' }} />
+                    </a>
+                  </>
+                ) : (
+                  <Link onClick={closeShareDialog} to="/install" state={{ modal: true }} className="button print" style={{ display: "flex", justifyContent: "center", padding: "10px .3vw", maxWidth: "", margin: "0 auto", textAlign:'center', fontSize:'14px', fontWeight:'light', textShadow:'0 1px 0 #000' }}>Add To Home Screen To Install PIRATE</Link>
+                )}
 
                 <input
                   ref={inputElement}
