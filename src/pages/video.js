@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 import ReactPlayer from 'react-player/lazy';
 import { ImYoutube2 } from "react-icons/im";
 import { FaTwitch, FaFacebookSquare } from "react-icons/fa";
-import { Link } from "gatsby";
 import PageMenu from "../components/PageMenu";
 import Layout from "../components/siteLayout";
 import Seo from "../components/seo";
@@ -30,7 +29,7 @@ const Video = () => {
     }
   }, []);
 
-  
+
   const handleShareButtonClick = () => {
     if (navigator.share) { 
       navigator.share({
@@ -49,15 +48,20 @@ const Video = () => {
     setShowShareDialog(false);
   };
 
-  const fillFormFromClipboard = async () => {
-    try {
-      const clipboardText = await navigator.clipboard.readText();
-      setYoutubelink(clipboardText);
-    } catch (error) {
-      console.error("Error reading clipboard:", error);
-    }
-  };
+  useEffect(() => {
+    const fillFormFromClipboard = async () => {
+      try {
+        const clipboardText = await navigator.clipboard.readText();
+        setYoutubelink(clipboardText);
+      } catch (error) {
+        console.error("Error reading clipboard:", error);
+      }
+    };
 
+    fillFormFromClipboard();
+  }, []);
+
+  
   const handleInputChange = (event) => {
     const { value } = event.target;
     setYoutubelink(value);
