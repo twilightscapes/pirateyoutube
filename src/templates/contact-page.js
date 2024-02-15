@@ -76,7 +76,7 @@ const Contact = ({ data }) => {
               method="POST"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
-              {...(frontmatter.redirect ? { action: frontmatter.redirectUrl } : { action: "" })}
+              {...(frontmatter.redirect ? { action: frontmatter.redirectUrl } : { action: "/thanks" })}
               encType="multipart/form-data"
               style={{
                 display: "flex",
