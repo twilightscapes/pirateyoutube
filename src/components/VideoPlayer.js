@@ -34,7 +34,10 @@ const VideoPlayer = () => {
   };
 
   function isRunningStandalone() {
-    return (window.matchMedia('(display-mode: standalone)').matches);
+    if (typeof window !== 'undefined') {
+      return window.matchMedia('(display-mode: standalone)').matches;
+    }
+    return false; // Return a default value if window is not defined
   }
 
   const handleShareButtonClick = () => {
