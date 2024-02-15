@@ -33,9 +33,10 @@ const VideoPlayer = () => {
     // Add any additional logic you need on form submission
   };
 
-  function isRunningStandalone() {
-    return (window.matchMedia('(display-mode: standalone)').matches);
-  }
+    // Check if running in standalone mode
+    if (window && window.matchMedia) {
+      setIsStandalone(window.matchMedia('(display-mode: standalone)').matches);
+    }
 
   const handleShareButtonClick = () => {
     if (navigator.share) { 
