@@ -20,7 +20,7 @@ youtube:
  showVidOnly: false
  customcontrols: false
  audioend: "0"
- audiotitle: "Mama Mia"
+ audiotitle: "Jimi Hendrix"
  audiostart: "0"
  contentinvideo: false
  liarliar: false
@@ -29,7 +29,7 @@ showPageNav: false
 showZoom: false
 showPostContact: true
 profText: ""
-tagline: You're the Captain of your content!
+tagline: You, ARE the Captain now!
 
 featuredImage: /assets/pirate-propaganda.webp
 secondaryImage: /assets/default-user.webp
@@ -85,8 +85,8 @@ comments: false
 shareable: false
 ---
 
-<p>PIRATE is a social network with NO central control or ownership. It's based on leading Open-Source platforms and runs on individually owned websites. </p>
+Pirate leverages the power of free services to host your own Personal Web App(PWA), that you can control from any device, all for FREE!
 
- <p>PIRATE leverages the power of free services to host your own web app that you can control from any device, all for FREE! </p>
+Easily edit your homepage, update your profile, and publish engaging content on your OWN website/app.
 
- <p>Easily edit your homepage, update your profile, and publish engaging content on your OWN website/app.</p>
+Pirate is also a new social network that has NO central control or ownership! It's based on leading Open-Source platforms and runs on individually owned Pirate websites.

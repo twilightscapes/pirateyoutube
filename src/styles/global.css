@@ -1789,7 +1789,7 @@ body:has(.ReactModal__Content) .upbar{ transform:translateY(0);}
     border: none;
     padding: 0;
     position:absolute;
-    top:.5vh; 
+    top:30px; 
     right:1vw;
     z-index: 4;
   }

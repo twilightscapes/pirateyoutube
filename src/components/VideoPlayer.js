@@ -100,12 +100,27 @@ const VideoPlayer = ({ location }) => {
         {/* Share Dialog */}
         <div className="share-dialog" style={{ display: showShareDialog ? 'block' : 'none', zIndex:'5' }}>
           <h3 className="dialog-title">Install PIRATE</h3>
-          <button className="close-button" onClick={closeShareDialog}><RiCloseCircleFill
-          style={{ height: "100%", width:'30px', maxHeight: "100px", top: "0", zIndex: "4", color: "#fff" }}
+          <button aria-label="Close" id="closeBtn" name="closeBtn" className="close-button" onClick={closeShareDialog}><RiCloseCircleFill
+          style={{ height: "100%", width:'40px', maxHeight: "100px", top: "20px", zIndex: "4", color: "#fff" }}
         /></button>
           <div className="link">
-            <div className="pen-url" style={{maxWidth:'340px'}}>{typeof window !== 'undefined' && window.location.href}</div>
-            <button className="copy-link" onClick={copyToClipboard}>Copy Link</button>
+            {/* <div className="pen-url" style={{maxWidth:'340px'}}>{typeof window !== 'undefined' && window.location.href}</div> */}
+
+            <input
+                // ref={inputElement}
+                // id="youtubelink-input"
+                type="text"
+                name="pagelink"
+                value={typeof window !== 'undefined' && window.location.href}
+                onChange={handleInputChange}
+                style={{ padding: '.5vh 1vw', color:'#fff', maxWidth:'340px', width:'100%', fontSize:'clamp(.8rem,1.5vw,2rem)',transition: 'all 1s ease-in-out' }}
+                // placeholder="Paste Video Link"
+                className="youtubelinker font link pen-url"
+                aria-label="Copy This Url"
+              />
+
+
+            <button aria-label="Copy Link" className="copy-link font" onClick={copyToClipboard} style={{ color: '#fff', fontSize:'clamp(.8rem,1.5vw,2rem)', fontWeight: 'bold', textAlign: 'left', width: '', margin: '5px 15px 0 0' }}>Copy Link</button>
           </div>
         </div>
 
@@ -170,8 +185,9 @@ const VideoPlayer = ({ location }) => {
                 style={{ padding: '.5vh 1vw', width:'100%', maxWidth: '800px', fontSize:'clamp(.8rem,1.5vw,2rem)',transition: 'all 1s ease-in-out' }}
                 placeholder="Paste Video Link"
                 className="youtubelinker"
+                aria-label="Paste Video Link"
               />
-              <button type="reset" onClick={handleReset} style={{ color: '', fontSize:'clamp(.8rem,1.5vw,2rem)', fontWeight: 'bold', textAlign: 'left', width: '', margin: '5px 15px 0 0' }}>
+              <button aria-label="Reset" type="reset" onClick={handleReset} style={{ color: '', fontSize:'clamp(.8rem,1.5vw,2rem)', fontWeight: 'bold', textAlign: 'left', width: '', margin: '5px 15px 0 0' }}>
                 Reset
               </button>
             </form>
