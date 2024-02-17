@@ -1753,7 +1753,8 @@ body:has(.ReactModal__Content) .upbar{ transform:translateY(0);}
     display: none;
     width: 100%;
     min-width: 350px;
-    min-height:88px;
+    height:80px;
+    /* min-height:80px; */
     z-index: 3;
     padding: 1vh 2vw;
     margin:0 auto;

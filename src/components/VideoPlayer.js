@@ -4,7 +4,7 @@ import { ImYoutube2 } from "react-icons/im";
 import { FaTwitch, FaFacebookSquare } from "react-icons/fa";
 import useSiteMetadata from "../hooks/SiteMetadata";
 import { RiCloseCircleFill } from "react-icons/ri";
-
+import { Link } from "gatsby"
 const VideoPlayer = ({ location }) => {
   const queryParams = new URLSearchParams(location.search);
   const videoUrlParam = queryParams.get('video');
@@ -98,36 +98,41 @@ const VideoPlayer = ({ location }) => {
       <div id="piratevideo" className='player-wrapper' style={{ display:'grid', placeContent:'', width:'100vw', transition: 'all 1s ease-in-out'}}>
 
         {/* Share Dialog */}
-        <div className="share-dialog" style={{ display: showShareDialog ? 'block' : 'none', zIndex:'5' }}>
-          <h3 className="dialog-title">Install PIRATE</h3>
-          <button aria-label="Close" id="closeBtn" name="closeBtn" className="close-button" onClick={closeShareDialog}><RiCloseCircleFill
-          style={{ height: "100%", width:'40px', maxHeight: "100px", top: "20px", zIndex: "4", color: "#fff" }}
-        /></button>
-          <div className="link">
-            {/* <div className="pen-url" style={{maxWidth:'340px'}}>{typeof window !== 'undefined' && window.location.href}</div> */}
+        <div className="share-dialog" style={{ display: showShareDialog ? 'block' : 'none', zIndex:'5', }}>
 
+<form style={{display:'flex', flexWrap: 'nowrap', alignItems:'center', gap:'2vw', width:'100vw', maxWidth:'800px', margin:'0 auto',  transition: 'all 1s ease-in-out'}}>
+        
+
+
+          <Link to='/install' state={{modal: true}} style={{ display: "flex", justifyContent: "center", padding: ".5vh 1vw", maxWidth:'100px', maxHeight:"60px", margin: "0 auto", textAlign:'center', fontSize:'18px', fontWeight:'light', textShadow:'0 1px 0 #000' }} className="button print">Install Pirate</Link>
+
+      <div className="link">
             <input
-                // ref={inputElement}
-                // id="youtubelink-input"
                 type="text"
                 name="pagelink"
                 value={typeof window !== 'undefined' && window.location.href}
                 onChange={handleInputChange}
-                style={{ padding: '.5vh 1vw', color:'#fff', maxWidth:'340px', width:'100%', fontSize:'clamp(.8rem,1.5vw,2rem)',transition: 'all 1s ease-in-out' }}
+                style={{ padding: '.5vh 1vw', width:'100%', maxWidth: '800px', fontSize:'clamp(.8rem,1.5vw,2rem)',transition: 'all 1s ease-in-out' }}
                 // placeholder="Paste Video Link"
                 className="youtubelinker font link pen-url"
                 aria-label="Copy This Url"
               />
-
-
             <button aria-label="Copy Link" className="copy-link font" onClick={copyToClipboard} style={{ color: '#fff', fontSize:'clamp(.8rem,1.5vw,2rem)', fontWeight: 'bold', textAlign: 'left', width: '', margin: '5px 15px 0 0' }}>Copy Link</button>
           </div>
+
+
+
+        
+</form>
+      <button aria-label="Close" id="closeBtn" name="closeBtn" style={{ height: "", width:'100px', maxHeight: "", top: "", zIndex: "4", color: "#fff", display:'flex' }}className="close-button" onClick={closeShareDialog}>
+           <RiCloseCircleFill style={{width:'40px', height:'40px', marginLeft:''}} /></button>
+
         </div>
 
         {/* Share Button */}
-        <button className="share-button" onClick={handleShareButtonClick}>Share</button>
+        {/* <button className="share-button" onClick={handleShareButtonClick}>Share</button> */}
 
-        {/* Rest of the component code */}
+
         {/* Form Container */}
         <div className="form-container controller font" style={{position:'relative', zIndex:'4', top:'0', height:'auto', width:'100vw', margin:'0 auto', marginTop: showNav ? '0' : '0', transition: 'all 1s ease-in-out', background:'var(--theme-ui-colors-headerColor)'}}>
           <div style={{ maxWidth: '800px', margin: '0 auto', paddingTop:'1.5vh' }}>

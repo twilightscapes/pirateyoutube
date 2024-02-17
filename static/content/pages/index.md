@@ -29,7 +29,7 @@ showPageNav: false
 showZoom: false
 showPostContact: true
 profText: ""
-tagline: You, ARE the Captain now!
+tagline: YOU... ARE THE CAPTAIN NOW!
 
 featuredImage: /assets/pirate-propaganda.webp
 secondaryImage: /assets/default-user.webp
@@ -46,7 +46,7 @@ skillsText:
 
 bumpertext: x
 cta:
-  ctaText: Become a PIRATE!
+  ctaText: Get Your FREE Ship!
   ctaLink: /contact
   showCTA: true
 homecount: 5
