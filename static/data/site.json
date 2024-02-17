@@ -33,7 +33,7 @@
       "showHomePosts": true,
       "ShowDisclaimer": false,
       "showBranding": true,
-      "showFeature": true,
+      "showFeature": false,
       "showLegal": true,
       "showConsent": true
     },
