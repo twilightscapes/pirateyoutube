@@ -3,6 +3,7 @@ import ReactPlayer from 'react-player/lazy';
 import { ImYoutube2 } from "react-icons/im";
 import { FaTwitch, FaFacebookSquare } from "react-icons/fa";
 import useSiteMetadata from "../hooks/SiteMetadata";
+import { RiCloseCircleFill } from "react-icons/ri";
 
 const VideoPlayer = ({ location }) => {
   const queryParams = new URLSearchParams(location.search);
@@ -99,7 +100,9 @@ const VideoPlayer = ({ location }) => {
         {/* Share Dialog */}
         <div className="share-dialog" style={{ display: showShareDialog ? 'block' : 'none', zIndex:'5' }}>
           <h3 className="dialog-title">Install PIRATE</h3>
-          <button className="close-button" onClick={closeShareDialog}>Close</button>
+          <button className="close-button" onClick={closeShareDialog}><RiCloseCircleFill
+          style={{ height: "100%", width:'30px', maxHeight: "100px", top: "0", zIndex: "4", color: "#fff" }}
+        /></button>
           <div className="link">
             <div className="pen-url" style={{maxWidth:'340px'}}>{typeof window !== 'undefined' && window.location.href}</div>
             <button className="copy-link" onClick={copyToClipboard}>Copy Link</button>
