@@ -1,5 +1,5 @@
-import React, { useRef, useState, useEffect } from "react";
-import ReactPlayer from 'react-player/lazy';
+import React from "react";
+
 import PageMenu from "../components/PageMenu";
 import Layout from "../components/siteLayout";
 import Seo from "../components/seo";
