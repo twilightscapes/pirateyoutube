@@ -1759,8 +1759,8 @@ body:has(.ReactModal__Content) .upbar{ transform:translateY(0);}
     padding: 1vh 2vw;
     margin:0 auto;
     border-radius: var(--theme-ui-colors-borderRadius);
-    background-color: #111;
-    color: #fff;
+    /* background-color: #111; */
+    /* color: #fff; */
   
 
 }
