@@ -12,7 +12,9 @@
       "showTitles": true,
       "showfooter": true,
       "showSwipe": true,
-      "showVideoPlayer": true
+      "showVideoPlayer": true,
+      "showHomePosts": true,
+      "showProfile": true
     },
     "twitterUsername": "toddlambert",
     "titleDefault": "PIRATE",
@@ -27,13 +29,13 @@
     "proOptions": {
       "showModals": true,
       "showContact": true,
-      "showProfile": true,
       "startUrl": "video",
       "showPopup": true,
-      "showHomePosts": true,
       "ShowDisclaimer": false,
       "showBranding": true,
-      "showFeature": false,
+      "showFeature": true,
+      "showResume": true,
+      "showLocation": true,
       "showLegal": true,
       "showConsent": true
     },

@@ -649,6 +649,15 @@ collections:
                     label: Show Pirate Video on home page
                     required: false 
                   - widget: boolean
+                    name: showProfile
+                    label: Show Profile section on homepage
+                    required: false
+                  - widget: boolean
+                    name: showHomePosts
+                    label: Show posts section on homepage
+                    required: false
+                    default: true
+                  - widget: boolean
                     name: showfooter
                     label: Show the Footer
                     required: false
@@ -691,16 +700,6 @@ collections:
                     name: showFeature
                     label: Show Feature Image/Video section on homepage
                     required: false
-                  - widget: boolean
-                    name: showProfile
-                    label: Show Profile section on homepage
-                    required: false
-                  - widget: boolean
-                    name: showHomePosts
-                    label: Show posts section on homepage
-                    required: false
-                    default: true
-
                   - widget: boolean
                     name: showModals
                     label: Show Posts in Modal Window

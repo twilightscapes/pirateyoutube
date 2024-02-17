@@ -27,8 +27,8 @@ const HomePage = ({ data, location }) => {
 
   const { language, proOptions, featureOptions  } = useSiteMetadata();
 
-  const { showProfile, showFeature, showHomePosts } = proOptions
-  const { showDefault, showVideoPlayer, showNav } = featureOptions
+  const { showFeature } = proOptions
+  const { showDefault, showVideoPlayer, showNav, showProfile, showHomePosts } = featureOptions
 
   const { dicPlayVideo, dicProfileAudioText, dicProfileAudioActionText} = language;
 
