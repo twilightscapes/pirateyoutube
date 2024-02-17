@@ -773,7 +773,7 @@ collections:
                 options:
                   [
                     "facebook",
-                    "x-twitter",
+                    "twitter-x",
                     "linkedin",
                     "youtube",
                     "instagram",
