@@ -1,14 +1,14 @@
 import React from "react";
-import PageMenu from "../components/PageMenu";
+// import PageMenu from "../components/PageMenu";
 import Layout from "../components/siteLayout";
 import Seo from "../components/seo";
 import { Helmet } from "react-helmet";
-import useSiteMetadata from "../hooks/SiteMetadata";
+// import useSiteMetadata from "../hooks/SiteMetadata";
 import VideoPlayer from "../components/VideoPlayer";
 
 const VideoPage = ({ location }) => {
-  const { proOptions } = useSiteMetadata();
-  const { showBranding } = proOptions;
+  // const { proOptions } = useSiteMetadata();
+  // const { showBranding } = proOptions;
 
   return (
     <Layout>
@@ -17,11 +17,11 @@ const VideoPage = ({ location }) => {
       </Helmet>
       <SeoWrapper location={location} />
       <div className='player-wrapper'>
-        {showBranding ? (
+        {/* {showBranding ? (
           <PageMenu />
         ) : (
           null
-        )}
+        )} */}
         <VideoPlayer location={location} />
       </div>
     </Layout>

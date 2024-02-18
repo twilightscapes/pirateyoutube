@@ -3,16 +3,17 @@ import ReactPlayer from 'react-player/lazy';
 import { ImYoutube2 } from "react-icons/im";
 import { FaTwitch, FaFacebookSquare } from "react-icons/fa";
 import useSiteMetadata from "../hooks/SiteMetadata";
+import PageMenu from "../components/PageMenu"
 // import { RiCloseCircleFill } from "react-icons/ri";
 // import { Link } from "gatsby"
 const VideoPlayer = ({ location }) => {
   const queryParams = new URLSearchParams(location.search);
   const videoUrlParam = queryParams.get('video');
 
-  const { featureOptions } = useSiteMetadata();
+  const { featureOptions, proOptions } = useSiteMetadata();
 
 
-  // const { showBranding } = proOptions;
+  const { showBranding } = proOptions;
 
   const { showNav } = featureOptions
 
@@ -212,6 +213,14 @@ const VideoPlayer = ({ location }) => {
                       <symbol id="share-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-share"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></symbol>
                     </defs>
                   </svg>
+
+
+      {showBranding ? (
+                  <PageMenu />
+                  ) : (
+                    ""
+                  )}
+
 
 
         {/* ReactPlayer */}
