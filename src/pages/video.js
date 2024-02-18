@@ -10,53 +10,46 @@ const VideoPage = ({ location }) => {
   const { proOptions } = useSiteMetadata();
   const { showBranding } = proOptions;
 
-
-  const queryParams = new URLSearchParams(location.search);
-  const videoUrlParam = queryParams.get('video');
-
-/* eslint-disable no-useless-escape */
-const extractVideoId = (url) => {
-  // Check if the URL is null or undefined
-  if (!url) {
-    return null;
-  }
-
-  // Regular expression to extract video ID from YouTube URL
-  const regExp = /^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
-  const match = url.match(regExp);
-
-  // If a match is found, return the video ID, otherwise return null
-  const videoId = match ? match[1] : null;
-  console.log('Video ID:', videoId);
-  return videoId;
-};
-/* eslint-enable no-useless-escape */
-  const videoId = extractVideoId(videoUrlParam);
-  console.log('Video ID:', videoId);
-
-
-
-
   return (
     <Layout>
       <Helmet>
         <body id="body" className="youtube" />
       </Helmet>
-      <Seo
-        title="Pirate Video Player"
-        description="Pirate Video Player"
-        image={videoId ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg` : null}
-      />
       <div className='player-wrapper'>
         {showBranding ? (
           <PageMenu />
         ) : (
           null
         )}
-        <VideoPlayer location={location} />
+        <SeoWrapper location={location} />
       </div>
     </Layout>
   );
+};
+
+const SeoWrapper = ({ location }) => {
+  const queryParams = new URLSearchParams(location.search);
+  const videoUrlParam = queryParams.get('video');
+
+  const extractVideoId = (url) => {
+    // Check if the URL is null or undefined
+    if (!url) {
+      return null;
+    }
+
+    // Regular expression to extract video ID from YouTube URL
+    const regExp = /^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+    const match = url.match(regExp);
+
+    // If a match is found, return the video ID, otherwise return null
+    const videoId = match ? match[1] : null;
+    console.log('Video ID:', videoId);
+    return videoId;
+  };
+
+  const videoId = extractVideoId(videoUrlParam);
+
+  return <Seo title="Pirate Video Player" description="Pirate Video Player" image={videoId ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg` : null} />;
 };
 
 export default VideoPage;
