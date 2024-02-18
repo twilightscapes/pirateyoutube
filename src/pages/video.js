@@ -22,6 +22,7 @@ const VideoPage = ({ location }) => {
           null
         )}
         <SeoWrapper location={location} />
+        <VideoPlayer location={location} />
       </div>
     </Layout>
   );
