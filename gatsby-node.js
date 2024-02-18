@@ -143,7 +143,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           context: {
             category: singleCategory.toLowerCase(),
             posts: categoryPosts,
-            tags,
+            // tags,
           },
         });
       } else {

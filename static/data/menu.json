@@ -3,10 +3,7 @@
     {
       "menutitle": "View by Category",
       "url": "/category"
-    },
-    {
-      "menutitle": "View Archives",
-      "url": "/archive"
     }
+    
   ]
 }
