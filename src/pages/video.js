@@ -14,14 +14,20 @@ const VideoPage = ({ location }) => {
   const queryParams = new URLSearchParams(location.search);
   const videoUrlParam = queryParams.get('video');
 /* eslint-disable no-useless-escape */
-  const extractVideoId = (url) => {
-    // Regular expression to extract video ID from YouTube URL
-    const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
-    const match = url.match(regExp);
+const extractVideoId = (url) => {
+  // Check if the URL is null or undefined
+  if (!url) {
+    return null;
+  }
 
-    // If a match is found, return the video ID, otherwise return null
-    return match && match[7].length === 11 ? match[7] : null;
-  };
+  // Regular expression to extract video ID from YouTube URL
+  const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+  const match = url.match(regExp);
+
+  // If a match is found, return the video ID, otherwise return null
+  return match && match[7].length === 11 ? match[7] : null;
+};
+
 /* eslint-enable no-useless-escape */
   const videoId = extractVideoId(videoUrlParam);
 
