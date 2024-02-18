@@ -91,5 +91,5 @@ Watch videos without annoying ads, easily edit your homepage, update your profil
 
 Pirate is also a new social media that is a decentralized network of other Pirate users and their individually owned Pirate websites. YOU control the algorithm, not some corporation.
 
-It's all based on leading open-source platforms and operates all with no contracts, commitments or costs of any kind - POWER TO THE PEOPLE!
+It's all based on leading open-source platforms and it operates forever, all with no contracts, commitments or costs of any kind - POWER TO THE PEOPLE!
 
