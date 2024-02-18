@@ -15,13 +15,13 @@ const VideoPage = ({ location }) => {
       <Helmet>
         <body id="body" className="youtube" />
       </Helmet>
+      <SeoWrapper location={location} />
       <div className='player-wrapper'>
         {showBranding ? (
           <PageMenu />
         ) : (
           null
         )}
-        <SeoWrapper location={location} />
         <VideoPlayer location={location} />
       </div>
     </Layout>
@@ -50,7 +50,13 @@ const SeoWrapper = ({ location }) => {
 
   const videoId = extractVideoId(videoUrlParam);
 
-  return <Seo title="Pirate Video Player" description="Pirate Video Player" image={videoId ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg` : null} />;
+  return (
+    <Seo
+      title="Pirate Video Player"
+      description="Pirate Video Player"
+      image={videoId ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg` : null}
+    />
+  );
 };
 
 export default VideoPage;
