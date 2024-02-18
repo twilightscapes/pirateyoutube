@@ -24,13 +24,23 @@ const extractVideoId = (url) => {
   const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
   const match = url.match(regExp);
 
-  // If a match is found, return the video ID, otherwise return null
-  return match && match[7].length === 11 ? match[7] : null;
+  // Check if a match is found and if it has the expected length
+  if (match && match[7] && match[7].length === 11) {
+    return match[7]; // Return the extracted video ID
+  } else {
+    return null; // Return null if the video ID cannot be extracted
+  }
 };
+
+
 
 /* eslint-enable no-useless-escape */
   const videoId = extractVideoId(videoUrlParam);
+  console.log('Video ID:', videoId);
 
+
+
+  
   return (
     <Layout>
       <Helmet>
