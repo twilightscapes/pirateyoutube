@@ -43,7 +43,7 @@ export function NewsletterPage() {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({
-          "form-name": form.getAttribute("signup"),
+          "form-name": form.getAttribute("contact"),
           ...data,
         }),
       })
@@ -64,7 +64,7 @@ return (
 <form
   className={`contact-form flexcheek1 ${submitted ? "submitted" : ""}`}
   // action="/install2"
-  name="signup"
+  name="contact"
   method="POST"
   data-netlify="true"
   data-netlify-honeypot="bot-field"
@@ -85,7 +85,7 @@ return (
     </div>
   ) : (
     <>
-      <input type="hidden" name="form-name" value="signup" />
+      <input type="hidden" name="form-name" value="contact" />
 
 
     {/* <p>
