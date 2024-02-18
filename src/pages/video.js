@@ -37,7 +37,7 @@ const SeoWrapper = ({ location }) => {
     if (!url) {
       return null;
     }
-
+/* eslint-disable no-useless-escape */
     // Regular expression to extract video ID from YouTube URL
     const regExp = /^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
     const match = url.match(regExp);
@@ -47,13 +47,13 @@ const SeoWrapper = ({ location }) => {
     console.log('Video ID:', videoId);
     return videoId;
   };
-
+/* eslint-enable no-useless-escape */
   const videoId = extractVideoId(videoUrlParam);
 
   return (
     <Seo
-      title="Pirate Video Player"
-      description="Pirate Video Player"
+      title="Pirate Life For Me"
+      description="Pirate: revolutionizing the web"
       image={videoId ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg` : null}
     />
   );
