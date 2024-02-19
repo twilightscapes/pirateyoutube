@@ -61,7 +61,7 @@ const Layout = ({ children }) => {
 
   const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFont}&display=swap`;
 
-  const bodyClass = document.body.classList.contains('social') ? 'social' : 'default';
+  const bodyClass = typeof document !== 'undefined' && document.body.classList.contains('social') ? 'social' : 'default'; 
 
   return (
     <>
