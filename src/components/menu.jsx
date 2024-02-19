@@ -4,10 +4,9 @@ import MenuSocial from "../../static/data/menu-social.json";
 import MenuDefault from "../../static/data/menu.json";
 import useSiteMetadata from "../hooks/SiteMetadata";
 
-export function MenuInc() {
+export function MenuInc({ bodyClass }) {
   const { proOptions } = useSiteMetadata();
   const { showModals } = proOptions;
-  const bodyClass = document.body.classList.contains('social') ? 'social' : 'default';  // Check body class
 
   const menuItems = bodyClass === 'social' ? MenuSocial.menuItems : MenuDefault.menuItems;
 
