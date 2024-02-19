@@ -21,25 +21,28 @@ const VideoPlayer = ({ location }) => {
       try {
         // Check if the document has focus
         if (!document.hasFocus()) {
-          throw new Error("Document is not focused. Please interact with the page.");
+          // throw new Error("Document is not focused. Please interact with the page.");
         }
-    
+  
         const clipboardText = await navigator.clipboard.readText();
         if (isValidURL(clipboardText)) {
+          // Only update the input value if the clipboard text is a valid URL
           setYoutubelink(clipboardText);
           updateQueryString(clipboardText);
         } else {
-          console.error("Invalid URL copied from clipboard:", clipboardText);
+          // console.error("Invalid URL copied from clipboard:", clipboardText);
           // You can handle this case accordingly, such as displaying a message to the user
         }
       } catch (error) {
-        console.error("Error reading clipboard:", error.message);
+        // console.error("Error reading clipboard:", error.message);
         // You can handle the error here, e.g., display a message to the user
       }
     };
     
     fillFormFromClipboard();
   }, []);
+  
+  
 
   const handleInputChange = (event) => {
     const { value } = event.target;
@@ -94,7 +97,7 @@ const VideoPlayer = ({ location }) => {
       <div id="piratevideo" className='player-wrapper' style={{ display: 'grid', placeContent: '', width: '100vw', transition: 'all 1s ease-in-out' }}>
         {/* Form Container */}
         <div className="form-container controller font" style={{ position: 'relative', zIndex: '3', top: '0', height: 'auto', width: '100vw', margin: '0 auto', marginTop: showNav ? '0' : '0', transition: 'all 1s ease-in-out', background: 'var(--theme-ui-colors-headerColor)' }}>
-          <div style={{ maxWidth: '800px', margin: '0 auto', padding:'1.5vh 1vw 0 1vw', }}>
+          <div style={{ maxWidth: '800px', margin: '0 auto', padding:'2.5vh 1vw 0 1vw', }}>
             <form className="youtubeform frontdrop" onSubmit={handleSubmit} id="youtubeform" name="youtubeform">
 
 
