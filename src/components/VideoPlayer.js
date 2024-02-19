@@ -17,7 +17,7 @@ const VideoPlayer = ({ location }) => {
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
-    const fillFormFromClipboard = async () => {
+    const fillFormFromUrlParam = async () => {
       try {
         // Check if the document has focus
         if (!document.hasFocus()) {
@@ -27,8 +27,10 @@ const VideoPlayer = ({ location }) => {
         const clipboardText = await navigator.clipboard.readText();
         if (isValidURL(clipboardText)) {
           // Only update the input value if the clipboard text is a valid URL
-          setYoutubelink(clipboardText);
-          updateQueryString(clipboardText);
+          if (!videoUrlParam && !youtubelink) { // Check if URL parameter or input value already exists
+            setYoutubelink(clipboardText);
+            updateQueryString(clipboardText);
+          }
         } else {
           // console.error("Invalid URL copied from clipboard:", clipboardText);
           // You can handle this case accordingly, such as displaying a message to the user
@@ -39,8 +41,12 @@ const VideoPlayer = ({ location }) => {
       }
     };
     
-    fillFormFromClipboard();
-  }, []);
+    fillFormFromUrlParam();
+  }, [videoUrlParam]); // Include videoUrlParam in dependency array
+  
+  
+  
+  
   
   
 
@@ -52,11 +58,6 @@ const VideoPlayer = ({ location }) => {
     } else {
       console.error("Invalid URL:", value);
     }
-
-    // const pirateVideoElement = document.getElementById('VideoPlayer');
-    // if (pirateVideoElement) {
-    //   pirateVideoElement.scrollIntoView({ behavior: 'smooth' });
-    // }
   };
 
   const handleSubmit = (event) => {
@@ -99,32 +100,22 @@ const VideoPlayer = ({ location }) => {
         <div className="form-container controller font" style={{ position: 'relative', zIndex: '3', top: '0', height: 'auto', width: '100vw', margin: '0 auto', marginTop: showNav ? '0' : '0', transition: 'all 1s ease-in-out', background: 'var(--theme-ui-colors-headerColor)' }}>
           <div style={{ maxWidth: '800px', margin: '0 auto', padding:'2.5vh 1vw 0 1vw', }}>
             <form className="youtubeform frontdrop" onSubmit={handleSubmit} id="youtubeform" name="youtubeform">
-
-
-
-            {/* Video Platform Links */}
-            {isRunningStandalone() ? (
+              {/* Video Platform Links */}
+              {isRunningStandalone() ? (
                 <>
-      <a title="Open YouTube" aria-label="Open YouTube" href="https://youtube.com">
-                <ImYoutube2 style={{ fontSize: '50px', opacity:'.5' }} />
-              </a>
-              <a title="Open Facebook" aria-label="Open Facebook" href="https://www.facebook.com/watch/">
-                <FaFacebookSquare style={{ fontSize: '30px', opacity:'.5' }} />
-              </a>
-              <a title="Open Twitch" aria-label="Open Twitch" href="https://www.twitch.tv/directory">
-                <FaTwitch style={{ fontSize: '30px', opacity:'.5' }} />
-              </a>
+                  <a title="Open YouTube" aria-label="Open YouTube" href="https://youtube.com">
+                    <ImYoutube2 style={{ fontSize: '50px', opacity:'.5' }} />
+                  </a>
+                  <a title="Open Facebook" aria-label="Open Facebook" href="https://www.facebook.com/watch/">
+                    <FaFacebookSquare style={{ fontSize: '30px', opacity:'.5' }} />
+                  </a>
+                  <a title="Open Twitch" aria-label="Open Twitch" href="https://www.twitch.tv/directory">
+                    <FaTwitch style={{ fontSize: '30px', opacity:'.5' }} />
+                  </a>
                 </>
-    
-                  ) : (
-                    ""
-          
+              ) : (
+                ""
               )}
-
-
-
-
-              
               <input
                 ref={inputElement}
                 id="youtubelink-input"
