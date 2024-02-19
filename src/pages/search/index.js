@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Seo from "../components/seo";
-import Layout from "../components/siteLayout";
-import SearchPosts from "../components/SearchPosts";
+import Seo from "../../components/seo";
+import Layout from "../../components/siteLayout";
+import SearchPosts from "../../components/SearchPosts";
 
 const Search = () => {
   // Check if localStorage is available
