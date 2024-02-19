@@ -24,25 +24,25 @@ const VideoPlayer = ({ location }) => {
           // throw new Error("Document is not focused. Please interact with the page.");
         }
   
-        const clipboardText = await navigator.clipboard.readText();
-        if (isValidURL(clipboardText)) {
-          // Only update the input value if the clipboard text is a valid URL
-          if (!videoUrlParam && !youtubelink) { // Check if URL parameter or input value already exists
-            setYoutubelink(clipboardText);
-            updateQueryString(clipboardText);
+        if (isValidURL(videoUrlParam)) {
+          // Only update the input value if the URL parameter is present and the input field is empty
+          if (!youtubelink) {
+            setYoutubelink(videoUrlParam);
           }
         } else {
-          // console.error("Invalid URL copied from clipboard:", clipboardText);
+          // console.error("Invalid URL:", videoUrlParam);
           // You can handle this case accordingly, such as displaying a message to the user
         }
       } catch (error) {
-        // console.error("Error reading clipboard:", error.message);
+        // console.error("Error reading URL parameter:", error.message);
         // You can handle the error here, e.g., display a message to the user
       }
     };
     
     fillFormFromUrlParam();
-  }, [videoUrlParam]); // Include videoUrlParam in dependency array
+  }, [videoUrlParam, youtubelink]); // Include videoUrlParam and youtubelink in dependency array
+  
+  
   
   
   
