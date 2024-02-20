@@ -13,7 +13,6 @@ const VideoPlayer = ({ location }) => {
   const loopParam = queryParams.get('loop') === 'true';
   const muteParam = queryParams.get('mute') === 'true';
   const controlsParam = queryParams.get('controls') === 'true';
-  
 
   const { featureOptions, proOptions } = useSiteMetadata();
   const { showBranding } = proOptions;
@@ -27,6 +26,22 @@ const VideoPlayer = ({ location }) => {
   const [mute, setMute] = useState(muteParam);
   const [controls, setControls] = useState(controlsParam);
   const [copied, setCopied] = useState(false);
+  const [scrubbing, setScrubbing] = useState(false);
+  
+  useEffect(() => {
+    const fillFormFromClipboard = async () => {
+      try {
+        const clipboardText = await navigator.clipboard.readText();
+        if (isValidURL(clipboardText)) {
+          setYoutubelink(clipboardText);
+          updateQueryString({ video: clipboardText });
+        }
+      } catch (error) {
+        console.error("Error reading clipboard:", error.message);
+      }
+    };
+    fillFormFromClipboard();
+  }, []);
 
   const handleInputChange = (event) => {
     const { name, value, type, checked } = event.target;
@@ -39,41 +54,18 @@ const VideoPlayer = ({ location }) => {
         setLoop(checked);
       }
     } else {
-      if (name === 'video') {
-        setYoutubelink(value);
-      } else if (name === 'start') {
+      if (name === 'start') {
         setStartTime(value);
+        updateQueryString({ video: youtubelink, start: value, stop: stopTime, loop, mute, controls });
       } else if (name === 'stop') {
         setStopTime(value);
+        updateQueryString({ video: youtubelink, start: startTime, stop: value, loop, mute, controls });
+      } else {
+        setYoutubelink(value);
+        updateQueryString({ video: value, start: startTime, stop: stopTime, loop, mute, controls });
       }
     }
   };
-
-  const handleStartBlur = () => {
-    setStartTime(startTime.trim() || ''); // Trim any leading/trailing spaces
-    updateQueryString({ start: startTime });
-  };
-  
-  const handleStopBlur = () => {
-    setStopTime(stopTime.trim() || ''); // Trim any leading/trailing spaces
-    updateQueryString({ stop: stopTime });
-  };
-
-  useEffect(() => {
-    const updateQueryString = (values) => {
-      const { start, stop } = values;
-      const newUrl = `${window.location.pathname}?video=${encodeURIComponent(youtubelink)}&start=${encodeURIComponent(start)}&stop=${encodeURIComponent(stop)}&loop=${loop}&mute=${mute}&controls=${controls}`;
-      window.history.pushState({}, '', newUrl);
-    };
-
-    document.getElementById("start-input").addEventListener("blur", handleStartBlur);
-    document.getElementById("stop-input").addEventListener("blur", handleStopBlur);
-
-    return () => {
-      document.getElementById("start-input").removeEventListener("blur", handleStartBlur);
-      document.getElementById("stop-input").removeEventListener("blur", handleStopBlur);
-    };
-  }, [youtubelink, startTime, stopTime, loop, mute, controls]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -135,6 +127,23 @@ const VideoPlayer = ({ location }) => {
 
   const isVideoActive = youtubelink !== "";
 
+  // Update start and stop times based on scrub head position
+  const handleProgress = ({ playedSeconds }) => {
+    if (!scrubbing) {
+      setStartTime(playedSeconds);
+      setStopTime(playedSeconds);
+      updateQueryString({ video: youtubelink, start: playedSeconds, stop: playedSeconds, loop, mute, controls });
+    }
+  };
+
+  // Update start and stop times when user seeks
+  const handleSeek = ({ playedSeconds }) => {
+    setStartTime(playedSeconds);
+    setStopTime(playedSeconds);
+    setScrubbing(false);
+    updateQueryString({ video: youtubelink, start: playedSeconds, stop: playedSeconds, loop, mute, controls });
+  };
+
   return (
     <>
       <div id="piratevideo" className='player-wrapper' style={{ display: 'grid', placeContent: '', width: '100vw', transition: 'all 1s ease-in-out' }}>
@@ -151,9 +160,8 @@ const VideoPlayer = ({ location }) => {
                   className="youtubelinker"
                   type="text"
                   name="start"
-                  value={startTime} // Ensure this corresponds to the startTime state variable
+                  value={startTime}
                   onChange={handleInputChange}
-                  onBlur={handleStartBlur}
                   placeholder="Start"
                   disabled={!isVideoActive}
                   style={{maxWidth:'60px', fontSize:'clamp(1rem,.8vw,1.3rem)', textAlign:'center'}}
@@ -166,7 +174,6 @@ const VideoPlayer = ({ location }) => {
                   name="stop"
                   value={stopTime}
                   onChange={handleInputChange}
-                  onBlur={handleStopBlur}
                   placeholder="Stop"
                   disabled={!isVideoActive}
                   style={{maxWidth:'60px', fontSize:'clamp(1rem,.8vw,1.4rem)', textAlign:'center'}}
@@ -247,7 +254,7 @@ const VideoPlayer = ({ location }) => {
               </button>
 
               {/* Installed Viewers */}
-              {isRunningStandalone() && (
+              {!isRunningStandalone() && (
                 <>
                   <a title="Open YouTube" aria-label="Open YouTube" href="https://youtube.com">
                     <ImYoutube2 style={{ fontSize: '50px', opacity:'.5' }} />
@@ -260,7 +267,6 @@ const VideoPlayer = ({ location }) => {
                   </a>
                 </>
               )}
-
             </form>
           </div>
         </div>
@@ -298,8 +304,9 @@ const VideoPlayer = ({ location }) => {
               playerVars: { showinfo: false, autoplay: false, controls: controls ? 1 : 0, start: startTime || "0", end: stopTime || null, mute: false }
             },
           }}
+          onProgress={handleProgress}
+          onSeek={handleSeek}
         />
-
       </div>
     </>
   );
