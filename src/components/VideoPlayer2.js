@@ -5,7 +5,7 @@ import { FaTwitch, FaFacebookSquare } from "react-icons/fa";
 import useSiteMetadata from "../hooks/SiteMetadata";
 import PageMenu from "./PageMenu";
 
-const VideoHomePlayer = ({ location }) => {
+const VideoPlayer2 = ({ location }) => {
   const queryParams = new URLSearchParams(location.search);
   const videoUrlParam = queryParams.get('video');
   const { featureOptions, proOptions } = useSiteMetadata();
@@ -184,7 +184,7 @@ const VideoHomePlayer = ({ location }) => {
   );
 };
 
-export default VideoHomePlayer;
+export default VideoPlayer2;
 
 // Function to validate URL (You can use a library like 'valid-url' for more comprehensive validation)
 const isValidURL = (url) => {

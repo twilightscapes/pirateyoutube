@@ -9,7 +9,7 @@
       "showSearch": false,
       "showDates": false,
       "showSocial": false,
-      "showProfile": false,
+      "showProfile": true,
       "showHomePosts": false,
       "showTitles": false,
       "showfooter": false,
