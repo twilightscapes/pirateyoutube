@@ -21,8 +21,9 @@ const VideoPlayer = ({ location }) => {
     const inputElement = useRef(null);
     const playerRef = useRef(null);
     const [youtubelink, setYoutubelink] = useState(videoUrlParam || "");
-    const [startTime, setStartTime] = useState(startTimeParam || "");
-    const [stopTime, setStopTime] = useState(stopTimeParam || "");
+    const [startTime, setStartTime] = useState(startTimeParam || ""); // Use query parameter if available, otherwise default to empty string
+    const [stopTime, setStopTime] = useState(stopTimeParam || ""); // Use query parameter if available, otherwise default to empty string
+    
     const [loop, setLoop] = useState(loopParam);
     const [mute, setMute] = useState(muteParam);
     const [controls, setControls] = useState(true); // Set controls to true initially
@@ -58,6 +59,18 @@ const VideoPlayer = ({ location }) => {
     setStopTime(stopTime.trim() || ''); // Trim any leading/trailing spaces
     updateQueryString({ stop: stopTime });
   };
+
+  // Event handler to update start time from playhead position
+const handleStartFromPlayhead = () => {
+  const currentTime = playerRef.current.getCurrentTime();
+  setStartTime(currentTime.toString());
+};
+
+// Event handler to update end time from playhead position
+const handleEndFromPlayhead = () => {
+  const currentTime = playerRef.current.getCurrentTime();
+  setStopTime(currentTime.toString());
+};
 
   useEffect(() => {
     const updateQueryString = (values) => {
@@ -145,35 +158,36 @@ const VideoPlayer = ({ location }) => {
 
 
               {/* Installed Viewers */}
-              {!isRunningStandalone() && (
+              {isRunningStandalone() && (
                 <>
               <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-                <input
-                  aria-label="Start Time"
-                  id="start-input"
-                  className="youtubelinker"
-                  type="text"
-                  name="start"
-                  value={startTime} // Ensure this corresponds to the startTime state variable
-                  onChange={handleInputChange}
-                  // onBlur={handleStartBlur}
-                  placeholder="Start"
-                  disabled={!isVideoActive}
-                  style={{maxWidth:'60px', fontSize:'clamp(1rem,.8vw,1.3rem)', textAlign:'center'}}
-                />
-                <input
-                  aria-label="Stop Time"
-                  id="stop-input"
-                  className="youtubelinker"
-                  type="text"
-                  name="stop"
-                  value={stopTime}
-                  onChange={handleInputChange}
-                  // onBlur={handleStopBlur}
-                  placeholder="Stop"
-                  disabled={!isVideoActive}
-                  style={{maxWidth:'60px', fontSize:'clamp(1rem,.8vw,1.4rem)', textAlign:'center'}}
-                />
+              <input
+    aria-label="Start Time"
+    id="start-input"
+    className="youtubelinker"
+    type="text"
+    name="start"
+    value={startTime} // Ensure this corresponds to the startTime state variable
+    onChange={handleInputChange}
+    onClick={handleStartFromPlayhead} // Add this line
+    placeholder="Start"
+    disabled={!isVideoActive}
+    style={{ maxWidth: '60px', fontSize: 'clamp(1rem,.8vw,1.3rem)', textAlign: 'center' }}
+/>
+
+<input
+    aria-label="Stop Time"
+    id="stop-input"
+    className="youtubelinker"
+    type="text"
+    name="stop"
+    value={stopTime}
+    onChange={handleInputChange}
+    onClick={handleEndFromPlayhead} // Add this line
+    placeholder="Stop"
+    disabled={!isVideoActive}
+    style={{ maxWidth: '60px', fontSize: 'clamp(1rem,.8vw,1.4rem)', textAlign: 'center' }}
+/>
                 
               </div>
         
@@ -289,26 +303,34 @@ const VideoPlayer = ({ location }) => {
 
         {/* ReactPlayer */}
         <ReactPlayer
-          ref={playerRef}
-          allow="web-share"
-          style={{
-            position: 'relative', top: '0', margin: '0 auto 0 auto', zIndex: '1', overflow: 'hidden', width: '100vw', minHeight: '', height: '100%', background: 'transparent',
-            transition: 'all 1s ease-in-out',
-          }}
-          width="100%"
-          height="100%"
-          url={youtubelink}
-          playing={true}
-          controls={controls} // Use controls state for controlling visibility of controls
-          playsinline
-          loop={loop}
-          muted={mute} // Use mute state for controlling mute
-          config={{
-            youtube: {
-              playerVars: { showinfo: false, autoplay: false, controls: controls ? 1 : 0, start: startTime || "0", end: stopTime || null, mute: false }
-            },
-          }}
-        />
+  ref={playerRef}
+  allow="web-share"
+  style={{
+    position: 'relative', top: '0', margin: '0 auto 0 auto', zIndex: '1', overflow: 'hidden', width: '100vw', minHeight: '', height: '100%', background: 'transparent',
+    transition: 'all 1s ease-in-out',
+  }}
+  width="100%"
+  height="100%"
+  url={youtubelink}
+  playing={true}
+  controls={controls}
+  playsinline
+  loop={loop}
+  muted={mute}
+  config={{
+    youtube: {
+      playerVars: { showinfo: false, autoplay: false, controls: controls ? 1 : 0, mute: false }
+    },
+  }}
+  onReady={() => {
+    if (startTime) {
+      playerRef.current.seekTo(parseFloat(startTime)); // Seek to the specified start time
+    }
+  }}
+/>
+
+
+
 
       </div>
     </>
