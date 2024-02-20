@@ -8,22 +8,28 @@ import PageMenu from "../components/PageMenu";
 const VideoPlayer = ({ location }) => {
   const queryParams = new URLSearchParams(location.search);
   const videoUrlParam = queryParams.get('video');
+  const startTimeParam = queryParams.get('start');
+  const stopTimeParam = queryParams.get('stop');
+  const loopParam = queryParams.get('loop') === 'true';
+  
   const { featureOptions, proOptions } = useSiteMetadata();
   const { showBranding } = proOptions;
   const { showNav } = featureOptions;
   const inputElement = useRef(null);
   const playerRef = useRef(null);
   const [youtubelink, setYoutubelink] = useState(videoUrlParam || "");
+  const [startTime, setStartTime] = useState(startTimeParam || "");
+  const [stopTime, setStopTime] = useState(stopTimeParam || "");
+  const [loop, setLoop] = useState(loopParam);
   const [copied, setCopied] = useState(false);
-  const [ setShowShareDialog] = useState(false);
-
+  
   useEffect(() => {
     const fillFormFromClipboard = async () => {
       try {
         const clipboardText = await navigator.clipboard.readText();
         if (isValidURL(clipboardText)) {
           setYoutubelink(clipboardText);
-          updateQueryString(clipboardText);
+          updateQueryString({ video: clipboardText });
         }
       } catch (error) {
         console.error("Error reading clipboard:", error.message);
@@ -33,26 +39,36 @@ const VideoPlayer = ({ location }) => {
   }, []);
 
   const handleInputChange = (event) => {
-    const { value } = event.target;
-    if (isValidURL(value)) {
-      setYoutubelink(value);
-      updateQueryString(value);
+    const { name, value, type, checked } = event.target;
+    if (type === 'checkbox') {
+      setLoop(checked);
     } else {
-      console.error("Invalid URL:", value);
+      if (name === 'start') {
+        setStartTime(value);
+      } else if (name === 'stop') {
+        setStopTime(value);
+      } else {
+        setYoutubelink(value);
+      }
     }
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    updateQueryString({ video: youtubelink, start: startTime, stop: stopTime, loop });
   };
 
   const handleReset = () => {
     setYoutubelink("");
-    updateQueryString("");
+    setStartTime("");
+    setStopTime("");
+    setLoop(false);
+    updateQueryString({ video: "", start: "", stop: "", loop: false });
   };
 
-  const updateQueryString = (value) => {
-    const newUrl = `${window.location.pathname}?video=${encodeURIComponent(value)}`;
+  const updateQueryString = (values) => {
+    const { video, start, stop, loop } = values;
+    const newUrl = `${window.location.pathname}?video=${encodeURIComponent(video)}&start=${encodeURIComponent(start)}&stop=${encodeURIComponent(stop)}&loop=${loop}`;
     window.history.pushState({}, '', newUrl);
   };
 
@@ -77,8 +93,6 @@ const VideoPlayer = ({ location }) => {
           console.log('Thanks for being a Pirate!');
         })
         .catch(console.error);
-      } else {
-        setShowShareDialog(true);
       }
     }
   };
@@ -95,47 +109,103 @@ const VideoPlayer = ({ location }) => {
     return false;
   }
 
+  const isVideoActive = youtubelink !== "";
+
   return (
     <>
       <div id="piratevideo" className='player-wrapper' style={{ display: 'grid', placeContent: '', width: '100vw', transition: 'all 1s ease-in-out' }}>
         {/* Form Container */}
         <div className="form-container controller font" style={{ position: 'relative', zIndex: '3', top: '0', height: 'auto', width: '100vw', margin: '0 auto', marginTop: showNav ? '0' : '0', transition: 'all 1s ease-in-out', background: 'var(--theme-ui-colors-headerColor)' }}>
-          <div style={{ maxWidth: '800px', margin: '0 auto', padding:'2.5vh 1vw 0 1vw', }}>
+          <div style={{ maxWidth: '1000px', margin: '0 auto', padding:'2vh 1vw 0 1vw', }}>
             <form className="youtubeform frontdrop" onSubmit={handleSubmit} id="youtubeform" name="youtubeform">
-              {/* Video Platform Links */}
-              {isRunningStandalone() ? (
-                <>
-                  <a title="Open YouTube" aria-label="Open YouTube" href="https://youtube.com">
-                    <ImYoutube2 style={{ fontSize: '50px', opacity:'.5' }} />
-                  </a>
-                  <a title="Open Facebook" aria-label="Open Facebook" href="https://www.facebook.com/watch/">
-                    <FaFacebookSquare style={{ fontSize: '30px', opacity:'.5' }} />
-                  </a>
-                  <a title="Open Twitch" aria-label="Open Twitch" href="https://www.twitch.tv/directory">
-                    <FaTwitch style={{ fontSize: '30px', opacity:'.5' }} />
-                  </a>
-                </>
-              ) : ("")}
+
+        {/* Installed Viewers */}
+        {isRunningStandalone() && (
+    <>
+
+              <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                <input
+                  aria-label="Start Time"
+                  id="start-input"
+                  className="youtubelinker"
+                  type="text"
+                  name="start"
+                  value={startTime}
+                  onChange={handleInputChange}
+                  placeholder="Start"
+                  disabled={!isVideoActive}
+                  style={{maxWidth:'60px', fontSize:'clamp(1rem,.8vw,1.3rem)', textAlign:'center'}}
+                />
+                <input
+                  aria-label="Stop Time"
+                  id="stop-input"
+                  className="youtubelinker"
+                  type="text"
+                  name="stop"
+                  value={stopTime}
+                  onChange={handleInputChange}
+                  placeholder="Stop"
+                  disabled={!isVideoActive}
+                  style={{maxWidth:'60px', fontSize:'clamp(1rem,.8vw,1.4rem)', textAlign:'center'}}
+                />
+                <label htmlFor="loop-checkbox" style={{textAlign:'center', fontSize:'60%'}}>Loop:
+                  <input
+                    aria-label="Set to loop"
+                    id="loop-checkbox"
+                    className="youtubelinker"
+                    type="checkbox"
+                    name="loop"
+                    checked={loop}
+                    onChange={handleInputChange}
+                    disabled={!isVideoActive}
+                    style={{maxWidth:'50px'}}
+                  />
+                </label>
+              </div>
+              </>
+        )}
+              
+  <div style={{ display: 'flex', gap: '2vw', alignItems: 'center', width:'100%', margin:'0 auto', maxWidth:'700px' }}>
               <input
                 ref={inputElement}
                 id="youtubelink-input"
                 type="text"
-                name="youtubelink"
+                name="video"
                 value={youtubelink}
                 onChange={handleInputChange}
-                style={{ padding: '.5vh 1vw', width: '100%', maxWidth: '800px', fontSize: 'clamp(.8rem,1.5vw,2rem)', transition: 'all 1s ease-in-out' }}
+                style={{ padding: '.5vh 1vw', minWidth:'100px', width: '100%', maxWidth: '800px', fontSize: 'clamp(.8rem,1.5vw,2rem)', transition: 'all 1s ease-in-out' }}
                 placeholder="Paste Link To Video"
                 className="youtubelinker"
                 aria-label="Paste Link To Video"
               />
-              <button aria-label="Reset" type="reset" onClick={handleReset} disabled={!youtubelink} style={{ color: '', fontSize: 'clamp(.8rem,1.5vw,2rem)', fontWeight: 'bold', textAlign: 'left', width: '40px', margin: '5px 15px 0 0', opacity: youtubelink ? 1 : 0.5 }}>
+
+              <button aria-label="Reset" type="reset" onClick={handleReset} disabled={!isVideoActive} style={{ color: '', fontSize: 'clamp(.8rem,1.5vw,2rem)', fontWeight: 'bold', textAlign: 'left', width: '30px', margin: '', opacity: isVideoActive ? 1 : 0.5 }}>
                 Reset
               </button>
-              <button aria-label="Copy Link" onClick={handleCopyAndShareButtonClick} disabled={!youtubelink} style={{ display: "flex", gap: '.5vw', justifyContent: "center", padding: ".5vh .8vw", width:'80px', maxHeight: "", margin: "0 auto", textAlign: 'center', fontSize: '14px', fontWeight: 'light', textShadow: '0 1px 0 #000', opacity: youtubelink ? 1 : 0.5 }} className="button font print">
+
+              <button aria-label="Copy Link" onClick={handleCopyAndShareButtonClick} disabled={!isVideoActive} style={{ display: "flex", gap: '.5vw', justifyContent: "center", padding: ".5vh .8vw", width:'80px', maxHeight: "", margin: "0 auto", textAlign: 'center', fontSize: '14px', fontWeight: 'light', textShadow: '0 1px 0 #000', marginLeft:'15px', opacity: isVideoActive ? 1 : 0.5 }} className="button font print">
                 <svg style={{ maxWidth: '30px', maxHeight: '30px' }}>
                   <use href="#share-icon"></use>
                 </svg>   {copied ? 'Copied Link' : 'Copy Link'}
               </button>
+</div>
+
+        {/* Installed Viewers */}
+        {isRunningStandalone() && (
+    <>
+            <a title="Open YouTube" aria-label="Open YouTube" href="https://youtube.com">
+              <ImYoutube2 style={{ fontSize: '50px', opacity:'.5' }} />
+            </a>
+            <a title="Open Facebook" aria-label="Open Facebook" href="https://www.facebook.com/watch/">
+              <FaFacebookSquare style={{ fontSize: '30px', opacity:'.5' }} />
+            </a>
+            <a title="Open Twitch" aria-label="Open Twitch" href="https://www.twitch.tv/directory">
+              <FaTwitch style={{ fontSize: '30px', opacity:'.5' }} />
+            </a>
+            </>
+        )}
+
+        
             </form>
           </div>
         </div>
@@ -152,6 +222,8 @@ const VideoPlayer = ({ location }) => {
           <PageMenu />
         ) : ( "")}
 
+
+
         {/* ReactPlayer */}
         <ReactPlayer
           ref={playerRef}
@@ -166,9 +238,10 @@ const VideoPlayer = ({ location }) => {
           playing={true}
           controls={true}
           playsinline
+          loop={loop}
           config={{
             youtube: {
-              playerVars: { showinfo: false, autoplay: false, controls: true, start: "0", end: null, mute: false, loop: false }
+              playerVars: { showinfo: false, autoplay: false, controls: true, start: startTime || "0", end: stopTime || null, mute: false }
             },
           }}
         />
