@@ -1,46 +1,46 @@
 {
   "meta": {
     "iconimage": "/assets/logo.svg",
-    "companyname": "Jimmy Crack Horn All Night Long",
-    "siteUrl": "https://piratesocial.org",
+    "companyname": "Pirate",
+    "siteUrl": "https://pirateyoutube.com",
     "featureOptions": {
       "showDefault": true,
       "showArchive": true,
-      "showSearch": true,
-      "showDates": true,
-      "showSocial": true,
-      "showTitles": true,
-      "showfooter": true,
-      "showSwipe": true,
-      "showVideoPlayer": true,
-      "showHomePosts": true,
-      "showProfile": true
+      "showSearch": false,
+      "showDates": false,
+      "showSocial": false,
+      "showProfile": false,
+      "showHomePosts": false,
+      "showTitles": false,
+      "showfooter": false,
+      "showSwipe": false,
+      "showVideoPlayer": true
     },
     "twitterUsername": "toddlambert",
     "titleDefault": "PIRATE",
     "postcount": 9,
     "homecount": 3,
     "magicOptions": {
-      "showMagic": true,
+      "showMagic": false,
       "showMagicCat": true,
       "showMagicTag": true,
       "showMagicSearch": true
     },
     "proOptions": {
-      "showModals": true,
-      "showContact": true,
-      "startUrl": "video",
-      "showPopup": true,
-      "ShowDisclaimer": false,
-      "showBranding": true,
-      "showFeature": true,
+      "showModals": false,
+      "showContact": false,
       "showResume": true,
+      "startUrl": "/",
+      "showPopup": false,
       "showLocation": true,
-      "showLegal": true,
-      "showConsent": true
+      "ShowDisclaimer": false,
+      "showBranding": false,
+      "showFeature": false,
+      "showLegal": false,
+      "showConsent": false
     },
     "titleTemplate": "%s",
-    "title": "PIRATE SOCIAL",
+    "title": "Pirate YouTube",
     "language": {
       "dicContact": "Contact",
       "dicSignUpText": "Sign Up - Enter your email",
@@ -79,11 +79,11 @@
     },
     "image": "/assets/pirate-logo.svg",
     "navOptions": {
-      "showNav": true,
-      "showNav2": true,
-      "showFooterMenu": true
+      "showNav": false,
+      "showNav2": false,
+      "showFooterMenu": false
     },
-    "description": "Pirate Social media for the people by the people",
+    "description": "Pirate Video for the masses",
     "icon512": "/assets/pirate-icon.svg"
   }
 }
