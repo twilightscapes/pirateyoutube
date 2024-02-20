@@ -14,7 +14,7 @@
       "showTitles": false,
       "showfooter": false,
       "showSwipe": false,
-      "showVideoPlayer": false
+      "showVideoPlayer": true
     },
     "twitterUsername": "toddlambert",
     "titleDefault": "PIRATE",
