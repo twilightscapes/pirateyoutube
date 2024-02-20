@@ -148,12 +148,19 @@ const VideoPlayer = ({ location }) => {
   
   
 
+
   return (
     <>
       <div id="piratevideo" className='player-wrapper' style={{ display: 'grid', placeContent: '', width: '100vw', transition: 'all 1s ease-in-out' }}>
-        <div className="form-container controller font" style={{ position: 'relative', zIndex: '3', top: '0', height: 'auto', width: '100vw', margin: '0 auto', marginTop: showNav ? '0' : '0', transition: 'all 1s ease-in-out', background: 'var(--theme-ui-colors-headerColor)' }}>
-          <div style={{ maxWidth: '1000px', margin: '0 auto', padding:'2vh 1vw 0 1vw', }}>
-            <form className="youtubeform frontdrop" onSubmit={handleSubmit} id="youtubeform" name="youtubeform">
+
+      <div className="form-container controller font" style={{ position: 'relative', zIndex: '3', top: '0', height: 'auto', width: '100vw', maxWidth:'', margin: '0 auto', marginTop: showNav ? '0' : '0', transition: 'all 1s ease-in-out', background: 'var(--theme-ui-colors-headerColor)' }}>
+
+          <div style={{  maxWidth:'90vw', margin: '0 auto', padding:'2vh 1vw 0 1vw', }}>
+            
+            <form className="youtubeform frontdrop" onSubmit={handleSubmit} id="youtubeform" name="youtubeform" style={{maxWidth:'', minWidth:''}}>
+
+            {isRunningStandalone() && (
+                <>
               <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
                 <input
                   aria-label="Start Time"
@@ -186,7 +193,12 @@ const VideoPlayer = ({ location }) => {
                   placeholder="Stop"
                   style={{ maxWidth: '60px', fontSize: 'clamp(1rem,.8vw,1.4rem)', textAlign: 'center' }}
                 />
-                <label htmlFor="loop-checkbox" style={{textAlign:'center', fontSize:'60%'}}>Loop:
+              </div>
+
+
+              
+              <div style={{ display: 'flex', gap: '1vw', alignItems: 'center' }}>
+              <label htmlFor="loop-checkbox" style={{textAlign:'center', fontSize:'60%'}}>Loop:
                   <input
                     aria-label="Set to loop"
                     id="loop-checkbox"
@@ -198,8 +210,6 @@ const VideoPlayer = ({ location }) => {
                     style={{maxWidth:'50px'}}
                   />
                 </label>
-              </div>
-              <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
                 <label htmlFor="mute-checkbox" style={{textAlign:'center', fontSize:'60%'}}>Mute:
                   <input
                     aria-label="Set to mute"
@@ -212,8 +222,8 @@ const VideoPlayer = ({ location }) => {
                     style={{maxWidth:'50px'}}
                   />
                 </label>
-              </div>
-              <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+              
+    
                 <label htmlFor="controls-checkbox" style={{textAlign:'center', fontSize:'60%'}}>Controls:
                   <input
                     aria-label="Set to show controls"
@@ -226,7 +236,15 @@ const VideoPlayer = ({ location }) => {
                     style={{maxWidth:'50px'}}
                   />
                 </label>
+
+
               </div>
+              </>
+              )}
+
+
+
+
               <input
                 ref={inputElement}
                 id="youtubelink-input"
@@ -234,20 +252,25 @@ const VideoPlayer = ({ location }) => {
                 name="video"
                 value={youtubelink}
                 onChange={handleInputChange}
-                style={{ padding: '.5vh 1vw', minWidth:'100px', width: '100%', maxWidth: '800px', fontSize: 'clamp(.8rem,1.5vw,2rem)', transition: 'all 1s ease-in-out' }}
+                style={{ padding: '.5vh 1vw', minWidth:'100px', width: '', maxWidth: '800px', fontSize: 'clamp(.8rem,1.5vw,2rem)', transition: 'all 1s ease-in-out' }}
                 placeholder="Paste Link To Video"
                 className="youtubelinker"
                 aria-label="Paste Link To Video"
               />
-              <button aria-label="Reset" type="reset" onClick={handleReset} style={{ color: '', fontSize: 'clamp(.8rem,1.5vw,2rem)', fontWeight: 'bold', textAlign: 'left', width: '30px', margin: '', opacity: isVideoActive ? 1 : 0.5 }}>
+
+              <button aria-label="Reset" type="reset" onClick={handleReset} style={{ color: '', fontSize: 'clamp(.8rem,1,2vw,1rem)', fontWeight: 'bold', textAlign: 'left', width: '30px', margin: '', opacity: isVideoActive ? 1 : 0.5 }}>
                 Reset
               </button>
+
               <button aria-label="Copy Link" onClick={handleCopyAndShareButtonClick} style={{ display: "flex", gap: '.5vw', justifyContent: "center", padding: ".5vh .8vw", width:'80px', maxHeight: "", margin: "0 auto", textAlign: 'center', fontSize: '14px', fontWeight: 'light', textShadow: '0 1px 0 #000', marginLeft:'15px', opacity: isVideoActive ? 1 : 0.5 }} className="button font print">
                 <svg style={{ maxWidth: '30px', maxHeight: '30px' }}>
                   <use href="#share-icon"></use>
                 </svg>   {copied ? 'Copied Link' : 'Copy Link'}
               </button>
-              {!isRunningStandalone() && (
+
+
+
+              {isRunningStandalone() && (
                 <>
                   <a title="Open YouTube" aria-label="Open YouTube" href="https://youtube.com">
                     <ImYoutube2 style={{ fontSize: '50px', opacity:'.5' }} />
@@ -260,9 +283,14 @@ const VideoPlayer = ({ location }) => {
                   </a>
                 </>
               )}
+
+
             </form>
           </div>
         </div>
+
+
+
         <svg className="hidden">
           <defs>
             <symbol id="share-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-share"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></symbol>
