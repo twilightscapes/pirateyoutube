@@ -426,11 +426,11 @@ display:'flex', justifyContent:'center', maxHeight:'80px !important', height:'15
         <body id="body" className="homepage" />
       </Helmet>
 
-      {/* <Seo
+      <Seo
         title={frontmatter.title}
         description={frontmatter.description ? frontmatter.description : excerpt}
         image={frontmatter.featuredImage ? getSrc(frontmatter.featuredImage) : null}
-      /> */}
+      />
 
 
 

@@ -26,21 +26,38 @@ const VideoPlayer = ({ location }) => {
   const [mute, setMute] = useState(muteParam);
   const [controls, setControls] = useState(controlsParam);
   const [copied, setCopied] = useState(false);
+
+  const isValidURL = (url) => {
+    // Regular expression for URL validation
+    const urlPattern = /^(ftp|http|https):\/\/[^ "]+$/;
+    return urlPattern.test(url);
+  };
+
+  const handleStartBlur = () => {
+    setStartTime(startTime.trim() || ''); // Trim any leading/trailing spaces
+    updateQueryString({ start: startTime });
+  };
   
+  const handleStopBlur = () => {
+    setStopTime(stopTime.trim() || ''); // Trim any leading/trailing spaces
+    updateQueryString({ stop: stopTime });
+  };
+
   useEffect(() => {
-    const fillFormFromClipboard = async () => {
-      try {
-        const clipboardText = await navigator.clipboard.readText();
-        if (isValidURL(clipboardText)) {
-          setYoutubelink(clipboardText);
-          updateQueryString({ video: clipboardText });
-        }
-      } catch (error) {
-        console.error("Error reading clipboard:", error.message);
-      }
+    const updateQueryString = (values) => {
+      const { start, stop } = values;
+      const newUrl = `${window.location.pathname}?video=${encodeURIComponent(youtubelink)}&start=${encodeURIComponent(start)}&stop=${encodeURIComponent(stop)}&loop=${loop}&mute=${mute}&controls=${controls}`;
+      window.history.pushState({}, '', newUrl);
     };
-    fillFormFromClipboard();
-  }, []);
+
+    document.getElementById("start-input").addEventListener("blur", handleStartBlur);
+    document.getElementById("stop-input").addEventListener("blur", handleStopBlur);
+
+    return () => {
+      document.getElementById("start-input").removeEventListener("blur", handleStartBlur);
+      document.getElementById("stop-input").removeEventListener("blur", handleStopBlur);
+    };
+  }, [youtubelink, startTime, stopTime, loop, mute, controls]);
 
   const handleInputChange = (event) => {
     const { name, value, type, checked } = event.target;
@@ -53,12 +70,14 @@ const VideoPlayer = ({ location }) => {
         setLoop(checked);
       }
     } else {
-      if (name === 'start') {
+      if (name === 'video') {
+        if (isValidURL(value)) {
+          setYoutubelink(value);
+        }
+      } else if (name === 'start') {
         setStartTime(value);
       } else if (name === 'stop') {
         setStopTime(value);
-      } else {
-        setYoutubelink(value);
       }
     }
   };
@@ -139,8 +158,9 @@ const VideoPlayer = ({ location }) => {
                   className="youtubelinker"
                   type="text"
                   name="start"
-                  value={startTime}
+                  value={startTime} // Ensure this corresponds to the startTime state variable
                   onChange={handleInputChange}
+                  onBlur={handleStartBlur}
                   placeholder="Start"
                   disabled={!isVideoActive}
                   style={{maxWidth:'60px', fontSize:'clamp(1rem,.8vw,1.3rem)', textAlign:'center'}}
@@ -153,6 +173,7 @@ const VideoPlayer = ({ location }) => {
                   name="stop"
                   value={stopTime}
                   onChange={handleInputChange}
+                  onBlur={handleStopBlur}
                   placeholder="Stop"
                   disabled={!isVideoActive}
                   style={{maxWidth:'60px', fontSize:'clamp(1rem,.8vw,1.4rem)', textAlign:'center'}}
@@ -232,24 +253,20 @@ const VideoPlayer = ({ location }) => {
                 </svg>   {copied ? 'Copied Link' : 'Copy Link'}
               </button>
 
-
-
               {/* Installed Viewers */}
-        {!isRunningStandalone() && (
-    <>
-            <a title="Open YouTube" aria-label="Open YouTube" href="https://youtube.com">
-              <ImYoutube2 style={{ fontSize: '50px', opacity:'.5' }} />
-            </a>
-            <a title="Open Facebook" aria-label="Open Facebook" href="https://www.facebook.com/watch/">
-              <FaFacebookSquare style={{ fontSize: '30px', opacity:'.5' }} />
-            </a>
-            <a title="Open Twitch" aria-label="Open Twitch" href="https://www.twitch.tv/directory">
-              <FaTwitch style={{ fontSize: '30px', opacity:'.5' }} />
-            </a>
-            </>
-        )}
-
-
+              {!isRunningStandalone() && (
+                <>
+                  <a title="Open YouTube" aria-label="Open YouTube" href="https://youtube.com">
+                    <ImYoutube2 style={{ fontSize: '50px', opacity:'.5' }} />
+                  </a>
+                  <a title="Open Facebook" aria-label="Open Facebook" href="https://www.facebook.com/watch/">
+                    <FaFacebookSquare style={{ fontSize: '30px', opacity:'.5' }} />
+                  </a>
+                  <a title="Open Twitch" aria-label="Open Twitch" href="https://www.twitch.tv/directory">
+                    <FaTwitch style={{ fontSize: '30px', opacity:'.5' }} />
+                  </a>
+                </>
+              )}
 
             </form>
           </div>
@@ -268,27 +285,27 @@ const VideoPlayer = ({ location }) => {
         ) : ( "")}
 
         {/* ReactPlayer */}
-<ReactPlayer
-  ref={playerRef}
-  allow="web-share"
-  style={{
-    position: 'relative', top: '0', margin: '0 auto 0 auto', zIndex: '1', overflow: 'hidden', width: '100vw', minHeight: '', height: '100%', background: 'transparent',
-    transition: 'all 1s ease-in-out',
-  }}
-  width="100%"
-  height="100%"
-  url={youtubelink}
-  playing={true}
-  controls={controls} // Use controls state for controlling visibility of controls
-  playsinline
-  loop={loop}
-  muted={mute} // Use mute state for controlling mute
-  config={{
-    youtube: {
-      playerVars: { showinfo: false, autoplay: false, controls: controls ? 1 : 0, start: startTime || "0", end: stopTime || null, mute: false }
-    },
-  }}
-/>
+        <ReactPlayer
+          ref={playerRef}
+          allow="web-share"
+          style={{
+            position: 'relative', top: '0', margin: '0 auto 0 auto', zIndex: '1', overflow: 'hidden', width: '100vw', minHeight: '', height: '100%', background: 'transparent',
+            transition: 'all 1s ease-in-out',
+          }}
+          width="100%"
+          height="100%"
+          url={youtubelink}
+          playing={true}
+          controls={true} // Always show controls
+          playsinline
+          loop={loop}
+          muted={mute} // Use mute state for controlling mute
+          config={{
+            youtube: {
+              playerVars: { showinfo: false, autoplay: false, controls: controls ? 1 : 0, start: startTime || "0", end: stopTime || null, mute: false }
+            },
+          }}
+        />
 
       </div>
     </>
@@ -296,10 +313,3 @@ const VideoPlayer = ({ location }) => {
 };
 
 export default VideoPlayer;
-
-// Function to validate URL (You can use a library like 'valid-url' for more comprehensive validation)
-const isValidURL = (url) => {
-  // Regular expression for URL validation
-  const urlPattern = /^(ftp|http|https):\/\/[^ "]+$/;
-  return urlPattern.test(url);
-};
