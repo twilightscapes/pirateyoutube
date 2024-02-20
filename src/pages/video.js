@@ -6,7 +6,7 @@ import { Helmet } from "react-helmet";
 // import useSiteMetadata from "../hooks/SiteMetadata";
 import VideoPlayer from "../components/VideoPlayer";
 
-const VideoPage = ({ location }) => {
+const Vidpro = ({ location }) => {
   // const { proOptions } = useSiteMetadata();
   // const { showBranding } = proOptions;
 
@@ -59,4 +59,4 @@ const SeoWrapper = ({ location }) => {
   );
 };
 
-export default VideoPage;
+export default Vidpro;
