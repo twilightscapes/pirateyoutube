@@ -247,7 +247,7 @@ const VideoPlayer = ({ location }) => {
               </button>
 
               {/* Installed Viewers */}
-              {!isRunningStandalone() && (
+              {isRunningStandalone() && (
                 <>
                   <a title="Open YouTube" aria-label="Open YouTube" href="https://youtube.com">
                     <ImYoutube2 style={{ fontSize: '50px', opacity:'.5' }} />
