@@ -13,6 +13,7 @@ const VideoPlayer = ({ location }) => {
   const loopParam = queryParams.get('loop') === 'true';
   const muteParam = queryParams.get('mute') === 'true';
   const controlsParam = queryParams.get('controls') === 'true';
+  
 
   const { featureOptions, proOptions } = useSiteMetadata();
   const { showBranding } = proOptions;
@@ -27,10 +28,25 @@ const VideoPlayer = ({ location }) => {
   const [controls, setControls] = useState(controlsParam);
   const [copied, setCopied] = useState(false);
 
-  const isValidURL = (url) => {
-    // Regular expression for URL validation
-    const urlPattern = /^(ftp|http|https):\/\/[^ "]+$/;
-    return urlPattern.test(url);
+  const handleInputChange = (event) => {
+    const { name, value, type, checked } = event.target;
+    if (type === 'checkbox') {
+      if (name === 'mute') {
+        setMute(checked);
+      } else if (name === 'controls') {
+        setControls(checked);
+      } else {
+        setLoop(checked);
+      }
+    } else {
+      if (name === 'video') {
+        setYoutubelink(value);
+      } else if (name === 'start') {
+        setStartTime(value);
+      } else if (name === 'stop') {
+        setStopTime(value);
+      }
+    }
   };
 
   const handleStartBlur = () => {
@@ -58,29 +74,6 @@ const VideoPlayer = ({ location }) => {
       document.getElementById("stop-input").removeEventListener("blur", handleStopBlur);
     };
   }, [youtubelink, startTime, stopTime, loop, mute, controls]);
-
-  const handleInputChange = (event) => {
-    const { name, value, type, checked } = event.target;
-    if (type === 'checkbox') {
-      if (name === 'mute') {
-        setMute(checked);
-      } else if (name === 'controls') {
-        setControls(checked);
-      } else {
-        setLoop(checked);
-      }
-    } else {
-      if (name === 'video') {
-        if (isValidURL(value)) {
-          setYoutubelink(value);
-        }
-      } else if (name === 'start') {
-        setStartTime(value);
-      } else if (name === 'stop') {
-        setStopTime(value);
-      }
-    }
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -296,7 +289,7 @@ const VideoPlayer = ({ location }) => {
           height="100%"
           url={youtubelink}
           playing={true}
-          controls={true} // Always show controls
+          controls={controls} // Use controls state for controlling visibility of controls
           playsinline
           loop={loop}
           muted={mute} // Use mute state for controlling mute
@@ -313,3 +306,10 @@ const VideoPlayer = ({ location }) => {
 };
 
 export default VideoPlayer;
+
+// Function to validate URL (You can use a library like 'valid-url' for more comprehensive validation)
+const isValidURL = (url) => {
+  // Regular expression for URL validation
+  const urlPattern = /^(ftp|http|https):\/\/[^ "]+$/;
+  return urlPattern.test(url);
+};
