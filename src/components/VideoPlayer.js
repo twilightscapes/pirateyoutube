@@ -196,8 +196,6 @@ const handleEndFromPlayhead = () => {
 
 
 
-        
-
               {/* Mute option */}
               <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
 
