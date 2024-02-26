@@ -44,7 +44,7 @@ const SeoWrapper = ({ location }) => {
     <Seo
       title={seoTitle}
       description="Pirate: revolutionizing the web"
-      image={videoId ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg` : 'https://pirateyoutube.com/assets/default-og-image.webp'}
+      image={videoId ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg` : null}
     />
   );
 };

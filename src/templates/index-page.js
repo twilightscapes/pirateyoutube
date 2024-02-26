@@ -8,7 +8,7 @@ const VideoPage = ({ location }) => {
   return (
     <Layout>
       <Helmet>
-        <body id="body" className="homepage" />
+        <body id="body" className="youtube" />
       </Helmet>
       <SeoWrapper location={location} />
       <div className='player-wrapper'>
@@ -17,19 +17,13 @@ const VideoPage = ({ location }) => {
     </Layout>
   );
 };
-        // Function to check if the app is running in standalone mode
-        function isRunningStandalone() {
-          if (typeof window !== 'undefined') {
-              return window.matchMedia('(display-mode: standalone)').matches;
-          }
-          return false;
-      }
+
 
 
 const SeoWrapper = ({ location }) => {
   const queryParams = new URLSearchParams(location.search);
   const videoUrlParam = queryParams.get('video');
-  const seoTitle = queryParams.get('seoTitle') || "Play Video "; // Use the seoTitle from query params or default value
+  const seoTitle = queryParams.get('seoTitle') || "Play Video ☠"; 
 
   // Function to extract video ID from YouTube URL
   const extractVideoId = (url) => {
@@ -50,7 +44,7 @@ const SeoWrapper = ({ location }) => {
     <Seo
       title={seoTitle}
       description="Pirate: revolutionizing the web"
-      image={videoId ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg` : 'https://pirateyoutube.com/assets/default-og-image.webp'}
+      image={videoId ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg` : null}
     />
   );
 };
