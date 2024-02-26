@@ -1317,8 +1317,8 @@ html:has body.youtube{position:fixed !important; overflow: hidden !important;}
 
 body.homepage header.header{display: none !important;}
 
-  body.homepage .public{display: none !important;}
-body.youtube .public{display:flex !important;}
+  /* body.homepage .public{display: none !important;} */
+/* body.youtube .public{display:flex !important;} */
   /* body.youtube #gobacker{top:14% !important; right:5px !important;} */
 
   @media(max-width:48rem) {

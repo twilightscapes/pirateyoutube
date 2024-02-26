@@ -107,7 +107,7 @@ const VideoPlayer = ({ location }) => {
             loop, 
             mute, 
             controls, 
-            autoplay, // Here, autoplay is already a boolean value
+            autoplay, 
             seoTitle, 
             hideEditor, 
             showBlocker 
@@ -567,18 +567,10 @@ const handleAutoplayChange = (event) => {
                     </form>
 
                     </div>
-
-
-
-
                 
     ) : (
-
-
-
-
-
-
+<>
+        {isRunningStandalone() && (
 <div className={showPro ? "font" : "font public"} style={{display:'flex', position: 'relative', zIndex: '3', top: '0', width: '100vw', margin: '0 auto', marginTop: showNav ? '0' : '', transition: 'all 1s ease-in-out', 
 // height: hideEditor ? '0' : '50px', 
 // background: 'var(--theme-ui-colors-headerColor)',
@@ -664,6 +656,8 @@ background: 'var(--theme-ui-colors-headerColor)',
 
                     </div>
       
+    )}
+</>
     )}
 
 {!showBranding ? (
