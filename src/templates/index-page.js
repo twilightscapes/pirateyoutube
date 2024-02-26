@@ -29,10 +29,8 @@ const VideoPage = ({ location }) => {
       const SeoWrapper = ({ location }) => {
         const queryParams = new URLSearchParams(location.search);
         const videoUrlParam = queryParams.get('video');
-        const seoTitleParam = queryParams.get('seoTitle') || "☠ Pirate YouTube | Play Video ▶ ";
-        const seoTitle = seoTitleParam || "☠ Pirate YouTube | Play Video ▶ ";
+        const seoTitle = queryParams.get('seoTitle') || "☠ Pirate YouTube | Play Video ▶ ";
       
-        // Function to extract video ID from YouTube URL
         const extractVideoId = (url) => {
           if (!url) {
             return null;
@@ -45,14 +43,21 @@ const VideoPage = ({ location }) => {
       
         const videoId = extractVideoId(videoUrlParam);
       
+        // Define the fallback image URL
+        const fallbackImageUrl = 'https://pirateyoutube.com/assets/default-og-image.webp';
+      
+        // Construct the image URL based on the video ID
+        const imageUrl = videoId ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg` : fallbackImageUrl;
+      
         return (
           <Seo
             title={seoTitle}
             description="Pirate YouTube - video on your terms"
-            image={videoId ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg` : null}
+            image={imageUrl}
           />
         );
       };
+      
       
 
 export default VideoPage;
