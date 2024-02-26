@@ -33,7 +33,7 @@ tagline: YOU... ARE THE CAPTAIN NOW!
 
 featuredImage: /assets/pirate-propaganda.webp
 secondaryImage: /assets/default-user.webp
-underlayImage: /assets/losser.webp
+underlayImage: 
 scrollable: false
 portfolio:
   openText: ""
@@ -54,9 +54,9 @@ pagePW: ""
 skillsTitle: ""
 svgImage: /assets/null.svg
 template: index-page
-title: Social media by the people for the people
+title: Pirate Video
 postLimit: "4"
-description: PIRATE - social media for the people by the people
+description: PIRATE - web, video and social media by the people for the people
 svgzindex: x
 coverletter:
   coverText: About PIRATE

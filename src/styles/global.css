@@ -1307,7 +1307,7 @@ html:has body.youtube{position:fixed !important; overflow: hidden !important;}
   body.youtube header.header {height:0 !important;}
   #VideoPlayer {position:fixed; overflow-y: hidden;}
 
-  body.youtube #header,
+  body.youtube header,
   body.youtube footer,
   body.youtube #menu,
   body.youtube #gobacker,
@@ -1315,6 +1315,55 @@ html:has body.youtube{position:fixed !important; overflow: hidden !important;}
   body.youtube .upbar 
   {display: none !important;}
 
+body.homepage header.header{display: none !important;}
+
+  body.homepage .public{display: none !important;}
+body.youtube .public{display:flex !important;}
+  /* body.youtube #gobacker{top:14% !important; right:5px !important;} */
+
+  @media(max-width:48rem) {
+    body.youtube #PiratePlayer {top:60px !important;}
+  }
+
+#PiratePlayer .blocked-video::before{
+  content:"Pirate Video Pro";
+    position: fixed;
+    /* top: 60px; */
+    left: 0;
+    width: 100vw;
+    height: 99%;
+    z-index: 100000;
+    display:grid;
+    place-content: center;
+    border:20px solid yellow !important;
+    background:transparent;
+    background-size: cover;
+    font-size: clamp(2rem,3vw,3rem);
+}
+/* .blocked-video{border:2px solid red !important;} */
+
+
+
+
+  /* #piratevideo div.showBlocker[allow="web-share"] {border:10px solid green !important;} */
+  /* #piratevideo div.showBlocker[allow="web-share"] {border:1px solid green !important;} */
+  /* .video-blocker {
+    content:"❮❮scroll";
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100vw;
+    height: 99%;
+    z-index: 5;
+    border:2px solid yellow !important;
+    display: block;
+    background:transparent;
+    background-size: cover;  
+} */
+
+/* SAFARI INPUT ZOOM FIX */
+input {font-size: 16px !important;}
+/* SAFARI INPUT ZOOM FIX */
 
   /* html, body.youtube {
     touch-action: manipulation;
@@ -1331,8 +1380,8 @@ html:has body.youtube{position:fixed !important; overflow: hidden !important;}
 
 
 
-/* .pagemenu button.flag svg{color:#000 !important;} */
 
+/* .pagemenu button.flag svg{color:#000 !important;} */
 
 
 
@@ -1354,11 +1403,24 @@ body.youtube .player-wrapper {max-height: 100dvh;}
 .player-wrapper iframe{max-height: 100%; overflow:hidden; object-fit:contain;  margin:0 auto; aspect-ratio: 16/9;}
 
 
+/* #pwabanner {
+  opacity: 0;
+  overflow: hidden;
+  animation: showBanner 3s 1s forwards; 
+}
+
+@keyframes showBanner {
+  to {
+    opacity:100;
+  }
+} */
+
+
 
 
 /* Form container */
 .form-container {
-min-height: 80px;
+/* min-height: 80px; */
   /* justify-content: center;
   align-items: center; */
   padding: 0 ;
@@ -1381,17 +1443,17 @@ margin: 0 auto;
   /* max-width: 380px; */
 }
 
-.frontdrop {
+/* .frontdrop {
   padding: 0;
   margin: 0 auto;
   display: flex;
   align-items: center;
   gap:2vw;
-}
+} */
 
 .youtubelinker {
   background: var(--theme-ui-colors-headerColor);
-  padding: 1vh 0.5vw;
+  padding: .2vh 0.5vw;
   /* min-width: 200px; */
   outline: 1px solid #999;
   border-radius: var(--theme-ui-colors-borderRadius);

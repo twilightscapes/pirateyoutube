@@ -9,7 +9,7 @@
       "showSearch": false,
       "showDates": false,
       "showSocial": false,
-      "showProfile": true,
+      "showProfile": false,
       "showHomePosts": false,
       "showTitles": false,
       "showfooter": false,
@@ -29,15 +29,16 @@
     "proOptions": {
       "showModals": false,
       "showContact": false,
-      "showResume": true,
-      "startUrl": "video",
+      "showResume": false,
+      "startUrl": "/",
       "showPopup": false,
-      "showLocation": true,
+      "showLocation": false,
       "ShowDisclaimer": false,
       "showBranding": false,
       "showFeature": false,
       "showLegal": false,
-      "showConsent": false
+      "showConsent": false,
+      "showPWA": true
     },
     "titleTemplate": "%s",
     "title": "Pirate YouTube",
@@ -79,7 +80,7 @@
     },
     "image": "/assets/pirate-logo.svg",
     "navOptions": {
-      "showNav": false,
+      "showNav": true,
       "showNav2": false,
       "showFooterMenu": false
     },
