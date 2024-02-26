@@ -546,7 +546,7 @@ const handleAutoplayChange = (event) => {
 </div>
 
                             {!isRunningStandalone() && (
-                            <div style={{position:'absolute', left:'-5px', top:'75vh', zIndex:'2', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', gap:'2vh', width:'58px',padding:'3px 10px', background:'rgba(0,0,0,.2)', outline:'1px solid #333', borderRadius:'var(--theme-ui-colors-borderRadius)'}}>
+                            <div style={{position:'absolute', left:'-5px', top:'70vh', zIndex:'2', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', gap:'2vh', width:'58px',padding:'3px 10px', background:'rgba(0,0,0,.2)', outline:'1px solid #333', borderRadius:'var(--theme-ui-colors-borderRadius)'}}>
 
 
 
