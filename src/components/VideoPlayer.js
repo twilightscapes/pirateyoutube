@@ -5,7 +5,7 @@ import { FaTwitch, FaFacebookSquare } from "react-icons/fa";
 import useSiteMetadata from "../hooks/SiteMetadata";
 import PageMenu from "../components/PageMenu";
 
-const VideoPlayer = ({ location }) => {
+const HomePage = ({ location }) => {
     // State initialization
     const [queryParams] = useState(new URLSearchParams(location.search));
     const proParam = queryParams.get('pro') === 'true';
@@ -545,7 +545,7 @@ const handleAutoplayChange = (event) => {
 
 </div>
 
-                            {!isRunningStandalone() && (
+                            {isRunningStandalone() && (
                             <div style={{position:'absolute', left:'-5px', top:'70vh', zIndex:'2', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', gap:'2vh', width:'58px',padding:'3px 10px', background:'rgba(0,0,0,.2)', outline:'1px solid #333', borderRadius:'var(--theme-ui-colors-borderRadius)'}}>
 
 
@@ -739,4 +739,4 @@ background: 'var(--theme-ui-colors-headerColor)',
     );
 };
 
-export default VideoPlayer;
+export default HomePage;
