@@ -18,12 +18,12 @@ const VideoPage = ({ location }) => {
   );
 };
         // Function to check if the app is running in standalone mode
-        function isRunningStandalone() {
-          if (typeof window !== 'undefined') {
-              return window.matchMedia('(display-mode: standalone)').matches;
-          }
-          return false;
-      }
+      //   function isRunningStandalone() {
+      //     if (typeof window !== 'undefined') {
+      //         return window.matchMedia('(display-mode: standalone)').matches;
+      //     }
+      //     return false;
+      // }
 
 
 const SeoWrapper = ({ location }) => {
