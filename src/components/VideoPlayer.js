@@ -545,8 +545,8 @@ const handleAutoplayChange = (event) => {
 
 </div>
 
-                            {isRunningStandalone() && (
-                            <div style={{position:'absolute', left:'0', top:'50vh', zIndex:'2', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', gap:'2vh', width:'55px',padding:'3px 10px', background:'rgba(0,0,0,.2)', outline:'1px solid #333', borderRadius:'var(--theme-ui-colors-borderRadius)'}}>
+                            {!isRunningStandalone() && (
+                            <div style={{position:'absolute', left:'-5px', top:'75vh', zIndex:'2', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', gap:'2vh', width:'58px',padding:'3px 10px', background:'rgba(0,0,0,.2)', outline:'1px solid #333', borderRadius:'var(--theme-ui-colors-borderRadius)'}}>
 
 
 
@@ -570,7 +570,7 @@ const handleAutoplayChange = (event) => {
                 
     ) : (
 <>
-        {isRunningStandalone() && (
+        {/* {isRunningStandalone() && ( */}
 <div className={showPro ? "font" : "font public"} style={{display:'flex', position: 'relative', zIndex: '3', top: '0', width: '100vw', margin: '0 auto', marginTop: showNav ? '0' : '', transition: 'all 1s ease-in-out', 
 // height: hideEditor ? '0' : '50px', 
 // background: 'var(--theme-ui-colors-headerColor)',
@@ -598,10 +598,33 @@ background: 'var(--theme-ui-colors-headerColor)',
 }}
 >
 
+
+
 <div id="bigbox" style={{ display: 'flex', flexDirection:'column', gap: '4px', alignItems: 'center', width:'100%', border:'0px solid red' }}>
+
+
+
 
 <div id="pastebox" style={{ display: 'flex', flexDirection:'row', gap: '10px', alignItems: 'center', width:'60vw', margin:'0 auto', border:'0px solid red' }}>
 
+
+{isRunningStandalone() && (
+                            <div style={{position:'relative', right:'', top:'', zIndex:'2', display:'flex', flexDirection:'row', alignItems:'center', justifyContent:'center', gap:'2vh', width:'40%', marginRight:'4vw', padding:'3px 5px', background:'rgba(0,0,0,.2)', outline:'1px solid #333', borderRadius:'var(--theme-ui-colors-borderRadius)'}}>
+
+
+
+
+                                    <a title="Open YouTube" aria-label="Open YouTube" href="https://youtube.com">
+                                        <TfiYoutube style={{ fontSize: '30px', opacity:'.8' }} />
+                                    </a>
+                                    <a title="Open Facebook" aria-label="Open Facebook" href="https://www.facebook.com/watch/">
+                                        <FaFacebookSquare style={{ fontSize: '30px', opacity:'.8' }} />
+                                    </a>
+                                    <a title="Open Twitch" aria-label="Open Twitch" href="https://www.twitch.tv/directory">
+                                        <FaTwitch style={{ fontSize: '30px', opacity:'.8' }} />
+                                    </a>
+                                </div>
+                             )}
 
                             <input
                                 ref={inputElement}
@@ -619,8 +642,9 @@ background: 'var(--theme-ui-colors-headerColor)',
                             <button aria-label="Reset" type="reset" onClick={handleReset} disabled={!isVideoActive} style={{ color: '', fontSize: 'clamp(.8rem,1vw,1rem)', fontWeight: 'bold', textAlign: 'left', width: '20px', margin: '', opacity: isVideoActive ? 1 : 0.5 }}>
                                 Reset
                             </button>
-</div>
 
+                            
+</div>
 
 
 
@@ -636,27 +660,11 @@ background: 'var(--theme-ui-colors-headerColor)',
                     </form>
 
 
-                    {isRunningStandalone() && (
-                            <div style={{position:'absolute', left:'0', top:'50vh', zIndex:'2', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', gap:'2vh', width:'55px',padding:'3px 10px', background:'rgba(0,0,0,.2)', outline:'1px solid #333', borderRadius:'var(--theme-ui-colors-borderRadius)'}}>
 
-
-
-
-                                    <a title="Open YouTube" aria-label="Open YouTube" href="https://youtube.com">
-                                        <TfiYoutube style={{ fontSize: '30px', opacity:'.8' }} />
-                                    </a>
-                                    <a title="Open Facebook" aria-label="Open Facebook" href="https://www.facebook.com/watch/">
-                                        <FaFacebookSquare style={{ fontSize: '30px', opacity:'.8' }} />
-                                    </a>
-                                    <a title="Open Twitch" aria-label="Open Twitch" href="https://www.twitch.tv/directory">
-                                        <FaTwitch style={{ fontSize: '30px', opacity:'.8' }} />
-                                    </a>
-                                </div>
-                             )}
 
                     </div>
       
-    )}
+    {/* )} */}
 </>
     )}
 
