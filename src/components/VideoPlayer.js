@@ -289,34 +289,37 @@ const handleCopyAndShareButtonClick = async () => {
     };
 
     // Function to update query string based on provided values
+    // const updateQueryString = (values) => {
+    //     const { video, start, stop, loop, mute, controls, autoplay, seoTitle, hideEditor, showBlocker } = values;
+    
+    //     // Format start and stop values only if they are not NaN
+    //     const formattedStart = isNaN(parseFloat(start)) ? "" : parseFloat(start).toFixed(2);
+    //     const formattedStop = isNaN(parseFloat(stop)) ? "" : parseFloat(stop).toFixed(2);
+    
+    //     // Convert autoplay to string
+    //     const autoplayValue = autoplay ? 'true' : 'false';
+    
+    //     // Construct the base URL with mandatory parameters
+    //     let newUrl = `${window.location.pathname}?video=${encodeURIComponent(video)}&start=${encodeURIComponent(formattedStart)}&stop=${encodeURIComponent(formattedStop)}&loop=${loop}&mute=${mute}&controls=${controls}&autoplay=${autoplayValue}`;
+    
+    //     if (seoTitle !== undefined) {
+    //         newUrl += `&seoTitle=${encodeURIComponent(seoTitle)}`;
+    //     }
+    
+    //     if (hideEditor !== undefined) {
+    //         newUrl += `&hideEditor=${hideEditor ? 'true' : 'false'}`;
+    //     }
+    
+    //     if (showBlocker !== undefined) {
+    //         newUrl += `&showBlocker=${showBlocker ? 'true' : 'false'}`;
+    //     }
+    
+    //     window.history.pushState({}, '', newUrl);
+    // };
+    
     const updateQueryString = (values) => {
-        const { video, start, stop, loop, mute, controls, autoplay, seoTitle, hideEditor, showBlocker } = values;
-    
-        // Format start and stop values only if they are not NaN
-        const formattedStart = isNaN(parseFloat(start)) ? "" : parseFloat(start).toFixed(2);
-        const formattedStop = isNaN(parseFloat(stop)) ? "" : parseFloat(stop).toFixed(2);
-    
-        // Convert autoplay to string
-        const autoplayValue = autoplay ? 'true' : 'false';
-    
-        // Construct the base URL with mandatory parameters
-        let newUrl = `${window.location.pathname}?video=${encodeURIComponent(video)}&start=${encodeURIComponent(formattedStart)}&stop=${encodeURIComponent(formattedStop)}&loop=${loop}&mute=${mute}&controls=${controls}&autoplay=${autoplayValue}`;
-    
-        if (seoTitle !== undefined) {
-            newUrl += `&seoTitle=${encodeURIComponent(seoTitle)}`;
-        }
-    
-        if (hideEditor !== undefined) {
-            newUrl += `&hideEditor=${hideEditor ? 'true' : 'false'}`;
-        }
-    
-        if (showBlocker !== undefined) {
-            newUrl += `&showBlocker=${showBlocker ? 'true' : 'false'}`;
-        }
-    
-        window.history.pushState({}, '', newUrl);
+        // This function does nothing to prevent updating the query string
     };
-    
 
 
     // Function to handle hide editor change
