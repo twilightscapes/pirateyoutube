@@ -5,7 +5,7 @@ import { FaTwitch, FaFacebookSquare } from "react-icons/fa";
 import useSiteMetadata from "../hooks/SiteMetadata";
 import PageMenu from "../components/PageMenu";
 
-const HomePage = ({ location }) => {
+const VideoPlayer = ({ location }) => {
     // State initialization
     const [queryParams] = useState(new URLSearchParams(location.search));
     const proParam = queryParams.get('pro') === 'true';
@@ -19,6 +19,9 @@ const HomePage = ({ location }) => {
 
     const autoplayParam = queryParams.get('autoplay') === 'true'; 
     const seoTitleParam = queryParams.get('seoTitle') || ''; 
+    
+    // const [customImage, setCustomImage] = useState("");
+
     const [showPro, setShowPro] = useState(proParam || (typeof window !== 'undefined' && JSON.parse(localStorage.getItem('showPro'))) || false);
     const [showBlocker, setShowBlocker] = useState(false);
     const [hideEditor, setHideEditor] = useState(false);
@@ -32,6 +35,9 @@ const HomePage = ({ location }) => {
             setShowPro(storedShowPro !== null ? storedShowPro : proParam);
         }
     }, [showPro, proParam, queryParams]);
+
+
+
 
     // Additional state and variables initialization
     const [shouldPause, setShouldPause] = useState(false);
@@ -68,9 +74,9 @@ const HomePage = ({ location }) => {
     // Function to handle input change for video URL, start time, stop time, loop, mute, and controls
     const handleInputChange = (event) => {
         const { name, value, type, checked } = event.target;
-
+    
         let formattedValue = value.trim() !== '' && !isNaN(parseFloat(value)) ? parseFloat(value).toFixed(2) : '';
-
+    
         if (type === 'checkbox') {
             if (name === 'mute') {
                 setMute(checked);
@@ -98,7 +104,7 @@ const HomePage = ({ location }) => {
                 setSeoTitle(value);
             }
         }
-
+    
         // Update query string with all parameters
         updateQueryString({ 
             video: youtubelink, 
@@ -107,13 +113,14 @@ const HomePage = ({ location }) => {
             loop, 
             mute, 
             controls, 
-            autoplay, 
+            autoplay, // Here, autoplay is already a boolean value
             seoTitle, 
             hideEditor, 
             showBlocker 
         });
-        
     };
+    
+
 
     // Effect to initialize query parameters when the component mounts
     useEffect(() => {
@@ -182,13 +189,31 @@ const HomePage = ({ location }) => {
         updateQueryString({ video: "", start: "", stop: "", loop: false, mute: false, controls: true });
     };
 
+
+
+
+
+    
+
+
+
     // Function to copy URL to clipboard
-// Function to copy URL to clipboard
-// Function to copy URL to clipboard
-// Function to copy URL to clipboard
+
 const handleCopyAndShareButtonClick = async () => {
     // Retrieve autoplay value from query parameters
     const autoplayQueryParam = queryParams.get('autoplay') === 'true';
+
+    if (typeof window !== 'undefined') {
+        if (navigator.share) { 
+          navigator.share({
+            title: 'PIRATE',
+            url: window.location.href
+          }).then(() => {
+            console.log('Thanks for being a Pirate!');
+          })
+          .catch(console.error);
+        }
+      }
 
     // Construct the query parameters
     const queryParamsObject = {
@@ -224,7 +249,23 @@ const handleCopyAndShareButtonClick = async () => {
             setTimeout(() => setCopied(false), 2000);
         })
         .catch((error) => console.error("Error copying to clipboard:", error));
+
+
+        if (typeof window !== 'undefined') {
+            if (navigator.share) { 
+              navigator.share({
+                title: 'PIRATE',
+                url: window.location.href
+              }).then(() => {
+                console.log('Thanks for being a Pirate!');
+              })
+              .catch(console.error);
+            }
+          }
+
+          
 };
+
 
 
 
@@ -248,33 +289,34 @@ const handleCopyAndShareButtonClick = async () => {
     };
 
     // Function to update query string based on provided values
-const updateQueryString = (values) => {
-    const { video, start, stop, loop, mute, controls, autoplay, seoTitle, hideEditor, showBlocker } = values;
-
-    // Format start and stop values only if they are not NaN
-    const formattedStart = isNaN(parseFloat(start)) ? "" : parseFloat(start).toFixed(2);
-    const formattedStop = isNaN(parseFloat(stop)) ? "" : parseFloat(stop).toFixed(2);
-
-    // Convert autoplay to string
-    const autoplayValue = autoplay ? 'true' : 'false';
-
-    // Construct the base URL with mandatory parameters
-    let newUrl = `${window.location.pathname}?video=${encodeURIComponent(video)}&start=${encodeURIComponent(formattedStart)}&stop=${encodeURIComponent(formattedStop)}&loop=${loop}&mute=${mute}&controls=${controls}&autoplay=${autoplayValue}`;
-
-    if (seoTitle !== undefined) {
-        newUrl += `&seoTitle=${encodeURIComponent(seoTitle)}`;
-    }
-
-    if (hideEditor !== undefined) {
-        newUrl += `&hideEditor=${hideEditor ? 'true' : 'false'}`;
-    }
-
-    if (showBlocker !== undefined) {
-        newUrl += `&showBlocker=${showBlocker ? 'true' : 'false'}`;
-    }
-
-    window.history.pushState({}, '', newUrl);
-};
+    const updateQueryString = (values) => {
+        const { video, start, stop, loop, mute, controls, autoplay, seoTitle, hideEditor, showBlocker } = values;
+    
+        // Format start and stop values only if they are not NaN
+        const formattedStart = isNaN(parseFloat(start)) ? "" : parseFloat(start).toFixed(2);
+        const formattedStop = isNaN(parseFloat(stop)) ? "" : parseFloat(stop).toFixed(2);
+    
+        // Convert autoplay to string
+        const autoplayValue = autoplay ? 'true' : 'false';
+    
+        // Construct the base URL with mandatory parameters
+        let newUrl = `${window.location.pathname}?video=${encodeURIComponent(video)}&start=${encodeURIComponent(formattedStart)}&stop=${encodeURIComponent(formattedStop)}&loop=${loop}&mute=${mute}&controls=${controls}&autoplay=${autoplayValue}`;
+    
+        if (seoTitle !== undefined) {
+            newUrl += `&seoTitle=${encodeURIComponent(seoTitle)}`;
+        }
+    
+        if (hideEditor !== undefined) {
+            newUrl += `&hideEditor=${hideEditor ? 'true' : 'false'}`;
+        }
+    
+        if (showBlocker !== undefined) {
+            newUrl += `&showBlocker=${showBlocker ? 'true' : 'false'}`;
+        }
+    
+        window.history.pushState({}, '', newUrl);
+    };
+    
 
 
     // Function to handle hide editor change
@@ -283,6 +325,7 @@ const updateQueryString = (values) => {
         setHideEditor(newValue);
         updateQueryString({ hideEditor: newValue ? 'true' : 'false' });
     };
+    
 
     // Function to handle show blocker change
     const handleShowBlockerChange = (event) => {
@@ -299,6 +342,7 @@ const handleAutoplayChange = (event) => {
     // Update query string with new autoplay value
     updateQueryString({ autoplay: newValue }); // Update query string with new autoplay value
 };
+
 
 
     // Function to check if URL is valid
@@ -332,7 +376,7 @@ const handleAutoplayChange = (event) => {
 
             {showPro ? (
 
-<div className="font" style={{ position: 'relative', zIndex: '3', top: '0', width: '100vw', margin: '0 auto', transition: 'all 1s ease-in-out', marginTop: showNav ? '0' : '0'
+<div className="font" style={{ position: 'relative', zIndex: '3', top: '0', width: '100vw', margin: '0 auto', transition: 'all 1s ease-in-out', marginTop: showNav ? '0' : '0', 
 //  height: hideEditor ? '0' : '50px', 
 // background: 'var(--theme-ui-colors-headerColor)',
  }}>
@@ -368,13 +412,13 @@ const handleAutoplayChange = (event) => {
   gap: '4vw',
   alignItems: 'center',
   width: '', 
-  transition: 'opacity 1s ease-in-out',
+  transition: 'opacity .5s ease-in-out',
   opacity: isVideoActive ? 1 : 0.5 
 }}>
 
-<div id="checkboxes" style={{ display: 'flex', flexDirection:'row', gap: '5px', alignItems: 'center', padding:'0 10px 5px 10px', justifyContent:'center', background:'rgba(0,0,0,.2)', outline:'1px solid #333', borderRadius:'5px',  }}>
+<div id="checkboxes" style={{ display: 'flex', flexDirection:'row', gap: '5px', alignItems: 'center', padding:'0 10px 5px 10px', justifyContent:'center', background:'rgba(0,0,0,.2)', outline:'1px solid #777', borderRadius:'var(--theme-ui-colors-borderRadius)', fontSize:'clamp(.5rem,1.2vw,1rem)'  }}>
 
-<label title="AutoPlay - Set video to automatically begin playing. NOTE: videos must be muted for autoplay to work" htmlFor="autoplayCheckbox" style={{textAlign:'center', fontSize:'50%', display:'flex', flexDirection:'column', alignItems:'center', opacity: isVideoActive ? 1 : 0.5 }}>Autoplay:
+<label title="AutoPlay - Set video to automatically begin playing. NOTE: videos must be muted for autoplay to work" htmlFor="autoplayCheckbox" style={{textAlign:'center', fontSize:'', display:'flex', flexDirection:'column', alignItems:'center', opacity: isVideoActive ? 1 : 0.5 }}>Autoplay:
     <input
         type="checkbox"
         id="autoplay-checkbox"
@@ -385,7 +429,7 @@ const handleAutoplayChange = (event) => {
     />
 </label>
 
-                                <label htmlFor="loop-checkbox" style={{textAlign:'center', fontSize:'60%', display:'flex', flexDirection:'column', alignItems:'center', opacity: isVideoActive ? 1 : 0.5}}>Loop:
+                                <label htmlFor="loop-checkbox" style={{textAlign:'center', fontSize:'', display:'flex', flexDirection:'column', alignItems:'center', opacity: isVideoActive ? 1 : 0.5}}>Loop:
                                     <input
                                         aria-label="Set to loop"
                                         id="loop-checkbox"
@@ -398,7 +442,7 @@ const handleAutoplayChange = (event) => {
                                         style={{maxWidth:'50px'}}
                                     />
                                 </label>
-                                <label htmlFor="mute-checkbox" style={{textAlign:'center', fontSize:'60%', display:'flex', flexDirection:'column', alignItems:'center', opacity: isVideoActive ? 1 : 0.5}}>Mute:
+                                <label htmlFor="mute-checkbox" style={{textAlign:'center', fontSize:'', display:'flex', flexDirection:'column', alignItems:'center', opacity: isVideoActive ? 1 : 0.5}}>Mute:
     <input
     aria-label="Set to mute"
     id="mute-checkbox"
@@ -414,7 +458,7 @@ const handleAutoplayChange = (event) => {
                                 </label>
 
                                 
-                                <label htmlFor="controls-checkbox" style={{textAlign:'center', fontSize:'50%', display:'flex', flexDirection:'column', alignItems:'center', opacity: isVideoActive ? 1 : 0.5}}>Controls:
+                                <label htmlFor="controls-checkbox" style={{textAlign:'center', fontSize:'', display:'flex', flexDirection:'column', alignItems:'center', opacity: isVideoActive ? 1 : 0.5}}>Controls:
                                     <input
                                         aria-label="Set to show controls"
                                         id="controls-checkbox"
@@ -459,11 +503,14 @@ const handleAutoplayChange = (event) => {
         style={{maxWidth:'50px'}}
     />
 </label>
+
+
+
 </div>
 
 
 
-<div id="timers" style={{ display: 'flex', flexDirection:'row', gap: '10px', alignItems: 'center', width:'100%', marginLeft:'' }}>
+<div id="timers" style={{ display: 'flex', flexDirection:'row', gap: '10px', alignItems: 'center', width:'100%', marginLeft:'',}}>
 <input
     aria-label="Start Time"
     id="start-input"
@@ -476,7 +523,7 @@ const handleAutoplayChange = (event) => {
     onClick={handleStartFromPlayhead} 
     placeholder={!startTime && 'Start'} 
     disabled={!isVideoActive}
-    style={{ maxWidth: '100px', fontSize: 'clamp(.7rem,.6vw,1rem)', textAlign: 'center' }}
+    style={{ maxWidth: '100px', fontSize: 'clamp(.7rem,.6vw,1rem)', textAlign: 'center',background:'rgba(0,0,0,.3)' }}
 />
 <input
     aria-label="Stop Time"
@@ -490,7 +537,7 @@ const handleAutoplayChange = (event) => {
     onClick={handleEndFromPlayhead} 
     placeholder={!stopTime && 'Stop'} 
     disabled={!isVideoActive}
-    style={{ maxWidth: '100px', fontSize: 'clamp(.7rem,.6vw,1rem)', textAlign: 'center' }}
+    style={{ maxWidth: '100px', fontSize: 'clamp(.7rem,.6vw,1rem)', textAlign:'center',background:'rgba(0,0,0,.3)' }}
 />
 
 </div>
@@ -508,11 +555,12 @@ const handleAutoplayChange = (event) => {
     value={seoTitle}
     onChange={(e) => setSeoTitle(e.target.value)} // Add this onChange handler
     placeholder="Video Title" 
-    style={{ padding: '.5vh .4vw', minWidth:'140px', width: '100%', maxWidth: '800px', fontSize: 'clamp(.8rem,1.4vw,1rem)', transition: 'all 1s ease-in-out', opacity: isVideoActive ? 1 : 0.5 }}
+    style={{ padding: '.5vh .4vw', minWidth:'140px', width: '100%', maxWidth: '800px', fontSize: 'clamp(.8rem,1.4vw,1rem)', background:'rgba(0,0,0,.2)', transition: 'all 1s ease-in-out', opacity: isVideoActive ? 1 : 0.5 }}
     aria-label="Enter Video Title"
     className="youtubelinker"
     disabled={!isVideoActive}
 />
+
                     
                             <input
                                 ref={inputElement}
@@ -522,18 +570,18 @@ const handleAutoplayChange = (event) => {
                                 title="Paste Video Link"
                                 value={youtubelink}
                                 onChange={handleInputChange}
-                                style={{ padding: '.5vh .4vw', minWidth:'85px', width: '100%', maxWidth: '800px', fontSize: 'clamp(.6rem,1vw,1rem)', transition: 'all 1s ease-in-out', }}
+                                style={{ padding: '.5vh .4vw', minWidth:'85px', width: '100%', maxWidth: '500px', fontSize: 'clamp(.6rem,1vw,1rem)', transition: 'all 1s ease-in-out', background:'rgba(0,0,0,.4)', outline:'0px solid #333', border:'1px solid var(--theme-ui-colors-siteColor)' }}
                                 placeholder="Paste Link"
                                 className="youtubelinker"
                                 aria-label="Paste Link To Video"
                             />
 
 
-<div style={{display: 'flex', flexDirection:'row', gap: '20px', alignItems: 'center', padding:'3px 10px', background:'rgba(0,0,0,.2)', outline:'1px solid #333', borderRadius:'var(--theme-ui-colors-borderRadius)', opacity: isVideoActive ? 1 : 0.4}}>
+<div style={{display: 'flex', flexDirection:'row', gap: '20px', alignItems: 'center', padding:'3px 10px', background:'rgba(0,0,0,.2)', outline:'1px solid #333', borderRadius:'var(--theme-ui-colors-borderRadius)', opacity: isVideoActive ? 1 : 0.5}}>
 
-<button title="Reset to start over" aria-label="Reset" type="reset" onClick={handleReset} disabled={!isVideoActive} style={{ color: '', fontSize: 'clamp(.8rem,1vw,1rem)', fontWeight: 'bold', textAlign: 'left', width: '15px', margin: '0 10px 0 0', opacity: isVideoActive ? 1 : 0.5 }}>Reset</button>
+<button title="Reset to start over" aria-label="Reset" type="reset" onClick={handleReset} disabled={!isVideoActive} style={{ color: '', fontSize: 'clamp(.8rem,1vw,1rem)', fontWeight: 'bold', textAlign: 'left', width: '15px', margin: '0 10px 0 0' }}>Reset</button>
 
-<button aria-label="Create Link" onClick={handleCopyAndShareButtonClick} disabled={!isVideoActive} style={{ display: "flex", gap: '.5vw', justifyContent: "center", padding: ".6vh .5vw", width:'100%', minWidth:'60px', maxHeight: "", margin: "0 auto", textAlign: 'center', fontSize: '14px', fontWeight: 'light', textShadow: '0 1px 0 #444', marginLeft:'15px', opacity: isVideoActive ? 1 : 0.5 }} className="button font print">
+<button aria-label="Create Link" onClick={handleCopyAndShareButtonClick} disabled={!isVideoActive} style={{ display: "flex", gap: '.5vw', justifyContent: "center", padding: ".6vh .5vw", width:'100%', minWidth:'60px', maxHeight: "", margin: "0 auto", textAlign: 'center', fontSize: '14px', fontWeight: 'light', textShadow: '0 1px 0 #444', marginLeft:'15px', }} className="button font print">
 {copied ? 'Link Copied' : 'Copy Link'}
 </button>
 
@@ -546,7 +594,7 @@ const handleAutoplayChange = (event) => {
 </div>
 
                             {isRunningStandalone() && (
-                            <div style={{position:'absolute', left:'-5px', top:'70vh', zIndex:'2', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', gap:'2vh', width:'58px',padding:'3px 10px', background:'rgba(0,0,0,.2)', outline:'1px solid #333', borderRadius:'var(--theme-ui-colors-borderRadius)'}}>
+                            <div style={{position:'absolute', left:'0', top:'50vh', zIndex:'2', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', gap:'2vh', width:'55px',padding:'3px 10px', background:'rgba(0,0,0,.2)', outline:'1px solid #333', borderRadius:'var(--theme-ui-colors-borderRadius)'}}>
 
 
 
@@ -567,11 +615,18 @@ const handleAutoplayChange = (event) => {
                     </form>
 
                     </div>
+
+
+
+
                 
     ) : (
-<>
-        {/* {isRunningStandalone() && ( */}
-<div className={showPro ? "font" : "font public"} style={{display:'flex', position: 'relative', zIndex: '3', top: '0', width: '100vw', margin: '0 auto', marginTop: showNav ? '0' : '', transition: 'all 1s ease-in-out', 
+
+
+
+        
+
+<div className="font public" style={{display: hideEditor ? 'none' : 'flex', position: 'relative', zIndex: '3', top: '0', width: '100vw', margin: '0 auto', marginTop: showNav ? '0' : '', transition: 'all 1s ease-in-out', 
 // height: hideEditor ? '0' : '50px', 
 // background: 'var(--theme-ui-colors-headerColor)',
  }}>
@@ -598,18 +653,47 @@ background: 'var(--theme-ui-colors-headerColor)',
 }}
 >
 
-
-
 <div id="bigbox" style={{ display: 'flex', flexDirection:'column', gap: '4px', alignItems: 'center', width:'100%', border:'0px solid red' }}>
 
+<div id="pastebox" style={{ display: 'flex', flexDirection:'row', gap: '10px', alignItems: 'center', width:'', minWidth:'90%', justifyContent:'center', margin:'0 auto', border:'0px solid red' }}>
+
+
+<input
+                                ref={inputElement}
+                                id="youtubelink-input"
+                                type="text"
+                                name="video"
+                                title="Paste Video Link"
+                                value={youtubelink}
+                                onChange={handleInputChange}
+                                style={{ padding: '.5vh .4vw', minWidth:'85px', width: '100%', maxWidth: '400px', fontSize: 'clamp(.6rem,1vw,1rem)', transition: 'all 1s ease-in-out', background:'rgba(0,0,0,.2)', outline:'1px solid #999', border:'1px solid var(--theme-ui-colors-siteColor)' }}
+                                placeholder="Paste Video Link"
+                                className="youtubelinker"
+                                aria-label="Paste Link To Video"
+                            />
+
+                            <button aria-label="Reset" type="reset" onClick={handleReset} disabled={!isVideoActive} style={{ color: '', fontSize: 'clamp(.8rem,1vw,1rem)', fontWeight: 'bold', textAlign: 'left', width: '20px', margin: '', opacity: isVideoActive ? 1 : 0.5 }}>
+                                Reset
+                            </button>
+</div>
 
 
 
-<div id="pastebox" style={{ display: 'flex', flexDirection:'row', gap: '10px', alignItems: 'center', width:'60vw', margin:'0 auto', border:'0px solid red' }}>
 
 
-{isRunningStandalone() && (
-                            <div style={{position:'relative', right:'', top:'', zIndex:'2', display:'flex', flexDirection:'row', alignItems:'center', justifyContent:'center', gap:'2vh', width:'40%', marginRight:'4vw', padding:'3px 5px', background:'rgba(0,0,0,.2)', outline:'1px solid #333', borderRadius:'var(--theme-ui-colors-borderRadius)'}}>
+
+
+
+</div>
+
+
+                        
+                    
+                    </form>
+
+
+                    {isRunningStandalone() && (
+                            <div style={{position:'absolute', left:'0', top:'50vh', zIndex:'2', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', gap:'2vh', width:'55px',padding:'3px 10px', background:'rgba(0,0,0,.2)', outline:'1px solid #333', borderRadius:'var(--theme-ui-colors-borderRadius)'}}>
 
 
 
@@ -626,49 +710,11 @@ background: 'var(--theme-ui-colors-headerColor)',
                                 </div>
                              )}
 
-                            <input
-                                ref={inputElement}
-                                id="youtubelink-input"
-                                type="text"
-                                name="video"
-                                value={youtubelink}
-                                onChange={handleInputChange}
-                                style={{ padding: '.5vh 1vw', minWidth:'100px', width: '100%', maxWidth: '800px', fontSize: 'clamp(.8rem,1.5vw,2rem)', transition: 'all 1s ease-in-out' }}
-                                placeholder="Paste Link To Video"
-                                className="youtubelinker"
-                                aria-label="Paste Link To Video"
-                            />
-
-                            <button aria-label="Reset" type="reset" onClick={handleReset} disabled={!isVideoActive} style={{ color: '', fontSize: 'clamp(.8rem,1vw,1rem)', fontWeight: 'bold', textAlign: 'left', width: '20px', margin: '', opacity: isVideoActive ? 1 : 0.5 }}>
-                                Reset
-                            </button>
-
-                            
-</div>
-
-
-
-
-
-
-
-</div>
-
-
-                        
-                    
-                    </form>
-
-
-
-
                     </div>
       
-    {/* )} */}
-</>
     )}
 
-{showBranding || !showPro ? (
+{!showBranding ? (
 <PageMenu />
 ) : (
 ""
@@ -739,4 +785,4 @@ background: 'var(--theme-ui-colors-headerColor)',
     );
 };
 
-export default HomePage;
+export default VideoPlayer;

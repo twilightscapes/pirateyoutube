@@ -54,7 +54,7 @@ function Install() {
   textShadow:'0 2px 7px #000'
 }}>
 
-<h3>STEP ONE (1 of 2)</h3>
+<h3>STEP ONE (1 of 3)</h3>
 
 <br />Setup Account and Create YOUR Website<br />
 

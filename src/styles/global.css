@@ -1307,7 +1307,7 @@ html:has body.youtube{position:fixed !important; overflow: hidden !important;}
   body.youtube header.header {height:0 !important;}
   #VideoPlayer {position:fixed; overflow-y: hidden;}
 
-  body.youtube header,
+  body.youtube #header,
   body.youtube footer,
   body.youtube #menu,
   body.youtube #gobacker,
@@ -1315,10 +1315,8 @@ html:has body.youtube{position:fixed !important; overflow: hidden !important;}
   body.youtube .upbar 
   {display: none !important;}
 
-body.homepage header.header{display: none !important;}
+  /* body.youtube .public{display: none !important;} */
 
-  /* body.homepage .public{display: none !important;} */
-/* body.youtube .public{display:flex !important;} */
   /* body.youtube #gobacker{top:14% !important; right:5px !important;} */
 
   @media(max-width:48rem) {
