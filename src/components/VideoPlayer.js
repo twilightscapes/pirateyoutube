@@ -139,6 +139,8 @@ const VideoPlayer = ({ location }) => {
         if (showBlockerParam !== null) {
             setShowBlocker(showBlockerParam === 'true');
         }
+
+
         // Update query parameters with default values
         updateQueryString({
             video: videoUrlParam,
@@ -153,6 +155,10 @@ const VideoPlayer = ({ location }) => {
             showBlocker: showBlockerParam === null ? false : showBlockerParam === 'true',
         });
     }, [autoplayParam, controlsParam, startTimeParam, stopTimeParam, loopParam, muteParam, seoTitleParam, videoUrlParam, queryParams]);
+
+
+
+
 
     // Effect to handle invalid start and stop times
     useEffect(() => {
@@ -288,6 +294,14 @@ const handleCopyAndShareButtonClick = async () => {
         setStopTime(currentTime.toString());
     };
 
+
+
+
+    // Function to update query string based on provided values
+const updateQueryString = (values) => {
+    // This function does nothing to prevent updating the query string
+};
+
     // Function to update query string based on provided values
     // const updateQueryString = (values) => {
     //     const { video, start, stop, loop, mute, controls, autoplay, seoTitle, hideEditor, showBlocker } = values;
@@ -317,9 +331,6 @@ const handleCopyAndShareButtonClick = async () => {
     //     window.history.pushState({}, '', newUrl);
     // };
     
-    const updateQueryString = (values) => {
-        // This function does nothing to prevent updating the query string
-    };
 
 
     // Function to handle hide editor change
