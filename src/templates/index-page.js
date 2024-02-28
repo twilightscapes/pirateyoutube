@@ -4,7 +4,7 @@ import Seo from "../components/seo";
 import VideoPlayer from "../components/VideoPlayer";
 import { Helmet } from "react-helmet";
 
-const HomePage = ({ location }) => {
+const VideoPage = ({ location }) => {
   return (
     <Layout>
       <Helmet>
@@ -49,5 +49,4 @@ const SeoWrapper = ({ location }) => {
   );
 };
 
-export default HomePage;
-
+export default VideoPage;
