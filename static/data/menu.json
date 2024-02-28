@@ -1,9 +1,8 @@
 {
   "menuItems": [
     {
-      "menutitle": "View by Category",
-      "url": "/category"
+      "menutitle": "What is Pirate?",
+      "url": "/about"
     }
-    
   ]
 }
