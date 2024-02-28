@@ -77,7 +77,7 @@ const MenuComponent = () => {
               <br /><br />
               And it's completely FREE!
               <br />
-              <Link to="/install" state={{ modal: true }} className="button print" style={{ display: "flex", justifyContent: "center", padding: "1vh .5vw", maxWidth: "250px", margin: "30px auto" }}>Become a PIRATE!</Link>
+              <Link to="/install" state={{ modal: true }} className="button print" style={{ display: "flex", justifyContent: "center", padding: "1vh .5vw", maxWidth: "250px", margin: "30px auto", border:'1px solid #ff0000' }}>Become a PIRATE!</Link>
             </div>
           </div>
           <div className="flexcheek mob2 print" style={{ position: "", top: "", minWidth: "25vw", overflow: "", marginBottom: "", paddingTop: "", borderRadius: "var(--theme-ui-colors-borderRadius)" }}>
@@ -89,7 +89,7 @@ const MenuComponent = () => {
               <br /><br />
               Combined into your own app
               <br />
-              <Link to="/contact" state={{ modal: true }} className="button print" style={{ display: "flex", justifyContent: "center", padding: "1vh .5vw", maxWidth: "250px", margin: "30px auto" }}>Get PIRATE+ Now</Link>
+              <Link to="/contact" state={{ modal: true }} className="button print" style={{ display: "flex", justifyContent: "center", padding: "1vh .5vw", maxWidth: "250px", margin: "30px auto", border:'1px solid #ff0000' }}>Get PIRATE+ Now</Link>
             </div>
           </div>
         </div>
