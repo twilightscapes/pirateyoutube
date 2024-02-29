@@ -80,7 +80,7 @@
     },
     "image": "/assets/pirate-logo.svg",
     "navOptions": {
-      "showNav": false,
+      "showNav": true,
       "showNav2": false,
       "showFooterMenu": false
     },
