@@ -465,7 +465,7 @@ const handleAutoplayChange = (event) => {
     />
 </label>
 
-                                <label htmlFor="loop-checkbox" style={{textAlign:'center', fontSize:'70%', display:'flex', flexDirection:'column', alignItems:'center', opacity: isVideoActive ? 1 : 0.5}}>Loop:
+                                <label htmlFor="loop-checkbox" style={{textAlign:'center', fontSize:'85%', display:'flex', flexDirection:'column', alignItems:'center', opacity: isVideoActive ? 1 : 0.5}}>Loop:
                                     <input
                                         aria-label="Set to loop"
                                         id="loop-checkbox"
@@ -478,7 +478,7 @@ const handleAutoplayChange = (event) => {
                                         style={{maxWidth:'50px'}}
                                     />
                                 </label>
-                                <label htmlFor="mute-checkbox" style={{textAlign:'center', fontSize:'70%', display:'flex', flexDirection:'column', alignItems:'center', opacity: isVideoActive ? 1 : 0.5}}>Mute:
+                                <label htmlFor="mute-checkbox" style={{textAlign:'center', fontSize:'85%', display:'flex', flexDirection:'column', alignItems:'center', opacity: isVideoActive ? 1 : 0.5}}>Mute:
     <input
     aria-label="Set to mute"
     id="mute-checkbox"
@@ -494,7 +494,7 @@ const handleAutoplayChange = (event) => {
                                 </label>
 
                                 
-                                <label htmlFor="controls-checkbox" style={{textAlign:'center', fontSize:'70%', display:'flex', flexDirection:'column', alignItems:'center', opacity: isVideoActive ? 1 : 0.5}}>Controls:
+                                <label htmlFor="controls-checkbox" style={{textAlign:'center', fontSize:'85%', display:'flex', flexDirection:'column', alignItems:'center', opacity: isVideoActive ? 1 : 0.5}}>Controls:
                                     <input
                                         aria-label="Set to show controls"
                                         id="controls-checkbox"
@@ -508,7 +508,7 @@ const handleAutoplayChange = (event) => {
                                     />
                                 </label>
 
-<label htmlFor="hide-editor-checkbox" style={{textAlign:'center', fontSize:'70%', display:'flex', flexDirection:'column', alignItems:'center', opacity: isVideoActive ? 1 : 0.5}}>Editor:
+<label htmlFor="hide-editor-checkbox" style={{textAlign:'center', fontSize:'85%', display:'flex', flexDirection:'column', alignItems:'center', opacity: isVideoActive ? 1 : 0.5}}>Editor:
 <input
     type="checkbox"
     id="hide-editor-checkbox"
@@ -535,7 +535,7 @@ const handleAutoplayChange = (event) => {
     value={seoTitle}
     onChange={(e) => setSeoTitle(e.target.value)} // Add this onChange handler
     placeholder="Video Title" 
-    style={{ padding: '.5vh .4vw', minWidth:'100px', width: '100%', maxWidth: '800px', fontSize: 'clamp(.8rem,1.4vw,1rem)', background:'rgba(0,0,0,.2)', transition: 'all 1s ease-in-out', opacity: isVideoActive ? 1 : 0.5 }}
+    style={{ padding: '.5vh .4vw', minWidth:'100px', width: '100%', maxWidth: '800px', fontSize: 'clamp(.8rem,1.4vw,1rem)', background:'rgba(0,0,0,.2)', transition: 'all 1s ease-in-out' }}
     aria-label="Enter Video Title"
     className="youtubelinker"
     disabled={!isVideoActive}
