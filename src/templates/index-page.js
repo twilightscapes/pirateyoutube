@@ -50,6 +50,3 @@ const SeoWrapper = ({ location }) => {
 };
 
 export default HomePage;
-
-
-
