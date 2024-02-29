@@ -40,6 +40,7 @@ const handleCustomImageChange = (event) => {
 };
 
 
+
     const [seoTitle, setSeoTitle] = useState(seoTitleParam);
     
     // Effect to update localStorage and showPro state
@@ -100,7 +101,7 @@ const handleCustomImageChange = (event) => {
             } else if (name === 'autoplay') {
                 setAutoplay(checked);
             } else if (name === 'hideEditor') {
-                setHideEditor(!checked); // Invert the value of checked
+                setHideEditor(checked); 
             } else if (name === 'showBlocker') {
                 setShowBlocker(checked); 
             } else {
@@ -330,11 +331,17 @@ const updateQueryString = (values) => {
     
 
 
-    // Function to handle hide editor change
+    // // Function to handle hide editor change
+    // const handleHideEditorChange = (event) => {
+    //     const newValue = event.target.checked;
+    //     setHideEditor(newValue);
+    //     updateQueryString({ hideEditor: newValue ? 'true' : 'false' });
+    // };
+
     const handleHideEditorChange = (event) => {
-        const newValue = event.target.checked;
-        setHideEditor(newValue);
-        updateQueryString({ hideEditor: newValue ? 'true' : 'false' });
+        const newValue = event.target.checked; // Use the checked value directly
+        setHideEditor(!newValue); // Invert the value for state update
+        updateQueryString({ hideEditor: newValue ? 'false' : 'true' }); // Update query string accordingly
     };
     
 
@@ -489,12 +496,9 @@ const handleAutoplayChange = (event) => {
     id="hide-editor-checkbox"
     name="hideEditor"
     className="youtubelinker"
-
     disabled={!isVideoActive}
-
-    onChange={handleHideEditorChange} checked={hideEditor}
-    // checked={hideEditor}
-    // onChange={handleHideEditorInputChange}
+    onChange={handleHideEditorChange}
+    checked={!hideEditor} // Invert the state here
 />
 </label>
                 
