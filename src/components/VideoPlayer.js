@@ -25,14 +25,9 @@ const VideoPlayer = ({ location }) => {
     const [showPro, setShowPro] = useState(proParam || (typeof window !== 'undefined' && JSON.parse(localStorage.getItem('showPro'))) || false);
     const [showBlocker, setShowBlocker] = useState(false);
 
-    const [hideEditor, setHideEditor] = useState(true); // Initialize to true
+    const [hideEditor, setHideEditor] = useState(false); // Initialize to true
 
     // const [hideEditor, setHideEditor] = useState(true); // Default value set to true
-
-    // Function to update hideEditor state
-    // const toggleHideEditor = () => {
-    //   setHideEditor((prevHideEditor) => !prevHideEditor);
-    // };
 
 
 // Function to handle changes in the custom image URL input
@@ -105,7 +100,7 @@ const handleCustomImageChange = (event) => {
             } else if (name === 'autoplay') {
                 setAutoplay(checked);
             } else if (name === 'hideEditor') {
-                setHideEditor(checked); 
+                setHideEditor(!checked); // Invert the value of checked
             } else if (name === 'showBlocker') {
                 setShowBlocker(checked); 
             } else {
@@ -217,14 +212,6 @@ const handleCustomImageChange = (event) => {
 
 
 
-
-
-    
-
-
-
-    // Function to copy URL to clipboard
-
 // Function to copy URL to clipboard
 const handleCopyAndShareButtonClick = async () => {
     // Retrieve autoplay value from query parameters
@@ -294,15 +281,6 @@ const handleCopyAndShareButtonClick = async () => {
 
 
 
-
-
-
-
-
-
-
-
-
     // Function to handle starting the video from the playhead position
     const handleStartFromPlayhead = () => {
         const currentTime = playerRef.current.getCurrentTime();
@@ -317,14 +295,10 @@ const handleCopyAndShareButtonClick = async () => {
 
 
 
-
     // Function to update query string based on provided values
 const updateQueryString = (values) => {
     // This function does nothing to prevent updating the query string
 };
-
-
-
     // Function to update query string based on provided values
     // const updateQueryString = (values) => {
     //     const { video, start, stop, loop, mute, controls, autoplay, seoTitle, hideEditor, showBlocker } = values;
