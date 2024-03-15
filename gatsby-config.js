@@ -356,6 +356,15 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-theme-ui`,
     // `gatsby-plugin-static-cms`,
+    // `gatsby-plugin-decap-cms`,
+
+    // {
+    //   resolve: `gatsby-plugin-netlify-identity`,
+    //   options: {
+    //     // url: `${settings.meta.siteUrl}`,
+    //     url: `https://pirateplus.netlify.app/`
+    //   }
+    // },
 
     {
       resolve: `gatsby-plugin-decap-cms`,
@@ -366,10 +375,11 @@ module.exports = {
         htmlTitle: `PIRATE CMS`,
         htmlFavicon: `static/assets/logo.svg`,
         includeRobots: false,
-        logo_url: 'https://piratesocial.org/assets/logo.svg'
+        logo_url: 'https://pirateweb.org/assets/logo.svg'
       },
     },
-    // 'gatsby-plugin-netlify-identity-widget',
+
+    
 
     
     // {
@@ -402,9 +412,9 @@ module.exports = {
     //     printRejected: true, // Print removed selectors and processed file names
     //     develop: true, // Enable while using `gatsby develop`
     //     // tailwind: true, // Enable tailwindcss support
-    //     // whitelist: ['headroom', 'headroom--unfixed'], // Don't remove this selector
-    //      ignore: ['/user.scss', '/global.scss', '/styles.css'], // Ignore files/folders
-    //      purgeOnly : ['/animate.css'] // Purge only these files/folders
+    //     whitelist: ['/iiz$/', '/modal$/', 'contentvideo', 'contentinside', 'contentbody', 'homepage', 'ReactModalPortal', 'nextbutt', 'modal-btn', 'modal-btn:hover', 'iiz__btn', 'iiz__close','iiz__close::before','iiz__hint:before','bodycontent','blogpost','gatsby-image-wrapper','special'],  // Don't remove this selector
+    //      ignore: ['reset.css', 'styles.min.css', 'global.css'], // Ignore files/folders
+    //     //  purgeOnly : ['/animate.css'] // Purge only these files/folders
     //   }
     // },
 
@@ -450,11 +460,11 @@ module.exports = {
       options: {
 name: settings.meta.companyname,
 short_name: settings.meta.companyname,
-start_url: `${settings.meta.proOptions.startUrl}/?pro=true`,
+start_url: `${settings.meta.proOptions.startUrl}`,
 description: settings.meta.description,
 background_color: `transparent`,
 lang: `en`,
-// theme_color: `transparent`,
+theme_color: `transparent`,
 display: `standalone`,
 icon: `static${settings.meta.icon512}`, // path is relative to the root of the site.
 crossOrigin: `use-credentials`,

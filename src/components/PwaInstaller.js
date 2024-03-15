@@ -30,7 +30,7 @@ const PWAInstaller = () => {
 
   return (
     
-    <div id="pwabanner" style={{position:'fixed', bottom:'0', display: isInstalled ? "none" : "flex",  alignItems:'center', fontSize: 'clamp(.9rem,2vw,1rem)', background:'var(--theme-ui-colors-siteColor)', color:'var(--theme-ui-colors-siteColorText)', marginBottom:'0px', padding:'0px 40px 25px 0', width:'100vw', zIndex:'10' }}>
+    <div id="pwabanner" style={{position:'fixed', bottom:'0', display: isInstalled ? "none" : "flex",  alignItems:'center', fontSize: 'clamp(.9rem,2vw,1rem)', background:'var(--theme-ui-colors-siteColor)', color:'var(--theme-ui-colors-siteColorText)', marginBottom:'0px', padding:'0px 40px 15px 0', width:'100vw', zIndex:'10' }}>
 
       <button
         className="flag1 bug1"
@@ -42,7 +42,7 @@ const PWAInstaller = () => {
           fontSize: "clamp(3rem, 3vw, 3rem)",
           position: "absolute",
           top: "24px",
-          right: "-10px",
+          right: "10px",
           width: "",
           height: isInstalled ? "60px" : "60px",
           zIndex: "4",
@@ -83,7 +83,7 @@ const PWAInstaller = () => {
 
                   <span style={{display:'block'}}>Install the {companyname} Web app</span>
 
-                  <span style={{display:'block'}}>"Save to your Home Screen"</span>
+                  <span style={{display:'block'}}>"Add To Home Screen"</span>
 
                 
 

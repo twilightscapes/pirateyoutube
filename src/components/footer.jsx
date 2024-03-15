@@ -2,7 +2,7 @@ import * as React from "react"
 import useSiteMetadata from "../hooks/SiteMetadata"
 // import GoBack from "../components/goBack"
 // import Theme from "../components/theme"
-// import Consent from "./Consent"
+import Consent from "./Consent"
 // import Install from "./install-footer"
 import Icons from "../../static/data/socialmedia.json"
 import {
@@ -182,7 +182,7 @@ export default function Footer() {
 
   const { showfooter, showSwipe, showSearch, showSocial  } = featureOptions
 
-  const { showModals, showBranding, showLegal, showContact   } = proOptions
+  const { showModals, showBranding, showLegal, showContact, showConsent   } = proOptions
 
   const { dicSocial, dicDisclaimer, dicPrivacy, dicTerms, dicCopyright, dicContact, dicPirate, dicSiteReport, dicSearch } = language;
 
@@ -192,26 +192,33 @@ export default function Footer() {
 
   const { companyname } = useSiteMetadata()
 
-  
+  function isRunningStandalone() {
+    if (typeof window !== 'undefined') {
+        return window.matchMedia('(display-mode: standalone)').matches;
+    }
+    return false;
+}
 
 
   return (
 
 
+<>
 
+{isRunningStandalone() ? (
+  ""
+) : (
 
-    showfooter ? (
-  
+  <>
 
+    {showfooter ? (
+      <footer className="panel" style={{display:'flex', flexDirection:'column', zIndex:'', justifyContent:'end', padding:'0 0 60px 0', marginTop:'0', width:'100vw',textAlign:'center', background:'var(--theme-ui-colors-headerColor)', paddingTop: showFooterMenu ? '100px' : '0'}}>
 
-
-      <footer className="panel" style={{display:'flex', flexDirection:'column', zIndex:'', justifyContent:'end', padding:'0', marginTop:'0', width:'100vw',textAlign:'center', background:'var(--theme-ui-colors-headerColor)', paddingTop: showFooterMenu ? '100px' : '0'}}>
-
-{/* {showConsent ? (
+{showConsent ? (
     <Consent />
   ) : (
 ""
-    )} */}
+    )}
 
 
     
@@ -296,9 +303,9 @@ export default function Footer() {
 
 
       
-        <div style={{width:'100%', textAlign: 'center', justifyContent: 'center', fontSize: '.95rem', textDecoration:'none', display:'grid', margin:'1rem auto'}}>
+        <div style={{width:'100vw', textAlign: 'center', justifyContent: 'center', fontSize: '.95rem', textDecoration:'none', display:'grid', margin:'1rem auto'}}>
 { showLegal ? (
-<div style={{display:'flex', justifyContent:'center', gap:'4%' }}><Link state={{modal: true}} to="/disclaimer/">{dicDisclaimer}</Link> | <Link state={{modal: true}} to="/privacy/">{dicPrivacy}</Link> | <Link state={{modal: true}} to="/terms/">{dicTerms}</Link></div>
+<div style={{display:'flex', justifyContent:'center', gap:'4%', width:'100%', minWidth:'380px' }}><Link state={{modal: true}} to="/disclaimer/">{dicDisclaimer}</Link> | <Link state={{modal: true}} to="/privacy/">{dicPrivacy}</Link> | <Link state={{modal: true}} to="/terms/">{dicTerms}</Link></div>
 ) : (
 ""
   )}
@@ -345,8 +352,14 @@ export default function Footer() {
     ""
       )}
       </footer>
-    )
+    )}
 
+
+
+</>
+)}
+
+    </>
 
 
     

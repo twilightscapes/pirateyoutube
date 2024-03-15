@@ -34,7 +34,7 @@
       "showPopup": false,
       "showLocation": false,
       "ShowDisclaimer": false,
-      "showBranding": false,
+      "showBranding": true,
       "showFeature": false,
       "showLegal": false,
       "showConsent": false,

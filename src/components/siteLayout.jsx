@@ -14,6 +14,7 @@ import { RiArrowUpFill } from "react-icons/ri"
 import GoBack from "../components/goBack"
 import { ModalRoutingContext } from 'gatsby-plugin-modal-routing-4'
 import Menu from "../components/menu"
+import SocialMenu from "../components/menu-social"
 import { BiLeftArrow } from "react-icons/bi"
 // import Consent from "../components/Consent"
 import defaultColors from "../../static/data/default-colors.json";
@@ -22,6 +23,7 @@ import Switch from "../components/Switch"
 import BlueCheck from './bluecheck';
 import Footer from "../components/footer"
 import PwaInstaller from "../components/PwaInstaller"
+
 
 const Layout = ({ children }) => {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -74,6 +76,14 @@ const Layout = ({ children }) => {
 
   const fontUrl = `https://fonts.googleapis.com/css?family=${defaultColors?.siteFont}&display=swap`;
 
+
+
+  // Determine the current page location
+  const currentPage = typeof window !== 'undefined' ? window.location.pathname : '/';
+  // console.log('Current Page:', currentPage);
+  // Define an array of page locations where you want to show the social menu
+  const socialMenuPages = ['/pirate', '/pirate/feeds', '/pirate/explore', '/pirate/favorites'];
+
   
   return (
     <>
@@ -85,12 +95,11 @@ const Layout = ({ children }) => {
         <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link id="yyy" rel="stylesheet" href={fontUrl} crossOrigin="anonymous" referrerPolicy="no-referrer-when-downgrade" />
-        
-        {/* .ReactModal__Content{opacity:.99} */}
         <style>{`
-    
           ${userStyles.userStyles}
         `}</style>
+
+<script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </Helmet>
 
       <Seo />
@@ -113,19 +122,11 @@ const Layout = ({ children }) => {
 )}
 </ModalRoutingContext.Consumer>
 
-{showPWA ? (
-<>
-{!isRunningStandalone() && (
-<PwaInstaller />
-)}
-</>
-  ) : (
-''
-)}
 
-      <header className="header" style={{ display: 'block', height: showNav ? '60px' : '0' }}>
 
-        {showNav ? (
+      <header className="header" style={{ display: 'block', height: showNav === true || socialMenuPages.some(page => currentPage.startsWith(page)) || showNav !== false ? '60px' : '0' }}>
+
+      {(showNav === true || socialMenuPages.some(page => currentPage.startsWith(page)) || showNav !== false) ? (
 
           <div id="menu" className="menu print panel1 header" style={{ position: 'fixed', width: '100vw', top: '0', zIndex: '30', maxHeight: '', overFlow: '', boxShadow: '0 0 0 rgba(0,0,0,.7)', padding: '0 2%', alignItems: 'start', borderRadius: '0', display: 'flex', justifyContent: 'space-around', gap: '10px', color: 'var(--theme-ui-colors-headerColorText)', borderBottom: '0px solid #222', }}>
 
@@ -142,7 +143,12 @@ const Layout = ({ children }) => {
             </Link>
 
             <ul className="topmenu" style={{ fontSize: 'clamp(.6rem, 1.6vw, 1.8rem)', textAlign: 'center', maxHeight: '', display: 'flex', justifyContent: 'space-between', gap: '4vw', alignItems: 'center', margin: '0 auto 0 auto', padding: '1.5vh 2% 0 2%', border: '0px solid white' }}>
-              <Menu />
+
+
+
+            {socialMenuPages.some(page => currentPage.startsWith(page)) ? <SocialMenu /> : <Menu />}
+
+
               {/* <li key="demo"><Link to="/pirate">View Demo</Link></li> */}
             </ul>
 
@@ -163,7 +169,9 @@ const Layout = ({ children }) => {
                 <Theme style={{}} />
               </div>
 
-              {showSwipe ? (
+
+
+              {showSwipe === true || socialMenuPages.some(page => currentPage.startsWith(page)) || showSwipe !== false ? (
                 <Switch />
               ) : (
                 ""
@@ -180,8 +188,13 @@ const Layout = ({ children }) => {
 
 
 
-      <main id="top" name="top">
+      <main id="top" name="top" style={{height:'',}}>
+
+      
+
+      
         {children}
+
       <div className={`upbar button ${showBackToTop ? 'visible' : ''}`}
         style={{
           position: 'fixed',
@@ -220,8 +233,19 @@ const Layout = ({ children }) => {
           </div>
         </AnchorLink>
       </div>
-      </main>
 
+      {showPWA ? (
+<>
+{!isRunningStandalone() && (
+<PwaInstaller />
+)}
+</>
+  ) : (
+''
+)}
+      </main>
+    
+      
       {showfooter ? (
     <Footer />
       ) : (
@@ -302,6 +326,7 @@ const Layout = ({ children }) => {
                 </AnchorLink>
               </li>
 
+              {/* <Menu id="sidechick" /> */}
               <Menu id="sidechick" />
 
               <li>

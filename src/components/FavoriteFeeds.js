@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import useSiteMetadata from "../hooks/SiteMetadata";
 import { Helmet } from "react-helmet";
 import TimeAgo from "react-timeago";
@@ -20,56 +20,60 @@ const createExcerpt = (text, maxLength) => {
   return trimmedText.substr(0, Math.min(trimmedText.length, trimmedText.lastIndexOf(" "))) + "...";
 };
 
-const FavoriteFeeds = () => {
+const FavoriteFeeds = ({ isSliderVisible }) => {
+
+// eslint-disable-next-line
+const [sliderVisible, setSliderVisible] = useState(true); 
+
+useEffect(() => {
+  // Check if window is defined to ensure it's running in a client-side environment
+  if (typeof window !== 'undefined') {
+    // Set the default visibility to true if localStorage value is not available
+    const storedSliderVisibility = localStorage.getItem("isSliderVisible");
+    const initialSliderVisible = storedSliderVisibility ? JSON.parse(storedSliderVisibility) : true;
+    // Set the initial visibility based on the prop or localStorage
+    setSliderVisible(isSliderVisible ?? initialSliderVisible);
+  }
+  return () => {
+    // Cleanup function if needed
+  };
+}, [isSliderVisible, setSliderVisible]); // Add setSliderVisible to the dependency array
 
 
-
-
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
-  /* eslint-disable-next-line no-unused-vars */
-  const [isMobile, setIsMobile] = useState(false);
-  
-
-  // const resizeMobile = () => {
-  //   setIsMenuOpen(false);
-  //   setIsMobile(true);
-  //   const elements = document.querySelectorAll(".menusnapp");
-  //   elements.forEach((el) => {
-  //     el.style.display = "none";
-  //     el.style.overflow = "hidden";
-  //     el.style.transition = "transform 1550ms ease-in-out";
-  //   });
-  // };
-
-  // const resizeDesk = () => {
-  //   setIsMenuOpen(true);
-  //   setIsMobile(false);
-  //   const elements = document.querySelectorAll(".menusnapp");
-  //   elements.forEach((el) => {
-  //     el.style.display = "flex";
-  //     el.style.transition = "transform 1550ms ease-in-out";
-  //   });
-  // };
+const scrollRef = useRef(null);
+const containerClass = isSliderVisible ? "slider" : "grid-container contentpanel";
+const handleScroll = (e) => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft += e.deltaY;
+    }
+  };
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const storedIsMenuOpen = window.localStorage.getItem("isMenuOpen");
-      if (storedIsMenuOpen) {
-        setIsMenuOpen(storedIsMenuOpen === "true");
-      } else {
-        setIsMenuOpen(true); // set default value to true if no value found in local storage
+    const handleScroll = () => {
+      // Your scroll handling logic
+    };
+  
+    const currentScrollRef = scrollRef.current;
+  
+    if (currentScrollRef) {
+      currentScrollRef.addEventListener("scroll", handleScroll);
+    }
+  
+    return () => {
+      if (currentScrollRef) {
+        currentScrollRef.removeEventListener("scroll", handleScroll);
       }
-    }
-  }, []);
-  
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      window.localStorage.setItem("isMenuOpen", isMenuOpen);
-    }
-  }, [isMenuOpen]);
+    };
+  }, [scrollRef]);
+
+
+
   
 
-  // const MenuIcon = isMenuOpen ? RiCloseCircleFill : RiMenuUnfoldFill;
+
+  
+
+
 
 
 
@@ -193,7 +197,8 @@ const FavoriteFeeds = () => {
 
 
 
-<div className="contentpanel grid-container" style={{ marginTop: "1rem" }}>
+<div className={containerClass} onWheel={handleScroll}
+      ref={scrollRef} style={{ marginTop: '5vh' }}>
           <div className="sliderSpacer" style={{ height: "", paddingTop: "", display: "" }}></div>
 
 
@@ -206,14 +211,14 @@ const FavoriteFeeds = () => {
 
 
 
-  <a className="postlink" href={item.link} rel="noopener noreferrer">
+  <a className="postlink" href={item.link} rel="noopener noreferrer" style={{maxHeight: '', textAlign: 'center', padding:'1rem', fontSize: 'clamp(.7rem,.8vh,12px)', lineHeight:'2.5vh', borderRadius:'var(--theme-ui-colors-borderRadius)', background: 'var(--theme-ui-colors-headerColor)', color:'var(--theme-ui-colors-headerColorText)'}}>
     {item.imageUrl && (
       <img className="featured-image1" src={item.imageUrl} alt={item.title} style={{ position: 'relative', zIndex: '1', maxHeight: '', margin: '0 auto' }} />
     )}
 
     <div className="post-content" style={{display:'flex', flexDirection:'column', justifyContent:'end', width:'100%', height:'', position:'relative', background:'', padding:'0', margin:'0 auto 0 auto', textAlign:'center', overFlow:'hidden'}}>
       
-      <div className="panel" style={{display:'flex', flexDirection:'column', justifyContent:'space-between', alignItems:'center', margin:'10px auto', maxWidth:'80vw', gap:'.4vw', height:'', textAlign:'center', padding:'1vh 2vw', fontSize:'clamp(1rem, 1vw, 1rem)',  background:'rgba(0, 0, 0, 0.7)', borderRadius:'', color:'#aaa' }}>
+      <div className="panel" style={{display:'flex', flexDirection:'column', justifyContent:'space-between', alignItems:'center', margin:'10px auto', maxWidth:'80vw', gap:'.4vw', height:'', textAlign:'center', padding:'1vh 2vw', fontSize:'clamp(1rem, 1vw, 1rem)', borderRadius:'', }}>
       {/* <h2 onClick={() => toggleFavorite(item)}>
   {item.favorite ? "⭐" : "☆"} {item.name} - {item.title}
 </h2> */}
@@ -235,15 +240,17 @@ const FavoriteFeeds = () => {
     </p>
       </div>
 
-      {/* {showDates ? ( */}
+
+    </div>
+  </a>
+        {/* {showDates ? ( */}
         <p style={{position:'', textAlign:'center', border:'0px solid red', fontSize:'70%', minWidth:'100px'}}>
           <TimeAgo date={item.pubDate} />
         </p>
       {/* ) : (
         ""
       )} */}
-    </div>
-  </a>
+
   {!item.favorite && (
   <button
     className="star-button"
