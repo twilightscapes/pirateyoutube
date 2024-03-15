@@ -247,7 +247,7 @@ const handleCopyAndShareButtonClick = async () => {
     // Construct the URL
     // const newUrl = `${window.location.origin}${window.location.pathname}video?${newParams.toString()}`;
 
-    const fullUrl = `${window.location.origin}${window.location.pathname}video?${queryString}`;
+    const fullUrl = `${window.location.origin}${window.location.pathname}?${queryString}`;
 
     // Copy the URL to clipboard
     navigator.clipboard.writeText(fullUrl)
@@ -393,7 +393,7 @@ const handleAutoplayChange = (event) => {
 
 
 
-            {showPro ? (
+            {!showPro ? (
 
 <div className="font" style={{ position: 'relative', zIndex: '3', top: '0', width: '100vw', margin: '0 auto', transition: 'all .4s ease-in-out', marginTop: showNav ? '0' : '0',
 //  height: hideEditor ? '0' : '50px', 
@@ -646,7 +646,7 @@ const handleAutoplayChange = (event) => {
                                 title="Paste Video Link"
                                 value={youtubelink}
                                 onChange={handleInputChange}
-                                style={{ padding: '.5vh .2vw', minWidth:'75px', width: '100%', maxWidth: '500px', textAlign:'center', fontSize: 'clamp(.6rem,1vw,1rem)', transition: 'all .4s ease-in-out', background:'rgba(0,0,0,.2)', outline:'1px solid #999', border:'1px solid var(--theme-ui-colors-siteColor)', color:'var(--theme-ui-colors-siteColor)' }}
+                                style={{ padding: '.5vh .2vw', minWidth:'75px', width: '100%', maxWidth: '500px', textAlign:'center', fontSize: 'clamp(.6rem,1vw,1rem)', transition: 'all .4s ease-in-out', background:'rgba(0,0,0,.2)', outline:'1px solid #999', border:'1px solid var(--theme-ui-colors-siteColor)',  }}
                                 placeholder="Paste Link"
                                 className="youtubelinker"
                                 aria-label="Paste Link To Video"
