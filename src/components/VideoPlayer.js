@@ -320,18 +320,13 @@ const updateQueryString = (values) => {
     
 
 
-    // // Function to handle hide editor change
-    // const handleHideEditorChange = (event) => {
-    //     const newValue = event.target.checked;
-    //     setHideEditor(newValue);
-    //     updateQueryString({ hideEditor: newValue ? 'true' : 'false' });
-    // };
 
-    const handleHideEditorChange = (event) => {
-        const newValue = event.target.checked; // Use the checked value directly
-        setHideEditor(!newValue); // Invert the value for state update
-        updateQueryString({ hideEditor: newValue ? 'false' : 'true' }); // Update query string accordingly
-    };
+
+    // const handleHideEditorChange = (event) => {
+    //     const newValue = event.target.checked; // Use the checked value directly
+    //     setHideEditor(!newValue); // Invert the value for state update
+    //     updateQueryString({ hideEditor: newValue ? 'false' : 'true' }); // Update query string accordingly
+    // };
     
 
     // Function to handle show blocker change
@@ -493,7 +488,7 @@ const handleAutoplayChange = (event) => {
                                     />
                                 </label>
 
-<label htmlFor="hide-editor-checkbox" style={{textAlign:'center', fontSize:'85%', display:'flex', flexDirection:'column', alignItems:'center', opacity: isVideoActive ? 1 : 0.5}}>Editor:
+{/* <label htmlFor="hide-editor-checkbox" style={{textAlign:'center', fontSize:'85%', display:'flex', flexDirection:'column', alignItems:'center', opacity: isVideoActive ? 1 : 0.5}}>Editor:
 <input
     type="checkbox"
     id="hide-editor-checkbox"
@@ -503,7 +498,7 @@ const handleAutoplayChange = (event) => {
     onChange={handleHideEditorChange}
     checked={!hideEditor} // Invert the state here
 />
-</label>
+</label> */}
                 
 
 {/* <div style={{ display: 'flex', flexDirection:'row', gap: '10px', alignItems: 'center', padding:'0 3px 5px 3px', background:'rgba(0,0,0,.2)', outline:'1px solid #333', borderRadius:'5px' }}> */}
