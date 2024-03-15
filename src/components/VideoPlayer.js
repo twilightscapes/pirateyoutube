@@ -410,7 +410,7 @@ const handleAutoplayChange = (event) => {
         padding: '4px 20px',
         width: '100%',
         // transform: hideEditor ? 'translateY(-100%)' : 'none',
-        transition: 'transform 0.5s ease-in-out',
+        transition: 'transform 0.4s ease-in-out',
         background: 'var(--theme-ui-colors-headerColor)',
         // color:'--theme-ui-colors-headerColorText'
         
@@ -428,13 +428,13 @@ const handleAutoplayChange = (event) => {
   gap: '2vw',
   alignItems: 'center',
   width: '', 
-  transition: 'opacity .5s ease-in-out',
-  opacity: isVideoActive ? 1 : 0.7 
+  transition: 'opacity .4s ease-in-out',
+//   opacity: isVideoActive ? 1 : 0.7 
 }}>
 
 <div id="checkboxes" style={{ display: 'flex', flexDirection:'row', gap: '5px', alignItems: 'center', padding:'0 5px 5px 10px', justifyContent:'center', background:'rgba(0,0,0,.1)', outline:'1px solid #777', borderRadius:'var(--theme-ui-colors-borderRadius)', fontSize:'clamp(.5rem,1.2vw,1rem)'  }}>
 
-<label title="AutoPlay - Set video to automatically begin playing. NOTE: videos must be muted for autoplay to work" htmlFor="autoplayCheckbox" style={{textAlign:'center', fontSize:'80%', display:'flex', flexDirection:'column', alignItems:'center', opacity: isVideoActive ? 1 : 0.5 }}>Autoplay:
+<label title="AutoPlay - Set video to automatically begin playing. NOTE: videos must be muted for autoplay to work" htmlFor="autoplayCheckbox" style={{textAlign:'center', fontSize:'80%', display:'flex', flexDirection:'column', alignItems:'center', opacity: isVideoActive ? 1 : 0.4 }}>Autoplay:
     <input
         type="checkbox"
         id="autoplay-checkbox"
@@ -445,7 +445,7 @@ const handleAutoplayChange = (event) => {
     />
 </label>
 
-                                <label htmlFor="loop-checkbox" style={{textAlign:'center', fontSize:'85%', display:'flex', flexDirection:'column', alignItems:'center', opacity: isVideoActive ? 1 : 0.5}}>Loop:
+                                <label htmlFor="loop-checkbox" style={{textAlign:'center', fontSize:'85%', display:'flex', flexDirection:'column', alignItems:'center', opacity: isVideoActive ? 1 : 0.4}}>Loop:
                                     <input
                                         aria-label="Set to loop"
                                         id="loop-checkbox"
@@ -458,7 +458,7 @@ const handleAutoplayChange = (event) => {
                                         style={{maxWidth:'50px'}}
                                     />
                                 </label>
-                                <label htmlFor="mute-checkbox" style={{textAlign:'center', fontSize:'85%', display:'flex', flexDirection:'column', alignItems:'center', opacity: isVideoActive ? 1 : 0.5}}>Mute:
+                                <label htmlFor="mute-checkbox" style={{textAlign:'center', fontSize:'85%', display:'flex', flexDirection:'column', alignItems:'center', opacity: isVideoActive ? 1 : 0.4}}>Mute:
     <input
     aria-label="Set to mute"
     id="mute-checkbox"
@@ -474,7 +474,7 @@ const handleAutoplayChange = (event) => {
                                 </label>
 
                                 
-                                <label htmlFor="controls-checkbox" style={{textAlign:'center', fontSize:'85%', display:'flex', flexDirection:'column', alignItems:'center', opacity: isVideoActive ? 1 : 0.5}}>Controls:
+                                <label htmlFor="controls-checkbox" style={{textAlign:'center', fontSize:'85%', display:'flex', flexDirection:'column', alignItems:'center', opacity: isVideoActive ? 1 : 0.4}}>Controls:
                                     <input
                                         aria-label="Set to show controls"
                                         id="controls-checkbox"
@@ -525,7 +525,8 @@ const handleAutoplayChange = (event) => {
                 top: expanded ? '60px' : 'inherit',
                 left: expanded ? 'auto' : 'auto',
                 border: expanded ? '2px solid var(--theme-ui-colors-siteColor)' : 'inherit',
-                transition: 'opacity 1s ease-in-out',
+                transition: 'opacity .4s ease-in-out',
+                opacity: isVideoActive ? 1 : 0.4
             }}
             aria-label="Enter Video Title"
             className={`youtubelinker${expanded ? ' expanded' : ''}`}
@@ -588,7 +589,7 @@ const handleAutoplayChange = (event) => {
     onClick={handleStartFromPlayhead} 
     placeholder={!startTime && 'Start'} 
     disabled={!isVideoActive}
-    style={{ maxWidth: '60px', fontSize: 'clamp(.7rem,.6vw,1rem)', textAlign: 'center',background:'rgba(0,0,0,.1)' }}
+    style={{ maxWidth: '60px', fontSize: 'clamp(.7rem,.6vw,1rem)', textAlign: 'center',background:'rgba(0,0,0,.1)', opacity: isVideoActive ? 1 : 0.4 }}
 />
 <input
     aria-label="Stop Time"
@@ -602,7 +603,7 @@ const handleAutoplayChange = (event) => {
     onClick={handleEndFromPlayhead} 
     placeholder={!stopTime && 'Stop'} 
     disabled={!isVideoActive}
-    style={{ maxWidth: '60px', fontSize: 'clamp(.7rem,.6vw,1rem)', textAlign:'center', background:'rgba(0,0,0,.1)' }}
+    style={{ maxWidth: '60px', fontSize: 'clamp(.7rem,.6vw,1rem)', textAlign:'center', background:'rgba(0,0,0,.1)', opacity: isVideoActive ? 1 : 0.4 }}
 />
 
 </div>
@@ -624,7 +625,7 @@ const handleAutoplayChange = (event) => {
                 value={customImage}
                 onChange={handleCustomImageChange}
                 placeholder="Image URL" 
-                style={{ padding: '.5vh .2vw', minWidth:'75px', width: '100%', maxWidth: '800px', fontSize: 'clamp(.8rem,1.4vw,1rem)', textAlign:'center',  background:'rgba(0,0,0,.1)', transition: 'all .4s ease-in-out', opacity: isVideoActive ? 1 : 0.5 }}
+                style={{ padding: '.5vh .2vw', minWidth:'75px', width: '100%', maxWidth: '800px', fontSize: 'clamp(.8rem,1.4vw,1rem)', textAlign:'center',  background:'rgba(0,0,0,.1)', transition: 'all .4s ease-in-out', opacity: isVideoActive ? 1 : 0.4 }}
                 aria-label="Custom Image Url"
                 className="youtubelinker"
                 disabled={!isVideoActive}
@@ -713,7 +714,7 @@ margin: '0 auto',
 gap: '2vw',
 padding: '1vh 2vw',
 // transform: hideEditor ? 'translateY(-100%)' : 'none',
-transition: 'transform 0.2s ease-in-out',
+transition: 'transform 0.4s ease-in-out',
 background: 'var(--theme-ui-colors-headerColor)',
 // height: hideEditor ? 'auto' : '0'
 
