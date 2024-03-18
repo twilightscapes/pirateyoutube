@@ -432,6 +432,20 @@ const handleAutoplayChange = (event) => {
 //   opacity: isVideoActive ? 1 : 0.7 
 }}>
 
+<input
+                                ref={inputElement}
+                                id="youtubelink-input"
+                                type="text"
+                                name="video"
+                                title="Paste Video Link"
+                                value={youtubelink}
+                                onChange={handleInputChange}
+                                style={{ padding: '.5vh .2vw', minWidth:'75px', width: '100%', maxWidth: '500px', textAlign:'center', fontSize: 'clamp(.6rem,1vw,1rem)', transition: 'all .4s ease-in-out', background:'rgba(0,0,0,.2)', outline:'1px solid #999', border:'1px solid var(--theme-ui-colors-siteColor)',  }}
+                                placeholder="Paste Link"
+                                className="youtubelinker"
+                                aria-label="Paste Link To Video"
+                            />
+
 <div id="checkboxes" style={{ display: 'flex', flexDirection:'row', gap: '5px', alignItems: 'center', padding:'0 5px 5px 10px', justifyContent:'center', background:'rgba(0,0,0,.1)', outline:'1px solid #777', borderRadius:'var(--theme-ui-colors-borderRadius)', fontSize:'clamp(.5rem,1.2vw,1rem)'  }}>
 
 <label title="AutoPlay - Set video to automatically begin playing. NOTE: videos must be muted for autoplay to work" htmlFor="autoplayCheckbox" style={{textAlign:'center', fontSize:'80%', display:'flex', flexDirection:'column', alignItems:'center', opacity: isVideoActive ? 1 : 0.4 }}>Autoplay:
@@ -504,38 +518,11 @@ const handleAutoplayChange = (event) => {
 {/* <div style={{ display: 'flex', flexDirection:'row', gap: '10px', alignItems: 'center', padding:'0 3px 5px 3px', background:'rgba(0,0,0,.2)', outline:'1px solid #333', borderRadius:'5px' }}> */}
 </div>
 
-<div style={{minWidth:'110px', marginRight: expanded ? '' : '', border: expanded ? '1px solid var(--theme-ui-colors-siteColor)' : 'inherit', height:'30px', display:'flex', alignItems:'center' }}><input
-            id="seoTitle"
-            type="text"
-            name="seoTitle"
-            title="Enter Video Title"
-            value={seoTitle}
-            onChange={(e) => setSeoTitle(e.target.value)}
-            placeholder="Video Title"
-            style={{
-                padding: '.4vh .3vw',
-                minWidth: '110px',
-                width: expanded ? '60vw' : '100%', // 80% width when expanded
-                maxWidth: '800px',
-                textAlign: 'center',
-                fontSize: 'clamp(.8rem,1.4vw,1rem)',
-                background: expanded ? 'rgba(0,0,0,.8)' : 'rgba(0,0,0,.1)',
-                color: expanded ? '#fff' : 'inherit',
-                position: expanded ? 'absolute' : 'static',
-                top: expanded ? '60px' : 'inherit',
-                left: expanded ? 'auto' : 'auto',
-                border: expanded ? '2px solid var(--theme-ui-colors-siteColor)' : 'inherit',
-                transition: 'opacity .4s ease-in-out',
-                opacity: isVideoActive ? 1 : 0.4
-            }}
-            aria-label="Enter Video Title"
-            className={`youtubelinker${expanded ? ' expanded' : ''}`}
-            disabled={!isVideoActive}
-            onClick={handleInputClick}
-            maxLength={70}
-            onBlur={handleInputBlur} // Add onBlur event handler
-        />
-</div>
+
+
+
+
+
         
 
 
@@ -633,20 +620,39 @@ const handleAutoplayChange = (event) => {
 
             
 
-                    
-                            <input
-                                ref={inputElement}
-                                id="youtubelink-input"
-                                type="text"
-                                name="video"
-                                title="Paste Video Link"
-                                value={youtubelink}
-                                onChange={handleInputChange}
-                                style={{ padding: '.5vh .2vw', minWidth:'75px', width: '100%', maxWidth: '500px', textAlign:'center', fontSize: 'clamp(.6rem,1vw,1rem)', transition: 'all .4s ease-in-out', background:'rgba(0,0,0,.2)', outline:'1px solid #999', border:'1px solid var(--theme-ui-colors-siteColor)',  }}
-                                placeholder="Paste Link"
-                                className="youtubelinker"
-                                aria-label="Paste Link To Video"
-                            />
+                    <div style={{ width: '100%', minWidth:'110px', marginRight: expanded ? '' : '', border: expanded ? '1px solid var(--theme-ui-colors-siteColor)' : 'inherit', height:'30px', display:'flex', alignItems:'center' }}><input
+            id="seoTitle"
+            type="text"
+            name="seoTitle"
+            title="Enter Video Title"
+            value={seoTitle}
+            onChange={(e) => setSeoTitle(e.target.value)}
+            placeholder="Video Title"
+            style={{
+                padding: '.4vh .3vw',
+                minWidth: '110px',
+                width: expanded ? '60vw' : '100%', // 80% width when expanded
+                maxWidth: '800px',
+                textAlign: 'center',
+                fontSize: 'clamp(.8rem,1.4vw,1rem)',
+                background: expanded ? 'rgba(0,0,0,.8)' : 'rgba(0,0,0,.1)',
+                color: expanded ? '#fff' : 'inherit',
+                position: expanded ? 'absolute' : 'static',
+                top: expanded ? '60px' : 'inherit',
+                left: expanded ? 'auto' : 'auto',
+                border: expanded ? '2px solid var(--theme-ui-colors-siteColor)' : 'inherit',
+                transition: 'opacity .4s ease-in-out',
+                opacity: isVideoActive ? 1 : 0.4
+            }}
+            aria-label="Enter Video Title"
+            className={`youtubelinker${expanded ? ' expanded' : ''}`}
+            disabled={!isVideoActive}
+            onClick={handleInputClick}
+            maxLength={70}
+            onBlur={handleInputBlur} // Add onBlur event handler
+        />
+</div>
+
 
 
 <div style={{display: 'flex', flexDirection:'row', gap: '10px', alignItems: 'center', padding:'3px 10px', background:'rgba(0,0,0,.2)', outline:'1px solid #333', borderRadius:'var(--theme-ui-colors-borderRadius)', opacity: isVideoActive ? 1 : 0.5}}>
