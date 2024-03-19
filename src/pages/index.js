@@ -54,7 +54,7 @@ const HomePage = ({ location }) => {
               <span style={{ margin: "2vh auto", fontSize: "160%" }}>Install Now Free!</span>
               <br /><br /><br />
           </div> */}
-          <div className="flexcheek mob2 print" style={{ position: "", top: "", minWidth: "25vw", overflow: "", marginBottom: "", paddingTop: "", borderRadius: "var(--theme-ui-colors-borderRadius)" }}>
+          <div className="flexcheek mob2 print" style={{ position: "relative", top: "", minWidth: "25vw", overflow: "", marginBottom: "", paddingTop: "", borderRadius: "var(--theme-ui-colors-borderRadius)" }}>
             <div className="nameblock font" style={{ margin: "0 auto 0 auto", padding: "0 0 0 0", alignContent: "center", display: "grid", textAlign: "center", justifyContent: "center", verticalAlign: "center", color: "#fff", paddingTop: "", fontSize: "clamp(1rem, 1.4vw, 3.2rem)", background: "rgba(0,0,0,0.50)", backdropFilter: "blur(8px)", border: "0px double var(--theme-ui-colors-buttonHoverBg)", borderRadius: "var(--theme-ui-colors-borderRadius)", textShadow: "0 2px 0px #000", maxWidth: "" }}>
 
               
@@ -116,7 +116,7 @@ Click:
               {/* <br />
               <a href="https://pirateweb.org/about" className="button print" style={{ display: "flex", justifyContent: "center", padding: "1vh .5vw", maxWidth: "250px", margin: "30px auto", border:'1px solid ' }}>About PIRATE</a> */}
               <br />
-<StaticImage src="../../static/assets/screen-mirroring-badges.avif" alt="Works With Apple AirPlay" style={{height:'auto', width:'200px', position:'absolute', zIndex:'0', bottom:'20vh', left:'-30px', border:'0px solid !important', objectFit:'contain', margin:'0 auto'}} />
+<StaticImage src="../../static/assets/screen-mirroring-badges.webp" alt="Works With Apple AirPlay" style={{height:'auto', width:'180px', position:'absolute', zIndex:'0', bottom:'20vh', left:'0', border:'0px solid !important', objectFit:'contain', margin:'0 auto'}} />
 
               <br />
             </div>
