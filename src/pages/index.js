@@ -39,6 +39,9 @@ const HomePage = ({ location }) => {
           gap: "0",
           padding: "2vh 2vw",
           alignItems: "center",
+          animation:'fadeIn 2s forwards',
+          animationDelay:'2s',
+          opacity:'0',
           // display: isMenuOpen ? "block" : "none",
           display: "",
           background: "var(--theme-ui-colors-headerBackground)",
@@ -110,7 +113,7 @@ Click:
 
               Watch Videos Ad-Free
               <br /><br />
-              Create FREE shareable video links
+              Create FREE shareable social video links
               <br /><br />
               <span style={{fontSize:'88%'}}>with custom thumbnail, titles, and start/stop times</span>
               {/* <br />
