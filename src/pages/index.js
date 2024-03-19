@@ -5,6 +5,8 @@ import VideoPlayer from "../components/VideoPlayer";
 import ReactPlayer from 'react-player/lazy';
 import { Helmet } from "react-helmet";
 import PirateLogo from "../img/logo.svg";
+
+import { MdOutlineIosShare } from "react-icons/md";
 import { StaticImage } from "gatsby-plugin-image"
 const HomePage = ({ location }) => {
 
@@ -58,8 +60,27 @@ const HomePage = ({ location }) => {
               
               <span style={{ margin: "2vh auto 5px auto", fontSize: "160%" }}>Install Pirate Video Now!</span>
               
-              <span style={{ margin: "2vh auto", fontSize: "90%" }}>(Click 'Share' - then 'Save To Homepage')</span>
-      
+              {/* <span style={{ margin: "2vh auto", fontSize: "90%" }}>(Click <span style={{position:'relative', display:'block', left:'1%',}}><MdOutlineIosShare style={{fontSize:'30px'}} /></span> - then 'Save To Homepage')</span> */}
+
+
+<div className="font" style={{display:'flex', flexDirection:'row', alignItems:'center', gap:'1vw', textAlign:'center', justifyContent:'center',padding:'4px 0 0 40px', margin:'0 auto', border:'0px solid blue', width:'', maxWidth:'', fontSize: 'clamp(.8rem,1.2vw,1rem)', position:'relative'}}>
+
+Click: 
+<div style={{position:'relative', display:'block', left:'',}}><MdOutlineIosShare style={{fontSize:'30px'}} /></div>
+
+  + <span style={{display:'block'}}>"Add To Home Screen"</span>
+
+
+
+</div>
+
+<br />
+
+
+
+
+
+
 
               <ReactPlayer url='/assets/Pirate-IOS-Install.mp4'
               config={{
