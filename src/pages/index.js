@@ -167,7 +167,7 @@ const HomePage = ({ location }) => {
         
         Get the full version free!
         <br /><br />
-        Web, Social &amp; Video Media
+        Web, Video &amp; Social Media
         <br />
         Combined into your own app
       
