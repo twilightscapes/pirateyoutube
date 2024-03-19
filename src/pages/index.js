@@ -40,7 +40,7 @@ const HomePage = ({ location }) => {
           padding: "2vh 2vw",
           alignItems: "center",
           animation:'fadeIn 2s forwards',
-          animationDelay:'2s',
+          animationDelay:'1.5s',
           opacity:'0',
           // display: isMenuOpen ? "block" : "none",
           display: "",
@@ -111,7 +111,7 @@ Click:
 
 
 
-              Watch Videos Ad-Free
+              Watch Videos Ad-Free with NO "Rabbit Hole"
               <br /><br />
               Create FREE shareable social video links
               <br /><br />
