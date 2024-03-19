@@ -23,6 +23,7 @@ const HomePage = ({ location }) => {
           padding: "2vh 2vw",
           alignItems: "center",
           // display: isMenuOpen ? "block" : "none",
+          display: "none",
           background: "var(--theme-ui-colors-headerBackground)",
           backgroundColor: "#222",
           width: "100dvw",
