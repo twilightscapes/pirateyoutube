@@ -143,7 +143,7 @@ const HomePage = ({ location }) => {
       <PirateLogo style={{ minWidth: "", maxHeight: "15vh", position: "", top: "", left: "" }} />
       the web revolution
       <br /><br /><br />
-        <span style={{ margin: "2vh auto", fontSize: "130%" }}>Get The Full Version FREE!</span>
+        <span style={{ margin: "2vh auto", fontSize: "130%" }}>Get The Full Version</span>
         <br /><br /><br />
     </div>
     <div className="flexcheek mob2 print" style={{ position: "", top: "", minWidth: "25vw", overflow: "", marginBottom: "", paddingTop: "", borderRadius: "var(--theme-ui-colors-borderRadius)" }}>
@@ -165,7 +165,7 @@ const HomePage = ({ location }) => {
         
         
         
-        Get the full version free!
+        Get the full version!
         <br /><br />
         Web, Video &amp; Social Media
         <br />
