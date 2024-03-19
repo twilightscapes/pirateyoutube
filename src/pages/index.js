@@ -32,7 +32,7 @@ const HomePage = ({ location }) => {
         style={{
           position: "absolute",
           zIndex: "0",
-          top: "40px",
+          top: "6vh",
           gap: "0",
           padding: "2vh 2vw",
           alignItems: "center",
