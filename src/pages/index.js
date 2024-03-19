@@ -127,7 +127,7 @@ const HomePage = ({ location }) => {
   style={{
     position: "absolute",
     zIndex: "0",
-    top: "40px",
+    top: "100px",
     gap: "0",
     padding: "2vh 2vw",
     alignItems: "center",
@@ -143,7 +143,7 @@ const HomePage = ({ location }) => {
       <PirateLogo style={{ minWidth: "", maxHeight: "15vh", position: "", top: "", left: "" }} />
       the web revolution
       <br /><br /><br />
-        <span style={{ margin: "2vh auto", fontSize: "160%" }}>Install Now Free!</span>
+        <span style={{ margin: "2vh auto", fontSize: "130%" }}>Get The Full Version FREE!</span>
         <br /><br /><br />
     </div>
     <div className="flexcheek mob2 print" style={{ position: "", top: "", minWidth: "25vw", overflow: "", marginBottom: "", paddingTop: "", borderRadius: "var(--theme-ui-colors-borderRadius)" }}>
