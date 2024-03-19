@@ -97,6 +97,7 @@ Click:
   playing
   loop
   autoplay
+  muted
   style={{
     width:'100%',
     height:'100%',
