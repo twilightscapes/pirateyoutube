@@ -93,7 +93,7 @@ const HomePage = ({ location }) => {
               {/* <br />
               <a href="https://pirateweb.org/about" className="button print" style={{ display: "flex", justifyContent: "center", padding: "1vh .5vw", maxWidth: "250px", margin: "30px auto", border:'1px solid ' }}>About PIRATE</a> */}
               <br />
-<StaticImage src="../../static/assets/airplay-badge.webp" alt="Works With Apple AirPlay" style={{height:'auto', width:'120px', position:'relative', zIndex:'0', top:'0', border:'0px solid !important', objectFit:'contain', margin:'0 auto'}} />
+<StaticImage src="../../static/assets/screen-mirroring-badges.avif" alt="Works With Apple AirPlay" style={{height:'auto', width:'200px', position:'absolute', zIndex:'0', bottom:'20vh', left:'-30px', border:'0px solid !important', objectFit:'contain', margin:'0 auto'}} />
 
               <br />
             </div>
