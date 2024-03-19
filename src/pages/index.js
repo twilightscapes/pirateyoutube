@@ -5,6 +5,7 @@ import VideoPlayer from "../components/VideoPlayer";
 import ReactPlayer from 'react-player/lazy';
 import { Helmet } from "react-helmet";
 import PirateLogo from "../img/logo.svg";
+import { StaticImage } from "gatsby-plugin-image"
 const HomePage = ({ location }) => {
 
           // Function to check if the app is running in standalone mode
@@ -91,6 +92,9 @@ const HomePage = ({ location }) => {
               <span style={{fontSize:'88%'}}>with custom thumbnail, titles, and start/stop times</span>
               {/* <br />
               <a href="https://pirateweb.org/about" className="button print" style={{ display: "flex", justifyContent: "center", padding: "1vh .5vw", maxWidth: "250px", margin: "30px auto", border:'1px solid ' }}>About PIRATE</a> */}
+              <br />
+<StaticImage src="../../static/assets/airplay-badge.webp" alt="Works With Apple AirPlay" style={{height:'auto', width:'120px', position:'relative', zIndex:'0', top:'0', border:'0px solid !important', objectFit:'contain', margin:'0 auto'}} />
+
               <br />
             </div>
           </div>
