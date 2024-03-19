@@ -55,7 +55,7 @@ const HomePage = ({ location }) => {
             <div className="nameblock font" style={{ margin: "0 auto 0 auto", padding: "0 0 0 0", alignContent: "center", display: "grid", textAlign: "center", justifyContent: "center", verticalAlign: "center", color: "#fff", paddingTop: "", fontSize: "clamp(1rem, 1.4vw, 3.2rem)", background: "rgba(0,0,0,0.50)", backdropFilter: "blur(8px)", border: "0px double var(--theme-ui-colors-buttonHoverBg)", borderRadius: "var(--theme-ui-colors-borderRadius)", textShadow: "0 2px 0px #000", maxWidth: "" }}>
 
               
-              <span style={{ margin: "2vh auto", fontSize: "160%" }}>Install Now Free!</span>
+              <span style={{ margin: "2vh auto", fontSize: "160%" }}>Install Pirate Video Now!</span>
       <br />
 
               <ReactPlayer url='/assets/Pirate-IOS-Install.mp4'
@@ -84,9 +84,11 @@ const HomePage = ({ location }) => {
 
 
 
-              Watch YouTube Ad Free
+              Watch Videos Ad-Free
               <br /><br />
-              Create FREE custom, shareable video links
+              Create FREE shareable video links
+              <br /><br />
+              <span style={{fontSize:'88%'}}>with custom thumbnail, titles, and start/stop times</span>
               {/* <br />
               <a href="https://pirateweb.org/about" className="button print" style={{ display: "flex", justifyContent: "center", padding: "1vh .5vw", maxWidth: "250px", margin: "30px auto", border:'1px solid ' }}>About PIRATE</a> */}
               <br />
