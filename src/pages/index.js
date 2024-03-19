@@ -1,4 +1,5 @@
-import React from "react";
+
+import React, { useRef } from "react";
 import Layout from "../components/siteLayout";
 import Seo from "../components/seo";
 import VideoPlayer from "../components/VideoPlayer";
@@ -9,7 +10,7 @@ import PirateLogo from "../img/logo.svg";
 import { MdOutlineIosShare } from "react-icons/md";
 import { StaticImage } from "gatsby-plugin-image"
 const HomePage = ({ location }) => {
-
+  const playerRef = useRef(null);
           // Function to check if the app is running in standalone mode
           function isRunningStandalone() {
             if (typeof window !== 'undefined') {
@@ -85,7 +86,8 @@ Click:
 
 
 
-              <ReactPlayer url='/assets/Pirate-IOS-Install.mp4'
+
+              <ReactPlayer ref={playerRef} url='/assets/Pirate-IOS-Install.mp4'
               config={{
     youtube: {
       playerVars: { showinfo: 0, autoplay: 1, mute: 1 }
@@ -94,6 +96,7 @@ Click:
   playsinline
   playing
   loop
+  autoplay
   style={{
     width:'100%',
     height:'100%',
