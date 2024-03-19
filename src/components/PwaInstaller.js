@@ -80,7 +80,7 @@ const PWAInstaller = () => {
       
       <div className="font" style={{display:'flex', flexDirection:'row', alignItems:'center', gap:'1vw', textAlign:'center', justifyContent:'center',padding:'4px 0', margin:'0 auto', border:'0px solid blue', width:'', maxWidth:'', fontSize: 'clamp(.8rem,1.2vw,1rem)', position:'relative'}}>
 
-Click: 
+To Install: 
 <div style={{position:'relative', display:'block', left:'',}}><MdOutlineIosShare style={{fontSize:'30px'}} /></div>
 
   + <span style={{display:'block'}}>"Add To Home Screen"</span>
