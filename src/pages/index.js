@@ -3,7 +3,7 @@ import Layout from "../components/siteLayout";
 import Seo from "../components/seo";
 import VideoPlayer from "../components/VideoPlayer";
 import { Helmet } from "react-helmet";
-// import PirateLogo from "../img/logo.svg";
+import PirateLogo from "../img/logo.svg";
 const HomePage = ({ location }) => {
   return (
     <Layout>
@@ -13,7 +13,7 @@ const HomePage = ({ location }) => {
       <SeoWrapper location={location} />
       <div className='player-wrapper'>
         <VideoPlayer location={location} />
-        {/* <div
+        <div
         className="menusnapp"
         style={{
           position: "absolute",
@@ -42,7 +42,7 @@ const HomePage = ({ location }) => {
               <br /><br />
               And it's completely FREE!
               <br />
-              <a href="https://pirateweb.org/about" className="button print" style={{ display: "flex", justifyContent: "center", padding: "1vh .5vw", maxWidth: "250px", margin: "30px auto", border:'1px solid #ff0000' }}>About PIRATE</a>
+              <a href="https://pirateweb.org/about" className="button print" style={{ display: "flex", justifyContent: "center", padding: "1vh .5vw", maxWidth: "250px", margin: "30px auto", border:'1px solid ' }}>About PIRATE</a>
             </div>
           </div>
           <div className="flexcheek mob2 print" style={{ position: "", top: "", minWidth: "25vw", overflow: "", marginBottom: "", paddingTop: "", borderRadius: "var(--theme-ui-colors-borderRadius)" }}>
@@ -54,11 +54,11 @@ const HomePage = ({ location }) => {
               <br /><br />
               Combined into your own app
               <br />
-              <a href="https://pirateweb.org/install" className="button print" style={{ display: "flex", justifyContent: "center", padding: "1vh .5vw", maxWidth: "250px", margin: "30px auto", border:'1px solid #ff0000' }}>Become a PIRATE!</a>
+              <a href="https://pirateweb.org/install" className="button print" style={{ display: "flex", justifyContent: "center", padding: "1vh .5vw", maxWidth: "250px", margin: "30px auto", border:'1px solid ' }}>Become a PIRATE!</a>
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
       </div>
 
     </Layout>

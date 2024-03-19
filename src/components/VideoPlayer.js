@@ -682,7 +682,7 @@ const handleAutoplayChange = (event) => {
                     </form>
 
                     {isRunningStandalone() && (
-                            <div style={{position:'fixed', left:'', bottom:'1vh', zIndex:'2', display:'flex', flexDirection:'row', alignItems:'center', justifyContent:'center', gap:'1.5vw', width:'100vw',padding:'3px 10px', background:'rgba(0,0,0,.2)', outline:'1px solid #333', borderRadius:'var(--theme-ui-colors-borderRadius)'}}>
+                            <div style={{position:'fixed', left:'', bottom:'0', zIndex:'2', display:'flex', flexDirection:'row', alignItems:'center', justifyContent:'center', gap:'1.5vw', width:'100vw', padding:'10px 0 2vh 0', background:'rgba(0,0,0,.2)', outline:'1px solid #333', borderRadius:'var(--theme-ui-colors-borderRadius)'}}>
                                     <a title="Open YouTube" aria-label="Open YouTube" href="https://youtube.com">
                                         <TfiYoutube style={{ fontSize: '30px', opacity:'.8' }} />
                                     </a>
