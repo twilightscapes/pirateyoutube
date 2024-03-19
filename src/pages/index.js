@@ -3,7 +3,7 @@ import Layout from "../components/siteLayout";
 import Seo from "../components/seo";
 import VideoPlayer from "../components/VideoPlayer";
 import { Helmet } from "react-helmet";
-import PirateLogo from "../img/logo.svg";
+// import PirateLogo from "../img/logo.svg";
 const HomePage = ({ location }) => {
   return (
     <Layout>
