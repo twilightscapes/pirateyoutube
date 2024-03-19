@@ -77,32 +77,23 @@ const PWAInstaller = () => {
 
       {/* <div style={{fontSize:'60px', display:'grid', placeContent:'center', height:'60px', margin:'0 2vw', lineHeight:'100%'}}>&#x2620;</div>  */}
 
-                <div className="font" style={{display:'flex', flexDirection:'column', alignItems:'center', gap:'1vw', textAlign:'center', justifyContent:'center',padding:'4px 0 0 40px', margin:'0 auto', border:'0px solid blue', width:'', maxWidth:'', fontSize: 'clamp(.8rem,1.2vw,1rem)', position:'relative'}}>
-
-                <span style={{position:'absolute', display:'block', left:'1%',}}><MdOutlineIosShare style={{fontSize:'30px'}} /></span>
-
-                  <span style={{display:'block'}}>Install the {companyname} Web app</span>
-
-                  <span style={{display:'block'}}>"Add To Home Screen"</span>
-
-                
-
-                </div>
-                
-                
-  
-                
-
-    
-
-      {/* <span style={{fontSize:'50px'}}>&#x2620;</span>
-
       
-      Please Install Our Web App
-        "Save to your Home Screen" to install free Web App */}
+      <div className="font" style={{display:'flex', flexDirection:'row', alignItems:'center', gap:'1vw', textAlign:'center', justifyContent:'center',padding:'4px 0', margin:'0 auto', border:'0px solid blue', width:'', maxWidth:'', fontSize: 'clamp(.8rem,1.2vw,1rem)', position:'relative'}}>
+
+Click: 
+<div style={{position:'relative', display:'block', left:'',}}><MdOutlineIosShare style={{fontSize:'30px'}} /></div>
+
+  + <span style={{display:'block'}}>"Add To Home Screen"</span>
 
 
-    </div>
+
+</div>
+
+
+
+</div>
+
+
   );
 };
 
