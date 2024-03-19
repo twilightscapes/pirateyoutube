@@ -66,7 +66,7 @@ const HomePage = ({ location }) => {
 <div className="font" style={{display:'flex', flexDirection:'row', alignItems:'center', gap:'1vw', textAlign:'center', justifyContent:'center',padding:'4px 0 0 40px', margin:'0 auto', border:'0px solid blue', width:'', maxWidth:'', fontSize: 'clamp(.8rem,1.2vw,1rem)', position:'relative'}}>
 
 Click: 
-<div style={{position:'relative', display:'block', left:'',}}><MdOutlineIosShare style={{fontSize:'30px'}} /></div>
+<div style={{position:'relative', display:'block', left:'',}}><MdOutlineIosShare style={{fontSize:'24px'}} /></div>
 
   + <span style={{display:'block'}}>"Add To Home Screen"</span>
 
@@ -138,7 +138,7 @@ Click:
             </div>
           </div> */}
         </div>
-        <br /><br /><br />
+        {/* <br /><br /><br /> */}
       </div>
 
 ) : (
