@@ -233,8 +233,7 @@ Click:
       YOU... ARE THE CAPTAIN NOW!
       </h2>
       <div style={{ fontSize: 'clamp(1.2rem, 1.8vw, 3.2rem)' }} className="description" >
-      <p>Pirate is a <strong>Personal Web App (PWA)</strong>.</p>
-<p>It works on any device - NO App Store needed.</p>
+      <p>Pirate is your <strong>Personal Web App (PWA)</strong> and it works on any device - NO App Store needed.</p>
 <p>A new social media, Pirate is a decentralized network of other Pirate users &amp; you control the algorithm!</p>
 <p>Watch ad-free video, edit your page, profile, and publish content with FULL ownership and copyright.</p>
 <p>Pirate is Open-Source and it operates forever, with no contracts, commitments or costs of any kind.</p>
