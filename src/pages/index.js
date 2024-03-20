@@ -232,7 +232,7 @@ Click:
       <h2 className="tagline1" style={{ fontSize: 'clamp(1.2rem, 1.8vw, 3.2rem)' }}>
       YOU... ARE THE CAPTAIN NOW!
       </h2>
-      <div style={{ fontSize: 'clamp(1.2rem, 1.8vw, 3.2rem)' }} className="description" >
+      <div style={{ fontSize: 'clamp(1rem, 1.8vw, 3.2rem)' }} className="description" >
       <p>Pirate is your <strong>Personal Web App (PWA)</strong> and it works on any device - NO App Store needed.</p>
 <p>A new social media, Pirate is a decentralized network of other Pirate users &amp; you control the algorithm!</p>
 <p>Watch ad-free video, edit your page, profile, and publish content with FULL ownership and copyright.</p>
@@ -249,7 +249,7 @@ Click:
 
 
 
-      <div className="flexcheek mob2 print" style={{position:'', top:'0', minWidth:'', overflow:'', marginBottom:'', paddingTop:'2vh', borderRadius:'var(--theme-ui-colors-borderRadius)', display:'flex', flexDirection:'column', justifyContent:'center'
+      <div className="flexcheek mob2 print" style={{position:'', top:'0', minWidth:'', overflow:'', marginBottom:'8vh', paddingTop:'2vh', borderRadius:'var(--theme-ui-colors-borderRadius)', display:'flex', flexDirection:'column', justifyContent:'center'
       }}>
 
             {/* <GatsbyImage
@@ -273,7 +273,7 @@ Click:
 }}>
   <br />
 
-    <span style={{margin:'2vh auto', fontSize:'160%'}}>BECOME A PIRATE!</span>
+    <span style={{margin:'2vh auto', fontSize:'clamp(1.5rem, 2vw, 2.8rem)', lineHeight:''}}>BECOME A PIRATE!</span>
 
 
   {/* <span style={{margin:'10px auto', fontSize:'160%'}}>{companyname}</span> */}
