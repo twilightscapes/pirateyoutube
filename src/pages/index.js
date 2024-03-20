@@ -115,11 +115,11 @@ Click:
 
 <div style={{fontSize:'clamp(1rem, 1.8vw, 3.2rem)'}}>
 
-              Watch Videos Ad-Free with NO "Rabbit Hole"
+              Watch Videos Ad-Free &amp; NO "Rabbit Hole"
               <br /><br />
               Create FREE shareable social video links
               <br /><br />
-              <span style={{fontSize:'88%'}}>with custom thumbnail, titles, and start/stop times</span>
+              <span style={{fontSize:'80%'}}>with custom thumbnail, titles, and start/stop times</span>
 
               </div>
               {/* <br />
