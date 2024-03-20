@@ -67,12 +67,12 @@ const HomePage = ({ location }) => {
               {/* <span style={{ margin: "2vh auto", fontSize: "90%" }}>(Click <span style={{position:'relative', display:'block', left:'1%',}}><MdOutlineIosShare style={{fontSize:'30px'}} /></span> - then 'Save To Homepage')</span> */}
 
 
-<div className="font" style={{display:'flex', flexDirection:'row', alignItems:'center', gap:'1vw', textAlign:'center', justifyContent:'center',padding:'4px 0 0 40px', margin:'0 auto', border:'0px solid blue', width:'', maxWidth:'', fontSize: 'clamp(.8rem,1.2vw,1rem)', position:'relative'}}>
+<div className="font" style={{display:'flex', flexDirection:'row', alignItems:'center', gap:'1vw', textAlign:'center', justifyContent:'center',padding:'4px 0 0 40px', margin:'0 auto', border:'0px solid blue', width:'', maxWidth:'', fontSize: 'clamp(1rem,1.4vw,1.5rem)', position:'relative'}}>
 
 Click: 
 <div style={{position:'relative', display:'block', left:'',}}><MdOutlineIosShare style={{fontSize:'24px'}} /></div>
 
-  + <span style={{display:'block'}}>"Add To Home Screen"</span>
+  <span style={{fontSize:'120%'}}>+</span> <span style={{display:'block'}}>"Add To Home Screen"</span>
 
 
 
@@ -112,7 +112,7 @@ Click:
               {/* <span style={{ margin: "2vh auto", fontSize: "160%" }}>About PIRATE</span>
               <br /> */}
 
-
+<br />
 <div style={{fontSize:'clamp(1rem, 1.8vw, 3.2rem)'}}>
 
               Watch Videos Ad-Free &amp; NO "Rabbit Hole"
