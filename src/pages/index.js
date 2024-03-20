@@ -113,13 +113,15 @@ Click:
               <br /> */}
 
 
-
+<div style={{fontSize:'clamp(1.2rem, 1.8vw, 3.2rem)'}}>
 
               Watch Videos Ad-Free with NO "Rabbit Hole"
               <br /><br />
               Create FREE shareable social video links
               <br /><br />
               <span style={{fontSize:'88%'}}>with custom thumbnail, titles, and start/stop times</span>
+
+              </div>
               {/* <br />
               <a href="https://pirateweb.org/about" className="button print" style={{ display: "flex", justifyContent: "center", padding: "1vh .5vw", maxWidth: "250px", margin: "30px auto", border:'1px solid ' }}>About PIRATE</a> */}
               <br />
