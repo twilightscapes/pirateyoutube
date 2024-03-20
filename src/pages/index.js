@@ -113,7 +113,7 @@ Click:
               <br /> */}
 
 
-<div style={{fontSize:'clamp(1.2rem, 1.8vw, 3.2rem)'}}>
+<div style={{fontSize:'clamp(1rem, 1.8vw, 3.2rem)'}}>
 
               Watch Videos Ad-Free with NO "Rabbit Hole"
               <br /><br />
