@@ -87,7 +87,7 @@ Click:
 
 
 
-              <ReactPlayer ref={playerRef} url='/assets/Pirate-IOS-Install.mp4'
+              <ReactPlayer ref={playerRef} url='/assets/PirateInstall.mp4'
               config={{
     youtube: {
       playerVars: { showinfo: 0, autoplay: 1, mute: 1 }
