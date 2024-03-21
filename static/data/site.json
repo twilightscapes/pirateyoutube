@@ -78,7 +78,7 @@
       "dicEmail": "your@email.com",
       "dicViewArchive": "View Archive"
     },
-    "image": "/assets/pirate-logo-bg.svg",
+    "image": "/assets/pirate-logo.svg",
     "navOptions": {
       "showNav": true,
       "showNav2": false,

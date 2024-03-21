@@ -1331,7 +1331,7 @@ body:has(.ReactModal__Content) {overflow-x:hidden !important; overflow-y:hidden 
   /* #VideoPlayer {position:fixed; overflow-y: hidden;} */
 
 
-  #VideoPlayer video{height:100vh !important; border:2px solid red !important;}
+
 
 
   body.youtube #header,
