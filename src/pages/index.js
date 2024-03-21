@@ -106,7 +106,7 @@ Click:
   playsinline
   playing
   loop
-  autoplay
+  autoPlay
   muted
   style={{
     width:'100%',
