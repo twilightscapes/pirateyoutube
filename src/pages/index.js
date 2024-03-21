@@ -92,6 +92,9 @@ Click:
 
 
 
+{/* https://youtu.be/xIAZ-vHl4aY */}
+
+{/* <ReactPlayer ref={playerRef} url='/assets/PirateInstall.mp4' */}
 
 
               <ReactPlayer ref={playerRef} url='/assets/PirateInstall.mp4'
