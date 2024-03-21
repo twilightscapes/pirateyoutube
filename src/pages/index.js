@@ -50,6 +50,10 @@ const HomePage = ({ location }) => {
           width: "100dvw",
         }}
       >
+
+
+
+
         <div id="" className="flexbutt font" style={{ display: "", gap: "3vh", justifyContent: "center", alignItems: "center", margin: "0 0", padding: "0", position: "relative", minWidth: "80vw" }}>
           {/* <div style={{ minWidth: "25vw", maxHeight: "15vh", textAlign: "center", color: "#fff" }}>
             <PirateLogo style={{ minWidth: "", maxHeight: "15vh", position: "", top: "", left: "" }} />
@@ -59,6 +63,9 @@ const HomePage = ({ location }) => {
               <br /><br /><br />
           </div> */}
           <div className="flexcheek mob2 print" style={{ position: "relative", top: "", minWidth: "25vw", overflow: "", marginBottom: "", paddingTop: "", borderRadius: "var(--theme-ui-colors-borderRadius)" }}>
+
+
+
             <div className="nameblock font" style={{ margin: "0 auto 0 auto", padding: "0 0 0 0", alignContent: "center", display: "grid", textAlign: "center", justifyContent: "center", verticalAlign: "center", color: "#fff", paddingTop: "", fontSize: "clamp(1rem, 1.4vw, 3.2rem)", background: "rgba(0,0,0,0.50)", backdropFilter: "blur(8px)", border: "0px double var(--theme-ui-colors-buttonHoverBg)", borderRadius: "var(--theme-ui-colors-borderRadius)", textShadow: "0 2px 0px #000", maxWidth: "" }}>
 
               
@@ -117,7 +124,7 @@ Click:
 
               Watch Videos Ad-Free &amp; NO "Rabbit Hole"
               <br /><br />
-              Create FREE shareable social video links
+              Create shareable social video links
               <br /><br />
               <span style={{fontSize:'80%'}}>with custom thumbnail, titles, and start/stop times</span>
 
@@ -125,7 +132,9 @@ Click:
               {/* <br />
               <a href="https://pirateweb.org/about" className="button print" style={{ display: "flex", justifyContent: "center", padding: "1vh .5vw", maxWidth: "250px", margin: "30px auto", border:'1px solid ' }}>About PIRATE</a> */}
               <br />
-<StaticImage src="../../static/assets/screen-mirroring-badges.webp" alt="Works With Apple AirPlay" style={{height:'auto', width:'30%', position:'absolute', zIndex:'0', bottom:'20vh', left:'0', border:'0px solid !important', objectFit:'contain', margin:'0 auto'}} />
+<StaticImage src="../../static/assets/screen-mirroring-badges.webp" alt="Works With Apple AirPlay" style={{height:'130px', width:'92px', position:'absolute', zIndex:'0', bottom:'25vh', left:'20px', border:'0px solid !important', objectFit:'contain', margin:'0 auto'}} />
+
+<StaticImage src="../../static/assets/free-star.webp" alt="Works With Apple AirPlay" style={{height:'50%', width:'50%', position:'absolute', zIndex:'1', bottom:'12%', right:'-10vw', border:'0px solid !important', objectFit:'contain', margin:'0 auto'}} />
 
               <br />
             </div>
