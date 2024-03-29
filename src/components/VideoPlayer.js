@@ -389,7 +389,7 @@ const handleAutoplayChange = (event) => {
 
 
 
-            {isRunningStandalone() ? (
+            {!isRunningStandalone() ? (
 
 <div className="font" style={{ position: 'relative', zIndex: '3', top: '0', width: '100vw', margin: '0 auto', transition: 'all .4s ease-in-out', marginTop: showNav ? '0' : '0',
 //  height: hideEditor ? '0' : '50px', 

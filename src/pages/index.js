@@ -44,7 +44,7 @@ const HomePage = ({ location }) => {
           animationDelay:'1s',
           opacity:'0',
           // display: isMenuOpen ? "block" : "none",
-          display: "",
+          display: "NONE",
           background: "var(--theme-ui-colors-headerBackground)",
           backgroundColor: "#222",
           width: "100dvw",
@@ -170,65 +170,10 @@ Click:
 
 
 
-{isRunningStandalone() ? (
-//   <div
-//   className="menusnapp"
-//   style={{
-//     position: "absolute",
-//     zIndex: "0",
-//     top: "100px",
-//     gap: "0",
-//     padding: "2vh 2vw",
-//     alignItems: "center",
-//     // display: isMenuOpen ? "block" : "none",
-//     display: "",
-//     background: "var(--theme-ui-colors-headerBackground)",
-//     backgroundColor: "#222",
-//     width: "100dvw",
-//   }}
-// >
-//   <div id="" className="flexbutt font" style={{ display: "", gap: "3vh", justifyContent: "center", alignItems: "center", margin: "0 0", padding: "0", position: "relative", minWidth: "80vw" }}>
-//     <div style={{ minWidth: "25vw", maxHeight: "15vh", textAlign: "center", color: "#fff" }}>
-//       <PirateLogo style={{ minWidth: "", maxHeight: "15vh", position: "", top: "", left: "" }} />
-//       Your Personal Web App
-//       <br /><br /><br />
-//         <span style={{ margin: "2vh auto", fontSize: "130%" }}>Get The Full Version</span>
-//         <br /><br /><br />
-//     </div>
-//     <div className="flexcheek mob2 print" style={{ position: "", top: "", minWidth: "25vw", overflow: "", marginBottom: "", paddingTop: "", borderRadius: "var(--theme-ui-colors-borderRadius)" }}>
-//       <div className="nameblock font" style={{ margin: "0 auto 0 auto", padding: "0 0 0 0", alignContent: "center", display: "grid", textAlign: "center", justifyContent: "center", verticalAlign: "center", color: "#fff", paddingTop: "", fontSize: "clamp(1rem, 1.4vw, 3.2rem)", background: "rgba(0,0,0,0.50)", backdropFilter: "blur(8px)", border: "10px double var(--theme-ui-colors-buttonHoverBg)", borderRadius: "var(--theme-ui-colors-borderRadius)", textShadow: "0 2px 0px #000", maxWidth: "" }}>
-//         <br />
-//         <span style={{ margin: "2vh auto", fontSize: "160%" }}>About PIRATE</span>
-//         <br />
-//         A web revolution is coming
-//         <br /><br />
-//         And it's completely FREE!
-//         <br />
-//         <a href="https://pirateweb.org/about" className="button print" style={{ display: "flex", justifyContent: "center", padding: "1vh .5vw", maxWidth: "250px", margin: "30px auto", border:'1px solid' }}>About PIRATE</a>
-//       </div>
-//     </div>
-//     <div className="flexcheek mob2 print" style={{ position: "", top: "", minWidth: "25vw", overflow: "", marginBottom: "", paddingTop: "", borderRadius: "var(--theme-ui-colors-borderRadius)" }}>
-//       <div className="nameblock font" style={{ margin: "0 auto 0 auto", padding: "0 0 0 0", alignContent: "center", display: "grid", textAlign: "center", justifyContent: "center", verticalAlign: "center", color: "#fff", paddingTop: "", fontSize: "clamp(1rem, 1.4vw, 3.2rem)", background: "rgba(0,0,0,0.50)", backdropFilter: "blur(8px)", border: "10px double var(--theme-ui-colors-buttonHoverBg)", borderRadius: "var(--theme-ui-colors-borderRadius)", textShadow: "0 2px 0px #000", maxWidth: "" }}>
-//         <br />
-//         <span style={{ margin: "2vh auto", fontSize: "160%" }}>Get PIRATE</span>
-        
-        
-        
-//         Get the full version!
-//         <br /><br />
-//         Web, Video &amp; Social Media
-//         <br />
-//         Combined into your own app
-      
-//         <a href="https://pirateweb.org/install" className="button print" style={{ display: "flex", justifyContent: "center", padding: "1vh .5vw", maxWidth: "250px", margin: "30px auto", border:'1px solid ' }}>Become a PIRATE!</a>
-        
-//       </div>
-//     </div>
-//   </div>
-// </div>
+{!isRunningStandalone() ? (
 
 
-  <section className="scroll-area panel" id="profile" name="profile" style={{ display:'', height:'', minHeight:'', position:'relative', overflow:'scroll', margin:'0 auto 0 auto', padding:'0 0 60px 0', background:'var(--theme-ui-colors-background)', color:'var(--theme-ui-colors-text)', width:'100vw', borderRadius:'var(--theme-ui-colors-borderRadius)', }}>
+  <section className="scroll-area panel" id="profile" name="profile" style={{ display:'NONE', height:'', minHeight:'', position:'relative', overflow:'scroll', margin:'0 auto 0 auto', padding:'0 0 60px 0', background:'var(--theme-ui-colors-background)', color:'var(--theme-ui-colors-text)', width:'100vw', borderRadius:'var(--theme-ui-colors-borderRadius)', }}>
   <article style={{ margin:'0 0 0 0'}}>
 
 
@@ -266,12 +211,7 @@ Click:
       <div className="flexcheek mob2 print" style={{position:'', top:'0', minWidth:'', overflow:'', marginBottom:'8vh', paddingTop:'2vh', borderRadius:'var(--theme-ui-colors-borderRadius)', display:'flex', flexDirection:'column', justifyContent:'center'
       }}>
 
-            {/* <GatsbyImage
-              image={SecondaryImage}
-              alt={frontmatter.title + " - Profile Image"}
-              className="avatar-frame"
-              style={{ maxWidth:'280px', margin:'0 auto', height:'', maxHeight:'280px', position:'relative', top:'', objectFit:'contain', backgroundSize:'contain', marginBottom:'0', border:'0'}}
-            /> */}
+
             <StaticImage className="avatar-frame" src="../../static/assets/default-user.webp" alt="Works With Apple AirPlay" style={{ maxWidth:'280px', margin:'0 auto', height:'', maxHeight:'280px', position:'relative', top:'', objectFit:'contain', backgroundSize:'contain', marginBottom:'0', border:'0'}} />
         
 <div className="nameblock font" style={{margin:'0 auto 0 auto', padding:'0 0 0 0',alignContent:'center', display:'grid', textAlign:'center', justifyContent:'center', verticalAlign:'center',
